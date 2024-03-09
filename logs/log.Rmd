@@ -25,6 +25,7 @@ full_cntry_list <-
 
 dir.create("data")
 
+source("../utils.R")
 ```
 
 

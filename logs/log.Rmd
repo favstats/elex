@@ -1,0 +1,212 @@
+---
+title: "Your Document Title"
+author: "Document Author"
+date: "`r Sys.Date()`"
+output:
+  prettydoc::html_pretty:
+    theme: architect
+    highlight: github
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F)
+library(tidyverse)
+library(arrow)
+library(rvest)
+
+library(highcharter)
+
+full_cntry_list <-
+  read_rds("https://github.com/favstats/meta_ad_reports/raw/main/cntry_list.rds") %>%
+  rename(iso2c = iso2,
+         country = cntry) %>%
+  sample_n(n()) 
+
+
+dir.create("data")
+
+```
+
+
+## Target Audiences
+
+```{r}
+
+
+out <- full_cntry_list$iso2c %>%
+  map( ~ {
+    .x %>%
+      paste0(c("-last_7_days", "-last_30_days",
+               "-last_90_days"))
+  }) %>%
+  unlist() %>%
+  # keep( ~ str_detect(.x, tf)) %>%
+  # .[100:120] %>%
+  map_dfr( ~ {
+    the_assets <-
+      httr::GET(
+        paste0(
+          "https://github.com/favstats/meta_ad_targeting/releases/expanded_assets/",
+          .x
+        )
+      )
+    
+    the_assets %>% httr::content() %>%
+      html_elements(".Box-row") %>%
+      html_text()  %>%
+      tibble(raw = .)   %>%
+      # Split the raw column into separate lines
+      mutate(raw = strsplit(as.character(raw), "\n")) %>%
+      # Extract the relevant lines for filename, file size, and timestamp
+      transmute(
+        filename = sapply(raw, function(x)
+          trimws(x[3])),
+        file_size = sapply(raw, function(x)
+          trimws(x[6])),
+        timestamp = sapply(raw, function(x)
+          trimws(x[7]))
+      ) %>%
+      filter(filename != "Source code") %>%
+      mutate(release = .x) %>%
+      mutate_all(as.character)
+  })
+
+
+# out
+fin <- out %>%
+  rename(tag = release,
+         file_name = filename) %>%
+  arrange(desc(tag)) %>%
+  separate(
+    tag,
+    into = c("cntry", "tframe"),
+    remove = F,
+    sep = "-"
+  ) %>%
+  mutate(ds  = str_remove(file_name, "\\.rds|\\.zip|\\.parquet")) %>%
+  distinct(cntry, ds, tframe) %>%
+  drop_na(ds) %>%
+  arrange(desc(ds))  %>% 
+  left_join(full_cntry_list %>% select(country, cntry = iso2c)) %>%  
+  count(country, ds) %>% 
+  mutate(country = fct_reorder(country, n))   %>% 
+  complete(country, ds, fill = list(n = 0))
+
+# %>% arrow::read_parquet("https://github.com/favstats/meta_ad_targeting/releases/download/ZM-last_90_days/2024-03-06.parquet")
+
+
+saveRDS(fin, file = "log_audiences.rds")
+
+
+
+fntltp <- JS("function(){
+  return this.series.xAxis.categories[this.point.x] + ': ' +  this.series.yAxis.categories[this.point.y] + ': ' +
+  Highcharts.numberFormat(this.point.value, 0);
+}")
+
+
+
+
+fin$color <- highcharter::colorize(log(fin$n), c("lightgrey", "orange", "blue", "#7AD151"))
+
+fin %>% 
+hchart(
+  "heatmap", 
+  hcaes(
+    x = ds,
+    y = country, 
+    value = n, 
+    color = color
+  )
+) |>
+  hc_tooltip(
+    formatter = fntltp
+  ) |>
+  hc_legend(enabled = F) %>% 
+  hc_size(height = 900)
+
+```
+
+
+## Reports
+
+
+```{r}
+  reports <- full_cntry_list$iso2c  %>% 
+    map(~{
+      .x %>% 
+        paste0(c("-last_7_days", "-last_30_days", 
+                 "-last_90_days", "-lifelong"))
+    }) %>% 
+    unlist() %>% 
+    # .[str_detect(., "last_90_days")] %>% 
+    # .[100:120] %>% 
+    map_dfr_progress(~{
+      the_assets <- httr::GET(paste0("https://github.com/favstats/meta_ad_reports/releases/expanded_assets/", .x))
+      
+      the_assets %>% httr::content() %>% 
+        html_elements(".Box-row") %>% 
+        html_text()  %>%
+        tibble(raw = .)   %>%
+        # Split the raw column into separate lines
+        mutate(raw = strsplit(as.character(raw), "\n")) %>%
+        # Extract the relevant lines for filename, file size, and timestamp
+        transmute(
+          filename = sapply(raw, function(x) trimws(x[3])),
+          file_size = sapply(raw, function(x) trimws(x[6])),
+          timestamp = sapply(raw, function(x) trimws(x[7]))
+        ) %>% 
+        filter(filename != "Source code") %>% 
+        mutate(release = .x) %>% 
+        mutate_all(as.character)
+    }) %>% 
+    rename(tag = release,
+           file_name = filename) %>% 
+    arrange(desc(tag)) %>% 
+    separate(tag, into = c("country", "timeframe"), remove = F, sep = "-") %>% 
+    filter(str_detect(file_name, "rds")) 
+
+
+
+
+
+# out
+reportsfin <- reports %>% 
+    mutate(ds  = str_remove(file_name, "\\.rds|\\.zip")) %>% 
+  rename(cntry = country) %>% 
+  left_join(full_cntry_list %>% select(country, cntry = iso2c)) %>%  
+  count(country, ds) %>% 
+  mutate(country = fct_reorder(country, n))   %>% 
+  complete(country, ds, fill = list(n = 0))
+
+# %>% arrow::read_parquet("https://github.com/favstats/meta_ad_targeting/releases/download/ZM-last_90_days/2024-03-06.parquet")
+saveRDS(reportsfin, file = "log_reports.rds")
+
+
+
+
+
+
+
+reportsfin$color <- highcharter::colorize(log(reportsfin$n),
+                                       c("lightgrey", "yellow",
+                                         "orange", "blue", "#7AD151"))
+
+reportsfin %>% 
+hchart(
+  "heatmap", 
+  hcaes(
+    x = ds,
+    y = country, 
+    value = n, 
+    color = color
+  )
+) |>
+  hc_tooltip(
+    formatter = fntltp
+  ) |>
+  hc_legend(enabled = F) %>% 
+  hc_size(height = 900)
+
+```
+

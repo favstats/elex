@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="How do political parties chase your vote, what do they want to keep hidden, and how much money do they spend on it? In the lead-up to the elections, we monitor political microtargeting.">
+
+<title>Targeting Dashboard - Canada - Spending</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/iconify-1.0.8/iconify-icon.min.js"></script>
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="site_libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<script src="site_libs/jquery-3.5.1/jquery.min.js"></script>
+<script src="site_libs/proj4js-2.3.15/proj4.js"></script>
+<link href="site_libs/highcharts-9.3.1/css/motion.css" rel="stylesheet">
+<script src="site_libs/highcharts-9.3.1/highcharts.js"></script>
+<script src="site_libs/highcharts-9.3.1/highcharts-3d.js"></script>
+<script src="site_libs/highcharts-9.3.1/highcharts-more.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/stock.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/map.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/data.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/exporting.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/offline-exporting.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/drilldown.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/item-series.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/overlapping-datalabels.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/annotations.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/export-data.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/funnel.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/heatmap.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/treemap.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/sankey.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/dependency-wheel.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/organization.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/solid-gauge.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/streamgraph.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/sunburst.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/vector.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/wordcloud.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/xrange.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/tilemap.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/venn.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/gantt.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/timeline.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/parallel-coordinates.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/bullet.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/coloraxis.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/dumbbell.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/lollipop.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/series-label.js"></script>
+<script src="site_libs/highcharts-9.3.1/plugins/motion.js"></script>
+<script src="site_libs/highcharts-9.3.1/custom/reset.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/boost.js"></script>
+<script src="site_libs/highchart-binding-0.9.4/highchart.js"></script>
+
+
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Targeting Dashboard - Canada</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
+ <span class="menu-text"><iconify-icon inline="" icon="ph:coins"></iconify-icon> Spending</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-iconify-ph-users-three-thin--targeting" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><iconify-icon inline="" icon="ph:users-three-thin"></iconify-icon> Targeting</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-iconify-ph-users-three-thin--targeting">    
+        <li>
+    <a class="dropdown-item" href="./targeting.html" rel="" target="">
+ <span class="dropdown-text">Spending per Targeting</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./detailed.html" rel="" target="">
+ <span class="dropdown-text">Detailed Targeting</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./location.html" rel="" target="">
+ <span class="dropdown-text">Location</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./demographics.html" rel="" target="">
+ <span class="dropdown-text">Demographics</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html" rel="" target="">
+ <span class="menu-text"><iconify-icon inline="" icon="ph:info-thin"></iconify-icon> About</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/favstats/betargex" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Spending</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>Here you can see the expenditures of political parties in the lead-up to the elections according to the latest data.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">6 Feb - 6 Mar 2024</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">29 Feb - 6 Mar 2024</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>During this period, political parties spent a total of $582,323 and displayed 2491 advertisements on Meta.</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<div id="cmujtbvpzm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+#cmujtbvpzm table {
+  font-family: Chivo, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#cmujtbvpzm thead, #cmujtbvpzm tbody, #cmujtbvpzm tfoot, #cmujtbvpzm tr, #cmujtbvpzm td, #cmujtbvpzm th {
+  border-style: none;
+}
+
+#cmujtbvpzm p {
+  margin: 0;
+  padding: 0;
+}
+
+#cmujtbvpzm .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: 300;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: none;
+  border-top-width: 3px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#cmujtbvpzm .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#cmujtbvpzm .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#cmujtbvpzm .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#cmujtbvpzm .gt_heading {
+  background-color: #FFFFFF;
+  text-align: left;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#cmujtbvpzm .gt_bottom_border {
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#cmujtbvpzm .gt_col_headings {
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #000000;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#cmujtbvpzm .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: normal;
+  text-transform: uppercase;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#cmujtbvpzm .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: normal;
+  text-transform: uppercase;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#cmujtbvpzm .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#cmujtbvpzm .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#cmujtbvpzm .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #000000;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#cmujtbvpzm .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#cmujtbvpzm .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #000000;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#cmujtbvpzm .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #000000;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #FFFFFF;
+  vertical-align: middle;
+}
+
+#cmujtbvpzm .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#cmujtbvpzm .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#cmujtbvpzm .gt_row {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#cmujtbvpzm .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-right-style: solid;
+  border-right-width: 0px;
+  border-right-color: #FFFFFF;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#cmujtbvpzm .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#cmujtbvpzm .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#cmujtbvpzm .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#cmujtbvpzm .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#cmujtbvpzm .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#cmujtbvpzm .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#cmujtbvpzm .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#cmujtbvpzm .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#cmujtbvpzm .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#cmujtbvpzm .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#cmujtbvpzm .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#cmujtbvpzm .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#cmujtbvpzm .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#cmujtbvpzm .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#cmujtbvpzm .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#cmujtbvpzm .gt_sourcenote {
+  font-size: 12px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#cmujtbvpzm .gt_left {
+  text-align: left;
+}
+
+#cmujtbvpzm .gt_center {
+  text-align: center;
+}
+
+#cmujtbvpzm .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#cmujtbvpzm .gt_font_normal {
+  font-weight: normal;
+}
+
+#cmujtbvpzm .gt_font_bold {
+  font-weight: bold;
+}
+
+#cmujtbvpzm .gt_font_italic {
+  font-style: italic;
+}
+
+#cmujtbvpzm .gt_super {
+  font-size: 65%;
+}
+
+#cmujtbvpzm .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#cmujtbvpzm .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#cmujtbvpzm .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#cmujtbvpzm .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#cmujtbvpzm .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#cmujtbvpzm .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#cmujtbvpzm .gt_indent_5 {
+  text-indent: 25px;
+}
+
+tbody tr:last-child {
+  border-bottom: 2px solid #ffffff00;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=""></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Number of Advertisers">Number of Advertisers</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Top Spenders">Top Spenders</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Number of Ads">Number of Ads</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Total Spend">Total Spend</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><th id="stub_1_1" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Others</p>
+</div></th>
+<td headers="stub_1_1 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #cccccc;"><div class="gt_from_md"><p>35</p>
+</div></td>
+<td headers="stub_1_1 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=167800183238142">YourAlberta (Government of Alberta)</a> ($102,272)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=633812813408377">Elections Canada</a> ($15,089)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=203652059653094">Government of British Columbia</a> ($14,199)<br><br></p>
+</div></td>
+<td headers="stub_1_1 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>307</p>
+</div></td>
+<td headers="stub_1_1 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>$189,374</p>
+</div></td></tr>
+    <tr><th id="stub_1_2" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Conservative Party of Canada</p>
+</div></th>
+<td headers="stub_1_2 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #0d2f6e;"><div class="gt_from_md"><p>46</p>
+</div></td>
+<td headers="stub_1_2 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=5661704203">Conservative Party of Canada - Parti conservateur du Canada</a> ($114,719)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=47882954106">Progressive Conservative Party of Ontario</a> ($22,581)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=27321532378">Pierre Poilievre</a> ($9,212)<br><br></p>
+</div></td>
+<td headers="stub_1_2 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>653</p>
+</div></td>
+<td headers="stub_1_2 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>$165,808</p>
+</div></td></tr>
+    <tr><th id="stub_1_3" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Liberal Party of Canada</p>
+</div></th>
+<td headers="stub_1_3 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #EA6D6A;"><div class="gt_from_md"><p>31</p>
+</div></td>
+<td headers="stub_1_3 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=25553935482">British Columbia Liberal Party</a> ($117,015)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=21751825648">Justin Trudeau</a> ($11,621)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=130216460347628">Zach Churchill</a> ($11,200)<br><br></p>
+</div></td>
+<td headers="stub_1_3 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>1,102</p>
+</div></td>
+<td headers="stub_1_3 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>$164,886</p>
+</div></td></tr>
+    <tr><th id="stub_1_4" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>New Democratic Party</p>
+</div></th>
+<td headers="stub_1_4 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #F4A460;"><div class="gt_from_md"><p>15</p>
+</div></td>
+<td headers="stub_1_4 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=949448448399813">Carla Beck</a> ($32,071)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=195608229977">British Columbia New Democratic Party</a> ($9,748)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=190502667652613">Canada`s NDP / Le NPD du Canada</a> ($5,762)<br><br></p>
+</div></td>
+<td headers="stub_1_4 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>361</p>
+</div></td>
+<td headers="stub_1_4 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>$49,599</p>
+</div></td></tr>
+    <tr><th id="stub_1_5" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Green Party of Canada</p>
+</div></th>
+<td headers="stub_1_5 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #99C955;"><div class="gt_from_md"><p>6</p>
+</div></td>
+<td headers="stub_1_5 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=14742445214">British Columbia Green Party</a> ($4,647)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=7522587804">Green Party of Ontario</a> ($2,786)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=109519535816769">Green Party of Prince Edward Island</a> ($100)<br><br></p>
+</div></td>
+<td headers="stub_1_5 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>52</p>
+</div></td>
+<td headers="stub_1_5 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>$7,833</p>
+</div></td></tr>
+    <tr><th id="stub_1_6" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>People’s Party of Canada</p>
+</div></th>
+<td headers="stub_1_6 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #6f5d9a;"><div class="gt_from_md"><p>3</p>
+</div></td>
+<td headers="stub_1_6 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=1762289390536601">People`s Party of Canada</a> ($4,489)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=100728795664836">Darrell Shelley</a> ($234)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=518574831553012">People’s Alliance Party of NB - L’Alliance des Gens du NB</a> ($100)<br><br></p>
+</div></td>
+<td headers="stub_1_6 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>16</p>
+</div></td>
+<td headers="stub_1_6 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>$4,823</p>
+</div></td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>During this period, political parties spent a total of $141,202 and displayed 1492 advertisements on Meta.</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<div id="fltbmvkjax" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+#fltbmvkjax table {
+  font-family: Chivo, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#fltbmvkjax thead, #fltbmvkjax tbody, #fltbmvkjax tfoot, #fltbmvkjax tr, #fltbmvkjax td, #fltbmvkjax th {
+  border-style: none;
+}
+
+#fltbmvkjax p {
+  margin: 0;
+  padding: 0;
+}
+
+#fltbmvkjax .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: 300;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: none;
+  border-top-width: 3px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#fltbmvkjax .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#fltbmvkjax .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#fltbmvkjax .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#fltbmvkjax .gt_heading {
+  background-color: #FFFFFF;
+  text-align: left;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#fltbmvkjax .gt_bottom_border {
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#fltbmvkjax .gt_col_headings {
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #000000;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#fltbmvkjax .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: normal;
+  text-transform: uppercase;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#fltbmvkjax .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: normal;
+  text-transform: uppercase;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#fltbmvkjax .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#fltbmvkjax .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#fltbmvkjax .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #000000;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#fltbmvkjax .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#fltbmvkjax .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #000000;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#fltbmvkjax .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #000000;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #FFFFFF;
+  vertical-align: middle;
+}
+
+#fltbmvkjax .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#fltbmvkjax .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#fltbmvkjax .gt_row {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#fltbmvkjax .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-right-style: solid;
+  border-right-width: 0px;
+  border-right-color: #FFFFFF;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#fltbmvkjax .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#fltbmvkjax .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#fltbmvkjax .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#fltbmvkjax .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#fltbmvkjax .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#fltbmvkjax .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#fltbmvkjax .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#fltbmvkjax .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#fltbmvkjax .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#fltbmvkjax .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#fltbmvkjax .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#fltbmvkjax .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#fltbmvkjax .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#fltbmvkjax .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#fltbmvkjax .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#fltbmvkjax .gt_sourcenote {
+  font-size: 12px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#fltbmvkjax .gt_left {
+  text-align: left;
+}
+
+#fltbmvkjax .gt_center {
+  text-align: center;
+}
+
+#fltbmvkjax .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#fltbmvkjax .gt_font_normal {
+  font-weight: normal;
+}
+
+#fltbmvkjax .gt_font_bold {
+  font-weight: bold;
+}
+
+#fltbmvkjax .gt_font_italic {
+  font-style: italic;
+}
+
+#fltbmvkjax .gt_super {
+  font-size: 65%;
+}
+
+#fltbmvkjax .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#fltbmvkjax .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#fltbmvkjax .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#fltbmvkjax .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#fltbmvkjax .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#fltbmvkjax .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#fltbmvkjax .gt_indent_5 {
+  text-indent: 25px;
+}
+
+tbody tr:last-child {
+  border-bottom: 2px solid #ffffff00;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=""></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Number of Advertisers">Number of Advertisers</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Top Spenders">Top Spenders</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Number of Ads">Number of Ads</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Total Spend">Total Spend</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><th id="stub_1_1" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Others</p>
+</div></th>
+<td headers="stub_1_1 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #cccccc;"><div class="gt_from_md"><p>22</p>
+</div></td>
+<td headers="stub_1_1 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=167800183238142">YourAlberta (Government of Alberta)</a> ($29,745)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=633812813408377">Elections Canada</a> ($6,094)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=67197771286">Elections BC</a> ($3,951)<br><br></p>
+</div></td>
+<td headers="stub_1_1 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>133</p>
+</div></td>
+<td headers="stub_1_1 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>$49,472</p>
+</div></td></tr>
+    <tr><th id="stub_1_2" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Conservative Party of Canada</p>
+</div></th>
+<td headers="stub_1_2 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #0d2f6e;"><div class="gt_from_md"><p>30</p>
+</div></td>
+<td headers="stub_1_2 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=5661704203">Conservative Party of Canada - Parti conservateur du Canada</a> ($26,265)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=47882954106">Progressive Conservative Party of Ontario</a> ($10,879)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=27321532378">Pierre Poilievre</a> ($1,884)<br><br></p>
+</div></td>
+<td headers="stub_1_2 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>408</p>
+</div></td>
+<td headers="stub_1_2 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>$43,777</p>
+</div></td></tr>
+    <tr><th id="stub_1_3" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Liberal Party of Canada</p>
+</div></th>
+<td headers="stub_1_3 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #EA6D6A;"><div class="gt_from_md"><p>18</p>
+</div></td>
+<td headers="stub_1_3 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=25553935482">British Columbia Liberal Party</a> ($26,376)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=21751825648">Justin Trudeau</a> ($2,632)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=60266912006">Liberal Party of Canada | Parti libéral du Canada</a> ($2,327)<br><br></p>
+</div></td>
+<td headers="stub_1_3 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>721</p>
+</div></td>
+<td headers="stub_1_3 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>$36,764</p>
+</div></td></tr>
+    <tr><th id="stub_1_4" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>New Democratic Party</p>
+</div></th>
+<td headers="stub_1_4 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #F4A460;"><div class="gt_from_md"><p>9</p>
+</div></td>
+<td headers="stub_1_4 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=949448448399813">Carla Beck</a> ($2,868)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=195608229977">British Columbia New Democratic Party</a> ($2,227)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=190502667652613">Canada`s NDP / Le NPD du Canada</a> ($1,408)<br><br></p>
+</div></td>
+<td headers="stub_1_4 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>185</p>
+</div></td>
+<td headers="stub_1_4 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>$7,118</p>
+</div></td></tr>
+    <tr><th id="stub_1_5" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>People’s Party of Canada</p>
+</div></th>
+<td headers="stub_1_5 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #6f5d9a;"><div class="gt_from_md"><p>3</p>
+</div></td>
+<td headers="stub_1_5 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=1762289390536601">People`s Party of Canada</a> ($2,159)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=100728795664836">Darrell Shelley</a> ($100)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=518574831553012">People’s Alliance Party of NB - L’Alliance des Gens du NB</a> ($100)<br><br></p>
+</div></td>
+<td headers="stub_1_5 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>6</p>
+</div></td>
+<td headers="stub_1_5 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>$2,359</p>
+</div></td></tr>
+    <tr><th id="stub_1_6" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Green Party of Canada</p>
+</div></th>
+<td headers="stub_1_6 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #99C955;"><div class="gt_from_md"><p>2</p>
+</div></td>
+<td headers="stub_1_6 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=14742445214">British Columbia Green Party</a> ($1,084)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=7522587804">Green Party of Ontario</a> ($628)<br><br></p>
+</div></td>
+<td headers="stub_1_6 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>39</p>
+</div></td>
+<td headers="stub_1_6 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>$1,712</p>
+</div></td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section id="over-time" class="level3">
+<h3 class="anchored" data-anchor-id="over-time">Over Time</h3>
+<div class="cell">
+<div class="cell-output-display">
+
+<div class="highchart html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-3c8f3c1cb36b4765f5b4" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-3c8f3c1cb36b4765f5b4">{"x":{"hc_opts":{"chart":{"reflow":true},"title":{"text":null},"yAxis":{"title":{"text":"Daily Spend"},"type":"linear"},"credits":{"enabled":false},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":true},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"area":{"stacking":"normal","lineWidth":1,"marker":{"enabled":false}}},"series":[{"name":"Conservative Party of Canada","data":[{"date":"2023-12-31","party":"Conservative Party of Canada","amount_spent":6616776,"Daily Spend":null,"short_name":"Con","colors":"#0d2f6e","x":1703980800000,"y":null,"fill":"#0d2f6e"},{"date":"2024-01-01","party":"Conservative Party of Canada","amount_spent":6617874,"Daily Spend":1098,"short_name":"Con","colors":"#0d2f6e","x":1704067200000,"y":1098,"fill":"#0d2f6e"},{"date":"2024-01-02","party":"Conservative Party of Canada","amount_spent":6618883,"Daily Spend":1009,"short_name":"Con","colors":"#0d2f6e","x":1704153600000,"y":1009,"fill":"#0d2f6e"},{"date":"2024-01-03","party":"Conservative Party of Canada","amount_spent":6620502,"Daily Spend":1619,"short_name":"Con","colors":"#0d2f6e","x":1704240000000,"y":1619,"fill":"#0d2f6e"},{"date":"2024-01-04","party":"Conservative Party of Canada","amount_spent":6622712,"Daily Spend":2210,"short_name":"Con","colors":"#0d2f6e","x":1704326400000,"y":2210,"fill":"#0d2f6e"},{"date":"2024-01-05","party":"Conservative Party of Canada","amount_spent":6624916,"Daily Spend":2204,"short_name":"Con","colors":"#0d2f6e","x":1704412800000,"y":2204,"fill":"#0d2f6e"},{"date":"2024-01-06","party":"Conservative Party of Canada","amount_spent":6627215,"Daily Spend":2299,"short_name":"Con","colors":"#0d2f6e","x":1704499200000,"y":2299,"fill":"#0d2f6e"},{"date":"2024-01-07","party":"Conservative Party of Canada","amount_spent":6629667,"Daily Spend":2452,"short_name":"Con","colors":"#0d2f6e","x":1704585600000,"y":2452,"fill":"#0d2f6e"},{"date":"2024-01-08","party":"Conservative Party of Canada","amount_spent":6632090,"Daily Spend":2423,"short_name":"Con","colors":"#0d2f6e","x":1704672000000,"y":2423,"fill":"#0d2f6e"},{"date":"2024-01-09","party":"Conservative Party of Canada","amount_spent":6634461,"Daily Spend":2371,"short_name":"Con","colors":"#0d2f6e","x":1704758400000,"y":2371,"fill":"#0d2f6e"},{"date":"2024-01-10","party":"Conservative Party of Canada","amount_spent":6636754,"Daily Spend":2293,"short_name":"Con","colors":"#0d2f6e","x":1704844800000,"y":2293,"fill":"#0d2f6e"},{"date":"2024-01-11","party":"Conservative Party of Canada","amount_spent":6639099,"Daily Spend":2345,"short_name":"Con","colors":"#0d2f6e","x":1704931200000,"y":2345,"fill":"#0d2f6e"},{"date":"2024-01-12","party":"Conservative Party of Canada","amount_spent":6641455,"Daily Spend":2356,"short_name":"Con","colors":"#0d2f6e","x":1705017600000,"y":2356,"fill":"#0d2f6e"},{"date":"2024-01-13","party":"Conservative Party of Canada","amount_spent":6643802,"Daily Spend":2347,"short_name":"Con","colors":"#0d2f6e","x":1705104000000,"y":2347,"fill":"#0d2f6e"},{"date":"2024-01-14","party":"Conservative Party of Canada","amount_spent":6646430,"Daily Spend":2628,"short_name":"Con","colors":"#0d2f6e","x":1705190400000,"y":2628,"fill":"#0d2f6e"},{"date":"2024-01-15","party":"Conservative Party of Canada","amount_spent":6648791,"Daily Spend":2361,"short_name":"Con","colors":"#0d2f6e","x":1705276800000,"y":2361,"fill":"#0d2f6e"},{"date":"2024-01-16","party":"Conservative Party of Canada","amount_spent":6650941,"Daily Spend":2150,"short_name":"Con","colors":"#0d2f6e","x":1705363200000,"y":2150,"fill":"#0d2f6e"},{"date":"2024-01-17","party":"Conservative Party of Canada","amount_spent":6653028,"Daily Spend":2087,"short_name":"Con","colors":"#0d2f6e","x":1705449600000,"y":2087,"fill":"#0d2f6e"},{"date":"2024-01-18","party":"Conservative Party of Canada","amount_spent":6655148,"Daily Spend":2120,"short_name":"Con","colors":"#0d2f6e","x":1705536000000,"y":2120,"fill":"#0d2f6e"},{"date":"2024-01-19","party":"Conservative Party of Canada","amount_spent":6657259,"Daily Spend":2111,"short_name":"Con","colors":"#0d2f6e","x":1705622400000,"y":2111,"fill":"#0d2f6e"},{"date":"2024-01-20","party":"Conservative Party of Canada","amount_spent":6659395,"Daily Spend":2136,"short_name":"Con","colors":"#0d2f6e","x":1705708800000,"y":2136,"fill":"#0d2f6e"},{"date":"2024-01-21","party":"Conservative Party of Canada","amount_spent":6661623,"Daily Spend":2228,"short_name":"Con","colors":"#0d2f6e","x":1705795200000,"y":2228,"fill":"#0d2f6e"},{"date":"2024-01-22","party":"Conservative Party of Canada","amount_spent":6663764,"Daily Spend":2141,"short_name":"Con","colors":"#0d2f6e","x":1705881600000,"y":2141,"fill":"#0d2f6e"},{"date":"2024-01-23","party":"Conservative Party of Canada","amount_spent":6665796,"Daily Spend":2032,"short_name":"Con","colors":"#0d2f6e","x":1705968000000,"y":2032,"fill":"#0d2f6e"},{"date":"2024-01-24","party":"Conservative Party of Canada","amount_spent":6669024,"Daily Spend":3228,"short_name":"Con","colors":"#0d2f6e","x":1706054400000,"y":3228,"fill":"#0d2f6e"},{"date":"2024-01-25","party":"Conservative Party of Canada","amount_spent":6672307,"Daily Spend":3283,"short_name":"Con","colors":"#0d2f6e","x":1706140800000,"y":3283,"fill":"#0d2f6e"},{"date":"2024-01-26","party":"Conservative Party of Canada","amount_spent":6675649,"Daily Spend":3342,"short_name":"Con","colors":"#0d2f6e","x":1706227200000,"y":3342,"fill":"#0d2f6e"},{"date":"2024-01-27","party":"Conservative Party of Canada","amount_spent":6679176,"Daily Spend":3527,"short_name":"Con","colors":"#0d2f6e","x":1706313600000,"y":3527,"fill":"#0d2f6e"},{"date":"2024-01-28","party":"Conservative Party of Canada","amount_spent":6682799,"Daily Spend":3623,"short_name":"Con","colors":"#0d2f6e","x":1706400000000,"y":3623,"fill":"#0d2f6e"},{"date":"2024-01-29","party":"Conservative Party of Canada","amount_spent":6686166,"Daily Spend":3367,"short_name":"Con","colors":"#0d2f6e","x":1706486400000,"y":3367,"fill":"#0d2f6e"},{"date":"2024-01-30","party":"Conservative Party of Canada","amount_spent":6693040,"Daily Spend":6874,"short_name":"Con","colors":"#0d2f6e","x":1706572800000,"y":6874,"fill":"#0d2f6e"},{"date":"2024-01-31","party":"Conservative Party of Canada","amount_spent":6703805,"Daily Spend":10765,"short_name":"Con","colors":"#0d2f6e","x":1706659200000,"y":10765,"fill":"#0d2f6e"},{"date":"2024-02-01","party":"Conservative Party of Canada","amount_spent":6707964,"Daily Spend":4159,"short_name":"Con","colors":"#0d2f6e","x":1706745600000,"y":4159,"fill":"#0d2f6e"},{"date":"2024-02-02","party":"Conservative Party of Canada","amount_spent":6712086,"Daily Spend":4122,"short_name":"Con","colors":"#0d2f6e","x":1706832000000,"y":4122,"fill":"#0d2f6e"},{"date":"2024-02-03","party":"Conservative Party of Canada","amount_spent":6716744,"Daily Spend":4658,"short_name":"Con","colors":"#0d2f6e","x":1706918400000,"y":4658,"fill":"#0d2f6e"},{"date":"2024-02-04","party":"Conservative Party of Canada","amount_spent":6721596,"Daily Spend":4852,"short_name":"Con","colors":"#0d2f6e","x":1707004800000,"y":4852,"fill":"#0d2f6e"},{"date":"2024-02-05","party":"Conservative Party of Canada","amount_spent":6726018,"Daily Spend":4422,"short_name":"Con","colors":"#0d2f6e","x":1707091200000,"y":4422,"fill":"#0d2f6e"},{"date":"2024-02-06","party":"Conservative Party of Canada","amount_spent":6730085,"Daily Spend":4067,"short_name":"Con","colors":"#0d2f6e","x":1707177600000,"y":4067,"fill":"#0d2f6e"},{"date":"2024-02-07","party":"Conservative Party of Canada","amount_spent":6734100,"Daily Spend":4015,"short_name":"Con","colors":"#0d2f6e","x":1707264000000,"y":4015,"fill":"#0d2f6e"},{"date":"2024-02-08","party":"Conservative Party of Canada","amount_spent":6738336,"Daily Spend":4236,"short_name":"Con","colors":"#0d2f6e","x":1707350400000,"y":4236,"fill":"#0d2f6e"},{"date":"2024-02-09","party":"Conservative Party of Canada","amount_spent":6742817,"Daily Spend":4481,"short_name":"Con","colors":"#0d2f6e","x":1707436800000,"y":4481,"fill":"#0d2f6e"},{"date":"2024-02-10","party":"Conservative Party of Canada","amount_spent":6747780,"Daily Spend":4963,"short_name":"Con","colors":"#0d2f6e","x":1707523200000,"y":4963,"fill":"#0d2f6e"},{"date":"2024-02-11","party":"Conservative Party of Canada","amount_spent":6752934,"Daily Spend":5154,"short_name":"Con","colors":"#0d2f6e","x":1707609600000,"y":5154,"fill":"#0d2f6e"},{"date":"2024-02-12","party":"Conservative Party of Canada","amount_spent":6757832,"Daily Spend":4898,"short_name":"Con","colors":"#0d2f6e","x":1707696000000,"y":4898,"fill":"#0d2f6e"},{"date":"2024-02-13","party":"Conservative Party of Canada","amount_spent":6763003,"Daily Spend":5171,"short_name":"Con","colors":"#0d2f6e","x":1707782400000,"y":5171,"fill":"#0d2f6e"},{"date":"2024-02-14","party":"Conservative Party of Canada","amount_spent":6768750,"Daily Spend":5747,"short_name":"Con","colors":"#0d2f6e","x":1707868800000,"y":5747,"fill":"#0d2f6e"},{"date":"2024-02-15","party":"Conservative Party of Canada","amount_spent":6774329,"Daily Spend":5579,"short_name":"Con","colors":"#0d2f6e","x":1707955200000,"y":5579,"fill":"#0d2f6e"},{"date":"2024-02-16","party":"Conservative Party of Canada","amount_spent":6779846,"Daily Spend":5517,"short_name":"Con","colors":"#0d2f6e","x":1708041600000,"y":5517,"fill":"#0d2f6e"},{"date":"2024-02-17","party":"Conservative Party of Canada","amount_spent":6785533,"Daily Spend":5687,"short_name":"Con","colors":"#0d2f6e","x":1708128000000,"y":5687,"fill":"#0d2f6e"},{"date":"2024-02-18","party":"Conservative Party of Canada","amount_spent":6791482,"Daily Spend":5949,"short_name":"Con","colors":"#0d2f6e","x":1708214400000,"y":5949,"fill":"#0d2f6e"},{"date":"2024-02-19","party":"Conservative Party of Canada","amount_spent":6796974,"Daily Spend":5492,"short_name":"Con","colors":"#0d2f6e","x":1708300800000,"y":5492,"fill":"#0d2f6e"},{"date":"2024-02-20","party":"Conservative Party of Canada","amount_spent":6802236,"Daily Spend":5262,"short_name":"Con","colors":"#0d2f6e","x":1708387200000,"y":5262,"fill":"#0d2f6e"},{"date":"2024-02-21","party":"Conservative Party of Canada","amount_spent":6807454,"Daily Spend":5218,"short_name":"Con","colors":"#0d2f6e","x":1708473600000,"y":5218,"fill":"#0d2f6e"},{"date":"2024-02-22","party":"Conservative Party of Canada","amount_spent":6812873,"Daily Spend":5419,"short_name":"Con","colors":"#0d2f6e","x":1708560000000,"y":5419,"fill":"#0d2f6e"},{"date":"2024-02-23","party":"Conservative Party of Canada","amount_spent":6818560,"Daily Spend":5687,"short_name":"Con","colors":"#0d2f6e","x":1708646400000,"y":5687,"fill":"#0d2f6e"},{"date":"2024-02-24","party":"Conservative Party of Canada","amount_spent":6824409,"Daily Spend":5849,"short_name":"Con","colors":"#0d2f6e","x":1708732800000,"y":5849,"fill":"#0d2f6e"},{"date":"2024-02-25","party":"Conservative Party of Canada","amount_spent":6830349,"Daily Spend":5940,"short_name":"Con","colors":"#0d2f6e","x":1708819200000,"y":5940,"fill":"#0d2f6e"},{"date":"2024-02-26","party":"Conservative Party of Canada","amount_spent":6836011,"Daily Spend":5662,"short_name":"Con","colors":"#0d2f6e","x":1708905600000,"y":5662,"fill":"#0d2f6e"},{"date":"2024-02-27","party":"Conservative Party of Canada","amount_spent":6841720,"Daily Spend":5709,"short_name":"Con","colors":"#0d2f6e","x":1708992000000,"y":5709,"fill":"#0d2f6e"},{"date":"2024-02-28","party":"Conservative Party of Canada","amount_spent":6848223,"Daily Spend":6503,"short_name":"Con","colors":"#0d2f6e","x":1709078400000,"y":6503,"fill":"#0d2f6e"},{"date":"2024-02-29","party":"Conservative Party of Canada","amount_spent":6854564,"Daily Spend":6341,"short_name":"Con","colors":"#0d2f6e","x":1709164800000,"y":6341,"fill":"#0d2f6e"},{"date":"2024-03-01","party":"Conservative Party of Canada","amount_spent":6859173,"Daily Spend":4609,"short_name":"Con","colors":"#0d2f6e","x":1709251200000,"y":4609,"fill":"#0d2f6e"},{"date":"2024-03-02","party":"Conservative Party of Canada","amount_spent":6865853,"Daily Spend":6680,"short_name":"Con","colors":"#0d2f6e","x":1709337600000,"y":6680,"fill":"#0d2f6e"},{"date":"2024-03-03","party":"Conservative Party of Canada","amount_spent":6872739,"Daily Spend":6886,"short_name":"Con","colors":"#0d2f6e","x":1709424000000,"y":6886,"fill":"#0d2f6e"},{"date":"2024-03-04","party":"Conservative Party of Canada","amount_spent":6878959,"Daily Spend":6220,"short_name":"Con","colors":"#0d2f6e","x":1709510400000,"y":6220,"fill":"#0d2f6e"},{"date":"2024-03-05","party":"Conservative Party of Canada","amount_spent":6884828,"Daily Spend":5869,"short_name":"Con","colors":"#0d2f6e","x":1709596800000,"y":5869,"fill":"#0d2f6e"},{"date":"2024-03-06","party":"Conservative Party of Canada","amount_spent":6890936,"Daily Spend":6108,"short_name":"Con","colors":"#0d2f6e","x":1709683200000,"y":6108,"fill":"#0d2f6e"},{"date":"2024-03-07","party":"Conservative Party of Canada","amount_spent":6896504,"Daily Spend":5568,"short_name":"Con","colors":"#0d2f6e","x":1709769600000,"y":5568,"fill":"#0d2f6e"}],"type":"area"},{"name":"Green Party of Canada","data":[{"date":"2023-12-31","party":"Green Party of Canada","amount_spent":378862,"Daily Spend":null,"short_name":"Gre","colors":"#99C955","x":1703980800000,"y":null,"fill":"#99C955"},{"date":"2024-01-01","party":"Green Party of Canada","amount_spent":379089,"Daily Spend":227,"short_name":"Gre","colors":"#99C955","x":1704067200000,"y":227,"fill":"#99C955"},{"date":"2024-01-02","party":"Green Party of Canada","amount_spent":379311,"Daily Spend":222,"short_name":"Gre","colors":"#99C955","x":1704153600000,"y":222,"fill":"#99C955"},{"date":"2024-01-03","party":"Green Party of Canada","amount_spent":379526,"Daily Spend":215,"short_name":"Gre","colors":"#99C955","x":1704240000000,"y":215,"fill":"#99C955"},{"date":"2024-01-04","party":"Green Party of Canada","amount_spent":379742,"Daily Spend":216,"short_name":"Gre","colors":"#99C955","x":1704326400000,"y":216,"fill":"#99C955"},{"date":"2024-01-05","party":"Green Party of Canada","amount_spent":379957,"Daily Spend":215,"short_name":"Gre","colors":"#99C955","x":1704412800000,"y":215,"fill":"#99C955"},{"date":"2024-01-06","party":"Green Party of Canada","amount_spent":380170,"Daily Spend":213,"short_name":"Gre","colors":"#99C955","x":1704499200000,"y":213,"fill":"#99C955"},{"date":"2024-01-07","party":"Green Party of Canada","amount_spent":380401,"Daily Spend":231,"short_name":"Gre","colors":"#99C955","x":1704585600000,"y":231,"fill":"#99C955"},{"date":"2024-01-08","party":"Green Party of Canada","amount_spent":380627,"Daily Spend":226,"short_name":"Gre","colors":"#99C955","x":1704672000000,"y":226,"fill":"#99C955"},{"date":"2024-01-09","party":"Green Party of Canada","amount_spent":380848,"Daily Spend":221,"short_name":"Gre","colors":"#99C955","x":1704758400000,"y":221,"fill":"#99C955"},{"date":"2024-01-10","party":"Green Party of Canada","amount_spent":381065,"Daily Spend":217,"short_name":"Gre","colors":"#99C955","x":1704844800000,"y":217,"fill":"#99C955"},{"date":"2024-01-11","party":"Green Party of Canada","amount_spent":381285,"Daily Spend":220,"short_name":"Gre","colors":"#99C955","x":1704931200000,"y":220,"fill":"#99C955"},{"date":"2024-01-12","party":"Green Party of Canada","amount_spent":381508,"Daily Spend":223,"short_name":"Gre","colors":"#99C955","x":1705017600000,"y":223,"fill":"#99C955"},{"date":"2024-01-13","party":"Green Party of Canada","amount_spent":381730,"Daily Spend":222,"short_name":"Gre","colors":"#99C955","x":1705104000000,"y":222,"fill":"#99C955"},{"date":"2024-01-14","party":"Green Party of Canada","amount_spent":381971,"Daily Spend":241,"short_name":"Gre","colors":"#99C955","x":1705190400000,"y":241,"fill":"#99C955"},{"date":"2024-01-15","party":"Green Party of Canada","amount_spent":382211,"Daily Spend":240,"short_name":"Gre","colors":"#99C955","x":1705276800000,"y":240,"fill":"#99C955"},{"date":"2024-01-16","party":"Green Party of Canada","amount_spent":382447,"Daily Spend":236,"short_name":"Gre","colors":"#99C955","x":1705363200000,"y":236,"fill":"#99C955"},{"date":"2024-01-17","party":"Green Party of Canada","amount_spent":382677,"Daily Spend":230,"short_name":"Gre","colors":"#99C955","x":1705449600000,"y":230,"fill":"#99C955"},{"date":"2024-01-18","party":"Green Party of Canada","amount_spent":382909,"Daily Spend":232,"short_name":"Gre","colors":"#99C955","x":1705536000000,"y":232,"fill":"#99C955"},{"date":"2024-01-19","party":"Green Party of Canada","amount_spent":383152,"Daily Spend":243,"short_name":"Gre","colors":"#99C955","x":1705622400000,"y":243,"fill":"#99C955"},{"date":"2024-01-20","party":"Green Party of Canada","amount_spent":383395,"Daily Spend":243,"short_name":"Gre","colors":"#99C955","x":1705708800000,"y":243,"fill":"#99C955"},{"date":"2024-01-21","party":"Green Party of Canada","amount_spent":383664,"Daily Spend":269,"short_name":"Gre","colors":"#99C955","x":1705795200000,"y":269,"fill":"#99C955"},{"date":"2024-01-22","party":"Green Party of Canada","amount_spent":383932,"Daily Spend":268,"short_name":"Gre","colors":"#99C955","x":1705881600000,"y":268,"fill":"#99C955"},{"date":"2024-01-23","party":"Green Party of Canada","amount_spent":384200,"Daily Spend":268,"short_name":"Gre","colors":"#99C955","x":1705968000000,"y":268,"fill":"#99C955"},{"date":"2024-01-24","party":"Green Party of Canada","amount_spent":384483,"Daily Spend":283,"short_name":"Gre","colors":"#99C955","x":1706054400000,"y":283,"fill":"#99C955"},{"date":"2024-01-25","party":"Green Party of Canada","amount_spent":384771,"Daily Spend":288,"short_name":"Gre","colors":"#99C955","x":1706140800000,"y":288,"fill":"#99C955"},{"date":"2024-01-26","party":"Green Party of Canada","amount_spent":385054,"Daily Spend":283,"short_name":"Gre","colors":"#99C955","x":1706227200000,"y":283,"fill":"#99C955"},{"date":"2024-01-27","party":"Green Party of Canada","amount_spent":385326,"Daily Spend":272,"short_name":"Gre","colors":"#99C955","x":1706313600000,"y":272,"fill":"#99C955"},{"date":"2024-01-28","party":"Green Party of Canada","amount_spent":385616,"Daily Spend":290,"short_name":"Gre","colors":"#99C955","x":1706400000000,"y":290,"fill":"#99C955"},{"date":"2024-01-29","party":"Green Party of Canada","amount_spent":385893,"Daily Spend":277,"short_name":"Gre","colors":"#99C955","x":1706486400000,"y":277,"fill":"#99C955"},{"date":"2024-01-30","party":"Green Party of Canada","amount_spent":386164,"Daily Spend":271,"short_name":"Gre","colors":"#99C955","x":1706572800000,"y":271,"fill":"#99C955"},{"date":"2024-01-31","party":"Green Party of Canada","amount_spent":386470,"Daily Spend":306,"short_name":"Gre","colors":"#99C955","x":1706659200000,"y":306,"fill":"#99C955"},{"date":"2024-02-01","party":"Green Party of Canada","amount_spent":386755,"Daily Spend":285,"short_name":"Gre","colors":"#99C955","x":1706745600000,"y":285,"fill":"#99C955"},{"date":"2024-02-02","party":"Green Party of Canada","amount_spent":387013,"Daily Spend":258,"short_name":"Gre","colors":"#99C955","x":1706832000000,"y":258,"fill":"#99C955"},{"date":"2024-02-03","party":"Green Party of Canada","amount_spent":387272,"Daily Spend":259,"short_name":"Gre","colors":"#99C955","x":1706918400000,"y":259,"fill":"#99C955"},{"date":"2024-02-04","party":"Green Party of Canada","amount_spent":387543,"Daily Spend":271,"short_name":"Gre","colors":"#99C955","x":1707004800000,"y":271,"fill":"#99C955"},{"date":"2024-02-05","party":"Green Party of Canada","amount_spent":387797,"Daily Spend":254,"short_name":"Gre","colors":"#99C955","x":1707091200000,"y":254,"fill":"#99C955"},{"date":"2024-02-06","party":"Green Party of Canada","amount_spent":388110,"Daily Spend":313,"short_name":"Gre","colors":"#99C955","x":1707177600000,"y":313,"fill":"#99C955"},{"date":"2024-02-07","party":"Green Party of Canada","amount_spent":388385,"Daily Spend":275,"short_name":"Gre","colors":"#99C955","x":1707264000000,"y":275,"fill":"#99C955"},{"date":"2024-02-08","party":"Green Party of Canada","amount_spent":388625,"Daily Spend":240,"short_name":"Gre","colors":"#99C955","x":1707350400000,"y":240,"fill":"#99C955"},{"date":"2024-02-09","party":"Green Party of Canada","amount_spent":388865,"Daily Spend":240,"short_name":"Gre","colors":"#99C955","x":1707436800000,"y":240,"fill":"#99C955"},{"date":"2024-02-10","party":"Green Party of Canada","amount_spent":389105,"Daily Spend":240,"short_name":"Gre","colors":"#99C955","x":1707523200000,"y":240,"fill":"#99C955"},{"date":"2024-02-11","party":"Green Party of Canada","amount_spent":389363,"Daily Spend":258,"short_name":"Gre","colors":"#99C955","x":1707609600000,"y":258,"fill":"#99C955"},{"date":"2024-02-12","party":"Green Party of Canada","amount_spent":389617,"Daily Spend":254,"short_name":"Gre","colors":"#99C955","x":1707696000000,"y":254,"fill":"#99C955"},{"date":"2024-02-13","party":"Green Party of Canada","amount_spent":389864,"Daily Spend":247,"short_name":"Gre","colors":"#99C955","x":1707782400000,"y":247,"fill":"#99C955"},{"date":"2024-02-14","party":"Green Party of Canada","amount_spent":390108,"Daily Spend":244,"short_name":"Gre","colors":"#99C955","x":1707868800000,"y":244,"fill":"#99C955"},{"date":"2024-02-15","party":"Green Party of Canada","amount_spent":390366,"Daily Spend":258,"short_name":"Gre","colors":"#99C955","x":1707955200000,"y":258,"fill":"#99C955"},{"date":"2024-02-16","party":"Green Party of Canada","amount_spent":390609,"Daily Spend":243,"short_name":"Gre","colors":"#99C955","x":1708041600000,"y":243,"fill":"#99C955"},{"date":"2024-02-17","party":"Green Party of Canada","amount_spent":390851,"Daily Spend":242,"short_name":"Gre","colors":"#99C955","x":1708128000000,"y":242,"fill":"#99C955"},{"date":"2024-02-18","party":"Green Party of Canada","amount_spent":391115,"Daily Spend":264,"short_name":"Gre","colors":"#99C955","x":1708214400000,"y":264,"fill":"#99C955"},{"date":"2024-02-19","party":"Green Party of Canada","amount_spent":391372,"Daily Spend":257,"short_name":"Gre","colors":"#99C955","x":1708300800000,"y":257,"fill":"#99C955"},{"date":"2024-02-20","party":"Green Party of Canada","amount_spent":391620,"Daily Spend":248,"short_name":"Gre","colors":"#99C955","x":1708387200000,"y":248,"fill":"#99C955"},{"date":"2024-02-21","party":"Green Party of Canada","amount_spent":391874,"Daily Spend":254,"short_name":"Gre","colors":"#99C955","x":1708473600000,"y":254,"fill":"#99C955"},{"date":"2024-02-22","party":"Green Party of Canada","amount_spent":392129,"Daily Spend":255,"short_name":"Gre","colors":"#99C955","x":1708560000000,"y":255,"fill":"#99C955"},{"date":"2024-02-23","party":"Green Party of Canada","amount_spent":392390,"Daily Spend":261,"short_name":"Gre","colors":"#99C955","x":1708646400000,"y":261,"fill":"#99C955"},{"date":"2024-02-24","party":"Green Party of Canada","amount_spent":392658,"Daily Spend":268,"short_name":"Gre","colors":"#99C955","x":1708732800000,"y":268,"fill":"#99C955"},{"date":"2024-02-25","party":"Green Party of Canada","amount_spent":392940,"Daily Spend":282,"short_name":"Gre","colors":"#99C955","x":1708819200000,"y":282,"fill":"#99C955"},{"date":"2024-02-26","party":"Green Party of Canada","amount_spent":393210,"Daily Spend":270,"short_name":"Gre","colors":"#99C955","x":1708905600000,"y":270,"fill":"#99C955"},{"date":"2024-02-27","party":"Green Party of Canada","amount_spent":393463,"Daily Spend":253,"short_name":"Gre","colors":"#99C955","x":1708992000000,"y":253,"fill":"#99C955"},{"date":"2024-02-28","party":"Green Party of Canada","amount_spent":393705,"Daily Spend":242,"short_name":"Gre","colors":"#99C955","x":1709078400000,"y":242,"fill":"#99C955"},{"date":"2024-02-29","party":"Green Party of Canada","amount_spent":393944,"Daily Spend":239,"short_name":"Gre","colors":"#99C955","x":1709164800000,"y":239,"fill":"#99C955"},{"date":"2024-03-01","party":"Green Party of Canada","amount_spent":394182,"Daily Spend":238,"short_name":"Gre","colors":"#99C955","x":1709251200000,"y":238,"fill":"#99C955"},{"date":"2024-03-02","party":"Green Party of Canada","amount_spent":394423,"Daily Spend":241,"short_name":"Gre","colors":"#99C955","x":1709337600000,"y":241,"fill":"#99C955"},{"date":"2024-03-03","party":"Green Party of Canada","amount_spent":394680,"Daily Spend":257,"short_name":"Gre","colors":"#99C955","x":1709424000000,"y":257,"fill":"#99C955"},{"date":"2024-03-04","party":"Green Party of Canada","amount_spent":394932,"Daily Spend":252,"short_name":"Gre","colors":"#99C955","x":1709510400000,"y":252,"fill":"#99C955"},{"date":"2024-03-05","party":"Green Party of Canada","amount_spent":395176,"Daily Spend":244,"short_name":"Gre","colors":"#99C955","x":1709596800000,"y":244,"fill":"#99C955"},{"date":"2024-03-06","party":"Green Party of Canada","amount_spent":395417,"Daily Spend":241,"short_name":"Gre","colors":"#99C955","x":1709683200000,"y":241,"fill":"#99C955"},{"date":"2024-03-07","party":"Green Party of Canada","amount_spent":395655,"Daily Spend":238,"short_name":"Gre","colors":"#99C955","x":1709769600000,"y":238,"fill":"#99C955"}],"type":"area"},{"name":"Liberal Party of Canada","data":[{"date":"2023-12-31","party":"Liberal Party of Canada","amount_spent":10498844,"Daily Spend":null,"short_name":"Lib","colors":"#EA6D6A","x":1703980800000,"y":null,"fill":"#EA6D6A"},{"date":"2024-01-01","party":"Liberal Party of Canada","amount_spent":10499658,"Daily Spend":814,"short_name":"Lib","colors":"#EA6D6A","x":1704067200000,"y":814,"fill":"#EA6D6A"},{"date":"2024-01-02","party":"Liberal Party of Canada","amount_spent":10500466,"Daily Spend":808,"short_name":"Lib","colors":"#EA6D6A","x":1704153600000,"y":808,"fill":"#EA6D6A"},{"date":"2024-01-03","party":"Liberal Party of Canada","amount_spent":10501346,"Daily Spend":880,"short_name":"Lib","colors":"#EA6D6A","x":1704240000000,"y":880,"fill":"#EA6D6A"},{"date":"2024-01-04","party":"Liberal Party of Canada","amount_spent":10502356,"Daily Spend":1010,"short_name":"Lib","colors":"#EA6D6A","x":1704326400000,"y":1010,"fill":"#EA6D6A"},{"date":"2024-01-05","party":"Liberal Party of Canada","amount_spent":10503499,"Daily Spend":1143,"short_name":"Lib","colors":"#EA6D6A","x":1704412800000,"y":1143,"fill":"#EA6D6A"},{"date":"2024-01-06","party":"Liberal Party of Canada","amount_spent":10504826,"Daily Spend":1327,"short_name":"Lib","colors":"#EA6D6A","x":1704499200000,"y":1327,"fill":"#EA6D6A"},{"date":"2024-01-07","party":"Liberal Party of Canada","amount_spent":10506222,"Daily Spend":1396,"short_name":"Lib","colors":"#EA6D6A","x":1704585600000,"y":1396,"fill":"#EA6D6A"},{"date":"2024-01-08","party":"Liberal Party of Canada","amount_spent":10507390,"Daily Spend":1168,"short_name":"Lib","colors":"#EA6D6A","x":1704672000000,"y":1168,"fill":"#EA6D6A"},{"date":"2024-01-09","party":"Liberal Party of Canada","amount_spent":10508465,"Daily Spend":1075,"short_name":"Lib","colors":"#EA6D6A","x":1704758400000,"y":1075,"fill":"#EA6D6A"},{"date":"2024-01-10","party":"Liberal Party of Canada","amount_spent":10509518,"Daily Spend":1053,"short_name":"Lib","colors":"#EA6D6A","x":1704844800000,"y":1053,"fill":"#EA6D6A"},{"date":"2024-01-11","party":"Liberal Party of Canada","amount_spent":10510622,"Daily Spend":1104,"short_name":"Lib","colors":"#EA6D6A","x":1704931200000,"y":1104,"fill":"#EA6D6A"},{"date":"2024-01-12","party":"Liberal Party of Canada","amount_spent":10511714,"Daily Spend":1092,"short_name":"Lib","colors":"#EA6D6A","x":1705017600000,"y":1092,"fill":"#EA6D6A"},{"date":"2024-01-13","party":"Liberal Party of Canada","amount_spent":10512845,"Daily Spend":1131,"short_name":"Lib","colors":"#EA6D6A","x":1705104000000,"y":1131,"fill":"#EA6D6A"},{"date":"2024-01-14","party":"Liberal Party of Canada","amount_spent":10514059,"Daily Spend":1214,"short_name":"Lib","colors":"#EA6D6A","x":1705190400000,"y":1214,"fill":"#EA6D6A"},{"date":"2024-01-15","party":"Liberal Party of Canada","amount_spent":10515347,"Daily Spend":1288,"short_name":"Lib","colors":"#EA6D6A","x":1705276800000,"y":1288,"fill":"#EA6D6A"},{"date":"2024-01-16","party":"Liberal Party of Canada","amount_spent":10516781,"Daily Spend":1434,"short_name":"Lib","colors":"#EA6D6A","x":1705363200000,"y":1434,"fill":"#EA6D6A"},{"date":"2024-01-17","party":"Liberal Party of Canada","amount_spent":10518212,"Daily Spend":1431,"short_name":"Lib","colors":"#EA6D6A","x":1705449600000,"y":1431,"fill":"#EA6D6A"},{"date":"2024-01-18","party":"Liberal Party of Canada","amount_spent":10519636,"Daily Spend":1424,"short_name":"Lib","colors":"#EA6D6A","x":1705536000000,"y":1424,"fill":"#EA6D6A"},{"date":"2024-01-19","party":"Liberal Party of Canada","amount_spent":10521129,"Daily Spend":1493,"short_name":"Lib","colors":"#EA6D6A","x":1705622400000,"y":1493,"fill":"#EA6D6A"},{"date":"2024-01-20","party":"Liberal Party of Canada","amount_spent":10522638,"Daily Spend":1509,"short_name":"Lib","colors":"#EA6D6A","x":1705708800000,"y":1509,"fill":"#EA6D6A"},{"date":"2024-01-21","party":"Liberal Party of Canada","amount_spent":10524252,"Daily Spend":1614,"short_name":"Lib","colors":"#EA6D6A","x":1705795200000,"y":1614,"fill":"#EA6D6A"},{"date":"2024-01-22","party":"Liberal Party of Canada","amount_spent":10525913,"Daily Spend":1661,"short_name":"Lib","colors":"#EA6D6A","x":1705881600000,"y":1661,"fill":"#EA6D6A"},{"date":"2024-01-23","party":"Liberal Party of Canada","amount_spent":10527632,"Daily Spend":1719,"short_name":"Lib","colors":"#EA6D6A","x":1705968000000,"y":1719,"fill":"#EA6D6A"},{"date":"2024-01-24","party":"Liberal Party of Canada","amount_spent":10529279,"Daily Spend":1647,"short_name":"Lib","colors":"#EA6D6A","x":1706054400000,"y":1647,"fill":"#EA6D6A"},{"date":"2024-01-25","party":"Liberal Party of Canada","amount_spent":10530972,"Daily Spend":1693,"short_name":"Lib","colors":"#EA6D6A","x":1706140800000,"y":1693,"fill":"#EA6D6A"},{"date":"2024-01-26","party":"Liberal Party of Canada","amount_spent":10532413,"Daily Spend":1441,"short_name":"Lib","colors":"#EA6D6A","x":1706227200000,"y":1441,"fill":"#EA6D6A"},{"date":"2024-01-27","party":"Liberal Party of Canada","amount_spent":10533659,"Daily Spend":1246,"short_name":"Lib","colors":"#EA6D6A","x":1706313600000,"y":1246,"fill":"#EA6D6A"},{"date":"2024-01-28","party":"Liberal Party of Canada","amount_spent":10534726,"Daily Spend":1067,"short_name":"Lib","colors":"#EA6D6A","x":1706400000000,"y":1067,"fill":"#EA6D6A"},{"date":"2024-01-29","party":"Liberal Party of Canada","amount_spent":10535739,"Daily Spend":1013,"short_name":"Lib","colors":"#EA6D6A","x":1706486400000,"y":1013,"fill":"#EA6D6A"},{"date":"2024-01-30","party":"Liberal Party of Canada","amount_spent":10536731,"Daily Spend":992,"short_name":"Lib","colors":"#EA6D6A","x":1706572800000,"y":992,"fill":"#EA6D6A"},{"date":"2024-01-31","party":"Liberal Party of Canada","amount_spent":10538465,"Daily Spend":1734,"short_name":"Lib","colors":"#EA6D6A","x":1706659200000,"y":1734,"fill":"#EA6D6A"},{"date":"2024-02-01","party":"Liberal Party of Canada","amount_spent":10542275,"Daily Spend":3810,"short_name":"Lib","colors":"#EA6D6A","x":1706745600000,"y":3810,"fill":"#EA6D6A"},{"date":"2024-02-02","party":"Liberal Party of Canada","amount_spent":10545991,"Daily Spend":3716,"short_name":"Lib","colors":"#EA6D6A","x":1706832000000,"y":3716,"fill":"#EA6D6A"},{"date":"2024-02-03","party":"Liberal Party of Canada","amount_spent":10551527,"Daily Spend":5536,"short_name":"Lib","colors":"#EA6D6A","x":1706918400000,"y":5536,"fill":"#EA6D6A"},{"date":"2024-02-04","party":"Liberal Party of Canada","amount_spent":10556402,"Daily Spend":4875,"short_name":"Lib","colors":"#EA6D6A","x":1707004800000,"y":4875,"fill":"#EA6D6A"},{"date":"2024-02-05","party":"Liberal Party of Canada","amount_spent":10561200,"Daily Spend":4798,"short_name":"Lib","colors":"#EA6D6A","x":1707091200000,"y":4798,"fill":"#EA6D6A"},{"date":"2024-02-06","party":"Liberal Party of Canada","amount_spent":10565859,"Daily Spend":4659,"short_name":"Lib","colors":"#EA6D6A","x":1707177600000,"y":4659,"fill":"#EA6D6A"},{"date":"2024-02-07","party":"Liberal Party of Canada","amount_spent":10570446,"Daily Spend":4587,"short_name":"Lib","colors":"#EA6D6A","x":1707264000000,"y":4587,"fill":"#EA6D6A"},{"date":"2024-02-08","party":"Liberal Party of Canada","amount_spent":10575071,"Daily Spend":4625,"short_name":"Lib","colors":"#EA6D6A","x":1707350400000,"y":4625,"fill":"#EA6D6A"},{"date":"2024-02-09","party":"Liberal Party of Canada","amount_spent":10579638,"Daily Spend":4567,"short_name":"Lib","colors":"#EA6D6A","x":1707436800000,"y":4567,"fill":"#EA6D6A"},{"date":"2024-02-10","party":"Liberal Party of Canada","amount_spent":10584261,"Daily Spend":4623,"short_name":"Lib","colors":"#EA6D6A","x":1707523200000,"y":4623,"fill":"#EA6D6A"},{"date":"2024-02-11","party":"Liberal Party of Canada","amount_spent":10589200,"Daily Spend":4939,"short_name":"Lib","colors":"#EA6D6A","x":1707609600000,"y":4939,"fill":"#EA6D6A"},{"date":"2024-02-12","party":"Liberal Party of Canada","amount_spent":10594856,"Daily Spend":5656,"short_name":"Lib","colors":"#EA6D6A","x":1707696000000,"y":5656,"fill":"#EA6D6A"},{"date":"2024-02-13","party":"Liberal Party of Canada","amount_spent":10600619,"Daily Spend":5763,"short_name":"Lib","colors":"#EA6D6A","x":1707782400000,"y":5763,"fill":"#EA6D6A"},{"date":"2024-02-14","party":"Liberal Party of Canada","amount_spent":10606468,"Daily Spend":5849,"short_name":"Lib","colors":"#EA6D6A","x":1707868800000,"y":5849,"fill":"#EA6D6A"},{"date":"2024-02-15","party":"Liberal Party of Canada","amount_spent":10612310,"Daily Spend":5842,"short_name":"Lib","colors":"#EA6D6A","x":1707955200000,"y":5842,"fill":"#EA6D6A"},{"date":"2024-02-16","party":"Liberal Party of Canada","amount_spent":10620420,"Daily Spend":8110,"short_name":"Lib","colors":"#EA6D6A","x":1708041600000,"y":8110,"fill":"#EA6D6A"},{"date":"2024-02-17","party":"Liberal Party of Canada","amount_spent":10627009,"Daily Spend":6589,"short_name":"Lib","colors":"#EA6D6A","x":1708128000000,"y":6589,"fill":"#EA6D6A"},{"date":"2024-02-18","party":"Liberal Party of Canada","amount_spent":10633012,"Daily Spend":6003,"short_name":"Lib","colors":"#EA6D6A","x":1708214400000,"y":6003,"fill":"#EA6D6A"},{"date":"2024-02-19","party":"Liberal Party of Canada","amount_spent":10638854,"Daily Spend":5842,"short_name":"Lib","colors":"#EA6D6A","x":1708300800000,"y":5842,"fill":"#EA6D6A"},{"date":"2024-02-20","party":"Liberal Party of Canada","amount_spent":10644671,"Daily Spend":5817,"short_name":"Lib","colors":"#EA6D6A","x":1708387200000,"y":5817,"fill":"#EA6D6A"},{"date":"2024-02-21","party":"Liberal Party of Canada","amount_spent":10650474,"Daily Spend":5803,"short_name":"Lib","colors":"#EA6D6A","x":1708473600000,"y":5803,"fill":"#EA6D6A"},{"date":"2024-02-22","party":"Liberal Party of Canada","amount_spent":10656419,"Daily Spend":5945,"short_name":"Lib","colors":"#EA6D6A","x":1708560000000,"y":5945,"fill":"#EA6D6A"},{"date":"2024-02-23","party":"Liberal Party of Canada","amount_spent":10662241,"Daily Spend":5822,"short_name":"Lib","colors":"#EA6D6A","x":1708646400000,"y":5822,"fill":"#EA6D6A"},{"date":"2024-02-24","party":"Liberal Party of Canada","amount_spent":10668161,"Daily Spend":5920,"short_name":"Lib","colors":"#EA6D6A","x":1708732800000,"y":5920,"fill":"#EA6D6A"},{"date":"2024-02-25","party":"Liberal Party of Canada","amount_spent":10674162,"Daily Spend":6001,"short_name":"Lib","colors":"#EA6D6A","x":1708819200000,"y":6001,"fill":"#EA6D6A"},{"date":"2024-02-26","party":"Liberal Party of Canada","amount_spent":10679349,"Daily Spend":5187,"short_name":"Lib","colors":"#EA6D6A","x":1708905600000,"y":5187,"fill":"#EA6D6A"},{"date":"2024-02-27","party":"Liberal Party of Canada","amount_spent":10684282,"Daily Spend":4933,"short_name":"Lib","colors":"#EA6D6A","x":1708992000000,"y":4933,"fill":"#EA6D6A"},{"date":"2024-02-28","party":"Liberal Party of Canada","amount_spent":10689491,"Daily Spend":5209,"short_name":"Lib","colors":"#EA6D6A","x":1709078400000,"y":5209,"fill":"#EA6D6A"},{"date":"2024-02-29","party":"Liberal Party of Canada","amount_spent":10694743,"Daily Spend":5252,"short_name":"Lib","colors":"#EA6D6A","x":1709164800000,"y":5252,"fill":"#EA6D6A"},{"date":"2024-03-01","party":"Liberal Party of Canada","amount_spent":10700014,"Daily Spend":5271,"short_name":"Lib","colors":"#EA6D6A","x":1709251200000,"y":5271,"fill":"#EA6D6A"},{"date":"2024-03-02","party":"Liberal Party of Canada","amount_spent":10705348,"Daily Spend":5334,"short_name":"Lib","colors":"#EA6D6A","x":1709337600000,"y":5334,"fill":"#EA6D6A"},{"date":"2024-03-03","party":"Liberal Party of Canada","amount_spent":10711231,"Daily Spend":5883,"short_name":"Lib","colors":"#EA6D6A","x":1709424000000,"y":5883,"fill":"#EA6D6A"},{"date":"2024-03-04","party":"Liberal Party of Canada","amount_spent":10716220,"Daily Spend":4989,"short_name":"Lib","colors":"#EA6D6A","x":1709510400000,"y":4989,"fill":"#EA6D6A"},{"date":"2024-03-05","party":"Liberal Party of Canada","amount_spent":10721004,"Daily Spend":4784,"short_name":"Lib","colors":"#EA6D6A","x":1709596800000,"y":4784,"fill":"#EA6D6A"},{"date":"2024-03-06","party":"Liberal Party of Canada","amount_spent":10725859,"Daily Spend":4855,"short_name":"Lib","colors":"#EA6D6A","x":1709683200000,"y":4855,"fill":"#EA6D6A"},{"date":"2024-03-07","party":"Liberal Party of Canada","amount_spent":10730510,"Daily Spend":4651,"short_name":"Lib","colors":"#EA6D6A","x":1709769600000,"y":4651,"fill":"#EA6D6A"}],"type":"area"},{"name":"New Democratic Party","data":[{"date":"2023-12-31","party":"New Democratic Party","amount_spent":3400644,"Daily Spend":null,"short_name":"NDP","colors":"#F4A460","x":1703980800000,"y":null,"fill":"#F4A460"},{"date":"2024-01-01","party":"New Democratic Party","amount_spent":3400991,"Daily Spend":347,"short_name":"NDP","colors":"#F4A460","x":1704067200000,"y":347,"fill":"#F4A460"},{"date":"2024-01-02","party":"New Democratic Party","amount_spent":3401333,"Daily Spend":342,"short_name":"NDP","colors":"#F4A460","x":1704153600000,"y":342,"fill":"#F4A460"},{"date":"2024-01-03","party":"New Democratic Party","amount_spent":3401668,"Daily Spend":335,"short_name":"NDP","colors":"#F4A460","x":1704240000000,"y":335,"fill":"#F4A460"},{"date":"2024-01-04","party":"New Democratic Party","amount_spent":3402004,"Daily Spend":336,"short_name":"NDP","colors":"#F4A460","x":1704326400000,"y":336,"fill":"#F4A460"},{"date":"2024-01-05","party":"New Democratic Party","amount_spent":3402334,"Daily Spend":330,"short_name":"NDP","colors":"#F4A460","x":1704412800000,"y":330,"fill":"#F4A460"},{"date":"2024-01-06","party":"New Democratic Party","amount_spent":3402671,"Daily Spend":337,"short_name":"NDP","colors":"#F4A460","x":1704499200000,"y":337,"fill":"#F4A460"},{"date":"2024-01-07","party":"New Democratic Party","amount_spent":3403026,"Daily Spend":355,"short_name":"NDP","colors":"#F4A460","x":1704585600000,"y":355,"fill":"#F4A460"},{"date":"2024-01-08","party":"New Democratic Party","amount_spent":3403373,"Daily Spend":347,"short_name":"NDP","colors":"#F4A460","x":1704672000000,"y":347,"fill":"#F4A460"},{"date":"2024-01-09","party":"New Democratic Party","amount_spent":3403715,"Daily Spend":342,"short_name":"NDP","colors":"#F4A460","x":1704758400000,"y":342,"fill":"#F4A460"},{"date":"2024-01-10","party":"New Democratic Party","amount_spent":3404053,"Daily Spend":338,"short_name":"NDP","colors":"#F4A460","x":1704844800000,"y":338,"fill":"#F4A460"},{"date":"2024-01-11","party":"New Democratic Party","amount_spent":3404386,"Daily Spend":333,"short_name":"NDP","colors":"#F4A460","x":1704931200000,"y":333,"fill":"#F4A460"},{"date":"2024-01-12","party":"New Democratic Party","amount_spent":3404724,"Daily Spend":338,"short_name":"NDP","colors":"#F4A460","x":1705017600000,"y":338,"fill":"#F4A460"},{"date":"2024-01-13","party":"New Democratic Party","amount_spent":3405061,"Daily Spend":337,"short_name":"NDP","colors":"#F4A460","x":1705104000000,"y":337,"fill":"#F4A460"},{"date":"2024-01-14","party":"New Democratic Party","amount_spent":3405417,"Daily Spend":356,"short_name":"NDP","colors":"#F4A460","x":1705190400000,"y":356,"fill":"#F4A460"},{"date":"2024-01-15","party":"New Democratic Party","amount_spent":3405758,"Daily Spend":341,"short_name":"NDP","colors":"#F4A460","x":1705276800000,"y":341,"fill":"#F4A460"},{"date":"2024-01-16","party":"New Democratic Party","amount_spent":3406165,"Daily Spend":407,"short_name":"NDP","colors":"#F4A460","x":1705363200000,"y":407,"fill":"#F4A460"},{"date":"2024-01-17","party":"New Democratic Party","amount_spent":3406246,"Daily Spend":81,"short_name":"NDP","colors":"#F4A460","x":1705449600000,"y":81,"fill":"#F4A460"},{"date":"2024-01-18","party":"New Democratic Party","amount_spent":3406650,"Daily Spend":404,"short_name":"NDP","colors":"#F4A460","x":1705536000000,"y":404,"fill":"#F4A460"},{"date":"2024-01-19","party":"New Democratic Party","amount_spent":3407049,"Daily Spend":399,"short_name":"NDP","colors":"#F4A460","x":1705622400000,"y":399,"fill":"#F4A460"},{"date":"2024-01-20","party":"New Democratic Party","amount_spent":3408251,"Daily Spend":1202,"short_name":"NDP","colors":"#F4A460","x":1705708800000,"y":1202,"fill":"#F4A460"},{"date":"2024-01-21","party":"New Democratic Party","amount_spent":3408667,"Daily Spend":416,"short_name":"NDP","colors":"#F4A460","x":1705795200000,"y":416,"fill":"#F4A460"},{"date":"2024-01-22","party":"New Democratic Party","amount_spent":3409076,"Daily Spend":409,"short_name":"NDP","colors":"#F4A460","x":1705881600000,"y":409,"fill":"#F4A460"},{"date":"2024-01-23","party":"New Democratic Party","amount_spent":3409477,"Daily Spend":401,"short_name":"NDP","colors":"#F4A460","x":1705968000000,"y":401,"fill":"#F4A460"},{"date":"2024-01-24","party":"New Democratic Party","amount_spent":3409874,"Daily Spend":397,"short_name":"NDP","colors":"#F4A460","x":1706054400000,"y":397,"fill":"#F4A460"},{"date":"2024-01-25","party":"New Democratic Party","amount_spent":3410268,"Daily Spend":394,"short_name":"NDP","colors":"#F4A460","x":1706140800000,"y":394,"fill":"#F4A460"},{"date":"2024-01-26","party":"New Democratic Party","amount_spent":3410662,"Daily Spend":394,"short_name":"NDP","colors":"#F4A460","x":1706227200000,"y":394,"fill":"#F4A460"},{"date":"2024-01-27","party":"New Democratic Party","amount_spent":3411060,"Daily Spend":398,"short_name":"NDP","colors":"#F4A460","x":1706313600000,"y":398,"fill":"#F4A460"},{"date":"2024-01-28","party":"New Democratic Party","amount_spent":3411478,"Daily Spend":418,"short_name":"NDP","colors":"#F4A460","x":1706400000000,"y":418,"fill":"#F4A460"},{"date":"2024-01-29","party":"New Democratic Party","amount_spent":3412154,"Daily Spend":676,"short_name":"NDP","colors":"#F4A460","x":1706486400000,"y":676,"fill":"#F4A460"},{"date":"2024-01-30","party":"New Democratic Party","amount_spent":3413299,"Daily Spend":1145,"short_name":"NDP","colors":"#F4A460","x":1706572800000,"y":1145,"fill":"#F4A460"},{"date":"2024-01-31","party":"New Democratic Party","amount_spent":3414734,"Daily Spend":1435,"short_name":"NDP","colors":"#F4A460","x":1706659200000,"y":1435,"fill":"#F4A460"},{"date":"2024-02-01","party":"New Democratic Party","amount_spent":3416156,"Daily Spend":1422,"short_name":"NDP","colors":"#F4A460","x":1706745600000,"y":1422,"fill":"#F4A460"},{"date":"2024-02-02","party":"New Democratic Party","amount_spent":3417313,"Daily Spend":1157,"short_name":"NDP","colors":"#F4A460","x":1706832000000,"y":1157,"fill":"#F4A460"},{"date":"2024-02-03","party":"New Democratic Party","amount_spent":3417662,"Daily Spend":349,"short_name":"NDP","colors":"#F4A460","x":1706918400000,"y":349,"fill":"#F4A460"},{"date":"2024-02-04","party":"New Democratic Party","amount_spent":3418012,"Daily Spend":350,"short_name":"NDP","colors":"#F4A460","x":1707004800000,"y":350,"fill":"#F4A460"},{"date":"2024-02-05","party":"New Democratic Party","amount_spent":3418360,"Daily Spend":348,"short_name":"NDP","colors":"#F4A460","x":1707091200000,"y":348,"fill":"#F4A460"},{"date":"2024-02-06","party":"New Democratic Party","amount_spent":3418712,"Daily Spend":352,"short_name":"NDP","colors":"#F4A460","x":1707177600000,"y":352,"fill":"#F4A460"},{"date":"2024-02-07","party":"New Democratic Party","amount_spent":3419509,"Daily Spend":797,"short_name":"NDP","colors":"#F4A460","x":1707264000000,"y":797,"fill":"#F4A460"},{"date":"2024-02-08","party":"New Democratic Party","amount_spent":3421523,"Daily Spend":2014,"short_name":"NDP","colors":"#F4A460","x":1707350400000,"y":2014,"fill":"#F4A460"},{"date":"2024-02-09","party":"New Democratic Party","amount_spent":3424007,"Daily Spend":2484,"short_name":"NDP","colors":"#F4A460","x":1707436800000,"y":2484,"fill":"#F4A460"},{"date":"2024-02-10","party":"New Democratic Party","amount_spent":3426593,"Daily Spend":2586,"short_name":"NDP","colors":"#F4A460","x":1707523200000,"y":2586,"fill":"#F4A460"},{"date":"2024-02-11","party":"New Democratic Party","amount_spent":3429259,"Daily Spend":2666,"short_name":"NDP","colors":"#F4A460","x":1707609600000,"y":2666,"fill":"#F4A460"},{"date":"2024-02-12","party":"New Democratic Party","amount_spent":3431811,"Daily Spend":2552,"short_name":"NDP","colors":"#F4A460","x":1707696000000,"y":2552,"fill":"#F4A460"},{"date":"2024-02-13","party":"New Democratic Party","amount_spent":3433968,"Daily Spend":2157,"short_name":"NDP","colors":"#F4A460","x":1707782400000,"y":2157,"fill":"#F4A460"},{"date":"2024-02-14","party":"New Democratic Party","amount_spent":3436467,"Daily Spend":2499,"short_name":"NDP","colors":"#F4A460","x":1707868800000,"y":2499,"fill":"#F4A460"},{"date":"2024-02-15","party":"New Democratic Party","amount_spent":3438942,"Daily Spend":2475,"short_name":"NDP","colors":"#F4A460","x":1707955200000,"y":2475,"fill":"#F4A460"},{"date":"2024-02-16","party":"New Democratic Party","amount_spent":3441435,"Daily Spend":2493,"short_name":"NDP","colors":"#F4A460","x":1708041600000,"y":2493,"fill":"#F4A460"},{"date":"2024-02-17","party":"New Democratic Party","amount_spent":3444075,"Daily Spend":2640,"short_name":"NDP","colors":"#F4A460","x":1708128000000,"y":2640,"fill":"#F4A460"},{"date":"2024-02-18","party":"New Democratic Party","amount_spent":3446859,"Daily Spend":2784,"short_name":"NDP","colors":"#F4A460","x":1708214400000,"y":2784,"fill":"#F4A460"},{"date":"2024-02-19","party":"New Democratic Party","amount_spent":3449439,"Daily Spend":2580,"short_name":"NDP","colors":"#F4A460","x":1708300800000,"y":2580,"fill":"#F4A460"},{"date":"2024-02-20","party":"New Democratic Party","amount_spent":3452025,"Daily Spend":2586,"short_name":"NDP","colors":"#F4A460","x":1708387200000,"y":2586,"fill":"#F4A460"},{"date":"2024-02-21","party":"New Democratic Party","amount_spent":3453741,"Daily Spend":1716,"short_name":"NDP","colors":"#F4A460","x":1708473600000,"y":1716,"fill":"#F4A460"},{"date":"2024-02-22","party":"New Democratic Party","amount_spent":3454869,"Daily Spend":1128,"short_name":"NDP","colors":"#F4A460","x":1708560000000,"y":1128,"fill":"#F4A460"},{"date":"2024-02-23","party":"New Democratic Party","amount_spent":3455801,"Daily Spend":932,"short_name":"NDP","colors":"#F4A460","x":1708646400000,"y":932,"fill":"#F4A460"},{"date":"2024-02-24","party":"New Democratic Party","amount_spent":3456793,"Daily Spend":992,"short_name":"NDP","colors":"#F4A460","x":1708732800000,"y":992,"fill":"#F4A460"},{"date":"2024-02-25","party":"New Democratic Party","amount_spent":3457815,"Daily Spend":1022,"short_name":"NDP","colors":"#F4A460","x":1708819200000,"y":1022,"fill":"#F4A460"},{"date":"2024-02-26","party":"New Democratic Party","amount_spent":3458803,"Daily Spend":988,"short_name":"NDP","colors":"#F4A460","x":1708905600000,"y":988,"fill":"#F4A460"},{"date":"2024-02-27","party":"New Democratic Party","amount_spent":3459776,"Daily Spend":973,"short_name":"NDP","colors":"#F4A460","x":1708992000000,"y":973,"fill":"#F4A460"},{"date":"2024-02-28","party":"New Democratic Party","amount_spent":3460751,"Daily Spend":975,"short_name":"NDP","colors":"#F4A460","x":1709078400000,"y":975,"fill":"#F4A460"},{"date":"2024-02-29","party":"New Democratic Party","amount_spent":3461762,"Daily Spend":1011,"short_name":"NDP","colors":"#F4A460","x":1709164800000,"y":1011,"fill":"#F4A460"},{"date":"2024-03-01","party":"New Democratic Party","amount_spent":3462732,"Daily Spend":970,"short_name":"NDP","colors":"#F4A460","x":1709251200000,"y":970,"fill":"#F4A460"},{"date":"2024-03-02","party":"New Democratic Party","amount_spent":3463747,"Daily Spend":1015,"short_name":"NDP","colors":"#F4A460","x":1709337600000,"y":1015,"fill":"#F4A460"},{"date":"2024-03-03","party":"New Democratic Party","amount_spent":3464794,"Daily Spend":1047,"short_name":"NDP","colors":"#F4A460","x":1709424000000,"y":1047,"fill":"#F4A460"},{"date":"2024-03-04","party":"New Democratic Party","amount_spent":3465766,"Daily Spend":972,"short_name":"NDP","colors":"#F4A460","x":1709510400000,"y":972,"fill":"#F4A460"},{"date":"2024-03-05","party":"New Democratic Party","amount_spent":3466696,"Daily Spend":930,"short_name":"NDP","colors":"#F4A460","x":1709596800000,"y":930,"fill":"#F4A460"},{"date":"2024-03-06","party":"New Democratic Party","amount_spent":3467520,"Daily Spend":824,"short_name":"NDP","colors":"#F4A460","x":1709683200000,"y":824,"fill":"#F4A460"},{"date":"2024-03-07","party":"New Democratic Party","amount_spent":3468141,"Daily Spend":621,"short_name":"NDP","colors":"#F4A460","x":1709769600000,"y":621,"fill":"#F4A460"}],"type":"area"},{"name":"Others","data":[{"date":"2023-12-31","party":"Others","amount_spent":9547819,"Daily Spend":null,"short_name":"Oth","colors":"#cccccc","x":1703980800000,"y":null,"fill":"#cccccc"},{"date":"2024-01-01","party":"Others","amount_spent":9549288,"Daily Spend":1469,"short_name":"Oth","colors":"#cccccc","x":1704067200000,"y":1469,"fill":"#cccccc"},{"date":"2024-01-02","party":"Others","amount_spent":9552289,"Daily Spend":3001,"short_name":"Oth","colors":"#cccccc","x":1704153600000,"y":3001,"fill":"#cccccc"},{"date":"2024-01-03","party":"Others","amount_spent":9555670,"Daily Spend":3381,"short_name":"Oth","colors":"#cccccc","x":1704240000000,"y":3381,"fill":"#cccccc"},{"date":"2024-01-04","party":"Others","amount_spent":9558844,"Daily Spend":3174,"short_name":"Oth","colors":"#cccccc","x":1704326400000,"y":3174,"fill":"#cccccc"},{"date":"2024-01-05","party":"Others","amount_spent":9562018,"Daily Spend":3174,"short_name":"Oth","colors":"#cccccc","x":1704412800000,"y":3174,"fill":"#cccccc"},{"date":"2024-01-06","party":"Others","amount_spent":9564026,"Daily Spend":2008,"short_name":"Oth","colors":"#cccccc","x":1704499200000,"y":2008,"fill":"#cccccc"},{"date":"2024-01-07","party":"Others","amount_spent":9565751,"Daily Spend":1725,"short_name":"Oth","colors":"#cccccc","x":1704585600000,"y":1725,"fill":"#cccccc"},{"date":"2024-01-08","party":"Others","amount_spent":9570423,"Daily Spend":4672,"short_name":"Oth","colors":"#cccccc","x":1704672000000,"y":4672,"fill":"#cccccc"},{"date":"2024-01-09","party":"Others","amount_spent":9575601,"Daily Spend":5178,"short_name":"Oth","colors":"#cccccc","x":1704758400000,"y":5178,"fill":"#cccccc"},{"date":"2024-01-10","party":"Others","amount_spent":9581049,"Daily Spend":5448,"short_name":"Oth","colors":"#cccccc","x":1704844800000,"y":5448,"fill":"#cccccc"},{"date":"2024-01-11","party":"Others","amount_spent":9585999,"Daily Spend":4950,"short_name":"Oth","colors":"#cccccc","x":1704931200000,"y":4950,"fill":"#cccccc"},{"date":"2024-01-12","party":"Others","amount_spent":9591284,"Daily Spend":5285,"short_name":"Oth","colors":"#cccccc","x":1705017600000,"y":5285,"fill":"#cccccc"},{"date":"2024-01-13","party":"Others","amount_spent":9597808,"Daily Spend":6524,"short_name":"Oth","colors":"#cccccc","x":1705104000000,"y":6524,"fill":"#cccccc"},{"date":"2024-01-14","party":"Others","amount_spent":9604670,"Daily Spend":6862,"short_name":"Oth","colors":"#cccccc","x":1705190400000,"y":6862,"fill":"#cccccc"},{"date":"2024-01-15","party":"Others","amount_spent":9612613,"Daily Spend":7943,"short_name":"Oth","colors":"#cccccc","x":1705276800000,"y":7943,"fill":"#cccccc"},{"date":"2024-01-16","party":"Others","amount_spent":9620897,"Daily Spend":8284,"short_name":"Oth","colors":"#cccccc","x":1705363200000,"y":8284,"fill":"#cccccc"},{"date":"2024-01-17","party":"Others","amount_spent":9631868,"Daily Spend":10971,"short_name":"Oth","colors":"#cccccc","x":1705449600000,"y":10971,"fill":"#cccccc"},{"date":"2024-01-18","party":"Others","amount_spent":9643735,"Daily Spend":11867,"short_name":"Oth","colors":"#cccccc","x":1705536000000,"y":11867,"fill":"#cccccc"},{"date":"2024-01-19","party":"Others","amount_spent":9655943,"Daily Spend":12208,"short_name":"Oth","colors":"#cccccc","x":1705622400000,"y":12208,"fill":"#cccccc"},{"date":"2024-01-20","party":"Others","amount_spent":9660197,"Daily Spend":4254,"short_name":"Oth","colors":"#cccccc","x":1705708800000,"y":4254,"fill":"#cccccc"},{"date":"2024-01-21","party":"Others","amount_spent":9664622,"Daily Spend":4425,"short_name":"Oth","colors":"#cccccc","x":1705795200000,"y":4425,"fill":"#cccccc"},{"date":"2024-01-22","party":"Others","amount_spent":9674472,"Daily Spend":9850,"short_name":"Oth","colors":"#cccccc","x":1705881600000,"y":9850,"fill":"#cccccc"},{"date":"2024-01-23","party":"Others","amount_spent":9682155,"Daily Spend":7683,"short_name":"Oth","colors":"#cccccc","x":1705968000000,"y":7683,"fill":"#cccccc"},{"date":"2024-01-24","party":"Others","amount_spent":9689786,"Daily Spend":7631,"short_name":"Oth","colors":"#cccccc","x":1706054400000,"y":7631,"fill":"#cccccc"},{"date":"2024-01-25","party":"Others","amount_spent":9697570,"Daily Spend":7784,"short_name":"Oth","colors":"#cccccc","x":1706140800000,"y":7784,"fill":"#cccccc"},{"date":"2024-01-26","party":"Others","amount_spent":9705436,"Daily Spend":7866,"short_name":"Oth","colors":"#cccccc","x":1706227200000,"y":7866,"fill":"#cccccc"},{"date":"2024-01-27","party":"Others","amount_spent":9709677,"Daily Spend":4241,"short_name":"Oth","colors":"#cccccc","x":1706313600000,"y":4241,"fill":"#cccccc"},{"date":"2024-01-28","party":"Others","amount_spent":9714048,"Daily Spend":4371,"short_name":"Oth","colors":"#cccccc","x":1706400000000,"y":4371,"fill":"#cccccc"},{"date":"2024-01-29","party":"Others","amount_spent":9722194,"Daily Spend":8146,"short_name":"Oth","colors":"#cccccc","x":1706486400000,"y":8146,"fill":"#cccccc"},{"date":"2024-01-30","party":"Others","amount_spent":9732337,"Daily Spend":10143,"short_name":"Oth","colors":"#cccccc","x":1706572800000,"y":10143,"fill":"#cccccc"},{"date":"2024-01-31","party":"Others","amount_spent":9742853,"Daily Spend":10516,"short_name":"Oth","colors":"#cccccc","x":1706659200000,"y":10516,"fill":"#cccccc"},{"date":"2024-02-01","party":"Others","amount_spent":9752831,"Daily Spend":9978,"short_name":"Oth","colors":"#cccccc","x":1706745600000,"y":9978,"fill":"#cccccc"},{"date":"2024-02-02","party":"Others","amount_spent":9761860,"Daily Spend":9029,"short_name":"Oth","colors":"#cccccc","x":1706832000000,"y":9029,"fill":"#cccccc"},{"date":"2024-02-03","party":"Others","amount_spent":9766475,"Daily Spend":4615,"short_name":"Oth","colors":"#cccccc","x":1706918400000,"y":4615,"fill":"#cccccc"},{"date":"2024-02-04","party":"Others","amount_spent":9771074,"Daily Spend":4599,"short_name":"Oth","colors":"#cccccc","x":1707004800000,"y":4599,"fill":"#cccccc"},{"date":"2024-02-05","party":"Others","amount_spent":9777392,"Daily Spend":6318,"short_name":"Oth","colors":"#cccccc","x":1707091200000,"y":6318,"fill":"#cccccc"},{"date":"2024-02-06","party":"Others","amount_spent":9788224,"Daily Spend":10832,"short_name":"Oth","colors":"#cccccc","x":1707177600000,"y":10832,"fill":"#cccccc"},{"date":"2024-02-07","party":"Others","amount_spent":9800327,"Daily Spend":12103,"short_name":"Oth","colors":"#cccccc","x":1707264000000,"y":12103,"fill":"#cccccc"},{"date":"2024-02-08","party":"Others","amount_spent":9811753,"Daily Spend":11426,"short_name":"Oth","colors":"#cccccc","x":1707350400000,"y":11426,"fill":"#cccccc"},{"date":"2024-02-09","party":"Others","amount_spent":9821820,"Daily Spend":10067,"short_name":"Oth","colors":"#cccccc","x":1707436800000,"y":10067,"fill":"#cccccc"},{"date":"2024-02-10","party":"Others","amount_spent":9826711,"Daily Spend":4891,"short_name":"Oth","colors":"#cccccc","x":1707523200000,"y":4891,"fill":"#cccccc"},{"date":"2024-02-11","party":"Others","amount_spent":9831553,"Daily Spend":4842,"short_name":"Oth","colors":"#cccccc","x":1707609600000,"y":4842,"fill":"#cccccc"},{"date":"2024-02-12","party":"Others","amount_spent":9836762,"Daily Spend":5209,"short_name":"Oth","colors":"#cccccc","x":1707696000000,"y":5209,"fill":"#cccccc"},{"date":"2024-02-13","party":"Others","amount_spent":9842107,"Daily Spend":5345,"short_name":"Oth","colors":"#cccccc","x":1707782400000,"y":5345,"fill":"#cccccc"},{"date":"2024-02-14","party":"Others","amount_spent":9847064,"Daily Spend":4957,"short_name":"Oth","colors":"#cccccc","x":1707868800000,"y":4957,"fill":"#cccccc"},{"date":"2024-02-15","party":"Others","amount_spent":9853334,"Daily Spend":6270,"short_name":"Oth","colors":"#cccccc","x":1707955200000,"y":6270,"fill":"#cccccc"},{"date":"2024-02-16","party":"Others","amount_spent":9859349,"Daily Spend":6015,"short_name":"Oth","colors":"#cccccc","x":1708041600000,"y":6015,"fill":"#cccccc"},{"date":"2024-02-17","party":"Others","amount_spent":9861846,"Daily Spend":2497,"short_name":"Oth","colors":"#cccccc","x":1708128000000,"y":2497,"fill":"#cccccc"},{"date":"2024-02-18","party":"Others","amount_spent":9864435,"Daily Spend":2589,"short_name":"Oth","colors":"#cccccc","x":1708214400000,"y":2589,"fill":"#cccccc"},{"date":"2024-02-19","party":"Others","amount_spent":9868175,"Daily Spend":3740,"short_name":"Oth","colors":"#cccccc","x":1708300800000,"y":3740,"fill":"#cccccc"},{"date":"2024-02-20","party":"Others","amount_spent":9872332,"Daily Spend":4157,"short_name":"Oth","colors":"#cccccc","x":1708387200000,"y":4157,"fill":"#cccccc"},{"date":"2024-02-21","party":"Others","amount_spent":9877704,"Daily Spend":5372,"short_name":"Oth","colors":"#cccccc","x":1708473600000,"y":5372,"fill":"#cccccc"},{"date":"2024-02-22","party":"Others","amount_spent":9883076,"Daily Spend":5372,"short_name":"Oth","colors":"#cccccc","x":1708560000000,"y":5372,"fill":"#cccccc"},{"date":"2024-02-23","party":"Others","amount_spent":9888230,"Daily Spend":5154,"short_name":"Oth","colors":"#cccccc","x":1708646400000,"y":5154,"fill":"#cccccc"},{"date":"2024-02-24","party":"Others","amount_spent":9890684,"Daily Spend":2454,"short_name":"Oth","colors":"#cccccc","x":1708732800000,"y":2454,"fill":"#cccccc"},{"date":"2024-02-25","party":"Others","amount_spent":9893137,"Daily Spend":2453,"short_name":"Oth","colors":"#cccccc","x":1708819200000,"y":2453,"fill":"#cccccc"},{"date":"2024-02-26","party":"Others","amount_spent":9898288,"Daily Spend":5151,"short_name":"Oth","colors":"#cccccc","x":1708905600000,"y":5151,"fill":"#cccccc"},{"date":"2024-02-27","party":"Others","amount_spent":9904180,"Daily Spend":5892,"short_name":"Oth","colors":"#cccccc","x":1708992000000,"y":5892,"fill":"#cccccc"},{"date":"2024-02-28","party":"Others","amount_spent":9917080,"Daily Spend":12900,"short_name":"Oth","colors":"#cccccc","x":1709078400000,"y":12900,"fill":"#cccccc"},{"date":"2024-02-29","party":"Others","amount_spent":9927546,"Daily Spend":10466,"short_name":"Oth","colors":"#cccccc","x":1709164800000,"y":10466,"fill":"#cccccc"},{"date":"2024-03-01","party":"Others","amount_spent":9935577,"Daily Spend":8031,"short_name":"Oth","colors":"#cccccc","x":1709251200000,"y":8031,"fill":"#cccccc"},{"date":"2024-03-02","party":"Others","amount_spent":9940971,"Daily Spend":5394,"short_name":"Oth","colors":"#cccccc","x":1709337600000,"y":5394,"fill":"#cccccc"},{"date":"2024-03-03","party":"Others","amount_spent":9946078,"Daily Spend":5107,"short_name":"Oth","colors":"#cccccc","x":1709424000000,"y":5107,"fill":"#cccccc"},{"date":"2024-03-04","party":"Others","amount_spent":9951235,"Daily Spend":5157,"short_name":"Oth","colors":"#cccccc","x":1709510400000,"y":5157,"fill":"#cccccc"},{"date":"2024-03-05","party":"Others","amount_spent":9958282,"Daily Spend":7047,"short_name":"Oth","colors":"#cccccc","x":1709596800000,"y":7047,"fill":"#cccccc"},{"date":"2024-03-06","party":"Others","amount_spent":9965916,"Daily Spend":7634,"short_name":"Oth","colors":"#cccccc","x":1709683200000,"y":7634,"fill":"#cccccc"},{"date":"2024-03-07","party":"Others","amount_spent":9973353,"Daily Spend":7437,"short_name":"Oth","colors":"#cccccc","x":1709769600000,"y":7437,"fill":"#cccccc"}],"type":"area"},{"name":"People's Party of Canada","data":[{"date":"2023-12-31","party":"People's Party of Canada","amount_spent":127493,"Daily Spend":null,"short_name":"PP","colors":"#6f5d9a","x":1703980800000,"y":null,"fill":"#6f5d9a"},{"date":"2024-01-01","party":"People's Party of Canada","amount_spent":127493,"Daily Spend":0,"short_name":"PP","colors":"#6f5d9a","x":1704067200000,"y":0,"fill":"#6f5d9a"},{"date":"2024-01-02","party":"People's Party of Canada","amount_spent":127493,"Daily Spend":0,"short_name":"PP","colors":"#6f5d9a","x":1704153600000,"y":0,"fill":"#6f5d9a"},{"date":"2024-01-03","party":"People's Party of Canada","amount_spent":127493,"Daily Spend":0,"short_name":"PP","colors":"#6f5d9a","x":1704240000000,"y":0,"fill":"#6f5d9a"},{"date":"2024-01-04","party":"People's Party of Canada","amount_spent":127493,"Daily Spend":0,"short_name":"PP","colors":"#6f5d9a","x":1704326400000,"y":0,"fill":"#6f5d9a"},{"date":"2024-01-05","party":"People's Party of Canada","amount_spent":127493,"Daily Spend":0,"short_name":"PP","colors":"#6f5d9a","x":1704412800000,"y":0,"fill":"#6f5d9a"},{"date":"2024-01-06","party":"People's Party of Canada","amount_spent":127493,"Daily Spend":0,"short_name":"PP","colors":"#6f5d9a","x":1704499200000,"y":0,"fill":"#6f5d9a"},{"date":"2024-01-07","party":"People's Party of Canada","amount_spent":127494,"Daily Spend":1,"short_name":"PP","colors":"#6f5d9a","x":1704585600000,"y":1,"fill":"#6f5d9a"},{"date":"2024-01-08","party":"People's Party of Canada","amount_spent":127494,"Daily Spend":0,"short_name":"PP","colors":"#6f5d9a","x":1704672000000,"y":0,"fill":"#6f5d9a"},{"date":"2024-01-09","party":"People's Party of Canada","amount_spent":127494,"Daily Spend":0,"short_name":"PP","colors":"#6f5d9a","x":1704758400000,"y":0,"fill":"#6f5d9a"},{"date":"2024-01-10","party":"People's Party of Canada","amount_spent":127494,"Daily Spend":0,"short_name":"PP","colors":"#6f5d9a","x":1704844800000,"y":0,"fill":"#6f5d9a"},{"date":"2024-01-11","party":"People's Party of Canada","amount_spent":127494,"Daily Spend":0,"short_name":"PP","colors":"#6f5d9a","x":1704931200000,"y":0,"fill":"#6f5d9a"},{"date":"2024-01-12","party":"People's Party of Canada","amount_spent":127622,"Daily Spend":128,"short_name":"PP","colors":"#6f5d9a","x":1705017600000,"y":128,"fill":"#6f5d9a"},{"date":"2024-01-13","party":"People's Party of Canada","amount_spent":127654,"Daily Spend":32,"short_name":"PP","colors":"#6f5d9a","x":1705104000000,"y":32,"fill":"#6f5d9a"},{"date":"2024-01-14","party":"People's Party of Canada","amount_spent":127684,"Daily Spend":30,"short_name":"PP","colors":"#6f5d9a","x":1705190400000,"y":30,"fill":"#6f5d9a"},{"date":"2024-01-15","party":"People's Party of Canada","amount_spent":127713,"Daily Spend":29,"short_name":"PP","colors":"#6f5d9a","x":1705276800000,"y":29,"fill":"#6f5d9a"},{"date":"2024-01-16","party":"People's Party of Canada","amount_spent":127744,"Daily Spend":31,"short_name":"PP","colors":"#6f5d9a","x":1705363200000,"y":31,"fill":"#6f5d9a"},{"date":"2024-01-17","party":"People's Party of Canada","amount_spent":127774,"Daily Spend":30,"short_name":"PP","colors":"#6f5d9a","x":1705449600000,"y":30,"fill":"#6f5d9a"},{"date":"2024-01-18","party":"People's Party of Canada","amount_spent":127796,"Daily Spend":22,"short_name":"PP","colors":"#6f5d9a","x":1705536000000,"y":22,"fill":"#6f5d9a"},{"date":"2024-01-19","party":"People's Party of Canada","amount_spent":127806,"Daily Spend":10,"short_name":"PP","colors":"#6f5d9a","x":1705622400000,"y":10,"fill":"#6f5d9a"},{"date":"2024-01-20","party":"People's Party of Canada","amount_spent":127813,"Daily Spend":7,"short_name":"PP","colors":"#6f5d9a","x":1705708800000,"y":7,"fill":"#6f5d9a"},{"date":"2024-01-21","party":"People's Party of Canada","amount_spent":127813,"Daily Spend":0,"short_name":"PP","colors":"#6f5d9a","x":1705795200000,"y":0,"fill":"#6f5d9a"},{"date":"2024-01-22","party":"People's Party of Canada","amount_spent":127813,"Daily Spend":0,"short_name":"PP","colors":"#6f5d9a","x":1705881600000,"y":0,"fill":"#6f5d9a"},{"date":"2024-01-23","party":"People's Party of Canada","amount_spent":127813,"Daily Spend":0,"short_name":"PP","colors":"#6f5d9a","x":1705968000000,"y":0,"fill":"#6f5d9a"},{"date":"2024-01-24","party":"People's Party of Canada","amount_spent":127815,"Daily Spend":2,"short_name":"PP","colors":"#6f5d9a","x":1706054400000,"y":2,"fill":"#6f5d9a"},{"date":"2024-01-25","party":"People's Party of Canada","amount_spent":127818,"Daily Spend":3,"short_name":"PP","colors":"#6f5d9a","x":1706140800000,"y":3,"fill":"#6f5d9a"},{"date":"2024-01-26","party":"People's Party of Canada","amount_spent":127820,"Daily Spend":2,"short_name":"PP","colors":"#6f5d9a","x":1706227200000,"y":2,"fill":"#6f5d9a"},{"date":"2024-01-27","party":"People's Party of Canada","amount_spent":127838,"Daily Spend":18,"short_name":"PP","colors":"#6f5d9a","x":1706313600000,"y":18,"fill":"#6f5d9a"},{"date":"2024-01-28","party":"People's Party of Canada","amount_spent":127857,"Daily Spend":19,"short_name":"PP","colors":"#6f5d9a","x":1706400000000,"y":19,"fill":"#6f5d9a"},{"date":"2024-01-29","party":"People's Party of Canada","amount_spent":127874,"Daily Spend":17,"short_name":"PP","colors":"#6f5d9a","x":1706486400000,"y":17,"fill":"#6f5d9a"},{"date":"2024-01-30","party":"People's Party of Canada","amount_spent":127890,"Daily Spend":16,"short_name":"PP","colors":"#6f5d9a","x":1706572800000,"y":16,"fill":"#6f5d9a"},{"date":"2024-01-31","party":"People's Party of Canada","amount_spent":127969,"Daily Spend":79,"short_name":"PP","colors":"#6f5d9a","x":1706659200000,"y":79,"fill":"#6f5d9a"},{"date":"2024-02-01","party":"People's Party of Canada","amount_spent":128116,"Daily Spend":147,"short_name":"PP","colors":"#6f5d9a","x":1706745600000,"y":147,"fill":"#6f5d9a"},{"date":"2024-02-02","party":"People's Party of Canada","amount_spent":128261,"Daily Spend":145,"short_name":"PP","colors":"#6f5d9a","x":1706832000000,"y":145,"fill":"#6f5d9a"},{"date":"2024-02-03","party":"People's Party of Canada","amount_spent":128407,"Daily Spend":146,"short_name":"PP","colors":"#6f5d9a","x":1706918400000,"y":146,"fill":"#6f5d9a"},{"date":"2024-02-04","party":"People's Party of Canada","amount_spent":128562,"Daily Spend":155,"short_name":"PP","colors":"#6f5d9a","x":1707004800000,"y":155,"fill":"#6f5d9a"},{"date":"2024-02-05","party":"People's Party of Canada","amount_spent":128715,"Daily Spend":153,"short_name":"PP","colors":"#6f5d9a","x":1707091200000,"y":153,"fill":"#6f5d9a"},{"date":"2024-02-06","party":"People's Party of Canada","amount_spent":128866,"Daily Spend":151,"short_name":"PP","colors":"#6f5d9a","x":1707177600000,"y":151,"fill":"#6f5d9a"},{"date":"2024-02-07","party":"People's Party of Canada","amount_spent":129010,"Daily Spend":144,"short_name":"PP","colors":"#6f5d9a","x":1707264000000,"y":144,"fill":"#6f5d9a"},{"date":"2024-02-08","party":"People's Party of Canada","amount_spent":129154,"Daily Spend":144,"short_name":"PP","colors":"#6f5d9a","x":1707350400000,"y":144,"fill":"#6f5d9a"},{"date":"2024-02-09","party":"People's Party of Canada","amount_spent":129311,"Daily Spend":157,"short_name":"PP","colors":"#6f5d9a","x":1707436800000,"y":157,"fill":"#6f5d9a"},{"date":"2024-02-10","party":"People's Party of Canada","amount_spent":129526,"Daily Spend":215,"short_name":"PP","colors":"#6f5d9a","x":1707523200000,"y":215,"fill":"#6f5d9a"},{"date":"2024-02-11","party":"People's Party of Canada","amount_spent":129719,"Daily Spend":193,"short_name":"PP","colors":"#6f5d9a","x":1707609600000,"y":193,"fill":"#6f5d9a"},{"date":"2024-02-12","party":"People's Party of Canada","amount_spent":129905,"Daily Spend":186,"short_name":"PP","colors":"#6f5d9a","x":1707696000000,"y":186,"fill":"#6f5d9a"},{"date":"2024-02-13","party":"People's Party of Canada","amount_spent":130109,"Daily Spend":204,"short_name":"PP","colors":"#6f5d9a","x":1707782400000,"y":204,"fill":"#6f5d9a"},{"date":"2024-02-14","party":"People's Party of Canada","amount_spent":130124,"Daily Spend":15,"short_name":"PP","colors":"#6f5d9a","x":1707868800000,"y":15,"fill":"#6f5d9a"},{"date":"2024-02-15","party":"People's Party of Canada","amount_spent":130135,"Daily Spend":11,"short_name":"PP","colors":"#6f5d9a","x":1707955200000,"y":11,"fill":"#6f5d9a"},{"date":"2024-02-16","party":"People's Party of Canada","amount_spent":130147,"Daily Spend":12,"short_name":"PP","colors":"#6f5d9a","x":1708041600000,"y":12,"fill":"#6f5d9a"},{"date":"2024-02-17","party":"People's Party of Canada","amount_spent":130160,"Daily Spend":13,"short_name":"PP","colors":"#6f5d9a","x":1708128000000,"y":13,"fill":"#6f5d9a"},{"date":"2024-02-18","party":"People's Party of Canada","amount_spent":130166,"Daily Spend":6,"short_name":"PP","colors":"#6f5d9a","x":1708214400000,"y":6,"fill":"#6f5d9a"},{"date":"2024-02-19","party":"People's Party of Canada","amount_spent":130171,"Daily Spend":5,"short_name":"PP","colors":"#6f5d9a","x":1708300800000,"y":5,"fill":"#6f5d9a"},{"date":"2024-02-20","party":"People's Party of Canada","amount_spent":130186,"Daily Spend":15,"short_name":"PP","colors":"#6f5d9a","x":1708387200000,"y":15,"fill":"#6f5d9a"},{"date":"2024-02-21","party":"People's Party of Canada","amount_spent":130209,"Daily Spend":23,"short_name":"PP","colors":"#6f5d9a","x":1708473600000,"y":23,"fill":"#6f5d9a"},{"date":"2024-02-22","party":"People's Party of Canada","amount_spent":130234,"Daily Spend":25,"short_name":"PP","colors":"#6f5d9a","x":1708560000000,"y":25,"fill":"#6f5d9a"},{"date":"2024-02-23","party":"People's Party of Canada","amount_spent":130279,"Daily Spend":45,"short_name":"PP","colors":"#6f5d9a","x":1708646400000,"y":45,"fill":"#6f5d9a"},{"date":"2024-02-24","party":"People's Party of Canada","amount_spent":130328,"Daily Spend":49,"short_name":"PP","colors":"#6f5d9a","x":1708732800000,"y":49,"fill":"#6f5d9a"},{"date":"2024-02-25","party":"People's Party of Canada","amount_spent":130379,"Daily Spend":51,"short_name":"PP","colors":"#6f5d9a","x":1708819200000,"y":51,"fill":"#6f5d9a"},{"date":"2024-02-26","party":"People's Party of Canada","amount_spent":130609,"Daily Spend":230,"short_name":"PP","colors":"#6f5d9a","x":1708905600000,"y":230,"fill":"#6f5d9a"},{"date":"2024-02-27","party":"People's Party of Canada","amount_spent":130927,"Daily Spend":318,"short_name":"PP","colors":"#6f5d9a","x":1708992000000,"y":318,"fill":"#6f5d9a"},{"date":"2024-02-28","party":"People's Party of Canada","amount_spent":131248,"Daily Spend":321,"short_name":"PP","colors":"#6f5d9a","x":1709078400000,"y":321,"fill":"#6f5d9a"},{"date":"2024-02-29","party":"People's Party of Canada","amount_spent":131570,"Daily Spend":322,"short_name":"PP","colors":"#6f5d9a","x":1709164800000,"y":322,"fill":"#6f5d9a"},{"date":"2024-03-01","party":"People's Party of Canada","amount_spent":131900,"Daily Spend":330,"short_name":"PP","colors":"#6f5d9a","x":1709251200000,"y":330,"fill":"#6f5d9a"},{"date":"2024-03-02","party":"People's Party of Canada","amount_spent":132239,"Daily Spend":339,"short_name":"PP","colors":"#6f5d9a","x":1709337600000,"y":339,"fill":"#6f5d9a"},{"date":"2024-03-03","party":"People's Party of Canada","amount_spent":132575,"Daily Spend":336,"short_name":"PP","colors":"#6f5d9a","x":1709424000000,"y":336,"fill":"#6f5d9a"},{"date":"2024-03-04","party":"People's Party of Canada","amount_spent":132889,"Daily Spend":314,"short_name":"PP","colors":"#6f5d9a","x":1709510400000,"y":314,"fill":"#6f5d9a"},{"date":"2024-03-05","party":"People's Party of Canada","amount_spent":133189,"Daily Spend":300,"short_name":"PP","colors":"#6f5d9a","x":1709596800000,"y":300,"fill":"#6f5d9a"},{"date":"2024-03-06","party":"People's Party of Canada","amount_spent":133487,"Daily Spend":298,"short_name":"PP","colors":"#6f5d9a","x":1709683200000,"y":298,"fill":"#6f5d9a"},{"date":"2024-03-07","party":"People's Party of Canada","amount_spent":133667,"Daily Spend":180,"short_name":"PP","colors":"#6f5d9a","x":1709769600000,"y":180,"fill":"#6f5d9a"}],"type":"area"}],"xAxis":{"type":"datetime","title":{"text":"date"},"categories":null},"colors":{"#87CEFA":"#87CEFA","#0d2f6e":"#0d2f6e","#000":"#72F76F","#99C955":"#99C955","#EA6D6A":"#EA6D6A","#F4A460":"#F4A460","#cccccc":"#cccccc","#6f5d9a":"#6f5d9a"},"tooltip":{"shared":true,"positioner":"function (labelWidth, labelHeight, point) {\n        return { x: 200, y: this.chart.plotTop };\n    }"}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":["hc_opts.tooltip.positioner"],"jsHooks":[]}</script>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

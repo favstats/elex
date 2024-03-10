@@ -11,15 +11,20 @@ sets <- jsonlite::fromJSON("settings.json")
 full_cntry_list <- read_rds("https://github.com/favstats/meta_ad_reports/raw/main/cntry_list.rds") %>% 
   rename(iso2c = iso2,
          country = cntry) %>% 
-  sample_n(n()) 
+  sample_n(n()) %>% 
+  filter(iso2c == "NL")
 
-for (cntryy in seq_along(full_cntry_list$iso2c)) {
+# cntryy <- "NL"
+
+for (cntryy in full_cntry_list$iso2c) {
   # print(cntryy)
   
   try({
     
-    sets$the_country <- full_cntry_list$country[cntryy]
-    sets$cntry <- full_cntry_list$iso2c[cntryy]
+    sets$the_country <- full_cntry_list$country[which(full_cntry_list$iso2c==cntryy)]
+    sets$cntry <- cntryy
+    
+    jsonlite::write_json(sets, "settings.json",  simplifyVector = TRUE)
     
     # Sys.sleep(5)
     

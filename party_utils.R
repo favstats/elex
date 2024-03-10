@@ -13,7 +13,7 @@ custom <- F
 
 source(here::here("cntry.R"))
 
-all_dat <- readRDS(here::here("data/all_dat.rds"))
+# all_dat <- readRDS(here::here("data/all_dat.rds"))
 
 # print("hello")
 
@@ -187,7 +187,7 @@ if(!exists("election_dat30")){
     drop_na(ds) %>% 
     arrange(desc(ds))
   
-  print(thosearethere)
+  # print(thosearethere)
   
   # try({
     election_dat30 <- arrow::read_parquet(paste0("https://github.com/favstats/meta_ad_targeting/releases/download/", sets$cntry, "-last_", 30,"_days/", thosearethere$ds[1], ".parquet"))
@@ -242,21 +242,47 @@ if(!exists("election_dat7")){
 
 if(sets$cntry %in% country_codes & nrow(thedat)!=0){
   
-  
-  
-  
-  election_dat30 <- election_dat30 %>%
-    rename(internal_id = contains("page_id")) %>%
-    filter(is.na(no_data)) %>% 
-    drop_na(party) %>% 
-    filter(party %in% color_dat$party)
-  
-  
-  election_dat7 <- election_dat7 %>%
-    rename(internal_id = contains("page_id")) %>%
-    filter(is.na(no_data)) %>% 
-    drop_na(party) %>% 
-    filter(party %in% color_dat$party)
+  if(ncol(color_dat)==3){
+    
+    election_dat30 <-
+      election_dat30 %>%
+      rename(internal_id = contains("page_id")) %>%
+      filter(is.na(no_data)) %>% 
+      drop_na(party) %>% 
+      # count(party)
+      left_join(color_dat %>% set_names(c("long_name", "party", "colors"))) %>% 
+      select(-colors) %>% 
+      mutate(party = long_name) %>% 
+      filter(party %in% color_dat$party)
+    
+    
+    election_dat7 <- election_dat7 %>%
+      rename(internal_id = contains("page_id")) %>%
+      filter(is.na(no_data)) %>% 
+      drop_na(party) %>% 
+      # count(party)
+      left_join(color_dat %>% set_names(c("long_name", "party", "colors"))) %>% 
+      select(-colors) %>% 
+      mutate(party = long_name) %>% 
+      filter(party %in% color_dat$party)
+    
+  } else {
+    
+    election_dat30 <-
+      election_dat30 %>%
+      rename(internal_id = contains("page_id")) %>%
+      filter(is.na(no_data)) %>% 
+      drop_na(party) %>% 
+      filter(party %in% color_dat$party)
+    
+    
+    election_dat7 <- election_dat7 %>%
+      rename(internal_id = contains("page_id")) %>%
+      filter(is.na(no_data)) %>% 
+      drop_na(party) %>% 
+      filter(party %in% color_dat$party)
+    
+  }
   
 } else if (custom){
   

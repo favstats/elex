@@ -66,6 +66,8 @@ jobs:
           libharfbuzz-dev \
           libfribidi-dev
       - name: "Script - Meta Run"
+        run: Rscript 'start.R'
+      - name: "Script - Log Run"
         run: Rscript 'log.R'
       - name: "Commit"
         uses: stefanzweifel/git-auto-commit-action@v4

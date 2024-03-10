@@ -1,0 +1,36 @@
+project:
+  type: website
+  output-dir: ../docs
+
+website:
+  title: "Targeting Dashboard - Luxembourg"
+  navbar:
+    left:
+      - href: index.qmd
+        text: "{{< iconify ph coins >}} Spending"
+      - sidebar:targeting
+      - href: about.qmd
+        text: "{{< iconify ph info-thin >}} About"
+    right:
+      - icon: github
+        href: https://github.com/favstats/betargex
+  sidebar:
+    - id: ""
+    - id: targeting
+      title: "{{< iconify ph users-three-thin >}} Targeting"
+      style: "docked"
+      collapse-level: 2
+      contents:
+        - targeting.qmd
+        - detailed.qmd
+        - location.qmd
+        - demographics.qmd
+
+format:
+  html:
+    theme:
+      - cosmo
+      - custom.scss
+    mainfont: acumin-pro-semi-condensed, helvetica, arial, sans-serif
+    fontsize: 1.2em
+

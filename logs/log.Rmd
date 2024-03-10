@@ -1,7 +1,6 @@
 ---
-title: "Your Document Title"
-author: "Document Author"
-date: "`r Sys.Date()`"
+title: "Tracking the Progress"
+date: "`r Sys.time()`"
 output:
   prettydoc::html_pretty:
     theme: architect
@@ -9,7 +8,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = F)
+knitr::opts_chunk$set(echo = F, message = F, warning = F)
 library(tidyverse)
 library(arrow)
 library(rvest)
@@ -25,7 +24,6 @@ full_cntry_list <-
 
 dir.create("data")
 
-source("../utils.R")
 ```
 
 
@@ -142,7 +140,7 @@ hchart(
     unlist() %>% 
     # .[str_detect(., "last_90_days")] %>% 
     # .[100:120] %>% 
-    map_dfr_progress(~{
+    map_dfr(~{
       the_assets <- httr::GET(paste0("https://github.com/favstats/meta_ad_reports/releases/expanded_assets/", .x))
       
       the_assets %>% httr::content() %>% 

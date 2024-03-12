@@ -207,4 +207,6 @@ dir(full.names = F) %>%
   keep(~str_detect(.x, "_libs")) %>%
   walk(~fs::dir_copy(.x, "docs/site_libs", overwrite = T))
 
-              
+system("git add -A")
+system('git commit -m "update"')
+system("git push")

@@ -194,6 +194,7 @@ for (cntryy in full_cntry_list$iso2c) {
   
   # file.remove("_site/_quarto.yml")
   
+  rm(election_dat30)
   
 }
 

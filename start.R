@@ -11,7 +11,8 @@ sets <- jsonlite::fromJSON("settings.json")
 full_cntry_list <- read_rds("https://github.com/favstats/meta_ad_reports/raw/main/cntry_list.rds") %>% 
   rename(iso2c = iso2,
          country = cntry) %>% 
-  sample_n(n())
+  sample_n(n()) %>% 
+  filter(iso2c %in% c("DE", "CZ", "FR"))
 
 # cntryy <- "NL"
 

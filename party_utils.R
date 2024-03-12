@@ -244,6 +244,8 @@ if(sets$cntry %in% country_codes & nrow(thedat)!=0){
   
   if(ncol(color_dat)==3){
     
+    # print("here")
+    
     election_dat30 <-
       election_dat30 %>%
       rename(internal_id = contains("page_id")) %>%

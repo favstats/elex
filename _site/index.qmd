@@ -289,7 +289,7 @@ eval(parse(text = paste0("gt(the_table7, rowname_col = 'party_col') %>% fmt_mark
 
 ### Over Time
 
-```{r}
+```{r, eval = T}
 
 linkie <- function(.x, sets) {
     download.file(glue::glue("https://github.com/favstats/meta_ad_reports/releases/download/{sets$cntry}-lifelong/{.x}.rds"), destfile = "data.rds", quiet = T)
@@ -339,7 +339,8 @@ hc_data_dafb <- spending_dat %>%
 color_order <- color_dat %>%
   distinct(party, .keep_all = T) %>%
   arrange(party) %>%
-  pull(colors)
+  pull(colors) %>% 
+  as.character()
 
 hc_data_dafb %>%
   left_join(color_dat) %>% 
@@ -351,13 +352,14 @@ hc_data_dafb %>%
       marker = list(enabled = FALSE)
     )) %>%
   # hc_legend(share = TRUE)%>%
-  hc_colors(color_order)%>%
+  hc_colors(color_order) %>%
   hc_tooltip(
     shared = TRUE,
     positioner = JS("function (labelWidth, labelHeight, point) {
         return { x: 200, y: this.chart.plotTop };
     }")
   )  
+
 ```
 
 

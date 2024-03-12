@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="How do political parties chase your vote, what do they want to keep hidden, and how much money do they spend on it? In the lead-up to the elections, we monitor political microtargeting.">
+
+<title>Targeting Dashboard - Austria - Spending</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/iconify-1.0.8/iconify-icon.min.js"></script>
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="site_libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<script src="site_libs/jquery-3.5.1/jquery.min.js"></script>
+<script src="site_libs/proj4js-2.3.15/proj4.js"></script>
+<link href="site_libs/highcharts-9.3.1/css/motion.css" rel="stylesheet">
+<script src="site_libs/highcharts-9.3.1/highcharts.js"></script>
+<script src="site_libs/highcharts-9.3.1/highcharts-3d.js"></script>
+<script src="site_libs/highcharts-9.3.1/highcharts-more.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/stock.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/map.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/data.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/exporting.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/offline-exporting.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/drilldown.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/item-series.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/overlapping-datalabels.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/annotations.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/export-data.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/funnel.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/heatmap.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/treemap.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/sankey.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/dependency-wheel.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/organization.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/solid-gauge.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/streamgraph.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/sunburst.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/vector.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/wordcloud.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/xrange.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/tilemap.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/venn.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/gantt.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/timeline.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/parallel-coordinates.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/bullet.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/coloraxis.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/dumbbell.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/lollipop.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/series-label.js"></script>
+<script src="site_libs/highcharts-9.3.1/plugins/motion.js"></script>
+<script src="site_libs/highcharts-9.3.1/custom/reset.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/boost.js"></script>
+<script src="site_libs/highchart-binding-0.9.4/highchart.js"></script>
+
+
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Targeting Dashboard - Austria</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
+ <span class="menu-text"><iconify-icon inline="" icon="ph:coins"></iconify-icon> Spending</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-iconify-ph-users-three-thin--targeting" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><iconify-icon inline="" icon="ph:users-three-thin"></iconify-icon> Targeting</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-iconify-ph-users-three-thin--targeting">    
+        <li>
+    <a class="dropdown-item" href="./targeting.html" rel="" target="">
+ <span class="dropdown-text">Spending per Targeting</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./detailed.html" rel="" target="">
+ <span class="dropdown-text">Detailed Targeting</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./location.html" rel="" target="">
+ <span class="dropdown-text">Location</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./demographics.html" rel="" target="">
+ <span class="dropdown-text">Demographics</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html" rel="" target="">
+ <span class="menu-text"><iconify-icon inline="" icon="ph:info-thin"></iconify-icon> About</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/favstats/betargex" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Spending</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>Here you can see the expenditures of political parties in the lead-up to the elections according to the latest data.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">8 Feb - 8 Mar 2024</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">2 Mar - 8 Mar 2024</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>During this period, political parties spent a total of €151,572 and displayed 2694 advertisements on Meta.</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<div id="avzfoycqmc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+#avzfoycqmc table {
+  font-family: Chivo, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#avzfoycqmc thead, #avzfoycqmc tbody, #avzfoycqmc tfoot, #avzfoycqmc tr, #avzfoycqmc td, #avzfoycqmc th {
+  border-style: none;
+}
+
+#avzfoycqmc p {
+  margin: 0;
+  padding: 0;
+}
+
+#avzfoycqmc .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: 300;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: none;
+  border-top-width: 3px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#avzfoycqmc .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#avzfoycqmc .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#avzfoycqmc .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#avzfoycqmc .gt_heading {
+  background-color: #FFFFFF;
+  text-align: left;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#avzfoycqmc .gt_bottom_border {
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#avzfoycqmc .gt_col_headings {
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #000000;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#avzfoycqmc .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: normal;
+  text-transform: uppercase;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#avzfoycqmc .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: normal;
+  text-transform: uppercase;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#avzfoycqmc .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#avzfoycqmc .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#avzfoycqmc .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #000000;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#avzfoycqmc .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#avzfoycqmc .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #000000;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#avzfoycqmc .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #000000;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #FFFFFF;
+  vertical-align: middle;
+}
+
+#avzfoycqmc .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#avzfoycqmc .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#avzfoycqmc .gt_row {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#avzfoycqmc .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-right-style: solid;
+  border-right-width: 0px;
+  border-right-color: #FFFFFF;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#avzfoycqmc .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#avzfoycqmc .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#avzfoycqmc .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#avzfoycqmc .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#avzfoycqmc .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#avzfoycqmc .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#avzfoycqmc .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#avzfoycqmc .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#avzfoycqmc .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#avzfoycqmc .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#avzfoycqmc .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#avzfoycqmc .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#avzfoycqmc .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#avzfoycqmc .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#avzfoycqmc .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#avzfoycqmc .gt_sourcenote {
+  font-size: 12px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#avzfoycqmc .gt_left {
+  text-align: left;
+}
+
+#avzfoycqmc .gt_center {
+  text-align: center;
+}
+
+#avzfoycqmc .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#avzfoycqmc .gt_font_normal {
+  font-weight: normal;
+}
+
+#avzfoycqmc .gt_font_bold {
+  font-weight: bold;
+}
+
+#avzfoycqmc .gt_font_italic {
+  font-style: italic;
+}
+
+#avzfoycqmc .gt_super {
+  font-size: 65%;
+}
+
+#avzfoycqmc .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#avzfoycqmc .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#avzfoycqmc .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#avzfoycqmc .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#avzfoycqmc .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#avzfoycqmc .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#avzfoycqmc .gt_indent_5 {
+  text-indent: 25px;
+}
+
+tbody tr:last-child {
+  border-bottom: 2px solid #ffffff00;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=""></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Number of Advertisers">Number of Advertisers</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Top Spenders">Top Spenders</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Number of Ads">Number of Ads</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Total Spend">Total Spend</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><th id="stub_1_1" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Die Grünen</p>
+</div></th>
+<td headers="stub_1_1 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #88B626;"><div class="gt_from_md"><p>46</p>
+</div></td>
+<td headers="stub_1_1 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=21759893033">Die Grünen – Die Grüne Alternative</a> (€22,408)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=343858412705677">Anna Schiester</a> (€13,048)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=1576711892460949">Sandra Krautwaschl</a> (€1,497)<br><br></p>
+</div></td>
+<td headers="stub_1_1 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>425</p>
+</div></td>
+<td headers="stub_1_1 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€44,537</p>
+</div></td></tr>
+    <tr><th id="stub_1_2" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Freiheitliche Partei</p>
+</div></th>
+<td headers="stub_1_2 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #0056A2;"><div class="gt_from_md"><p>43</p>
+</div></td>
+<td headers="stub_1_2 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=1977684662509834">Herbert Kickl</a> (€15,497)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=119619487902955">Paul Dürnberger</a> (€3,056)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=494195290313">Udo Landbauer</a> (€2,794)<br><br></p>
+</div></td>
+<td headers="stub_1_2 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>486</p>
+</div></td>
+<td headers="stub_1_2 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€30,753</p>
+</div></td></tr>
+    <tr><th id="stub_1_3" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Sozialdemokratische Partei</p>
+</div></th>
+<td headers="stub_1_3 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #ce000c;"><div class="gt_from_md"><p>48</p>
+</div></td>
+<td headers="stub_1_3 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=658997160869183">Andreas Babler</a> (€8,717)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=1147311425310768">Bernhard Auinger</a> (€3,197)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=77393060080">Sozialdemokratische Partei Österreichs</a> (€2,346)<br><br></p>
+</div></td>
+<td headers="stub_1_3 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>674</p>
+</div></td>
+<td headers="stub_1_3 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€23,237</p>
+</div></td></tr>
+    <tr><th id="stub_1_4" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Das Neue Österreich und Liberales Forum</p>
+</div></th>
+<td headers="stub_1_4 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #CB1667;"><div class="gt_from_md"><p>17</p>
+</div></td>
+<td headers="stub_1_4 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=119936144856873">NEOS Salzburg</a> (€10,379)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=163958570141057">Das Neue Innsbruck</a> (€3,890)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=580791221952500">NEOS Wien</a> (€1,640)<br><br></p>
+</div></td>
+<td headers="stub_1_4 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>315</p>
+</div></td>
+<td headers="stub_1_4 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€21,143</p>
+</div></td></tr>
+    <tr><th id="stub_1_5" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Andere Parteien</p>
+</div></th>
+<td headers="stub_1_5 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #7911BD;"><div class="gt_from_md"><p>16</p>
+</div></td>
+<td headers="stub_1_5 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=2076636719240641">Salzburger Volkspartei - Salzburg Stadt</a> (€2,618)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=141549042372492">Jetzt - Innsbruck - Johannes Anzengruber</a> (€2,541)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=605431019800888">Christopher Drexler</a> (€1,217)<br><br></p>
+</div></td>
+<td headers="stub_1_5 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>243</p>
+</div></td>
+<td headers="stub_1_5 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€9,883</p>
+</div></td></tr>
+    <tr><th id="stub_1_6" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Regierung</p>
+</div></th>
+<td headers="stub_1_6 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #000000;"><div class="gt_from_md"><p>8</p>
+</div></td>
+<td headers="stub_1_6 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=174834299325391">Bundesministerium für Soziales, Gesundheit, Pflege und Konsumentenschutz</a> (€1,989)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=205710866133426">klimaaktiv</a> (€1,860)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=1553709981598439">Bundesministerium für Arbeit und Wirtschaft</a> (€1,138)<br><br></p>
+</div></td>
+<td headers="stub_1_6 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>179</p>
+</div></td>
+<td headers="stub_1_6 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€8,497</p>
+</div></td></tr>
+    <tr><th id="stub_1_7" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Österreichische Volkspartei</p>
+</div></th>
+<td headers="stub_1_7 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #63C3D0;"><div class="gt_from_md"><p>20</p>
+</div></td>
+<td headers="stub_1_7 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=1660071144087431">Karl Nehammer</a> (€1,267)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=15078244418">Die neue Volkspartei</a> (€1,072)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=247278438467681">Emma Mösl-Schaefer</a> (€361)<br><br></p>
+</div></td>
+<td headers="stub_1_7 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>139</p>
+</div></td>
+<td headers="stub_1_7 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€5,152</p>
+</div></td></tr>
+    <tr><th id="stub_1_8" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Kommunistische Partei</p>
+</div></th>
+<td headers="stub_1_8 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #AA0000;"><div class="gt_from_md"><p>9</p>
+</div></td>
+<td headers="stub_1_8 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=328437010251">KPÖ Steiermark</a> (€1,949)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=117791943721">Claudia Klimt-Weithaler</a> (€690)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=548091638575123">KPÖ PLUS Salzburg</a> (€654)<br><br></p>
+</div></td>
+<td headers="stub_1_8 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>153</p>
+</div></td>
+<td headers="stub_1_8 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€4,029</p>
+</div></td></tr>
+    <tr><th id="stub_1_9" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>MFG</p>
+</div></th>
+<td headers="stub_1_9 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #d32630;"><div class="gt_from_md"><p>6</p>
+</div></td>
+<td headers="stub_1_9 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=106014062002770">Joachim Aigner</a> (€554)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=111392511033485">𝑴𝑭𝑮 - 𝗠𝗲𝗻𝘀𝗰𝗵𝗲𝗻 𝗙𝗿𝗲𝗶𝗵𝗲𝗶𝘁 𝗚𝗿𝘂𝗻𝗱𝗿𝗲𝗰𝗵𝘁𝗲</a> (€472)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=112115411309958">Manuel Krautgartner</a> (€453)<br><br></p>
+</div></td>
+<td headers="stub_1_9 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>19</p>
+</div></td>
+<td headers="stub_1_9 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€2,171</p>
+</div></td></tr>
+    <tr><th id="stub_1_10" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Andere politische Seiten</p>
+</div></th>
+<td headers="stub_1_10 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #666666;"><div class="gt_from_md"><p>4</p>
+</div></td>
+<td headers="stub_1_10 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=101584146137351">FSG - Fraktion Sozialdemokratischer Gewerkschafter:innen i. d.  AK-Wien</a> (€1,154)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=179085222154531">ÖGB</a> (€428)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=128148947038593">Renate Anderl</a> (€399)<br><br></p>
+</div></td>
+<td headers="stub_1_10 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>61</p>
+</div></td>
+<td headers="stub_1_10 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€2,170</p>
+</div></td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>During this period, political parties spent a total of €47,695 and displayed 1083 advertisements on Meta.</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<div id="wmwqthfbjv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+#wmwqthfbjv table {
+  font-family: Chivo, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#wmwqthfbjv thead, #wmwqthfbjv tbody, #wmwqthfbjv tfoot, #wmwqthfbjv tr, #wmwqthfbjv td, #wmwqthfbjv th {
+  border-style: none;
+}
+
+#wmwqthfbjv p {
+  margin: 0;
+  padding: 0;
+}
+
+#wmwqthfbjv .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: 300;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: none;
+  border-top-width: 3px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#wmwqthfbjv .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#wmwqthfbjv .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#wmwqthfbjv .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#wmwqthfbjv .gt_heading {
+  background-color: #FFFFFF;
+  text-align: left;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#wmwqthfbjv .gt_bottom_border {
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wmwqthfbjv .gt_col_headings {
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #000000;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#wmwqthfbjv .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: normal;
+  text-transform: uppercase;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#wmwqthfbjv .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: normal;
+  text-transform: uppercase;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#wmwqthfbjv .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#wmwqthfbjv .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#wmwqthfbjv .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #000000;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#wmwqthfbjv .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#wmwqthfbjv .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #000000;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#wmwqthfbjv .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #000000;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #FFFFFF;
+  vertical-align: middle;
+}
+
+#wmwqthfbjv .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#wmwqthfbjv .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#wmwqthfbjv .gt_row {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#wmwqthfbjv .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-right-style: solid;
+  border-right-width: 0px;
+  border-right-color: #FFFFFF;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wmwqthfbjv .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#wmwqthfbjv .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#wmwqthfbjv .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#wmwqthfbjv .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wmwqthfbjv .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#wmwqthfbjv .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#wmwqthfbjv .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wmwqthfbjv .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wmwqthfbjv .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#wmwqthfbjv .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wmwqthfbjv .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#wmwqthfbjv .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wmwqthfbjv .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#wmwqthfbjv .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wmwqthfbjv .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#wmwqthfbjv .gt_sourcenote {
+  font-size: 12px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wmwqthfbjv .gt_left {
+  text-align: left;
+}
+
+#wmwqthfbjv .gt_center {
+  text-align: center;
+}
+
+#wmwqthfbjv .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#wmwqthfbjv .gt_font_normal {
+  font-weight: normal;
+}
+
+#wmwqthfbjv .gt_font_bold {
+  font-weight: bold;
+}
+
+#wmwqthfbjv .gt_font_italic {
+  font-style: italic;
+}
+
+#wmwqthfbjv .gt_super {
+  font-size: 65%;
+}
+
+#wmwqthfbjv .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#wmwqthfbjv .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#wmwqthfbjv .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#wmwqthfbjv .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#wmwqthfbjv .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#wmwqthfbjv .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#wmwqthfbjv .gt_indent_5 {
+  text-indent: 25px;
+}
+
+tbody tr:last-child {
+  border-bottom: 2px solid #ffffff00;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=""></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Number of Advertisers">Number of Advertisers</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Top Spenders">Top Spenders</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Number of Ads">Number of Ads</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Total Spend">Total Spend</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><th id="stub_1_1" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Die Grünen</p>
+</div></th>
+<td headers="stub_1_1 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #88B626;"><div class="gt_from_md"><p>28</p>
+</div></td>
+<td headers="stub_1_1 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=343858412705677">Anna Schiester</a> (€7,499)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=21759893033">Die Grünen – Die Grüne Alternative</a> (€7,446)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=1576711892460949">Sandra Krautwaschl</a> (€341)<br><br></p>
+</div></td>
+<td headers="stub_1_1 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>167</p>
+</div></td>
+<td headers="stub_1_1 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€18,129</p>
+</div></td></tr>
+    <tr><th id="stub_1_2" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Freiheitliche Partei</p>
+</div></th>
+<td headers="stub_1_2 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #0056A2;"><div class="gt_from_md"><p>30</p>
+</div></td>
+<td headers="stub_1_2 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=1977684662509834">Herbert Kickl</a> (€3,631)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=119619487902955">Paul Dürnberger</a> (€2,304)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=494195290313">Udo Landbauer</a> (€416)<br><br></p>
+</div></td>
+<td headers="stub_1_2 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>188</p>
+</div></td>
+<td headers="stub_1_2 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€9,935</p>
+</div></td></tr>
+    <tr><th id="stub_1_3" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Sozialdemokratische Partei</p>
+</div></th>
+<td headers="stub_1_3 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #ce000c;"><div class="gt_from_md"><p>30</p>
+</div></td>
+<td headers="stub_1_3 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=658997160869183">Andreas Babler</a> (€995)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=1147311425310768">Bernhard Auinger</a> (€854)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=806694216374998">Günther Sidl</a> (€326)<br><br></p>
+</div></td>
+<td headers="stub_1_3 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>264</p>
+</div></td>
+<td headers="stub_1_3 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€5,237</p>
+</div></td></tr>
+    <tr><th id="stub_1_4" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Das Neue Österreich und Liberales Forum</p>
+</div></th>
+<td headers="stub_1_4 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #CB1667;"><div class="gt_from_md"><p>9</p>
+</div></td>
+<td headers="stub_1_4 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=119936144856873">NEOS Salzburg</a> (€1,940)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=163958570141057">Das Neue Innsbruck</a> (€1,236)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=580791221952500">NEOS Wien</a> (€459)<br><br></p>
+</div></td>
+<td headers="stub_1_4 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>124</p>
+</div></td>
+<td headers="stub_1_4 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€4,573</p>
+</div></td></tr>
+    <tr><th id="stub_1_5" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Andere Parteien</p>
+</div></th>
+<td headers="stub_1_5 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #7911BD;"><div class="gt_from_md"><p>13</p>
+</div></td>
+<td headers="stub_1_5 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=141549042372492">Jetzt - Innsbruck - Johannes Anzengruber</a> (€1,073)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=2076636719240641">Salzburger Volkspartei - Salzburg Stadt</a> (€773)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=605431019800888">Christopher Drexler</a> (€301)<br><br></p>
+</div></td>
+<td headers="stub_1_5 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>105</p>
+</div></td>
+<td headers="stub_1_5 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€3,587</p>
+</div></td></tr>
+    <tr><th id="stub_1_6" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Österreichische Volkspartei</p>
+</div></th>
+<td headers="stub_1_6 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #63C3D0;"><div class="gt_from_md"><p>15</p>
+</div></td>
+<td headers="stub_1_6 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=15078244418">Die neue Volkspartei</a> (€286)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=450072481787387">ÖVP Piesendorf</a> (€198)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=592182520856682">ÖVP Bad Vigaun</a> (€190)<br><br></p>
+</div></td>
+<td headers="stub_1_6 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>104</p>
+</div></td>
+<td headers="stub_1_6 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€1,952</p>
+</div></td></tr>
+    <tr><th id="stub_1_7" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Kommunistische Partei</p>
+</div></th>
+<td headers="stub_1_7 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #AA0000;"><div class="gt_from_md"><p>7</p>
+</div></td>
+<td headers="stub_1_7 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=548091638575123">KPÖ PLUS Salzburg</a> (€650)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=328437010251">KPÖ Steiermark</a> (€418)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=117791943721">Claudia Klimt-Weithaler</a> (€255)<br><br></p>
+</div></td>
+<td headers="stub_1_7 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>61</p>
+</div></td>
+<td headers="stub_1_7 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€1,723</p>
+</div></td></tr>
+    <tr><th id="stub_1_8" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Regierung</p>
+</div></th>
+<td headers="stub_1_8 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #000000;"><div class="gt_from_md"><p>5</p>
+</div></td>
+<td headers="stub_1_8 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=105276629552333">Österreichisches Parlament</a> (€358)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=205710866133426">klimaaktiv</a> (€154)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=145146972927688">Wissensministerium</a> (€140)<br><br></p>
+</div></td>
+<td headers="stub_1_8 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>34</p>
+</div></td>
+<td headers="stub_1_8 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€876</p>
+</div></td></tr>
+    <tr><th id="stub_1_9" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Andere politische Seiten</p>
+</div></th>
+<td headers="stub_1_9 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #666666;"><div class="gt_from_md"><p>4</p>
+</div></td>
+<td headers="stub_1_9 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=101584146137351">FSG - Fraktion Sozialdemokratischer Gewerkschafter:innen i. d.  AK-Wien</a> (€472)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=179085222154531">ÖGB</a> (€179)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=128148947038593">Renate Anderl</a> (€100)<br><br></p>
+</div></td>
+<td headers="stub_1_9 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>27</p>
+</div></td>
+<td headers="stub_1_9 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€851</p>
+</div></td></tr>
+    <tr><th id="stub_1_10" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>MFG</p>
+</div></th>
+<td headers="stub_1_10 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #d32630;"><div class="gt_from_md"><p>5</p>
+</div></td>
+<td headers="stub_1_10 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=113129780982106">MFG Salzburg - Menschen Freiheit Grundrechte</a> (€318)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=106014062002770">Joachim Aigner</a> (€168)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=AT&amp;view_all_page_id=111639237974851">Dagmar Häusler</a> (€124)<br><br></p>
+</div></td>
+<td headers="stub_1_10 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>9</p>
+</div></td>
+<td headers="stub_1_10 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€832</p>
+</div></td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section id="over-time" class="level3">
+<h3 class="anchored" data-anchor-id="over-time">Over Time</h3>
+<div class="cell">
+<div class="cell-output-display">
+
+<div class="highchart html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-a8d334b8c692c455a1fa" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-a8d334b8c692c455a1fa">{"x":{"hc_opts":{"chart":{"reflow":true},"title":{"text":null},"yAxis":{"title":{"text":"Daily Spend"},"type":"linear"},"credits":{"enabled":false},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":true},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"area":{"stacking":"normal","lineWidth":1,"marker":{"enabled":false}}},"series":[{"name":"Andere Parteien","data":[{"date":"2023-12-31","party":"Andere Parteien","amount_spent":248212,"Daily Spend":null,"short_name":"And","colors":"#7911BD","x":1703980800000,"y":null,"fill":"#7911BD"},{"date":"2024-01-01","party":"Andere Parteien","amount_spent":248530,"Daily Spend":318,"short_name":"And","colors":"#7911BD","x":1704067200000,"y":318,"fill":"#7911BD"},{"date":"2024-01-02","party":"Andere Parteien","amount_spent":248985,"Daily Spend":455,"short_name":"And","colors":"#7911BD","x":1704153600000,"y":455,"fill":"#7911BD"},{"date":"2024-01-03","party":"Andere Parteien","amount_spent":249438,"Daily Spend":453,"short_name":"And","colors":"#7911BD","x":1704240000000,"y":453,"fill":"#7911BD"},{"date":"2024-01-04","party":"Andere Parteien","amount_spent":249926,"Daily Spend":488,"short_name":"And","colors":"#7911BD","x":1704326400000,"y":488,"fill":"#7911BD"},{"date":"2024-01-05","party":"Andere Parteien","amount_spent":250459,"Daily Spend":533,"short_name":"And","colors":"#7911BD","x":1704412800000,"y":533,"fill":"#7911BD"},{"date":"2024-01-06","party":"Andere Parteien","amount_spent":250900,"Daily Spend":441,"short_name":"And","colors":"#7911BD","x":1704499200000,"y":441,"fill":"#7911BD"},{"date":"2024-01-07","party":"Andere Parteien","amount_spent":251196,"Daily Spend":296,"short_name":"And","colors":"#7911BD","x":1704585600000,"y":296,"fill":"#7911BD"},{"date":"2024-01-08","party":"Andere Parteien","amount_spent":251467,"Daily Spend":271,"short_name":"And","colors":"#7911BD","x":1704672000000,"y":271,"fill":"#7911BD"},{"date":"2024-01-09","party":"Andere Parteien","amount_spent":251705,"Daily Spend":238,"short_name":"And","colors":"#7911BD","x":1704758400000,"y":238,"fill":"#7911BD"},{"date":"2024-01-10","party":"Andere Parteien","amount_spent":251899,"Daily Spend":194,"short_name":"And","colors":"#7911BD","x":1704844800000,"y":194,"fill":"#7911BD"},{"date":"2024-01-11","party":"Andere Parteien","amount_spent":252111,"Daily Spend":212,"short_name":"And","colors":"#7911BD","x":1704931200000,"y":212,"fill":"#7911BD"},{"date":"2024-01-12","party":"Andere Parteien","amount_spent":252383,"Daily Spend":272,"short_name":"And","colors":"#7911BD","x":1705017600000,"y":272,"fill":"#7911BD"},{"date":"2024-01-13","party":"Andere Parteien","amount_spent":252662,"Daily Spend":279,"short_name":"And","colors":"#7911BD","x":1705104000000,"y":279,"fill":"#7911BD"},{"date":"2024-01-14","party":"Andere Parteien","amount_spent":252977,"Daily Spend":315,"short_name":"And","colors":"#7911BD","x":1705190400000,"y":315,"fill":"#7911BD"},{"date":"2024-01-15","party":"Andere Parteien","amount_spent":253257,"Daily Spend":280,"short_name":"And","colors":"#7911BD","x":1705276800000,"y":280,"fill":"#7911BD"},{"date":"2024-01-16","party":"Andere Parteien","amount_spent":253627,"Daily Spend":370,"short_name":"And","colors":"#7911BD","x":1705363200000,"y":370,"fill":"#7911BD"},{"date":"2024-01-17","party":"Andere Parteien","amount_spent":253999,"Daily Spend":372,"short_name":"And","colors":"#7911BD","x":1705449600000,"y":372,"fill":"#7911BD"},{"date":"2024-01-18","party":"Andere Parteien","amount_spent":254348,"Daily Spend":349,"short_name":"And","colors":"#7911BD","x":1705536000000,"y":349,"fill":"#7911BD"},{"date":"2024-01-19","party":"Andere Parteien","amount_spent":254610,"Daily Spend":262,"short_name":"And","colors":"#7911BD","x":1705622400000,"y":262,"fill":"#7911BD"},{"date":"2024-01-20","party":"Andere Parteien","amount_spent":254877,"Daily Spend":267,"short_name":"And","colors":"#7911BD","x":1705708800000,"y":267,"fill":"#7911BD"},{"date":"2024-01-21","party":"Andere Parteien","amount_spent":255139,"Daily Spend":262,"short_name":"And","colors":"#7911BD","x":1705795200000,"y":262,"fill":"#7911BD"},{"date":"2024-01-22","party":"Andere Parteien","amount_spent":255382,"Daily Spend":243,"short_name":"And","colors":"#7911BD","x":1705881600000,"y":243,"fill":"#7911BD"},{"date":"2024-01-23","party":"Andere Parteien","amount_spent":255657,"Daily Spend":275,"short_name":"And","colors":"#7911BD","x":1705968000000,"y":275,"fill":"#7911BD"},{"date":"2024-01-24","party":"Andere Parteien","amount_spent":255952,"Daily Spend":295,"short_name":"And","colors":"#7911BD","x":1706054400000,"y":295,"fill":"#7911BD"},{"date":"2024-01-25","party":"Andere Parteien","amount_spent":256216,"Daily Spend":264,"short_name":"And","colors":"#7911BD","x":1706140800000,"y":264,"fill":"#7911BD"},{"date":"2024-01-26","party":"Andere Parteien","amount_spent":256441,"Daily Spend":225,"short_name":"And","colors":"#7911BD","x":1706227200000,"y":225,"fill":"#7911BD"},{"date":"2024-01-27","party":"Andere Parteien","amount_spent":256752,"Daily Spend":311,"short_name":"And","colors":"#7911BD","x":1706313600000,"y":311,"fill":"#7911BD"},{"date":"2024-01-28","party":"Andere Parteien","amount_spent":257056,"Daily Spend":304,"short_name":"And","colors":"#7911BD","x":1706400000000,"y":304,"fill":"#7911BD"},{"date":"2024-01-29","party":"Andere Parteien","amount_spent":257339,"Daily Spend":283,"short_name":"And","colors":"#7911BD","x":1706486400000,"y":283,"fill":"#7911BD"},{"date":"2024-01-30","party":"Andere Parteien","amount_spent":257641,"Daily Spend":302,"short_name":"And","colors":"#7911BD","x":1706572800000,"y":302,"fill":"#7911BD"},{"date":"2024-01-31","party":"Andere Parteien","amount_spent":257967,"Daily Spend":326,"short_name":"And","colors":"#7911BD","x":1706659200000,"y":326,"fill":"#7911BD"},{"date":"2024-02-01","party":"Andere Parteien","amount_spent":258252,"Daily Spend":285,"short_name":"And","colors":"#7911BD","x":1706745600000,"y":285,"fill":"#7911BD"},{"date":"2024-02-02","party":"Andere Parteien","amount_spent":258569,"Daily Spend":317,"short_name":"And","colors":"#7911BD","x":1706832000000,"y":317,"fill":"#7911BD"},{"date":"2024-02-03","party":"Andere Parteien","amount_spent":259009,"Daily Spend":440,"short_name":"And","colors":"#7911BD","x":1706918400000,"y":440,"fill":"#7911BD"},{"date":"2024-02-04","party":"Andere Parteien","amount_spent":259416,"Daily Spend":407,"short_name":"And","colors":"#7911BD","x":1707004800000,"y":407,"fill":"#7911BD"},{"date":"2024-02-05","party":"Andere Parteien","amount_spent":259734,"Daily Spend":318,"short_name":"And","colors":"#7911BD","x":1707091200000,"y":318,"fill":"#7911BD"},{"date":"2024-02-06","party":"Andere Parteien","amount_spent":260054,"Daily Spend":320,"short_name":"And","colors":"#7911BD","x":1707177600000,"y":320,"fill":"#7911BD"},{"date":"2024-02-07","party":"Andere Parteien","amount_spent":260323,"Daily Spend":269,"short_name":"And","colors":"#7911BD","x":1707264000000,"y":269,"fill":"#7911BD"},{"date":"2024-02-08","party":"Andere Parteien","amount_spent":260562,"Daily Spend":239,"short_name":"And","colors":"#7911BD","x":1707350400000,"y":239,"fill":"#7911BD"},{"date":"2024-02-09","party":"Andere Parteien","amount_spent":260760,"Daily Spend":198,"short_name":"And","colors":"#7911BD","x":1707436800000,"y":198,"fill":"#7911BD"},{"date":"2024-02-10","party":"Andere Parteien","amount_spent":260954,"Daily Spend":194,"short_name":"And","colors":"#7911BD","x":1707523200000,"y":194,"fill":"#7911BD"},{"date":"2024-02-11","party":"Andere Parteien","amount_spent":261156,"Daily Spend":202,"short_name":"And","colors":"#7911BD","x":1707609600000,"y":202,"fill":"#7911BD"},{"date":"2024-02-12","party":"Andere Parteien","amount_spent":261350,"Daily Spend":194,"short_name":"And","colors":"#7911BD","x":1707696000000,"y":194,"fill":"#7911BD"},{"date":"2024-02-13","party":"Andere Parteien","amount_spent":261522,"Daily Spend":172,"short_name":"And","colors":"#7911BD","x":1707782400000,"y":172,"fill":"#7911BD"},{"date":"2024-02-14","party":"Andere Parteien","amount_spent":261737,"Daily Spend":215,"short_name":"And","colors":"#7911BD","x":1707868800000,"y":215,"fill":"#7911BD"},{"date":"2024-02-15","party":"Andere Parteien","amount_spent":261976,"Daily Spend":239,"short_name":"And","colors":"#7911BD","x":1707955200000,"y":239,"fill":"#7911BD"},{"date":"2024-02-16","party":"Andere Parteien","amount_spent":262193,"Daily Spend":217,"short_name":"And","colors":"#7911BD","x":1708041600000,"y":217,"fill":"#7911BD"},{"date":"2024-02-17","party":"Andere Parteien","amount_spent":262458,"Daily Spend":265,"short_name":"And","colors":"#7911BD","x":1708128000000,"y":265,"fill":"#7911BD"},{"date":"2024-02-18","party":"Andere Parteien","amount_spent":262740,"Daily Spend":282,"short_name":"And","colors":"#7911BD","x":1708214400000,"y":282,"fill":"#7911BD"},{"date":"2024-02-19","party":"Andere Parteien","amount_spent":263007,"Daily Spend":267,"short_name":"And","colors":"#7911BD","x":1708300800000,"y":267,"fill":"#7911BD"},{"date":"2024-02-20","party":"Andere Parteien","amount_spent":263289,"Daily Spend":282,"short_name":"And","colors":"#7911BD","x":1708387200000,"y":282,"fill":"#7911BD"},{"date":"2024-02-21","party":"Andere Parteien","amount_spent":263533,"Daily Spend":244,"short_name":"And","colors":"#7911BD","x":1708473600000,"y":244,"fill":"#7911BD"},{"date":"2024-02-22","party":"Andere Parteien","amount_spent":263928,"Daily Spend":395,"short_name":"And","colors":"#7911BD","x":1708560000000,"y":395,"fill":"#7911BD"},{"date":"2024-02-23","party":"Andere Parteien","amount_spent":264280,"Daily Spend":352,"short_name":"And","colors":"#7911BD","x":1708646400000,"y":352,"fill":"#7911BD"},{"date":"2024-02-24","party":"Andere Parteien","amount_spent":264632,"Daily Spend":352,"short_name":"And","colors":"#7911BD","x":1708732800000,"y":352,"fill":"#7911BD"},{"date":"2024-02-25","party":"Andere Parteien","amount_spent":264973,"Daily Spend":341,"short_name":"And","colors":"#7911BD","x":1708819200000,"y":341,"fill":"#7911BD"},{"date":"2024-02-26","party":"Andere Parteien","amount_spent":265282,"Daily Spend":309,"short_name":"And","colors":"#7911BD","x":1708905600000,"y":309,"fill":"#7911BD"},{"date":"2024-02-27","party":"Andere Parteien","amount_spent":265595,"Daily Spend":313,"short_name":"And","colors":"#7911BD","x":1708992000000,"y":313,"fill":"#7911BD"},{"date":"2024-02-28","party":"Andere Parteien","amount_spent":265902,"Daily Spend":307,"short_name":"And","colors":"#7911BD","x":1709078400000,"y":307,"fill":"#7911BD"},{"date":"2024-02-29","party":"Andere Parteien","amount_spent":266217,"Daily Spend":315,"short_name":"And","colors":"#7911BD","x":1709164800000,"y":315,"fill":"#7911BD"},{"date":"2024-03-01","party":"Andere Parteien","amount_spent":266537,"Daily Spend":320,"short_name":"And","colors":"#7911BD","x":1709251200000,"y":320,"fill":"#7911BD"},{"date":"2024-03-02","party":"Andere Parteien","amount_spent":267032,"Daily Spend":495,"short_name":"And","colors":"#7911BD","x":1709337600000,"y":495,"fill":"#7911BD"},{"date":"2024-03-03","party":"Andere Parteien","amount_spent":267457,"Daily Spend":425,"short_name":"And","colors":"#7911BD","x":1709424000000,"y":425,"fill":"#7911BD"},{"date":"2024-03-04","party":"Andere Parteien","amount_spent":267849,"Daily Spend":392,"short_name":"And","colors":"#7911BD","x":1709510400000,"y":392,"fill":"#7911BD"},{"date":"2024-03-05","party":"Andere Parteien","amount_spent":268272,"Daily Spend":423,"short_name":"And","colors":"#7911BD","x":1709596800000,"y":423,"fill":"#7911BD"},{"date":"2024-03-06","party":"Andere Parteien","amount_spent":268822,"Daily Spend":550,"short_name":"And","colors":"#7911BD","x":1709683200000,"y":550,"fill":"#7911BD"},{"date":"2024-03-07","party":"Andere Parteien","amount_spent":269387,"Daily Spend":565,"short_name":"And","colors":"#7911BD","x":1709769600000,"y":565,"fill":"#7911BD"},{"date":"2024-03-08","party":"Andere Parteien","amount_spent":269900,"Daily Spend":513,"short_name":"And","colors":"#7911BD","x":1709856000000,"y":513,"fill":"#7911BD"}],"type":"area"},{"name":"Andere politische Seiten","data":[{"date":"2023-12-31","party":"Andere politische Seiten","amount_spent":153768,"Daily Spend":null,"short_name":"Oth","colors":"#666666","x":1703980800000,"y":null,"fill":"#666666"},{"date":"2024-01-01","party":"Andere politische Seiten","amount_spent":153780,"Daily Spend":12,"short_name":"Oth","colors":"#666666","x":1704067200000,"y":12,"fill":"#666666"},{"date":"2024-01-02","party":"Andere politische Seiten","amount_spent":153789,"Daily Spend":9,"short_name":"Oth","colors":"#666666","x":1704153600000,"y":9,"fill":"#666666"},{"date":"2024-01-03","party":"Andere politische Seiten","amount_spent":153805,"Daily Spend":16,"short_name":"Oth","colors":"#666666","x":1704240000000,"y":16,"fill":"#666666"},{"date":"2024-01-04","party":"Andere politische Seiten","amount_spent":153821,"Daily Spend":16,"short_name":"Oth","colors":"#666666","x":1704326400000,"y":16,"fill":"#666666"},{"date":"2024-01-05","party":"Andere politische Seiten","amount_spent":153841,"Daily Spend":20,"short_name":"Oth","colors":"#666666","x":1704412800000,"y":20,"fill":"#666666"},{"date":"2024-01-06","party":"Andere politische Seiten","amount_spent":153861,"Daily Spend":20,"short_name":"Oth","colors":"#666666","x":1704499200000,"y":20,"fill":"#666666"},{"date":"2024-01-07","party":"Andere politische Seiten","amount_spent":153882,"Daily Spend":21,"short_name":"Oth","colors":"#666666","x":1704585600000,"y":21,"fill":"#666666"},{"date":"2024-01-08","party":"Andere politische Seiten","amount_spent":153907,"Daily Spend":25,"short_name":"Oth","colors":"#666666","x":1704672000000,"y":25,"fill":"#666666"},{"date":"2024-01-09","party":"Andere politische Seiten","amount_spent":153955,"Daily Spend":48,"short_name":"Oth","colors":"#666666","x":1704758400000,"y":48,"fill":"#666666"},{"date":"2024-01-10","party":"Andere politische Seiten","amount_spent":154015,"Daily Spend":60,"short_name":"Oth","colors":"#666666","x":1704844800000,"y":60,"fill":"#666666"},{"date":"2024-01-11","party":"Andere politische Seiten","amount_spent":154084,"Daily Spend":69,"short_name":"Oth","colors":"#666666","x":1704931200000,"y":69,"fill":"#666666"},{"date":"2024-01-12","party":"Andere politische Seiten","amount_spent":154157,"Daily Spend":73,"short_name":"Oth","colors":"#666666","x":1705017600000,"y":73,"fill":"#666666"},{"date":"2024-01-13","party":"Andere politische Seiten","amount_spent":154225,"Daily Spend":68,"short_name":"Oth","colors":"#666666","x":1705104000000,"y":68,"fill":"#666666"},{"date":"2024-01-14","party":"Andere politische Seiten","amount_spent":154294,"Daily Spend":69,"short_name":"Oth","colors":"#666666","x":1705190400000,"y":69,"fill":"#666666"},{"date":"2024-01-15","party":"Andere politische Seiten","amount_spent":154357,"Daily Spend":63,"short_name":"Oth","colors":"#666666","x":1705276800000,"y":63,"fill":"#666666"},{"date":"2024-01-16","party":"Andere politische Seiten","amount_spent":154424,"Daily Spend":67,"short_name":"Oth","colors":"#666666","x":1705363200000,"y":67,"fill":"#666666"},{"date":"2024-01-17","party":"Andere politische Seiten","amount_spent":154485,"Daily Spend":61,"short_name":"Oth","colors":"#666666","x":1705449600000,"y":61,"fill":"#666666"},{"date":"2024-01-18","party":"Andere politische Seiten","amount_spent":154543,"Daily Spend":58,"short_name":"Oth","colors":"#666666","x":1705536000000,"y":58,"fill":"#666666"},{"date":"2024-01-19","party":"Andere politische Seiten","amount_spent":154608,"Daily Spend":65,"short_name":"Oth","colors":"#666666","x":1705622400000,"y":65,"fill":"#666666"},{"date":"2024-01-20","party":"Andere politische Seiten","amount_spent":154672,"Daily Spend":64,"short_name":"Oth","colors":"#666666","x":1705708800000,"y":64,"fill":"#666666"},{"date":"2024-01-21","party":"Andere politische Seiten","amount_spent":154735,"Daily Spend":63,"short_name":"Oth","colors":"#666666","x":1705795200000,"y":63,"fill":"#666666"},{"date":"2024-01-22","party":"Andere politische Seiten","amount_spent":154807,"Daily Spend":72,"short_name":"Oth","colors":"#666666","x":1705881600000,"y":72,"fill":"#666666"},{"date":"2024-01-23","party":"Andere politische Seiten","amount_spent":154896,"Daily Spend":89,"short_name":"Oth","colors":"#666666","x":1705968000000,"y":89,"fill":"#666666"},{"date":"2024-01-24","party":"Andere politische Seiten","amount_spent":154971,"Daily Spend":75,"short_name":"Oth","colors":"#666666","x":1706054400000,"y":75,"fill":"#666666"},{"date":"2024-01-25","party":"Andere politische Seiten","amount_spent":155038,"Daily Spend":67,"short_name":"Oth","colors":"#666666","x":1706140800000,"y":67,"fill":"#666666"},{"date":"2024-01-26","party":"Andere politische Seiten","amount_spent":155110,"Daily Spend":72,"short_name":"Oth","colors":"#666666","x":1706227200000,"y":72,"fill":"#666666"},{"date":"2024-01-27","party":"Andere politische Seiten","amount_spent":155175,"Daily Spend":65,"short_name":"Oth","colors":"#666666","x":1706313600000,"y":65,"fill":"#666666"},{"date":"2024-01-28","party":"Andere politische Seiten","amount_spent":155246,"Daily Spend":71,"short_name":"Oth","colors":"#666666","x":1706400000000,"y":71,"fill":"#666666"},{"date":"2024-01-29","party":"Andere politische Seiten","amount_spent":155314,"Daily Spend":68,"short_name":"Oth","colors":"#666666","x":1706486400000,"y":68,"fill":"#666666"},{"date":"2024-01-30","party":"Andere politische Seiten","amount_spent":155369,"Daily Spend":55,"short_name":"Oth","colors":"#666666","x":1706572800000,"y":55,"fill":"#666666"},{"date":"2024-01-31","party":"Andere politische Seiten","amount_spent":155405,"Daily Spend":36,"short_name":"Oth","colors":"#666666","x":1706659200000,"y":36,"fill":"#666666"},{"date":"2024-02-01","party":"Andere politische Seiten","amount_spent":155445,"Daily Spend":40,"short_name":"Oth","colors":"#666666","x":1706745600000,"y":40,"fill":"#666666"},{"date":"2024-02-02","party":"Andere politische Seiten","amount_spent":155493,"Daily Spend":48,"short_name":"Oth","colors":"#666666","x":1706832000000,"y":48,"fill":"#666666"},{"date":"2024-02-03","party":"Andere politische Seiten","amount_spent":155552,"Daily Spend":59,"short_name":"Oth","colors":"#666666","x":1706918400000,"y":59,"fill":"#666666"},{"date":"2024-02-04","party":"Andere politische Seiten","amount_spent":155615,"Daily Spend":63,"short_name":"Oth","colors":"#666666","x":1707004800000,"y":63,"fill":"#666666"},{"date":"2024-02-05","party":"Andere politische Seiten","amount_spent":155685,"Daily Spend":70,"short_name":"Oth","colors":"#666666","x":1707091200000,"y":70,"fill":"#666666"},{"date":"2024-02-06","party":"Andere politische Seiten","amount_spent":155781,"Daily Spend":96,"short_name":"Oth","colors":"#666666","x":1707177600000,"y":96,"fill":"#666666"},{"date":"2024-02-07","party":"Andere politische Seiten","amount_spent":155870,"Daily Spend":89,"short_name":"Oth","colors":"#666666","x":1707264000000,"y":89,"fill":"#666666"},{"date":"2024-02-08","party":"Andere politische Seiten","amount_spent":155971,"Daily Spend":101,"short_name":"Oth","colors":"#666666","x":1707350400000,"y":101,"fill":"#666666"},{"date":"2024-02-09","party":"Andere politische Seiten","amount_spent":156051,"Daily Spend":80,"short_name":"Oth","colors":"#666666","x":1707436800000,"y":80,"fill":"#666666"},{"date":"2024-02-10","party":"Andere politische Seiten","amount_spent":156093,"Daily Spend":42,"short_name":"Oth","colors":"#666666","x":1707523200000,"y":42,"fill":"#666666"},{"date":"2024-02-11","party":"Andere politische Seiten","amount_spent":156130,"Daily Spend":37,"short_name":"Oth","colors":"#666666","x":1707609600000,"y":37,"fill":"#666666"},{"date":"2024-02-12","party":"Andere politische Seiten","amount_spent":156169,"Daily Spend":39,"short_name":"Oth","colors":"#666666","x":1707696000000,"y":39,"fill":"#666666"},{"date":"2024-02-13","party":"Andere politische Seiten","amount_spent":156201,"Daily Spend":32,"short_name":"Oth","colors":"#666666","x":1707782400000,"y":32,"fill":"#666666"},{"date":"2024-02-14","party":"Andere politische Seiten","amount_spent":156235,"Daily Spend":34,"short_name":"Oth","colors":"#666666","x":1707868800000,"y":34,"fill":"#666666"},{"date":"2024-02-15","party":"Andere politische Seiten","amount_spent":156276,"Daily Spend":41,"short_name":"Oth","colors":"#666666","x":1707955200000,"y":41,"fill":"#666666"},{"date":"2024-02-16","party":"Andere politische Seiten","amount_spent":156312,"Daily Spend":36,"short_name":"Oth","colors":"#666666","x":1708041600000,"y":36,"fill":"#666666"},{"date":"2024-02-17","party":"Andere politische Seiten","amount_spent":156345,"Daily Spend":33,"short_name":"Oth","colors":"#666666","x":1708128000000,"y":33,"fill":"#666666"},{"date":"2024-02-18","party":"Andere politische Seiten","amount_spent":156364,"Daily Spend":19,"short_name":"Oth","colors":"#666666","x":1708214400000,"y":19,"fill":"#666666"},{"date":"2024-02-19","party":"Andere politische Seiten","amount_spent":156371,"Daily Spend":7,"short_name":"Oth","colors":"#666666","x":1708300800000,"y":7,"fill":"#666666"},{"date":"2024-02-20","party":"Andere politische Seiten","amount_spent":156403,"Daily Spend":32,"short_name":"Oth","colors":"#666666","x":1708387200000,"y":32,"fill":"#666666"},{"date":"2024-02-21","party":"Andere politische Seiten","amount_spent":156446,"Daily Spend":43,"short_name":"Oth","colors":"#666666","x":1708473600000,"y":43,"fill":"#666666"},{"date":"2024-02-22","party":"Andere politische Seiten","amount_spent":156510,"Daily Spend":64,"short_name":"Oth","colors":"#666666","x":1708560000000,"y":64,"fill":"#666666"},{"date":"2024-02-23","party":"Andere politische Seiten","amount_spent":156575,"Daily Spend":65,"short_name":"Oth","colors":"#666666","x":1708646400000,"y":65,"fill":"#666666"},{"date":"2024-02-24","party":"Andere politische Seiten","amount_spent":156624,"Daily Spend":49,"short_name":"Oth","colors":"#666666","x":1708732800000,"y":49,"fill":"#666666"},{"date":"2024-02-25","party":"Andere politische Seiten","amount_spent":156668,"Daily Spend":44,"short_name":"Oth","colors":"#666666","x":1708819200000,"y":44,"fill":"#666666"},{"date":"2024-02-26","party":"Andere politische Seiten","amount_spent":156720,"Daily Spend":52,"short_name":"Oth","colors":"#666666","x":1708905600000,"y":52,"fill":"#666666"},{"date":"2024-02-27","party":"Andere politische Seiten","amount_spent":156792,"Daily Spend":72,"short_name":"Oth","colors":"#666666","x":1708992000000,"y":72,"fill":"#666666"},{"date":"2024-02-28","party":"Andere politische Seiten","amount_spent":156901,"Daily Spend":109,"short_name":"Oth","colors":"#666666","x":1709078400000,"y":109,"fill":"#666666"},{"date":"2024-02-29","party":"Andere politische Seiten","amount_spent":157110,"Daily Spend":209,"short_name":"Oth","colors":"#666666","x":1709164800000,"y":209,"fill":"#666666"},{"date":"2024-03-01","party":"Andere politische Seiten","amount_spent":157266,"Daily Spend":156,"short_name":"Oth","colors":"#666666","x":1709251200000,"y":156,"fill":"#666666"},{"date":"2024-03-02","party":"Andere politische Seiten","amount_spent":157387,"Daily Spend":121,"short_name":"Oth","colors":"#666666","x":1709337600000,"y":121,"fill":"#666666"},{"date":"2024-03-03","party":"Andere politische Seiten","amount_spent":157505,"Daily Spend":118,"short_name":"Oth","colors":"#666666","x":1709424000000,"y":118,"fill":"#666666"},{"date":"2024-03-04","party":"Andere politische Seiten","amount_spent":157585,"Daily Spend":80,"short_name":"Oth","colors":"#666666","x":1709510400000,"y":80,"fill":"#666666"},{"date":"2024-03-05","party":"Andere politische Seiten","amount_spent":157712,"Daily Spend":127,"short_name":"Oth","colors":"#666666","x":1709596800000,"y":127,"fill":"#666666"},{"date":"2024-03-06","party":"Andere politische Seiten","amount_spent":157819,"Daily Spend":107,"short_name":"Oth","colors":"#666666","x":1709683200000,"y":107,"fill":"#666666"},{"date":"2024-03-07","party":"Andere politische Seiten","amount_spent":157928,"Daily Spend":109,"short_name":"Oth","colors":"#666666","x":1709769600000,"y":109,"fill":"#666666"},{"date":"2024-03-08","party":"Andere politische Seiten","amount_spent":158040,"Daily Spend":112,"short_name":"Oth","colors":"#666666","x":1709856000000,"y":112,"fill":"#666666"}],"type":"area"},{"name":"Das Neue Österreich und Liberales Forum","data":[{"date":"2023-12-31","party":"Das Neue Österreich und Liberales Forum","amount_spent":630346,"Daily Spend":null,"short_name":"NEOS","colors":"#CB1667","x":1703980800000,"y":null,"fill":"#CB1667"},{"date":"2024-01-01","party":"Das Neue Österreich und Liberales Forum","amount_spent":630426,"Daily Spend":80,"short_name":"NEOS","colors":"#CB1667","x":1704067200000,"y":80,"fill":"#CB1667"},{"date":"2024-01-02","party":"Das Neue Österreich und Liberales Forum","amount_spent":630508,"Daily Spend":82,"short_name":"NEOS","colors":"#CB1667","x":1704153600000,"y":82,"fill":"#CB1667"},{"date":"2024-01-03","party":"Das Neue Österreich und Liberales Forum","amount_spent":630647,"Daily Spend":139,"short_name":"NEOS","colors":"#CB1667","x":1704240000000,"y":139,"fill":"#CB1667"},{"date":"2024-01-04","party":"Das Neue Österreich und Liberales Forum","amount_spent":630813,"Daily Spend":166,"short_name":"NEOS","colors":"#CB1667","x":1704326400000,"y":166,"fill":"#CB1667"},{"date":"2024-01-05","party":"Das Neue Österreich und Liberales Forum","amount_spent":630981,"Daily Spend":168,"short_name":"NEOS","colors":"#CB1667","x":1704412800000,"y":168,"fill":"#CB1667"},{"date":"2024-01-06","party":"Das Neue Österreich und Liberales Forum","amount_spent":631159,"Daily Spend":178,"short_name":"NEOS","colors":"#CB1667","x":1704499200000,"y":178,"fill":"#CB1667"},{"date":"2024-01-07","party":"Das Neue Österreich und Liberales Forum","amount_spent":631328,"Daily Spend":169,"short_name":"NEOS","colors":"#CB1667","x":1704585600000,"y":169,"fill":"#CB1667"},{"date":"2024-01-08","party":"Das Neue Österreich und Liberales Forum","amount_spent":631463,"Daily Spend":135,"short_name":"NEOS","colors":"#CB1667","x":1704672000000,"y":135,"fill":"#CB1667"},{"date":"2024-01-09","party":"Das Neue Österreich und Liberales Forum","amount_spent":631642,"Daily Spend":179,"short_name":"NEOS","colors":"#CB1667","x":1704758400000,"y":179,"fill":"#CB1667"},{"date":"2024-01-10","party":"Das Neue Österreich und Liberales Forum","amount_spent":631863,"Daily Spend":221,"short_name":"NEOS","colors":"#CB1667","x":1704844800000,"y":221,"fill":"#CB1667"},{"date":"2024-01-11","party":"Das Neue Österreich und Liberales Forum","amount_spent":632094,"Daily Spend":231,"short_name":"NEOS","colors":"#CB1667","x":1704931200000,"y":231,"fill":"#CB1667"},{"date":"2024-01-12","party":"Das Neue Österreich und Liberales Forum","amount_spent":632319,"Daily Spend":225,"short_name":"NEOS","colors":"#CB1667","x":1705017600000,"y":225,"fill":"#CB1667"},{"date":"2024-01-13","party":"Das Neue Österreich und Liberales Forum","amount_spent":632456,"Daily Spend":137,"short_name":"NEOS","colors":"#CB1667","x":1705104000000,"y":137,"fill":"#CB1667"},{"date":"2024-01-14","party":"Das Neue Österreich und Liberales Forum","amount_spent":632682,"Daily Spend":226,"short_name":"NEOS","colors":"#CB1667","x":1705190400000,"y":226,"fill":"#CB1667"},{"date":"2024-01-15","party":"Das Neue Österreich und Liberales Forum","amount_spent":632803,"Daily Spend":121,"short_name":"NEOS","colors":"#CB1667","x":1705276800000,"y":121,"fill":"#CB1667"},{"date":"2024-01-16","party":"Das Neue Österreich und Liberales Forum","amount_spent":633153,"Daily Spend":350,"short_name":"NEOS","colors":"#CB1667","x":1705363200000,"y":350,"fill":"#CB1667"},{"date":"2024-01-17","party":"Das Neue Österreich und Liberales Forum","amount_spent":633554,"Daily Spend":401,"short_name":"NEOS","colors":"#CB1667","x":1705449600000,"y":401,"fill":"#CB1667"},{"date":"2024-01-18","party":"Das Neue Österreich und Liberales Forum","amount_spent":633986,"Daily Spend":432,"short_name":"NEOS","colors":"#CB1667","x":1705536000000,"y":432,"fill":"#CB1667"},{"date":"2024-01-19","party":"Das Neue Österreich und Liberales Forum","amount_spent":634446,"Daily Spend":460,"short_name":"NEOS","colors":"#CB1667","x":1705622400000,"y":460,"fill":"#CB1667"},{"date":"2024-01-20","party":"Das Neue Österreich und Liberales Forum","amount_spent":635031,"Daily Spend":585,"short_name":"NEOS","colors":"#CB1667","x":1705708800000,"y":585,"fill":"#CB1667"},{"date":"2024-01-21","party":"Das Neue Österreich und Liberales Forum","amount_spent":635481,"Daily Spend":450,"short_name":"NEOS","colors":"#CB1667","x":1705795200000,"y":450,"fill":"#CB1667"},{"date":"2024-01-22","party":"Das Neue Österreich und Liberales Forum","amount_spent":635862,"Daily Spend":381,"short_name":"NEOS","colors":"#CB1667","x":1705881600000,"y":381,"fill":"#CB1667"},{"date":"2024-01-23","party":"Das Neue Österreich und Liberales Forum","amount_spent":636211,"Daily Spend":349,"short_name":"NEOS","colors":"#CB1667","x":1705968000000,"y":349,"fill":"#CB1667"},{"date":"2024-01-24","party":"Das Neue Österreich und Liberales Forum","amount_spent":636465,"Daily Spend":254,"short_name":"NEOS","colors":"#CB1667","x":1706054400000,"y":254,"fill":"#CB1667"},{"date":"2024-01-25","party":"Das Neue Österreich und Liberales Forum","amount_spent":636789,"Daily Spend":324,"short_name":"NEOS","colors":"#CB1667","x":1706140800000,"y":324,"fill":"#CB1667"},{"date":"2024-01-26","party":"Das Neue Österreich und Liberales Forum","amount_spent":637079,"Daily Spend":290,"short_name":"NEOS","colors":"#CB1667","x":1706227200000,"y":290,"fill":"#CB1667"},{"date":"2024-01-27","party":"Das Neue Österreich und Liberales Forum","amount_spent":637378,"Daily Spend":299,"short_name":"NEOS","colors":"#CB1667","x":1706313600000,"y":299,"fill":"#CB1667"},{"date":"2024-01-28","party":"Das Neue Österreich und Liberales Forum","amount_spent":637655,"Daily Spend":277,"short_name":"NEOS","colors":"#CB1667","x":1706400000000,"y":277,"fill":"#CB1667"},{"date":"2024-01-29","party":"Das Neue Österreich und Liberales Forum","amount_spent":638056,"Daily Spend":401,"short_name":"NEOS","colors":"#CB1667","x":1706486400000,"y":401,"fill":"#CB1667"},{"date":"2024-01-30","party":"Das Neue Österreich und Liberales Forum","amount_spent":638503,"Daily Spend":447,"short_name":"NEOS","colors":"#CB1667","x":1706572800000,"y":447,"fill":"#CB1667"},{"date":"2024-01-31","party":"Das Neue Österreich und Liberales Forum","amount_spent":638867,"Daily Spend":364,"short_name":"NEOS","colors":"#CB1667","x":1706659200000,"y":364,"fill":"#CB1667"},{"date":"2024-02-01","party":"Das Neue Österreich und Liberales Forum","amount_spent":639447,"Daily Spend":580,"short_name":"NEOS","colors":"#CB1667","x":1706745600000,"y":580,"fill":"#CB1667"},{"date":"2024-02-02","party":"Das Neue Österreich und Liberales Forum","amount_spent":640117,"Daily Spend":670,"short_name":"NEOS","colors":"#CB1667","x":1706832000000,"y":670,"fill":"#CB1667"},{"date":"2024-02-03","party":"Das Neue Österreich und Liberales Forum","amount_spent":640722,"Daily Spend":605,"short_name":"NEOS","colors":"#CB1667","x":1706918400000,"y":605,"fill":"#CB1667"},{"date":"2024-02-04","party":"Das Neue Österreich und Liberales Forum","amount_spent":641332,"Daily Spend":610,"short_name":"NEOS","colors":"#CB1667","x":1707004800000,"y":610,"fill":"#CB1667"},{"date":"2024-02-05","party":"Das Neue Österreich und Liberales Forum","amount_spent":641850,"Daily Spend":518,"short_name":"NEOS","colors":"#CB1667","x":1707091200000,"y":518,"fill":"#CB1667"},{"date":"2024-02-06","party":"Das Neue Österreich und Liberales Forum","amount_spent":642375,"Daily Spend":525,"short_name":"NEOS","colors":"#CB1667","x":1707177600000,"y":525,"fill":"#CB1667"},{"date":"2024-02-07","party":"Das Neue Österreich und Liberales Forum","amount_spent":642893,"Daily Spend":518,"short_name":"NEOS","colors":"#CB1667","x":1707264000000,"y":518,"fill":"#CB1667"},{"date":"2024-02-08","party":"Das Neue Österreich und Liberales Forum","amount_spent":643482,"Daily Spend":589,"short_name":"NEOS","colors":"#CB1667","x":1707350400000,"y":589,"fill":"#CB1667"},{"date":"2024-02-09","party":"Das Neue Österreich und Liberales Forum","amount_spent":644010,"Daily Spend":528,"short_name":"NEOS","colors":"#CB1667","x":1707436800000,"y":528,"fill":"#CB1667"},{"date":"2024-02-10","party":"Das Neue Österreich und Liberales Forum","amount_spent":644468,"Daily Spend":458,"short_name":"NEOS","colors":"#CB1667","x":1707523200000,"y":458,"fill":"#CB1667"},{"date":"2024-02-11","party":"Das Neue Österreich und Liberales Forum","amount_spent":644924,"Daily Spend":456,"short_name":"NEOS","colors":"#CB1667","x":1707609600000,"y":456,"fill":"#CB1667"},{"date":"2024-02-12","party":"Das Neue Österreich und Liberales Forum","amount_spent":645403,"Daily Spend":479,"short_name":"NEOS","colors":"#CB1667","x":1707696000000,"y":479,"fill":"#CB1667"},{"date":"2024-02-13","party":"Das Neue Österreich und Liberales Forum","amount_spent":645906,"Daily Spend":503,"short_name":"NEOS","colors":"#CB1667","x":1707782400000,"y":503,"fill":"#CB1667"},{"date":"2024-02-14","party":"Das Neue Österreich und Liberales Forum","amount_spent":646526,"Daily Spend":620,"short_name":"NEOS","colors":"#CB1667","x":1707868800000,"y":620,"fill":"#CB1667"},{"date":"2024-02-15","party":"Das Neue Österreich und Liberales Forum","amount_spent":647176,"Daily Spend":650,"short_name":"NEOS","colors":"#CB1667","x":1707955200000,"y":650,"fill":"#CB1667"},{"date":"2024-02-16","party":"Das Neue Österreich und Liberales Forum","amount_spent":647762,"Daily Spend":586,"short_name":"NEOS","colors":"#CB1667","x":1708041600000,"y":586,"fill":"#CB1667"},{"date":"2024-02-17","party":"Das Neue Österreich und Liberales Forum","amount_spent":648361,"Daily Spend":599,"short_name":"NEOS","colors":"#CB1667","x":1708128000000,"y":599,"fill":"#CB1667"},{"date":"2024-02-18","party":"Das Neue Österreich und Liberales Forum","amount_spent":649015,"Daily Spend":654,"short_name":"NEOS","colors":"#CB1667","x":1708214400000,"y":654,"fill":"#CB1667"},{"date":"2024-02-19","party":"Das Neue Österreich und Liberales Forum","amount_spent":649710,"Daily Spend":695,"short_name":"NEOS","colors":"#CB1667","x":1708300800000,"y":695,"fill":"#CB1667"},{"date":"2024-02-20","party":"Das Neue Österreich und Liberales Forum","amount_spent":650472,"Daily Spend":762,"short_name":"NEOS","colors":"#CB1667","x":1708387200000,"y":762,"fill":"#CB1667"},{"date":"2024-02-21","party":"Das Neue Österreich und Liberales Forum","amount_spent":651258,"Daily Spend":786,"short_name":"NEOS","colors":"#CB1667","x":1708473600000,"y":786,"fill":"#CB1667"},{"date":"2024-02-22","party":"Das Neue Österreich und Liberales Forum","amount_spent":652023,"Daily Spend":765,"short_name":"NEOS","colors":"#CB1667","x":1708560000000,"y":765,"fill":"#CB1667"},{"date":"2024-02-23","party":"Das Neue Österreich und Liberales Forum","amount_spent":652826,"Daily Spend":803,"short_name":"NEOS","colors":"#CB1667","x":1708646400000,"y":803,"fill":"#CB1667"},{"date":"2024-02-24","party":"Das Neue Österreich und Liberales Forum","amount_spent":653623,"Daily Spend":797,"short_name":"NEOS","colors":"#CB1667","x":1708732800000,"y":797,"fill":"#CB1667"},{"date":"2024-02-25","party":"Das Neue Österreich und Liberales Forum","amount_spent":654411,"Daily Spend":788,"short_name":"NEOS","colors":"#CB1667","x":1708819200000,"y":788,"fill":"#CB1667"},{"date":"2024-02-26","party":"Das Neue Österreich und Liberales Forum","amount_spent":655232,"Daily Spend":821,"short_name":"NEOS","colors":"#CB1667","x":1708905600000,"y":821,"fill":"#CB1667"},{"date":"2024-02-27","party":"Das Neue Österreich und Liberales Forum","amount_spent":656383,"Daily Spend":1151,"short_name":"NEOS","colors":"#CB1667","x":1708992000000,"y":1151,"fill":"#CB1667"},{"date":"2024-02-28","party":"Das Neue Österreich und Liberales Forum","amount_spent":657538,"Daily Spend":1155,"short_name":"NEOS","colors":"#CB1667","x":1709078400000,"y":1155,"fill":"#CB1667"},{"date":"2024-02-29","party":"Das Neue Österreich und Liberales Forum","amount_spent":658367,"Daily Spend":829,"short_name":"NEOS","colors":"#CB1667","x":1709164800000,"y":829,"fill":"#CB1667"},{"date":"2024-03-01","party":"Das Neue Österreich und Liberales Forum","amount_spent":659129,"Daily Spend":762,"short_name":"NEOS","colors":"#CB1667","x":1709251200000,"y":762,"fill":"#CB1667"},{"date":"2024-03-02","party":"Das Neue Österreich und Liberales Forum","amount_spent":659918,"Daily Spend":789,"short_name":"NEOS","colors":"#CB1667","x":1709337600000,"y":789,"fill":"#CB1667"},{"date":"2024-03-03","party":"Das Neue Österreich und Liberales Forum","amount_spent":660847,"Daily Spend":929,"short_name":"NEOS","colors":"#CB1667","x":1709424000000,"y":929,"fill":"#CB1667"},{"date":"2024-03-04","party":"Das Neue Österreich und Liberales Forum","amount_spent":661659,"Daily Spend":812,"short_name":"NEOS","colors":"#CB1667","x":1709510400000,"y":812,"fill":"#CB1667"},{"date":"2024-03-05","party":"Das Neue Österreich und Liberales Forum","amount_spent":662285,"Daily Spend":626,"short_name":"NEOS","colors":"#CB1667","x":1709596800000,"y":626,"fill":"#CB1667"},{"date":"2024-03-06","party":"Das Neue Österreich und Liberales Forum","amount_spent":662707,"Daily Spend":422,"short_name":"NEOS","colors":"#CB1667","x":1709683200000,"y":422,"fill":"#CB1667"},{"date":"2024-03-07","party":"Das Neue Österreich und Liberales Forum","amount_spent":663195,"Daily Spend":488,"short_name":"NEOS","colors":"#CB1667","x":1709769600000,"y":488,"fill":"#CB1667"},{"date":"2024-03-08","party":"Das Neue Österreich und Liberales Forum","amount_spent":663667,"Daily Spend":472,"short_name":"NEOS","colors":"#CB1667","x":1709856000000,"y":472,"fill":"#CB1667"}],"type":"area"},{"name":"Die Grünen ","data":[{"date":"2023-12-31","party":"Die Grünen ","amount_spent":997603,"Daily Spend":null,"short_name":"GRÜNE","colors":"#88B626","x":1703980800000,"y":null,"fill":"#88B626"},{"date":"2024-01-01","party":"Die Grünen ","amount_spent":997684,"Daily Spend":81,"short_name":"GRÜNE","colors":"#88B626","x":1704067200000,"y":81,"fill":"#88B626"},{"date":"2024-01-02","party":"Die Grünen ","amount_spent":998614,"Daily Spend":930,"short_name":"GRÜNE","colors":"#88B626","x":1704153600000,"y":930,"fill":"#88B626"},{"date":"2024-01-03","party":"Die Grünen ","amount_spent":1000260,"Daily Spend":1646,"short_name":"GRÜNE","colors":"#88B626","x":1704240000000,"y":1646,"fill":"#88B626"},{"date":"2024-01-04","party":"Die Grünen ","amount_spent":1001873,"Daily Spend":1613,"short_name":"GRÜNE","colors":"#88B626","x":1704326400000,"y":1613,"fill":"#88B626"},{"date":"2024-01-05","party":"Die Grünen ","amount_spent":1003448,"Daily Spend":1575,"short_name":"GRÜNE","colors":"#88B626","x":1704412800000,"y":1575,"fill":"#88B626"},{"date":"2024-01-06","party":"Die Grünen ","amount_spent":1005218,"Daily Spend":1770,"short_name":"GRÜNE","colors":"#88B626","x":1704499200000,"y":1770,"fill":"#88B626"},{"date":"2024-01-07","party":"Die Grünen ","amount_spent":1007001,"Daily Spend":1783,"short_name":"GRÜNE","colors":"#88B626","x":1704585600000,"y":1783,"fill":"#88B626"},{"date":"2024-01-08","party":"Die Grünen ","amount_spent":1008670,"Daily Spend":1669,"short_name":"GRÜNE","colors":"#88B626","x":1704672000000,"y":1669,"fill":"#88B626"},{"date":"2024-01-09","party":"Die Grünen ","amount_spent":1010425,"Daily Spend":1755,"short_name":"GRÜNE","colors":"#88B626","x":1704758400000,"y":1755,"fill":"#88B626"},{"date":"2024-01-10","party":"Die Grünen ","amount_spent":1012117,"Daily Spend":1692,"short_name":"GRÜNE","colors":"#88B626","x":1704844800000,"y":1692,"fill":"#88B626"},{"date":"2024-01-11","party":"Die Grünen ","amount_spent":1013787,"Daily Spend":1670,"short_name":"GRÜNE","colors":"#88B626","x":1704931200000,"y":1670,"fill":"#88B626"},{"date":"2024-01-12","party":"Die Grünen ","amount_spent":1014832,"Daily Spend":1045,"short_name":"GRÜNE","colors":"#88B626","x":1705017600000,"y":1045,"fill":"#88B626"},{"date":"2024-01-13","party":"Die Grünen ","amount_spent":1015072,"Daily Spend":240,"short_name":"GRÜNE","colors":"#88B626","x":1705104000000,"y":240,"fill":"#88B626"},{"date":"2024-01-14","party":"Die Grünen ","amount_spent":1015289,"Daily Spend":217,"short_name":"GRÜNE","colors":"#88B626","x":1705190400000,"y":217,"fill":"#88B626"},{"date":"2024-01-15","party":"Die Grünen ","amount_spent":1015477,"Daily Spend":188,"short_name":"GRÜNE","colors":"#88B626","x":1705276800000,"y":188,"fill":"#88B626"},{"date":"2024-01-16","party":"Die Grünen ","amount_spent":1015726,"Daily Spend":249,"short_name":"GRÜNE","colors":"#88B626","x":1705363200000,"y":249,"fill":"#88B626"},{"date":"2024-01-17","party":"Die Grünen ","amount_spent":1016148,"Daily Spend":422,"short_name":"GRÜNE","colors":"#88B626","x":1705449600000,"y":422,"fill":"#88B626"},{"date":"2024-01-18","party":"Die Grünen ","amount_spent":1016561,"Daily Spend":413,"short_name":"GRÜNE","colors":"#88B626","x":1705536000000,"y":413,"fill":"#88B626"},{"date":"2024-01-19","party":"Die Grünen ","amount_spent":1017058,"Daily Spend":497,"short_name":"GRÜNE","colors":"#88B626","x":1705622400000,"y":497,"fill":"#88B626"},{"date":"2024-01-20","party":"Die Grünen ","amount_spent":1017613,"Daily Spend":555,"short_name":"GRÜNE","colors":"#88B626","x":1705708800000,"y":555,"fill":"#88B626"},{"date":"2024-01-21","party":"Die Grünen ","amount_spent":1018071,"Daily Spend":458,"short_name":"GRÜNE","colors":"#88B626","x":1705795200000,"y":458,"fill":"#88B626"},{"date":"2024-01-22","party":"Die Grünen ","amount_spent":1018437,"Daily Spend":366,"short_name":"GRÜNE","colors":"#88B626","x":1705881600000,"y":366,"fill":"#88B626"},{"date":"2024-01-23","party":"Die Grünen ","amount_spent":1018741,"Daily Spend":304,"short_name":"GRÜNE","colors":"#88B626","x":1705968000000,"y":304,"fill":"#88B626"},{"date":"2024-01-24","party":"Die Grünen ","amount_spent":1019055,"Daily Spend":314,"short_name":"GRÜNE","colors":"#88B626","x":1706054400000,"y":314,"fill":"#88B626"},{"date":"2024-01-25","party":"Die Grünen ","amount_spent":1019331,"Daily Spend":276,"short_name":"GRÜNE","colors":"#88B626","x":1706140800000,"y":276,"fill":"#88B626"},{"date":"2024-01-26","party":"Die Grünen ","amount_spent":1019641,"Daily Spend":310,"short_name":"GRÜNE","colors":"#88B626","x":1706227200000,"y":310,"fill":"#88B626"},{"date":"2024-01-27","party":"Die Grünen ","amount_spent":1019969,"Daily Spend":328,"short_name":"GRÜNE","colors":"#88B626","x":1706313600000,"y":328,"fill":"#88B626"},{"date":"2024-01-28","party":"Die Grünen ","amount_spent":1020275,"Daily Spend":306,"short_name":"GRÜNE","colors":"#88B626","x":1706400000000,"y":306,"fill":"#88B626"},{"date":"2024-01-29","party":"Die Grünen ","amount_spent":1020553,"Daily Spend":278,"short_name":"GRÜNE","colors":"#88B626","x":1706486400000,"y":278,"fill":"#88B626"},{"date":"2024-01-30","party":"Die Grünen ","amount_spent":1020820,"Daily Spend":267,"short_name":"GRÜNE","colors":"#88B626","x":1706572800000,"y":267,"fill":"#88B626"},{"date":"2024-01-31","party":"Die Grünen ","amount_spent":1021135,"Daily Spend":315,"short_name":"GRÜNE","colors":"#88B626","x":1706659200000,"y":315,"fill":"#88B626"},{"date":"2024-02-01","party":"Die Grünen ","amount_spent":1021387,"Daily Spend":252,"short_name":"GRÜNE","colors":"#88B626","x":1706745600000,"y":252,"fill":"#88B626"},{"date":"2024-02-02","party":"Die Grünen ","amount_spent":1021917,"Daily Spend":530,"short_name":"GRÜNE","colors":"#88B626","x":1706832000000,"y":530,"fill":"#88B626"},{"date":"2024-02-03","party":"Die Grünen ","amount_spent":1022476,"Daily Spend":559,"short_name":"GRÜNE","colors":"#88B626","x":1706918400000,"y":559,"fill":"#88B626"},{"date":"2024-02-04","party":"Die Grünen ","amount_spent":1023020,"Daily Spend":544,"short_name":"GRÜNE","colors":"#88B626","x":1707004800000,"y":544,"fill":"#88B626"},{"date":"2024-02-05","party":"Die Grünen ","amount_spent":1023507,"Daily Spend":487,"short_name":"GRÜNE","colors":"#88B626","x":1707091200000,"y":487,"fill":"#88B626"},{"date":"2024-02-06","party":"Die Grünen ","amount_spent":1024101,"Daily Spend":594,"short_name":"GRÜNE","colors":"#88B626","x":1707177600000,"y":594,"fill":"#88B626"},{"date":"2024-02-07","party":"Die Grünen ","amount_spent":1024657,"Daily Spend":556,"short_name":"GRÜNE","colors":"#88B626","x":1707264000000,"y":556,"fill":"#88B626"},{"date":"2024-02-08","party":"Die Grünen ","amount_spent":1025177,"Daily Spend":520,"short_name":"GRÜNE","colors":"#88B626","x":1707350400000,"y":520,"fill":"#88B626"},{"date":"2024-02-09","party":"Die Grünen ","amount_spent":1025691,"Daily Spend":514,"short_name":"GRÜNE","colors":"#88B626","x":1707436800000,"y":514,"fill":"#88B626"},{"date":"2024-02-10","party":"Die Grünen ","amount_spent":1026242,"Daily Spend":551,"short_name":"GRÜNE","colors":"#88B626","x":1707523200000,"y":551,"fill":"#88B626"},{"date":"2024-02-11","party":"Die Grünen ","amount_spent":1026793,"Daily Spend":551,"short_name":"GRÜNE","colors":"#88B626","x":1707609600000,"y":551,"fill":"#88B626"},{"date":"2024-02-12","party":"Die Grünen ","amount_spent":1027310,"Daily Spend":517,"short_name":"GRÜNE","colors":"#88B626","x":1707696000000,"y":517,"fill":"#88B626"},{"date":"2024-02-13","party":"Die Grünen ","amount_spent":1028071,"Daily Spend":761,"short_name":"GRÜNE","colors":"#88B626","x":1707782400000,"y":761,"fill":"#88B626"},{"date":"2024-02-14","party":"Die Grünen ","amount_spent":1029398,"Daily Spend":1327,"short_name":"GRÜNE","colors":"#88B626","x":1707868800000,"y":1327,"fill":"#88B626"},{"date":"2024-02-15","party":"Die Grünen ","amount_spent":1030663,"Daily Spend":1265,"short_name":"GRÜNE","colors":"#88B626","x":1707955200000,"y":1265,"fill":"#88B626"},{"date":"2024-02-16","party":"Die Grünen ","amount_spent":1031984,"Daily Spend":1321,"short_name":"GRÜNE","colors":"#88B626","x":1708041600000,"y":1321,"fill":"#88B626"},{"date":"2024-02-17","party":"Die Grünen ","amount_spent":1033520,"Daily Spend":1536,"short_name":"GRÜNE","colors":"#88B626","x":1708128000000,"y":1536,"fill":"#88B626"},{"date":"2024-02-18","party":"Die Grünen ","amount_spent":1034960,"Daily Spend":1440,"short_name":"GRÜNE","colors":"#88B626","x":1708214400000,"y":1440,"fill":"#88B626"},{"date":"2024-02-19","party":"Die Grünen ","amount_spent":1035851,"Daily Spend":891,"short_name":"GRÜNE","colors":"#88B626","x":1708300800000,"y":891,"fill":"#88B626"},{"date":"2024-02-20","party":"Die Grünen ","amount_spent":1036935,"Daily Spend":1084,"short_name":"GRÜNE","colors":"#88B626","x":1708387200000,"y":1084,"fill":"#88B626"},{"date":"2024-02-21","party":"Die Grünen ","amount_spent":1038267,"Daily Spend":1332,"short_name":"GRÜNE","colors":"#88B626","x":1708473600000,"y":1332,"fill":"#88B626"},{"date":"2024-02-22","party":"Die Grünen ","amount_spent":1039797,"Daily Spend":1530,"short_name":"GRÜNE","colors":"#88B626","x":1708560000000,"y":1530,"fill":"#88B626"},{"date":"2024-02-23","party":"Die Grünen ","amount_spent":1041414,"Daily Spend":1617,"short_name":"GRÜNE","colors":"#88B626","x":1708646400000,"y":1617,"fill":"#88B626"},{"date":"2024-02-24","party":"Die Grünen ","amount_spent":1043193,"Daily Spend":1779,"short_name":"GRÜNE","colors":"#88B626","x":1708732800000,"y":1779,"fill":"#88B626"},{"date":"2024-02-25","party":"Die Grünen ","amount_spent":1044678,"Daily Spend":1485,"short_name":"GRÜNE","colors":"#88B626","x":1708819200000,"y":1485,"fill":"#88B626"},{"date":"2024-02-26","party":"Die Grünen ","amount_spent":1045576,"Daily Spend":898,"short_name":"GRÜNE","colors":"#88B626","x":1708905600000,"y":898,"fill":"#88B626"},{"date":"2024-02-27","party":"Die Grünen ","amount_spent":1046515,"Daily Spend":939,"short_name":"GRÜNE","colors":"#88B626","x":1708992000000,"y":939,"fill":"#88B626"},{"date":"2024-02-28","party":"Die Grünen ","amount_spent":1047783,"Daily Spend":1268,"short_name":"GRÜNE","colors":"#88B626","x":1709078400000,"y":1268,"fill":"#88B626"},{"date":"2024-02-29","party":"Die Grünen ","amount_spent":1049207,"Daily Spend":1424,"short_name":"GRÜNE","colors":"#88B626","x":1709164800000,"y":1424,"fill":"#88B626"},{"date":"2024-03-01","party":"Die Grünen ","amount_spent":1050670,"Daily Spend":1463,"short_name":"GRÜNE","colors":"#88B626","x":1709251200000,"y":1463,"fill":"#88B626"},{"date":"2024-03-02","party":"Die Grünen ","amount_spent":1052326,"Daily Spend":1656,"short_name":"GRÜNE","colors":"#88B626","x":1709337600000,"y":1656,"fill":"#88B626"},{"date":"2024-03-03","party":"Die Grünen ","amount_spent":1053921,"Daily Spend":1595,"short_name":"GRÜNE","colors":"#88B626","x":1709424000000,"y":1595,"fill":"#88B626"},{"date":"2024-03-04","party":"Die Grünen ","amount_spent":1055605,"Daily Spend":1684,"short_name":"GRÜNE","colors":"#88B626","x":1709510400000,"y":1684,"fill":"#88B626"},{"date":"2024-03-05","party":"Die Grünen ","amount_spent":1057653,"Daily Spend":2048,"short_name":"GRÜNE","colors":"#88B626","x":1709596800000,"y":2048,"fill":"#88B626"},{"date":"2024-03-06","party":"Die Grünen ","amount_spent":1060291,"Daily Spend":2638,"short_name":"GRÜNE","colors":"#88B626","x":1709683200000,"y":2638,"fill":"#88B626"},{"date":"2024-03-07","party":"Die Grünen ","amount_spent":1063450,"Daily Spend":3159,"short_name":"GRÜNE","colors":"#88B626","x":1709769600000,"y":3159,"fill":"#88B626"},{"date":"2024-03-08","party":"Die Grünen ","amount_spent":1067449,"Daily Spend":3999,"short_name":"GRÜNE","colors":"#88B626","x":1709856000000,"y":3999,"fill":"#88B626"}],"type":"area"},{"name":"Freiheitliche Partei","data":[{"date":"2023-12-31","party":"Freiheitliche Partei","amount_spent":1562910,"Daily Spend":null,"short_name":"FPÖ","colors":"#0056A2","x":1703980800000,"y":null,"fill":"#0056A2"},{"date":"2024-01-01","party":"Freiheitliche Partei","amount_spent":1563191,"Daily Spend":281,"short_name":"FPÖ","colors":"#0056A2","x":1704067200000,"y":281,"fill":"#0056A2"},{"date":"2024-01-02","party":"Freiheitliche Partei","amount_spent":1563356,"Daily Spend":165,"short_name":"FPÖ","colors":"#0056A2","x":1704153600000,"y":165,"fill":"#0056A2"},{"date":"2024-01-03","party":"Freiheitliche Partei","amount_spent":1563648,"Daily Spend":292,"short_name":"FPÖ","colors":"#0056A2","x":1704240000000,"y":292,"fill":"#0056A2"},{"date":"2024-01-04","party":"Freiheitliche Partei","amount_spent":1564097,"Daily Spend":449,"short_name":"FPÖ","colors":"#0056A2","x":1704326400000,"y":449,"fill":"#0056A2"},{"date":"2024-01-05","party":"Freiheitliche Partei","amount_spent":1564551,"Daily Spend":454,"short_name":"FPÖ","colors":"#0056A2","x":1704412800000,"y":454,"fill":"#0056A2"},{"date":"2024-01-06","party":"Freiheitliche Partei","amount_spent":1565054,"Daily Spend":503,"short_name":"FPÖ","colors":"#0056A2","x":1704499200000,"y":503,"fill":"#0056A2"},{"date":"2024-01-07","party":"Freiheitliche Partei","amount_spent":1565622,"Daily Spend":568,"short_name":"FPÖ","colors":"#0056A2","x":1704585600000,"y":568,"fill":"#0056A2"},{"date":"2024-01-08","party":"Freiheitliche Partei","amount_spent":1566194,"Daily Spend":572,"short_name":"FPÖ","colors":"#0056A2","x":1704672000000,"y":572,"fill":"#0056A2"},{"date":"2024-01-09","party":"Freiheitliche Partei","amount_spent":1566833,"Daily Spend":639,"short_name":"FPÖ","colors":"#0056A2","x":1704758400000,"y":639,"fill":"#0056A2"},{"date":"2024-01-10","party":"Freiheitliche Partei","amount_spent":1567536,"Daily Spend":703,"short_name":"FPÖ","colors":"#0056A2","x":1704844800000,"y":703,"fill":"#0056A2"},{"date":"2024-01-11","party":"Freiheitliche Partei","amount_spent":1568797,"Daily Spend":1261,"short_name":"FPÖ","colors":"#0056A2","x":1704931200000,"y":1261,"fill":"#0056A2"},{"date":"2024-01-12","party":"Freiheitliche Partei","amount_spent":1570188,"Daily Spend":1391,"short_name":"FPÖ","colors":"#0056A2","x":1705017600000,"y":1391,"fill":"#0056A2"},{"date":"2024-01-13","party":"Freiheitliche Partei","amount_spent":1573888,"Daily Spend":3700,"short_name":"FPÖ","colors":"#0056A2","x":1705104000000,"y":3700,"fill":"#0056A2"},{"date":"2024-01-14","party":"Freiheitliche Partei","amount_spent":1575150,"Daily Spend":1262,"short_name":"FPÖ","colors":"#0056A2","x":1705190400000,"y":1262,"fill":"#0056A2"},{"date":"2024-01-15","party":"Freiheitliche Partei","amount_spent":1576761,"Daily Spend":1611,"short_name":"FPÖ","colors":"#0056A2","x":1705276800000,"y":1611,"fill":"#0056A2"},{"date":"2024-01-16","party":"Freiheitliche Partei","amount_spent":1579195,"Daily Spend":2434,"short_name":"FPÖ","colors":"#0056A2","x":1705363200000,"y":2434,"fill":"#0056A2"},{"date":"2024-01-17","party":"Freiheitliche Partei","amount_spent":1581187,"Daily Spend":1992,"short_name":"FPÖ","colors":"#0056A2","x":1705449600000,"y":1992,"fill":"#0056A2"},{"date":"2024-01-18","party":"Freiheitliche Partei","amount_spent":1582471,"Daily Spend":1284,"short_name":"FPÖ","colors":"#0056A2","x":1705536000000,"y":1284,"fill":"#0056A2"},{"date":"2024-01-19","party":"Freiheitliche Partei","amount_spent":1583644,"Daily Spend":1173,"short_name":"FPÖ","colors":"#0056A2","x":1705622400000,"y":1173,"fill":"#0056A2"},{"date":"2024-01-20","party":"Freiheitliche Partei","amount_spent":1584895,"Daily Spend":1251,"short_name":"FPÖ","colors":"#0056A2","x":1705708800000,"y":1251,"fill":"#0056A2"},{"date":"2024-01-21","party":"Freiheitliche Partei","amount_spent":1586131,"Daily Spend":1236,"short_name":"FPÖ","colors":"#0056A2","x":1705795200000,"y":1236,"fill":"#0056A2"},{"date":"2024-01-22","party":"Freiheitliche Partei","amount_spent":1587335,"Daily Spend":1204,"short_name":"FPÖ","colors":"#0056A2","x":1705881600000,"y":1204,"fill":"#0056A2"},{"date":"2024-01-23","party":"Freiheitliche Partei","amount_spent":1588552,"Daily Spend":1217,"short_name":"FPÖ","colors":"#0056A2","x":1705968000000,"y":1217,"fill":"#0056A2"},{"date":"2024-01-24","party":"Freiheitliche Partei","amount_spent":1589858,"Daily Spend":1306,"short_name":"FPÖ","colors":"#0056A2","x":1706054400000,"y":1306,"fill":"#0056A2"},{"date":"2024-01-25","party":"Freiheitliche Partei","amount_spent":1591025,"Daily Spend":1167,"short_name":"FPÖ","colors":"#0056A2","x":1706140800000,"y":1167,"fill":"#0056A2"},{"date":"2024-01-26","party":"Freiheitliche Partei","amount_spent":1592501,"Daily Spend":1476,"short_name":"FPÖ","colors":"#0056A2","x":1706227200000,"y":1476,"fill":"#0056A2"},{"date":"2024-01-27","party":"Freiheitliche Partei","amount_spent":1593715,"Daily Spend":1214,"short_name":"FPÖ","colors":"#0056A2","x":1706313600000,"y":1214,"fill":"#0056A2"},{"date":"2024-01-28","party":"Freiheitliche Partei","amount_spent":1594939,"Daily Spend":1224,"short_name":"FPÖ","colors":"#0056A2","x":1706400000000,"y":1224,"fill":"#0056A2"},{"date":"2024-01-29","party":"Freiheitliche Partei","amount_spent":1596201,"Daily Spend":1262,"short_name":"FPÖ","colors":"#0056A2","x":1706486400000,"y":1262,"fill":"#0056A2"},{"date":"2024-01-30","party":"Freiheitliche Partei","amount_spent":1597804,"Daily Spend":1603,"short_name":"FPÖ","colors":"#0056A2","x":1706572800000,"y":1603,"fill":"#0056A2"},{"date":"2024-01-31","party":"Freiheitliche Partei","amount_spent":1599535,"Daily Spend":1731,"short_name":"FPÖ","colors":"#0056A2","x":1706659200000,"y":1731,"fill":"#0056A2"},{"date":"2024-02-01","party":"Freiheitliche Partei","amount_spent":1600721,"Daily Spend":1186,"short_name":"FPÖ","colors":"#0056A2","x":1706745600000,"y":1186,"fill":"#0056A2"},{"date":"2024-02-02","party":"Freiheitliche Partei","amount_spent":1601939,"Daily Spend":1218,"short_name":"FPÖ","colors":"#0056A2","x":1706832000000,"y":1218,"fill":"#0056A2"},{"date":"2024-02-03","party":"Freiheitliche Partei","amount_spent":1603307,"Daily Spend":1368,"short_name":"FPÖ","colors":"#0056A2","x":1706918400000,"y":1368,"fill":"#0056A2"},{"date":"2024-02-04","party":"Freiheitliche Partei","amount_spent":1604731,"Daily Spend":1424,"short_name":"FPÖ","colors":"#0056A2","x":1707004800000,"y":1424,"fill":"#0056A2"},{"date":"2024-02-05","party":"Freiheitliche Partei","amount_spent":1605252,"Daily Spend":521,"short_name":"FPÖ","colors":"#0056A2","x":1707091200000,"y":521,"fill":"#0056A2"},{"date":"2024-02-06","party":"Freiheitliche Partei","amount_spent":1605954,"Daily Spend":702,"short_name":"FPÖ","colors":"#0056A2","x":1707177600000,"y":702,"fill":"#0056A2"},{"date":"2024-02-07","party":"Freiheitliche Partei","amount_spent":1607030,"Daily Spend":1076,"short_name":"FPÖ","colors":"#0056A2","x":1707264000000,"y":1076,"fill":"#0056A2"},{"date":"2024-02-08","party":"Freiheitliche Partei","amount_spent":1607874,"Daily Spend":844,"short_name":"FPÖ","colors":"#0056A2","x":1707350400000,"y":844,"fill":"#0056A2"},{"date":"2024-02-09","party":"Freiheitliche Partei","amount_spent":1608397,"Daily Spend":523,"short_name":"FPÖ","colors":"#0056A2","x":1707436800000,"y":523,"fill":"#0056A2"},{"date":"2024-02-10","party":"Freiheitliche Partei","amount_spent":1608858,"Daily Spend":461,"short_name":"FPÖ","colors":"#0056A2","x":1707523200000,"y":461,"fill":"#0056A2"},{"date":"2024-02-11","party":"Freiheitliche Partei","amount_spent":1609504,"Daily Spend":646,"short_name":"FPÖ","colors":"#0056A2","x":1707609600000,"y":646,"fill":"#0056A2"},{"date":"2024-02-12","party":"Freiheitliche Partei","amount_spent":1610318,"Daily Spend":814,"short_name":"FPÖ","colors":"#0056A2","x":1707696000000,"y":814,"fill":"#0056A2"},{"date":"2024-02-13","party":"Freiheitliche Partei","amount_spent":1611169,"Daily Spend":851,"short_name":"FPÖ","colors":"#0056A2","x":1707782400000,"y":851,"fill":"#0056A2"},{"date":"2024-02-14","party":"Freiheitliche Partei","amount_spent":1611694,"Daily Spend":525,"short_name":"FPÖ","colors":"#0056A2","x":1707868800000,"y":525,"fill":"#0056A2"},{"date":"2024-02-15","party":"Freiheitliche Partei","amount_spent":1612151,"Daily Spend":457,"short_name":"FPÖ","colors":"#0056A2","x":1707955200000,"y":457,"fill":"#0056A2"},{"date":"2024-02-16","party":"Freiheitliche Partei","amount_spent":1612682,"Daily Spend":531,"short_name":"FPÖ","colors":"#0056A2","x":1708041600000,"y":531,"fill":"#0056A2"},{"date":"2024-02-17","party":"Freiheitliche Partei","amount_spent":1613187,"Daily Spend":505,"short_name":"FPÖ","colors":"#0056A2","x":1708128000000,"y":505,"fill":"#0056A2"},{"date":"2024-02-18","party":"Freiheitliche Partei","amount_spent":1613821,"Daily Spend":634,"short_name":"FPÖ","colors":"#0056A2","x":1708214400000,"y":634,"fill":"#0056A2"},{"date":"2024-02-19","party":"Freiheitliche Partei","amount_spent":1614786,"Daily Spend":965,"short_name":"FPÖ","colors":"#0056A2","x":1708300800000,"y":965,"fill":"#0056A2"},{"date":"2024-02-20","party":"Freiheitliche Partei","amount_spent":1615593,"Daily Spend":807,"short_name":"FPÖ","colors":"#0056A2","x":1708387200000,"y":807,"fill":"#0056A2"},{"date":"2024-02-21","party":"Freiheitliche Partei","amount_spent":1616309,"Daily Spend":716,"short_name":"FPÖ","colors":"#0056A2","x":1708473600000,"y":716,"fill":"#0056A2"},{"date":"2024-02-22","party":"Freiheitliche Partei","amount_spent":1617192,"Daily Spend":883,"short_name":"FPÖ","colors":"#0056A2","x":1708560000000,"y":883,"fill":"#0056A2"},{"date":"2024-02-23","party":"Freiheitliche Partei","amount_spent":1618334,"Daily Spend":1142,"short_name":"FPÖ","colors":"#0056A2","x":1708646400000,"y":1142,"fill":"#0056A2"},{"date":"2024-02-24","party":"Freiheitliche Partei","amount_spent":1619408,"Daily Spend":1074,"short_name":"FPÖ","colors":"#0056A2","x":1708732800000,"y":1074,"fill":"#0056A2"},{"date":"2024-02-25","party":"Freiheitliche Partei","amount_spent":1620382,"Daily Spend":974,"short_name":"FPÖ","colors":"#0056A2","x":1708819200000,"y":974,"fill":"#0056A2"},{"date":"2024-02-26","party":"Freiheitliche Partei","amount_spent":1621425,"Daily Spend":1043,"short_name":"FPÖ","colors":"#0056A2","x":1708905600000,"y":1043,"fill":"#0056A2"},{"date":"2024-02-27","party":"Freiheitliche Partei","amount_spent":1622980,"Daily Spend":1555,"short_name":"FPÖ","colors":"#0056A2","x":1708992000000,"y":1555,"fill":"#0056A2"},{"date":"2024-02-28","party":"Freiheitliche Partei","amount_spent":1624582,"Daily Spend":1602,"short_name":"FPÖ","colors":"#0056A2","x":1709078400000,"y":1602,"fill":"#0056A2"},{"date":"2024-02-29","party":"Freiheitliche Partei","amount_spent":1626739,"Daily Spend":2157,"short_name":"FPÖ","colors":"#0056A2","x":1709164800000,"y":2157,"fill":"#0056A2"},{"date":"2024-03-01","party":"Freiheitliche Partei","amount_spent":1627742,"Daily Spend":1003,"short_name":"FPÖ","colors":"#0056A2","x":1709251200000,"y":1003,"fill":"#0056A2"},{"date":"2024-03-02","party":"Freiheitliche Partei","amount_spent":1629059,"Daily Spend":1317,"short_name":"FPÖ","colors":"#0056A2","x":1709337600000,"y":1317,"fill":"#0056A2"},{"date":"2024-03-03","party":"Freiheitliche Partei","amount_spent":1629984,"Daily Spend":925,"short_name":"FPÖ","colors":"#0056A2","x":1709424000000,"y":925,"fill":"#0056A2"},{"date":"2024-03-04","party":"Freiheitliche Partei","amount_spent":1630974,"Daily Spend":990,"short_name":"FPÖ","colors":"#0056A2","x":1709510400000,"y":990,"fill":"#0056A2"},{"date":"2024-03-05","party":"Freiheitliche Partei","amount_spent":1631886,"Daily Spend":912,"short_name":"FPÖ","colors":"#0056A2","x":1709596800000,"y":912,"fill":"#0056A2"},{"date":"2024-03-06","party":"Freiheitliche Partei","amount_spent":1633229,"Daily Spend":1343,"short_name":"FPÖ","colors":"#0056A2","x":1709683200000,"y":1343,"fill":"#0056A2"},{"date":"2024-03-07","party":"Freiheitliche Partei","amount_spent":1634718,"Daily Spend":1489,"short_name":"FPÖ","colors":"#0056A2","x":1709769600000,"y":1489,"fill":"#0056A2"},{"date":"2024-03-08","party":"Freiheitliche Partei","amount_spent":1636553,"Daily Spend":1835,"short_name":"FPÖ","colors":"#0056A2","x":1709856000000,"y":1835,"fill":"#0056A2"}],"type":"area"},{"name":"Kommunistische Partei","data":[{"date":"2023-12-31","party":"Kommunistische Partei","amount_spent":122767,"Daily Spend":null,"short_name":"KPÖ","colors":"#AA0000","x":1703980800000,"y":null,"fill":"#AA0000"},{"date":"2024-01-01","party":"Kommunistische Partei","amount_spent":122849,"Daily Spend":82,"short_name":"KPÖ","colors":"#AA0000","x":1704067200000,"y":82,"fill":"#AA0000"},{"date":"2024-01-02","party":"Kommunistische Partei","amount_spent":122927,"Daily Spend":78,"short_name":"KPÖ","colors":"#AA0000","x":1704153600000,"y":78,"fill":"#AA0000"},{"date":"2024-01-03","party":"Kommunistische Partei","amount_spent":122969,"Daily Spend":42,"short_name":"KPÖ","colors":"#AA0000","x":1704240000000,"y":42,"fill":"#AA0000"},{"date":"2024-01-04","party":"Kommunistische Partei","amount_spent":122999,"Daily Spend":30,"short_name":"KPÖ","colors":"#AA0000","x":1704326400000,"y":30,"fill":"#AA0000"},{"date":"2024-01-05","party":"Kommunistische Partei","amount_spent":123052,"Daily Spend":53,"short_name":"KPÖ","colors":"#AA0000","x":1704412800000,"y":53,"fill":"#AA0000"},{"date":"2024-01-06","party":"Kommunistische Partei","amount_spent":123116,"Daily Spend":64,"short_name":"KPÖ","colors":"#AA0000","x":1704499200000,"y":64,"fill":"#AA0000"},{"date":"2024-01-07","party":"Kommunistische Partei","amount_spent":123150,"Daily Spend":34,"short_name":"KPÖ","colors":"#AA0000","x":1704585600000,"y":34,"fill":"#AA0000"},{"date":"2024-01-08","party":"Kommunistische Partei","amount_spent":123180,"Daily Spend":30,"short_name":"KPÖ","colors":"#AA0000","x":1704672000000,"y":30,"fill":"#AA0000"},{"date":"2024-01-09","party":"Kommunistische Partei","amount_spent":123209,"Daily Spend":29,"short_name":"KPÖ","colors":"#AA0000","x":1704758400000,"y":29,"fill":"#AA0000"},{"date":"2024-01-10","party":"Kommunistische Partei","amount_spent":123240,"Daily Spend":31,"short_name":"KPÖ","colors":"#AA0000","x":1704844800000,"y":31,"fill":"#AA0000"},{"date":"2024-01-11","party":"Kommunistische Partei","amount_spent":123289,"Daily Spend":49,"short_name":"KPÖ","colors":"#AA0000","x":1704931200000,"y":49,"fill":"#AA0000"},{"date":"2024-01-12","party":"Kommunistische Partei","amount_spent":123324,"Daily Spend":35,"short_name":"KPÖ","colors":"#AA0000","x":1705017600000,"y":35,"fill":"#AA0000"},{"date":"2024-01-13","party":"Kommunistische Partei","amount_spent":123346,"Daily Spend":22,"short_name":"KPÖ","colors":"#AA0000","x":1705104000000,"y":22,"fill":"#AA0000"},{"date":"2024-01-14","party":"Kommunistische Partei","amount_spent":123368,"Daily Spend":22,"short_name":"KPÖ","colors":"#AA0000","x":1705190400000,"y":22,"fill":"#AA0000"},{"date":"2024-01-15","party":"Kommunistische Partei","amount_spent":123382,"Daily Spend":14,"short_name":"KPÖ","colors":"#AA0000","x":1705276800000,"y":14,"fill":"#AA0000"},{"date":"2024-01-16","party":"Kommunistische Partei","amount_spent":123417,"Daily Spend":35,"short_name":"KPÖ","colors":"#AA0000","x":1705363200000,"y":35,"fill":"#AA0000"},{"date":"2024-01-17","party":"Kommunistische Partei","amount_spent":123482,"Daily Spend":65,"short_name":"KPÖ","colors":"#AA0000","x":1705449600000,"y":65,"fill":"#AA0000"},{"date":"2024-01-18","party":"Kommunistische Partei","amount_spent":123576,"Daily Spend":94,"short_name":"KPÖ","colors":"#AA0000","x":1705536000000,"y":94,"fill":"#AA0000"},{"date":"2024-01-19","party":"Kommunistische Partei","amount_spent":123662,"Daily Spend":86,"short_name":"KPÖ","colors":"#AA0000","x":1705622400000,"y":86,"fill":"#AA0000"},{"date":"2024-01-20","party":"Kommunistische Partei","amount_spent":123760,"Daily Spend":98,"short_name":"KPÖ","colors":"#AA0000","x":1705708800000,"y":98,"fill":"#AA0000"},{"date":"2024-01-21","party":"Kommunistische Partei","amount_spent":123861,"Daily Spend":101,"short_name":"KPÖ","colors":"#AA0000","x":1705795200000,"y":101,"fill":"#AA0000"},{"date":"2024-01-22","party":"Kommunistische Partei","amount_spent":123882,"Daily Spend":21,"short_name":"KPÖ","colors":"#AA0000","x":1705881600000,"y":21,"fill":"#AA0000"},{"date":"2024-01-23","party":"Kommunistische Partei","amount_spent":124012,"Daily Spend":130,"short_name":"KPÖ","colors":"#AA0000","x":1705968000000,"y":130,"fill":"#AA0000"},{"date":"2024-01-24","party":"Kommunistische Partei","amount_spent":124119,"Daily Spend":107,"short_name":"KPÖ","colors":"#AA0000","x":1706054400000,"y":107,"fill":"#AA0000"},{"date":"2024-01-25","party":"Kommunistische Partei","amount_spent":124248,"Daily Spend":129,"short_name":"KPÖ","colors":"#AA0000","x":1706140800000,"y":129,"fill":"#AA0000"},{"date":"2024-01-26","party":"Kommunistische Partei","amount_spent":124470,"Daily Spend":222,"short_name":"KPÖ","colors":"#AA0000","x":1706227200000,"y":222,"fill":"#AA0000"},{"date":"2024-01-27","party":"Kommunistische Partei","amount_spent":124667,"Daily Spend":197,"short_name":"KPÖ","colors":"#AA0000","x":1706313600000,"y":197,"fill":"#AA0000"},{"date":"2024-01-28","party":"Kommunistische Partei","amount_spent":124860,"Daily Spend":193,"short_name":"KPÖ","colors":"#AA0000","x":1706400000000,"y":193,"fill":"#AA0000"},{"date":"2024-01-29","party":"Kommunistische Partei","amount_spent":124992,"Daily Spend":132,"short_name":"KPÖ","colors":"#AA0000","x":1706486400000,"y":132,"fill":"#AA0000"},{"date":"2024-01-30","party":"Kommunistische Partei","amount_spent":125053,"Daily Spend":61,"short_name":"KPÖ","colors":"#AA0000","x":1706572800000,"y":61,"fill":"#AA0000"},{"date":"2024-01-31","party":"Kommunistische Partei","amount_spent":125131,"Daily Spend":78,"short_name":"KPÖ","colors":"#AA0000","x":1706659200000,"y":78,"fill":"#AA0000"},{"date":"2024-02-01","party":"Kommunistische Partei","amount_spent":125196,"Daily Spend":65,"short_name":"KPÖ","colors":"#AA0000","x":1706745600000,"y":65,"fill":"#AA0000"},{"date":"2024-02-02","party":"Kommunistische Partei","amount_spent":125291,"Daily Spend":95,"short_name":"KPÖ","colors":"#AA0000","x":1706832000000,"y":95,"fill":"#AA0000"},{"date":"2024-02-03","party":"Kommunistische Partei","amount_spent":125415,"Daily Spend":124,"short_name":"KPÖ","colors":"#AA0000","x":1706918400000,"y":124,"fill":"#AA0000"},{"date":"2024-02-04","party":"Kommunistische Partei","amount_spent":125542,"Daily Spend":127,"short_name":"KPÖ","colors":"#AA0000","x":1707004800000,"y":127,"fill":"#AA0000"},{"date":"2024-02-05","party":"Kommunistische Partei","amount_spent":125617,"Daily Spend":75,"short_name":"KPÖ","colors":"#AA0000","x":1707091200000,"y":75,"fill":"#AA0000"},{"date":"2024-02-06","party":"Kommunistische Partei","amount_spent":125680,"Daily Spend":63,"short_name":"KPÖ","colors":"#AA0000","x":1707177600000,"y":63,"fill":"#AA0000"},{"date":"2024-02-07","party":"Kommunistische Partei","amount_spent":125755,"Daily Spend":75,"short_name":"KPÖ","colors":"#AA0000","x":1707264000000,"y":75,"fill":"#AA0000"},{"date":"2024-02-08","party":"Kommunistische Partei","amount_spent":125826,"Daily Spend":71,"short_name":"KPÖ","colors":"#AA0000","x":1707350400000,"y":71,"fill":"#AA0000"},{"date":"2024-02-09","party":"Kommunistische Partei","amount_spent":125909,"Daily Spend":83,"short_name":"KPÖ","colors":"#AA0000","x":1707436800000,"y":83,"fill":"#AA0000"},{"date":"2024-02-10","party":"Kommunistische Partei","amount_spent":126019,"Daily Spend":110,"short_name":"KPÖ","colors":"#AA0000","x":1707523200000,"y":110,"fill":"#AA0000"},{"date":"2024-02-11","party":"Kommunistische Partei","amount_spent":126239,"Daily Spend":220,"short_name":"KPÖ","colors":"#AA0000","x":1707609600000,"y":220,"fill":"#AA0000"},{"date":"2024-02-12","party":"Kommunistische Partei","amount_spent":126361,"Daily Spend":122,"short_name":"KPÖ","colors":"#AA0000","x":1707696000000,"y":122,"fill":"#AA0000"},{"date":"2024-02-13","party":"Kommunistische Partei","amount_spent":126465,"Daily Spend":104,"short_name":"KPÖ","colors":"#AA0000","x":1707782400000,"y":104,"fill":"#AA0000"},{"date":"2024-02-14","party":"Kommunistische Partei","amount_spent":126653,"Daily Spend":188,"short_name":"KPÖ","colors":"#AA0000","x":1707868800000,"y":188,"fill":"#AA0000"},{"date":"2024-02-15","party":"Kommunistische Partei","amount_spent":126696,"Daily Spend":43,"short_name":"KPÖ","colors":"#AA0000","x":1707955200000,"y":43,"fill":"#AA0000"},{"date":"2024-02-16","party":"Kommunistische Partei","amount_spent":126727,"Daily Spend":31,"short_name":"KPÖ","colors":"#AA0000","x":1708041600000,"y":31,"fill":"#AA0000"},{"date":"2024-02-17","party":"Kommunistische Partei","amount_spent":126775,"Daily Spend":48,"short_name":"KPÖ","colors":"#AA0000","x":1708128000000,"y":48,"fill":"#AA0000"},{"date":"2024-02-18","party":"Kommunistische Partei","amount_spent":126830,"Daily Spend":55,"short_name":"KPÖ","colors":"#AA0000","x":1708214400000,"y":55,"fill":"#AA0000"},{"date":"2024-02-19","party":"Kommunistische Partei","amount_spent":126870,"Daily Spend":40,"short_name":"KPÖ","colors":"#AA0000","x":1708300800000,"y":40,"fill":"#AA0000"},{"date":"2024-02-20","party":"Kommunistische Partei","amount_spent":126912,"Daily Spend":42,"short_name":"KPÖ","colors":"#AA0000","x":1708387200000,"y":42,"fill":"#AA0000"},{"date":"2024-02-21","party":"Kommunistische Partei","amount_spent":126977,"Daily Spend":65,"short_name":"KPÖ","colors":"#AA0000","x":1708473600000,"y":65,"fill":"#AA0000"},{"date":"2024-02-22","party":"Kommunistische Partei","amount_spent":127061,"Daily Spend":84,"short_name":"KPÖ","colors":"#AA0000","x":1708560000000,"y":84,"fill":"#AA0000"},{"date":"2024-02-23","party":"Kommunistische Partei","amount_spent":127171,"Daily Spend":110,"short_name":"KPÖ","colors":"#AA0000","x":1708646400000,"y":110,"fill":"#AA0000"},{"date":"2024-02-24","party":"Kommunistische Partei","amount_spent":127286,"Daily Spend":115,"short_name":"KPÖ","colors":"#AA0000","x":1708732800000,"y":115,"fill":"#AA0000"},{"date":"2024-02-25","party":"Kommunistische Partei","amount_spent":127421,"Daily Spend":135,"short_name":"KPÖ","colors":"#AA0000","x":1708819200000,"y":135,"fill":"#AA0000"},{"date":"2024-02-26","party":"Kommunistische Partei","amount_spent":127503,"Daily Spend":82,"short_name":"KPÖ","colors":"#AA0000","x":1708905600000,"y":82,"fill":"#AA0000"},{"date":"2024-02-27","party":"Kommunistische Partei","amount_spent":127637,"Daily Spend":134,"short_name":"KPÖ","colors":"#AA0000","x":1708992000000,"y":134,"fill":"#AA0000"},{"date":"2024-02-28","party":"Kommunistische Partei","amount_spent":127732,"Daily Spend":95,"short_name":"KPÖ","colors":"#AA0000","x":1709078400000,"y":95,"fill":"#AA0000"},{"date":"2024-02-29","party":"Kommunistische Partei","amount_spent":127818,"Daily Spend":86,"short_name":"KPÖ","colors":"#AA0000","x":1709164800000,"y":86,"fill":"#AA0000"},{"date":"2024-03-01","party":"Kommunistische Partei","amount_spent":127979,"Daily Spend":161,"short_name":"KPÖ","colors":"#AA0000","x":1709251200000,"y":161,"fill":"#AA0000"},{"date":"2024-03-02","party":"Kommunistische Partei","amount_spent":128328,"Daily Spend":349,"short_name":"KPÖ","colors":"#AA0000","x":1709337600000,"y":349,"fill":"#AA0000"},{"date":"2024-03-03","party":"Kommunistische Partei","amount_spent":128545,"Daily Spend":217,"short_name":"KPÖ","colors":"#AA0000","x":1709424000000,"y":217,"fill":"#AA0000"},{"date":"2024-03-04","party":"Kommunistische Partei","amount_spent":128616,"Daily Spend":71,"short_name":"KPÖ","colors":"#AA0000","x":1709510400000,"y":71,"fill":"#AA0000"},{"date":"2024-03-05","party":"Kommunistische Partei","amount_spent":128889,"Daily Spend":273,"short_name":"KPÖ","colors":"#AA0000","x":1709596800000,"y":273,"fill":"#AA0000"},{"date":"2024-03-06","party":"Kommunistische Partei","amount_spent":129089,"Daily Spend":200,"short_name":"KPÖ","colors":"#AA0000","x":1709683200000,"y":200,"fill":"#AA0000"},{"date":"2024-03-07","party":"Kommunistische Partei","amount_spent":129281,"Daily Spend":192,"short_name":"KPÖ","colors":"#AA0000","x":1709769600000,"y":192,"fill":"#AA0000"},{"date":"2024-03-08","party":"Kommunistische Partei","amount_spent":129573,"Daily Spend":292,"short_name":"KPÖ","colors":"#AA0000","x":1709856000000,"y":292,"fill":"#AA0000"}],"type":"area"},{"name":"MFG","data":[{"date":"2023-12-31","party":"MFG","amount_spent":100918,"Daily Spend":null,"short_name":"MFG","colors":"#d32630","x":1703980800000,"y":null,"fill":"#d32630"},{"date":"2024-01-01","party":"MFG","amount_spent":100937,"Daily Spend":19,"short_name":"MFG","colors":"#d32630","x":1704067200000,"y":19,"fill":"#d32630"},{"date":"2024-01-02","party":"MFG","amount_spent":100956,"Daily Spend":19,"short_name":"MFG","colors":"#d32630","x":1704153600000,"y":19,"fill":"#d32630"},{"date":"2024-01-03","party":"MFG","amount_spent":100975,"Daily Spend":19,"short_name":"MFG","colors":"#d32630","x":1704240000000,"y":19,"fill":"#d32630"},{"date":"2024-01-04","party":"MFG","amount_spent":100982,"Daily Spend":7,"short_name":"MFG","colors":"#d32630","x":1704326400000,"y":7,"fill":"#d32630"},{"date":"2024-01-05","party":"MFG","amount_spent":100982,"Daily Spend":0,"short_name":"MFG","colors":"#d32630","x":1704412800000,"y":0,"fill":"#d32630"},{"date":"2024-01-06","party":"MFG","amount_spent":100982,"Daily Spend":0,"short_name":"MFG","colors":"#d32630","x":1704499200000,"y":0,"fill":"#d32630"},{"date":"2024-01-07","party":"MFG","amount_spent":100982,"Daily Spend":0,"short_name":"MFG","colors":"#d32630","x":1704585600000,"y":0,"fill":"#d32630"},{"date":"2024-01-08","party":"MFG","amount_spent":100982,"Daily Spend":0,"short_name":"MFG","colors":"#d32630","x":1704672000000,"y":0,"fill":"#d32630"},{"date":"2024-01-09","party":"MFG","amount_spent":100982,"Daily Spend":0,"short_name":"MFG","colors":"#d32630","x":1704758400000,"y":0,"fill":"#d32630"},{"date":"2024-01-10","party":"MFG","amount_spent":100982,"Daily Spend":0,"short_name":"MFG","colors":"#d32630","x":1704844800000,"y":0,"fill":"#d32630"},{"date":"2024-01-11","party":"MFG","amount_spent":100982,"Daily Spend":0,"short_name":"MFG","colors":"#d32630","x":1704931200000,"y":0,"fill":"#d32630"},{"date":"2024-01-12","party":"MFG","amount_spent":101039,"Daily Spend":57,"short_name":"MFG","colors":"#d32630","x":1705017600000,"y":57,"fill":"#d32630"},{"date":"2024-01-13","party":"MFG","amount_spent":101119,"Daily Spend":80,"short_name":"MFG","colors":"#d32630","x":1705104000000,"y":80,"fill":"#d32630"},{"date":"2024-01-14","party":"MFG","amount_spent":101201,"Daily Spend":82,"short_name":"MFG","colors":"#d32630","x":1705190400000,"y":82,"fill":"#d32630"},{"date":"2024-01-15","party":"MFG","amount_spent":101306,"Daily Spend":105,"short_name":"MFG","colors":"#d32630","x":1705276800000,"y":105,"fill":"#d32630"},{"date":"2024-01-16","party":"MFG","amount_spent":101467,"Daily Spend":161,"short_name":"MFG","colors":"#d32630","x":1705363200000,"y":161,"fill":"#d32630"},{"date":"2024-01-17","party":"MFG","amount_spent":101628,"Daily Spend":161,"short_name":"MFG","colors":"#d32630","x":1705449600000,"y":161,"fill":"#d32630"},{"date":"2024-01-18","party":"MFG","amount_spent":101767,"Daily Spend":139,"short_name":"MFG","colors":"#d32630","x":1705536000000,"y":139,"fill":"#d32630"},{"date":"2024-01-19","party":"MFG","amount_spent":101875,"Daily Spend":108,"short_name":"MFG","colors":"#d32630","x":1705622400000,"y":108,"fill":"#d32630"},{"date":"2024-01-20","party":"MFG","amount_spent":102002,"Daily Spend":127,"short_name":"MFG","colors":"#d32630","x":1705708800000,"y":127,"fill":"#d32630"},{"date":"2024-01-21","party":"MFG","amount_spent":102138,"Daily Spend":136,"short_name":"MFG","colors":"#d32630","x":1705795200000,"y":136,"fill":"#d32630"},{"date":"2024-01-22","party":"MFG","amount_spent":102214,"Daily Spend":76,"short_name":"MFG","colors":"#d32630","x":1705881600000,"y":76,"fill":"#d32630"},{"date":"2024-01-23","party":"MFG","amount_spent":102255,"Daily Spend":41,"short_name":"MFG","colors":"#d32630","x":1705968000000,"y":41,"fill":"#d32630"},{"date":"2024-01-24","party":"MFG","amount_spent":102334,"Daily Spend":79,"short_name":"MFG","colors":"#d32630","x":1706054400000,"y":79,"fill":"#d32630"},{"date":"2024-01-25","party":"MFG","amount_spent":102409,"Daily Spend":75,"short_name":"MFG","colors":"#d32630","x":1706140800000,"y":75,"fill":"#d32630"},{"date":"2024-01-26","party":"MFG","amount_spent":102502,"Daily Spend":93,"short_name":"MFG","colors":"#d32630","x":1706227200000,"y":93,"fill":"#d32630"},{"date":"2024-01-27","party":"MFG","amount_spent":102607,"Daily Spend":105,"short_name":"MFG","colors":"#d32630","x":1706313600000,"y":105,"fill":"#d32630"},{"date":"2024-01-28","party":"MFG","amount_spent":102682,"Daily Spend":75,"short_name":"MFG","colors":"#d32630","x":1706400000000,"y":75,"fill":"#d32630"},{"date":"2024-01-29","party":"MFG","amount_spent":102709,"Daily Spend":27,"short_name":"MFG","colors":"#d32630","x":1706486400000,"y":27,"fill":"#d32630"},{"date":"2024-01-30","party":"MFG","amount_spent":102755,"Daily Spend":46,"short_name":"MFG","colors":"#d32630","x":1706572800000,"y":46,"fill":"#d32630"},{"date":"2024-01-31","party":"MFG","amount_spent":102805,"Daily Spend":50,"short_name":"MFG","colors":"#d32630","x":1706659200000,"y":50,"fill":"#d32630"},{"date":"2024-02-01","party":"MFG","amount_spent":102855,"Daily Spend":50,"short_name":"MFG","colors":"#d32630","x":1706745600000,"y":50,"fill":"#d32630"},{"date":"2024-02-02","party":"MFG","amount_spent":102892,"Daily Spend":37,"short_name":"MFG","colors":"#d32630","x":1706832000000,"y":37,"fill":"#d32630"},{"date":"2024-02-03","party":"MFG","amount_spent":102915,"Daily Spend":23,"short_name":"MFG","colors":"#d32630","x":1706918400000,"y":23,"fill":"#d32630"},{"date":"2024-02-04","party":"MFG","amount_spent":102939,"Daily Spend":24,"short_name":"MFG","colors":"#d32630","x":1707004800000,"y":24,"fill":"#d32630"},{"date":"2024-02-05","party":"MFG","amount_spent":102980,"Daily Spend":41,"short_name":"MFG","colors":"#d32630","x":1707091200000,"y":41,"fill":"#d32630"},{"date":"2024-02-06","party":"MFG","amount_spent":103010,"Daily Spend":30,"short_name":"MFG","colors":"#d32630","x":1707177600000,"y":30,"fill":"#d32630"},{"date":"2024-02-07","party":"MFG","amount_spent":103087,"Daily Spend":77,"short_name":"MFG","colors":"#d32630","x":1707264000000,"y":77,"fill":"#d32630"},{"date":"2024-02-08","party":"MFG","amount_spent":103173,"Daily Spend":86,"short_name":"MFG","colors":"#d32630","x":1707350400000,"y":86,"fill":"#d32630"},{"date":"2024-02-09","party":"MFG","amount_spent":103251,"Daily Spend":78,"short_name":"MFG","colors":"#d32630","x":1707436800000,"y":78,"fill":"#d32630"},{"date":"2024-02-10","party":"MFG","amount_spent":103349,"Daily Spend":98,"short_name":"MFG","colors":"#d32630","x":1707523200000,"y":98,"fill":"#d32630"},{"date":"2024-02-11","party":"MFG","amount_spent":103450,"Daily Spend":101,"short_name":"MFG","colors":"#d32630","x":1707609600000,"y":101,"fill":"#d32630"},{"date":"2024-02-12","party":"MFG","amount_spent":103556,"Daily Spend":106,"short_name":"MFG","colors":"#d32630","x":1707696000000,"y":106,"fill":"#d32630"},{"date":"2024-02-13","party":"MFG","amount_spent":103649,"Daily Spend":93,"short_name":"MFG","colors":"#d32630","x":1707782400000,"y":93,"fill":"#d32630"},{"date":"2024-02-14","party":"MFG","amount_spent":103708,"Daily Spend":59,"short_name":"MFG","colors":"#d32630","x":1707868800000,"y":59,"fill":"#d32630"},{"date":"2024-02-15","party":"MFG","amount_spent":103743,"Daily Spend":35,"short_name":"MFG","colors":"#d32630","x":1707955200000,"y":35,"fill":"#d32630"},{"date":"2024-02-16","party":"MFG","amount_spent":103779,"Daily Spend":36,"short_name":"MFG","colors":"#d32630","x":1708041600000,"y":36,"fill":"#d32630"},{"date":"2024-02-17","party":"MFG","amount_spent":103805,"Daily Spend":26,"short_name":"MFG","colors":"#d32630","x":1708128000000,"y":26,"fill":"#d32630"},{"date":"2024-02-18","party":"MFG","amount_spent":103828,"Daily Spend":23,"short_name":"MFG","colors":"#d32630","x":1708214400000,"y":23,"fill":"#d32630"},{"date":"2024-02-19","party":"MFG","amount_spent":103856,"Daily Spend":28,"short_name":"MFG","colors":"#d32630","x":1708300800000,"y":28,"fill":"#d32630"},{"date":"2024-02-20","party":"MFG","amount_spent":103877,"Daily Spend":21,"short_name":"MFG","colors":"#d32630","x":1708387200000,"y":21,"fill":"#d32630"},{"date":"2024-02-21","party":"MFG","amount_spent":103897,"Daily Spend":20,"short_name":"MFG","colors":"#d32630","x":1708473600000,"y":20,"fill":"#d32630"},{"date":"2024-02-22","party":"MFG","amount_spent":103918,"Daily Spend":21,"short_name":"MFG","colors":"#d32630","x":1708560000000,"y":21,"fill":"#d32630"},{"date":"2024-02-23","party":"MFG","amount_spent":103939,"Daily Spend":21,"short_name":"MFG","colors":"#d32630","x":1708646400000,"y":21,"fill":"#d32630"},{"date":"2024-02-24","party":"MFG","amount_spent":104000,"Daily Spend":61,"short_name":"MFG","colors":"#d32630","x":1708732800000,"y":61,"fill":"#d32630"},{"date":"2024-02-25","party":"MFG","amount_spent":104055,"Daily Spend":55,"short_name":"MFG","colors":"#d32630","x":1708819200000,"y":55,"fill":"#d32630"},{"date":"2024-02-26","party":"MFG","amount_spent":104091,"Daily Spend":36,"short_name":"MFG","colors":"#d32630","x":1708905600000,"y":36,"fill":"#d32630"},{"date":"2024-02-27","party":"MFG","amount_spent":104123,"Daily Spend":32,"short_name":"MFG","colors":"#d32630","x":1708992000000,"y":32,"fill":"#d32630"},{"date":"2024-02-28","party":"MFG","amount_spent":104206,"Daily Spend":83,"short_name":"MFG","colors":"#d32630","x":1709078400000,"y":83,"fill":"#d32630"},{"date":"2024-02-29","party":"MFG","amount_spent":104296,"Daily Spend":90,"short_name":"MFG","colors":"#d32630","x":1709164800000,"y":90,"fill":"#d32630"},{"date":"2024-03-01","party":"MFG","amount_spent":104389,"Daily Spend":93,"short_name":"MFG","colors":"#d32630","x":1709251200000,"y":93,"fill":"#d32630"},{"date":"2024-03-02","party":"MFG","amount_spent":104527,"Daily Spend":138,"short_name":"MFG","colors":"#d32630","x":1709337600000,"y":138,"fill":"#d32630"},{"date":"2024-03-03","party":"MFG","amount_spent":104632,"Daily Spend":105,"short_name":"MFG","colors":"#d32630","x":1709424000000,"y":105,"fill":"#d32630"},{"date":"2024-03-04","party":"MFG","amount_spent":104684,"Daily Spend":52,"short_name":"MFG","colors":"#d32630","x":1709510400000,"y":52,"fill":"#d32630"},{"date":"2024-03-05","party":"MFG","amount_spent":104747,"Daily Spend":63,"short_name":"MFG","colors":"#d32630","x":1709596800000,"y":63,"fill":"#d32630"},{"date":"2024-03-06","party":"MFG","amount_spent":104883,"Daily Spend":136,"short_name":"MFG","colors":"#d32630","x":1709683200000,"y":136,"fill":"#d32630"},{"date":"2024-03-07","party":"MFG","amount_spent":105025,"Daily Spend":142,"short_name":"MFG","colors":"#d32630","x":1709769600000,"y":142,"fill":"#d32630"},{"date":"2024-03-08","party":"MFG","amount_spent":105167,"Daily Spend":142,"short_name":"MFG","colors":"#d32630","x":1709856000000,"y":142,"fill":"#d32630"}],"type":"area"},{"name":"Regierung","data":[{"date":"2023-12-31","party":"Regierung","amount_spent":382257,"Daily Spend":null,"short_name":"Reg","colors":"#000000","x":1703980800000,"y":null,"fill":"#000000"},{"date":"2024-01-01","party":"Regierung","amount_spent":382410,"Daily Spend":153,"short_name":"Reg","colors":"#000000","x":1704067200000,"y":153,"fill":"#000000"},{"date":"2024-01-02","party":"Regierung","amount_spent":382589,"Daily Spend":179,"short_name":"Reg","colors":"#000000","x":1704153600000,"y":179,"fill":"#000000"},{"date":"2024-01-03","party":"Regierung","amount_spent":382773,"Daily Spend":184,"short_name":"Reg","colors":"#000000","x":1704240000000,"y":184,"fill":"#000000"},{"date":"2024-01-04","party":"Regierung","amount_spent":382959,"Daily Spend":186,"short_name":"Reg","colors":"#000000","x":1704326400000,"y":186,"fill":"#000000"},{"date":"2024-01-05","party":"Regierung","amount_spent":383271,"Daily Spend":312,"short_name":"Reg","colors":"#000000","x":1704412800000,"y":312,"fill":"#000000"},{"date":"2024-01-06","party":"Regierung","amount_spent":383532,"Daily Spend":261,"short_name":"Reg","colors":"#000000","x":1704499200000,"y":261,"fill":"#000000"},{"date":"2024-01-07","party":"Regierung","amount_spent":383802,"Daily Spend":270,"short_name":"Reg","colors":"#000000","x":1704585600000,"y":270,"fill":"#000000"},{"date":"2024-01-08","party":"Regierung","amount_spent":384048,"Daily Spend":246,"short_name":"Reg","colors":"#000000","x":1704672000000,"y":246,"fill":"#000000"},{"date":"2024-01-09","party":"Regierung","amount_spent":384261,"Daily Spend":213,"short_name":"Reg","colors":"#000000","x":1704758400000,"y":213,"fill":"#000000"},{"date":"2024-01-10","party":"Regierung","amount_spent":384366,"Daily Spend":105,"short_name":"Reg","colors":"#000000","x":1704844800000,"y":105,"fill":"#000000"},{"date":"2024-01-11","party":"Regierung","amount_spent":384568,"Daily Spend":202,"short_name":"Reg","colors":"#000000","x":1704931200000,"y":202,"fill":"#000000"},{"date":"2024-01-12","party":"Regierung","amount_spent":384811,"Daily Spend":243,"short_name":"Reg","colors":"#000000","x":1705017600000,"y":243,"fill":"#000000"},{"date":"2024-01-13","party":"Regierung","amount_spent":385054,"Daily Spend":243,"short_name":"Reg","colors":"#000000","x":1705104000000,"y":243,"fill":"#000000"},{"date":"2024-01-14","party":"Regierung","amount_spent":385297,"Daily Spend":243,"short_name":"Reg","colors":"#000000","x":1705190400000,"y":243,"fill":"#000000"},{"date":"2024-01-15","party":"Regierung","amount_spent":385514,"Daily Spend":217,"short_name":"Reg","colors":"#000000","x":1705276800000,"y":217,"fill":"#000000"},{"date":"2024-01-16","party":"Regierung","amount_spent":385627,"Daily Spend":113,"short_name":"Reg","colors":"#000000","x":1705363200000,"y":113,"fill":"#000000"},{"date":"2024-01-17","party":"Regierung","amount_spent":385728,"Daily Spend":101,"short_name":"Reg","colors":"#000000","x":1705449600000,"y":101,"fill":"#000000"},{"date":"2024-01-18","party":"Regierung","amount_spent":385829,"Daily Spend":101,"short_name":"Reg","colors":"#000000","x":1705536000000,"y":101,"fill":"#000000"},{"date":"2024-01-19","party":"Regierung","amount_spent":385958,"Daily Spend":129,"short_name":"Reg","colors":"#000000","x":1705622400000,"y":129,"fill":"#000000"},{"date":"2024-01-20","party":"Regierung","amount_spent":386140,"Daily Spend":182,"short_name":"Reg","colors":"#000000","x":1705708800000,"y":182,"fill":"#000000"},{"date":"2024-01-21","party":"Regierung","amount_spent":386327,"Daily Spend":187,"short_name":"Reg","colors":"#000000","x":1705795200000,"y":187,"fill":"#000000"},{"date":"2024-01-22","party":"Regierung","amount_spent":386570,"Daily Spend":243,"short_name":"Reg","colors":"#000000","x":1705881600000,"y":243,"fill":"#000000"},{"date":"2024-01-23","party":"Regierung","amount_spent":387009,"Daily Spend":439,"short_name":"Reg","colors":"#000000","x":1705968000000,"y":439,"fill":"#000000"},{"date":"2024-01-24","party":"Regierung","amount_spent":387346,"Daily Spend":337,"short_name":"Reg","colors":"#000000","x":1706054400000,"y":337,"fill":"#000000"},{"date":"2024-01-25","party":"Regierung","amount_spent":387663,"Daily Spend":317,"short_name":"Reg","colors":"#000000","x":1706140800000,"y":317,"fill":"#000000"},{"date":"2024-01-26","party":"Regierung","amount_spent":387946,"Daily Spend":283,"short_name":"Reg","colors":"#000000","x":1706227200000,"y":283,"fill":"#000000"},{"date":"2024-01-27","party":"Regierung","amount_spent":388140,"Daily Spend":194,"short_name":"Reg","colors":"#000000","x":1706313600000,"y":194,"fill":"#000000"},{"date":"2024-01-28","party":"Regierung","amount_spent":388376,"Daily Spend":236,"short_name":"Reg","colors":"#000000","x":1706400000000,"y":236,"fill":"#000000"},{"date":"2024-01-29","party":"Regierung","amount_spent":388587,"Daily Spend":211,"short_name":"Reg","colors":"#000000","x":1706486400000,"y":211,"fill":"#000000"},{"date":"2024-01-30","party":"Regierung","amount_spent":388898,"Daily Spend":311,"short_name":"Reg","colors":"#000000","x":1706572800000,"y":311,"fill":"#000000"},{"date":"2024-01-31","party":"Regierung","amount_spent":389200,"Daily Spend":302,"short_name":"Reg","colors":"#000000","x":1706659200000,"y":302,"fill":"#000000"},{"date":"2024-02-01","party":"Regierung","amount_spent":389440,"Daily Spend":240,"short_name":"Reg","colors":"#000000","x":1706745600000,"y":240,"fill":"#000000"},{"date":"2024-02-02","party":"Regierung","amount_spent":389668,"Daily Spend":228,"short_name":"Reg","colors":"#000000","x":1706832000000,"y":228,"fill":"#000000"},{"date":"2024-02-03","party":"Regierung","amount_spent":389924,"Daily Spend":256,"short_name":"Reg","colors":"#000000","x":1706918400000,"y":256,"fill":"#000000"},{"date":"2024-02-04","party":"Regierung","amount_spent":390029,"Daily Spend":105,"short_name":"Reg","colors":"#000000","x":1707004800000,"y":105,"fill":"#000000"},{"date":"2024-02-05","party":"Regierung","amount_spent":390251,"Daily Spend":222,"short_name":"Reg","colors":"#000000","x":1707091200000,"y":222,"fill":"#000000"},{"date":"2024-02-06","party":"Regierung","amount_spent":390557,"Daily Spend":306,"short_name":"Reg","colors":"#000000","x":1707177600000,"y":306,"fill":"#000000"},{"date":"2024-02-07","party":"Regierung","amount_spent":390865,"Daily Spend":308,"short_name":"Reg","colors":"#000000","x":1707264000000,"y":308,"fill":"#000000"},{"date":"2024-02-08","party":"Regierung","amount_spent":391274,"Daily Spend":409,"short_name":"Reg","colors":"#000000","x":1707350400000,"y":409,"fill":"#000000"},{"date":"2024-02-09","party":"Regierung","amount_spent":391822,"Daily Spend":548,"short_name":"Reg","colors":"#000000","x":1707436800000,"y":548,"fill":"#000000"},{"date":"2024-02-10","party":"Regierung","amount_spent":392474,"Daily Spend":652,"short_name":"Reg","colors":"#000000","x":1707523200000,"y":652,"fill":"#000000"},{"date":"2024-02-11","party":"Regierung","amount_spent":393142,"Daily Spend":668,"short_name":"Reg","colors":"#000000","x":1707609600000,"y":668,"fill":"#000000"},{"date":"2024-02-12","party":"Regierung","amount_spent":393778,"Daily Spend":636,"short_name":"Reg","colors":"#000000","x":1707696000000,"y":636,"fill":"#000000"},{"date":"2024-02-13","party":"Regierung","amount_spent":394291,"Daily Spend":513,"short_name":"Reg","colors":"#000000","x":1707782400000,"y":513,"fill":"#000000"},{"date":"2024-02-14","party":"Regierung","amount_spent":394637,"Daily Spend":346,"short_name":"Reg","colors":"#000000","x":1707868800000,"y":346,"fill":"#000000"},{"date":"2024-02-15","party":"Regierung","amount_spent":394968,"Daily Spend":331,"short_name":"Reg","colors":"#000000","x":1707955200000,"y":331,"fill":"#000000"},{"date":"2024-02-16","party":"Regierung","amount_spent":395336,"Daily Spend":368,"short_name":"Reg","colors":"#000000","x":1708041600000,"y":368,"fill":"#000000"},{"date":"2024-02-17","party":"Regierung","amount_spent":395752,"Daily Spend":416,"short_name":"Reg","colors":"#000000","x":1708128000000,"y":416,"fill":"#000000"},{"date":"2024-02-18","party":"Regierung","amount_spent":396181,"Daily Spend":429,"short_name":"Reg","colors":"#000000","x":1708214400000,"y":429,"fill":"#000000"},{"date":"2024-02-19","party":"Regierung","amount_spent":396407,"Daily Spend":226,"short_name":"Reg","colors":"#000000","x":1708300800000,"y":226,"fill":"#000000"},{"date":"2024-02-20","party":"Regierung","amount_spent":396638,"Daily Spend":231,"short_name":"Reg","colors":"#000000","x":1708387200000,"y":231,"fill":"#000000"},{"date":"2024-02-21","party":"Regierung","amount_spent":396835,"Daily Spend":197,"short_name":"Reg","colors":"#000000","x":1708473600000,"y":197,"fill":"#000000"},{"date":"2024-02-22","party":"Regierung","amount_spent":397024,"Daily Spend":189,"short_name":"Reg","colors":"#000000","x":1708560000000,"y":189,"fill":"#000000"},{"date":"2024-02-23","party":"Regierung","amount_spent":397204,"Daily Spend":180,"short_name":"Reg","colors":"#000000","x":1708646400000,"y":180,"fill":"#000000"},{"date":"2024-02-24","party":"Regierung","amount_spent":397412,"Daily Spend":208,"short_name":"Reg","colors":"#000000","x":1708732800000,"y":208,"fill":"#000000"},{"date":"2024-02-25","party":"Regierung","amount_spent":397578,"Daily Spend":166,"short_name":"Reg","colors":"#000000","x":1708819200000,"y":166,"fill":"#000000"},{"date":"2024-02-26","party":"Regierung","amount_spent":397781,"Daily Spend":203,"short_name":"Reg","colors":"#000000","x":1708905600000,"y":203,"fill":"#000000"},{"date":"2024-02-27","party":"Regierung","amount_spent":397958,"Daily Spend":177,"short_name":"Reg","colors":"#000000","x":1708992000000,"y":177,"fill":"#000000"},{"date":"2024-02-28","party":"Regierung","amount_spent":398148,"Daily Spend":190,"short_name":"Reg","colors":"#000000","x":1709078400000,"y":190,"fill":"#000000"},{"date":"2024-02-29","party":"Regierung","amount_spent":398351,"Daily Spend":203,"short_name":"Reg","colors":"#000000","x":1709164800000,"y":203,"fill":"#000000"},{"date":"2024-03-01","party":"Regierung","amount_spent":398496,"Daily Spend":145,"short_name":"Reg","colors":"#000000","x":1709251200000,"y":145,"fill":"#000000"},{"date":"2024-03-02","party":"Regierung","amount_spent":398653,"Daily Spend":157,"short_name":"Reg","colors":"#000000","x":1709337600000,"y":157,"fill":"#000000"},{"date":"2024-03-03","party":"Regierung","amount_spent":398814,"Daily Spend":161,"short_name":"Reg","colors":"#000000","x":1709424000000,"y":161,"fill":"#000000"},{"date":"2024-03-04","party":"Regierung","amount_spent":398960,"Daily Spend":146,"short_name":"Reg","colors":"#000000","x":1709510400000,"y":146,"fill":"#000000"},{"date":"2024-03-05","party":"Regierung","amount_spent":399078,"Daily Spend":118,"short_name":"Reg","colors":"#000000","x":1709596800000,"y":118,"fill":"#000000"},{"date":"2024-03-06","party":"Regierung","amount_spent":399207,"Daily Spend":129,"short_name":"Reg","colors":"#000000","x":1709683200000,"y":129,"fill":"#000000"},{"date":"2024-03-07","party":"Regierung","amount_spent":399284,"Daily Spend":77,"short_name":"Reg","colors":"#000000","x":1709769600000,"y":77,"fill":"#000000"},{"date":"2024-03-08","party":"Regierung","amount_spent":399363,"Daily Spend":79,"short_name":"Reg","colors":"#000000","x":1709856000000,"y":79,"fill":"#000000"}],"type":"area"},{"name":"Sozialdemokratische Partei ","data":[{"date":"2023-12-31","party":"Sozialdemokratische Partei ","amount_spent":702863,"Daily Spend":null,"short_name":"SPÖ","colors":"#ce000c","x":1703980800000,"y":null,"fill":"#ce000c"},{"date":"2024-01-01","party":"Sozialdemokratische Partei ","amount_spent":702902,"Daily Spend":39,"short_name":"SPÖ","colors":"#ce000c","x":1704067200000,"y":39,"fill":"#ce000c"},{"date":"2024-01-02","party":"Sozialdemokratische Partei ","amount_spent":703022,"Daily Spend":120,"short_name":"SPÖ","colors":"#ce000c","x":1704153600000,"y":120,"fill":"#ce000c"},{"date":"2024-01-03","party":"Sozialdemokratische Partei ","amount_spent":703230,"Daily Spend":208,"short_name":"SPÖ","colors":"#ce000c","x":1704240000000,"y":208,"fill":"#ce000c"},{"date":"2024-01-04","party":"Sozialdemokratische Partei ","amount_spent":703548,"Daily Spend":318,"short_name":"SPÖ","colors":"#ce000c","x":1704326400000,"y":318,"fill":"#ce000c"},{"date":"2024-01-05","party":"Sozialdemokratische Partei ","amount_spent":703930,"Daily Spend":382,"short_name":"SPÖ","colors":"#ce000c","x":1704412800000,"y":382,"fill":"#ce000c"},{"date":"2024-01-06","party":"Sozialdemokratische Partei ","amount_spent":704244,"Daily Spend":314,"short_name":"SPÖ","colors":"#ce000c","x":1704499200000,"y":314,"fill":"#ce000c"},{"date":"2024-01-07","party":"Sozialdemokratische Partei ","amount_spent":704553,"Daily Spend":309,"short_name":"SPÖ","colors":"#ce000c","x":1704585600000,"y":309,"fill":"#ce000c"},{"date":"2024-01-08","party":"Sozialdemokratische Partei ","amount_spent":704773,"Daily Spend":220,"short_name":"SPÖ","colors":"#ce000c","x":1704672000000,"y":220,"fill":"#ce000c"},{"date":"2024-01-09","party":"Sozialdemokratische Partei ","amount_spent":705149,"Daily Spend":376,"short_name":"SPÖ","colors":"#ce000c","x":1704758400000,"y":376,"fill":"#ce000c"},{"date":"2024-01-10","party":"Sozialdemokratische Partei ","amount_spent":705457,"Daily Spend":308,"short_name":"SPÖ","colors":"#ce000c","x":1704844800000,"y":308,"fill":"#ce000c"},{"date":"2024-01-11","party":"Sozialdemokratische Partei ","amount_spent":705777,"Daily Spend":320,"short_name":"SPÖ","colors":"#ce000c","x":1704931200000,"y":320,"fill":"#ce000c"},{"date":"2024-01-12","party":"Sozialdemokratische Partei ","amount_spent":706158,"Daily Spend":381,"short_name":"SPÖ","colors":"#ce000c","x":1705017600000,"y":381,"fill":"#ce000c"},{"date":"2024-01-13","party":"Sozialdemokratische Partei ","amount_spent":706563,"Daily Spend":405,"short_name":"SPÖ","colors":"#ce000c","x":1705104000000,"y":405,"fill":"#ce000c"},{"date":"2024-01-14","party":"Sozialdemokratische Partei ","amount_spent":707037,"Daily Spend":474,"short_name":"SPÖ","colors":"#ce000c","x":1705190400000,"y":474,"fill":"#ce000c"},{"date":"2024-01-15","party":"Sozialdemokratische Partei ","amount_spent":707462,"Daily Spend":425,"short_name":"SPÖ","colors":"#ce000c","x":1705276800000,"y":425,"fill":"#ce000c"},{"date":"2024-01-16","party":"Sozialdemokratische Partei ","amount_spent":707993,"Daily Spend":531,"short_name":"SPÖ","colors":"#ce000c","x":1705363200000,"y":531,"fill":"#ce000c"},{"date":"2024-01-17","party":"Sozialdemokratische Partei ","amount_spent":708551,"Daily Spend":558,"short_name":"SPÖ","colors":"#ce000c","x":1705449600000,"y":558,"fill":"#ce000c"},{"date":"2024-01-18","party":"Sozialdemokratische Partei ","amount_spent":709158,"Daily Spend":607,"short_name":"SPÖ","colors":"#ce000c","x":1705536000000,"y":607,"fill":"#ce000c"},{"date":"2024-01-19","party":"Sozialdemokratische Partei ","amount_spent":709921,"Daily Spend":763,"short_name":"SPÖ","colors":"#ce000c","x":1705622400000,"y":763,"fill":"#ce000c"},{"date":"2024-01-20","party":"Sozialdemokratische Partei ","amount_spent":710741,"Daily Spend":820,"short_name":"SPÖ","colors":"#ce000c","x":1705708800000,"y":820,"fill":"#ce000c"},{"date":"2024-01-21","party":"Sozialdemokratische Partei ","amount_spent":711573,"Daily Spend":832,"short_name":"SPÖ","colors":"#ce000c","x":1705795200000,"y":832,"fill":"#ce000c"},{"date":"2024-01-22","party":"Sozialdemokratische Partei ","amount_spent":712354,"Daily Spend":781,"short_name":"SPÖ","colors":"#ce000c","x":1705881600000,"y":781,"fill":"#ce000c"},{"date":"2024-01-23","party":"Sozialdemokratische Partei ","amount_spent":713117,"Daily Spend":763,"short_name":"SPÖ","colors":"#ce000c","x":1705968000000,"y":763,"fill":"#ce000c"},{"date":"2024-01-24","party":"Sozialdemokratische Partei ","amount_spent":713960,"Daily Spend":843,"short_name":"SPÖ","colors":"#ce000c","x":1706054400000,"y":843,"fill":"#ce000c"},{"date":"2024-01-25","party":"Sozialdemokratische Partei ","amount_spent":714957,"Daily Spend":997,"short_name":"SPÖ","colors":"#ce000c","x":1706140800000,"y":997,"fill":"#ce000c"},{"date":"2024-01-26","party":"Sozialdemokratische Partei ","amount_spent":715887,"Daily Spend":930,"short_name":"SPÖ","colors":"#ce000c","x":1706227200000,"y":930,"fill":"#ce000c"},{"date":"2024-01-27","party":"Sozialdemokratische Partei ","amount_spent":716710,"Daily Spend":823,"short_name":"SPÖ","colors":"#ce000c","x":1706313600000,"y":823,"fill":"#ce000c"},{"date":"2024-01-28","party":"Sozialdemokratische Partei ","amount_spent":717112,"Daily Spend":402,"short_name":"SPÖ","colors":"#ce000c","x":1706400000000,"y":402,"fill":"#ce000c"},{"date":"2024-01-29","party":"Sozialdemokratische Partei ","amount_spent":717503,"Daily Spend":391,"short_name":"SPÖ","colors":"#ce000c","x":1706486400000,"y":391,"fill":"#ce000c"},{"date":"2024-01-30","party":"Sozialdemokratische Partei ","amount_spent":717998,"Daily Spend":495,"short_name":"SPÖ","colors":"#ce000c","x":1706572800000,"y":495,"fill":"#ce000c"},{"date":"2024-01-31","party":"Sozialdemokratische Partei ","amount_spent":718495,"Daily Spend":497,"short_name":"SPÖ","colors":"#ce000c","x":1706659200000,"y":497,"fill":"#ce000c"},{"date":"2024-02-01","party":"Sozialdemokratische Partei ","amount_spent":719088,"Daily Spend":593,"short_name":"SPÖ","colors":"#ce000c","x":1706745600000,"y":593,"fill":"#ce000c"},{"date":"2024-02-02","party":"Sozialdemokratische Partei ","amount_spent":719690,"Daily Spend":602,"short_name":"SPÖ","colors":"#ce000c","x":1706832000000,"y":602,"fill":"#ce000c"},{"date":"2024-02-03","party":"Sozialdemokratische Partei ","amount_spent":720308,"Daily Spend":618,"short_name":"SPÖ","colors":"#ce000c","x":1706918400000,"y":618,"fill":"#ce000c"},{"date":"2024-02-04","party":"Sozialdemokratische Partei ","amount_spent":720941,"Daily Spend":633,"short_name":"SPÖ","colors":"#ce000c","x":1707004800000,"y":633,"fill":"#ce000c"},{"date":"2024-02-05","party":"Sozialdemokratische Partei ","amount_spent":721363,"Daily Spend":422,"short_name":"SPÖ","colors":"#ce000c","x":1707091200000,"y":422,"fill":"#ce000c"},{"date":"2024-02-06","party":"Sozialdemokratische Partei ","amount_spent":721832,"Daily Spend":469,"short_name":"SPÖ","colors":"#ce000c","x":1707177600000,"y":469,"fill":"#ce000c"},{"date":"2024-02-07","party":"Sozialdemokratische Partei ","amount_spent":722381,"Daily Spend":549,"short_name":"SPÖ","colors":"#ce000c","x":1707264000000,"y":549,"fill":"#ce000c"},{"date":"2024-02-08","party":"Sozialdemokratische Partei ","amount_spent":723076,"Daily Spend":695,"short_name":"SPÖ","colors":"#ce000c","x":1707350400000,"y":695,"fill":"#ce000c"},{"date":"2024-02-09","party":"Sozialdemokratische Partei ","amount_spent":723672,"Daily Spend":596,"short_name":"SPÖ","colors":"#ce000c","x":1707436800000,"y":596,"fill":"#ce000c"},{"date":"2024-02-10","party":"Sozialdemokratische Partei ","amount_spent":724440,"Daily Spend":768,"short_name":"SPÖ","colors":"#ce000c","x":1707523200000,"y":768,"fill":"#ce000c"},{"date":"2024-02-11","party":"Sozialdemokratische Partei ","amount_spent":725222,"Daily Spend":782,"short_name":"SPÖ","colors":"#ce000c","x":1707609600000,"y":782,"fill":"#ce000c"},{"date":"2024-02-12","party":"Sozialdemokratische Partei ","amount_spent":725566,"Daily Spend":344,"short_name":"SPÖ","colors":"#ce000c","x":1707696000000,"y":344,"fill":"#ce000c"},{"date":"2024-02-13","party":"Sozialdemokratische Partei ","amount_spent":725954,"Daily Spend":388,"short_name":"SPÖ","colors":"#ce000c","x":1707782400000,"y":388,"fill":"#ce000c"},{"date":"2024-02-14","party":"Sozialdemokratische Partei ","amount_spent":726364,"Daily Spend":410,"short_name":"SPÖ","colors":"#ce000c","x":1707868800000,"y":410,"fill":"#ce000c"},{"date":"2024-02-15","party":"Sozialdemokratische Partei ","amount_spent":726735,"Daily Spend":371,"short_name":"SPÖ","colors":"#ce000c","x":1707955200000,"y":371,"fill":"#ce000c"},{"date":"2024-02-16","party":"Sozialdemokratische Partei ","amount_spent":727194,"Daily Spend":459,"short_name":"SPÖ","colors":"#ce000c","x":1708041600000,"y":459,"fill":"#ce000c"},{"date":"2024-02-17","party":"Sozialdemokratische Partei ","amount_spent":727948,"Daily Spend":754,"short_name":"SPÖ","colors":"#ce000c","x":1708128000000,"y":754,"fill":"#ce000c"},{"date":"2024-02-18","party":"Sozialdemokratische Partei ","amount_spent":728711,"Daily Spend":763,"short_name":"SPÖ","colors":"#ce000c","x":1708214400000,"y":763,"fill":"#ce000c"},{"date":"2024-02-19","party":"Sozialdemokratische Partei ","amount_spent":729274,"Daily Spend":563,"short_name":"SPÖ","colors":"#ce000c","x":1708300800000,"y":563,"fill":"#ce000c"},{"date":"2024-02-20","party":"Sozialdemokratische Partei ","amount_spent":729899,"Daily Spend":625,"short_name":"SPÖ","colors":"#ce000c","x":1708387200000,"y":625,"fill":"#ce000c"},{"date":"2024-02-21","party":"Sozialdemokratische Partei ","amount_spent":730626,"Daily Spend":727,"short_name":"SPÖ","colors":"#ce000c","x":1708473600000,"y":727,"fill":"#ce000c"},{"date":"2024-02-22","party":"Sozialdemokratische Partei ","amount_spent":731330,"Daily Spend":704,"short_name":"SPÖ","colors":"#ce000c","x":1708560000000,"y":704,"fill":"#ce000c"},{"date":"2024-02-23","party":"Sozialdemokratische Partei ","amount_spent":732261,"Daily Spend":931,"short_name":"SPÖ","colors":"#ce000c","x":1708646400000,"y":931,"fill":"#ce000c"},{"date":"2024-02-24","party":"Sozialdemokratische Partei ","amount_spent":733457,"Daily Spend":1196,"short_name":"SPÖ","colors":"#ce000c","x":1708732800000,"y":1196,"fill":"#ce000c"},{"date":"2024-02-25","party":"Sozialdemokratische Partei ","amount_spent":734633,"Daily Spend":1176,"short_name":"SPÖ","colors":"#ce000c","x":1708819200000,"y":1176,"fill":"#ce000c"},{"date":"2024-02-26","party":"Sozialdemokratische Partei ","amount_spent":735378,"Daily Spend":745,"short_name":"SPÖ","colors":"#ce000c","x":1708905600000,"y":745,"fill":"#ce000c"},{"date":"2024-02-27","party":"Sozialdemokratische Partei ","amount_spent":736429,"Daily Spend":1051,"short_name":"SPÖ","colors":"#ce000c","x":1708992000000,"y":1051,"fill":"#ce000c"},{"date":"2024-02-28","party":"Sozialdemokratische Partei ","amount_spent":738565,"Daily Spend":2136,"short_name":"SPÖ","colors":"#ce000c","x":1709078400000,"y":2136,"fill":"#ce000c"},{"date":"2024-02-29","party":"Sozialdemokratische Partei ","amount_spent":739734,"Daily Spend":1169,"short_name":"SPÖ","colors":"#ce000c","x":1709164800000,"y":1169,"fill":"#ce000c"},{"date":"2024-03-01","party":"Sozialdemokratische Partei ","amount_spent":740144,"Daily Spend":410,"short_name":"SPÖ","colors":"#ce000c","x":1709251200000,"y":410,"fill":"#ce000c"},{"date":"2024-03-02","party":"Sozialdemokratische Partei ","amount_spent":740715,"Daily Spend":571,"short_name":"SPÖ","colors":"#ce000c","x":1709337600000,"y":571,"fill":"#ce000c"},{"date":"2024-03-03","party":"Sozialdemokratische Partei ","amount_spent":741232,"Daily Spend":517,"short_name":"SPÖ","colors":"#ce000c","x":1709424000000,"y":517,"fill":"#ce000c"},{"date":"2024-03-04","party":"Sozialdemokratische Partei ","amount_spent":741828,"Daily Spend":596,"short_name":"SPÖ","colors":"#ce000c","x":1709510400000,"y":596,"fill":"#ce000c"},{"date":"2024-03-05","party":"Sozialdemokratische Partei ","amount_spent":742450,"Daily Spend":622,"short_name":"SPÖ","colors":"#ce000c","x":1709596800000,"y":622,"fill":"#ce000c"},{"date":"2024-03-06","party":"Sozialdemokratische Partei ","amount_spent":743098,"Daily Spend":648,"short_name":"SPÖ","colors":"#ce000c","x":1709683200000,"y":648,"fill":"#ce000c"},{"date":"2024-03-07","party":"Sozialdemokratische Partei ","amount_spent":743605,"Daily Spend":507,"short_name":"SPÖ","colors":"#ce000c","x":1709769600000,"y":507,"fill":"#ce000c"},{"date":"2024-03-08","party":"Sozialdemokratische Partei ","amount_spent":744273,"Daily Spend":668,"short_name":"SPÖ","colors":"#ce000c","x":1709856000000,"y":668,"fill":"#ce000c"}],"type":"area"},{"name":"Österreichische Volkspartei","data":[{"date":"2023-12-31","party":"Österreichische Volkspartei","amount_spent":303245,"Daily Spend":null,"short_name":"ÖVP","colors":"#63C3D0","x":1703980800000,"y":null,"fill":"#63C3D0"},{"date":"2024-01-01","party":"Österreichische Volkspartei","amount_spent":303284,"Daily Spend":39,"short_name":"ÖVP","colors":"#63C3D0","x":1704067200000,"y":39,"fill":"#63C3D0"},{"date":"2024-01-02","party":"Österreichische Volkspartei","amount_spent":303294,"Daily Spend":10,"short_name":"ÖVP","colors":"#63C3D0","x":1704153600000,"y":10,"fill":"#63C3D0"},{"date":"2024-01-03","party":"Österreichische Volkspartei","amount_spent":303304,"Daily Spend":10,"short_name":"ÖVP","colors":"#63C3D0","x":1704240000000,"y":10,"fill":"#63C3D0"},{"date":"2024-01-04","party":"Österreichische Volkspartei","amount_spent":303314,"Daily Spend":10,"short_name":"ÖVP","colors":"#63C3D0","x":1704326400000,"y":10,"fill":"#63C3D0"},{"date":"2024-01-05","party":"Österreichische Volkspartei","amount_spent":303323,"Daily Spend":9,"short_name":"ÖVP","colors":"#63C3D0","x":1704412800000,"y":9,"fill":"#63C3D0"},{"date":"2024-01-06","party":"Österreichische Volkspartei","amount_spent":303393,"Daily Spend":70,"short_name":"ÖVP","colors":"#63C3D0","x":1704499200000,"y":70,"fill":"#63C3D0"},{"date":"2024-01-07","party":"Österreichische Volkspartei","amount_spent":303495,"Daily Spend":102,"short_name":"ÖVP","colors":"#63C3D0","x":1704585600000,"y":102,"fill":"#63C3D0"},{"date":"2024-01-08","party":"Österreichische Volkspartei","amount_spent":303524,"Daily Spend":29,"short_name":"ÖVP","colors":"#63C3D0","x":1704672000000,"y":29,"fill":"#63C3D0"},{"date":"2024-01-09","party":"Österreichische Volkspartei","amount_spent":303534,"Daily Spend":10,"short_name":"ÖVP","colors":"#63C3D0","x":1704758400000,"y":10,"fill":"#63C3D0"},{"date":"2024-01-10","party":"Österreichische Volkspartei","amount_spent":303570,"Daily Spend":36,"short_name":"ÖVP","colors":"#63C3D0","x":1704844800000,"y":36,"fill":"#63C3D0"},{"date":"2024-01-11","party":"Österreichische Volkspartei","amount_spent":303621,"Daily Spend":51,"short_name":"ÖVP","colors":"#63C3D0","x":1704931200000,"y":51,"fill":"#63C3D0"},{"date":"2024-01-12","party":"Österreichische Volkspartei","amount_spent":303783,"Daily Spend":162,"short_name":"ÖVP","colors":"#63C3D0","x":1705017600000,"y":162,"fill":"#63C3D0"},{"date":"2024-01-13","party":"Österreichische Volkspartei","amount_spent":303995,"Daily Spend":212,"short_name":"ÖVP","colors":"#63C3D0","x":1705104000000,"y":212,"fill":"#63C3D0"},{"date":"2024-01-14","party":"Österreichische Volkspartei","amount_spent":304227,"Daily Spend":232,"short_name":"ÖVP","colors":"#63C3D0","x":1705190400000,"y":232,"fill":"#63C3D0"},{"date":"2024-01-15","party":"Österreichische Volkspartei","amount_spent":304423,"Daily Spend":196,"short_name":"ÖVP","colors":"#63C3D0","x":1705276800000,"y":196,"fill":"#63C3D0"},{"date":"2024-01-16","party":"Österreichische Volkspartei","amount_spent":304590,"Daily Spend":167,"short_name":"ÖVP","colors":"#63C3D0","x":1705363200000,"y":167,"fill":"#63C3D0"},{"date":"2024-01-17","party":"Österreichische Volkspartei","amount_spent":304784,"Daily Spend":194,"short_name":"ÖVP","colors":"#63C3D0","x":1705449600000,"y":194,"fill":"#63C3D0"},{"date":"2024-01-18","party":"Österreichische Volkspartei","amount_spent":304949,"Daily Spend":165,"short_name":"ÖVP","colors":"#63C3D0","x":1705536000000,"y":165,"fill":"#63C3D0"},{"date":"2024-01-19","party":"Österreichische Volkspartei","amount_spent":305018,"Daily Spend":69,"short_name":"ÖVP","colors":"#63C3D0","x":1705622400000,"y":69,"fill":"#63C3D0"},{"date":"2024-01-20","party":"Österreichische Volkspartei","amount_spent":305050,"Daily Spend":32,"short_name":"ÖVP","colors":"#63C3D0","x":1705708800000,"y":32,"fill":"#63C3D0"},{"date":"2024-01-21","party":"Österreichische Volkspartei","amount_spent":305081,"Daily Spend":31,"short_name":"ÖVP","colors":"#63C3D0","x":1705795200000,"y":31,"fill":"#63C3D0"},{"date":"2024-01-22","party":"Österreichische Volkspartei","amount_spent":305463,"Daily Spend":382,"short_name":"ÖVP","colors":"#63C3D0","x":1705881600000,"y":382,"fill":"#63C3D0"},{"date":"2024-01-23","party":"Österreichische Volkspartei","amount_spent":305991,"Daily Spend":528,"short_name":"ÖVP","colors":"#63C3D0","x":1705968000000,"y":528,"fill":"#63C3D0"},{"date":"2024-01-24","party":"Österreichische Volkspartei","amount_spent":306493,"Daily Spend":502,"short_name":"ÖVP","colors":"#63C3D0","x":1706054400000,"y":502,"fill":"#63C3D0"},{"date":"2024-01-25","party":"Österreichische Volkspartei","amount_spent":306993,"Daily Spend":500,"short_name":"ÖVP","colors":"#63C3D0","x":1706140800000,"y":500,"fill":"#63C3D0"},{"date":"2024-01-26","party":"Österreichische Volkspartei","amount_spent":307243,"Daily Spend":250,"short_name":"ÖVP","colors":"#63C3D0","x":1706227200000,"y":250,"fill":"#63C3D0"},{"date":"2024-01-27","party":"Österreichische Volkspartei","amount_spent":307615,"Daily Spend":372,"short_name":"ÖVP","colors":"#63C3D0","x":1706313600000,"y":372,"fill":"#63C3D0"},{"date":"2024-01-28","party":"Österreichische Volkspartei","amount_spent":308487,"Daily Spend":872,"short_name":"ÖVP","colors":"#63C3D0","x":1706400000000,"y":872,"fill":"#63C3D0"},{"date":"2024-01-29","party":"Österreichische Volkspartei","amount_spent":308937,"Daily Spend":450,"short_name":"ÖVP","colors":"#63C3D0","x":1706486400000,"y":450,"fill":"#63C3D0"},{"date":"2024-01-30","party":"Österreichische Volkspartei","amount_spent":309077,"Daily Spend":140,"short_name":"ÖVP","colors":"#63C3D0","x":1706572800000,"y":140,"fill":"#63C3D0"},{"date":"2024-01-31","party":"Österreichische Volkspartei","amount_spent":309368,"Daily Spend":291,"short_name":"ÖVP","colors":"#63C3D0","x":1706659200000,"y":291,"fill":"#63C3D0"},{"date":"2024-02-01","party":"Österreichische Volkspartei","amount_spent":309689,"Daily Spend":321,"short_name":"ÖVP","colors":"#63C3D0","x":1706745600000,"y":321,"fill":"#63C3D0"},{"date":"2024-02-02","party":"Österreichische Volkspartei","amount_spent":309906,"Daily Spend":217,"short_name":"ÖVP","colors":"#63C3D0","x":1706832000000,"y":217,"fill":"#63C3D0"},{"date":"2024-02-03","party":"Österreichische Volkspartei","amount_spent":309941,"Daily Spend":35,"short_name":"ÖVP","colors":"#63C3D0","x":1706918400000,"y":35,"fill":"#63C3D0"},{"date":"2024-02-04","party":"Österreichische Volkspartei","amount_spent":309983,"Daily Spend":42,"short_name":"ÖVP","colors":"#63C3D0","x":1707004800000,"y":42,"fill":"#63C3D0"},{"date":"2024-02-05","party":"Österreichische Volkspartei","amount_spent":310013,"Daily Spend":30,"short_name":"ÖVP","colors":"#63C3D0","x":1707091200000,"y":30,"fill":"#63C3D0"},{"date":"2024-02-06","party":"Österreichische Volkspartei","amount_spent":310141,"Daily Spend":128,"short_name":"ÖVP","colors":"#63C3D0","x":1707177600000,"y":128,"fill":"#63C3D0"},{"date":"2024-02-07","party":"Österreichische Volkspartei","amount_spent":310318,"Daily Spend":177,"short_name":"ÖVP","colors":"#63C3D0","x":1707264000000,"y":177,"fill":"#63C3D0"},{"date":"2024-02-08","party":"Österreichische Volkspartei","amount_spent":310514,"Daily Spend":196,"short_name":"ÖVP","colors":"#63C3D0","x":1707350400000,"y":196,"fill":"#63C3D0"},{"date":"2024-02-09","party":"Österreichische Volkspartei","amount_spent":310695,"Daily Spend":181,"short_name":"ÖVP","colors":"#63C3D0","x":1707436800000,"y":181,"fill":"#63C3D0"},{"date":"2024-02-10","party":"Österreichische Volkspartei","amount_spent":310898,"Daily Spend":203,"short_name":"ÖVP","colors":"#63C3D0","x":1707523200000,"y":203,"fill":"#63C3D0"},{"date":"2024-02-11","party":"Österreichische Volkspartei","amount_spent":311106,"Daily Spend":208,"short_name":"ÖVP","colors":"#63C3D0","x":1707609600000,"y":208,"fill":"#63C3D0"},{"date":"2024-02-12","party":"Österreichische Volkspartei","amount_spent":311317,"Daily Spend":211,"short_name":"ÖVP","colors":"#63C3D0","x":1707696000000,"y":211,"fill":"#63C3D0"},{"date":"2024-02-13","party":"Österreichische Volkspartei","amount_spent":311534,"Daily Spend":217,"short_name":"ÖVP","colors":"#63C3D0","x":1707782400000,"y":217,"fill":"#63C3D0"},{"date":"2024-02-14","party":"Österreichische Volkspartei","amount_spent":311740,"Daily Spend":206,"short_name":"ÖVP","colors":"#63C3D0","x":1707868800000,"y":206,"fill":"#63C3D0"},{"date":"2024-02-15","party":"Österreichische Volkspartei","amount_spent":311845,"Daily Spend":105,"short_name":"ÖVP","colors":"#63C3D0","x":1707955200000,"y":105,"fill":"#63C3D0"},{"date":"2024-02-16","party":"Österreichische Volkspartei","amount_spent":312093,"Daily Spend":248,"short_name":"ÖVP","colors":"#63C3D0","x":1708041600000,"y":248,"fill":"#63C3D0"},{"date":"2024-02-17","party":"Österreichische Volkspartei","amount_spent":312355,"Daily Spend":262,"short_name":"ÖVP","colors":"#63C3D0","x":1708128000000,"y":262,"fill":"#63C3D0"},{"date":"2024-02-18","party":"Österreichische Volkspartei","amount_spent":312459,"Daily Spend":104,"short_name":"ÖVP","colors":"#63C3D0","x":1708214400000,"y":104,"fill":"#63C3D0"},{"date":"2024-02-19","party":"Österreichische Volkspartei","amount_spent":312551,"Daily Spend":92,"short_name":"ÖVP","colors":"#63C3D0","x":1708300800000,"y":92,"fill":"#63C3D0"},{"date":"2024-02-20","party":"Österreichische Volkspartei","amount_spent":312599,"Daily Spend":48,"short_name":"ÖVP","colors":"#63C3D0","x":1708387200000,"y":48,"fill":"#63C3D0"},{"date":"2024-02-21","party":"Österreichische Volkspartei","amount_spent":312649,"Daily Spend":50,"short_name":"ÖVP","colors":"#63C3D0","x":1708473600000,"y":50,"fill":"#63C3D0"},{"date":"2024-02-22","party":"Österreichische Volkspartei","amount_spent":312704,"Daily Spend":55,"short_name":"ÖVP","colors":"#63C3D0","x":1708560000000,"y":55,"fill":"#63C3D0"},{"date":"2024-02-23","party":"Österreichische Volkspartei","amount_spent":312760,"Daily Spend":56,"short_name":"ÖVP","colors":"#63C3D0","x":1708646400000,"y":56,"fill":"#63C3D0"},{"date":"2024-02-24","party":"Österreichische Volkspartei","amount_spent":312821,"Daily Spend":61,"short_name":"ÖVP","colors":"#63C3D0","x":1708732800000,"y":61,"fill":"#63C3D0"},{"date":"2024-02-25","party":"Österreichische Volkspartei","amount_spent":312886,"Daily Spend":65,"short_name":"ÖVP","colors":"#63C3D0","x":1708819200000,"y":65,"fill":"#63C3D0"},{"date":"2024-02-26","party":"Österreichische Volkspartei","amount_spent":312928,"Daily Spend":42,"short_name":"ÖVP","colors":"#63C3D0","x":1708905600000,"y":42,"fill":"#63C3D0"},{"date":"2024-02-27","party":"Österreichische Volkspartei","amount_spent":313085,"Daily Spend":157,"short_name":"ÖVP","colors":"#63C3D0","x":1708992000000,"y":157,"fill":"#63C3D0"},{"date":"2024-02-28","party":"Österreichische Volkspartei","amount_spent":313220,"Daily Spend":135,"short_name":"ÖVP","colors":"#63C3D0","x":1709078400000,"y":135,"fill":"#63C3D0"},{"date":"2024-02-29","party":"Österreichische Volkspartei","amount_spent":313323,"Daily Spend":103,"short_name":"ÖVP","colors":"#63C3D0","x":1709164800000,"y":103,"fill":"#63C3D0"},{"date":"2024-03-01","party":"Österreichische Volkspartei","amount_spent":313404,"Daily Spend":81,"short_name":"ÖVP","colors":"#63C3D0","x":1709251200000,"y":81,"fill":"#63C3D0"},{"date":"2024-03-02","party":"Österreichische Volkspartei","amount_spent":313574,"Daily Spend":170,"short_name":"ÖVP","colors":"#63C3D0","x":1709337600000,"y":170,"fill":"#63C3D0"},{"date":"2024-03-03","party":"Österreichische Volkspartei","amount_spent":313648,"Daily Spend":74,"short_name":"ÖVP","colors":"#63C3D0","x":1709424000000,"y":74,"fill":"#63C3D0"},{"date":"2024-03-04","party":"Österreichische Volkspartei","amount_spent":313733,"Daily Spend":85,"short_name":"ÖVP","colors":"#63C3D0","x":1709510400000,"y":85,"fill":"#63C3D0"},{"date":"2024-03-05","party":"Österreichische Volkspartei","amount_spent":313835,"Daily Spend":102,"short_name":"ÖVP","colors":"#63C3D0","x":1709596800000,"y":102,"fill":"#63C3D0"},{"date":"2024-03-06","party":"Österreichische Volkspartei","amount_spent":314118,"Daily Spend":283,"short_name":"ÖVP","colors":"#63C3D0","x":1709683200000,"y":283,"fill":"#63C3D0"},{"date":"2024-03-07","party":"Österreichische Volkspartei","amount_spent":314531,"Daily Spend":413,"short_name":"ÖVP","colors":"#63C3D0","x":1709769600000,"y":413,"fill":"#63C3D0"},{"date":"2024-03-08","party":"Österreichische Volkspartei","amount_spent":314830,"Daily Spend":299,"short_name":"ÖVP","colors":"#63C3D0","x":1709856000000,"y":299,"fill":"#63C3D0"}],"type":"area"}],"xAxis":{"type":"datetime","title":{"text":"date"},"categories":null},"colors":["#7911BD","#666666","#CB1667","#88B626","#52FE9F","#0056A2","#AA0000","#d32630","#00B3A2","#000000","#ce000c","#63C3D0"],"tooltip":{"shared":true,"positioner":"function (labelWidth, labelHeight, point) {\n        return { x: 200, y: this.chart.plotTop };\n    }"}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":["hc_opts.tooltip.positioner"],"jsHooks":[]}</script>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

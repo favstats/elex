@@ -1,0 +1,121 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Targeting Dashboard - Poland",
+    "section": "",
+    "text": "Methodology\nIn collaboration with Who Targets Me, we monitored 10664 political advertisers to better understand how campaigns use different targeting methods made available by Meta. To do this, we used data from the Meta Ad Library, using the new ‘Audience’ data which gives some detail on how pages target their ads.\nTo better understand the election, we kept only advertisers who:\n\nAdvertised in the last 7 days (2 Mar - 8 Mar 2024)\nAdvertised in the last 30 days (8 Feb - 8 Mar 2024)\n\n\n\n\n\n\n\nNote\n\n\n\nMeta only provides 7, 30 and 90 days windows for the targeting data in their Ad Library. Meta’s data also lags by a few days. Report will be updated as soon as new data is available.\n\n\n\n\n\n\n\n\nDisclaimer\n\n\n\nThe data shown in this dashboard is based on the platform’s respective ad libraries which are known to be sometimes incomplete (Edelson et al. 2020; Silva et al. 2020). For this reason the data shown here might not reflect the full picture nor all political ads that were targeted at voters.\n\n\n\n\nAbout the Creator of the Dashboard\n\n\n\n\n\n\n\n\n\n\n\nFabio Votta is a Postdoc at the University of Amsterdam who studies (online) political microtargeting and its usage around the world.\n\n\n\n\n\n\n\n\n\n\n\nWant to see how political parties target you? Sign up at Who Targets Me and download the gratis browser plugin to see how parties on Facebook use your data:\nhttps://whotargets.me/\n\n\n\n\n\n\n\nWant to retrieve targeting data from the Facebook Ad Library yourself? This dashboard is powered by the R package: metatargetr. Check it out here:\nhttps://github.com/favstats/metatargetr\n\n\n\n\nElection Targeting Dashboards\nA list of election dashboards:\n\n🇳🇱 2021 Dutch parliamentary election (15th-17th March 2021)\n🇩🇪 2021 German federal election (26 September 2021)\n🇸🇪 2022 Swedish general election (11th September 2022)\n🇺🇸 2022 United States midterm elections (8th November 2022)\n🇺🇸 2022 United States midterm elections - Georgia Runoff (6th December 2022)\n🇮🇹 2023 Lazio & Lombardy regional election (12-13th February 2023)\n🇪🇪 2023 Estonian parliamentary election (5th March 2023)\n🇳🇱 2023 Dutch provincial elections (15th March 2023)\n🇲🇪 2023 Montenegrin presidential elections (19th March 2023) - 1st round\n🇦🇺 2023 New South Wales state election (25th March 2023)\n🇫🇮 2023 Finnish parliamentary election (2 April 2023)\n🇹🇷 2023 Turkish general election (14 May 2023) - Round 1\n🇩🇪 2023 Bremen State election (14 May 2023)\n🇬🇷 2023 Greek Legislative election (21 May 2023)\n🇹🇷 2023 Turkish Presidential election (14 May 2023) - Round 2\n🇲🇪 2023 Montenegrin parliamentary elections (11 June 2023)\n🇬🇷 2nd 2023 Greek Legislative election (25 May 2023)\n🇸🇰 2023 Slovak parliamentary election (30 September 2023)\n🇩🇪 2023 Bavarian state election (8 October 2023)\n🇩🇪 2023 Hessian state election (8 October 2023)\n🇳🇿 2023 New Zealand general election (14 October 2023)\n🇵🇱 2023 Polish parliamentary election (15 October 2023)\n🇺🇸 US Presidential Primaries (2023-2024)"
+  },
+  {
+    "objectID": "demographics.html",
+    "href": "demographics.html",
+    "title": "Demographics",
+    "section": "",
+    "text": "The following graphs illustrate how parties target different age groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n8 Feb - 8 Mar 20242 Mar - 8 Mar 2024"
+  },
+  {
+    "objectID": "demographics.html#age-targeting",
+    "href": "demographics.html#age-targeting",
+    "title": "Demographics",
+    "section": "",
+    "text": "The following graphs illustrate how parties target different age groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n8 Feb - 8 Mar 20242 Mar - 8 Mar 2024"
+  },
+  {
+    "objectID": "demographics.html#gender-targeting",
+    "href": "demographics.html#gender-targeting",
+    "title": "Demographics",
+    "section": "Gender Targeting",
+    "text": "Gender Targeting\nDe onderstaande grafieken laten zien hoe partijen gender als focusgroep gebruiken en welk percentage van het budget daaraan werd uitgegeven.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n8 Feb - 8 Mar 20242 Mar - 8 Mar 2024"
+  },
+  {
+    "objectID": "demographics.html#language-targeting",
+    "href": "demographics.html#language-targeting",
+    "title": "Demographics",
+    "section": "Language Targeting",
+    "text": "Language Targeting\nThe following graphs show how parties use different languages as focus groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n8 Feb - 8 Mar 20242 Mar - 8 Mar 2024"
+  },
+  {
+    "objectID": "demographics.html#targeting-based-on-employment-or-education-instituation",
+    "href": "demographics.html#targeting-based-on-employment-or-education-instituation",
+    "title": "Demographics",
+    "section": "Targeting based on Employment or Education Instituation",
+    "text": "Targeting based on Employment or Education Instituation\nThe following graphs depict how parties utilize various job sectors and types of education as focus groups and the percentage of the budget allocated to them. The next graph focuses on educational levels.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n8 Feb - 8 Mar 20242 Mar - 8 Mar 2024"
+  },
+  {
+    "objectID": "demographics.html#education-levels-targeting",
+    "href": "demographics.html#education-levels-targeting",
+    "title": "Demographics",
+    "section": "Education Levels Targeting",
+    "text": "Education Levels Targeting\nThe graphs below illustrate how parties target various education levels as focus groups and the percentage of the budget allocated to each.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n8 Feb - 8 Mar 20242 Mar - 8 Mar 2024"
+  },
+  {
+    "objectID": "demographics.html#relationship-status-targeting",
+    "href": "demographics.html#relationship-status-targeting",
+    "title": "Demographics",
+    "section": "Relationship Status Targeting",
+    "text": "Relationship Status Targeting\nThe following graphs reveal how political parties utilize different relationship statuses as focus groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n8 Feb - 8 Mar 20242 Mar - 8 Mar 2024"
+  },
+  {
+    "objectID": "detailed.html",
+    "href": "detailed.html",
+    "title": "Detailed Targeting",
+    "section": "",
+    "text": "The chart below displays the most utilized targeting criteria by political parties on Meta, based on the amounts spent.\n\n8 Feb - 8 Mar 20242 Mar - 8 Mar 2024"
+  },
+  {
+    "objectID": "detailed.html#top-targeted-audiences",
+    "href": "detailed.html#top-targeted-audiences",
+    "title": "Detailed Targeting",
+    "section": "",
+    "text": "The chart below displays the most utilized targeting criteria by political parties on Meta, based on the amounts spent.\n\n8 Feb - 8 Mar 20242 Mar - 8 Mar 2024"
+  },
+  {
+    "objectID": "detailed.html#top-excluded-audiences",
+    "href": "detailed.html#top-excluded-audiences",
+    "title": "Detailed Targeting",
+    "section": "Top Excluded Audiences",
+    "text": "Top Excluded Audiences\nAmong the detailed options offered by Meta, the chart below shows the most excluded target audiences per party. The ranking is based on the amounts spent.\n\n8 Feb - 8 Mar 20242 Mar - 8 Mar 2024"
+  },
+  {
+    "objectID": "detailed.html#top-contested-audiences",
+    "href": "detailed.html#top-contested-audiences",
+    "title": "Detailed Targeting",
+    "section": "Top Contested Audiences",
+    "text": "Top Contested Audiences\nThe charts below show the target audiences where most competition takes place. For example, the groups in which all parties invest large amounts to reach voters with the same interests.\n\n8 Feb - 8 Mar 20242 Mar - 8 Mar 2024"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Spending",
+    "section": "",
+    "text": "Here you can see the expenditures of political parties in the lead-up to the elections according to the latest data.\n\n8 Feb - 8 Mar 20242 Mar - 8 Mar 2024\n\n\nDuring this period, political parties spent a total of zł457,661 and displayed 4964 advertisements on Meta.\n\n\n\n\n\n\n  \n    \n    \n      \n      Number of Advertisers\n      Top Spenders\n      Number of Ads\n      Total Spend\n    \n  \n  \n    Inni reklamodawcy polityczni\n\n344\n\n1. Andrzej Kulig (zł15,217)2. Grupa EPL w Parlamencie Europejskim (zł8,787)3. Małgorzata Mękal (zł8,413)\n\n2,105\n\nzł183,993\n\n    Prawo i Sprawiedliwość (ZP)\n\n176\n\n1. Tobiasz Bocheński (zł28,107)2. Dominik Tarczyński - Poseł do Parlamentu Europejskiego (zł13,726)3. Mateusz Morawiecki (zł13,106)\n\n1,066\n\nzł136,013\n\n    Inne komitety wyborcze\n\n174\n\n1. Rafał Pogłódek - kandydat na burmistrza miasta Zgorzelec (zł1,880)2. KWW Pewna Przyszłość (zł1,674)3. Krzysztof Rdest - Radny Powiatu Żyrardowskiego (zł1,566)\n\n703\n\nzł44,523\n\n    Trzecia Droga\n\n80\n\n1. PSL Mazowsze (zł5,336)2. Rafał Komarewicz - Przewodniczący Rady Miasta Krakowa (zł3,177)3. Piotr Dasios (zł2,544)\n\n363\n\nzł32,811\n\n    Bezpartyjni Samorządowcy\n\n13\n\n1. Jerzy Michalak (zł7,554)2. Tymoteusz Myrda, Członek Zarządu Województwa Dolnośląskiego (zł4,035)3. Dorota Konkolewska (zł3,055)\n\n196\n\nzł23,690\n\n    Organizacje\n\n32\n\n1. MyTarnów (zł2,428)2. Stowarzyszenie Jaworzno Moje Miasto (zł1,365)3. Stowarzyszenie Pomocy Chorym  Dzieciom LIVER (zł827)\n\n167\n\nzł11,246\n\n    Lokalne media\n\n34\n\n1. Zebrra.tv (zł2,143)2. TVR Zachodniopomorska Telewizja Regionalna (zł1,936)3. Twój Kurier Olsztyński - TKO.pl (zł922)\n\n159\n\nzł10,998\n\n    Konfederacja\n\n17\n\n1. Konfederacja (zł1,214)2. Patryk Marjan (zł1,123)3. Kamil Gopaniuk (zł982)\n\n81\n\nzł5,572\n\n    Polska Liberalna! Strajk Przedsiębiorców\n\n1\n\n1. Paweł Tanajno Polska Liberalna Strajk Przedsiębiorców (zł5,265)\n\n93\n\nzł5,265\n\n    Platforma Obywatelska\n\n9\n\n1. Mikołaj Wasiewicz dla Międzylesia, Radości i Anina (zł2,400)2. Piotr Michalak kandydat na burmistrza Miasta i Gminy Szamotuły (zł934)3. Kamil Kłosowski - Kandydat na Burmistrza Gminy Krzeszowice (zł251)\n\n37\n\nzł4,336\n\n    Spółki Skarbu Państwa\n\n1\n\n1. PZU (zł2,005)\n\n6\n\nzł2,005\n\n    Partia Zieloni\n\n1\n\n1. Jagoda Żyłkowska - Radna Osiedla Stare Miasto (zł475)\n\n1\n\nzł475\n\n    Nowoczesna\n\n1\n\n1. Andrzej Prendke - Wiceprzewodniczący Nowoczesnej (zł387)\n\n4\n\nzł387\n\n  \n  \n  \n\n\n\n\n\n\nDuring this period, political parties spent a total of zł171,265 and displayed 2314 advertisements on Meta.\n\n\n\n\n\n\n  \n    \n    \n      \n      Number of Advertisers\n      Top Spenders\n      Number of Ads\n      Total Spend\n    \n  \n  \n    Inni reklamodawcy polityczni\n\n249\n\n1. Andrzej Kulig (zł11,662)2. Wybory bez picu (zł3,323)3. Jak wygrać wybory? Praktycznie o kampaniach wyborczych (zł2,649)\n\n1,005\n\nzł66,039\n\n    Prawo i Sprawiedliwość (ZP)\n\n114\n\n1. Tobiasz Bocheński (zł16,011)2. Dominik Tarczyński - Poseł do Parlamentu Europejskiego (zł3,224)3. Mateusz Morawiecki (zł2,804)\n\n418\n\nzł45,143\n\n    Inne komitety wyborcze\n\n146\n\n1. Rafał Pogłódek - kandydat na burmistrza miasta Zgorzelec (zł1,644)2. KWW Pewna Przyszłość (zł1,241)3. Lepszy Rybnik (zł862)\n\n500\n\nzł28,322\n\n    Trzecia Droga\n\n53\n\n1. Piotr Dasios (zł1,544)2. Rafał Komarewicz - Przewodniczący Rady Miasta Krakowa (zł1,424)3. Marek Halasz (zł710)\n\n137\n\nzł12,056\n\n    Bezpartyjni Samorządowcy\n\n12\n\n1. Tymoteusz Myrda, Członek Zarządu Województwa Dolnośląskiego (zł4,035)2. Jerzy Michalak (zł2,974)3. Marcelina Falkiewicz - Radna Powiatu Polkowickiego (zł639)\n\n78\n\nzł9,826\n\n    Lokalne media\n\n23\n\n1. Twój Kurier Olsztyński - TKO.pl (zł674)2. TVR Zachodniopomorska Telewizja Regionalna (zł437)3. Zebrra.tv (zł300)\n\n54\n\nzł3,654\n\n    Organizacje\n\n15\n\n1. Stowarzyszenie Jaworzno Moje Miasto (zł626)2. Stowarzyszenie Pomocy Chorym  Dzieciom LIVER (zł543)3. Fundacja Joanny Radziwiłł “Opiekuńcze Skrzydła” (zł373)\n\n65\n\nzł3,097\n\n    Konfederacja\n\n9\n\n1. Konfederacja (zł932)2. Patryk Marjan (zł523)3. Wacław Grabiec (zł286)\n\n33\n\nzł2,495\n\n    Polska Liberalna! Strajk Przedsiębiorców\n\n1\n\n1. Paweł Tanajno Polska Liberalna Strajk Przedsiębiorców (zł757)\n\n25\n\nzł757\n\n    Platforma Obywatelska\n\n3\n\n1. Piotr Michalak kandydat na burmistrza Miasta i Gminy Szamotuły (zł289)2. Mikołaj Wasiewicz dla Międzylesia, Radości i Anina (zł133)3. Kamil Kłosowski - Kandydat na Burmistrza Gminy Krzeszowice (zł130)\n\n11\n\nzł552\n\n    Partia Zieloni\n\n1\n\n1. Jagoda Żyłkowska - Radna Osiedla Stare Miasto (zł126)\n\n1\n\nzł126\n\n  \n  \n  \n\n\n\n\n\n\n\n\nOver Time"
+  },
+  {
+    "objectID": "location.html",
+    "href": "location.html",
+    "title": "Location",
+    "section": "",
+    "text": "The chart below displays the geographical targeting of that political parties on Meta platforms.\n\n8 Feb - 8 Mar 2024\n\n\n\nRegionsCities\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.\n\n\n\n\n\n\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations."
+  },
+  {
+    "objectID": "location.html#geographical-targeting",
+    "href": "location.html#geographical-targeting",
+    "title": "Location",
+    "section": "",
+    "text": "The chart below displays the geographical targeting of that political parties on Meta platforms.\n\n8 Feb - 8 Mar 2024\n\n\n\nRegionsCities\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.\n\n\n\n\n\n\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations."
+  },
+  {
+    "objectID": "location.html#geographical-exclusion",
+    "href": "location.html#geographical-exclusion",
+    "title": "Location",
+    "section": "Geographical Exclusion",
+    "text": "Geographical Exclusion\nThe following graphs depict the geographic locations that certain political advertisements will exclude on Meta, along with the amounts that parties spent on these exclusions.\n\n8 Feb - 8 Mar 2024\n\n\n\nRegionsCities\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.\n\n\n\n\n\n\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations."
+  },
+  {
+    "objectID": "targeting.html",
+    "href": "targeting.html",
+    "title": "Spending per Targeting",
+    "section": "",
+    "text": "These charts show the groups that political parties target with their advertisements leading up to the elections, according to the latest data. The focus is on Meta’s platforms (Facebook and Instagram) because they offer the most detailed targeting options for political advertisements.\nHow much did the campaigns of political parties spend on different audiences? The charts below show both the total and the expenditures per party.\n\nNote: Different targeting criteria may overlap, so the outcome may not necessarily add up to 100%.\n\n\n8 Feb - 8 Mar 20242 Mar - 8 Mar 2024\n\n\n\nTotalBy Party\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTotalBy Party"
+  }
+]

@@ -1,0 +1,1545 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="How do political parties chase your vote, what do they want to keep hidden, and how much money do they spend on it? In the lead-up to the elections, we monitor political microtargeting.">
+
+<title>Targeting Dashboard - Romania - Spending</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/iconify-1.0.8/iconify-icon.min.js"></script>
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="site_libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<script src="site_libs/jquery-3.5.1/jquery.min.js"></script>
+<script src="site_libs/proj4js-2.3.15/proj4.js"></script>
+<link href="site_libs/highcharts-9.3.1/css/motion.css" rel="stylesheet">
+<script src="site_libs/highcharts-9.3.1/highcharts.js"></script>
+<script src="site_libs/highcharts-9.3.1/highcharts-3d.js"></script>
+<script src="site_libs/highcharts-9.3.1/highcharts-more.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/stock.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/map.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/data.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/exporting.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/offline-exporting.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/drilldown.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/item-series.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/overlapping-datalabels.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/annotations.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/export-data.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/funnel.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/heatmap.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/treemap.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/sankey.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/dependency-wheel.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/organization.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/solid-gauge.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/streamgraph.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/sunburst.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/vector.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/wordcloud.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/xrange.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/tilemap.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/venn.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/gantt.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/timeline.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/parallel-coordinates.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/bullet.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/coloraxis.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/dumbbell.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/lollipop.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/series-label.js"></script>
+<script src="site_libs/highcharts-9.3.1/plugins/motion.js"></script>
+<script src="site_libs/highcharts-9.3.1/custom/reset.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/boost.js"></script>
+<script src="site_libs/highchart-binding-0.9.4/highchart.js"></script>
+
+
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Targeting Dashboard - Romania</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
+ <span class="menu-text"><iconify-icon inline="" icon="ph:coins"></iconify-icon> Spending</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-iconify-ph-users-three-thin--targeting" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><iconify-icon inline="" icon="ph:users-three-thin"></iconify-icon> Targeting</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-iconify-ph-users-three-thin--targeting">    
+        <li>
+    <a class="dropdown-item" href="./targeting.html" rel="" target="">
+ <span class="dropdown-text">Spending per Targeting</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./detailed.html" rel="" target="">
+ <span class="dropdown-text">Detailed Targeting</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./location.html" rel="" target="">
+ <span class="dropdown-text">Location</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./demographics.html" rel="" target="">
+ <span class="dropdown-text">Demographics</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html" rel="" target="">
+ <span class="menu-text"><iconify-icon inline="" icon="ph:info-thin"></iconify-icon> About</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/favstats/betargex" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Spending</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>Here you can see the expenditures of political parties in the lead-up to the elections according to the latest data.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">8 Feb - 8 Mar 2024</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">2 Mar - 8 Mar 2024</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>During this period, political parties spent a total of Lei598,254 and displayed 2763 advertisements on Meta.</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<div id="edefvhqvnm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+#edefvhqvnm table {
+  font-family: Chivo, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#edefvhqvnm thead, #edefvhqvnm tbody, #edefvhqvnm tfoot, #edefvhqvnm tr, #edefvhqvnm td, #edefvhqvnm th {
+  border-style: none;
+}
+
+#edefvhqvnm p {
+  margin: 0;
+  padding: 0;
+}
+
+#edefvhqvnm .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: 300;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: none;
+  border-top-width: 3px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#edefvhqvnm .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#edefvhqvnm .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#edefvhqvnm .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#edefvhqvnm .gt_heading {
+  background-color: #FFFFFF;
+  text-align: left;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#edefvhqvnm .gt_bottom_border {
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#edefvhqvnm .gt_col_headings {
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #000000;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#edefvhqvnm .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: normal;
+  text-transform: uppercase;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#edefvhqvnm .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: normal;
+  text-transform: uppercase;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#edefvhqvnm .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#edefvhqvnm .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#edefvhqvnm .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #000000;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#edefvhqvnm .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#edefvhqvnm .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #000000;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#edefvhqvnm .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #000000;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #FFFFFF;
+  vertical-align: middle;
+}
+
+#edefvhqvnm .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#edefvhqvnm .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#edefvhqvnm .gt_row {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#edefvhqvnm .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-right-style: solid;
+  border-right-width: 0px;
+  border-right-color: #FFFFFF;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#edefvhqvnm .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#edefvhqvnm .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#edefvhqvnm .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#edefvhqvnm .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#edefvhqvnm .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#edefvhqvnm .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#edefvhqvnm .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#edefvhqvnm .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#edefvhqvnm .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#edefvhqvnm .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#edefvhqvnm .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#edefvhqvnm .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#edefvhqvnm .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#edefvhqvnm .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#edefvhqvnm .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#edefvhqvnm .gt_sourcenote {
+  font-size: 12px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#edefvhqvnm .gt_left {
+  text-align: left;
+}
+
+#edefvhqvnm .gt_center {
+  text-align: center;
+}
+
+#edefvhqvnm .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#edefvhqvnm .gt_font_normal {
+  font-weight: normal;
+}
+
+#edefvhqvnm .gt_font_bold {
+  font-weight: bold;
+}
+
+#edefvhqvnm .gt_font_italic {
+  font-style: italic;
+}
+
+#edefvhqvnm .gt_super {
+  font-size: 65%;
+}
+
+#edefvhqvnm .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#edefvhqvnm .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#edefvhqvnm .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#edefvhqvnm .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#edefvhqvnm .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#edefvhqvnm .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#edefvhqvnm .gt_indent_5 {
+  text-indent: 25px;
+}
+
+tbody tr:last-child {
+  border-bottom: 2px solid #ffffff00;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=""></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Number of Advertisers">Number of Advertisers</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Top Spenders">Top Spenders</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Number of Ads">Number of Ads</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Total Spend">Total Spend</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><th id="stub_1_1" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Uniunea Salvați România</p>
+</div></th>
+<td headers="stub_1_1 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #002A59;"><div class="gt_from_md"><p>98</p>
+</div></td>
+<td headers="stub_1_1 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RO&amp;view_all_page_id=1058116737612843">Uniunea Salvați România - USR</a> (Lei45,359)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RO&amp;view_all_page_id=990747367737692">Cătălin Drulă</a> (Lei26,386)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RO&amp;view_all_page_id=528408150903547">Stelian Ion</a> (Lei24,118)<br><br></p>
+</div></td>
+<td headers="stub_1_1 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>794</p>
+</div></td>
+<td headers="stub_1_1 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>Lei188,733</p>
+</div></td></tr>
+    <tr><th id="stub_1_2" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Partidul Social Democrat</p>
+</div></th>
+<td headers="stub_1_2 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #ff0000;"><div class="gt_from_md"><p>61</p>
+</div></td>
+<td headers="stub_1_2 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RO&amp;view_all_page_id=1395939193764858">Marcel Ciolacu</a> (Lei87,827)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RO&amp;view_all_page_id=243027859216579">Alfred Simonis</a> (Lei14,439)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RO&amp;view_all_page_id=108801900624850">Cojocaru Petru Bogdan</a> (Lei12,355)<br><br></p>
+</div></td>
+<td headers="stub_1_2 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>569</p>
+</div></td>
+<td headers="stub_1_2 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>Lei186,172</p>
+</div></td></tr>
+    <tr><th id="stub_1_3" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Partidul Național Liberal</p>
+</div></th>
+<td headers="stub_1_3 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #FFDD00;"><div class="gt_from_md"><p>81</p>
+</div></td>
+<td headers="stub_1_3 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RO&amp;view_all_page_id=1577877239102295">Nicolae Ionel Ciucă</a> (Lei34,266)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RO&amp;view_all_page_id=100580925140105">Ion Iordache</a> (Lei17,165)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RO&amp;view_all_page_id=182546041796641">Costel Alexe</a> (Lei12,875)<br><br></p>
+</div></td>
+<td headers="stub_1_3 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>1,012</p>
+</div></td>
+<td headers="stub_1_3 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>Lei175,699</p>
+</div></td></tr>
+    <tr><th id="stub_1_4" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Alianța pentru Unirea Românilor</p>
+</div></th>
+<td headers="stub_1_4 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #FCC224;"><div class="gt_from_md"><p>5</p>
+</div></td>
+<td headers="stub_1_4 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RO&amp;view_all_page_id=2212856535602171">George Simion</a> (Lei10,569)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RO&amp;view_all_page_id=105851148132971">Adrian Axinia</a> (Lei6,411)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RO&amp;view_all_page_id=103445844473825">Alianța pentru Unirea Românilor - AUR</a> (Lei3,012)<br><br></p>
+</div></td>
+<td headers="stub_1_4 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>112</p>
+</div></td>
+<td headers="stub_1_4 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>Lei22,076</p>
+</div></td></tr>
+    <tr><th id="stub_1_5" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Uniunea Democrată Maghiară din România</p>
+</div></th>
+<td headers="stub_1_5 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #15803C;"><div class="gt_from_md"><p>15</p>
+</div></td>
+<td headers="stub_1_5 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RO&amp;view_all_page_id=102601499822802">Uniunea Democrată Maghiară din România</a> (Lei8,768)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RO&amp;view_all_page_id=175293925828191">Kelemen Hunor</a> (Lei5,462)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RO&amp;view_all_page_id=100658152065911">Kelemen Attila</a> (Lei1,024)<br><br></p>
+</div></td>
+<td headers="stub_1_5 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>166</p>
+</div></td>
+<td headers="stub_1_5 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>Lei18,820</p>
+</div></td></tr>
+    <tr><th id="stub_1_6" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Forța Dreptei</p>
+</div></th>
+<td headers="stub_1_6 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #08510A;"><div class="gt_from_md"><p>8</p>
+</div></td>
+<td headers="stub_1_6 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RO&amp;view_all_page_id=105131372029305">Forța Dreptei - Ilfov</a> (Lei1,974)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RO&amp;view_all_page_id=111227474723450">Forța Dreptei Constanța</a> (Lei908)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RO&amp;view_all_page_id=104740995380818">Forța Dreptei Iași</a> (Lei821)<br><br></p>
+</div></td>
+<td headers="stub_1_6 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>98</p>
+</div></td>
+<td headers="stub_1_6 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>Lei5,259</p>
+</div></td></tr>
+    <tr><th id="stub_1_7" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Reînnoim Proiectul European al României</p>
+</div></th>
+<td headers="stub_1_7 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #c40075;"><div class="gt_from_md"><p>3</p>
+</div></td>
+<td headers="stub_1_7 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RO&amp;view_all_page_id=105860297893714">Alin Prunean</a> (Lei524)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RO&amp;view_all_page_id=108818130851166">Andrei Lupu</a> (Lei400)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RO&amp;view_all_page_id=109489128491555">REPER Maramureș</a> (Lei300)<br><br></p>
+</div></td>
+<td headers="stub_1_7 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>9</p>
+</div></td>
+<td headers="stub_1_7 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>Lei1,224</p>
+</div></td></tr>
+    <tr><th id="stub_1_8" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>ProRomania</p>
+</div></th>
+<td headers="stub_1_8 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #266ee8;"><div class="gt_from_md"><p>1</p>
+</div></td>
+<td headers="stub_1_8 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RO&amp;view_all_page_id=114658323574275">Petru Florea</a> (Lei271)<br><br></p>
+</div></td>
+<td headers="stub_1_8 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>3</p>
+</div></td>
+<td headers="stub_1_8 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>Lei271</p>
+</div></td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>During this period, political parties spent a total of Lei143,096 and displayed 933 advertisements on Meta.</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<div id="elbfkqwvwy" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+#elbfkqwvwy table {
+  font-family: Chivo, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#elbfkqwvwy thead, #elbfkqwvwy tbody, #elbfkqwvwy tfoot, #elbfkqwvwy tr, #elbfkqwvwy td, #elbfkqwvwy th {
+  border-style: none;
+}
+
+#elbfkqwvwy p {
+  margin: 0;
+  padding: 0;
+}
+
+#elbfkqwvwy .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: 300;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: none;
+  border-top-width: 3px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#elbfkqwvwy .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#elbfkqwvwy .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#elbfkqwvwy .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#elbfkqwvwy .gt_heading {
+  background-color: #FFFFFF;
+  text-align: left;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#elbfkqwvwy .gt_bottom_border {
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#elbfkqwvwy .gt_col_headings {
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #000000;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#elbfkqwvwy .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: normal;
+  text-transform: uppercase;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#elbfkqwvwy .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: normal;
+  text-transform: uppercase;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#elbfkqwvwy .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#elbfkqwvwy .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#elbfkqwvwy .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #000000;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#elbfkqwvwy .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#elbfkqwvwy .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #000000;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#elbfkqwvwy .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #000000;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #FFFFFF;
+  vertical-align: middle;
+}
+
+#elbfkqwvwy .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#elbfkqwvwy .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#elbfkqwvwy .gt_row {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#elbfkqwvwy .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-right-style: solid;
+  border-right-width: 0px;
+  border-right-color: #FFFFFF;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#elbfkqwvwy .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#elbfkqwvwy .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#elbfkqwvwy .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#elbfkqwvwy .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#elbfkqwvwy .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#elbfkqwvwy .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#elbfkqwvwy .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#elbfkqwvwy .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#elbfkqwvwy .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#elbfkqwvwy .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#elbfkqwvwy .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#elbfkqwvwy .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#elbfkqwvwy .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#elbfkqwvwy .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#elbfkqwvwy .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#elbfkqwvwy .gt_sourcenote {
+  font-size: 12px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#elbfkqwvwy .gt_left {
+  text-align: left;
+}
+
+#elbfkqwvwy .gt_center {
+  text-align: center;
+}
+
+#elbfkqwvwy .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#elbfkqwvwy .gt_font_normal {
+  font-weight: normal;
+}
+
+#elbfkqwvwy .gt_font_bold {
+  font-weight: bold;
+}
+
+#elbfkqwvwy .gt_font_italic {
+  font-style: italic;
+}
+
+#elbfkqwvwy .gt_super {
+  font-size: 65%;
+}
+
+#elbfkqwvwy .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#elbfkqwvwy .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#elbfkqwvwy .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#elbfkqwvwy .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#elbfkqwvwy .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#elbfkqwvwy .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#elbfkqwvwy .gt_indent_5 {
+  text-indent: 25px;
+}
+
+tbody tr:last-child {
+  border-bottom: 2px solid #ffffff00;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=""></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Number of Advertisers">Number of Advertisers</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Top Spenders">Top Spenders</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Number of Ads">Number of Ads</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Total Spend">Total Spend</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><th id="stub_1_1" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Partidul Național Liberal</p>
+</div></th>
+<td headers="stub_1_1 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #FFDD00;"><div class="gt_from_md"><p>66</p>
+</div></td>
+<td headers="stub_1_1 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RO&amp;view_all_page_id=1577877239102295">Nicolae Ionel Ciucă</a> (Lei29,660)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RO&amp;view_all_page_id=181375448581167">Partidul Național Liberal</a> (Lei7,464)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RO&amp;view_all_page_id=471764082950159">Sebastian Burduja</a> (Lei5,226)<br><br></p>
+</div></td>
+<td headers="stub_1_1 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>348</p>
+</div></td>
+<td headers="stub_1_1 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>Lei67,889</p>
+</div></td></tr>
+    <tr><th id="stub_1_2" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Uniunea Salvați România</p>
+</div></th>
+<td headers="stub_1_2 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #002A59;"><div class="gt_from_md"><p>63</p>
+</div></td>
+<td headers="stub_1_2 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RO&amp;view_all_page_id=873737539404529">USR Timiș</a> (Lei8,109)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RO&amp;view_all_page_id=528408150903547">Stelian Ion</a> (Lei5,482)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RO&amp;view_all_page_id=2274642619442922">Dominic Fritz</a> (Lei2,391)<br><br></p>
+</div></td>
+<td headers="stub_1_2 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>300</p>
+</div></td>
+<td headers="stub_1_2 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>Lei35,794</p>
+</div></td></tr>
+    <tr><th id="stub_1_3" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Partidul Social Democrat</p>
+</div></th>
+<td headers="stub_1_3 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #ff0000;"><div class="gt_from_md"><p>42</p>
+</div></td>
+<td headers="stub_1_3 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RO&amp;view_all_page_id=1395939193764858">Marcel Ciolacu</a> (Lei17,041)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RO&amp;view_all_page_id=108801900624850">Cojocaru Petru Bogdan</a> (Lei2,680)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RO&amp;view_all_page_id=106773861615439">Mihai Alexandru Ghigiu</a> (Lei1,144)<br><br></p>
+</div></td>
+<td headers="stub_1_3 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>177</p>
+</div></td>
+<td headers="stub_1_3 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>Lei30,629</p>
+</div></td></tr>
+    <tr><th id="stub_1_4" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Uniunea Democrată Maghiară din România</p>
+</div></th>
+<td headers="stub_1_4 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #15803C;"><div class="gt_from_md"><p>13</p>
+</div></td>
+<td headers="stub_1_4 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RO&amp;view_all_page_id=102601499822802">Uniunea Democrată Maghiară din România</a> (Lei3,057)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RO&amp;view_all_page_id=175293925828191">Kelemen Hunor</a> (Lei1,394)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RO&amp;view_all_page_id=100658152065911">Kelemen Attila</a> (Lei395)<br><br></p>
+</div></td>
+<td headers="stub_1_4 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>64</p>
+</div></td>
+<td headers="stub_1_4 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>Lei6,243</p>
+</div></td></tr>
+    <tr><th id="stub_1_5" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Forța Dreptei</p>
+</div></th>
+<td headers="stub_1_5 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #08510A;"><div class="gt_from_md"><p>6</p>
+</div></td>
+<td headers="stub_1_5 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RO&amp;view_all_page_id=105131372029305">Forța Dreptei - Ilfov</a> (Lei708)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RO&amp;view_all_page_id=111227474723450">Forța Dreptei Constanța</a> (Lei381)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RO&amp;view_all_page_id=101670255900739">Forța Dreptei - Cluj</a> (Lei229)<br><br></p>
+</div></td>
+<td headers="stub_1_5 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>34</p>
+</div></td>
+<td headers="stub_1_5 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>Lei1,618</p>
+</div></td></tr>
+    <tr><th id="stub_1_6" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Alianța pentru Unirea Românilor</p>
+</div></th>
+<td headers="stub_1_6 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #FCC224;"><div class="gt_from_md"><p>4</p>
+</div></td>
+<td headers="stub_1_6 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RO&amp;view_all_page_id=2212856535602171">George Simion</a> (Lei350)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RO&amp;view_all_page_id=100950585062723">Anamaria Gavrilă</a> (Lei120)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RO&amp;view_all_page_id=105851148132971">Adrian Axinia</a> (Lei100)<br><br></p>
+</div></td>
+<td headers="stub_1_6 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>7</p>
+</div></td>
+<td headers="stub_1_6 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>Lei670</p>
+</div></td></tr>
+    <tr><th id="stub_1_7" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Reînnoim Proiectul European al României</p>
+</div></th>
+<td headers="stub_1_7 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #c40075;"><div class="gt_from_md"><p>2</p>
+</div></td>
+<td headers="stub_1_7 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RO&amp;view_all_page_id=105860297893714">Alin Prunean</a> (Lei153)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RO&amp;view_all_page_id=108818130851166">Andrei Lupu</a> (Lei100)<br><br></p>
+</div></td>
+<td headers="stub_1_7 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>3</p>
+</div></td>
+<td headers="stub_1_7 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>Lei253</p>
+</div></td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section id="over-time" class="level3">
+<h3 class="anchored" data-anchor-id="over-time">Over Time</h3>
+<div class="cell">
+<div class="cell-output-display">
+
+<div class="highchart html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-3644d2a3744685641367" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-3644d2a3744685641367">{"x":{"hc_opts":{"chart":{"reflow":true},"title":{"text":null},"yAxis":{"title":{"text":"Daily Spend"},"type":"linear"},"credits":{"enabled":false},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":true},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"area":{"stacking":"normal","lineWidth":1,"marker":{"enabled":false}}},"series":[{"name":"Alianța pentru Unirea Românilor","data":[{"date":"2023-12-31","party":"Alianța pentru Unirea Românilor","amount_spent":118907,"Daily Spend":null,"short_name":"AUR","colors":"#FCC224","x":1703980800000,"y":null,"fill":"#FCC224"},{"date":"2024-01-01","party":"Alianța pentru Unirea Românilor","amount_spent":118998,"Daily Spend":91,"short_name":"AUR","colors":"#FCC224","x":1704067200000,"y":91,"fill":"#FCC224"},{"date":"2024-01-02","party":"Alianța pentru Unirea Românilor","amount_spent":119460,"Daily Spend":462,"short_name":"AUR","colors":"#FCC224","x":1704153600000,"y":462,"fill":"#FCC224"},{"date":"2024-01-03","party":"Alianța pentru Unirea Românilor","amount_spent":119903,"Daily Spend":443,"short_name":"AUR","colors":"#FCC224","x":1704240000000,"y":443,"fill":"#FCC224"},{"date":"2024-01-04","party":"Alianța pentru Unirea Românilor","amount_spent":120324,"Daily Spend":421,"short_name":"AUR","colors":"#FCC224","x":1704326400000,"y":421,"fill":"#FCC224"},{"date":"2024-01-05","party":"Alianța pentru Unirea Românilor","amount_spent":120735,"Daily Spend":411,"short_name":"AUR","colors":"#FCC224","x":1704412800000,"y":411,"fill":"#FCC224"},{"date":"2024-01-06","party":"Alianța pentru Unirea Românilor","amount_spent":121143,"Daily Spend":408,"short_name":"AUR","colors":"#FCC224","x":1704499200000,"y":408,"fill":"#FCC224"},{"date":"2024-01-07","party":"Alianța pentru Unirea Românilor","amount_spent":121527,"Daily Spend":384,"short_name":"AUR","colors":"#FCC224","x":1704585600000,"y":384,"fill":"#FCC224"},{"date":"2024-01-08","party":"Alianța pentru Unirea Românilor","amount_spent":121874,"Daily Spend":347,"short_name":"AUR","colors":"#FCC224","x":1704672000000,"y":347,"fill":"#FCC224"},{"date":"2024-01-09","party":"Alianța pentru Unirea Românilor","amount_spent":122174,"Daily Spend":300,"short_name":"AUR","colors":"#FCC224","x":1704758400000,"y":300,"fill":"#FCC224"},{"date":"2024-01-10","party":"Alianța pentru Unirea Românilor","amount_spent":122395,"Daily Spend":221,"short_name":"AUR","colors":"#FCC224","x":1704844800000,"y":221,"fill":"#FCC224"},{"date":"2024-01-11","party":"Alianța pentru Unirea Românilor","amount_spent":122747,"Daily Spend":352,"short_name":"AUR","colors":"#FCC224","x":1704931200000,"y":352,"fill":"#FCC224"},{"date":"2024-01-12","party":"Alianța pentru Unirea Românilor","amount_spent":123132,"Daily Spend":385,"short_name":"AUR","colors":"#FCC224","x":1705017600000,"y":385,"fill":"#FCC224"},{"date":"2024-01-13","party":"Alianța pentru Unirea Românilor","amount_spent":123639,"Daily Spend":507,"short_name":"AUR","colors":"#FCC224","x":1705104000000,"y":507,"fill":"#FCC224"},{"date":"2024-01-14","party":"Alianța pentru Unirea Românilor","amount_spent":124215,"Daily Spend":576,"short_name":"AUR","colors":"#FCC224","x":1705190400000,"y":576,"fill":"#FCC224"},{"date":"2024-01-15","party":"Alianța pentru Unirea Românilor","amount_spent":124670,"Daily Spend":455,"short_name":"AUR","colors":"#FCC224","x":1705276800000,"y":455,"fill":"#FCC224"},{"date":"2024-01-16","party":"Alianța pentru Unirea Românilor","amount_spent":125161,"Daily Spend":491,"short_name":"AUR","colors":"#FCC224","x":1705363200000,"y":491,"fill":"#FCC224"},{"date":"2024-01-17","party":"Alianța pentru Unirea Românilor","amount_spent":125622,"Daily Spend":461,"short_name":"AUR","colors":"#FCC224","x":1705449600000,"y":461,"fill":"#FCC224"},{"date":"2024-01-18","party":"Alianța pentru Unirea Românilor","amount_spent":126066,"Daily Spend":444,"short_name":"AUR","colors":"#FCC224","x":1705536000000,"y":444,"fill":"#FCC224"},{"date":"2024-01-19","party":"Alianța pentru Unirea Românilor","amount_spent":126430,"Daily Spend":364,"short_name":"AUR","colors":"#FCC224","x":1705622400000,"y":364,"fill":"#FCC224"},{"date":"2024-01-20","party":"Alianța pentru Unirea Românilor","amount_spent":126765,"Daily Spend":335,"short_name":"AUR","colors":"#FCC224","x":1705708800000,"y":335,"fill":"#FCC224"},{"date":"2024-01-21","party":"Alianța pentru Unirea Românilor","amount_spent":127173,"Daily Spend":408,"short_name":"AUR","colors":"#FCC224","x":1705795200000,"y":408,"fill":"#FCC224"},{"date":"2024-01-22","party":"Alianța pentru Unirea Românilor","amount_spent":127433,"Daily Spend":260,"short_name":"AUR","colors":"#FCC224","x":1705881600000,"y":260,"fill":"#FCC224"},{"date":"2024-01-23","party":"Alianța pentru Unirea Românilor","amount_spent":127750,"Daily Spend":317,"short_name":"AUR","colors":"#FCC224","x":1705968000000,"y":317,"fill":"#FCC224"},{"date":"2024-01-24","party":"Alianța pentru Unirea Românilor","amount_spent":128235,"Daily Spend":485,"short_name":"AUR","colors":"#FCC224","x":1706054400000,"y":485,"fill":"#FCC224"},{"date":"2024-01-25","party":"Alianța pentru Unirea Românilor","amount_spent":128795,"Daily Spend":560,"short_name":"AUR","colors":"#FCC224","x":1706140800000,"y":560,"fill":"#FCC224"},{"date":"2024-01-26","party":"Alianța pentru Unirea Românilor","amount_spent":129377,"Daily Spend":582,"short_name":"AUR","colors":"#FCC224","x":1706227200000,"y":582,"fill":"#FCC224"},{"date":"2024-01-27","party":"Alianța pentru Unirea Românilor","amount_spent":130142,"Daily Spend":765,"short_name":"AUR","colors":"#FCC224","x":1706313600000,"y":765,"fill":"#FCC224"},{"date":"2024-01-28","party":"Alianța pentru Unirea Românilor","amount_spent":130985,"Daily Spend":843,"short_name":"AUR","colors":"#FCC224","x":1706400000000,"y":843,"fill":"#FCC224"},{"date":"2024-01-29","party":"Alianța pentru Unirea Românilor","amount_spent":131824,"Daily Spend":839,"short_name":"AUR","colors":"#FCC224","x":1706486400000,"y":839,"fill":"#FCC224"},{"date":"2024-01-30","party":"Alianța pentru Unirea Românilor","amount_spent":132472,"Daily Spend":648,"short_name":"AUR","colors":"#FCC224","x":1706572800000,"y":648,"fill":"#FCC224"},{"date":"2024-01-31","party":"Alianța pentru Unirea Românilor","amount_spent":132739,"Daily Spend":267,"short_name":"AUR","colors":"#FCC224","x":1706659200000,"y":267,"fill":"#FCC224"},{"date":"2024-02-01","party":"Alianța pentru Unirea Românilor","amount_spent":133012,"Daily Spend":273,"short_name":"AUR","colors":"#FCC224","x":1706745600000,"y":273,"fill":"#FCC224"},{"date":"2024-02-02","party":"Alianța pentru Unirea Românilor","amount_spent":133300,"Daily Spend":288,"short_name":"AUR","colors":"#FCC224","x":1706832000000,"y":288,"fill":"#FCC224"},{"date":"2024-02-03","party":"Alianța pentru Unirea Românilor","amount_spent":133601,"Daily Spend":301,"short_name":"AUR","colors":"#FCC224","x":1706918400000,"y":301,"fill":"#FCC224"},{"date":"2024-02-04","party":"Alianța pentru Unirea Românilor","amount_spent":133861,"Daily Spend":260,"short_name":"AUR","colors":"#FCC224","x":1707004800000,"y":260,"fill":"#FCC224"},{"date":"2024-02-05","party":"Alianța pentru Unirea Românilor","amount_spent":134067,"Daily Spend":206,"short_name":"AUR","colors":"#FCC224","x":1707091200000,"y":206,"fill":"#FCC224"},{"date":"2024-02-06","party":"Alianța pentru Unirea Românilor","amount_spent":134357,"Daily Spend":290,"short_name":"AUR","colors":"#FCC224","x":1707177600000,"y":290,"fill":"#FCC224"},{"date":"2024-02-07","party":"Alianța pentru Unirea Românilor","amount_spent":135198,"Daily Spend":841,"short_name":"AUR","colors":"#FCC224","x":1707264000000,"y":841,"fill":"#FCC224"},{"date":"2024-02-08","party":"Alianța pentru Unirea Românilor","amount_spent":136079,"Daily Spend":881,"short_name":"AUR","colors":"#FCC224","x":1707350400000,"y":881,"fill":"#FCC224"},{"date":"2024-02-09","party":"Alianța pentru Unirea Românilor","amount_spent":136959,"Daily Spend":880,"short_name":"AUR","colors":"#FCC224","x":1707436800000,"y":880,"fill":"#FCC224"},{"date":"2024-02-10","party":"Alianța pentru Unirea Românilor","amount_spent":138520,"Daily Spend":1561,"short_name":"AUR","colors":"#FCC224","x":1707523200000,"y":1561,"fill":"#FCC224"},{"date":"2024-02-11","party":"Alianța pentru Unirea Românilor","amount_spent":139733,"Daily Spend":1213,"short_name":"AUR","colors":"#FCC224","x":1707609600000,"y":1213,"fill":"#FCC224"},{"date":"2024-02-12","party":"Alianța pentru Unirea Românilor","amount_spent":140654,"Daily Spend":921,"short_name":"AUR","colors":"#FCC224","x":1707696000000,"y":921,"fill":"#FCC224"},{"date":"2024-02-13","party":"Alianța pentru Unirea Românilor","amount_spent":142191,"Daily Spend":1537,"short_name":"AUR","colors":"#FCC224","x":1707782400000,"y":1537,"fill":"#FCC224"},{"date":"2024-02-14","party":"Alianța pentru Unirea Românilor","amount_spent":142723,"Daily Spend":532,"short_name":"AUR","colors":"#FCC224","x":1707868800000,"y":532,"fill":"#FCC224"},{"date":"2024-02-15","party":"Alianța pentru Unirea Românilor","amount_spent":143351,"Daily Spend":628,"short_name":"AUR","colors":"#FCC224","x":1707955200000,"y":628,"fill":"#FCC224"},{"date":"2024-02-16","party":"Alianța pentru Unirea Românilor","amount_spent":144011,"Daily Spend":660,"short_name":"AUR","colors":"#FCC224","x":1708041600000,"y":660,"fill":"#FCC224"},{"date":"2024-02-17","party":"Alianța pentru Unirea Românilor","amount_spent":144465,"Daily Spend":454,"short_name":"AUR","colors":"#FCC224","x":1708128000000,"y":454,"fill":"#FCC224"},{"date":"2024-02-18","party":"Alianța pentru Unirea Românilor","amount_spent":144706,"Daily Spend":241,"short_name":"AUR","colors":"#FCC224","x":1708214400000,"y":241,"fill":"#FCC224"},{"date":"2024-02-19","party":"Alianța pentru Unirea Românilor","amount_spent":145074,"Daily Spend":368,"short_name":"AUR","colors":"#FCC224","x":1708300800000,"y":368,"fill":"#FCC224"},{"date":"2024-02-20","party":"Alianța pentru Unirea Românilor","amount_spent":145758,"Daily Spend":684,"short_name":"AUR","colors":"#FCC224","x":1708387200000,"y":684,"fill":"#FCC224"},{"date":"2024-02-21","party":"Alianța pentru Unirea Românilor","amount_spent":146480,"Daily Spend":722,"short_name":"AUR","colors":"#FCC224","x":1708473600000,"y":722,"fill":"#FCC224"},{"date":"2024-02-22","party":"Alianța pentru Unirea Românilor","amount_spent":148812,"Daily Spend":2332,"short_name":"AUR","colors":"#FCC224","x":1708560000000,"y":2332,"fill":"#FCC224"},{"date":"2024-02-23","party":"Alianța pentru Unirea Românilor","amount_spent":150567,"Daily Spend":1755,"short_name":"AUR","colors":"#FCC224","x":1708646400000,"y":1755,"fill":"#FCC224"},{"date":"2024-02-24","party":"Alianța pentru Unirea Românilor","amount_spent":152113,"Daily Spend":1546,"short_name":"AUR","colors":"#FCC224","x":1708732800000,"y":1546,"fill":"#FCC224"},{"date":"2024-02-25","party":"Alianța pentru Unirea Românilor","amount_spent":154107,"Daily Spend":1994,"short_name":"AUR","colors":"#FCC224","x":1708819200000,"y":1994,"fill":"#FCC224"},{"date":"2024-02-26","party":"Alianța pentru Unirea Românilor","amount_spent":155226,"Daily Spend":1119,"short_name":"AUR","colors":"#FCC224","x":1708905600000,"y":1119,"fill":"#FCC224"},{"date":"2024-02-27","party":"Alianța pentru Unirea Românilor","amount_spent":155796,"Daily Spend":570,"short_name":"AUR","colors":"#FCC224","x":1708992000000,"y":570,"fill":"#FCC224"},{"date":"2024-02-28","party":"Alianța pentru Unirea Românilor","amount_spent":156208,"Daily Spend":412,"short_name":"AUR","colors":"#FCC224","x":1709078400000,"y":412,"fill":"#FCC224"},{"date":"2024-02-29","party":"Alianța pentru Unirea Românilor","amount_spent":156510,"Daily Spend":302,"short_name":"AUR","colors":"#FCC224","x":1709164800000,"y":302,"fill":"#FCC224"},{"date":"2024-03-01","party":"Alianța pentru Unirea Românilor","amount_spent":156680,"Daily Spend":170,"short_name":"AUR","colors":"#FCC224","x":1709251200000,"y":170,"fill":"#FCC224"},{"date":"2024-03-02","party":"Alianța pentru Unirea Românilor","amount_spent":156773,"Daily Spend":93,"short_name":"AUR","colors":"#FCC224","x":1709337600000,"y":93,"fill":"#FCC224"},{"date":"2024-03-03","party":"Alianța pentru Unirea Românilor","amount_spent":156849,"Daily Spend":76,"short_name":"AUR","colors":"#FCC224","x":1709424000000,"y":76,"fill":"#FCC224"},{"date":"2024-03-04","party":"Alianța pentru Unirea Românilor","amount_spent":156920,"Daily Spend":71,"short_name":"AUR","colors":"#FCC224","x":1709510400000,"y":71,"fill":"#FCC224"},{"date":"2024-03-05","party":"Alianța pentru Unirea Românilor","amount_spent":156987,"Daily Spend":67,"short_name":"AUR","colors":"#FCC224","x":1709596800000,"y":67,"fill":"#FCC224"},{"date":"2024-03-06","party":"Alianța pentru Unirea Românilor","amount_spent":157058,"Daily Spend":71,"short_name":"AUR","colors":"#FCC224","x":1709683200000,"y":71,"fill":"#FCC224"},{"date":"2024-03-07","party":"Alianța pentru Unirea Românilor","amount_spent":157116,"Daily Spend":58,"short_name":"AUR","colors":"#FCC224","x":1709769600000,"y":58,"fill":"#FCC224"},{"date":"2024-03-08","party":"Alianța pentru Unirea Românilor","amount_spent":157174,"Daily Spend":58,"short_name":"AUR","colors":"#FCC224","x":1709856000000,"y":58,"fill":"#FCC224"},{"date":"2024-03-09","party":"Alianța pentru Unirea Românilor","amount_spent":157245,"Daily Spend":71,"short_name":"AUR","colors":"#FCC224","x":1709942400000,"y":71,"fill":"#FCC224"}],"type":"area"},{"name":"Forța Dreptei","data":[{"date":"2023-12-31","party":"Forța Dreptei","amount_spent":70375,"Daily Spend":null,"short_name":"FD","colors":"#08510A","x":1703980800000,"y":null,"fill":"#08510A"},{"date":"2024-01-01","party":"Forța Dreptei","amount_spent":70527,"Daily Spend":152,"short_name":"FD","colors":"#08510A","x":1704067200000,"y":152,"fill":"#08510A"},{"date":"2024-01-02","party":"Forța Dreptei","amount_spent":70673,"Daily Spend":146,"short_name":"FD","colors":"#08510A","x":1704153600000,"y":146,"fill":"#08510A"},{"date":"2024-01-03","party":"Forța Dreptei","amount_spent":70697,"Daily Spend":24,"short_name":"FD","colors":"#08510A","x":1704240000000,"y":24,"fill":"#08510A"},{"date":"2024-01-04","party":"Forța Dreptei","amount_spent":70718,"Daily Spend":21,"short_name":"FD","colors":"#08510A","x":1704326400000,"y":21,"fill":"#08510A"},{"date":"2024-01-05","party":"Forța Dreptei","amount_spent":70782,"Daily Spend":64,"short_name":"FD","colors":"#08510A","x":1704412800000,"y":64,"fill":"#08510A"},{"date":"2024-01-06","party":"Forța Dreptei","amount_spent":70850,"Daily Spend":68,"short_name":"FD","colors":"#08510A","x":1704499200000,"y":68,"fill":"#08510A"},{"date":"2024-01-07","party":"Forța Dreptei","amount_spent":71075,"Daily Spend":225,"short_name":"FD","colors":"#08510A","x":1704585600000,"y":225,"fill":"#08510A"},{"date":"2024-01-08","party":"Forța Dreptei","amount_spent":71172,"Daily Spend":97,"short_name":"FD","colors":"#08510A","x":1704672000000,"y":97,"fill":"#08510A"},{"date":"2024-01-09","party":"Forța Dreptei","amount_spent":71208,"Daily Spend":36,"short_name":"FD","colors":"#08510A","x":1704758400000,"y":36,"fill":"#08510A"},{"date":"2024-01-10","party":"Forța Dreptei","amount_spent":71248,"Daily Spend":40,"short_name":"FD","colors":"#08510A","x":1704844800000,"y":40,"fill":"#08510A"},{"date":"2024-01-11","party":"Forța Dreptei","amount_spent":71305,"Daily Spend":57,"short_name":"FD","colors":"#08510A","x":1704931200000,"y":57,"fill":"#08510A"},{"date":"2024-01-12","party":"Forța Dreptei","amount_spent":71362,"Daily Spend":57,"short_name":"FD","colors":"#08510A","x":1705017600000,"y":57,"fill":"#08510A"},{"date":"2024-01-13","party":"Forța Dreptei","amount_spent":71414,"Daily Spend":52,"short_name":"FD","colors":"#08510A","x":1705104000000,"y":52,"fill":"#08510A"},{"date":"2024-01-14","party":"Forța Dreptei","amount_spent":71444,"Daily Spend":30,"short_name":"FD","colors":"#08510A","x":1705190400000,"y":30,"fill":"#08510A"},{"date":"2024-01-15","party":"Forța Dreptei","amount_spent":71481,"Daily Spend":37,"short_name":"FD","colors":"#08510A","x":1705276800000,"y":37,"fill":"#08510A"},{"date":"2024-01-16","party":"Forța Dreptei","amount_spent":71610,"Daily Spend":129,"short_name":"FD","colors":"#08510A","x":1705363200000,"y":129,"fill":"#08510A"},{"date":"2024-01-17","party":"Forța Dreptei","amount_spent":71914,"Daily Spend":304,"short_name":"FD","colors":"#08510A","x":1705449600000,"y":304,"fill":"#08510A"},{"date":"2024-01-18","party":"Forța Dreptei","amount_spent":72260,"Daily Spend":346,"short_name":"FD","colors":"#08510A","x":1705536000000,"y":346,"fill":"#08510A"},{"date":"2024-01-19","party":"Forța Dreptei","amount_spent":72390,"Daily Spend":130,"short_name":"FD","colors":"#08510A","x":1705622400000,"y":130,"fill":"#08510A"},{"date":"2024-01-20","party":"Forța Dreptei","amount_spent":72486,"Daily Spend":96,"short_name":"FD","colors":"#08510A","x":1705708800000,"y":96,"fill":"#08510A"},{"date":"2024-01-21","party":"Forța Dreptei","amount_spent":72547,"Daily Spend":61,"short_name":"FD","colors":"#08510A","x":1705795200000,"y":61,"fill":"#08510A"},{"date":"2024-01-22","party":"Forța Dreptei","amount_spent":72630,"Daily Spend":83,"short_name":"FD","colors":"#08510A","x":1705881600000,"y":83,"fill":"#08510A"},{"date":"2024-01-23","party":"Forța Dreptei","amount_spent":72705,"Daily Spend":75,"short_name":"FD","colors":"#08510A","x":1705968000000,"y":75,"fill":"#08510A"},{"date":"2024-01-24","party":"Forța Dreptei","amount_spent":72827,"Daily Spend":122,"short_name":"FD","colors":"#08510A","x":1706054400000,"y":122,"fill":"#08510A"},{"date":"2024-01-25","party":"Forța Dreptei","amount_spent":72951,"Daily Spend":124,"short_name":"FD","colors":"#08510A","x":1706140800000,"y":124,"fill":"#08510A"},{"date":"2024-01-26","party":"Forța Dreptei","amount_spent":73050,"Daily Spend":99,"short_name":"FD","colors":"#08510A","x":1706227200000,"y":99,"fill":"#08510A"},{"date":"2024-01-27","party":"Forța Dreptei","amount_spent":73160,"Daily Spend":110,"short_name":"FD","colors":"#08510A","x":1706313600000,"y":110,"fill":"#08510A"},{"date":"2024-01-28","party":"Forța Dreptei","amount_spent":73324,"Daily Spend":164,"short_name":"FD","colors":"#08510A","x":1706400000000,"y":164,"fill":"#08510A"},{"date":"2024-01-29","party":"Forța Dreptei","amount_spent":73472,"Daily Spend":148,"short_name":"FD","colors":"#08510A","x":1706486400000,"y":148,"fill":"#08510A"},{"date":"2024-01-30","party":"Forța Dreptei","amount_spent":73653,"Daily Spend":181,"short_name":"FD","colors":"#08510A","x":1706572800000,"y":181,"fill":"#08510A"},{"date":"2024-01-31","party":"Forța Dreptei","amount_spent":73827,"Daily Spend":174,"short_name":"FD","colors":"#08510A","x":1706659200000,"y":174,"fill":"#08510A"},{"date":"2024-02-01","party":"Forța Dreptei","amount_spent":73970,"Daily Spend":143,"short_name":"FD","colors":"#08510A","x":1706745600000,"y":143,"fill":"#08510A"},{"date":"2024-02-02","party":"Forța Dreptei","amount_spent":74105,"Daily Spend":135,"short_name":"FD","colors":"#08510A","x":1706832000000,"y":135,"fill":"#08510A"},{"date":"2024-02-03","party":"Forța Dreptei","amount_spent":74229,"Daily Spend":124,"short_name":"FD","colors":"#08510A","x":1706918400000,"y":124,"fill":"#08510A"},{"date":"2024-02-04","party":"Forța Dreptei","amount_spent":74385,"Daily Spend":156,"short_name":"FD","colors":"#08510A","x":1707004800000,"y":156,"fill":"#08510A"},{"date":"2024-02-05","party":"Forța Dreptei","amount_spent":74742,"Daily Spend":357,"short_name":"FD","colors":"#08510A","x":1707091200000,"y":357,"fill":"#08510A"},{"date":"2024-02-06","party":"Forța Dreptei","amount_spent":74922,"Daily Spend":180,"short_name":"FD","colors":"#08510A","x":1707177600000,"y":180,"fill":"#08510A"},{"date":"2024-02-07","party":"Forța Dreptei","amount_spent":75095,"Daily Spend":173,"short_name":"FD","colors":"#08510A","x":1707264000000,"y":173,"fill":"#08510A"},{"date":"2024-02-08","party":"Forța Dreptei","amount_spent":75258,"Daily Spend":163,"short_name":"FD","colors":"#08510A","x":1707350400000,"y":163,"fill":"#08510A"},{"date":"2024-02-09","party":"Forța Dreptei","amount_spent":75312,"Daily Spend":54,"short_name":"FD","colors":"#08510A","x":1707436800000,"y":54,"fill":"#08510A"},{"date":"2024-02-10","party":"Forța Dreptei","amount_spent":75385,"Daily Spend":73,"short_name":"FD","colors":"#08510A","x":1707523200000,"y":73,"fill":"#08510A"},{"date":"2024-02-11","party":"Forța Dreptei","amount_spent":75457,"Daily Spend":72,"short_name":"FD","colors":"#08510A","x":1707609600000,"y":72,"fill":"#08510A"},{"date":"2024-02-12","party":"Forța Dreptei","amount_spent":75584,"Daily Spend":127,"short_name":"FD","colors":"#08510A","x":1707696000000,"y":127,"fill":"#08510A"},{"date":"2024-02-13","party":"Forța Dreptei","amount_spent":75706,"Daily Spend":122,"short_name":"FD","colors":"#08510A","x":1707782400000,"y":122,"fill":"#08510A"},{"date":"2024-02-14","party":"Forța Dreptei","amount_spent":75830,"Daily Spend":124,"short_name":"FD","colors":"#08510A","x":1707868800000,"y":124,"fill":"#08510A"},{"date":"2024-02-15","party":"Forța Dreptei","amount_spent":75940,"Daily Spend":110,"short_name":"FD","colors":"#08510A","x":1707955200000,"y":110,"fill":"#08510A"},{"date":"2024-02-16","party":"Forța Dreptei","amount_spent":76078,"Daily Spend":138,"short_name":"FD","colors":"#08510A","x":1708041600000,"y":138,"fill":"#08510A"},{"date":"2024-02-17","party":"Forța Dreptei","amount_spent":76230,"Daily Spend":152,"short_name":"FD","colors":"#08510A","x":1708128000000,"y":152,"fill":"#08510A"},{"date":"2024-02-18","party":"Forța Dreptei","amount_spent":76348,"Daily Spend":118,"short_name":"FD","colors":"#08510A","x":1708214400000,"y":118,"fill":"#08510A"},{"date":"2024-02-19","party":"Forța Dreptei","amount_spent":76485,"Daily Spend":137,"short_name":"FD","colors":"#08510A","x":1708300800000,"y":137,"fill":"#08510A"},{"date":"2024-02-20","party":"Forța Dreptei","amount_spent":76657,"Daily Spend":172,"short_name":"FD","colors":"#08510A","x":1708387200000,"y":172,"fill":"#08510A"},{"date":"2024-02-21","party":"Forța Dreptei","amount_spent":76846,"Daily Spend":189,"short_name":"FD","colors":"#08510A","x":1708473600000,"y":189,"fill":"#08510A"},{"date":"2024-02-22","party":"Forța Dreptei","amount_spent":77005,"Daily Spend":159,"short_name":"FD","colors":"#08510A","x":1708560000000,"y":159,"fill":"#08510A"},{"date":"2024-02-23","party":"Forța Dreptei","amount_spent":77167,"Daily Spend":162,"short_name":"FD","colors":"#08510A","x":1708646400000,"y":162,"fill":"#08510A"},{"date":"2024-02-24","party":"Forța Dreptei","amount_spent":77315,"Daily Spend":148,"short_name":"FD","colors":"#08510A","x":1708732800000,"y":148,"fill":"#08510A"},{"date":"2024-02-25","party":"Forța Dreptei","amount_spent":77421,"Daily Spend":106,"short_name":"FD","colors":"#08510A","x":1708819200000,"y":106,"fill":"#08510A"},{"date":"2024-02-26","party":"Forța Dreptei","amount_spent":77608,"Daily Spend":187,"short_name":"FD","colors":"#08510A","x":1708905600000,"y":187,"fill":"#08510A"},{"date":"2024-02-27","party":"Forța Dreptei","amount_spent":77847,"Daily Spend":239,"short_name":"FD","colors":"#08510A","x":1708992000000,"y":239,"fill":"#08510A"},{"date":"2024-02-28","party":"Forța Dreptei","amount_spent":78155,"Daily Spend":308,"short_name":"FD","colors":"#08510A","x":1709078400000,"y":308,"fill":"#08510A"},{"date":"2024-02-29","party":"Forța Dreptei","amount_spent":78353,"Daily Spend":198,"short_name":"FD","colors":"#08510A","x":1709164800000,"y":198,"fill":"#08510A"},{"date":"2024-03-01","party":"Forța Dreptei","amount_spent":78635,"Daily Spend":282,"short_name":"FD","colors":"#08510A","x":1709251200000,"y":282,"fill":"#08510A"},{"date":"2024-03-02","party":"Forța Dreptei","amount_spent":78871,"Daily Spend":236,"short_name":"FD","colors":"#08510A","x":1709337600000,"y":236,"fill":"#08510A"},{"date":"2024-03-03","party":"Forța Dreptei","amount_spent":79107,"Daily Spend":236,"short_name":"FD","colors":"#08510A","x":1709424000000,"y":236,"fill":"#08510A"},{"date":"2024-03-04","party":"Forța Dreptei","amount_spent":79385,"Daily Spend":278,"short_name":"FD","colors":"#08510A","x":1709510400000,"y":278,"fill":"#08510A"},{"date":"2024-03-05","party":"Forța Dreptei","amount_spent":79545,"Daily Spend":160,"short_name":"FD","colors":"#08510A","x":1709596800000,"y":160,"fill":"#08510A"},{"date":"2024-03-06","party":"Forța Dreptei","amount_spent":79698,"Daily Spend":153,"short_name":"FD","colors":"#08510A","x":1709683200000,"y":153,"fill":"#08510A"},{"date":"2024-03-07","party":"Forța Dreptei","amount_spent":79827,"Daily Spend":129,"short_name":"FD","colors":"#08510A","x":1709769600000,"y":129,"fill":"#08510A"},{"date":"2024-03-08","party":"Forța Dreptei","amount_spent":80167,"Daily Spend":340,"short_name":"FD","colors":"#08510A","x":1709856000000,"y":340,"fill":"#08510A"},{"date":"2024-03-09","party":"Forța Dreptei","amount_spent":80264,"Daily Spend":97,"short_name":"FD","colors":"#08510A","x":1709942400000,"y":97,"fill":"#08510A"}],"type":"area"},{"name":"Partidul Național Liberal","data":[{"date":"2023-12-31","party":"Partidul Național Liberal","amount_spent":6866671,"Daily Spend":null,"short_name":"PNL","colors":"#FFDD00","x":1703980800000,"y":null,"fill":"#FFDD00"},{"date":"2024-01-01","party":"Partidul Național Liberal","amount_spent":6869032,"Daily Spend":2361,"short_name":"PNL","colors":"#FFDD00","x":1704067200000,"y":2361,"fill":"#FFDD00"},{"date":"2024-01-02","party":"Partidul Național Liberal","amount_spent":6870197,"Daily Spend":1165,"short_name":"PNL","colors":"#FFDD00","x":1704153600000,"y":1165,"fill":"#FFDD00"},{"date":"2024-01-03","party":"Partidul Național Liberal","amount_spent":6871179,"Daily Spend":982,"short_name":"PNL","colors":"#FFDD00","x":1704240000000,"y":982,"fill":"#FFDD00"},{"date":"2024-01-04","party":"Partidul Național Liberal","amount_spent":6873614,"Daily Spend":2435,"short_name":"PNL","colors":"#FFDD00","x":1704326400000,"y":2435,"fill":"#FFDD00"},{"date":"2024-01-05","party":"Partidul Național Liberal","amount_spent":6877443,"Daily Spend":3829,"short_name":"PNL","colors":"#FFDD00","x":1704412800000,"y":3829,"fill":"#FFDD00"},{"date":"2024-01-06","party":"Partidul Național Liberal","amount_spent":6881464,"Daily Spend":4021,"short_name":"PNL","colors":"#FFDD00","x":1704499200000,"y":4021,"fill":"#FFDD00"},{"date":"2024-01-07","party":"Partidul Național Liberal","amount_spent":6885513,"Daily Spend":4049,"short_name":"PNL","colors":"#FFDD00","x":1704585600000,"y":4049,"fill":"#FFDD00"},{"date":"2024-01-08","party":"Partidul Național Liberal","amount_spent":6888664,"Daily Spend":3151,"short_name":"PNL","colors":"#FFDD00","x":1704672000000,"y":3151,"fill":"#FFDD00"},{"date":"2024-01-09","party":"Partidul Național Liberal","amount_spent":6889934,"Daily Spend":1270,"short_name":"PNL","colors":"#FFDD00","x":1704758400000,"y":1270,"fill":"#FFDD00"},{"date":"2024-01-10","party":"Partidul Național Liberal","amount_spent":6892117,"Daily Spend":2183,"short_name":"PNL","colors":"#FFDD00","x":1704844800000,"y":2183,"fill":"#FFDD00"},{"date":"2024-01-11","party":"Partidul Național Liberal","amount_spent":6894689,"Daily Spend":2572,"short_name":"PNL","colors":"#FFDD00","x":1704931200000,"y":2572,"fill":"#FFDD00"},{"date":"2024-01-12","party":"Partidul Național Liberal","amount_spent":6896608,"Daily Spend":1919,"short_name":"PNL","colors":"#FFDD00","x":1705017600000,"y":1919,"fill":"#FFDD00"},{"date":"2024-01-13","party":"Partidul Național Liberal","amount_spent":6899471,"Daily Spend":2863,"short_name":"PNL","colors":"#FFDD00","x":1705104000000,"y":2863,"fill":"#FFDD00"},{"date":"2024-01-14","party":"Partidul Național Liberal","amount_spent":6902481,"Daily Spend":3010,"short_name":"PNL","colors":"#FFDD00","x":1705190400000,"y":3010,"fill":"#FFDD00"},{"date":"2024-01-15","party":"Partidul Național Liberal","amount_spent":6904510,"Daily Spend":2029,"short_name":"PNL","colors":"#FFDD00","x":1705276800000,"y":2029,"fill":"#FFDD00"},{"date":"2024-01-16","party":"Partidul Național Liberal","amount_spent":6906363,"Daily Spend":1853,"short_name":"PNL","colors":"#FFDD00","x":1705363200000,"y":1853,"fill":"#FFDD00"},{"date":"2024-01-17","party":"Partidul Național Liberal","amount_spent":6908245,"Daily Spend":1882,"short_name":"PNL","colors":"#FFDD00","x":1705449600000,"y":1882,"fill":"#FFDD00"},{"date":"2024-01-18","party":"Partidul Național Liberal","amount_spent":6910795,"Daily Spend":2550,"short_name":"PNL","colors":"#FFDD00","x":1705536000000,"y":2550,"fill":"#FFDD00"},{"date":"2024-01-19","party":"Partidul Național Liberal","amount_spent":6915150,"Daily Spend":4355,"short_name":"PNL","colors":"#FFDD00","x":1705622400000,"y":4355,"fill":"#FFDD00"},{"date":"2024-01-20","party":"Partidul Național Liberal","amount_spent":6917978,"Daily Spend":2828,"short_name":"PNL","colors":"#FFDD00","x":1705708800000,"y":2828,"fill":"#FFDD00"},{"date":"2024-01-21","party":"Partidul Național Liberal","amount_spent":6920101,"Daily Spend":2123,"short_name":"PNL","colors":"#FFDD00","x":1705795200000,"y":2123,"fill":"#FFDD00"},{"date":"2024-01-22","party":"Partidul Național Liberal","amount_spent":6922161,"Daily Spend":2060,"short_name":"PNL","colors":"#FFDD00","x":1705881600000,"y":2060,"fill":"#FFDD00"},{"date":"2024-01-23","party":"Partidul Național Liberal","amount_spent":6924200,"Daily Spend":2039,"short_name":"PNL","colors":"#FFDD00","x":1705968000000,"y":2039,"fill":"#FFDD00"},{"date":"2024-01-24","party":"Partidul Național Liberal","amount_spent":6927581,"Daily Spend":3381,"short_name":"PNL","colors":"#FFDD00","x":1706054400000,"y":3381,"fill":"#FFDD00"},{"date":"2024-01-25","party":"Partidul Național Liberal","amount_spent":6931314,"Daily Spend":3733,"short_name":"PNL","colors":"#FFDD00","x":1706140800000,"y":3733,"fill":"#FFDD00"},{"date":"2024-01-26","party":"Partidul Național Liberal","amount_spent":6934248,"Daily Spend":2934,"short_name":"PNL","colors":"#FFDD00","x":1706227200000,"y":2934,"fill":"#FFDD00"},{"date":"2024-01-27","party":"Partidul Național Liberal","amount_spent":6937379,"Daily Spend":3131,"short_name":"PNL","colors":"#FFDD00","x":1706313600000,"y":3131,"fill":"#FFDD00"},{"date":"2024-01-28","party":"Partidul Național Liberal","amount_spent":6939591,"Daily Spend":2212,"short_name":"PNL","colors":"#FFDD00","x":1706400000000,"y":2212,"fill":"#FFDD00"},{"date":"2024-01-29","party":"Partidul Național Liberal","amount_spent":6941640,"Daily Spend":2049,"short_name":"PNL","colors":"#FFDD00","x":1706486400000,"y":2049,"fill":"#FFDD00"},{"date":"2024-01-30","party":"Partidul Național Liberal","amount_spent":6943944,"Daily Spend":2304,"short_name":"PNL","colors":"#FFDD00","x":1706572800000,"y":2304,"fill":"#FFDD00"},{"date":"2024-01-31","party":"Partidul Național Liberal","amount_spent":6946553,"Daily Spend":2609,"short_name":"PNL","colors":"#FFDD00","x":1706659200000,"y":2609,"fill":"#FFDD00"},{"date":"2024-02-01","party":"Partidul Național Liberal","amount_spent":6949226,"Daily Spend":2673,"short_name":"PNL","colors":"#FFDD00","x":1706745600000,"y":2673,"fill":"#FFDD00"},{"date":"2024-02-02","party":"Partidul Național Liberal","amount_spent":6951876,"Daily Spend":2650,"short_name":"PNL","colors":"#FFDD00","x":1706832000000,"y":2650,"fill":"#FFDD00"},{"date":"2024-02-03","party":"Partidul Național Liberal","amount_spent":6954498,"Daily Spend":2622,"short_name":"PNL","colors":"#FFDD00","x":1706918400000,"y":2622,"fill":"#FFDD00"},{"date":"2024-02-04","party":"Partidul Național Liberal","amount_spent":6958855,"Daily Spend":4357,"short_name":"PNL","colors":"#FFDD00","x":1707004800000,"y":4357,"fill":"#FFDD00"},{"date":"2024-02-05","party":"Partidul Național Liberal","amount_spent":6970447,"Daily Spend":11592,"short_name":"PNL","colors":"#FFDD00","x":1707091200000,"y":11592,"fill":"#FFDD00"},{"date":"2024-02-06","party":"Partidul Național Liberal","amount_spent":6984360,"Daily Spend":13913,"short_name":"PNL","colors":"#FFDD00","x":1707177600000,"y":13913,"fill":"#FFDD00"},{"date":"2024-02-07","party":"Partidul Național Liberal","amount_spent":6999551,"Daily Spend":15191,"short_name":"PNL","colors":"#FFDD00","x":1707264000000,"y":15191,"fill":"#FFDD00"},{"date":"2024-02-08","party":"Partidul Național Liberal","amount_spent":7002110,"Daily Spend":2559,"short_name":"PNL","colors":"#FFDD00","x":1707350400000,"y":2559,"fill":"#FFDD00"},{"date":"2024-02-09","party":"Partidul Național Liberal","amount_spent":7004586,"Daily Spend":2476,"short_name":"PNL","colors":"#FFDD00","x":1707436800000,"y":2476,"fill":"#FFDD00"},{"date":"2024-02-10","party":"Partidul Național Liberal","amount_spent":7008126,"Daily Spend":3540,"short_name":"PNL","colors":"#FFDD00","x":1707523200000,"y":3540,"fill":"#FFDD00"},{"date":"2024-02-11","party":"Partidul Național Liberal","amount_spent":7010371,"Daily Spend":2245,"short_name":"PNL","colors":"#FFDD00","x":1707609600000,"y":2245,"fill":"#FFDD00"},{"date":"2024-02-12","party":"Partidul Național Liberal","amount_spent":7019140,"Daily Spend":8769,"short_name":"PNL","colors":"#FFDD00","x":1707696000000,"y":8769,"fill":"#FFDD00"},{"date":"2024-02-13","party":"Partidul Național Liberal","amount_spent":7027177,"Daily Spend":8037,"short_name":"PNL","colors":"#FFDD00","x":1707782400000,"y":8037,"fill":"#FFDD00"},{"date":"2024-02-14","party":"Partidul Național Liberal","amount_spent":7031329,"Daily Spend":4152,"short_name":"PNL","colors":"#FFDD00","x":1707868800000,"y":4152,"fill":"#FFDD00"},{"date":"2024-02-15","party":"Partidul Național Liberal","amount_spent":7037721,"Daily Spend":6392,"short_name":"PNL","colors":"#FFDD00","x":1707955200000,"y":6392,"fill":"#FFDD00"},{"date":"2024-02-16","party":"Partidul Național Liberal","amount_spent":7044295,"Daily Spend":6574,"short_name":"PNL","colors":"#FFDD00","x":1708041600000,"y":6574,"fill":"#FFDD00"},{"date":"2024-02-17","party":"Partidul Național Liberal","amount_spent":7049533,"Daily Spend":5238,"short_name":"PNL","colors":"#FFDD00","x":1708128000000,"y":5238,"fill":"#FFDD00"},{"date":"2024-02-18","party":"Partidul Național Liberal","amount_spent":7054002,"Daily Spend":4469,"short_name":"PNL","colors":"#FFDD00","x":1708214400000,"y":4469,"fill":"#FFDD00"},{"date":"2024-02-19","party":"Partidul Național Liberal","amount_spent":7057010,"Daily Spend":3008,"short_name":"PNL","colors":"#FFDD00","x":1708300800000,"y":3008,"fill":"#FFDD00"},{"date":"2024-02-20","party":"Partidul Național Liberal","amount_spent":7060133,"Daily Spend":3123,"short_name":"PNL","colors":"#FFDD00","x":1708387200000,"y":3123,"fill":"#FFDD00"},{"date":"2024-02-21","party":"Partidul Național Liberal","amount_spent":7064034,"Daily Spend":3901,"short_name":"PNL","colors":"#FFDD00","x":1708473600000,"y":3901,"fill":"#FFDD00"},{"date":"2024-02-22","party":"Partidul Național Liberal","amount_spent":7068757,"Daily Spend":4723,"short_name":"PNL","colors":"#FFDD00","x":1708560000000,"y":4723,"fill":"#FFDD00"},{"date":"2024-02-23","party":"Partidul Național Liberal","amount_spent":7072791,"Daily Spend":4034,"short_name":"PNL","colors":"#FFDD00","x":1708646400000,"y":4034,"fill":"#FFDD00"},{"date":"2024-02-24","party":"Partidul Național Liberal","amount_spent":7077296,"Daily Spend":4505,"short_name":"PNL","colors":"#FFDD00","x":1708732800000,"y":4505,"fill":"#FFDD00"},{"date":"2024-02-25","party":"Partidul Național Liberal","amount_spent":7081919,"Daily Spend":4623,"short_name":"PNL","colors":"#FFDD00","x":1708819200000,"y":4623,"fill":"#FFDD00"},{"date":"2024-02-26","party":"Partidul Național Liberal","amount_spent":7085687,"Daily Spend":3768,"short_name":"PNL","colors":"#FFDD00","x":1708905600000,"y":3768,"fill":"#FFDD00"},{"date":"2024-02-27","party":"Partidul Național Liberal","amount_spent":7089584,"Daily Spend":3897,"short_name":"PNL","colors":"#FFDD00","x":1708992000000,"y":3897,"fill":"#FFDD00"},{"date":"2024-02-28","party":"Partidul Național Liberal","amount_spent":7095290,"Daily Spend":5706,"short_name":"PNL","colors":"#FFDD00","x":1709078400000,"y":5706,"fill":"#FFDD00"},{"date":"2024-02-29","party":"Partidul Național Liberal","amount_spent":7101249,"Daily Spend":5959,"short_name":"PNL","colors":"#FFDD00","x":1709164800000,"y":5959,"fill":"#FFDD00"},{"date":"2024-03-01","party":"Partidul Național Liberal","amount_spent":7108060,"Daily Spend":6811,"short_name":"PNL","colors":"#FFDD00","x":1709251200000,"y":6811,"fill":"#FFDD00"},{"date":"2024-03-02","party":"Partidul Național Liberal","amount_spent":7115959,"Daily Spend":7899,"short_name":"PNL","colors":"#FFDD00","x":1709337600000,"y":7899,"fill":"#FFDD00"},{"date":"2024-03-03","party":"Partidul Național Liberal","amount_spent":7123340,"Daily Spend":7381,"short_name":"PNL","colors":"#FFDD00","x":1709424000000,"y":7381,"fill":"#FFDD00"},{"date":"2024-03-04","party":"Partidul Național Liberal","amount_spent":7130049,"Daily Spend":6709,"short_name":"PNL","colors":"#FFDD00","x":1709510400000,"y":6709,"fill":"#FFDD00"},{"date":"2024-03-05","party":"Partidul Național Liberal","amount_spent":7136804,"Daily Spend":6755,"short_name":"PNL","colors":"#FFDD00","x":1709596800000,"y":6755,"fill":"#FFDD00"},{"date":"2024-03-06","party":"Partidul Național Liberal","amount_spent":7146189,"Daily Spend":9385,"short_name":"PNL","colors":"#FFDD00","x":1709683200000,"y":9385,"fill":"#FFDD00"},{"date":"2024-03-07","party":"Partidul Național Liberal","amount_spent":7166481,"Daily Spend":20292,"short_name":"PNL","colors":"#FFDD00","x":1709769600000,"y":20292,"fill":"#FFDD00"},{"date":"2024-03-08","party":"Partidul Național Liberal","amount_spent":7174832,"Daily Spend":8351,"short_name":"PNL","colors":"#FFDD00","x":1709856000000,"y":8351,"fill":"#FFDD00"},{"date":"2024-03-09","party":"Partidul Național Liberal","amount_spent":7180627,"Daily Spend":5795,"short_name":"PNL","colors":"#FFDD00","x":1709942400000,"y":5795,"fill":"#FFDD00"}],"type":"area"},{"name":"Partidul Social Democrat","data":[{"date":"2023-12-31","party":"Partidul Social Democrat","amount_spent":7849652,"Daily Spend":null,"short_name":"PSD","colors":"#ff0000","x":1703980800000,"y":null,"fill":"#ff0000"},{"date":"2024-01-01","party":"Partidul Social Democrat","amount_spent":7854579,"Daily Spend":4927,"short_name":"PSD","colors":"#ff0000","x":1704067200000,"y":4927,"fill":"#ff0000"},{"date":"2024-01-02","party":"Partidul Social Democrat","amount_spent":7858540,"Daily Spend":3961,"short_name":"PSD","colors":"#ff0000","x":1704153600000,"y":3961,"fill":"#ff0000"},{"date":"2024-01-03","party":"Partidul Social Democrat","amount_spent":7862365,"Daily Spend":3825,"short_name":"PSD","colors":"#ff0000","x":1704240000000,"y":3825,"fill":"#ff0000"},{"date":"2024-01-04","party":"Partidul Social Democrat","amount_spent":7865686,"Daily Spend":3321,"short_name":"PSD","colors":"#ff0000","x":1704326400000,"y":3321,"fill":"#ff0000"},{"date":"2024-01-05","party":"Partidul Social Democrat","amount_spent":7866584,"Daily Spend":898,"short_name":"PSD","colors":"#ff0000","x":1704412800000,"y":898,"fill":"#ff0000"},{"date":"2024-01-06","party":"Partidul Social Democrat","amount_spent":7866951,"Daily Spend":367,"short_name":"PSD","colors":"#ff0000","x":1704499200000,"y":367,"fill":"#ff0000"},{"date":"2024-01-07","party":"Partidul Social Democrat","amount_spent":7867289,"Daily Spend":338,"short_name":"PSD","colors":"#ff0000","x":1704585600000,"y":338,"fill":"#ff0000"},{"date":"2024-01-08","party":"Partidul Social Democrat","amount_spent":7867880,"Daily Spend":591,"short_name":"PSD","colors":"#ff0000","x":1704672000000,"y":591,"fill":"#ff0000"},{"date":"2024-01-09","party":"Partidul Social Democrat","amount_spent":7868542,"Daily Spend":662,"short_name":"PSD","colors":"#ff0000","x":1704758400000,"y":662,"fill":"#ff0000"},{"date":"2024-01-10","party":"Partidul Social Democrat","amount_spent":7869432,"Daily Spend":890,"short_name":"PSD","colors":"#ff0000","x":1704844800000,"y":890,"fill":"#ff0000"},{"date":"2024-01-11","party":"Partidul Social Democrat","amount_spent":7870618,"Daily Spend":1186,"short_name":"PSD","colors":"#ff0000","x":1704931200000,"y":1186,"fill":"#ff0000"},{"date":"2024-01-12","party":"Partidul Social Democrat","amount_spent":7871316,"Daily Spend":698,"short_name":"PSD","colors":"#ff0000","x":1705017600000,"y":698,"fill":"#ff0000"},{"date":"2024-01-13","party":"Partidul Social Democrat","amount_spent":7871879,"Daily Spend":563,"short_name":"PSD","colors":"#ff0000","x":1705104000000,"y":563,"fill":"#ff0000"},{"date":"2024-01-14","party":"Partidul Social Democrat","amount_spent":7872250,"Daily Spend":371,"short_name":"PSD","colors":"#ff0000","x":1705190400000,"y":371,"fill":"#ff0000"},{"date":"2024-01-15","party":"Partidul Social Democrat","amount_spent":7872543,"Daily Spend":293,"short_name":"PSD","colors":"#ff0000","x":1705276800000,"y":293,"fill":"#ff0000"},{"date":"2024-01-16","party":"Partidul Social Democrat","amount_spent":7872857,"Daily Spend":314,"short_name":"PSD","colors":"#ff0000","x":1705363200000,"y":314,"fill":"#ff0000"},{"date":"2024-01-17","party":"Partidul Social Democrat","amount_spent":7873614,"Daily Spend":757,"short_name":"PSD","colors":"#ff0000","x":1705449600000,"y":757,"fill":"#ff0000"},{"date":"2024-01-18","party":"Partidul Social Democrat","amount_spent":7874740,"Daily Spend":1126,"short_name":"PSD","colors":"#ff0000","x":1705536000000,"y":1126,"fill":"#ff0000"},{"date":"2024-01-19","party":"Partidul Social Democrat","amount_spent":7879207,"Daily Spend":4467,"short_name":"PSD","colors":"#ff0000","x":1705622400000,"y":4467,"fill":"#ff0000"},{"date":"2024-01-20","party":"Partidul Social Democrat","amount_spent":7885093,"Daily Spend":5886,"short_name":"PSD","colors":"#ff0000","x":1705708800000,"y":5886,"fill":"#ff0000"},{"date":"2024-01-21","party":"Partidul Social Democrat","amount_spent":7892049,"Daily Spend":6956,"short_name":"PSD","colors":"#ff0000","x":1705795200000,"y":6956,"fill":"#ff0000"},{"date":"2024-01-22","party":"Partidul Social Democrat","amount_spent":7899004,"Daily Spend":6955,"short_name":"PSD","colors":"#ff0000","x":1705881600000,"y":6955,"fill":"#ff0000"},{"date":"2024-01-23","party":"Partidul Social Democrat","amount_spent":7902503,"Daily Spend":3499,"short_name":"PSD","colors":"#ff0000","x":1705968000000,"y":3499,"fill":"#ff0000"},{"date":"2024-01-24","party":"Partidul Social Democrat","amount_spent":7906605,"Daily Spend":4102,"short_name":"PSD","colors":"#ff0000","x":1706054400000,"y":4102,"fill":"#ff0000"},{"date":"2024-01-25","party":"Partidul Social Democrat","amount_spent":7910433,"Daily Spend":3828,"short_name":"PSD","colors":"#ff0000","x":1706140800000,"y":3828,"fill":"#ff0000"},{"date":"2024-01-26","party":"Partidul Social Democrat","amount_spent":7915289,"Daily Spend":4856,"short_name":"PSD","colors":"#ff0000","x":1706227200000,"y":4856,"fill":"#ff0000"},{"date":"2024-01-27","party":"Partidul Social Democrat","amount_spent":7921855,"Daily Spend":6566,"short_name":"PSD","colors":"#ff0000","x":1706313600000,"y":6566,"fill":"#ff0000"},{"date":"2024-01-28","party":"Partidul Social Democrat","amount_spent":7928226,"Daily Spend":6371,"short_name":"PSD","colors":"#ff0000","x":1706400000000,"y":6371,"fill":"#ff0000"},{"date":"2024-01-29","party":"Partidul Social Democrat","amount_spent":7936690,"Daily Spend":8464,"short_name":"PSD","colors":"#ff0000","x":1706486400000,"y":8464,"fill":"#ff0000"},{"date":"2024-01-30","party":"Partidul Social Democrat","amount_spent":7949948,"Daily Spend":13258,"short_name":"PSD","colors":"#ff0000","x":1706572800000,"y":13258,"fill":"#ff0000"},{"date":"2024-01-31","party":"Partidul Social Democrat","amount_spent":7965774,"Daily Spend":15826,"short_name":"PSD","colors":"#ff0000","x":1706659200000,"y":15826,"fill":"#ff0000"},{"date":"2024-02-01","party":"Partidul Social Democrat","amount_spent":7970099,"Daily Spend":4325,"short_name":"PSD","colors":"#ff0000","x":1706745600000,"y":4325,"fill":"#ff0000"},{"date":"2024-02-02","party":"Partidul Social Democrat","amount_spent":7975169,"Daily Spend":5070,"short_name":"PSD","colors":"#ff0000","x":1706832000000,"y":5070,"fill":"#ff0000"},{"date":"2024-02-03","party":"Partidul Social Democrat","amount_spent":7980818,"Daily Spend":5649,"short_name":"PSD","colors":"#ff0000","x":1706918400000,"y":5649,"fill":"#ff0000"},{"date":"2024-02-04","party":"Partidul Social Democrat","amount_spent":7986767,"Daily Spend":5949,"short_name":"PSD","colors":"#ff0000","x":1707004800000,"y":5949,"fill":"#ff0000"},{"date":"2024-02-05","party":"Partidul Social Democrat","amount_spent":7990154,"Daily Spend":3387,"short_name":"PSD","colors":"#ff0000","x":1707091200000,"y":3387,"fill":"#ff0000"},{"date":"2024-02-06","party":"Partidul Social Democrat","amount_spent":7995145,"Daily Spend":4991,"short_name":"PSD","colors":"#ff0000","x":1707177600000,"y":4991,"fill":"#ff0000"},{"date":"2024-02-07","party":"Partidul Social Democrat","amount_spent":8000619,"Daily Spend":5474,"short_name":"PSD","colors":"#ff0000","x":1707264000000,"y":5474,"fill":"#ff0000"},{"date":"2024-02-08","party":"Partidul Social Democrat","amount_spent":8010629,"Daily Spend":10010,"short_name":"PSD","colors":"#ff0000","x":1707350400000,"y":10010,"fill":"#ff0000"},{"date":"2024-02-09","party":"Partidul Social Democrat","amount_spent":8022902,"Daily Spend":12273,"short_name":"PSD","colors":"#ff0000","x":1707436800000,"y":12273,"fill":"#ff0000"},{"date":"2024-02-10","party":"Partidul Social Democrat","amount_spent":8031842,"Daily Spend":8940,"short_name":"PSD","colors":"#ff0000","x":1707523200000,"y":8940,"fill":"#ff0000"},{"date":"2024-02-11","party":"Partidul Social Democrat","amount_spent":8032492,"Daily Spend":650,"short_name":"PSD","colors":"#ff0000","x":1707609600000,"y":650,"fill":"#ff0000"},{"date":"2024-02-12","party":"Partidul Social Democrat","amount_spent":8050659,"Daily Spend":18167,"short_name":"PSD","colors":"#ff0000","x":1707696000000,"y":18167,"fill":"#ff0000"},{"date":"2024-02-13","party":"Partidul Social Democrat","amount_spent":8064380,"Daily Spend":13721,"short_name":"PSD","colors":"#ff0000","x":1707782400000,"y":13721,"fill":"#ff0000"},{"date":"2024-02-14","party":"Partidul Social Democrat","amount_spent":8068400,"Daily Spend":4020,"short_name":"PSD","colors":"#ff0000","x":1707868800000,"y":4020,"fill":"#ff0000"},{"date":"2024-02-15","party":"Partidul Social Democrat","amount_spent":8069179,"Daily Spend":779,"short_name":"PSD","colors":"#ff0000","x":1707955200000,"y":779,"fill":"#ff0000"},{"date":"2024-02-16","party":"Partidul Social Democrat","amount_spent":8072930,"Daily Spend":3751,"short_name":"PSD","colors":"#ff0000","x":1708041600000,"y":3751,"fill":"#ff0000"},{"date":"2024-02-17","party":"Partidul Social Democrat","amount_spent":8078472,"Daily Spend":5542,"short_name":"PSD","colors":"#ff0000","x":1708128000000,"y":5542,"fill":"#ff0000"},{"date":"2024-02-18","party":"Partidul Social Democrat","amount_spent":8084362,"Daily Spend":5890,"short_name":"PSD","colors":"#ff0000","x":1708214400000,"y":5890,"fill":"#ff0000"},{"date":"2024-02-19","party":"Partidul Social Democrat","amount_spent":8089991,"Daily Spend":5629,"short_name":"PSD","colors":"#ff0000","x":1708300800000,"y":5629,"fill":"#ff0000"},{"date":"2024-02-20","party":"Partidul Social Democrat","amount_spent":8097573,"Daily Spend":7582,"short_name":"PSD","colors":"#ff0000","x":1708387200000,"y":7582,"fill":"#ff0000"},{"date":"2024-02-21","party":"Partidul Social Democrat","amount_spent":8101589,"Daily Spend":4016,"short_name":"PSD","colors":"#ff0000","x":1708473600000,"y":4016,"fill":"#ff0000"},{"date":"2024-02-22","party":"Partidul Social Democrat","amount_spent":8105457,"Daily Spend":3868,"short_name":"PSD","colors":"#ff0000","x":1708560000000,"y":3868,"fill":"#ff0000"},{"date":"2024-02-23","party":"Partidul Social Democrat","amount_spent":8108960,"Daily Spend":3503,"short_name":"PSD","colors":"#ff0000","x":1708646400000,"y":3503,"fill":"#ff0000"},{"date":"2024-02-24","party":"Partidul Social Democrat","amount_spent":8113773,"Daily Spend":4813,"short_name":"PSD","colors":"#ff0000","x":1708732800000,"y":4813,"fill":"#ff0000"},{"date":"2024-02-25","party":"Partidul Social Democrat","amount_spent":8118230,"Daily Spend":4457,"short_name":"PSD","colors":"#ff0000","x":1708819200000,"y":4457,"fill":"#ff0000"},{"date":"2024-02-26","party":"Partidul Social Democrat","amount_spent":8124180,"Daily Spend":5950,"short_name":"PSD","colors":"#ff0000","x":1708905600000,"y":5950,"fill":"#ff0000"},{"date":"2024-02-27","party":"Partidul Social Democrat","amount_spent":8133052,"Daily Spend":8872,"short_name":"PSD","colors":"#ff0000","x":1708992000000,"y":8872,"fill":"#ff0000"},{"date":"2024-02-28","party":"Partidul Social Democrat","amount_spent":8142513,"Daily Spend":9461,"short_name":"PSD","colors":"#ff0000","x":1709078400000,"y":9461,"fill":"#ff0000"},{"date":"2024-02-29","party":"Partidul Social Democrat","amount_spent":8153214,"Daily Spend":10701,"short_name":"PSD","colors":"#ff0000","x":1709164800000,"y":10701,"fill":"#ff0000"},{"date":"2024-03-01","party":"Partidul Social Democrat","amount_spent":8156788,"Daily Spend":3574,"short_name":"PSD","colors":"#ff0000","x":1709251200000,"y":3574,"fill":"#ff0000"},{"date":"2024-03-02","party":"Partidul Social Democrat","amount_spent":8161708,"Daily Spend":4920,"short_name":"PSD","colors":"#ff0000","x":1709337600000,"y":4920,"fill":"#ff0000"},{"date":"2024-03-03","party":"Partidul Social Democrat","amount_spent":8168156,"Daily Spend":6448,"short_name":"PSD","colors":"#ff0000","x":1709424000000,"y":6448,"fill":"#ff0000"},{"date":"2024-03-04","party":"Partidul Social Democrat","amount_spent":8173740,"Daily Spend":5584,"short_name":"PSD","colors":"#ff0000","x":1709510400000,"y":5584,"fill":"#ff0000"},{"date":"2024-03-05","party":"Partidul Social Democrat","amount_spent":8177255,"Daily Spend":3515,"short_name":"PSD","colors":"#ff0000","x":1709596800000,"y":3515,"fill":"#ff0000"},{"date":"2024-03-06","party":"Partidul Social Democrat","amount_spent":8179218,"Daily Spend":1963,"short_name":"PSD","colors":"#ff0000","x":1709683200000,"y":1963,"fill":"#ff0000"},{"date":"2024-03-07","party":"Partidul Social Democrat","amount_spent":8181107,"Daily Spend":1889,"short_name":"PSD","colors":"#ff0000","x":1709769600000,"y":1889,"fill":"#ff0000"},{"date":"2024-03-08","party":"Partidul Social Democrat","amount_spent":8186382,"Daily Spend":5275,"short_name":"PSD","colors":"#ff0000","x":1709856000000,"y":5275,"fill":"#ff0000"},{"date":"2024-03-09","party":"Partidul Social Democrat","amount_spent":8197743,"Daily Spend":11361,"short_name":"PSD","colors":"#ff0000","x":1709942400000,"y":11361,"fill":"#ff0000"}],"type":"area"},{"name":"ProRomania","data":[{"date":"2023-12-31","party":"ProRomania","amount_spent":1973,"Daily Spend":null,"short_name":"PRO","colors":"#266ee8","x":1703980800000,"y":null,"fill":"#266ee8"},{"date":"2024-01-01","party":"ProRomania","amount_spent":1987,"Daily Spend":14,"short_name":"PRO","colors":"#266ee8","x":1704067200000,"y":14,"fill":"#266ee8"},{"date":"2024-01-02","party":"ProRomania","amount_spent":2001,"Daily Spend":14,"short_name":"PRO","colors":"#266ee8","x":1704153600000,"y":14,"fill":"#266ee8"},{"date":"2024-01-03","party":"ProRomania","amount_spent":2015,"Daily Spend":14,"short_name":"PRO","colors":"#266ee8","x":1704240000000,"y":14,"fill":"#266ee8"},{"date":"2024-01-04","party":"ProRomania","amount_spent":2022,"Daily Spend":7,"short_name":"PRO","colors":"#266ee8","x":1704326400000,"y":7,"fill":"#266ee8"},{"date":"2024-01-05","party":"ProRomania","amount_spent":2022,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1704412800000,"y":0,"fill":"#266ee8"},{"date":"2024-01-06","party":"ProRomania","amount_spent":2022,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1704499200000,"y":0,"fill":"#266ee8"},{"date":"2024-01-07","party":"ProRomania","amount_spent":2022,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1704585600000,"y":0,"fill":"#266ee8"},{"date":"2024-01-08","party":"ProRomania","amount_spent":2022,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1704672000000,"y":0,"fill":"#266ee8"},{"date":"2024-01-09","party":"ProRomania","amount_spent":2022,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1704758400000,"y":0,"fill":"#266ee8"},{"date":"2024-01-10","party":"ProRomania","amount_spent":2022,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1704844800000,"y":0,"fill":"#266ee8"},{"date":"2024-01-11","party":"ProRomania","amount_spent":2022,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1704931200000,"y":0,"fill":"#266ee8"},{"date":"2024-01-12","party":"ProRomania","amount_spent":2022,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1705017600000,"y":0,"fill":"#266ee8"},{"date":"2024-01-13","party":"ProRomania","amount_spent":2022,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1705104000000,"y":0,"fill":"#266ee8"},{"date":"2024-01-14","party":"ProRomania","amount_spent":2022,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1705190400000,"y":0,"fill":"#266ee8"},{"date":"2024-01-15","party":"ProRomania","amount_spent":2022,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1705276800000,"y":0,"fill":"#266ee8"},{"date":"2024-01-16","party":"ProRomania","amount_spent":2022,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1705363200000,"y":0,"fill":"#266ee8"},{"date":"2024-01-17","party":"ProRomania","amount_spent":2022,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1705449600000,"y":0,"fill":"#266ee8"},{"date":"2024-01-18","party":"ProRomania","amount_spent":2022,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1705536000000,"y":0,"fill":"#266ee8"},{"date":"2024-01-19","party":"ProRomania","amount_spent":2022,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1705622400000,"y":0,"fill":"#266ee8"},{"date":"2024-01-20","party":"ProRomania","amount_spent":2022,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1705708800000,"y":0,"fill":"#266ee8"},{"date":"2024-01-21","party":"ProRomania","amount_spent":2022,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1705795200000,"y":0,"fill":"#266ee8"},{"date":"2024-01-22","party":"ProRomania","amount_spent":2022,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1705881600000,"y":0,"fill":"#266ee8"},{"date":"2024-01-23","party":"ProRomania","amount_spent":2022,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1705968000000,"y":0,"fill":"#266ee8"},{"date":"2024-01-24","party":"ProRomania","amount_spent":2022,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1706054400000,"y":0,"fill":"#266ee8"},{"date":"2024-01-25","party":"ProRomania","amount_spent":2022,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1706140800000,"y":0,"fill":"#266ee8"},{"date":"2024-01-26","party":"ProRomania","amount_spent":2022,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1706227200000,"y":0,"fill":"#266ee8"},{"date":"2024-01-27","party":"ProRomania","amount_spent":2022,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1706313600000,"y":0,"fill":"#266ee8"},{"date":"2024-01-28","party":"ProRomania","amount_spent":2022,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1706400000000,"y":0,"fill":"#266ee8"},{"date":"2024-01-29","party":"ProRomania","amount_spent":2022,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1706486400000,"y":0,"fill":"#266ee8"},{"date":"2024-01-30","party":"ProRomania","amount_spent":2022,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1706572800000,"y":0,"fill":"#266ee8"},{"date":"2024-01-31","party":"ProRomania","amount_spent":2022,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1706659200000,"y":0,"fill":"#266ee8"},{"date":"2024-02-01","party":"ProRomania","amount_spent":2022,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1706745600000,"y":0,"fill":"#266ee8"},{"date":"2024-02-02","party":"ProRomania","amount_spent":2022,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1706832000000,"y":0,"fill":"#266ee8"},{"date":"2024-02-03","party":"ProRomania","amount_spent":2031,"Daily Spend":9,"short_name":"PRO","colors":"#266ee8","x":1706918400000,"y":9,"fill":"#266ee8"},{"date":"2024-02-04","party":"ProRomania","amount_spent":2047,"Daily Spend":16,"short_name":"PRO","colors":"#266ee8","x":1707004800000,"y":16,"fill":"#266ee8"},{"date":"2024-02-05","party":"ProRomania","amount_spent":2061,"Daily Spend":14,"short_name":"PRO","colors":"#266ee8","x":1707091200000,"y":14,"fill":"#266ee8"},{"date":"2024-02-06","party":"ProRomania","amount_spent":2075,"Daily Spend":14,"short_name":"PRO","colors":"#266ee8","x":1707177600000,"y":14,"fill":"#266ee8"},{"date":"2024-02-07","party":"ProRomania","amount_spent":2087,"Daily Spend":12,"short_name":"PRO","colors":"#266ee8","x":1707264000000,"y":12,"fill":"#266ee8"},{"date":"2024-02-08","party":"ProRomania","amount_spent":2105,"Daily Spend":18,"short_name":"PRO","colors":"#266ee8","x":1707350400000,"y":18,"fill":"#266ee8"},{"date":"2024-02-09","party":"ProRomania","amount_spent":2119,"Daily Spend":14,"short_name":"PRO","colors":"#266ee8","x":1707436800000,"y":14,"fill":"#266ee8"},{"date":"2024-02-10","party":"ProRomania","amount_spent":2134,"Daily Spend":15,"short_name":"PRO","colors":"#266ee8","x":1707523200000,"y":15,"fill":"#266ee8"},{"date":"2024-02-11","party":"ProRomania","amount_spent":2157,"Daily Spend":23,"short_name":"PRO","colors":"#266ee8","x":1707609600000,"y":23,"fill":"#266ee8"},{"date":"2024-02-12","party":"ProRomania","amount_spent":2183,"Daily Spend":26,"short_name":"PRO","colors":"#266ee8","x":1707696000000,"y":26,"fill":"#266ee8"},{"date":"2024-02-13","party":"ProRomania","amount_spent":2208,"Daily Spend":25,"short_name":"PRO","colors":"#266ee8","x":1707782400000,"y":25,"fill":"#266ee8"},{"date":"2024-02-14","party":"ProRomania","amount_spent":2233,"Daily Spend":25,"short_name":"PRO","colors":"#266ee8","x":1707868800000,"y":25,"fill":"#266ee8"},{"date":"2024-02-15","party":"ProRomania","amount_spent":2257,"Daily Spend":24,"short_name":"PRO","colors":"#266ee8","x":1707955200000,"y":24,"fill":"#266ee8"},{"date":"2024-02-16","party":"ProRomania","amount_spent":2282,"Daily Spend":25,"short_name":"PRO","colors":"#266ee8","x":1708041600000,"y":25,"fill":"#266ee8"},{"date":"2024-02-17","party":"ProRomania","amount_spent":2307,"Daily Spend":25,"short_name":"PRO","colors":"#266ee8","x":1708128000000,"y":25,"fill":"#266ee8"},{"date":"2024-02-18","party":"ProRomania","amount_spent":2335,"Daily Spend":28,"short_name":"PRO","colors":"#266ee8","x":1708214400000,"y":28,"fill":"#266ee8"},{"date":"2024-02-19","party":"ProRomania","amount_spent":2358,"Daily Spend":23,"short_name":"PRO","colors":"#266ee8","x":1708300800000,"y":23,"fill":"#266ee8"},{"date":"2024-02-20","party":"ProRomania","amount_spent":2358,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1708387200000,"y":0,"fill":"#266ee8"},{"date":"2024-02-21","party":"ProRomania","amount_spent":2358,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1708473600000,"y":0,"fill":"#266ee8"},{"date":"2024-02-22","party":"ProRomania","amount_spent":2358,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1708560000000,"y":0,"fill":"#266ee8"},{"date":"2024-02-23","party":"ProRomania","amount_spent":2358,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1708646400000,"y":0,"fill":"#266ee8"},{"date":"2024-02-24","party":"ProRomania","amount_spent":2358,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1708732800000,"y":0,"fill":"#266ee8"},{"date":"2024-02-25","party":"ProRomania","amount_spent":2358,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1708819200000,"y":0,"fill":"#266ee8"},{"date":"2024-02-26","party":"ProRomania","amount_spent":2358,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1708905600000,"y":0,"fill":"#266ee8"},{"date":"2024-02-27","party":"ProRomania","amount_spent":2358,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1708992000000,"y":0,"fill":"#266ee8"},{"date":"2024-02-28","party":"ProRomania","amount_spent":2358,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1709078400000,"y":0,"fill":"#266ee8"},{"date":"2024-02-29","party":"ProRomania","amount_spent":2358,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1709164800000,"y":0,"fill":"#266ee8"},{"date":"2024-03-01","party":"ProRomania","amount_spent":2358,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1709251200000,"y":0,"fill":"#266ee8"},{"date":"2024-03-02","party":"ProRomania","amount_spent":2358,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1709337600000,"y":0,"fill":"#266ee8"},{"date":"2024-03-03","party":"ProRomania","amount_spent":2358,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1709424000000,"y":0,"fill":"#266ee8"},{"date":"2024-03-04","party":"ProRomania","amount_spent":2358,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1709510400000,"y":0,"fill":"#266ee8"},{"date":"2024-03-05","party":"ProRomania","amount_spent":2358,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1709596800000,"y":0,"fill":"#266ee8"},{"date":"2024-03-06","party":"ProRomania","amount_spent":2358,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1709683200000,"y":0,"fill":"#266ee8"},{"date":"2024-03-07","party":"ProRomania","amount_spent":2358,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1709769600000,"y":0,"fill":"#266ee8"},{"date":"2024-03-08","party":"ProRomania","amount_spent":2358,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1709856000000,"y":0,"fill":"#266ee8"},{"date":"2024-03-09","party":"ProRomania","amount_spent":2358,"Daily Spend":0,"short_name":"PRO","colors":"#266ee8","x":1709942400000,"y":0,"fill":"#266ee8"}],"type":"area"},{"name":"Reînnoim Proiectul European al României","data":[{"date":"2023-12-31","party":"Reînnoim Proiectul European al României","amount_spent":32840,"Daily Spend":null,"short_name":"REPER","colors":"#c40075","x":1703980800000,"y":null,"fill":"#c40075"},{"date":"2024-01-01","party":"Reînnoim Proiectul European al României","amount_spent":32840,"Daily Spend":0,"short_name":"REPER","colors":"#c40075","x":1704067200000,"y":0,"fill":"#c40075"},{"date":"2024-01-02","party":"Reînnoim Proiectul European al României","amount_spent":32840,"Daily Spend":0,"short_name":"REPER","colors":"#c40075","x":1704153600000,"y":0,"fill":"#c40075"},{"date":"2024-01-03","party":"Reînnoim Proiectul European al României","amount_spent":32840,"Daily Spend":0,"short_name":"REPER","colors":"#c40075","x":1704240000000,"y":0,"fill":"#c40075"},{"date":"2024-01-04","party":"Reînnoim Proiectul European al României","amount_spent":32840,"Daily Spend":0,"short_name":"REPER","colors":"#c40075","x":1704326400000,"y":0,"fill":"#c40075"},{"date":"2024-01-05","party":"Reînnoim Proiectul European al României","amount_spent":32840,"Daily Spend":0,"short_name":"REPER","colors":"#c40075","x":1704412800000,"y":0,"fill":"#c40075"},{"date":"2024-01-06","party":"Reînnoim Proiectul European al României","amount_spent":32840,"Daily Spend":0,"short_name":"REPER","colors":"#c40075","x":1704499200000,"y":0,"fill":"#c40075"},{"date":"2024-01-07","party":"Reînnoim Proiectul European al României","amount_spent":32840,"Daily Spend":0,"short_name":"REPER","colors":"#c40075","x":1704585600000,"y":0,"fill":"#c40075"},{"date":"2024-01-08","party":"Reînnoim Proiectul European al României","amount_spent":32840,"Daily Spend":0,"short_name":"REPER","colors":"#c40075","x":1704672000000,"y":0,"fill":"#c40075"},{"date":"2024-01-09","party":"Reînnoim Proiectul European al României","amount_spent":32840,"Daily Spend":0,"short_name":"REPER","colors":"#c40075","x":1704758400000,"y":0,"fill":"#c40075"},{"date":"2024-01-10","party":"Reînnoim Proiectul European al României","amount_spent":32840,"Daily Spend":0,"short_name":"REPER","colors":"#c40075","x":1704844800000,"y":0,"fill":"#c40075"},{"date":"2024-01-11","party":"Reînnoim Proiectul European al României","amount_spent":32840,"Daily Spend":0,"short_name":"REPER","colors":"#c40075","x":1704931200000,"y":0,"fill":"#c40075"},{"date":"2024-01-12","party":"Reînnoim Proiectul European al României","amount_spent":32840,"Daily Spend":0,"short_name":"REPER","colors":"#c40075","x":1705017600000,"y":0,"fill":"#c40075"},{"date":"2024-01-13","party":"Reînnoim Proiectul European al României","amount_spent":32840,"Daily Spend":0,"short_name":"REPER","colors":"#c40075","x":1705104000000,"y":0,"fill":"#c40075"},{"date":"2024-01-14","party":"Reînnoim Proiectul European al României","amount_spent":32840,"Daily Spend":0,"short_name":"REPER","colors":"#c40075","x":1705190400000,"y":0,"fill":"#c40075"},{"date":"2024-01-15","party":"Reînnoim Proiectul European al României","amount_spent":32840,"Daily Spend":0,"short_name":"REPER","colors":"#c40075","x":1705276800000,"y":0,"fill":"#c40075"},{"date":"2024-01-16","party":"Reînnoim Proiectul European al României","amount_spent":32869,"Daily Spend":29,"short_name":"REPER","colors":"#c40075","x":1705363200000,"y":29,"fill":"#c40075"},{"date":"2024-01-17","party":"Reînnoim Proiectul European al României","amount_spent":32899,"Daily Spend":30,"short_name":"REPER","colors":"#c40075","x":1705449600000,"y":30,"fill":"#c40075"},{"date":"2024-01-18","party":"Reînnoim Proiectul European al României","amount_spent":32930,"Daily Spend":31,"short_name":"REPER","colors":"#c40075","x":1705536000000,"y":31,"fill":"#c40075"},{"date":"2024-01-19","party":"Reînnoim Proiectul European al României","amount_spent":32960,"Daily Spend":30,"short_name":"REPER","colors":"#c40075","x":1705622400000,"y":30,"fill":"#c40075"},{"date":"2024-01-20","party":"Reînnoim Proiectul European al României","amount_spent":32960,"Daily Spend":0,"short_name":"REPER","colors":"#c40075","x":1705708800000,"y":0,"fill":"#c40075"},{"date":"2024-01-21","party":"Reînnoim Proiectul European al României","amount_spent":32960,"Daily Spend":0,"short_name":"REPER","colors":"#c40075","x":1705795200000,"y":0,"fill":"#c40075"},{"date":"2024-01-22","party":"Reînnoim Proiectul European al României","amount_spent":32960,"Daily Spend":0,"short_name":"REPER","colors":"#c40075","x":1705881600000,"y":0,"fill":"#c40075"},{"date":"2024-01-23","party":"Reînnoim Proiectul European al României","amount_spent":32960,"Daily Spend":0,"short_name":"REPER","colors":"#c40075","x":1705968000000,"y":0,"fill":"#c40075"},{"date":"2024-01-24","party":"Reînnoim Proiectul European al României","amount_spent":32960,"Daily Spend":0,"short_name":"REPER","colors":"#c40075","x":1706054400000,"y":0,"fill":"#c40075"},{"date":"2024-01-25","party":"Reînnoim Proiectul European al României","amount_spent":32960,"Daily Spend":0,"short_name":"REPER","colors":"#c40075","x":1706140800000,"y":0,"fill":"#c40075"},{"date":"2024-01-26","party":"Reînnoim Proiectul European al României","amount_spent":32968,"Daily Spend":8,"short_name":"REPER","colors":"#c40075","x":1706227200000,"y":8,"fill":"#c40075"},{"date":"2024-01-27","party":"Reînnoim Proiectul European al României","amount_spent":32989,"Daily Spend":21,"short_name":"REPER","colors":"#c40075","x":1706313600000,"y":21,"fill":"#c40075"},{"date":"2024-01-28","party":"Reînnoim Proiectul European al României","amount_spent":33012,"Daily Spend":23,"short_name":"REPER","colors":"#c40075","x":1706400000000,"y":23,"fill":"#c40075"},{"date":"2024-01-29","party":"Reînnoim Proiectul European al României","amount_spent":33032,"Daily Spend":20,"short_name":"REPER","colors":"#c40075","x":1706486400000,"y":20,"fill":"#c40075"},{"date":"2024-01-30","party":"Reînnoim Proiectul European al României","amount_spent":33053,"Daily Spend":21,"short_name":"REPER","colors":"#c40075","x":1706572800000,"y":21,"fill":"#c40075"},{"date":"2024-01-31","party":"Reînnoim Proiectul European al României","amount_spent":33074,"Daily Spend":21,"short_name":"REPER","colors":"#c40075","x":1706659200000,"y":21,"fill":"#c40075"},{"date":"2024-02-01","party":"Reînnoim Proiectul European al României","amount_spent":33094,"Daily Spend":20,"short_name":"REPER","colors":"#c40075","x":1706745600000,"y":20,"fill":"#c40075"},{"date":"2024-02-02","party":"Reînnoim Proiectul European al României","amount_spent":33113,"Daily Spend":19,"short_name":"REPER","colors":"#c40075","x":1706832000000,"y":19,"fill":"#c40075"},{"date":"2024-02-03","party":"Reînnoim Proiectul European al României","amount_spent":33133,"Daily Spend":20,"short_name":"REPER","colors":"#c40075","x":1706918400000,"y":20,"fill":"#c40075"},{"date":"2024-02-04","party":"Reînnoim Proiectul European al României","amount_spent":33156,"Daily Spend":23,"short_name":"REPER","colors":"#c40075","x":1707004800000,"y":23,"fill":"#c40075"},{"date":"2024-02-05","party":"Reînnoim Proiectul European al României","amount_spent":33212,"Daily Spend":56,"short_name":"REPER","colors":"#c40075","x":1707091200000,"y":56,"fill":"#c40075"},{"date":"2024-02-06","party":"Reînnoim Proiectul European al României","amount_spent":33264,"Daily Spend":52,"short_name":"REPER","colors":"#c40075","x":1707177600000,"y":52,"fill":"#c40075"},{"date":"2024-02-07","party":"Reînnoim Proiectul European al României","amount_spent":33316,"Daily Spend":52,"short_name":"REPER","colors":"#c40075","x":1707264000000,"y":52,"fill":"#c40075"},{"date":"2024-02-08","party":"Reînnoim Proiectul European al României","amount_spent":33336,"Daily Spend":20,"short_name":"REPER","colors":"#c40075","x":1707350400000,"y":20,"fill":"#c40075"},{"date":"2024-02-09","party":"Reînnoim Proiectul European al României","amount_spent":33353,"Daily Spend":17,"short_name":"REPER","colors":"#c40075","x":1707436800000,"y":17,"fill":"#c40075"},{"date":"2024-02-10","party":"Reînnoim Proiectul European al României","amount_spent":33372,"Daily Spend":19,"short_name":"REPER","colors":"#c40075","x":1707523200000,"y":19,"fill":"#c40075"},{"date":"2024-02-11","party":"Reînnoim Proiectul European al României","amount_spent":33391,"Daily Spend":19,"short_name":"REPER","colors":"#c40075","x":1707609600000,"y":19,"fill":"#c40075"},{"date":"2024-02-12","party":"Reînnoim Proiectul European al României","amount_spent":33412,"Daily Spend":21,"short_name":"REPER","colors":"#c40075","x":1707696000000,"y":21,"fill":"#c40075"},{"date":"2024-02-13","party":"Reînnoim Proiectul European al României","amount_spent":33433,"Daily Spend":21,"short_name":"REPER","colors":"#c40075","x":1707782400000,"y":21,"fill":"#c40075"},{"date":"2024-02-14","party":"Reînnoim Proiectul European al României","amount_spent":33454,"Daily Spend":21,"short_name":"REPER","colors":"#c40075","x":1707868800000,"y":21,"fill":"#c40075"},{"date":"2024-02-15","party":"Reînnoim Proiectul European al României","amount_spent":33464,"Daily Spend":10,"short_name":"REPER","colors":"#c40075","x":1707955200000,"y":10,"fill":"#c40075"},{"date":"2024-02-16","party":"Reînnoim Proiectul European al României","amount_spent":33465,"Daily Spend":1,"short_name":"REPER","colors":"#c40075","x":1708041600000,"y":1,"fill":"#c40075"},{"date":"2024-02-17","party":"Reînnoim Proiectul European al României","amount_spent":33465,"Daily Spend":0,"short_name":"REPER","colors":"#c40075","x":1708128000000,"y":0,"fill":"#c40075"},{"date":"2024-02-18","party":"Reînnoim Proiectul European al României","amount_spent":33609,"Daily Spend":144,"short_name":"REPER","colors":"#c40075","x":1708214400000,"y":144,"fill":"#c40075"},{"date":"2024-02-19","party":"Reînnoim Proiectul European al României","amount_spent":33638,"Daily Spend":29,"short_name":"REPER","colors":"#c40075","x":1708300800000,"y":29,"fill":"#c40075"},{"date":"2024-02-20","party":"Reînnoim Proiectul European al României","amount_spent":33650,"Daily Spend":12,"short_name":"REPER","colors":"#c40075","x":1708387200000,"y":12,"fill":"#c40075"},{"date":"2024-02-21","party":"Reînnoim Proiectul European al României","amount_spent":33667,"Daily Spend":17,"short_name":"REPER","colors":"#c40075","x":1708473600000,"y":17,"fill":"#c40075"},{"date":"2024-02-22","party":"Reînnoim Proiectul European al României","amount_spent":33685,"Daily Spend":18,"short_name":"REPER","colors":"#c40075","x":1708560000000,"y":18,"fill":"#c40075"},{"date":"2024-02-23","party":"Reînnoim Proiectul European al României","amount_spent":33839,"Daily Spend":154,"short_name":"REPER","colors":"#c40075","x":1708646400000,"y":154,"fill":"#c40075"},{"date":"2024-02-24","party":"Reînnoim Proiectul European al României","amount_spent":33923,"Daily Spend":84,"short_name":"REPER","colors":"#c40075","x":1708732800000,"y":84,"fill":"#c40075"},{"date":"2024-02-25","party":"Reînnoim Proiectul European al României","amount_spent":34016,"Daily Spend":93,"short_name":"REPER","colors":"#c40075","x":1708819200000,"y":93,"fill":"#c40075"},{"date":"2024-02-26","party":"Reînnoim Proiectul European al României","amount_spent":34101,"Daily Spend":85,"short_name":"REPER","colors":"#c40075","x":1708905600000,"y":85,"fill":"#c40075"},{"date":"2024-02-27","party":"Reînnoim Proiectul European al României","amount_spent":34183,"Daily Spend":82,"short_name":"REPER","colors":"#c40075","x":1708992000000,"y":82,"fill":"#c40075"},{"date":"2024-02-28","party":"Reînnoim Proiectul European al României","amount_spent":34242,"Daily Spend":59,"short_name":"REPER","colors":"#c40075","x":1709078400000,"y":59,"fill":"#c40075"},{"date":"2024-02-29","party":"Reînnoim Proiectul European al României","amount_spent":34297,"Daily Spend":55,"short_name":"REPER","colors":"#c40075","x":1709164800000,"y":55,"fill":"#c40075"},{"date":"2024-03-01","party":"Reînnoim Proiectul European al României","amount_spent":34344,"Daily Spend":47,"short_name":"REPER","colors":"#c40075","x":1709251200000,"y":47,"fill":"#c40075"},{"date":"2024-03-02","party":"Reînnoim Proiectul European al României","amount_spent":34396,"Daily Spend":52,"short_name":"REPER","colors":"#c40075","x":1709337600000,"y":52,"fill":"#c40075"},{"date":"2024-03-03","party":"Reînnoim Proiectul European al României","amount_spent":34448,"Daily Spend":52,"short_name":"REPER","colors":"#c40075","x":1709424000000,"y":52,"fill":"#c40075"},{"date":"2024-03-04","party":"Reînnoim Proiectul European al României","amount_spent":34483,"Daily Spend":35,"short_name":"REPER","colors":"#c40075","x":1709510400000,"y":35,"fill":"#c40075"},{"date":"2024-03-05","party":"Reînnoim Proiectul European al României","amount_spent":34483,"Daily Spend":0,"short_name":"REPER","colors":"#c40075","x":1709596800000,"y":0,"fill":"#c40075"},{"date":"2024-03-06","party":"Reînnoim Proiectul European al României","amount_spent":34501,"Daily Spend":18,"short_name":"REPER","colors":"#c40075","x":1709683200000,"y":18,"fill":"#c40075"},{"date":"2024-03-07","party":"Reînnoim Proiectul European al României","amount_spent":34530,"Daily Spend":29,"short_name":"REPER","colors":"#c40075","x":1709769600000,"y":29,"fill":"#c40075"},{"date":"2024-03-08","party":"Reînnoim Proiectul European al României","amount_spent":34559,"Daily Spend":29,"short_name":"REPER","colors":"#c40075","x":1709856000000,"y":29,"fill":"#c40075"},{"date":"2024-03-09","party":"Reînnoim Proiectul European al României","amount_spent":34588,"Daily Spend":29,"short_name":"REPER","colors":"#c40075","x":1709942400000,"y":29,"fill":"#c40075"}],"type":"area"},{"name":"Uniunea Democrată Maghiară din România","data":[{"date":"2023-12-31","party":"Uniunea Democrată Maghiară din România","amount_spent":801451,"Daily Spend":null,"short_name":"UDMR","colors":"#15803C","x":1703980800000,"y":null,"fill":"#15803C"},{"date":"2024-01-01","party":"Uniunea Democrată Maghiară din România","amount_spent":801755,"Daily Spend":304,"short_name":"UDMR","colors":"#15803C","x":1704067200000,"y":304,"fill":"#15803C"},{"date":"2024-01-02","party":"Uniunea Democrată Maghiară din România","amount_spent":801929,"Daily Spend":174,"short_name":"UDMR","colors":"#15803C","x":1704153600000,"y":174,"fill":"#15803C"},{"date":"2024-01-03","party":"Uniunea Democrată Maghiară din România","amount_spent":802000,"Daily Spend":71,"short_name":"UDMR","colors":"#15803C","x":1704240000000,"y":71,"fill":"#15803C"},{"date":"2024-01-04","party":"Uniunea Democrată Maghiară din România","amount_spent":802089,"Daily Spend":89,"short_name":"UDMR","colors":"#15803C","x":1704326400000,"y":89,"fill":"#15803C"},{"date":"2024-01-05","party":"Uniunea Democrată Maghiară din România","amount_spent":802155,"Daily Spend":66,"short_name":"UDMR","colors":"#15803C","x":1704412800000,"y":66,"fill":"#15803C"},{"date":"2024-01-06","party":"Uniunea Democrată Maghiară din România","amount_spent":802217,"Daily Spend":62,"short_name":"UDMR","colors":"#15803C","x":1704499200000,"y":62,"fill":"#15803C"},{"date":"2024-01-07","party":"Uniunea Democrată Maghiară din România","amount_spent":802364,"Daily Spend":147,"short_name":"UDMR","colors":"#15803C","x":1704585600000,"y":147,"fill":"#15803C"},{"date":"2024-01-08","party":"Uniunea Democrată Maghiară din România","amount_spent":802568,"Daily Spend":204,"short_name":"UDMR","colors":"#15803C","x":1704672000000,"y":204,"fill":"#15803C"},{"date":"2024-01-09","party":"Uniunea Democrată Maghiară din România","amount_spent":802712,"Daily Spend":144,"short_name":"UDMR","colors":"#15803C","x":1704758400000,"y":144,"fill":"#15803C"},{"date":"2024-01-10","party":"Uniunea Democrată Maghiară din România","amount_spent":802890,"Daily Spend":178,"short_name":"UDMR","colors":"#15803C","x":1704844800000,"y":178,"fill":"#15803C"},{"date":"2024-01-11","party":"Uniunea Democrată Maghiară din România","amount_spent":803096,"Daily Spend":206,"short_name":"UDMR","colors":"#15803C","x":1704931200000,"y":206,"fill":"#15803C"},{"date":"2024-01-12","party":"Uniunea Democrată Maghiară din România","amount_spent":803528,"Daily Spend":432,"short_name":"UDMR","colors":"#15803C","x":1705017600000,"y":432,"fill":"#15803C"},{"date":"2024-01-13","party":"Uniunea Democrată Maghiară din România","amount_spent":804054,"Daily Spend":526,"short_name":"UDMR","colors":"#15803C","x":1705104000000,"y":526,"fill":"#15803C"},{"date":"2024-01-14","party":"Uniunea Democrată Maghiară din România","amount_spent":804466,"Daily Spend":412,"short_name":"UDMR","colors":"#15803C","x":1705190400000,"y":412,"fill":"#15803C"},{"date":"2024-01-15","party":"Uniunea Democrată Maghiară din România","amount_spent":804801,"Daily Spend":335,"short_name":"UDMR","colors":"#15803C","x":1705276800000,"y":335,"fill":"#15803C"},{"date":"2024-01-16","party":"Uniunea Democrată Maghiară din România","amount_spent":805095,"Daily Spend":294,"short_name":"UDMR","colors":"#15803C","x":1705363200000,"y":294,"fill":"#15803C"},{"date":"2024-01-17","party":"Uniunea Democrată Maghiară din România","amount_spent":805577,"Daily Spend":482,"short_name":"UDMR","colors":"#15803C","x":1705449600000,"y":482,"fill":"#15803C"},{"date":"2024-01-18","party":"Uniunea Democrată Maghiară din România","amount_spent":806299,"Daily Spend":722,"short_name":"UDMR","colors":"#15803C","x":1705536000000,"y":722,"fill":"#15803C"},{"date":"2024-01-19","party":"Uniunea Democrată Maghiară din România","amount_spent":807127,"Daily Spend":828,"short_name":"UDMR","colors":"#15803C","x":1705622400000,"y":828,"fill":"#15803C"},{"date":"2024-01-20","party":"Uniunea Democrată Maghiară din România","amount_spent":808348,"Daily Spend":1221,"short_name":"UDMR","colors":"#15803C","x":1705708800000,"y":1221,"fill":"#15803C"},{"date":"2024-01-21","party":"Uniunea Democrată Maghiară din România","amount_spent":809645,"Daily Spend":1297,"short_name":"UDMR","colors":"#15803C","x":1705795200000,"y":1297,"fill":"#15803C"},{"date":"2024-01-22","party":"Uniunea Democrată Maghiară din România","amount_spent":810900,"Daily Spend":1255,"short_name":"UDMR","colors":"#15803C","x":1705881600000,"y":1255,"fill":"#15803C"},{"date":"2024-01-23","party":"Uniunea Democrată Maghiară din România","amount_spent":811999,"Daily Spend":1099,"short_name":"UDMR","colors":"#15803C","x":1705968000000,"y":1099,"fill":"#15803C"},{"date":"2024-01-24","party":"Uniunea Democrată Maghiară din România","amount_spent":812541,"Daily Spend":542,"short_name":"UDMR","colors":"#15803C","x":1706054400000,"y":542,"fill":"#15803C"},{"date":"2024-01-25","party":"Uniunea Democrată Maghiară din România","amount_spent":812776,"Daily Spend":235,"short_name":"UDMR","colors":"#15803C","x":1706140800000,"y":235,"fill":"#15803C"},{"date":"2024-01-26","party":"Uniunea Democrată Maghiară din România","amount_spent":812892,"Daily Spend":116,"short_name":"UDMR","colors":"#15803C","x":1706227200000,"y":116,"fill":"#15803C"},{"date":"2024-01-27","party":"Uniunea Democrată Maghiară din România","amount_spent":813020,"Daily Spend":128,"short_name":"UDMR","colors":"#15803C","x":1706313600000,"y":128,"fill":"#15803C"},{"date":"2024-01-28","party":"Uniunea Democrată Maghiară din România","amount_spent":813212,"Daily Spend":192,"short_name":"UDMR","colors":"#15803C","x":1706400000000,"y":192,"fill":"#15803C"},{"date":"2024-01-29","party":"Uniunea Democrată Maghiară din România","amount_spent":813318,"Daily Spend":106,"short_name":"UDMR","colors":"#15803C","x":1706486400000,"y":106,"fill":"#15803C"},{"date":"2024-01-30","party":"Uniunea Democrată Maghiară din România","amount_spent":813374,"Daily Spend":56,"short_name":"UDMR","colors":"#15803C","x":1706572800000,"y":56,"fill":"#15803C"},{"date":"2024-01-31","party":"Uniunea Democrată Maghiară din România","amount_spent":813424,"Daily Spend":50,"short_name":"UDMR","colors":"#15803C","x":1706659200000,"y":50,"fill":"#15803C"},{"date":"2024-02-01","party":"Uniunea Democrată Maghiară din România","amount_spent":813538,"Daily Spend":114,"short_name":"UDMR","colors":"#15803C","x":1706745600000,"y":114,"fill":"#15803C"},{"date":"2024-02-02","party":"Uniunea Democrată Maghiară din România","amount_spent":813680,"Daily Spend":142,"short_name":"UDMR","colors":"#15803C","x":1706832000000,"y":142,"fill":"#15803C"},{"date":"2024-02-03","party":"Uniunea Democrată Maghiară din România","amount_spent":813992,"Daily Spend":312,"short_name":"UDMR","colors":"#15803C","x":1706918400000,"y":312,"fill":"#15803C"},{"date":"2024-02-04","party":"Uniunea Democrată Maghiară din România","amount_spent":814325,"Daily Spend":333,"short_name":"UDMR","colors":"#15803C","x":1707004800000,"y":333,"fill":"#15803C"},{"date":"2024-02-05","party":"Uniunea Democrată Maghiară din România","amount_spent":814827,"Daily Spend":502,"short_name":"UDMR","colors":"#15803C","x":1707091200000,"y":502,"fill":"#15803C"},{"date":"2024-02-06","party":"Uniunea Democrată Maghiară din România","amount_spent":815804,"Daily Spend":977,"short_name":"UDMR","colors":"#15803C","x":1707177600000,"y":977,"fill":"#15803C"},{"date":"2024-02-07","party":"Uniunea Democrată Maghiară din România","amount_spent":816427,"Daily Spend":623,"short_name":"UDMR","colors":"#15803C","x":1707264000000,"y":623,"fill":"#15803C"},{"date":"2024-02-08","party":"Uniunea Democrată Maghiară din România","amount_spent":817189,"Daily Spend":762,"short_name":"UDMR","colors":"#15803C","x":1707350400000,"y":762,"fill":"#15803C"},{"date":"2024-02-09","party":"Uniunea Democrată Maghiară din România","amount_spent":818000,"Daily Spend":811,"short_name":"UDMR","colors":"#15803C","x":1707436800000,"y":811,"fill":"#15803C"},{"date":"2024-02-10","party":"Uniunea Democrată Maghiară din România","amount_spent":818563,"Daily Spend":563,"short_name":"UDMR","colors":"#15803C","x":1707523200000,"y":563,"fill":"#15803C"},{"date":"2024-02-11","party":"Uniunea Democrată Maghiară din România","amount_spent":819053,"Daily Spend":490,"short_name":"UDMR","colors":"#15803C","x":1707609600000,"y":490,"fill":"#15803C"},{"date":"2024-02-12","party":"Uniunea Democrată Maghiară din România","amount_spent":819581,"Daily Spend":528,"short_name":"UDMR","colors":"#15803C","x":1707696000000,"y":528,"fill":"#15803C"},{"date":"2024-02-13","party":"Uniunea Democrată Maghiară din România","amount_spent":820545,"Daily Spend":964,"short_name":"UDMR","colors":"#15803C","x":1707782400000,"y":964,"fill":"#15803C"},{"date":"2024-02-14","party":"Uniunea Democrată Maghiară din România","amount_spent":821554,"Daily Spend":1009,"short_name":"UDMR","colors":"#15803C","x":1707868800000,"y":1009,"fill":"#15803C"},{"date":"2024-02-15","party":"Uniunea Democrată Maghiară din România","amount_spent":822434,"Daily Spend":880,"short_name":"UDMR","colors":"#15803C","x":1707955200000,"y":880,"fill":"#15803C"},{"date":"2024-02-16","party":"Uniunea Democrată Maghiară din România","amount_spent":823061,"Daily Spend":627,"short_name":"UDMR","colors":"#15803C","x":1708041600000,"y":627,"fill":"#15803C"},{"date":"2024-02-17","party":"Uniunea Democrată Maghiară din România","amount_spent":823404,"Daily Spend":343,"short_name":"UDMR","colors":"#15803C","x":1708128000000,"y":343,"fill":"#15803C"},{"date":"2024-02-18","party":"Uniunea Democrată Maghiară din România","amount_spent":823615,"Daily Spend":211,"short_name":"UDMR","colors":"#15803C","x":1708214400000,"y":211,"fill":"#15803C"},{"date":"2024-02-19","party":"Uniunea Democrată Maghiară din România","amount_spent":823802,"Daily Spend":187,"short_name":"UDMR","colors":"#15803C","x":1708300800000,"y":187,"fill":"#15803C"},{"date":"2024-02-20","party":"Uniunea Democrată Maghiară din România","amount_spent":824166,"Daily Spend":364,"short_name":"UDMR","colors":"#15803C","x":1708387200000,"y":364,"fill":"#15803C"},{"date":"2024-02-21","party":"Uniunea Democrată Maghiară din România","amount_spent":824743,"Daily Spend":577,"short_name":"UDMR","colors":"#15803C","x":1708473600000,"y":577,"fill":"#15803C"},{"date":"2024-02-22","party":"Uniunea Democrată Maghiară din România","amount_spent":825322,"Daily Spend":579,"short_name":"UDMR","colors":"#15803C","x":1708560000000,"y":579,"fill":"#15803C"},{"date":"2024-02-23","party":"Uniunea Democrată Maghiară din România","amount_spent":825634,"Daily Spend":312,"short_name":"UDMR","colors":"#15803C","x":1708646400000,"y":312,"fill":"#15803C"},{"date":"2024-02-24","party":"Uniunea Democrată Maghiară din România","amount_spent":825971,"Daily Spend":337,"short_name":"UDMR","colors":"#15803C","x":1708732800000,"y":337,"fill":"#15803C"},{"date":"2024-02-25","party":"Uniunea Democrată Maghiară din România","amount_spent":826209,"Daily Spend":238,"short_name":"UDMR","colors":"#15803C","x":1708819200000,"y":238,"fill":"#15803C"},{"date":"2024-02-26","party":"Uniunea Democrată Maghiară din România","amount_spent":826458,"Daily Spend":249,"short_name":"UDMR","colors":"#15803C","x":1708905600000,"y":249,"fill":"#15803C"},{"date":"2024-02-27","party":"Uniunea Democrată Maghiară din România","amount_spent":826851,"Daily Spend":393,"short_name":"UDMR","colors":"#15803C","x":1708992000000,"y":393,"fill":"#15803C"},{"date":"2024-02-28","party":"Uniunea Democrată Maghiară din România","amount_spent":827391,"Daily Spend":540,"short_name":"UDMR","colors":"#15803C","x":1709078400000,"y":540,"fill":"#15803C"},{"date":"2024-02-29","party":"Uniunea Democrată Maghiară din România","amount_spent":827965,"Daily Spend":574,"short_name":"UDMR","colors":"#15803C","x":1709164800000,"y":574,"fill":"#15803C"},{"date":"2024-03-01","party":"Uniunea Democrată Maghiară din România","amount_spent":829231,"Daily Spend":1266,"short_name":"UDMR","colors":"#15803C","x":1709251200000,"y":1266,"fill":"#15803C"},{"date":"2024-03-02","party":"Uniunea Democrată Maghiară din România","amount_spent":830302,"Daily Spend":1071,"short_name":"UDMR","colors":"#15803C","x":1709337600000,"y":1071,"fill":"#15803C"},{"date":"2024-03-03","party":"Uniunea Democrată Maghiară din România","amount_spent":830904,"Daily Spend":602,"short_name":"UDMR","colors":"#15803C","x":1709424000000,"y":602,"fill":"#15803C"},{"date":"2024-03-04","party":"Uniunea Democrată Maghiară din România","amount_spent":831447,"Daily Spend":543,"short_name":"UDMR","colors":"#15803C","x":1709510400000,"y":543,"fill":"#15803C"},{"date":"2024-03-05","party":"Uniunea Democrată Maghiară din România","amount_spent":832367,"Daily Spend":920,"short_name":"UDMR","colors":"#15803C","x":1709596800000,"y":920,"fill":"#15803C"},{"date":"2024-03-06","party":"Uniunea Democrată Maghiară din România","amount_spent":833289,"Daily Spend":922,"short_name":"UDMR","colors":"#15803C","x":1709683200000,"y":922,"fill":"#15803C"},{"date":"2024-03-07","party":"Uniunea Democrată Maghiară din România","amount_spent":834063,"Daily Spend":774,"short_name":"UDMR","colors":"#15803C","x":1709769600000,"y":774,"fill":"#15803C"},{"date":"2024-03-08","party":"Uniunea Democrată Maghiară din România","amount_spent":835172,"Daily Spend":1109,"short_name":"UDMR","colors":"#15803C","x":1709856000000,"y":1109,"fill":"#15803C"},{"date":"2024-03-09","party":"Uniunea Democrată Maghiară din România","amount_spent":836163,"Daily Spend":991,"short_name":"UDMR","colors":"#15803C","x":1709942400000,"y":991,"fill":"#15803C"}],"type":"area"},{"name":"Uniunea Salvați România","data":[{"date":"2023-12-31","party":"Uniunea Salvați România","amount_spent":8033567,"Daily Spend":null,"short_name":"USR","colors":"#002A59","x":1703980800000,"y":null,"fill":"#002A59"},{"date":"2024-01-01","party":"Uniunea Salvați România","amount_spent":8034959,"Daily Spend":1392,"short_name":"USR","colors":"#002A59","x":1704067200000,"y":1392,"fill":"#002A59"},{"date":"2024-01-02","party":"Uniunea Salvați România","amount_spent":8035886,"Daily Spend":927,"short_name":"USR","colors":"#002A59","x":1704153600000,"y":927,"fill":"#002A59"},{"date":"2024-01-03","party":"Uniunea Salvați România","amount_spent":8036387,"Daily Spend":501,"short_name":"USR","colors":"#002A59","x":1704240000000,"y":501,"fill":"#002A59"},{"date":"2024-01-04","party":"Uniunea Salvați România","amount_spent":8036951,"Daily Spend":564,"short_name":"USR","colors":"#002A59","x":1704326400000,"y":564,"fill":"#002A59"},{"date":"2024-01-05","party":"Uniunea Salvați România","amount_spent":8038089,"Daily Spend":1138,"short_name":"USR","colors":"#002A59","x":1704412800000,"y":1138,"fill":"#002A59"},{"date":"2024-01-06","party":"Uniunea Salvați România","amount_spent":8039361,"Daily Spend":1272,"short_name":"USR","colors":"#002A59","x":1704499200000,"y":1272,"fill":"#002A59"},{"date":"2024-01-07","party":"Uniunea Salvați România","amount_spent":8040636,"Daily Spend":1275,"short_name":"USR","colors":"#002A59","x":1704585600000,"y":1275,"fill":"#002A59"},{"date":"2024-01-08","party":"Uniunea Salvați România","amount_spent":8042130,"Daily Spend":1494,"short_name":"USR","colors":"#002A59","x":1704672000000,"y":1494,"fill":"#002A59"},{"date":"2024-01-09","party":"Uniunea Salvați România","amount_spent":8043812,"Daily Spend":1682,"short_name":"USR","colors":"#002A59","x":1704758400000,"y":1682,"fill":"#002A59"},{"date":"2024-01-10","party":"Uniunea Salvați România","amount_spent":8045908,"Daily Spend":2096,"short_name":"USR","colors":"#002A59","x":1704844800000,"y":2096,"fill":"#002A59"},{"date":"2024-01-11","party":"Uniunea Salvați România","amount_spent":8047988,"Daily Spend":2080,"short_name":"USR","colors":"#002A59","x":1704931200000,"y":2080,"fill":"#002A59"},{"date":"2024-01-12","party":"Uniunea Salvați România","amount_spent":8049946,"Daily Spend":1958,"short_name":"USR","colors":"#002A59","x":1705017600000,"y":1958,"fill":"#002A59"},{"date":"2024-01-13","party":"Uniunea Salvați România","amount_spent":8053147,"Daily Spend":3201,"short_name":"USR","colors":"#002A59","x":1705104000000,"y":3201,"fill":"#002A59"},{"date":"2024-01-14","party":"Uniunea Salvați România","amount_spent":8057281,"Daily Spend":4134,"short_name":"USR","colors":"#002A59","x":1705190400000,"y":4134,"fill":"#002A59"},{"date":"2024-01-15","party":"Uniunea Salvați România","amount_spent":8062492,"Daily Spend":5211,"short_name":"USR","colors":"#002A59","x":1705276800000,"y":5211,"fill":"#002A59"},{"date":"2024-01-16","party":"Uniunea Salvați România","amount_spent":8071340,"Daily Spend":8848,"short_name":"USR","colors":"#002A59","x":1705363200000,"y":8848,"fill":"#002A59"},{"date":"2024-01-17","party":"Uniunea Salvați România","amount_spent":8079859,"Daily Spend":8519,"short_name":"USR","colors":"#002A59","x":1705449600000,"y":8519,"fill":"#002A59"},{"date":"2024-01-18","party":"Uniunea Salvați România","amount_spent":8091274,"Daily Spend":11415,"short_name":"USR","colors":"#002A59","x":1705536000000,"y":11415,"fill":"#002A59"},{"date":"2024-01-19","party":"Uniunea Salvați România","amount_spent":8102145,"Daily Spend":10871,"short_name":"USR","colors":"#002A59","x":1705622400000,"y":10871,"fill":"#002A59"},{"date":"2024-01-20","party":"Uniunea Salvați România","amount_spent":8111347,"Daily Spend":9202,"short_name":"USR","colors":"#002A59","x":1705708800000,"y":9202,"fill":"#002A59"},{"date":"2024-01-21","party":"Uniunea Salvați România","amount_spent":8119086,"Daily Spend":7739,"short_name":"USR","colors":"#002A59","x":1705795200000,"y":7739,"fill":"#002A59"},{"date":"2024-01-22","party":"Uniunea Salvați România","amount_spent":8125102,"Daily Spend":6016,"short_name":"USR","colors":"#002A59","x":1705881600000,"y":6016,"fill":"#002A59"},{"date":"2024-01-23","party":"Uniunea Salvați România","amount_spent":8132555,"Daily Spend":7453,"short_name":"USR","colors":"#002A59","x":1705968000000,"y":7453,"fill":"#002A59"},{"date":"2024-01-24","party":"Uniunea Salvați România","amount_spent":8142024,"Daily Spend":9469,"short_name":"USR","colors":"#002A59","x":1706054400000,"y":9469,"fill":"#002A59"},{"date":"2024-01-25","party":"Uniunea Salvați România","amount_spent":8152260,"Daily Spend":10236,"short_name":"USR","colors":"#002A59","x":1706140800000,"y":10236,"fill":"#002A59"},{"date":"2024-01-26","party":"Uniunea Salvați România","amount_spent":8161596,"Daily Spend":9336,"short_name":"USR","colors":"#002A59","x":1706227200000,"y":9336,"fill":"#002A59"},{"date":"2024-01-27","party":"Uniunea Salvați România","amount_spent":8169436,"Daily Spend":7840,"short_name":"USR","colors":"#002A59","x":1706313600000,"y":7840,"fill":"#002A59"},{"date":"2024-01-28","party":"Uniunea Salvați România","amount_spent":8181719,"Daily Spend":12283,"short_name":"USR","colors":"#002A59","x":1706400000000,"y":12283,"fill":"#002A59"},{"date":"2024-01-29","party":"Uniunea Salvați România","amount_spent":8202571,"Daily Spend":20852,"short_name":"USR","colors":"#002A59","x":1706486400000,"y":20852,"fill":"#002A59"},{"date":"2024-01-30","party":"Uniunea Salvați România","amount_spent":8224463,"Daily Spend":21892,"short_name":"USR","colors":"#002A59","x":1706572800000,"y":21892,"fill":"#002A59"},{"date":"2024-01-31","party":"Uniunea Salvați România","amount_spent":8239310,"Daily Spend":14847,"short_name":"USR","colors":"#002A59","x":1706659200000,"y":14847,"fill":"#002A59"},{"date":"2024-02-01","party":"Uniunea Salvați România","amount_spent":8248325,"Daily Spend":9015,"short_name":"USR","colors":"#002A59","x":1706745600000,"y":9015,"fill":"#002A59"},{"date":"2024-02-02","party":"Uniunea Salvați România","amount_spent":8258399,"Daily Spend":10074,"short_name":"USR","colors":"#002A59","x":1706832000000,"y":10074,"fill":"#002A59"},{"date":"2024-02-03","party":"Uniunea Salvați România","amount_spent":8268053,"Daily Spend":9654,"short_name":"USR","colors":"#002A59","x":1706918400000,"y":9654,"fill":"#002A59"},{"date":"2024-02-04","party":"Uniunea Salvați România","amount_spent":8275892,"Daily Spend":7839,"short_name":"USR","colors":"#002A59","x":1707004800000,"y":7839,"fill":"#002A59"},{"date":"2024-02-05","party":"Uniunea Salvați România","amount_spent":8280322,"Daily Spend":4430,"short_name":"USR","colors":"#002A59","x":1707091200000,"y":4430,"fill":"#002A59"},{"date":"2024-02-06","party":"Uniunea Salvați România","amount_spent":8286648,"Daily Spend":6326,"short_name":"USR","colors":"#002A59","x":1707177600000,"y":6326,"fill":"#002A59"},{"date":"2024-02-07","party":"Uniunea Salvați România","amount_spent":8293852,"Daily Spend":7204,"short_name":"USR","colors":"#002A59","x":1707264000000,"y":7204,"fill":"#002A59"},{"date":"2024-02-08","party":"Uniunea Salvați România","amount_spent":8301197,"Daily Spend":7345,"short_name":"USR","colors":"#002A59","x":1707350400000,"y":7345,"fill":"#002A59"},{"date":"2024-02-09","party":"Uniunea Salvați România","amount_spent":8306681,"Daily Spend":5484,"short_name":"USR","colors":"#002A59","x":1707436800000,"y":5484,"fill":"#002A59"},{"date":"2024-02-10","party":"Uniunea Salvați România","amount_spent":8312099,"Daily Spend":5418,"short_name":"USR","colors":"#002A59","x":1707523200000,"y":5418,"fill":"#002A59"},{"date":"2024-02-11","party":"Uniunea Salvați România","amount_spent":8317544,"Daily Spend":5445,"short_name":"USR","colors":"#002A59","x":1707609600000,"y":5445,"fill":"#002A59"},{"date":"2024-02-12","party":"Uniunea Salvați România","amount_spent":8323538,"Daily Spend":5994,"short_name":"USR","colors":"#002A59","x":1707696000000,"y":5994,"fill":"#002A59"},{"date":"2024-02-13","party":"Uniunea Salvați România","amount_spent":8330533,"Daily Spend":6995,"short_name":"USR","colors":"#002A59","x":1707782400000,"y":6995,"fill":"#002A59"},{"date":"2024-02-14","party":"Uniunea Salvați România","amount_spent":8340215,"Daily Spend":9682,"short_name":"USR","colors":"#002A59","x":1707868800000,"y":9682,"fill":"#002A59"},{"date":"2024-02-15","party":"Uniunea Salvați România","amount_spent":8349750,"Daily Spend":9535,"short_name":"USR","colors":"#002A59","x":1707955200000,"y":9535,"fill":"#002A59"},{"date":"2024-02-16","party":"Uniunea Salvați România","amount_spent":8357926,"Daily Spend":8176,"short_name":"USR","colors":"#002A59","x":1708041600000,"y":8176,"fill":"#002A59"},{"date":"2024-02-17","party":"Uniunea Salvați România","amount_spent":8362886,"Daily Spend":4960,"short_name":"USR","colors":"#002A59","x":1708128000000,"y":4960,"fill":"#002A59"},{"date":"2024-02-18","party":"Uniunea Salvați România","amount_spent":8367723,"Daily Spend":4837,"short_name":"USR","colors":"#002A59","x":1708214400000,"y":4837,"fill":"#002A59"},{"date":"2024-02-19","party":"Uniunea Salvați România","amount_spent":8372579,"Daily Spend":4856,"short_name":"USR","colors":"#002A59","x":1708300800000,"y":4856,"fill":"#002A59"},{"date":"2024-02-20","party":"Uniunea Salvați România","amount_spent":8377612,"Daily Spend":5033,"short_name":"USR","colors":"#002A59","x":1708387200000,"y":5033,"fill":"#002A59"},{"date":"2024-02-21","party":"Uniunea Salvați România","amount_spent":8383547,"Daily Spend":5935,"short_name":"USR","colors":"#002A59","x":1708473600000,"y":5935,"fill":"#002A59"},{"date":"2024-02-22","party":"Uniunea Salvați România","amount_spent":8392464,"Daily Spend":8917,"short_name":"USR","colors":"#002A59","x":1708560000000,"y":8917,"fill":"#002A59"},{"date":"2024-02-23","party":"Uniunea Salvați România","amount_spent":8401145,"Daily Spend":8681,"short_name":"USR","colors":"#002A59","x":1708646400000,"y":8681,"fill":"#002A59"},{"date":"2024-02-24","party":"Uniunea Salvați România","amount_spent":8409791,"Daily Spend":8646,"short_name":"USR","colors":"#002A59","x":1708732800000,"y":8646,"fill":"#002A59"},{"date":"2024-02-25","party":"Uniunea Salvați România","amount_spent":8416703,"Daily Spend":6912,"short_name":"USR","colors":"#002A59","x":1708819200000,"y":6912,"fill":"#002A59"},{"date":"2024-02-26","party":"Uniunea Salvați România","amount_spent":8423087,"Daily Spend":6384,"short_name":"USR","colors":"#002A59","x":1708905600000,"y":6384,"fill":"#002A59"},{"date":"2024-02-27","party":"Uniunea Salvați România","amount_spent":8429583,"Daily Spend":6496,"short_name":"USR","colors":"#002A59","x":1708992000000,"y":6496,"fill":"#002A59"},{"date":"2024-02-28","party":"Uniunea Salvați România","amount_spent":8435941,"Daily Spend":6358,"short_name":"USR","colors":"#002A59","x":1709078400000,"y":6358,"fill":"#002A59"},{"date":"2024-02-29","party":"Uniunea Salvați România","amount_spent":8441562,"Daily Spend":5621,"short_name":"USR","colors":"#002A59","x":1709164800000,"y":5621,"fill":"#002A59"},{"date":"2024-03-01","party":"Uniunea Salvați România","amount_spent":8447601,"Daily Spend":6039,"short_name":"USR","colors":"#002A59","x":1709251200000,"y":6039,"fill":"#002A59"},{"date":"2024-03-02","party":"Uniunea Salvați România","amount_spent":8453510,"Daily Spend":5909,"short_name":"USR","colors":"#002A59","x":1709337600000,"y":5909,"fill":"#002A59"},{"date":"2024-03-03","party":"Uniunea Salvați România","amount_spent":8458920,"Daily Spend":5410,"short_name":"USR","colors":"#002A59","x":1709424000000,"y":5410,"fill":"#002A59"},{"date":"2024-03-04","party":"Uniunea Salvați România","amount_spent":8463289,"Daily Spend":4369,"short_name":"USR","colors":"#002A59","x":1709510400000,"y":4369,"fill":"#002A59"},{"date":"2024-03-05","party":"Uniunea Salvați România","amount_spent":8467410,"Daily Spend":4121,"short_name":"USR","colors":"#002A59","x":1709596800000,"y":4121,"fill":"#002A59"},{"date":"2024-03-06","party":"Uniunea Salvați România","amount_spent":8471968,"Daily Spend":4558,"short_name":"USR","colors":"#002A59","x":1709683200000,"y":4558,"fill":"#002A59"},{"date":"2024-03-07","party":"Uniunea Salvați România","amount_spent":8476887,"Daily Spend":4919,"short_name":"USR","colors":"#002A59","x":1709769600000,"y":4919,"fill":"#002A59"},{"date":"2024-03-08","party":"Uniunea Salvați România","amount_spent":8482083,"Daily Spend":5196,"short_name":"USR","colors":"#002A59","x":1709856000000,"y":5196,"fill":"#002A59"},{"date":"2024-03-09","party":"Uniunea Salvați România","amount_spent":8487516,"Daily Spend":5433,"short_name":"USR","colors":"#002A59","x":1709942400000,"y":5433,"fill":"#002A59"}],"type":"area"}],"xAxis":{"type":"datetime","title":{"text":"date"},"categories":null},"colors":["#FCC224","#85EC10","#08510A","#FFDD00","#ff0000","#266ee8","#c40075","#4655E4","#15803C","#002A59","#86CF4F"],"tooltip":{"shared":true,"positioner":"function (labelWidth, labelHeight, point) {\n        return { x: 200, y: this.chart.plotTop };\n    }"}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":["hc_opts.tooltip.positioner"],"jsHooks":[]}</script>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

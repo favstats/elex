@@ -1,22 +1,1535 @@
----
-title: "Data Report"
-output: html_document
----
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
 
-```
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="How do political parties chase your vote, what do they want to keep hidden, and how much money do they spend on it? In the lead-up to the elections, we monitor political microtargeting.">
+
+<title>Targeting Dashboard - Mexico - Spending</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
 
 
-```{r}
-shiny::HTML('
-  
-<div style="text-align: center; padding: 50px; background-color: #f2f2f2; border-radius: 15px; font-family: Arial, sans-serif; color: #333;">
-    <h1 style="font-size: 3em; color: #4CAF50;">&#128308; No Data Available</h1>
-    <p style="font-size: 1.5em;">There is no data available for this country in the specified timeframe.</p>
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/iconify-1.0.8/iconify-icon.min.js"></script>
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="site_libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<script src="site_libs/jquery-3.5.1/jquery.min.js"></script>
+<script src="site_libs/proj4js-2.3.15/proj4.js"></script>
+<link href="site_libs/highcharts-9.3.1/css/motion.css" rel="stylesheet">
+<script src="site_libs/highcharts-9.3.1/highcharts.js"></script>
+<script src="site_libs/highcharts-9.3.1/highcharts-3d.js"></script>
+<script src="site_libs/highcharts-9.3.1/highcharts-more.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/stock.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/map.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/data.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/exporting.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/offline-exporting.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/drilldown.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/item-series.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/overlapping-datalabels.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/annotations.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/export-data.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/funnel.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/heatmap.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/treemap.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/sankey.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/dependency-wheel.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/organization.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/solid-gauge.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/streamgraph.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/sunburst.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/vector.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/wordcloud.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/xrange.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/tilemap.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/venn.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/gantt.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/timeline.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/parallel-coordinates.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/bullet.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/coloraxis.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/dumbbell.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/lollipop.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/series-label.js"></script>
+<script src="site_libs/highcharts-9.3.1/plugins/motion.js"></script>
+<script src="site_libs/highcharts-9.3.1/custom/reset.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/boost.js"></script>
+<script src="site_libs/highchart-binding-0.9.4/highchart.js"></script>
+
+
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Targeting Dashboard - Mexico</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
+ <span class="menu-text"><iconify-icon inline="" icon="ph:coins"></iconify-icon> Spending</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-iconify-ph-users-three-thin--targeting" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><iconify-icon inline="" icon="ph:users-three-thin"></iconify-icon> Targeting</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-iconify-ph-users-three-thin--targeting">    
+        <li>
+    <a class="dropdown-item" href="./targeting.html" rel="" target="">
+ <span class="dropdown-text">Spending per Targeting</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./detailed.html" rel="" target="">
+ <span class="dropdown-text">Detailed Targeting</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./location.html" rel="" target="">
+ <span class="dropdown-text">Location</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./demographics.html" rel="" target="">
+ <span class="dropdown-text">Demographics</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html" rel="" target="">
+ <span class="menu-text"><iconify-icon inline="" icon="ph:info-thin"></iconify-icon> About</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/favstats/betargex" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
 </div>
-  
-')
-```
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Spending</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>Here you can see the expenditures of political parties in the lead-up to the elections according to the latest data.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">8 Feb - 8 Mar 2024</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">2 Mar - 8 Mar 2024</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>During this period, political parties spent a total of $14,823,207 and displayed 5262 advertisements on Meta.</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<div id="xwzabxfooq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+#xwzabxfooq table {
+  font-family: Chivo, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#xwzabxfooq thead, #xwzabxfooq tbody, #xwzabxfooq tfoot, #xwzabxfooq tr, #xwzabxfooq td, #xwzabxfooq th {
+  border-style: none;
+}
+
+#xwzabxfooq p {
+  margin: 0;
+  padding: 0;
+}
+
+#xwzabxfooq .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: 300;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: none;
+  border-top-width: 3px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#xwzabxfooq .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#xwzabxfooq .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#xwzabxfooq .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#xwzabxfooq .gt_heading {
+  background-color: #FFFFFF;
+  text-align: left;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#xwzabxfooq .gt_bottom_border {
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xwzabxfooq .gt_col_headings {
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #000000;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#xwzabxfooq .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: normal;
+  text-transform: uppercase;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#xwzabxfooq .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: normal;
+  text-transform: uppercase;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#xwzabxfooq .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#xwzabxfooq .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#xwzabxfooq .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #000000;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#xwzabxfooq .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#xwzabxfooq .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #000000;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#xwzabxfooq .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #000000;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #FFFFFF;
+  vertical-align: middle;
+}
+
+#xwzabxfooq .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#xwzabxfooq .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#xwzabxfooq .gt_row {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#xwzabxfooq .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-right-style: solid;
+  border-right-width: 0px;
+  border-right-color: #FFFFFF;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xwzabxfooq .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#xwzabxfooq .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#xwzabxfooq .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#xwzabxfooq .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xwzabxfooq .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#xwzabxfooq .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#xwzabxfooq .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xwzabxfooq .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xwzabxfooq .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#xwzabxfooq .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xwzabxfooq .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#xwzabxfooq .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xwzabxfooq .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#xwzabxfooq .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xwzabxfooq .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#xwzabxfooq .gt_sourcenote {
+  font-size: 12px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xwzabxfooq .gt_left {
+  text-align: left;
+}
+
+#xwzabxfooq .gt_center {
+  text-align: center;
+}
+
+#xwzabxfooq .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#xwzabxfooq .gt_font_normal {
+  font-weight: normal;
+}
+
+#xwzabxfooq .gt_font_bold {
+  font-weight: bold;
+}
+
+#xwzabxfooq .gt_font_italic {
+  font-style: italic;
+}
+
+#xwzabxfooq .gt_super {
+  font-size: 65%;
+}
+
+#xwzabxfooq .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#xwzabxfooq .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#xwzabxfooq .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#xwzabxfooq .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#xwzabxfooq .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#xwzabxfooq .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#xwzabxfooq .gt_indent_5 {
+  text-indent: 25px;
+}
+
+tbody tr:last-child {
+  border-bottom: 2px solid #ffffff00;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=""></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Number of Advertisers">Number of Advertisers</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Top Spenders">Top Spenders</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Number of Ads">Number of Ads</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Total Spend">Total Spend</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><th id="stub_1_1" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Movimiento Regeneración Nacional</p>
+</div></th>
+<td headers="stub_1_1 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #C0311A;"><div class="gt_from_md"><p>16</p>
+</div></td>
+<td headers="stub_1_1 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=MX&amp;view_all_page_id=923633637651202">Morena Sí</a> ($2,058,906)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=MX&amp;view_all_page_id=206323119403212">Mario Delgado Carrillo</a> ($1,593,823)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=MX&amp;view_all_page_id=848008481893903">Cruz Pérez Cuéllar</a> ($98,881)<br><br></p>
+</div></td>
+<td headers="stub_1_1 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>1,551</p>
+</div></td>
+<td headers="stub_1_1 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>$4,056,394</p>
+</div></td></tr>
+    <tr><th id="stub_1_2" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Movimiento Ciudadano</p>
+</div></th>
+<td headers="stub_1_2 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #FF8C00;"><div class="gt_from_md"><p>21</p>
+</div></td>
+<td headers="stub_1_2 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=MX&amp;view_all_page_id=118921468203786">Movimiento Ciudadano</a> ($1,862,487)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=MX&amp;view_all_page_id=213054628856737">Movimiento Ciudadano Ciudad de México</a> ($635,953)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=MX&amp;view_all_page_id=178625645626125">Movimiento Ciudadano Nuevo León</a> ($488,827)<br><br></p>
+</div></td>
+<td headers="stub_1_2 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>2,661</p>
+</div></td>
+<td headers="stub_1_2 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>$3,634,901</p>
+</div></td></tr>
+    <tr><th id="stub_1_3" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Partido Verde Ecologista de México</p>
+</div></th>
+<td headers="stub_1_3 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #9AC95E;"><div class="gt_from_md"><p>8</p>
+</div></td>
+<td headers="stub_1_3 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=MX&amp;view_all_page_id=179387312078698">Partido Verde Ecologista México</a> ($3,416,193)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=MX&amp;view_all_page_id=102863700463398">Pepe Couttolenc</a> ($117,497)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=MX&amp;view_all_page_id=1024449434274133">Partido Verde Coahuila</a> ($32,135)<br><br></p>
+</div></td>
+<td headers="stub_1_3 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>103</p>
+</div></td>
+<td headers="stub_1_3 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>$3,588,500</p>
+</div></td></tr>
+    <tr><th id="stub_1_4" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Partido Acción Nacional</p>
+</div></th>
+<td headers="stub_1_4 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #0957A4;"><div class="gt_from_md"><p>28</p>
+</div></td>
+<td headers="stub_1_4 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=MX&amp;view_all_page_id=108819392526809">Partido Acción Nacional</a> ($1,388,437)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=MX&amp;view_all_page_id=100867376619769">Xóchitl Gálvez Ruiz</a> ($834,037)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=MX&amp;view_all_page_id=264773293005">Marko Cortés</a> ($210,775)<br><br></p>
+</div></td>
+<td headers="stub_1_4 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>679</p>
+</div></td>
+<td headers="stub_1_4 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>$3,020,016</p>
+</div></td></tr>
+    <tr><th id="stub_1_5" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Partido del Trabajo</p>
+</div></th>
+<td headers="stub_1_5 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #DB2017;"><div class="gt_from_md"><p>20</p>
+</div></td>
+<td headers="stub_1_5 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=MX&amp;view_all_page_id=239726076054918">Partido del Trabajo México</a> ($245,760)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=MX&amp;view_all_page_id=445959782175203">Partido del Trabajo Michoacán</a> ($9,881)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=MX&amp;view_all_page_id=214643935069097">Partido del Trabajo CDMX</a> ($9,144)<br><br></p>
+</div></td>
+<td headers="stub_1_5 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>134</p>
+</div></td>
+<td headers="stub_1_5 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>$319,985</p>
+</div></td></tr>
+    <tr><th id="stub_1_6" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Partido Revolucionario Institucional</p>
+</div></th>
+<td headers="stub_1_6 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #4DA663;"><div class="gt_from_md"><p>9</p>
+</div></td>
+<td headers="stub_1_6 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=MX&amp;view_all_page_id=470975712993516">Somos PRI</a> ($73,833)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=MX&amp;view_all_page_id=136092926468080">PRI Oficial México</a> ($66,026)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=MX&amp;view_all_page_id=830970706988277">Julieta Fernández Márquez</a> ($40,833)<br><br></p>
+</div></td>
+<td headers="stub_1_6 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>135</p>
+</div></td>
+<td headers="stub_1_6 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>$197,714</p>
+</div></td></tr>
+    <tr><th id="stub_1_7" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Partido de la Revolución Democrática</p>
+</div></th>
+<td headers="stub_1_7 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #ffcd00;"><div class="gt_from_md"><p>7</p>
+</div></td>
+<td headers="stub_1_7 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=MX&amp;view_all_page_id=640044982685950">PRD Michoacán</a> ($7,157)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=MX&amp;view_all_page_id=172851055911915">Revolución Democrática Tlaxcala</a> ($5,088)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=MX&amp;view_all_page_id=382898808922171">PRD Morelos</a> ($2,827)<br><br></p>
+</div></td>
+<td headers="stub_1_7 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>56</p>
+</div></td>
+<td headers="stub_1_7 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>$18,126</p>
+</div></td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>During this period, political parties spent a total of $3,670,156 and displayed 928 advertisements on Meta.</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<div id="jfhyzbtfrs" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+#jfhyzbtfrs table {
+  font-family: Chivo, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#jfhyzbtfrs thead, #jfhyzbtfrs tbody, #jfhyzbtfrs tfoot, #jfhyzbtfrs tr, #jfhyzbtfrs td, #jfhyzbtfrs th {
+  border-style: none;
+}
+
+#jfhyzbtfrs p {
+  margin: 0;
+  padding: 0;
+}
+
+#jfhyzbtfrs .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: 300;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: none;
+  border-top-width: 3px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#jfhyzbtfrs .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#jfhyzbtfrs .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#jfhyzbtfrs .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#jfhyzbtfrs .gt_heading {
+  background-color: #FFFFFF;
+  text-align: left;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#jfhyzbtfrs .gt_bottom_border {
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#jfhyzbtfrs .gt_col_headings {
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #000000;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#jfhyzbtfrs .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: normal;
+  text-transform: uppercase;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#jfhyzbtfrs .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: normal;
+  text-transform: uppercase;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#jfhyzbtfrs .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#jfhyzbtfrs .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#jfhyzbtfrs .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #000000;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#jfhyzbtfrs .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#jfhyzbtfrs .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #000000;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#jfhyzbtfrs .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #000000;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #FFFFFF;
+  vertical-align: middle;
+}
+
+#jfhyzbtfrs .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#jfhyzbtfrs .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#jfhyzbtfrs .gt_row {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#jfhyzbtfrs .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-right-style: solid;
+  border-right-width: 0px;
+  border-right-color: #FFFFFF;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#jfhyzbtfrs .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#jfhyzbtfrs .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#jfhyzbtfrs .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#jfhyzbtfrs .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#jfhyzbtfrs .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#jfhyzbtfrs .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#jfhyzbtfrs .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#jfhyzbtfrs .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#jfhyzbtfrs .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#jfhyzbtfrs .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#jfhyzbtfrs .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#jfhyzbtfrs .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#jfhyzbtfrs .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#jfhyzbtfrs .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#jfhyzbtfrs .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#jfhyzbtfrs .gt_sourcenote {
+  font-size: 12px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#jfhyzbtfrs .gt_left {
+  text-align: left;
+}
+
+#jfhyzbtfrs .gt_center {
+  text-align: center;
+}
+
+#jfhyzbtfrs .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#jfhyzbtfrs .gt_font_normal {
+  font-weight: normal;
+}
+
+#jfhyzbtfrs .gt_font_bold {
+  font-weight: bold;
+}
+
+#jfhyzbtfrs .gt_font_italic {
+  font-style: italic;
+}
+
+#jfhyzbtfrs .gt_super {
+  font-size: 65%;
+}
+
+#jfhyzbtfrs .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#jfhyzbtfrs .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#jfhyzbtfrs .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#jfhyzbtfrs .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#jfhyzbtfrs .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#jfhyzbtfrs .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#jfhyzbtfrs .gt_indent_5 {
+  text-indent: 25px;
+}
+
+tbody tr:last-child {
+  border-bottom: 2px solid #ffffff00;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=""></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Number of Advertisers">Number of Advertisers</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Top Spenders">Top Spenders</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Number of Ads">Number of Ads</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Total Spend">Total Spend</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><th id="stub_1_1" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Partido Acción Nacional</p>
+</div></th>
+<td headers="stub_1_1 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #0957A4;"><div class="gt_from_md"><p>17</p>
+</div></td>
+<td headers="stub_1_1 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=MX&amp;view_all_page_id=108819392526809">Partido Acción Nacional</a> ($888,763)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=MX&amp;view_all_page_id=100867376619769">Xóchitl Gálvez Ruiz</a> ($834,037)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=MX&amp;view_all_page_id=264773293005">Marko Cortés</a> ($171,347)<br><br></p>
+</div></td>
+<td headers="stub_1_1 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>268</p>
+</div></td>
+<td headers="stub_1_1 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>$1,983,930</p>
+</div></td></tr>
+    <tr><th id="stub_1_2" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Partido Verde Ecologista de México</p>
+</div></th>
+<td headers="stub_1_2 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #9AC95E;"><div class="gt_from_md"><p>4</p>
+</div></td>
+<td headers="stub_1_2 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=MX&amp;view_all_page_id=179387312078698">Partido Verde Ecologista México</a> ($696,743)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=MX&amp;view_all_page_id=102863700463398">Pepe Couttolenc</a> ($42,797)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=MX&amp;view_all_page_id=631195260345898">Partido Verde Guerrero</a> ($193)<br><br></p>
+</div></td>
+<td headers="stub_1_2 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>18</p>
+</div></td>
+<td headers="stub_1_2 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>$739,833</p>
+</div></td></tr>
+    <tr><th id="stub_1_3" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Movimiento Regeneración Nacional</p>
+</div></th>
+<td headers="stub_1_3 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #C0311A;"><div class="gt_from_md"><p>8</p>
+</div></td>
+<td headers="stub_1_3 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=MX&amp;view_all_page_id=206323119403212">Mario Delgado Carrillo</a> ($286,741)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=MX&amp;view_all_page_id=923633637651202">Morena Sí</a> ($204,535)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=MX&amp;view_all_page_id=154083818008825">Ricardo Sheffield</a> ($52,683)<br><br></p>
+</div></td>
+<td headers="stub_1_3 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>487</p>
+</div></td>
+<td headers="stub_1_3 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>$570,082</p>
+</div></td></tr>
+    <tr><th id="stub_1_4" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Partido del Trabajo</p>
+</div></th>
+<td headers="stub_1_4 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #DB2017;"><div class="gt_from_md"><p>15</p>
+</div></td>
+<td headers="stub_1_4 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=MX&amp;view_all_page_id=239726076054918">Partido del Trabajo México</a> ($168,169)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=MX&amp;view_all_page_id=445959782175203">Partido del Trabajo Michoacán</a> ($8,881)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=MX&amp;view_all_page_id=265521856950021">PT Nayarit</a> ($8,723)<br><br></p>
+</div></td>
+<td headers="stub_1_4 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>57</p>
+</div></td>
+<td headers="stub_1_4 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>$232,852</p>
+</div></td></tr>
+    <tr><th id="stub_1_5" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Movimiento Ciudadano</p>
+</div></th>
+<td headers="stub_1_5 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #FF8C00;"><div class="gt_from_md"><p>9</p>
+</div></td>
+<td headers="stub_1_5 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=MX&amp;view_all_page_id=178625645626125">Movimiento Ciudadano Nuevo León</a> ($97,104)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=MX&amp;view_all_page_id=118921468203786">Movimiento Ciudadano</a> ($9,233)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=MX&amp;view_all_page_id=125441020968366">Movimiento Ciudadano Morelos</a> ($6,869)<br><br></p>
+</div></td>
+<td headers="stub_1_5 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>46</p>
+</div></td>
+<td headers="stub_1_5 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>$120,676</p>
+</div></td></tr>
+    <tr><th id="stub_1_6" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Partido Revolucionario Institucional</p>
+</div></th>
+<td headers="stub_1_6 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #4DA663;"><div class="gt_from_md"><p>6</p>
+</div></td>
+<td headers="stub_1_6 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=MX&amp;view_all_page_id=136092926468080">PRI Oficial México</a> ($26,942)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=MX&amp;view_all_page_id=830970706988277">Julieta Fernández Márquez</a> ($1,000)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=MX&amp;view_all_page_id=105846784668019">Rubén Zuarth</a> ($969)<br><br></p>
+</div></td>
+<td headers="stub_1_6 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>76</p>
+</div></td>
+<td headers="stub_1_6 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>$29,918</p>
+</div></td></tr>
+    <tr><th id="stub_1_7" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Partido de la Revolución Democrática</p>
+</div></th>
+<td headers="stub_1_7 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #ffcd00;"><div class="gt_from_md"><p>4</p>
+</div></td>
+<td headers="stub_1_7 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=MX&amp;view_all_page_id=640044982685950">PRD Michoacán</a> ($1,474)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=MX&amp;view_all_page_id=1648597332040019">Mary Telma Guajardo</a> ($494)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=MX&amp;view_all_page_id=382898808922171">PRD Morelos</a> ($351)<br><br></p>
+</div></td>
+<td headers="stub_1_7 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>13</p>
+</div></td>
+<td headers="stub_1_7 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>$3,467</p>
+</div></td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section id="over-time" class="level3">
+<h3 class="anchored" data-anchor-id="over-time">Over Time</h3>
+<div class="cell">
+<div class="cell-output-display">
+
+<div class="highchart html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-23851ff75c307aaa046b" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-23851ff75c307aaa046b">{"x":{"hc_opts":{"chart":{"reflow":true},"title":{"text":null},"yAxis":{"title":{"text":"Daily Spend"},"type":"linear"},"credits":{"enabled":false},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":true},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"area":{"stacking":"normal","lineWidth":1,"marker":{"enabled":false}}},"series":[{"name":"Movimiento Ciudadano","data":[{"date":"2023-12-31","party":"Movimiento Ciudadano","amount_spent":62307139,"Daily Spend":null,"short_name":"MC","colors":"#FF8C00","x":1703980800000,"y":null,"fill":"#FF8C00"},{"date":"2024-01-01","party":"Movimiento Ciudadano","amount_spent":62485469,"Daily Spend":178330,"short_name":"MC","colors":"#FF8C00","x":1704067200000,"y":178330,"fill":"#FF8C00"},{"date":"2024-01-02","party":"Movimiento Ciudadano","amount_spent":62487747,"Daily Spend":2278,"short_name":"MC","colors":"#FF8C00","x":1704153600000,"y":2278,"fill":"#FF8C00"},{"date":"2024-01-03","party":"Movimiento Ciudadano","amount_spent":62544519,"Daily Spend":56772,"short_name":"MC","colors":"#FF8C00","x":1704240000000,"y":56772,"fill":"#FF8C00"},{"date":"2024-01-04","party":"Movimiento Ciudadano","amount_spent":62631066,"Daily Spend":86547,"short_name":"MC","colors":"#FF8C00","x":1704326400000,"y":86547,"fill":"#FF8C00"},{"date":"2024-01-05","party":"Movimiento Ciudadano","amount_spent":62720420,"Daily Spend":89354,"short_name":"MC","colors":"#FF8C00","x":1704412800000,"y":89354,"fill":"#FF8C00"},{"date":"2024-01-06","party":"Movimiento Ciudadano","amount_spent":62814576,"Daily Spend":94156,"short_name":"MC","colors":"#FF8C00","x":1704499200000,"y":94156,"fill":"#FF8C00"},{"date":"2024-01-07","party":"Movimiento Ciudadano","amount_spent":62911198,"Daily Spend":96622,"short_name":"MC","colors":"#FF8C00","x":1704585600000,"y":96622,"fill":"#FF8C00"},{"date":"2024-01-08","party":"Movimiento Ciudadano","amount_spent":62984744,"Daily Spend":73546,"short_name":"MC","colors":"#FF8C00","x":1704672000000,"y":73546,"fill":"#FF8C00"},{"date":"2024-01-09","party":"Movimiento Ciudadano","amount_spent":63064034,"Daily Spend":79290,"short_name":"MC","colors":"#FF8C00","x":1704758400000,"y":79290,"fill":"#FF8C00"},{"date":"2024-01-10","party":"Movimiento Ciudadano","amount_spent":63175777,"Daily Spend":111743,"short_name":"MC","colors":"#FF8C00","x":1704844800000,"y":111743,"fill":"#FF8C00"},{"date":"2024-01-11","party":"Movimiento Ciudadano","amount_spent":63196778,"Daily Spend":21001,"short_name":"MC","colors":"#FF8C00","x":1704931200000,"y":21001,"fill":"#FF8C00"},{"date":"2024-01-12","party":"Movimiento Ciudadano","amount_spent":63228776,"Daily Spend":31998,"short_name":"MC","colors":"#FF8C00","x":1705017600000,"y":31998,"fill":"#FF8C00"},{"date":"2024-01-13","party":"Movimiento Ciudadano","amount_spent":63268330,"Daily Spend":39554,"short_name":"MC","colors":"#FF8C00","x":1705104000000,"y":39554,"fill":"#FF8C00"},{"date":"2024-01-14","party":"Movimiento Ciudadano","amount_spent":63309908,"Daily Spend":41578,"short_name":"MC","colors":"#FF8C00","x":1705190400000,"y":41578,"fill":"#FF8C00"},{"date":"2024-01-15","party":"Movimiento Ciudadano","amount_spent":63347855,"Daily Spend":37947,"short_name":"MC","colors":"#FF8C00","x":1705276800000,"y":37947,"fill":"#FF8C00"},{"date":"2024-01-16","party":"Movimiento Ciudadano","amount_spent":63390825,"Daily Spend":42970,"short_name":"MC","colors":"#FF8C00","x":1705363200000,"y":42970,"fill":"#FF8C00"},{"date":"2024-01-17","party":"Movimiento Ciudadano","amount_spent":63443982,"Daily Spend":53157,"short_name":"MC","colors":"#FF8C00","x":1705449600000,"y":53157,"fill":"#FF8C00"},{"date":"2024-01-18","party":"Movimiento Ciudadano","amount_spent":63477386,"Daily Spend":33404,"short_name":"MC","colors":"#FF8C00","x":1705536000000,"y":33404,"fill":"#FF8C00"},{"date":"2024-01-19","party":"Movimiento Ciudadano","amount_spent":63509641,"Daily Spend":32255,"short_name":"MC","colors":"#FF8C00","x":1705622400000,"y":32255,"fill":"#FF8C00"},{"date":"2024-01-20","party":"Movimiento Ciudadano","amount_spent":63537985,"Daily Spend":28344,"short_name":"MC","colors":"#FF8C00","x":1705708800000,"y":28344,"fill":"#FF8C00"},{"date":"2024-01-21","party":"Movimiento Ciudadano","amount_spent":63556318,"Daily Spend":18333,"short_name":"MC","colors":"#FF8C00","x":1705795200000,"y":18333,"fill":"#FF8C00"},{"date":"2024-01-22","party":"Movimiento Ciudadano","amount_spent":63570190,"Daily Spend":13872,"short_name":"MC","colors":"#FF8C00","x":1705881600000,"y":13872,"fill":"#FF8C00"},{"date":"2024-01-23","party":"Movimiento Ciudadano","amount_spent":63586124,"Daily Spend":15934,"short_name":"MC","colors":"#FF8C00","x":1705968000000,"y":15934,"fill":"#FF8C00"},{"date":"2024-01-24","party":"Movimiento Ciudadano","amount_spent":63600141,"Daily Spend":14017,"short_name":"MC","colors":"#FF8C00","x":1706054400000,"y":14017,"fill":"#FF8C00"},{"date":"2024-01-25","party":"Movimiento Ciudadano","amount_spent":63610568,"Daily Spend":10427,"short_name":"MC","colors":"#FF8C00","x":1706140800000,"y":10427,"fill":"#FF8C00"},{"date":"2024-01-26","party":"Movimiento Ciudadano","amount_spent":63657451,"Daily Spend":46883,"short_name":"MC","colors":"#FF8C00","x":1706227200000,"y":46883,"fill":"#FF8C00"},{"date":"2024-01-27","party":"Movimiento Ciudadano","amount_spent":63717551,"Daily Spend":60100,"short_name":"MC","colors":"#FF8C00","x":1706313600000,"y":60100,"fill":"#FF8C00"},{"date":"2024-01-28","party":"Movimiento Ciudadano","amount_spent":63803732,"Daily Spend":86181,"short_name":"MC","colors":"#FF8C00","x":1706400000000,"y":86181,"fill":"#FF8C00"},{"date":"2024-01-29","party":"Movimiento Ciudadano","amount_spent":63865584,"Daily Spend":61852,"short_name":"MC","colors":"#FF8C00","x":1706486400000,"y":61852,"fill":"#FF8C00"},{"date":"2024-01-30","party":"Movimiento Ciudadano","amount_spent":64162854,"Daily Spend":297270,"short_name":"MC","colors":"#FF8C00","x":1706572800000,"y":297270,"fill":"#FF8C00"},{"date":"2024-01-31","party":"Movimiento Ciudadano","amount_spent":64175503,"Daily Spend":12649,"short_name":"MC","colors":"#FF8C00","x":1706659200000,"y":12649,"fill":"#FF8C00"},{"date":"2024-02-01","party":"Movimiento Ciudadano","amount_spent":64195121,"Daily Spend":19618,"short_name":"MC","colors":"#FF8C00","x":1706745600000,"y":19618,"fill":"#FF8C00"},{"date":"2024-02-02","party":"Movimiento Ciudadano","amount_spent":64227454,"Daily Spend":32333,"short_name":"MC","colors":"#FF8C00","x":1706832000000,"y":32333,"fill":"#FF8C00"},{"date":"2024-02-03","party":"Movimiento Ciudadano","amount_spent":64275473,"Daily Spend":48019,"short_name":"MC","colors":"#FF8C00","x":1706918400000,"y":48019,"fill":"#FF8C00"},{"date":"2024-02-04","party":"Movimiento Ciudadano","amount_spent":64333389,"Daily Spend":57916,"short_name":"MC","colors":"#FF8C00","x":1707004800000,"y":57916,"fill":"#FF8C00"},{"date":"2024-02-05","party":"Movimiento Ciudadano","amount_spent":64383918,"Daily Spend":50529,"short_name":"MC","colors":"#FF8C00","x":1707091200000,"y":50529,"fill":"#FF8C00"},{"date":"2024-02-06","party":"Movimiento Ciudadano","amount_spent":64454476,"Daily Spend":70558,"short_name":"MC","colors":"#FF8C00","x":1707177600000,"y":70558,"fill":"#FF8C00"},{"date":"2024-02-07","party":"Movimiento Ciudadano","amount_spent":64579426,"Daily Spend":124950,"short_name":"MC","colors":"#FF8C00","x":1707264000000,"y":124950,"fill":"#FF8C00"},{"date":"2024-02-08","party":"Movimiento Ciudadano","amount_spent":64723348,"Daily Spend":143922,"short_name":"MC","colors":"#FF8C00","x":1707350400000,"y":143922,"fill":"#FF8C00"},{"date":"2024-02-09","party":"Movimiento Ciudadano","amount_spent":64873848,"Daily Spend":150500,"short_name":"MC","colors":"#FF8C00","x":1707436800000,"y":150500,"fill":"#FF8C00"},{"date":"2024-02-10","party":"Movimiento Ciudadano","amount_spent":65000141,"Daily Spend":126293,"short_name":"MC","colors":"#FF8C00","x":1707523200000,"y":126293,"fill":"#FF8C00"},{"date":"2024-02-11","party":"Movimiento Ciudadano","amount_spent":65081262,"Daily Spend":81121,"short_name":"MC","colors":"#FF8C00","x":1707609600000,"y":81121,"fill":"#FF8C00"},{"date":"2024-02-12","party":"Movimiento Ciudadano","amount_spent":65156963,"Daily Spend":75701,"short_name":"MC","colors":"#FF8C00","x":1707696000000,"y":75701,"fill":"#FF8C00"},{"date":"2024-02-13","party":"Movimiento Ciudadano","amount_spent":65232686,"Daily Spend":75723,"short_name":"MC","colors":"#FF8C00","x":1707782400000,"y":75723,"fill":"#FF8C00"},{"date":"2024-02-14","party":"Movimiento Ciudadano","amount_spent":65328990,"Daily Spend":96304,"short_name":"MC","colors":"#FF8C00","x":1707868800000,"y":96304,"fill":"#FF8C00"},{"date":"2024-02-15","party":"Movimiento Ciudadano","amount_spent":65446215,"Daily Spend":117225,"short_name":"MC","colors":"#FF8C00","x":1707955200000,"y":117225,"fill":"#FF8C00"},{"date":"2024-02-16","party":"Movimiento Ciudadano","amount_spent":65583451,"Daily Spend":137236,"short_name":"MC","colors":"#FF8C00","x":1708041600000,"y":137236,"fill":"#FF8C00"},{"date":"2024-02-17","party":"Movimiento Ciudadano","amount_spent":65729199,"Daily Spend":145748,"short_name":"MC","colors":"#FF8C00","x":1708128000000,"y":145748,"fill":"#FF8C00"},{"date":"2024-02-18","party":"Movimiento Ciudadano","amount_spent":66060931,"Daily Spend":331732,"short_name":"MC","colors":"#FF8C00","x":1708214400000,"y":331732,"fill":"#FF8C00"},{"date":"2024-02-19","party":"Movimiento Ciudadano","amount_spent":66120942,"Daily Spend":60011,"short_name":"MC","colors":"#FF8C00","x":1708300800000,"y":60011,"fill":"#FF8C00"},{"date":"2024-02-20","party":"Movimiento Ciudadano","amount_spent":66179441,"Daily Spend":58499,"short_name":"MC","colors":"#FF8C00","x":1708387200000,"y":58499,"fill":"#FF8C00"},{"date":"2024-02-21","party":"Movimiento Ciudadano","amount_spent":66335123,"Daily Spend":155682,"short_name":"MC","colors":"#FF8C00","x":1708473600000,"y":155682,"fill":"#FF8C00"},{"date":"2024-02-22","party":"Movimiento Ciudadano","amount_spent":66528953,"Daily Spend":193830,"short_name":"MC","colors":"#FF8C00","x":1708560000000,"y":193830,"fill":"#FF8C00"},{"date":"2024-02-23","party":"Movimiento Ciudadano","amount_spent":66740359,"Daily Spend":211406,"short_name":"MC","colors":"#FF8C00","x":1708646400000,"y":211406,"fill":"#FF8C00"},{"date":"2024-02-24","party":"Movimiento Ciudadano","amount_spent":66983219,"Daily Spend":242860,"short_name":"MC","colors":"#FF8C00","x":1708732800000,"y":242860,"fill":"#FF8C00"},{"date":"2024-02-25","party":"Movimiento Ciudadano","amount_spent":67236473,"Daily Spend":253254,"short_name":"MC","colors":"#FF8C00","x":1708819200000,"y":253254,"fill":"#FF8C00"},{"date":"2024-02-26","party":"Movimiento Ciudadano","amount_spent":67464482,"Daily Spend":228009,"short_name":"MC","colors":"#FF8C00","x":1708905600000,"y":228009,"fill":"#FF8C00"},{"date":"2024-02-27","party":"Movimiento Ciudadano","amount_spent":67721451,"Daily Spend":256969,"short_name":"MC","colors":"#FF8C00","x":1708992000000,"y":256969,"fill":"#FF8C00"},{"date":"2024-02-28","party":"Movimiento Ciudadano","amount_spent":67788321,"Daily Spend":66870,"short_name":"MC","colors":"#FF8C00","x":1709078400000,"y":66870,"fill":"#FF8C00"},{"date":"2024-02-29","party":"Movimiento Ciudadano","amount_spent":67980011,"Daily Spend":191690,"short_name":"MC","colors":"#FF8C00","x":1709164800000,"y":191690,"fill":"#FF8C00"},{"date":"2024-03-01","party":"Movimiento Ciudadano","amount_spent":67985516,"Daily Spend":5505,"short_name":"MC","colors":"#FF8C00","x":1709251200000,"y":5505,"fill":"#FF8C00"},{"date":"2024-03-02","party":"Movimiento Ciudadano","amount_spent":67993755,"Daily Spend":8239,"short_name":"MC","colors":"#FF8C00","x":1709337600000,"y":8239,"fill":"#FF8C00"},{"date":"2024-03-03","party":"Movimiento Ciudadano","amount_spent":68003923,"Daily Spend":10168,"short_name":"MC","colors":"#FF8C00","x":1709424000000,"y":10168,"fill":"#FF8C00"},{"date":"2024-03-04","party":"Movimiento Ciudadano","amount_spent":68018102,"Daily Spend":14179,"short_name":"MC","colors":"#FF8C00","x":1709510400000,"y":14179,"fill":"#FF8C00"},{"date":"2024-03-05","party":"Movimiento Ciudadano","amount_spent":68031593,"Daily Spend":13491,"short_name":"MC","colors":"#FF8C00","x":1709596800000,"y":13491,"fill":"#FF8C00"},{"date":"2024-03-06","party":"Movimiento Ciudadano","amount_spent":68049473,"Daily Spend":17880,"short_name":"MC","colors":"#FF8C00","x":1709683200000,"y":17880,"fill":"#FF8C00"},{"date":"2024-03-07","party":"Movimiento Ciudadano","amount_spent":68071064,"Daily Spend":21591,"short_name":"MC","colors":"#FF8C00","x":1709769600000,"y":21591,"fill":"#FF8C00"},{"date":"2024-03-08","party":"Movimiento Ciudadano","amount_spent":68107343,"Daily Spend":36279,"short_name":"MC","colors":"#FF8C00","x":1709856000000,"y":36279,"fill":"#FF8C00"},{"date":"2024-03-09","party":"Movimiento Ciudadano","amount_spent":68171156,"Daily Spend":63813,"short_name":"MC","colors":"#FF8C00","x":1709942400000,"y":63813,"fill":"#FF8C00"}],"type":"area"},{"name":"Movimiento Regeneración Nacional","data":[{"date":"2023-12-31","party":"Movimiento Regeneración Nacional","amount_spent":62878668,"Daily Spend":null,"short_name":"MORENA","colors":"#C0311A","x":1703980800000,"y":null,"fill":"#C0311A"},{"date":"2024-01-01","party":"Movimiento Regeneración Nacional","amount_spent":62909731,"Daily Spend":31063,"short_name":"MORENA","colors":"#C0311A","x":1704067200000,"y":31063,"fill":"#C0311A"},{"date":"2024-01-02","party":"Movimiento Regeneración Nacional","amount_spent":62965338,"Daily Spend":55607,"short_name":"MORENA","colors":"#C0311A","x":1704153600000,"y":55607,"fill":"#C0311A"},{"date":"2024-01-03","party":"Movimiento Regeneración Nacional","amount_spent":63036484,"Daily Spend":71146,"short_name":"MORENA","colors":"#C0311A","x":1704240000000,"y":71146,"fill":"#C0311A"},{"date":"2024-01-04","party":"Movimiento Regeneración Nacional","amount_spent":63211572,"Daily Spend":175088,"short_name":"MORENA","colors":"#C0311A","x":1704326400000,"y":175088,"fill":"#C0311A"},{"date":"2024-01-05","party":"Movimiento Regeneración Nacional","amount_spent":63336209,"Daily Spend":124637,"short_name":"MORENA","colors":"#C0311A","x":1704412800000,"y":124637,"fill":"#C0311A"},{"date":"2024-01-06","party":"Movimiento Regeneración Nacional","amount_spent":63482269,"Daily Spend":146060,"short_name":"MORENA","colors":"#C0311A","x":1704499200000,"y":146060,"fill":"#C0311A"},{"date":"2024-01-07","party":"Movimiento Regeneración Nacional","amount_spent":63612348,"Daily Spend":130079,"short_name":"MORENA","colors":"#C0311A","x":1704585600000,"y":130079,"fill":"#C0311A"},{"date":"2024-01-08","party":"Movimiento Regeneración Nacional","amount_spent":63701835,"Daily Spend":89487,"short_name":"MORENA","colors":"#C0311A","x":1704672000000,"y":89487,"fill":"#C0311A"},{"date":"2024-01-09","party":"Movimiento Regeneración Nacional","amount_spent":63820551,"Daily Spend":118716,"short_name":"MORENA","colors":"#C0311A","x":1704758400000,"y":118716,"fill":"#C0311A"},{"date":"2024-01-10","party":"Movimiento Regeneración Nacional","amount_spent":63943049,"Daily Spend":122498,"short_name":"MORENA","colors":"#C0311A","x":1704844800000,"y":122498,"fill":"#C0311A"},{"date":"2024-01-11","party":"Movimiento Regeneración Nacional","amount_spent":64092095,"Daily Spend":149046,"short_name":"MORENA","colors":"#C0311A","x":1704931200000,"y":149046,"fill":"#C0311A"},{"date":"2024-01-12","party":"Movimiento Regeneración Nacional","amount_spent":64271902,"Daily Spend":179807,"short_name":"MORENA","colors":"#C0311A","x":1705017600000,"y":179807,"fill":"#C0311A"},{"date":"2024-01-13","party":"Movimiento Regeneración Nacional","amount_spent":64443982,"Daily Spend":172080,"short_name":"MORENA","colors":"#C0311A","x":1705104000000,"y":172080,"fill":"#C0311A"},{"date":"2024-01-14","party":"Movimiento Regeneración Nacional","amount_spent":64549802,"Daily Spend":105820,"short_name":"MORENA","colors":"#C0311A","x":1705190400000,"y":105820,"fill":"#C0311A"},{"date":"2024-01-15","party":"Movimiento Regeneración Nacional","amount_spent":64661544,"Daily Spend":111742,"short_name":"MORENA","colors":"#C0311A","x":1705276800000,"y":111742,"fill":"#C0311A"},{"date":"2024-01-16","party":"Movimiento Regeneración Nacional","amount_spent":64749943,"Daily Spend":88399,"short_name":"MORENA","colors":"#C0311A","x":1705363200000,"y":88399,"fill":"#C0311A"},{"date":"2024-01-17","party":"Movimiento Regeneración Nacional","amount_spent":64832612,"Daily Spend":82669,"short_name":"MORENA","colors":"#C0311A","x":1705449600000,"y":82669,"fill":"#C0311A"},{"date":"2024-01-18","party":"Movimiento Regeneración Nacional","amount_spent":65030389,"Daily Spend":197777,"short_name":"MORENA","colors":"#C0311A","x":1705536000000,"y":197777,"fill":"#C0311A"},{"date":"2024-01-19","party":"Movimiento Regeneración Nacional","amount_spent":65145587,"Daily Spend":115198,"short_name":"MORENA","colors":"#C0311A","x":1705622400000,"y":115198,"fill":"#C0311A"},{"date":"2024-01-20","party":"Movimiento Regeneración Nacional","amount_spent":65286516,"Daily Spend":140929,"short_name":"MORENA","colors":"#C0311A","x":1705708800000,"y":140929,"fill":"#C0311A"},{"date":"2024-01-21","party":"Movimiento Regeneración Nacional","amount_spent":65396597,"Daily Spend":110081,"short_name":"MORENA","colors":"#C0311A","x":1705795200000,"y":110081,"fill":"#C0311A"},{"date":"2024-01-22","party":"Movimiento Regeneración Nacional","amount_spent":65410944,"Daily Spend":14347,"short_name":"MORENA","colors":"#C0311A","x":1705881600000,"y":14347,"fill":"#C0311A"},{"date":"2024-01-23","party":"Movimiento Regeneración Nacional","amount_spent":65446186,"Daily Spend":35242,"short_name":"MORENA","colors":"#C0311A","x":1705968000000,"y":35242,"fill":"#C0311A"},{"date":"2024-01-24","party":"Movimiento Regeneración Nacional","amount_spent":65550851,"Daily Spend":104665,"short_name":"MORENA","colors":"#C0311A","x":1706054400000,"y":104665,"fill":"#C0311A"},{"date":"2024-01-25","party":"Movimiento Regeneración Nacional","amount_spent":65673864,"Daily Spend":123013,"short_name":"MORENA","colors":"#C0311A","x":1706140800000,"y":123013,"fill":"#C0311A"},{"date":"2024-01-26","party":"Movimiento Regeneración Nacional","amount_spent":65788020,"Daily Spend":114156,"short_name":"MORENA","colors":"#C0311A","x":1706227200000,"y":114156,"fill":"#C0311A"},{"date":"2024-01-27","party":"Movimiento Regeneración Nacional","amount_spent":66002927,"Daily Spend":214907,"short_name":"MORENA","colors":"#C0311A","x":1706313600000,"y":214907,"fill":"#C0311A"},{"date":"2024-01-28","party":"Movimiento Regeneración Nacional","amount_spent":66116754,"Daily Spend":113827,"short_name":"MORENA","colors":"#C0311A","x":1706400000000,"y":113827,"fill":"#C0311A"},{"date":"2024-01-29","party":"Movimiento Regeneración Nacional","amount_spent":66163714,"Daily Spend":46960,"short_name":"MORENA","colors":"#C0311A","x":1706486400000,"y":46960,"fill":"#C0311A"},{"date":"2024-01-30","party":"Movimiento Regeneración Nacional","amount_spent":66278237,"Daily Spend":114523,"short_name":"MORENA","colors":"#C0311A","x":1706572800000,"y":114523,"fill":"#C0311A"},{"date":"2024-01-31","party":"Movimiento Regeneración Nacional","amount_spent":66358642,"Daily Spend":80405,"short_name":"MORENA","colors":"#C0311A","x":1706659200000,"y":80405,"fill":"#C0311A"},{"date":"2024-02-01","party":"Movimiento Regeneración Nacional","amount_spent":66459950,"Daily Spend":101308,"short_name":"MORENA","colors":"#C0311A","x":1706745600000,"y":101308,"fill":"#C0311A"},{"date":"2024-02-02","party":"Movimiento Regeneración Nacional","amount_spent":66545319,"Daily Spend":85369,"short_name":"MORENA","colors":"#C0311A","x":1706832000000,"y":85369,"fill":"#C0311A"},{"date":"2024-02-03","party":"Movimiento Regeneración Nacional","amount_spent":66637272,"Daily Spend":91953,"short_name":"MORENA","colors":"#C0311A","x":1706918400000,"y":91953,"fill":"#C0311A"},{"date":"2024-02-04","party":"Movimiento Regeneración Nacional","amount_spent":66716274,"Daily Spend":79002,"short_name":"MORENA","colors":"#C0311A","x":1707004800000,"y":79002,"fill":"#C0311A"},{"date":"2024-02-05","party":"Movimiento Regeneración Nacional","amount_spent":66721785,"Daily Spend":5511,"short_name":"MORENA","colors":"#C0311A","x":1707091200000,"y":5511,"fill":"#C0311A"},{"date":"2024-02-06","party":"Movimiento Regeneración Nacional","amount_spent":66749371,"Daily Spend":27586,"short_name":"MORENA","colors":"#C0311A","x":1707177600000,"y":27586,"fill":"#C0311A"},{"date":"2024-02-07","party":"Movimiento Regeneración Nacional","amount_spent":66829053,"Daily Spend":79682,"short_name":"MORENA","colors":"#C0311A","x":1707264000000,"y":79682,"fill":"#C0311A"},{"date":"2024-02-08","party":"Movimiento Regeneración Nacional","amount_spent":66933299,"Daily Spend":104246,"short_name":"MORENA","colors":"#C0311A","x":1707350400000,"y":104246,"fill":"#C0311A"},{"date":"2024-02-09","party":"Movimiento Regeneración Nacional","amount_spent":67064185,"Daily Spend":130886,"short_name":"MORENA","colors":"#C0311A","x":1707436800000,"y":130886,"fill":"#C0311A"},{"date":"2024-02-10","party":"Movimiento Regeneración Nacional","amount_spent":67225196,"Daily Spend":161011,"short_name":"MORENA","colors":"#C0311A","x":1707523200000,"y":161011,"fill":"#C0311A"},{"date":"2024-02-11","party":"Movimiento Regeneración Nacional","amount_spent":67393976,"Daily Spend":168780,"short_name":"MORENA","colors":"#C0311A","x":1707609600000,"y":168780,"fill":"#C0311A"},{"date":"2024-02-12","party":"Movimiento Regeneración Nacional","amount_spent":67468325,"Daily Spend":74349,"short_name":"MORENA","colors":"#C0311A","x":1707696000000,"y":74349,"fill":"#C0311A"},{"date":"2024-02-13","party":"Movimiento Regeneración Nacional","amount_spent":67606328,"Daily Spend":138003,"short_name":"MORENA","colors":"#C0311A","x":1707782400000,"y":138003,"fill":"#C0311A"},{"date":"2024-02-14","party":"Movimiento Regeneración Nacional","amount_spent":67744509,"Daily Spend":138181,"short_name":"MORENA","colors":"#C0311A","x":1707868800000,"y":138181,"fill":"#C0311A"},{"date":"2024-02-15","party":"Movimiento Regeneración Nacional","amount_spent":67899926,"Daily Spend":155417,"short_name":"MORENA","colors":"#C0311A","x":1707955200000,"y":155417,"fill":"#C0311A"},{"date":"2024-02-16","party":"Movimiento Regeneración Nacional","amount_spent":68059841,"Daily Spend":159915,"short_name":"MORENA","colors":"#C0311A","x":1708041600000,"y":159915,"fill":"#C0311A"},{"date":"2024-02-17","party":"Movimiento Regeneración Nacional","amount_spent":68276597,"Daily Spend":216756,"short_name":"MORENA","colors":"#C0311A","x":1708128000000,"y":216756,"fill":"#C0311A"},{"date":"2024-02-18","party":"Movimiento Regeneración Nacional","amount_spent":68462904,"Daily Spend":186307,"short_name":"MORENA","colors":"#C0311A","x":1708214400000,"y":186307,"fill":"#C0311A"},{"date":"2024-02-19","party":"Movimiento Regeneración Nacional","amount_spent":68551453,"Daily Spend":88549,"short_name":"MORENA","colors":"#C0311A","x":1708300800000,"y":88549,"fill":"#C0311A"},{"date":"2024-02-20","party":"Movimiento Regeneración Nacional","amount_spent":68652941,"Daily Spend":101488,"short_name":"MORENA","colors":"#C0311A","x":1708387200000,"y":101488,"fill":"#C0311A"},{"date":"2024-02-21","party":"Movimiento Regeneración Nacional","amount_spent":68807727,"Daily Spend":154786,"short_name":"MORENA","colors":"#C0311A","x":1708473600000,"y":154786,"fill":"#C0311A"},{"date":"2024-02-22","party":"Movimiento Regeneración Nacional","amount_spent":68949151,"Daily Spend":141424,"short_name":"MORENA","colors":"#C0311A","x":1708560000000,"y":141424,"fill":"#C0311A"},{"date":"2024-02-23","party":"Movimiento Regeneración Nacional","amount_spent":69120770,"Daily Spend":171619,"short_name":"MORENA","colors":"#C0311A","x":1708646400000,"y":171619,"fill":"#C0311A"},{"date":"2024-02-24","party":"Movimiento Regeneración Nacional","amount_spent":69331703,"Daily Spend":210933,"short_name":"MORENA","colors":"#C0311A","x":1708732800000,"y":210933,"fill":"#C0311A"},{"date":"2024-02-25","party":"Movimiento Regeneración Nacional","amount_spent":69552417,"Daily Spend":220714,"short_name":"MORENA","colors":"#C0311A","x":1708819200000,"y":220714,"fill":"#C0311A"},{"date":"2024-02-26","party":"Movimiento Regeneración Nacional","amount_spent":69660169,"Daily Spend":107752,"short_name":"MORENA","colors":"#C0311A","x":1708905600000,"y":107752,"fill":"#C0311A"},{"date":"2024-02-27","party":"Movimiento Regeneración Nacional","amount_spent":69905885,"Daily Spend":245716,"short_name":"MORENA","colors":"#C0311A","x":1708992000000,"y":245716,"fill":"#C0311A"},{"date":"2024-02-28","party":"Movimiento Regeneración Nacional","amount_spent":70148878,"Daily Spend":242993,"short_name":"MORENA","colors":"#C0311A","x":1709078400000,"y":242993,"fill":"#C0311A"},{"date":"2024-02-29","party":"Movimiento Regeneración Nacional","amount_spent":70307449,"Daily Spend":158571,"short_name":"MORENA","colors":"#C0311A","x":1709164800000,"y":158571,"fill":"#C0311A"},{"date":"2024-03-01","party":"Movimiento Regeneración Nacional","amount_spent":70368263,"Daily Spend":60814,"short_name":"MORENA","colors":"#C0311A","x":1709251200000,"y":60814,"fill":"#C0311A"},{"date":"2024-03-02","party":"Movimiento Regeneración Nacional","amount_spent":70481890,"Daily Spend":113627,"short_name":"MORENA","colors":"#C0311A","x":1709337600000,"y":113627,"fill":"#C0311A"},{"date":"2024-03-03","party":"Movimiento Regeneración Nacional","amount_spent":70597915,"Daily Spend":116025,"short_name":"MORENA","colors":"#C0311A","x":1709424000000,"y":116025,"fill":"#C0311A"},{"date":"2024-03-04","party":"Movimiento Regeneración Nacional","amount_spent":70682946,"Daily Spend":85031,"short_name":"MORENA","colors":"#C0311A","x":1709510400000,"y":85031,"fill":"#C0311A"},{"date":"2024-03-05","party":"Movimiento Regeneración Nacional","amount_spent":70756877,"Daily Spend":73931,"short_name":"MORENA","colors":"#C0311A","x":1709596800000,"y":73931,"fill":"#C0311A"},{"date":"2024-03-06","party":"Movimiento Regeneración Nacional","amount_spent":70850420,"Daily Spend":93543,"short_name":"MORENA","colors":"#C0311A","x":1709683200000,"y":93543,"fill":"#C0311A"},{"date":"2024-03-07","party":"Movimiento Regeneración Nacional","amount_spent":70965721,"Daily Spend":115301,"short_name":"MORENA","colors":"#C0311A","x":1709769600000,"y":115301,"fill":"#C0311A"},{"date":"2024-03-08","party":"Movimiento Regeneración Nacional","amount_spent":71089367,"Daily Spend":123646,"short_name":"MORENA","colors":"#C0311A","x":1709856000000,"y":123646,"fill":"#C0311A"},{"date":"2024-03-09","party":"Movimiento Regeneración Nacional","amount_spent":71220441,"Daily Spend":131074,"short_name":"MORENA","colors":"#C0311A","x":1709942400000,"y":131074,"fill":"#C0311A"}],"type":"area"},{"name":"Partido Acción Nacional","data":[{"date":"2023-12-31","party":"Partido Acción Nacional","amount_spent":47813321,"Daily Spend":null,"short_name":"PAN","colors":"#0957A4","x":1703980800000,"y":null,"fill":"#0957A4"},{"date":"2024-01-01","party":"Partido Acción Nacional","amount_spent":47959411,"Daily Spend":146090,"short_name":"PAN","colors":"#0957A4","x":1704067200000,"y":146090,"fill":"#0957A4"},{"date":"2024-01-02","party":"Partido Acción Nacional","amount_spent":48189199,"Daily Spend":229788,"short_name":"PAN","colors":"#0957A4","x":1704153600000,"y":229788,"fill":"#0957A4"},{"date":"2024-01-03","party":"Partido Acción Nacional","amount_spent":48483104,"Daily Spend":293905,"short_name":"PAN","colors":"#0957A4","x":1704240000000,"y":293905,"fill":"#0957A4"},{"date":"2024-01-04","party":"Partido Acción Nacional","amount_spent":48859743,"Daily Spend":376639,"short_name":"PAN","colors":"#0957A4","x":1704326400000,"y":376639,"fill":"#0957A4"},{"date":"2024-01-05","party":"Partido Acción Nacional","amount_spent":49169773,"Daily Spend":310030,"short_name":"PAN","colors":"#0957A4","x":1704412800000,"y":310030,"fill":"#0957A4"},{"date":"2024-01-06","party":"Partido Acción Nacional","amount_spent":49329521,"Daily Spend":159748,"short_name":"PAN","colors":"#0957A4","x":1704499200000,"y":159748,"fill":"#0957A4"},{"date":"2024-01-07","party":"Partido Acción Nacional","amount_spent":49449097,"Daily Spend":119576,"short_name":"PAN","colors":"#0957A4","x":1704585600000,"y":119576,"fill":"#0957A4"},{"date":"2024-01-08","party":"Partido Acción Nacional","amount_spent":49459635,"Daily Spend":10538,"short_name":"PAN","colors":"#0957A4","x":1704672000000,"y":10538,"fill":"#0957A4"},{"date":"2024-01-09","party":"Partido Acción Nacional","amount_spent":49473303,"Daily Spend":13668,"short_name":"PAN","colors":"#0957A4","x":1704758400000,"y":13668,"fill":"#0957A4"},{"date":"2024-01-10","party":"Partido Acción Nacional","amount_spent":49485207,"Daily Spend":11904,"short_name":"PAN","colors":"#0957A4","x":1704844800000,"y":11904,"fill":"#0957A4"},{"date":"2024-01-11","party":"Partido Acción Nacional","amount_spent":49510904,"Daily Spend":25697,"short_name":"PAN","colors":"#0957A4","x":1704931200000,"y":25697,"fill":"#0957A4"},{"date":"2024-01-12","party":"Partido Acción Nacional","amount_spent":49636398,"Daily Spend":125494,"short_name":"PAN","colors":"#0957A4","x":1705017600000,"y":125494,"fill":"#0957A4"},{"date":"2024-01-13","party":"Partido Acción Nacional","amount_spent":49895203,"Daily Spend":258805,"short_name":"PAN","colors":"#0957A4","x":1705104000000,"y":258805,"fill":"#0957A4"},{"date":"2024-01-14","party":"Partido Acción Nacional","amount_spent":50268636,"Daily Spend":373433,"short_name":"PAN","colors":"#0957A4","x":1705190400000,"y":373433,"fill":"#0957A4"},{"date":"2024-01-15","party":"Partido Acción Nacional","amount_spent":50733234,"Daily Spend":464598,"short_name":"PAN","colors":"#0957A4","x":1705276800000,"y":464598,"fill":"#0957A4"},{"date":"2024-01-16","party":"Partido Acción Nacional","amount_spent":50855557,"Daily Spend":122323,"short_name":"PAN","colors":"#0957A4","x":1705363200000,"y":122323,"fill":"#0957A4"},{"date":"2024-01-17","party":"Partido Acción Nacional","amount_spent":50905849,"Daily Spend":50292,"short_name":"PAN","colors":"#0957A4","x":1705449600000,"y":50292,"fill":"#0957A4"},{"date":"2024-01-18","party":"Partido Acción Nacional","amount_spent":50960525,"Daily Spend":54676,"short_name":"PAN","colors":"#0957A4","x":1705536000000,"y":54676,"fill":"#0957A4"},{"date":"2024-01-19","party":"Partido Acción Nacional","amount_spent":50998780,"Daily Spend":38255,"short_name":"PAN","colors":"#0957A4","x":1705622400000,"y":38255,"fill":"#0957A4"},{"date":"2024-01-20","party":"Partido Acción Nacional","amount_spent":51025471,"Daily Spend":26691,"short_name":"PAN","colors":"#0957A4","x":1705708800000,"y":26691,"fill":"#0957A4"},{"date":"2024-01-21","party":"Partido Acción Nacional","amount_spent":51043320,"Daily Spend":17849,"short_name":"PAN","colors":"#0957A4","x":1705795200000,"y":17849,"fill":"#0957A4"},{"date":"2024-01-22","party":"Partido Acción Nacional","amount_spent":51062011,"Daily Spend":18691,"short_name":"PAN","colors":"#0957A4","x":1705881600000,"y":18691,"fill":"#0957A4"},{"date":"2024-01-23","party":"Partido Acción Nacional","amount_spent":51087443,"Daily Spend":25432,"short_name":"PAN","colors":"#0957A4","x":1705968000000,"y":25432,"fill":"#0957A4"},{"date":"2024-01-24","party":"Partido Acción Nacional","amount_spent":51112885,"Daily Spend":25442,"short_name":"PAN","colors":"#0957A4","x":1706054400000,"y":25442,"fill":"#0957A4"},{"date":"2024-01-25","party":"Partido Acción Nacional","amount_spent":51141419,"Daily Spend":28534,"short_name":"PAN","colors":"#0957A4","x":1706140800000,"y":28534,"fill":"#0957A4"},{"date":"2024-01-26","party":"Partido Acción Nacional","amount_spent":51177619,"Daily Spend":36200,"short_name":"PAN","colors":"#0957A4","x":1706227200000,"y":36200,"fill":"#0957A4"},{"date":"2024-01-27","party":"Partido Acción Nacional","amount_spent":51207762,"Daily Spend":30143,"short_name":"PAN","colors":"#0957A4","x":1706313600000,"y":30143,"fill":"#0957A4"},{"date":"2024-01-28","party":"Partido Acción Nacional","amount_spent":51249044,"Daily Spend":41282,"short_name":"PAN","colors":"#0957A4","x":1706400000000,"y":41282,"fill":"#0957A4"},{"date":"2024-01-29","party":"Partido Acción Nacional","amount_spent":51278038,"Daily Spend":28994,"short_name":"PAN","colors":"#0957A4","x":1706486400000,"y":28994,"fill":"#0957A4"},{"date":"2024-01-30","party":"Partido Acción Nacional","amount_spent":51433467,"Daily Spend":155429,"short_name":"PAN","colors":"#0957A4","x":1706572800000,"y":155429,"fill":"#0957A4"},{"date":"2024-01-31","party":"Partido Acción Nacional","amount_spent":51470831,"Daily Spend":37364,"short_name":"PAN","colors":"#0957A4","x":1706659200000,"y":37364,"fill":"#0957A4"},{"date":"2024-02-01","party":"Partido Acción Nacional","amount_spent":51484784,"Daily Spend":13953,"short_name":"PAN","colors":"#0957A4","x":1706745600000,"y":13953,"fill":"#0957A4"},{"date":"2024-02-02","party":"Partido Acción Nacional","amount_spent":51500616,"Daily Spend":15832,"short_name":"PAN","colors":"#0957A4","x":1706832000000,"y":15832,"fill":"#0957A4"},{"date":"2024-02-03","party":"Partido Acción Nacional","amount_spent":51524671,"Daily Spend":24055,"short_name":"PAN","colors":"#0957A4","x":1706918400000,"y":24055,"fill":"#0957A4"},{"date":"2024-02-04","party":"Partido Acción Nacional","amount_spent":51546365,"Daily Spend":21694,"short_name":"PAN","colors":"#0957A4","x":1707004800000,"y":21694,"fill":"#0957A4"},{"date":"2024-02-05","party":"Partido Acción Nacional","amount_spent":51560624,"Daily Spend":14259,"short_name":"PAN","colors":"#0957A4","x":1707091200000,"y":14259,"fill":"#0957A4"},{"date":"2024-02-06","party":"Partido Acción Nacional","amount_spent":51568304,"Daily Spend":7680,"short_name":"PAN","colors":"#0957A4","x":1707177600000,"y":7680,"fill":"#0957A4"},{"date":"2024-02-07","party":"Partido Acción Nacional","amount_spent":51635332,"Daily Spend":67028,"short_name":"PAN","colors":"#0957A4","x":1707264000000,"y":67028,"fill":"#0957A4"},{"date":"2024-02-08","party":"Partido Acción Nacional","amount_spent":51709228,"Daily Spend":73896,"short_name":"PAN","colors":"#0957A4","x":1707350400000,"y":73896,"fill":"#0957A4"},{"date":"2024-02-09","party":"Partido Acción Nacional","amount_spent":51785427,"Daily Spend":76199,"short_name":"PAN","colors":"#0957A4","x":1707436800000,"y":76199,"fill":"#0957A4"},{"date":"2024-02-10","party":"Partido Acción Nacional","amount_spent":51861110,"Daily Spend":75683,"short_name":"PAN","colors":"#0957A4","x":1707523200000,"y":75683,"fill":"#0957A4"},{"date":"2024-02-11","party":"Partido Acción Nacional","amount_spent":51935874,"Daily Spend":74764,"short_name":"PAN","colors":"#0957A4","x":1707609600000,"y":74764,"fill":"#0957A4"},{"date":"2024-02-12","party":"Partido Acción Nacional","amount_spent":52003357,"Daily Spend":67483,"short_name":"PAN","colors":"#0957A4","x":1707696000000,"y":67483,"fill":"#0957A4"},{"date":"2024-02-13","party":"Partido Acción Nacional","amount_spent":52075368,"Daily Spend":72011,"short_name":"PAN","colors":"#0957A4","x":1707782400000,"y":72011,"fill":"#0957A4"},{"date":"2024-02-14","party":"Partido Acción Nacional","amount_spent":52151453,"Daily Spend":76085,"short_name":"PAN","colors":"#0957A4","x":1707868800000,"y":76085,"fill":"#0957A4"},{"date":"2024-02-15","party":"Partido Acción Nacional","amount_spent":52212454,"Daily Spend":61001,"short_name":"PAN","colors":"#0957A4","x":1707955200000,"y":61001,"fill":"#0957A4"},{"date":"2024-02-16","party":"Partido Acción Nacional","amount_spent":52236073,"Daily Spend":23619,"short_name":"PAN","colors":"#0957A4","x":1708041600000,"y":23619,"fill":"#0957A4"},{"date":"2024-02-17","party":"Partido Acción Nacional","amount_spent":52258534,"Daily Spend":22461,"short_name":"PAN","colors":"#0957A4","x":1708128000000,"y":22461,"fill":"#0957A4"},{"date":"2024-02-18","party":"Partido Acción Nacional","amount_spent":52274023,"Daily Spend":15489,"short_name":"PAN","colors":"#0957A4","x":1708214400000,"y":15489,"fill":"#0957A4"},{"date":"2024-02-19","party":"Partido Acción Nacional","amount_spent":52285375,"Daily Spend":11352,"short_name":"PAN","colors":"#0957A4","x":1708300800000,"y":11352,"fill":"#0957A4"},{"date":"2024-02-20","party":"Partido Acción Nacional","amount_spent":52299862,"Daily Spend":14487,"short_name":"PAN","colors":"#0957A4","x":1708387200000,"y":14487,"fill":"#0957A4"},{"date":"2024-02-21","party":"Partido Acción Nacional","amount_spent":52316763,"Daily Spend":16901,"short_name":"PAN","colors":"#0957A4","x":1708473600000,"y":16901,"fill":"#0957A4"},{"date":"2024-02-22","party":"Partido Acción Nacional","amount_spent":52338226,"Daily Spend":21463,"short_name":"PAN","colors":"#0957A4","x":1708560000000,"y":21463,"fill":"#0957A4"},{"date":"2024-02-23","party":"Partido Acción Nacional","amount_spent":52364624,"Daily Spend":26398,"short_name":"PAN","colors":"#0957A4","x":1708646400000,"y":26398,"fill":"#0957A4"},{"date":"2024-02-24","party":"Partido Acción Nacional","amount_spent":52389827,"Daily Spend":25203,"short_name":"PAN","colors":"#0957A4","x":1708732800000,"y":25203,"fill":"#0957A4"},{"date":"2024-02-25","party":"Partido Acción Nacional","amount_spent":52407767,"Daily Spend":17940,"short_name":"PAN","colors":"#0957A4","x":1708819200000,"y":17940,"fill":"#0957A4"},{"date":"2024-02-26","party":"Partido Acción Nacional","amount_spent":52442246,"Daily Spend":34479,"short_name":"PAN","colors":"#0957A4","x":1708905600000,"y":34479,"fill":"#0957A4"},{"date":"2024-02-27","party":"Partido Acción Nacional","amount_spent":52498623,"Daily Spend":56377,"short_name":"PAN","colors":"#0957A4","x":1708992000000,"y":56377,"fill":"#0957A4"},{"date":"2024-02-28","party":"Partido Acción Nacional","amount_spent":52524190,"Daily Spend":25567,"short_name":"PAN","colors":"#0957A4","x":1709078400000,"y":25567,"fill":"#0957A4"},{"date":"2024-02-29","party":"Partido Acción Nacional","amount_spent":52567288,"Daily Spend":43098,"short_name":"PAN","colors":"#0957A4","x":1709164800000,"y":43098,"fill":"#0957A4"},{"date":"2024-03-01","party":"Partido Acción Nacional","amount_spent":52619358,"Daily Spend":52070,"short_name":"PAN","colors":"#0957A4","x":1709251200000,"y":52070,"fill":"#0957A4"},{"date":"2024-03-02","party":"Partido Acción Nacional","amount_spent":52813562,"Daily Spend":194204,"short_name":"PAN","colors":"#0957A4","x":1709337600000,"y":194204,"fill":"#0957A4"},{"date":"2024-03-03","party":"Partido Acción Nacional","amount_spent":52978497,"Daily Spend":164935,"short_name":"PAN","colors":"#0957A4","x":1709424000000,"y":164935,"fill":"#0957A4"},{"date":"2024-03-04","party":"Partido Acción Nacional","amount_spent":53210549,"Daily Spend":232052,"short_name":"PAN","colors":"#0957A4","x":1709510400000,"y":232052,"fill":"#0957A4"},{"date":"2024-03-05","party":"Partido Acción Nacional","amount_spent":53477640,"Daily Spend":267091,"short_name":"PAN","colors":"#0957A4","x":1709596800000,"y":267091,"fill":"#0957A4"},{"date":"2024-03-06","party":"Partido Acción Nacional","amount_spent":53967938,"Daily Spend":490298,"short_name":"PAN","colors":"#0957A4","x":1709683200000,"y":490298,"fill":"#0957A4"},{"date":"2024-03-07","party":"Partido Acción Nacional","amount_spent":54531485,"Daily Spend":563547,"short_name":"PAN","colors":"#0957A4","x":1709769600000,"y":563547,"fill":"#0957A4"},{"date":"2024-03-08","party":"Partido Acción Nacional","amount_spent":54603255,"Daily Spend":71770,"short_name":"PAN","colors":"#0957A4","x":1709856000000,"y":71770,"fill":"#0957A4"},{"date":"2024-03-09","party":"Partido Acción Nacional","amount_spent":54614569,"Daily Spend":11314,"short_name":"PAN","colors":"#0957A4","x":1709942400000,"y":11314,"fill":"#0957A4"}],"type":"area"},{"name":"Partido Revolucionario Institucional","data":[{"date":"2023-12-31","party":"Partido Revolucionario Institucional","amount_spent":5450286,"Daily Spend":null,"short_name":"PRI","colors":"#4DA663","x":1703980800000,"y":null,"fill":"#4DA663"},{"date":"2024-01-01","party":"Partido Revolucionario Institucional","amount_spent":5450474,"Daily Spend":188,"short_name":"PRI","colors":"#4DA663","x":1704067200000,"y":188,"fill":"#4DA663"},{"date":"2024-01-02","party":"Partido Revolucionario Institucional","amount_spent":5450681,"Daily Spend":207,"short_name":"PRI","colors":"#4DA663","x":1704153600000,"y":207,"fill":"#4DA663"},{"date":"2024-01-03","party":"Partido Revolucionario Institucional","amount_spent":5451421,"Daily Spend":740,"short_name":"PRI","colors":"#4DA663","x":1704240000000,"y":740,"fill":"#4DA663"},{"date":"2024-01-04","party":"Partido Revolucionario Institucional","amount_spent":5453009,"Daily Spend":1588,"short_name":"PRI","colors":"#4DA663","x":1704326400000,"y":1588,"fill":"#4DA663"},{"date":"2024-01-05","party":"Partido Revolucionario Institucional","amount_spent":5455048,"Daily Spend":2039,"short_name":"PRI","colors":"#4DA663","x":1704412800000,"y":2039,"fill":"#4DA663"},{"date":"2024-01-06","party":"Partido Revolucionario Institucional","amount_spent":5457031,"Daily Spend":1983,"short_name":"PRI","colors":"#4DA663","x":1704499200000,"y":1983,"fill":"#4DA663"},{"date":"2024-01-07","party":"Partido Revolucionario Institucional","amount_spent":5459259,"Daily Spend":2228,"short_name":"PRI","colors":"#4DA663","x":1704585600000,"y":2228,"fill":"#4DA663"},{"date":"2024-01-08","party":"Partido Revolucionario Institucional","amount_spent":5461023,"Daily Spend":1764,"short_name":"PRI","colors":"#4DA663","x":1704672000000,"y":1764,"fill":"#4DA663"},{"date":"2024-01-09","party":"Partido Revolucionario Institucional","amount_spent":5461848,"Daily Spend":825,"short_name":"PRI","colors":"#4DA663","x":1704758400000,"y":825,"fill":"#4DA663"},{"date":"2024-01-10","party":"Partido Revolucionario Institucional","amount_spent":5461871,"Daily Spend":23,"short_name":"PRI","colors":"#4DA663","x":1704844800000,"y":23,"fill":"#4DA663"},{"date":"2024-01-11","party":"Partido Revolucionario Institucional","amount_spent":5461906,"Daily Spend":35,"short_name":"PRI","colors":"#4DA663","x":1704931200000,"y":35,"fill":"#4DA663"},{"date":"2024-01-12","party":"Partido Revolucionario Institucional","amount_spent":5463669,"Daily Spend":1763,"short_name":"PRI","colors":"#4DA663","x":1705017600000,"y":1763,"fill":"#4DA663"},{"date":"2024-01-13","party":"Partido Revolucionario Institucional","amount_spent":5465473,"Daily Spend":1804,"short_name":"PRI","colors":"#4DA663","x":1705104000000,"y":1804,"fill":"#4DA663"},{"date":"2024-01-14","party":"Partido Revolucionario Institucional","amount_spent":5467510,"Daily Spend":2037,"short_name":"PRI","colors":"#4DA663","x":1705190400000,"y":2037,"fill":"#4DA663"},{"date":"2024-01-15","party":"Partido Revolucionario Institucional","amount_spent":5469420,"Daily Spend":1910,"short_name":"PRI","colors":"#4DA663","x":1705276800000,"y":1910,"fill":"#4DA663"},{"date":"2024-01-16","party":"Partido Revolucionario Institucional","amount_spent":5471241,"Daily Spend":1821,"short_name":"PRI","colors":"#4DA663","x":1705363200000,"y":1821,"fill":"#4DA663"},{"date":"2024-01-17","party":"Partido Revolucionario Institucional","amount_spent":5472064,"Daily Spend":823,"short_name":"PRI","colors":"#4DA663","x":1705449600000,"y":823,"fill":"#4DA663"},{"date":"2024-01-18","party":"Partido Revolucionario Institucional","amount_spent":5473332,"Daily Spend":1268,"short_name":"PRI","colors":"#4DA663","x":1705536000000,"y":1268,"fill":"#4DA663"},{"date":"2024-01-19","party":"Partido Revolucionario Institucional","amount_spent":5475101,"Daily Spend":1769,"short_name":"PRI","colors":"#4DA663","x":1705622400000,"y":1769,"fill":"#4DA663"},{"date":"2024-01-20","party":"Partido Revolucionario Institucional","amount_spent":5477779,"Daily Spend":2678,"short_name":"PRI","colors":"#4DA663","x":1705708800000,"y":2678,"fill":"#4DA663"},{"date":"2024-01-21","party":"Partido Revolucionario Institucional","amount_spent":5479982,"Daily Spend":2203,"short_name":"PRI","colors":"#4DA663","x":1705795200000,"y":2203,"fill":"#4DA663"},{"date":"2024-01-22","party":"Partido Revolucionario Institucional","amount_spent":5481656,"Daily Spend":1674,"short_name":"PRI","colors":"#4DA663","x":1705881600000,"y":1674,"fill":"#4DA663"},{"date":"2024-01-23","party":"Partido Revolucionario Institucional","amount_spent":5481656,"Daily Spend":0,"short_name":"PRI","colors":"#4DA663","x":1705968000000,"y":0,"fill":"#4DA663"},{"date":"2024-01-24","party":"Partido Revolucionario Institucional","amount_spent":5481656,"Daily Spend":0,"short_name":"PRI","colors":"#4DA663","x":1706054400000,"y":0,"fill":"#4DA663"},{"date":"2024-01-25","party":"Partido Revolucionario Institucional","amount_spent":5481649,"Daily Spend":-7,"short_name":"PRI","colors":"#4DA663","x":1706140800000,"y":-7,"fill":"#4DA663"},{"date":"2024-01-26","party":"Partido Revolucionario Institucional","amount_spent":5481651,"Daily Spend":2,"short_name":"PRI","colors":"#4DA663","x":1706227200000,"y":2,"fill":"#4DA663"},{"date":"2024-01-27","party":"Partido Revolucionario Institucional","amount_spent":5482276,"Daily Spend":625,"short_name":"PRI","colors":"#4DA663","x":1706313600000,"y":625,"fill":"#4DA663"},{"date":"2024-01-28","party":"Partido Revolucionario Institucional","amount_spent":5485633,"Daily Spend":3357,"short_name":"PRI","colors":"#4DA663","x":1706400000000,"y":3357,"fill":"#4DA663"},{"date":"2024-01-29","party":"Partido Revolucionario Institucional","amount_spent":5489010,"Daily Spend":3377,"short_name":"PRI","colors":"#4DA663","x":1706486400000,"y":3377,"fill":"#4DA663"},{"date":"2024-01-30","party":"Partido Revolucionario Institucional","amount_spent":5493349,"Daily Spend":4339,"short_name":"PRI","colors":"#4DA663","x":1706572800000,"y":4339,"fill":"#4DA663"},{"date":"2024-01-31","party":"Partido Revolucionario Institucional","amount_spent":5495789,"Daily Spend":2440,"short_name":"PRI","colors":"#4DA663","x":1706659200000,"y":2440,"fill":"#4DA663"},{"date":"2024-02-01","party":"Partido Revolucionario Institucional","amount_spent":5496264,"Daily Spend":475,"short_name":"PRI","colors":"#4DA663","x":1706745600000,"y":475,"fill":"#4DA663"},{"date":"2024-02-02","party":"Partido Revolucionario Institucional","amount_spent":5496455,"Daily Spend":191,"short_name":"PRI","colors":"#4DA663","x":1706832000000,"y":191,"fill":"#4DA663"},{"date":"2024-02-03","party":"Partido Revolucionario Institucional","amount_spent":5496457,"Daily Spend":2,"short_name":"PRI","colors":"#4DA663","x":1706918400000,"y":2,"fill":"#4DA663"},{"date":"2024-02-04","party":"Partido Revolucionario Institucional","amount_spent":5496455,"Daily Spend":-2,"short_name":"PRI","colors":"#4DA663","x":1707004800000,"y":-2,"fill":"#4DA663"},{"date":"2024-02-05","party":"Partido Revolucionario Institucional","amount_spent":5496809,"Daily Spend":354,"short_name":"PRI","colors":"#4DA663","x":1707091200000,"y":354,"fill":"#4DA663"},{"date":"2024-02-06","party":"Partido Revolucionario Institucional","amount_spent":5497243,"Daily Spend":434,"short_name":"PRI","colors":"#4DA663","x":1707177600000,"y":434,"fill":"#4DA663"},{"date":"2024-02-07","party":"Partido Revolucionario Institucional","amount_spent":5497933,"Daily Spend":690,"short_name":"PRI","colors":"#4DA663","x":1707264000000,"y":690,"fill":"#4DA663"},{"date":"2024-02-08","party":"Partido Revolucionario Institucional","amount_spent":5498960,"Daily Spend":1027,"short_name":"PRI","colors":"#4DA663","x":1707350400000,"y":1027,"fill":"#4DA663"},{"date":"2024-02-09","party":"Partido Revolucionario Institucional","amount_spent":5508797,"Daily Spend":9837,"short_name":"PRI","colors":"#4DA663","x":1707436800000,"y":9837,"fill":"#4DA663"},{"date":"2024-02-10","party":"Partido Revolucionario Institucional","amount_spent":5520619,"Daily Spend":11822,"short_name":"PRI","colors":"#4DA663","x":1707523200000,"y":11822,"fill":"#4DA663"},{"date":"2024-02-11","party":"Partido Revolucionario Institucional","amount_spent":5533890,"Daily Spend":13271,"short_name":"PRI","colors":"#4DA663","x":1707609600000,"y":13271,"fill":"#4DA663"},{"date":"2024-02-12","party":"Partido Revolucionario Institucional","amount_spent":5553145,"Daily Spend":19255,"short_name":"PRI","colors":"#4DA663","x":1707696000000,"y":19255,"fill":"#4DA663"},{"date":"2024-02-13","party":"Partido Revolucionario Institucional","amount_spent":5571651,"Daily Spend":18506,"short_name":"PRI","colors":"#4DA663","x":1707782400000,"y":18506,"fill":"#4DA663"},{"date":"2024-02-14","party":"Partido Revolucionario Institucional","amount_spent":5573524,"Daily Spend":1873,"short_name":"PRI","colors":"#4DA663","x":1707868800000,"y":1873,"fill":"#4DA663"},{"date":"2024-02-15","party":"Partido Revolucionario Institucional","amount_spent":5581290,"Daily Spend":7766,"short_name":"PRI","colors":"#4DA663","x":1707955200000,"y":7766,"fill":"#4DA663"},{"date":"2024-02-16","party":"Partido Revolucionario Institucional","amount_spent":5588390,"Daily Spend":7100,"short_name":"PRI","colors":"#4DA663","x":1708041600000,"y":7100,"fill":"#4DA663"},{"date":"2024-02-17","party":"Partido Revolucionario Institucional","amount_spent":5588983,"Daily Spend":593,"short_name":"PRI","colors":"#4DA663","x":1708128000000,"y":593,"fill":"#4DA663"},{"date":"2024-02-18","party":"Partido Revolucionario Institucional","amount_spent":5589086,"Daily Spend":103,"short_name":"PRI","colors":"#4DA663","x":1708214400000,"y":103,"fill":"#4DA663"},{"date":"2024-02-19","party":"Partido Revolucionario Institucional","amount_spent":5589103,"Daily Spend":17,"short_name":"PRI","colors":"#4DA663","x":1708300800000,"y":17,"fill":"#4DA663"},{"date":"2024-02-20","party":"Partido Revolucionario Institucional","amount_spent":5589339,"Daily Spend":236,"short_name":"PRI","colors":"#4DA663","x":1708387200000,"y":236,"fill":"#4DA663"},{"date":"2024-02-21","party":"Partido Revolucionario Institucional","amount_spent":5589615,"Daily Spend":276,"short_name":"PRI","colors":"#4DA663","x":1708473600000,"y":276,"fill":"#4DA663"},{"date":"2024-02-22","party":"Partido Revolucionario Institucional","amount_spent":5589930,"Daily Spend":315,"short_name":"PRI","colors":"#4DA663","x":1708560000000,"y":315,"fill":"#4DA663"},{"date":"2024-02-23","party":"Partido Revolucionario Institucional","amount_spent":5590755,"Daily Spend":825,"short_name":"PRI","colors":"#4DA663","x":1708646400000,"y":825,"fill":"#4DA663"},{"date":"2024-02-24","party":"Partido Revolucionario Institucional","amount_spent":5595302,"Daily Spend":4547,"short_name":"PRI","colors":"#4DA663","x":1708732800000,"y":4547,"fill":"#4DA663"},{"date":"2024-02-25","party":"Partido Revolucionario Institucional","amount_spent":5600476,"Daily Spend":5174,"short_name":"PRI","colors":"#4DA663","x":1708819200000,"y":5174,"fill":"#4DA663"},{"date":"2024-02-26","party":"Partido Revolucionario Institucional","amount_spent":5605233,"Daily Spend":4757,"short_name":"PRI","colors":"#4DA663","x":1708905600000,"y":4757,"fill":"#4DA663"},{"date":"2024-02-27","party":"Partido Revolucionario Institucional","amount_spent":5610275,"Daily Spend":5042,"short_name":"PRI","colors":"#4DA663","x":1708992000000,"y":5042,"fill":"#4DA663"},{"date":"2024-02-28","party":"Partido Revolucionario Institucional","amount_spent":5618727,"Daily Spend":8452,"short_name":"PRI","colors":"#4DA663","x":1709078400000,"y":8452,"fill":"#4DA663"},{"date":"2024-02-29","party":"Partido Revolucionario Institucional","amount_spent":5627274,"Daily Spend":8547,"short_name":"PRI","colors":"#4DA663","x":1709164800000,"y":8547,"fill":"#4DA663"},{"date":"2024-03-01","party":"Partido Revolucionario Institucional","amount_spent":5627360,"Daily Spend":86,"short_name":"PRI","colors":"#4DA663","x":1709251200000,"y":86,"fill":"#4DA663"},{"date":"2024-03-02","party":"Partido Revolucionario Institucional","amount_spent":5627941,"Daily Spend":581,"short_name":"PRI","colors":"#4DA663","x":1709337600000,"y":581,"fill":"#4DA663"},{"date":"2024-03-03","party":"Partido Revolucionario Institucional","amount_spent":5628684,"Daily Spend":743,"short_name":"PRI","colors":"#4DA663","x":1709424000000,"y":743,"fill":"#4DA663"},{"date":"2024-03-04","party":"Partido Revolucionario Institucional","amount_spent":5629011,"Daily Spend":327,"short_name":"PRI","colors":"#4DA663","x":1709510400000,"y":327,"fill":"#4DA663"},{"date":"2024-03-05","party":"Partido Revolucionario Institucional","amount_spent":5629271,"Daily Spend":260,"short_name":"PRI","colors":"#4DA663","x":1709596800000,"y":260,"fill":"#4DA663"},{"date":"2024-03-06","party":"Partido Revolucionario Institucional","amount_spent":5629658,"Daily Spend":387,"short_name":"PRI","colors":"#4DA663","x":1709683200000,"y":387,"fill":"#4DA663"},{"date":"2024-03-07","party":"Partido Revolucionario Institucional","amount_spent":5657447,"Daily Spend":27789,"short_name":"PRI","colors":"#4DA663","x":1709769600000,"y":27789,"fill":"#4DA663"},{"date":"2024-03-08","party":"Partido Revolucionario Institucional","amount_spent":5697207,"Daily Spend":39760,"short_name":"PRI","colors":"#4DA663","x":1709856000000,"y":39760,"fill":"#4DA663"},{"date":"2024-03-09","party":"Partido Revolucionario Institucional","amount_spent":5740739,"Daily Spend":43532,"short_name":"PRI","colors":"#4DA663","x":1709942400000,"y":43532,"fill":"#4DA663"}],"type":"area"},{"name":"Partido Verde Ecologista de México","data":[{"date":"2023-12-31","party":"Partido Verde Ecologista de México","amount_spent":42151347,"Daily Spend":null,"short_name":"PVE","colors":"#9AC95E","x":1703980800000,"y":null,"fill":"#9AC95E"},{"date":"2024-01-01","party":"Partido Verde Ecologista de México","amount_spent":42151667,"Daily Spend":320,"short_name":"PVE","colors":"#9AC95E","x":1704067200000,"y":320,"fill":"#9AC95E"},{"date":"2024-01-02","party":"Partido Verde Ecologista de México","amount_spent":42152469,"Daily Spend":802,"short_name":"PVE","colors":"#9AC95E","x":1704153600000,"y":802,"fill":"#9AC95E"},{"date":"2024-01-03","party":"Partido Verde Ecologista de México","amount_spent":42154002,"Daily Spend":1533,"short_name":"PVE","colors":"#9AC95E","x":1704240000000,"y":1533,"fill":"#9AC95E"},{"date":"2024-01-04","party":"Partido Verde Ecologista de México","amount_spent":42155549,"Daily Spend":1547,"short_name":"PVE","colors":"#9AC95E","x":1704326400000,"y":1547,"fill":"#9AC95E"},{"date":"2024-01-05","party":"Partido Verde Ecologista de México","amount_spent":42156909,"Daily Spend":1360,"short_name":"PVE","colors":"#9AC95E","x":1704412800000,"y":1360,"fill":"#9AC95E"},{"date":"2024-01-06","party":"Partido Verde Ecologista de México","amount_spent":42158968,"Daily Spend":2059,"short_name":"PVE","colors":"#9AC95E","x":1704499200000,"y":2059,"fill":"#9AC95E"},{"date":"2024-01-07","party":"Partido Verde Ecologista de México","amount_spent":42161409,"Daily Spend":2441,"short_name":"PVE","colors":"#9AC95E","x":1704585600000,"y":2441,"fill":"#9AC95E"},{"date":"2024-01-08","party":"Partido Verde Ecologista de México","amount_spent":42163672,"Daily Spend":2263,"short_name":"PVE","colors":"#9AC95E","x":1704672000000,"y":2263,"fill":"#9AC95E"},{"date":"2024-01-09","party":"Partido Verde Ecologista de México","amount_spent":42165202,"Daily Spend":1530,"short_name":"PVE","colors":"#9AC95E","x":1704758400000,"y":1530,"fill":"#9AC95E"},{"date":"2024-01-10","party":"Partido Verde Ecologista de México","amount_spent":42166236,"Daily Spend":1034,"short_name":"PVE","colors":"#9AC95E","x":1704844800000,"y":1034,"fill":"#9AC95E"},{"date":"2024-01-11","party":"Partido Verde Ecologista de México","amount_spent":42167253,"Daily Spend":1017,"short_name":"PVE","colors":"#9AC95E","x":1704931200000,"y":1017,"fill":"#9AC95E"},{"date":"2024-01-12","party":"Partido Verde Ecologista de México","amount_spent":42168253,"Daily Spend":1000,"short_name":"PVE","colors":"#9AC95E","x":1705017600000,"y":1000,"fill":"#9AC95E"},{"date":"2024-01-13","party":"Partido Verde Ecologista de México","amount_spent":42168979,"Daily Spend":726,"short_name":"PVE","colors":"#9AC95E","x":1705104000000,"y":726,"fill":"#9AC95E"},{"date":"2024-01-14","party":"Partido Verde Ecologista de México","amount_spent":42169366,"Daily Spend":387,"short_name":"PVE","colors":"#9AC95E","x":1705190400000,"y":387,"fill":"#9AC95E"},{"date":"2024-01-15","party":"Partido Verde Ecologista de México","amount_spent":42169410,"Daily Spend":44,"short_name":"PVE","colors":"#9AC95E","x":1705276800000,"y":44,"fill":"#9AC95E"},{"date":"2024-01-16","party":"Partido Verde Ecologista de México","amount_spent":42170325,"Daily Spend":915,"short_name":"PVE","colors":"#9AC95E","x":1705363200000,"y":915,"fill":"#9AC95E"},{"date":"2024-01-17","party":"Partido Verde Ecologista de México","amount_spent":42176617,"Daily Spend":6292,"short_name":"PVE","colors":"#9AC95E","x":1705449600000,"y":6292,"fill":"#9AC95E"},{"date":"2024-01-18","party":"Partido Verde Ecologista de México","amount_spent":42186403,"Daily Spend":9786,"short_name":"PVE","colors":"#9AC95E","x":1705536000000,"y":9786,"fill":"#9AC95E"},{"date":"2024-01-19","party":"Partido Verde Ecologista de México","amount_spent":42198193,"Daily Spend":11790,"short_name":"PVE","colors":"#9AC95E","x":1705622400000,"y":11790,"fill":"#9AC95E"},{"date":"2024-01-20","party":"Partido Verde Ecologista de México","amount_spent":42209068,"Daily Spend":10875,"short_name":"PVE","colors":"#9AC95E","x":1705708800000,"y":10875,"fill":"#9AC95E"},{"date":"2024-01-21","party":"Partido Verde Ecologista de México","amount_spent":42219820,"Daily Spend":10752,"short_name":"PVE","colors":"#9AC95E","x":1705795200000,"y":10752,"fill":"#9AC95E"},{"date":"2024-01-22","party":"Partido Verde Ecologista de México","amount_spent":42223085,"Daily Spend":3265,"short_name":"PVE","colors":"#9AC95E","x":1705881600000,"y":3265,"fill":"#9AC95E"},{"date":"2024-01-23","party":"Partido Verde Ecologista de México","amount_spent":42225886,"Daily Spend":2801,"short_name":"PVE","colors":"#9AC95E","x":1705968000000,"y":2801,"fill":"#9AC95E"},{"date":"2024-01-24","party":"Partido Verde Ecologista de México","amount_spent":42226532,"Daily Spend":646,"short_name":"PVE","colors":"#9AC95E","x":1706054400000,"y":646,"fill":"#9AC95E"},{"date":"2024-01-25","party":"Partido Verde Ecologista de México","amount_spent":42227179,"Daily Spend":647,"short_name":"PVE","colors":"#9AC95E","x":1706140800000,"y":647,"fill":"#9AC95E"},{"date":"2024-01-26","party":"Partido Verde Ecologista de México","amount_spent":42228234,"Daily Spend":1055,"short_name":"PVE","colors":"#9AC95E","x":1706227200000,"y":1055,"fill":"#9AC95E"},{"date":"2024-01-27","party":"Partido Verde Ecologista de México","amount_spent":42229281,"Daily Spend":1047,"short_name":"PVE","colors":"#9AC95E","x":1706313600000,"y":1047,"fill":"#9AC95E"},{"date":"2024-01-28","party":"Partido Verde Ecologista de México","amount_spent":42229360,"Daily Spend":79,"short_name":"PVE","colors":"#9AC95E","x":1706400000000,"y":79,"fill":"#9AC95E"},{"date":"2024-01-29","party":"Partido Verde Ecologista de México","amount_spent":42243945,"Daily Spend":14585,"short_name":"PVE","colors":"#9AC95E","x":1706486400000,"y":14585,"fill":"#9AC95E"},{"date":"2024-01-30","party":"Partido Verde Ecologista de México","amount_spent":42268003,"Daily Spend":24058,"short_name":"PVE","colors":"#9AC95E","x":1706572800000,"y":24058,"fill":"#9AC95E"},{"date":"2024-01-31","party":"Partido Verde Ecologista de México","amount_spent":42277512,"Daily Spend":9509,"short_name":"PVE","colors":"#9AC95E","x":1706659200000,"y":9509,"fill":"#9AC95E"},{"date":"2024-02-01","party":"Partido Verde Ecologista de México","amount_spent":42283265,"Daily Spend":5753,"short_name":"PVE","colors":"#9AC95E","x":1706745600000,"y":5753,"fill":"#9AC95E"},{"date":"2024-02-02","party":"Partido Verde Ecologista de México","amount_spent":42302753,"Daily Spend":19488,"short_name":"PVE","colors":"#9AC95E","x":1706832000000,"y":19488,"fill":"#9AC95E"},{"date":"2024-02-03","party":"Partido Verde Ecologista de México","amount_spent":42323215,"Daily Spend":20462,"short_name":"PVE","colors":"#9AC95E","x":1706918400000,"y":20462,"fill":"#9AC95E"},{"date":"2024-02-04","party":"Partido Verde Ecologista de México","amount_spent":42332671,"Daily Spend":9456,"short_name":"PVE","colors":"#9AC95E","x":1707004800000,"y":9456,"fill":"#9AC95E"},{"date":"2024-02-05","party":"Partido Verde Ecologista de México","amount_spent":42369375,"Daily Spend":36704,"short_name":"PVE","colors":"#9AC95E","x":1707091200000,"y":36704,"fill":"#9AC95E"},{"date":"2024-02-06","party":"Partido Verde Ecologista de México","amount_spent":42406442,"Daily Spend":37067,"short_name":"PVE","colors":"#9AC95E","x":1707177600000,"y":37067,"fill":"#9AC95E"},{"date":"2024-02-07","party":"Partido Verde Ecologista de México","amount_spent":42450272,"Daily Spend":43830,"short_name":"PVE","colors":"#9AC95E","x":1707264000000,"y":43830,"fill":"#9AC95E"},{"date":"2024-02-08","party":"Partido Verde Ecologista de México","amount_spent":42508564,"Daily Spend":58292,"short_name":"PVE","colors":"#9AC95E","x":1707350400000,"y":58292,"fill":"#9AC95E"},{"date":"2024-02-09","party":"Partido Verde Ecologista de México","amount_spent":42647448,"Daily Spend":138884,"short_name":"PVE","colors":"#9AC95E","x":1707436800000,"y":138884,"fill":"#9AC95E"},{"date":"2024-02-10","party":"Partido Verde Ecologista de México","amount_spent":42796898,"Daily Spend":149450,"short_name":"PVE","colors":"#9AC95E","x":1707523200000,"y":149450,"fill":"#9AC95E"},{"date":"2024-02-11","party":"Partido Verde Ecologista de México","amount_spent":42950726,"Daily Spend":153828,"short_name":"PVE","colors":"#9AC95E","x":1707609600000,"y":153828,"fill":"#9AC95E"},{"date":"2024-02-12","party":"Partido Verde Ecologista de México","amount_spent":42956330,"Daily Spend":5604,"short_name":"PVE","colors":"#9AC95E","x":1707696000000,"y":5604,"fill":"#9AC95E"},{"date":"2024-02-13","party":"Partido Verde Ecologista de México","amount_spent":42960011,"Daily Spend":3681,"short_name":"PVE","colors":"#9AC95E","x":1707782400000,"y":3681,"fill":"#9AC95E"},{"date":"2024-02-14","party":"Partido Verde Ecologista de México","amount_spent":42963793,"Daily Spend":3782,"short_name":"PVE","colors":"#9AC95E","x":1707868800000,"y":3782,"fill":"#9AC95E"},{"date":"2024-02-15","party":"Partido Verde Ecologista de México","amount_spent":42966146,"Daily Spend":2353,"short_name":"PVE","colors":"#9AC95E","x":1707955200000,"y":2353,"fill":"#9AC95E"},{"date":"2024-02-16","party":"Partido Verde Ecologista de México","amount_spent":42969647,"Daily Spend":3501,"short_name":"PVE","colors":"#9AC95E","x":1708041600000,"y":3501,"fill":"#9AC95E"},{"date":"2024-02-17","party":"Partido Verde Ecologista de México","amount_spent":42980388,"Daily Spend":10741,"short_name":"PVE","colors":"#9AC95E","x":1708128000000,"y":10741,"fill":"#9AC95E"},{"date":"2024-02-18","party":"Partido Verde Ecologista de México","amount_spent":43000880,"Daily Spend":20492,"short_name":"PVE","colors":"#9AC95E","x":1708214400000,"y":20492,"fill":"#9AC95E"},{"date":"2024-02-19","party":"Partido Verde Ecologista de México","amount_spent":43027684,"Daily Spend":26804,"short_name":"PVE","colors":"#9AC95E","x":1708300800000,"y":26804,"fill":"#9AC95E"},{"date":"2024-02-20","party":"Partido Verde Ecologista de México","amount_spent":43274777,"Daily Spend":247093,"short_name":"PVE","colors":"#9AC95E","x":1708387200000,"y":247093,"fill":"#9AC95E"},{"date":"2024-02-21","party":"Partido Verde Ecologista de México","amount_spent":43523557,"Daily Spend":248780,"short_name":"PVE","colors":"#9AC95E","x":1708473600000,"y":248780,"fill":"#9AC95E"},{"date":"2024-02-22","party":"Partido Verde Ecologista de México","amount_spent":43769424,"Daily Spend":245867,"short_name":"PVE","colors":"#9AC95E","x":1708560000000,"y":245867,"fill":"#9AC95E"},{"date":"2024-02-23","party":"Partido Verde Ecologista de México","amount_spent":44006236,"Daily Spend":236812,"short_name":"PVE","colors":"#9AC95E","x":1708646400000,"y":236812,"fill":"#9AC95E"},{"date":"2024-02-24","party":"Partido Verde Ecologista de México","amount_spent":44211881,"Daily Spend":205645,"short_name":"PVE","colors":"#9AC95E","x":1708732800000,"y":205645,"fill":"#9AC95E"},{"date":"2024-02-25","party":"Partido Verde Ecologista de México","amount_spent":44383419,"Daily Spend":171538,"short_name":"PVE","colors":"#9AC95E","x":1708819200000,"y":171538,"fill":"#9AC95E"},{"date":"2024-02-26","party":"Partido Verde Ecologista de México","amount_spent":44545228,"Daily Spend":161809,"short_name":"PVE","colors":"#9AC95E","x":1708905600000,"y":161809,"fill":"#9AC95E"},{"date":"2024-02-27","party":"Partido Verde Ecologista de México","amount_spent":44747611,"Daily Spend":202383,"short_name":"PVE","colors":"#9AC95E","x":1708992000000,"y":202383,"fill":"#9AC95E"},{"date":"2024-02-28","party":"Partido Verde Ecologista de México","amount_spent":45093855,"Daily Spend":346244,"short_name":"PVE","colors":"#9AC95E","x":1709078400000,"y":346244,"fill":"#9AC95E"},{"date":"2024-02-29","party":"Partido Verde Ecologista de México","amount_spent":45298026,"Daily Spend":204171,"short_name":"PVE","colors":"#9AC95E","x":1709164800000,"y":204171,"fill":"#9AC95E"},{"date":"2024-03-01","party":"Partido Verde Ecologista de México","amount_spent":45298436,"Daily Spend":410,"short_name":"PVE","colors":"#9AC95E","x":1709251200000,"y":410,"fill":"#9AC95E"},{"date":"2024-03-02","party":"Partido Verde Ecologista de México","amount_spent":45298436,"Daily Spend":0,"short_name":"PVE","colors":"#9AC95E","x":1709337600000,"y":0,"fill":"#9AC95E"},{"date":"2024-03-03","party":"Partido Verde Ecologista de México","amount_spent":45339456,"Daily Spend":41020,"short_name":"PVE","colors":"#9AC95E","x":1709424000000,"y":41020,"fill":"#9AC95E"},{"date":"2024-03-04","party":"Partido Verde Ecologista de México","amount_spent":45469215,"Daily Spend":129759,"short_name":"PVE","colors":"#9AC95E","x":1709510400000,"y":129759,"fill":"#9AC95E"},{"date":"2024-03-05","party":"Partido Verde Ecologista de México","amount_spent":45637982,"Daily Spend":168767,"short_name":"PVE","colors":"#9AC95E","x":1709596800000,"y":168767,"fill":"#9AC95E"},{"date":"2024-03-06","party":"Partido Verde Ecologista de México","amount_spent":45749381,"Daily Spend":111399,"short_name":"PVE","colors":"#9AC95E","x":1709683200000,"y":111399,"fill":"#9AC95E"},{"date":"2024-03-07","party":"Partido Verde Ecologista de México","amount_spent":45841800,"Daily Spend":92419,"short_name":"PVE","colors":"#9AC95E","x":1709769600000,"y":92419,"fill":"#9AC95E"},{"date":"2024-03-08","party":"Partido Verde Ecologista de México","amount_spent":46038258,"Daily Spend":196458,"short_name":"PVE","colors":"#9AC95E","x":1709856000000,"y":196458,"fill":"#9AC95E"},{"date":"2024-03-09","party":"Partido Verde Ecologista de México","amount_spent":46235820,"Daily Spend":197562,"short_name":"PVE","colors":"#9AC95E","x":1709942400000,"y":197562,"fill":"#9AC95E"}],"type":"area"},{"name":"Partido de la Revolución Democrática","data":[{"date":"2023-12-31","party":"Partido de la Revolución Democrática","amount_spent":5561745,"Daily Spend":null,"short_name":"PRD","colors":"#ffcd00","x":1703980800000,"y":null,"fill":"#ffcd00"},{"date":"2024-01-01","party":"Partido de la Revolución Democrática","amount_spent":5561986,"Daily Spend":241,"short_name":"PRD","colors":"#ffcd00","x":1704067200000,"y":241,"fill":"#ffcd00"},{"date":"2024-01-02","party":"Partido de la Revolución Democrática","amount_spent":5562198,"Daily Spend":212,"short_name":"PRD","colors":"#ffcd00","x":1704153600000,"y":212,"fill":"#ffcd00"},{"date":"2024-01-03","party":"Partido de la Revolución Democrática","amount_spent":5562197,"Daily Spend":-1,"short_name":"PRD","colors":"#ffcd00","x":1704240000000,"y":-1,"fill":"#ffcd00"},{"date":"2024-01-04","party":"Partido de la Revolución Democrática","amount_spent":5562844,"Daily Spend":647,"short_name":"PRD","colors":"#ffcd00","x":1704326400000,"y":647,"fill":"#ffcd00"},{"date":"2024-01-05","party":"Partido de la Revolución Democrática","amount_spent":5564894,"Daily Spend":2050,"short_name":"PRD","colors":"#ffcd00","x":1704412800000,"y":2050,"fill":"#ffcd00"},{"date":"2024-01-06","party":"Partido de la Revolución Democrática","amount_spent":5567097,"Daily Spend":2203,"short_name":"PRD","colors":"#ffcd00","x":1704499200000,"y":2203,"fill":"#ffcd00"},{"date":"2024-01-07","party":"Partido de la Revolución Democrática","amount_spent":5569204,"Daily Spend":2107,"short_name":"PRD","colors":"#ffcd00","x":1704585600000,"y":2107,"fill":"#ffcd00"},{"date":"2024-01-08","party":"Partido de la Revolución Democrática","amount_spent":5570880,"Daily Spend":1676,"short_name":"PRD","colors":"#ffcd00","x":1704672000000,"y":1676,"fill":"#ffcd00"},{"date":"2024-01-09","party":"Partido de la Revolución Democrática","amount_spent":5572259,"Daily Spend":1379,"short_name":"PRD","colors":"#ffcd00","x":1704758400000,"y":1379,"fill":"#ffcd00"},{"date":"2024-01-10","party":"Partido de la Revolución Democrática","amount_spent":5573942,"Daily Spend":1683,"short_name":"PRD","colors":"#ffcd00","x":1704844800000,"y":1683,"fill":"#ffcd00"},{"date":"2024-01-11","party":"Partido de la Revolución Democrática","amount_spent":5576927,"Daily Spend":2985,"short_name":"PRD","colors":"#ffcd00","x":1704931200000,"y":2985,"fill":"#ffcd00"},{"date":"2024-01-12","party":"Partido de la Revolución Democrática","amount_spent":5580055,"Daily Spend":3128,"short_name":"PRD","colors":"#ffcd00","x":1705017600000,"y":3128,"fill":"#ffcd00"},{"date":"2024-01-13","party":"Partido de la Revolución Democrática","amount_spent":5583259,"Daily Spend":3204,"short_name":"PRD","colors":"#ffcd00","x":1705104000000,"y":3204,"fill":"#ffcd00"},{"date":"2024-01-14","party":"Partido de la Revolución Democrática","amount_spent":5586227,"Daily Spend":2968,"short_name":"PRD","colors":"#ffcd00","x":1705190400000,"y":2968,"fill":"#ffcd00"},{"date":"2024-01-15","party":"Partido de la Revolución Democrática","amount_spent":5587617,"Daily Spend":1390,"short_name":"PRD","colors":"#ffcd00","x":1705276800000,"y":1390,"fill":"#ffcd00"},{"date":"2024-01-16","party":"Partido de la Revolución Democrática","amount_spent":5592383,"Daily Spend":4766,"short_name":"PRD","colors":"#ffcd00","x":1705363200000,"y":4766,"fill":"#ffcd00"},{"date":"2024-01-17","party":"Partido de la Revolución Democrática","amount_spent":5597620,"Daily Spend":5237,"short_name":"PRD","colors":"#ffcd00","x":1705449600000,"y":5237,"fill":"#ffcd00"},{"date":"2024-01-18","party":"Partido de la Revolución Democrática","amount_spent":5598291,"Daily Spend":671,"short_name":"PRD","colors":"#ffcd00","x":1705536000000,"y":671,"fill":"#ffcd00"},{"date":"2024-01-19","party":"Partido de la Revolución Democrática","amount_spent":5599105,"Daily Spend":814,"short_name":"PRD","colors":"#ffcd00","x":1705622400000,"y":814,"fill":"#ffcd00"},{"date":"2024-01-20","party":"Partido de la Revolución Democrática","amount_spent":5600074,"Daily Spend":969,"short_name":"PRD","colors":"#ffcd00","x":1705708800000,"y":969,"fill":"#ffcd00"},{"date":"2024-01-21","party":"Partido de la Revolución Democrática","amount_spent":5600997,"Daily Spend":923,"short_name":"PRD","colors":"#ffcd00","x":1705795200000,"y":923,"fill":"#ffcd00"},{"date":"2024-01-22","party":"Partido de la Revolución Democrática","amount_spent":5601865,"Daily Spend":868,"short_name":"PRD","colors":"#ffcd00","x":1705881600000,"y":868,"fill":"#ffcd00"},{"date":"2024-01-23","party":"Partido de la Revolución Democrática","amount_spent":5602429,"Daily Spend":564,"short_name":"PRD","colors":"#ffcd00","x":1705968000000,"y":564,"fill":"#ffcd00"},{"date":"2024-01-24","party":"Partido de la Revolución Democrática","amount_spent":5602910,"Daily Spend":481,"short_name":"PRD","colors":"#ffcd00","x":1706054400000,"y":481,"fill":"#ffcd00"},{"date":"2024-01-25","party":"Partido de la Revolución Democrática","amount_spent":5603341,"Daily Spend":431,"short_name":"PRD","colors":"#ffcd00","x":1706140800000,"y":431,"fill":"#ffcd00"},{"date":"2024-01-26","party":"Partido de la Revolución Democrática","amount_spent":5603834,"Daily Spend":493,"short_name":"PRD","colors":"#ffcd00","x":1706227200000,"y":493,"fill":"#ffcd00"},{"date":"2024-01-27","party":"Partido de la Revolución Democrática","amount_spent":5604315,"Daily Spend":481,"short_name":"PRD","colors":"#ffcd00","x":1706313600000,"y":481,"fill":"#ffcd00"},{"date":"2024-01-28","party":"Partido de la Revolución Democrática","amount_spent":5604745,"Daily Spend":430,"short_name":"PRD","colors":"#ffcd00","x":1706400000000,"y":430,"fill":"#ffcd00"},{"date":"2024-01-29","party":"Partido de la Revolución Democrática","amount_spent":5605118,"Daily Spend":373,"short_name":"PRD","colors":"#ffcd00","x":1706486400000,"y":373,"fill":"#ffcd00"},{"date":"2024-01-30","party":"Partido de la Revolución Democrática","amount_spent":5684680,"Daily Spend":79562,"short_name":"PRD","colors":"#ffcd00","x":1706572800000,"y":79562,"fill":"#ffcd00"},{"date":"2024-01-31","party":"Partido de la Revolución Democrática","amount_spent":5684933,"Daily Spend":253,"short_name":"PRD","colors":"#ffcd00","x":1706659200000,"y":253,"fill":"#ffcd00"},{"date":"2024-02-01","party":"Partido de la Revolución Democrática","amount_spent":5685159,"Daily Spend":226,"short_name":"PRD","colors":"#ffcd00","x":1706745600000,"y":226,"fill":"#ffcd00"},{"date":"2024-02-02","party":"Partido de la Revolución Democrática","amount_spent":5685343,"Daily Spend":184,"short_name":"PRD","colors":"#ffcd00","x":1706832000000,"y":184,"fill":"#ffcd00"},{"date":"2024-02-03","party":"Partido de la Revolución Democrática","amount_spent":5685542,"Daily Spend":199,"short_name":"PRD","colors":"#ffcd00","x":1706918400000,"y":199,"fill":"#ffcd00"},{"date":"2024-02-04","party":"Partido de la Revolución Democrática","amount_spent":5685810,"Daily Spend":268,"short_name":"PRD","colors":"#ffcd00","x":1707004800000,"y":268,"fill":"#ffcd00"},{"date":"2024-02-05","party":"Partido de la Revolución Democrática","amount_spent":5686120,"Daily Spend":310,"short_name":"PRD","colors":"#ffcd00","x":1707091200000,"y":310,"fill":"#ffcd00"},{"date":"2024-02-06","party":"Partido de la Revolución Democrática","amount_spent":5686322,"Daily Spend":202,"short_name":"PRD","colors":"#ffcd00","x":1707177600000,"y":202,"fill":"#ffcd00"},{"date":"2024-02-07","party":"Partido de la Revolución Democrática","amount_spent":5686662,"Daily Spend":340,"short_name":"PRD","colors":"#ffcd00","x":1707264000000,"y":340,"fill":"#ffcd00"},{"date":"2024-02-08","party":"Partido de la Revolución Democrática","amount_spent":5687888,"Daily Spend":1226,"short_name":"PRD","colors":"#ffcd00","x":1707350400000,"y":1226,"fill":"#ffcd00"},{"date":"2024-02-09","party":"Partido de la Revolución Democrática","amount_spent":5688639,"Daily Spend":751,"short_name":"PRD","colors":"#ffcd00","x":1707436800000,"y":751,"fill":"#ffcd00"},{"date":"2024-02-10","party":"Partido de la Revolución Democrática","amount_spent":5689434,"Daily Spend":795,"short_name":"PRD","colors":"#ffcd00","x":1707523200000,"y":795,"fill":"#ffcd00"},{"date":"2024-02-11","party":"Partido de la Revolución Democrática","amount_spent":5690365,"Daily Spend":931,"short_name":"PRD","colors":"#ffcd00","x":1707609600000,"y":931,"fill":"#ffcd00"},{"date":"2024-02-12","party":"Partido de la Revolución Democrática","amount_spent":5691307,"Daily Spend":942,"short_name":"PRD","colors":"#ffcd00","x":1707696000000,"y":942,"fill":"#ffcd00"},{"date":"2024-02-13","party":"Partido de la Revolución Democrática","amount_spent":5692412,"Daily Spend":1105,"short_name":"PRD","colors":"#ffcd00","x":1707782400000,"y":1105,"fill":"#ffcd00"},{"date":"2024-02-14","party":"Partido de la Revolución Democrática","amount_spent":5693984,"Daily Spend":1572,"short_name":"PRD","colors":"#ffcd00","x":1707868800000,"y":1572,"fill":"#ffcd00"},{"date":"2024-02-15","party":"Partido de la Revolución Democrática","amount_spent":5694655,"Daily Spend":671,"short_name":"PRD","colors":"#ffcd00","x":1707955200000,"y":671,"fill":"#ffcd00"},{"date":"2024-02-16","party":"Partido de la Revolución Democrática","amount_spent":5695432,"Daily Spend":777,"short_name":"PRD","colors":"#ffcd00","x":1708041600000,"y":777,"fill":"#ffcd00"},{"date":"2024-02-17","party":"Partido de la Revolución Democrática","amount_spent":5695961,"Daily Spend":529,"short_name":"PRD","colors":"#ffcd00","x":1708128000000,"y":529,"fill":"#ffcd00"},{"date":"2024-02-18","party":"Partido de la Revolución Democrática","amount_spent":5696517,"Daily Spend":556,"short_name":"PRD","colors":"#ffcd00","x":1708214400000,"y":556,"fill":"#ffcd00"},{"date":"2024-02-19","party":"Partido de la Revolución Democrática","amount_spent":5697269,"Daily Spend":752,"short_name":"PRD","colors":"#ffcd00","x":1708300800000,"y":752,"fill":"#ffcd00"},{"date":"2024-02-20","party":"Partido de la Revolución Democrática","amount_spent":5698258,"Daily Spend":989,"short_name":"PRD","colors":"#ffcd00","x":1708387200000,"y":989,"fill":"#ffcd00"},{"date":"2024-02-21","party":"Partido de la Revolución Democrática","amount_spent":5698944,"Daily Spend":686,"short_name":"PRD","colors":"#ffcd00","x":1708473600000,"y":686,"fill":"#ffcd00"},{"date":"2024-02-22","party":"Partido de la Revolución Democrática","amount_spent":5699670,"Daily Spend":726,"short_name":"PRD","colors":"#ffcd00","x":1708560000000,"y":726,"fill":"#ffcd00"},{"date":"2024-02-23","party":"Partido de la Revolución Democrática","amount_spent":5700428,"Daily Spend":758,"short_name":"PRD","colors":"#ffcd00","x":1708646400000,"y":758,"fill":"#ffcd00"},{"date":"2024-02-24","party":"Partido de la Revolución Democrática","amount_spent":5700732,"Daily Spend":304,"short_name":"PRD","colors":"#ffcd00","x":1708732800000,"y":304,"fill":"#ffcd00"},{"date":"2024-02-25","party":"Partido de la Revolución Democrática","amount_spent":5700862,"Daily Spend":130,"short_name":"PRD","colors":"#ffcd00","x":1708819200000,"y":130,"fill":"#ffcd00"},{"date":"2024-02-26","party":"Partido de la Revolución Democrática","amount_spent":5700936,"Daily Spend":74,"short_name":"PRD","colors":"#ffcd00","x":1708905600000,"y":74,"fill":"#ffcd00"},{"date":"2024-02-27","party":"Partido de la Revolución Democrática","amount_spent":5700986,"Daily Spend":50,"short_name":"PRD","colors":"#ffcd00","x":1708992000000,"y":50,"fill":"#ffcd00"},{"date":"2024-02-28","party":"Partido de la Revolución Democrática","amount_spent":5667132,"Daily Spend":-33854,"short_name":"PRD","colors":"#ffcd00","x":1709078400000,"y":-33854,"fill":"#ffcd00"},{"date":"2024-02-29","party":"Partido de la Revolución Democrática","amount_spent":5667181,"Daily Spend":49,"short_name":"PRD","colors":"#ffcd00","x":1709164800000,"y":49,"fill":"#ffcd00"},{"date":"2024-03-01","party":"Partido de la Revolución Democrática","amount_spent":5669220,"Daily Spend":2039,"short_name":"PRD","colors":"#ffcd00","x":1709251200000,"y":2039,"fill":"#ffcd00"},{"date":"2024-03-02","party":"Partido de la Revolución Democrática","amount_spent":5672109,"Daily Spend":2889,"short_name":"PRD","colors":"#ffcd00","x":1709337600000,"y":2889,"fill":"#ffcd00"},{"date":"2024-03-03","party":"Partido de la Revolución Democrática","amount_spent":5676100,"Daily Spend":3991,"short_name":"PRD","colors":"#ffcd00","x":1709424000000,"y":3991,"fill":"#ffcd00"},{"date":"2024-03-04","party":"Partido de la Revolución Democrática","amount_spent":5680415,"Daily Spend":4315,"short_name":"PRD","colors":"#ffcd00","x":1709510400000,"y":4315,"fill":"#ffcd00"},{"date":"2024-03-05","party":"Partido de la Revolución Democrática","amount_spent":5684345,"Daily Spend":3930,"short_name":"PRD","colors":"#ffcd00","x":1709596800000,"y":3930,"fill":"#ffcd00"},{"date":"2024-03-06","party":"Partido de la Revolución Democrática","amount_spent":5688392,"Daily Spend":4047,"short_name":"PRD","colors":"#ffcd00","x":1709683200000,"y":4047,"fill":"#ffcd00"},{"date":"2024-03-07","party":"Partido de la Revolución Democrática","amount_spent":5688567,"Daily Spend":175,"short_name":"PRD","colors":"#ffcd00","x":1709769600000,"y":175,"fill":"#ffcd00"},{"date":"2024-03-08","party":"Partido de la Revolución Democrática","amount_spent":5688736,"Daily Spend":169,"short_name":"PRD","colors":"#ffcd00","x":1709856000000,"y":169,"fill":"#ffcd00"},{"date":"2024-03-09","party":"Partido de la Revolución Democrática","amount_spent":5688811,"Daily Spend":75,"short_name":"PRD","colors":"#ffcd00","x":1709942400000,"y":75,"fill":"#ffcd00"}],"type":"area"},{"name":"Partido del Trabajo","data":[{"date":"2023-12-31","party":"Partido del Trabajo","amount_spent":2620185,"Daily Spend":null,"short_name":"PT","colors":"#DB2017","x":1703980800000,"y":null,"fill":"#DB2017"},{"date":"2024-01-01","party":"Partido del Trabajo","amount_spent":2621786,"Daily Spend":1601,"short_name":"PT","colors":"#DB2017","x":1704067200000,"y":1601,"fill":"#DB2017"},{"date":"2024-01-02","party":"Partido del Trabajo","amount_spent":2622977,"Daily Spend":1191,"short_name":"PT","colors":"#DB2017","x":1704153600000,"y":1191,"fill":"#DB2017"},{"date":"2024-01-03","party":"Partido del Trabajo","amount_spent":2624020,"Daily Spend":1043,"short_name":"PT","colors":"#DB2017","x":1704240000000,"y":1043,"fill":"#DB2017"},{"date":"2024-01-04","party":"Partido del Trabajo","amount_spent":2625122,"Daily Spend":1102,"short_name":"PT","colors":"#DB2017","x":1704326400000,"y":1102,"fill":"#DB2017"},{"date":"2024-01-05","party":"Partido del Trabajo","amount_spent":2625791,"Daily Spend":669,"short_name":"PT","colors":"#DB2017","x":1704412800000,"y":669,"fill":"#DB2017"},{"date":"2024-01-06","party":"Partido del Trabajo","amount_spent":2626604,"Daily Spend":813,"short_name":"PT","colors":"#DB2017","x":1704499200000,"y":813,"fill":"#DB2017"},{"date":"2024-01-07","party":"Partido del Trabajo","amount_spent":2627352,"Daily Spend":748,"short_name":"PT","colors":"#DB2017","x":1704585600000,"y":748,"fill":"#DB2017"},{"date":"2024-01-08","party":"Partido del Trabajo","amount_spent":2628102,"Daily Spend":750,"short_name":"PT","colors":"#DB2017","x":1704672000000,"y":750,"fill":"#DB2017"},{"date":"2024-01-09","party":"Partido del Trabajo","amount_spent":2628446,"Daily Spend":344,"short_name":"PT","colors":"#DB2017","x":1704758400000,"y":344,"fill":"#DB2017"},{"date":"2024-01-10","party":"Partido del Trabajo","amount_spent":2629248,"Daily Spend":802,"short_name":"PT","colors":"#DB2017","x":1704844800000,"y":802,"fill":"#DB2017"},{"date":"2024-01-11","party":"Partido del Trabajo","amount_spent":2630315,"Daily Spend":1067,"short_name":"PT","colors":"#DB2017","x":1704931200000,"y":1067,"fill":"#DB2017"},{"date":"2024-01-12","party":"Partido del Trabajo","amount_spent":2631359,"Daily Spend":1044,"short_name":"PT","colors":"#DB2017","x":1705017600000,"y":1044,"fill":"#DB2017"},{"date":"2024-01-13","party":"Partido del Trabajo","amount_spent":2632356,"Daily Spend":997,"short_name":"PT","colors":"#DB2017","x":1705104000000,"y":997,"fill":"#DB2017"},{"date":"2024-01-14","party":"Partido del Trabajo","amount_spent":2632984,"Daily Spend":628,"short_name":"PT","colors":"#DB2017","x":1705190400000,"y":628,"fill":"#DB2017"},{"date":"2024-01-15","party":"Partido del Trabajo","amount_spent":2633601,"Daily Spend":617,"short_name":"PT","colors":"#DB2017","x":1705276800000,"y":617,"fill":"#DB2017"},{"date":"2024-01-16","party":"Partido del Trabajo","amount_spent":2634129,"Daily Spend":528,"short_name":"PT","colors":"#DB2017","x":1705363200000,"y":528,"fill":"#DB2017"},{"date":"2024-01-17","party":"Partido del Trabajo","amount_spent":2635727,"Daily Spend":1598,"short_name":"PT","colors":"#DB2017","x":1705449600000,"y":1598,"fill":"#DB2017"},{"date":"2024-01-18","party":"Partido del Trabajo","amount_spent":2638431,"Daily Spend":2704,"short_name":"PT","colors":"#DB2017","x":1705536000000,"y":2704,"fill":"#DB2017"},{"date":"2024-01-19","party":"Partido del Trabajo","amount_spent":2641865,"Daily Spend":3434,"short_name":"PT","colors":"#DB2017","x":1705622400000,"y":3434,"fill":"#DB2017"},{"date":"2024-01-20","party":"Partido del Trabajo","amount_spent":2645211,"Daily Spend":3346,"short_name":"PT","colors":"#DB2017","x":1705708800000,"y":3346,"fill":"#DB2017"},{"date":"2024-01-21","party":"Partido del Trabajo","amount_spent":2653462,"Daily Spend":8251,"short_name":"PT","colors":"#DB2017","x":1705795200000,"y":8251,"fill":"#DB2017"},{"date":"2024-01-22","party":"Partido del Trabajo","amount_spent":2663148,"Daily Spend":9686,"short_name":"PT","colors":"#DB2017","x":1705881600000,"y":9686,"fill":"#DB2017"},{"date":"2024-01-23","party":"Partido del Trabajo","amount_spent":2667628,"Daily Spend":4480,"short_name":"PT","colors":"#DB2017","x":1705968000000,"y":4480,"fill":"#DB2017"},{"date":"2024-01-24","party":"Partido del Trabajo","amount_spent":2668907,"Daily Spend":1279,"short_name":"PT","colors":"#DB2017","x":1706054400000,"y":1279,"fill":"#DB2017"},{"date":"2024-01-25","party":"Partido del Trabajo","amount_spent":2669881,"Daily Spend":974,"short_name":"PT","colors":"#DB2017","x":1706140800000,"y":974,"fill":"#DB2017"},{"date":"2024-01-26","party":"Partido del Trabajo","amount_spent":2671825,"Daily Spend":1944,"short_name":"PT","colors":"#DB2017","x":1706227200000,"y":1944,"fill":"#DB2017"},{"date":"2024-01-27","party":"Partido del Trabajo","amount_spent":2674593,"Daily Spend":2768,"short_name":"PT","colors":"#DB2017","x":1706313600000,"y":2768,"fill":"#DB2017"},{"date":"2024-01-28","party":"Partido del Trabajo","amount_spent":2677290,"Daily Spend":2697,"short_name":"PT","colors":"#DB2017","x":1706400000000,"y":2697,"fill":"#DB2017"},{"date":"2024-01-29","party":"Partido del Trabajo","amount_spent":2679018,"Daily Spend":1728,"short_name":"PT","colors":"#DB2017","x":1706486400000,"y":1728,"fill":"#DB2017"},{"date":"2024-01-30","party":"Partido del Trabajo","amount_spent":2684652,"Daily Spend":5634,"short_name":"PT","colors":"#DB2017","x":1706572800000,"y":5634,"fill":"#DB2017"},{"date":"2024-01-31","party":"Partido del Trabajo","amount_spent":2687294,"Daily Spend":2642,"short_name":"PT","colors":"#DB2017","x":1706659200000,"y":2642,"fill":"#DB2017"},{"date":"2024-02-01","party":"Partido del Trabajo","amount_spent":2692801,"Daily Spend":5507,"short_name":"PT","colors":"#DB2017","x":1706745600000,"y":5507,"fill":"#DB2017"},{"date":"2024-02-02","party":"Partido del Trabajo","amount_spent":2698108,"Daily Spend":5307,"short_name":"PT","colors":"#DB2017","x":1706832000000,"y":5307,"fill":"#DB2017"},{"date":"2024-02-03","party":"Partido del Trabajo","amount_spent":2703257,"Daily Spend":5149,"short_name":"PT","colors":"#DB2017","x":1706918400000,"y":5149,"fill":"#DB2017"},{"date":"2024-02-04","party":"Partido del Trabajo","amount_spent":2705245,"Daily Spend":1988,"short_name":"PT","colors":"#DB2017","x":1707004800000,"y":1988,"fill":"#DB2017"},{"date":"2024-02-05","party":"Partido del Trabajo","amount_spent":2707226,"Daily Spend":1981,"short_name":"PT","colors":"#DB2017","x":1707091200000,"y":1981,"fill":"#DB2017"},{"date":"2024-02-06","party":"Partido del Trabajo","amount_spent":2708696,"Daily Spend":1470,"short_name":"PT","colors":"#DB2017","x":1707177600000,"y":1470,"fill":"#DB2017"},{"date":"2024-02-07","party":"Partido del Trabajo","amount_spent":2709969,"Daily Spend":1273,"short_name":"PT","colors":"#DB2017","x":1707264000000,"y":1273,"fill":"#DB2017"},{"date":"2024-02-08","party":"Partido del Trabajo","amount_spent":2711810,"Daily Spend":1841,"short_name":"PT","colors":"#DB2017","x":1707350400000,"y":1841,"fill":"#DB2017"},{"date":"2024-02-09","party":"Partido del Trabajo","amount_spent":2716915,"Daily Spend":5105,"short_name":"PT","colors":"#DB2017","x":1707436800000,"y":5105,"fill":"#DB2017"},{"date":"2024-02-10","party":"Partido del Trabajo","amount_spent":2721597,"Daily Spend":4682,"short_name":"PT","colors":"#DB2017","x":1707523200000,"y":4682,"fill":"#DB2017"},{"date":"2024-02-11","party":"Partido del Trabajo","amount_spent":2726576,"Daily Spend":4979,"short_name":"PT","colors":"#DB2017","x":1707609600000,"y":4979,"fill":"#DB2017"},{"date":"2024-02-12","party":"Partido del Trabajo","amount_spent":2731136,"Daily Spend":4560,"short_name":"PT","colors":"#DB2017","x":1707696000000,"y":4560,"fill":"#DB2017"},{"date":"2024-02-13","party":"Partido del Trabajo","amount_spent":2732267,"Daily Spend":1131,"short_name":"PT","colors":"#DB2017","x":1707782400000,"y":1131,"fill":"#DB2017"},{"date":"2024-02-14","party":"Partido del Trabajo","amount_spent":2734129,"Daily Spend":1862,"short_name":"PT","colors":"#DB2017","x":1707868800000,"y":1862,"fill":"#DB2017"},{"date":"2024-02-15","party":"Partido del Trabajo","amount_spent":2736617,"Daily Spend":2488,"short_name":"PT","colors":"#DB2017","x":1707955200000,"y":2488,"fill":"#DB2017"},{"date":"2024-02-16","party":"Partido del Trabajo","amount_spent":2739224,"Daily Spend":2607,"short_name":"PT","colors":"#DB2017","x":1708041600000,"y":2607,"fill":"#DB2017"},{"date":"2024-02-17","party":"Partido del Trabajo","amount_spent":2741745,"Daily Spend":2521,"short_name":"PT","colors":"#DB2017","x":1708128000000,"y":2521,"fill":"#DB2017"},{"date":"2024-02-18","party":"Partido del Trabajo","amount_spent":2744137,"Daily Spend":2392,"short_name":"PT","colors":"#DB2017","x":1708214400000,"y":2392,"fill":"#DB2017"},{"date":"2024-02-19","party":"Partido del Trabajo","amount_spent":2746862,"Daily Spend":2725,"short_name":"PT","colors":"#DB2017","x":1708300800000,"y":2725,"fill":"#DB2017"},{"date":"2024-02-20","party":"Partido del Trabajo","amount_spent":2752459,"Daily Spend":5597,"short_name":"PT","colors":"#DB2017","x":1708387200000,"y":5597,"fill":"#DB2017"},{"date":"2024-02-21","party":"Partido del Trabajo","amount_spent":2758109,"Daily Spend":5650,"short_name":"PT","colors":"#DB2017","x":1708473600000,"y":5650,"fill":"#DB2017"},{"date":"2024-02-22","party":"Partido del Trabajo","amount_spent":2764020,"Daily Spend":5911,"short_name":"PT","colors":"#DB2017","x":1708560000000,"y":5911,"fill":"#DB2017"},{"date":"2024-02-23","party":"Partido del Trabajo","amount_spent":2768938,"Daily Spend":4918,"short_name":"PT","colors":"#DB2017","x":1708646400000,"y":4918,"fill":"#DB2017"},{"date":"2024-02-24","party":"Partido del Trabajo","amount_spent":2770874,"Daily Spend":1936,"short_name":"PT","colors":"#DB2017","x":1708732800000,"y":1936,"fill":"#DB2017"},{"date":"2024-02-25","party":"Partido del Trabajo","amount_spent":2772799,"Daily Spend":1925,"short_name":"PT","colors":"#DB2017","x":1708819200000,"y":1925,"fill":"#DB2017"},{"date":"2024-02-26","party":"Partido del Trabajo","amount_spent":2774488,"Daily Spend":1689,"short_name":"PT","colors":"#DB2017","x":1708905600000,"y":1689,"fill":"#DB2017"},{"date":"2024-02-27","party":"Partido del Trabajo","amount_spent":2779670,"Daily Spend":5182,"short_name":"PT","colors":"#DB2017","x":1708992000000,"y":5182,"fill":"#DB2017"},{"date":"2024-02-28","party":"Partido del Trabajo","amount_spent":2786917,"Daily Spend":7247,"short_name":"PT","colors":"#DB2017","x":1709078400000,"y":7247,"fill":"#DB2017"},{"date":"2024-02-29","party":"Partido del Trabajo","amount_spent":2795200,"Daily Spend":8283,"short_name":"PT","colors":"#DB2017","x":1709164800000,"y":8283,"fill":"#DB2017"},{"date":"2024-03-01","party":"Partido del Trabajo","amount_spent":2798187,"Daily Spend":2987,"short_name":"PT","colors":"#DB2017","x":1709251200000,"y":2987,"fill":"#DB2017"},{"date":"2024-03-02","party":"Partido del Trabajo","amount_spent":2804555,"Daily Spend":6368,"short_name":"PT","colors":"#DB2017","x":1709337600000,"y":6368,"fill":"#DB2017"},{"date":"2024-03-03","party":"Partido del Trabajo","amount_spent":2826030,"Daily Spend":21475,"short_name":"PT","colors":"#DB2017","x":1709424000000,"y":21475,"fill":"#DB2017"},{"date":"2024-03-04","party":"Partido del Trabajo","amount_spent":2850625,"Daily Spend":24595,"short_name":"PT","colors":"#DB2017","x":1709510400000,"y":24595,"fill":"#DB2017"},{"date":"2024-03-05","party":"Partido del Trabajo","amount_spent":2874450,"Daily Spend":23825,"short_name":"PT","colors":"#DB2017","x":1709596800000,"y":23825,"fill":"#DB2017"},{"date":"2024-03-06","party":"Partido del Trabajo","amount_spent":2920957,"Daily Spend":46507,"short_name":"PT","colors":"#DB2017","x":1709683200000,"y":46507,"fill":"#DB2017"},{"date":"2024-03-07","party":"Partido del Trabajo","amount_spent":2965651,"Daily Spend":44694,"short_name":"PT","colors":"#DB2017","x":1709769600000,"y":44694,"fill":"#DB2017"},{"date":"2024-03-08","party":"Partido del Trabajo","amount_spent":3031039,"Daily Spend":65388,"short_name":"PT","colors":"#DB2017","x":1709856000000,"y":65388,"fill":"#DB2017"},{"date":"2024-03-09","party":"Partido del Trabajo","amount_spent":3086923,"Daily Spend":55884,"short_name":"PT","colors":"#DB2017","x":1709942400000,"y":55884,"fill":"#DB2017"}],"type":"area"}],"xAxis":{"type":"datetime","title":{"text":"date"},"categories":null},"colors":["#6238DF","#FF8C00","#C0311A","#0957A4","#4DA663","#9AC95E","#ffcd00","#DB2017"],"tooltip":{"shared":true,"positioner":"function (labelWidth, labelHeight, point) {\n        return { x: 200, y: this.chart.plotTop };\n    }"}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":["hc_opts.tooltip.positioner"],"jsHooks":[]}</script>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

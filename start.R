@@ -196,3 +196,13 @@ for (cntryy in full_cntry_list$iso2c) {
   
   
 }
+
+
+rmarkdown::render("index.Rmd")
+# dir.create(glue::glue("docs/{sets$cntry}"), recursive = T)
+file.copy(from = "index.html", to = glue::glue("docs/index.html"), overwrite = T, recursive = T)
+dir(full.names = F) %>%
+  keep(~str_detect(.x, "_libs")) %>%
+  walk(~fs::dir_copy(.x, "docs/site_libs", overwrite = T))
+
+              

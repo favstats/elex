@@ -3,7 +3,7 @@ project:
   output-dir: ../docs
 
 website:
-  title: "Targeting Dashboard - Paraguay"
+  title: "Targeting Dashboard - Comoros"
   navbar:
     left:
       - href: index.qmd

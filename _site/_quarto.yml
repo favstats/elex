@@ -3,11 +3,7 @@ project:
   output-dir: ../docs
 
 website:
-<<<<<<< HEAD
-  title: "Targeting Dashboard - New Zealand"
-=======
-  title: "Targeting Dashboard - Czechia"
->>>>>>> 9a3f858f907e7edc30badcd0bceee02aa3ce68d5
+  title: "Targeting Dashboard - Bulgaria"
   navbar:
     left:
       - href: index.qmd

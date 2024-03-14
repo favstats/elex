@@ -3,11 +3,7 @@ project:
   output-dir: ../docs
 
 website:
-<<<<<<< HEAD
-  title: "Targeting Dashboard - New Zealand"
-=======
   title: "Targeting Dashboard - Bahamas"
->>>>>>> 1c19bf1fe0fefe9acc5c79f1bcc1e89df79e3bf2
   navbar:
     left:
       - href: index.qmd

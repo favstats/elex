@@ -4,14 +4,30 @@ pacman::p_load(knitr, tidyverse, openxlsx, sf, rmarkdown, rvest)
 # setwd("..")
 # getwd()
 
+
 source("cntry.R")
+source("utils.R")
+
+t1 <- Sys.time()
+
+
 
 sets <- jsonlite::fromJSON("settings.json")
+
+
+eu_countries <- c("AT", "BE", "BG", "CY", "CZ", "DE", "DK", "EE", "ES", "FI", 
+                  "FR", "GR", "HR", "HU", "IE", "IT", "LT", "LU", "LV", "MT", 
+                  "NL", "PL", "PT", "RO", "SE", "SI", "SK", "US", "MX", "NZ", 
+                  "CA", "AU")
+
 
 full_cntry_list <- read_rds("https://github.com/favstats/meta_ad_reports/raw/main/cntry_list.rds") %>% 
   rename(iso2c = iso2,
          country = cntry) %>% 
-  sample_n(n()) 
+  sample_n(n()) %>% 
+  mutate(iso2c = fct_relevel(iso2c, eu_countries)) %>% 
+  arrange(iso2c)#%>% 
+  # filter(iso2c == "NL")
 
 # cntryy <- "NL"
 
@@ -19,6 +35,15 @@ for (cntryy in full_cntry_list$iso2c) {
   # print(cntryy)
   
   try({
+    
+    
+    t2 <- Sys.time()
+    
+    time_difference_seconds <- difftime(t2, t1, units = "hours")
+    
+    if(as.numeric(time_difference_seconds)>4){
+      break
+    }
     
     sets$the_country <- full_cntry_list$country[which(full_cntry_list$iso2c==cntryy)]
     sets$cntry <- cntryy
@@ -40,13 +65,13 @@ for (cntryy in full_cntry_list$iso2c) {
     
     color_dat <- tibble()
     
-    if(read_lines("cntry.R") %>% length() > 5){
-      election_dat30 <- readRDS("data/election_dat30.rds")  %>% 
-        select(-contains("party")) %>%
-        left_join(all_dat %>% select(page_id, party))
-    }
+    # if(read_lines("cntry.R") %>% length() > 5){
+    #   election_dat30 <- readRDS("data/election_dat30.rds")  %>% 
+    #     select(-contains("party")) %>%
+    #     left_join(all_dat %>% select(page_id, party))
+    # }
     
-    if(!exists("election_dat30")){
+    # if(!exists("election_dat30")){
       out <- sets$cntry %>% 
         map(~{
           .x %>% 
@@ -96,7 +121,7 @@ for (cntryy in full_cntry_list$iso2c) {
       election_dat30 <- arrow::read_parquet(paste0("https://github.com/favstats/meta_ad_targeting/releases/download/", sets$cntry, "-last_", 30,"_days/", thosearethere$ds[1], ".parquet"))
       # })
       
-    }
+    # }
     
     
     raw <- election_dat30 %>%

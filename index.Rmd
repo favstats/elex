@@ -30,7 +30,7 @@ df <-
 
 # Generate HTML code
 html_code <- sprintf('<div id="overlay">
-                        <button id="selectButton" style="padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px; cursor: pointer;">Select Municipality/Race</button>
+                        <button id="selectButton" style="padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px; cursor: pointer;">Select Country</button>
                         <select id="iframeSelector" style="display:none; padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px; cursor: pointer;">
                           <option value="" disabled selected>Select Country</option>
                           %s

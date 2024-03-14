@@ -1,47 +1,5 @@
 [
   {
-    "objectID": "map.html",
-    "href": "map.html",
-    "title": "Targeting Dashboard - Netherlands",
-    "section": "",
-    "text": "# Load the world Map data\ndata(worldgeojson, package = \"highcharter\")\n\n# fin_spend %&gt;% \n#   mutate(country = countryc)\n\n# worldgeojson\n# \n# color_stops &lt;- data.frame(\n#   value = c(0, 0.25, 0.5, 0.75, 1), # Normalized positions of your log points on the color axis\n#   color = c('#ffffb2', '#fecc5c', '#fd8d3c', '#f03b20', '#bd0026') # Example colors\n# )\n\n  highchart() %&gt;%\n  hc_add_series_map(\n    worldgeojson, fin_spend, value = \"dollar_spend\", joinBy = c('iso2','cntry'),\n    name = \"LifeExpectancy\"\n    )  %&gt;% \n  hc_colorAxis(stops = color_stops()) %&gt;% \n  hc_title(text = \"World Map\")  %&gt;%\n  hc_tooltip(formatter = JS(\"function () {\n    return this.point.name + ': &lt;b&gt;$' + Math.exp(this.point.value).toFixed(0) + '&lt;/b&gt;';\n  }\")) %&gt;%\n  hc_mapNavigation(enabled = TRUE) %&gt;%\n  hc_title(text = \"Click on Any Country to See More\") %&gt;%\n  hc_plotOptions(series = list(\n  cursor = \"pointer\",\n  point = list(\n      events = list(\n        click = JS(\"function() { \n          var iframe = window.parent.document.getElementById('iframeDisplay');\n          if(iframe) {\n            iframe.src = this.options.url; \n          } else {\n            console.error('Iframe not found');\n          }\n        }\")\n      )\n  )\n)) %&gt;% \nhc_legend(enabled = F)"
-  },
-  {
-    "objectID": "targeting.html",
-    "href": "targeting.html",
-    "title": "Spending per Targeting",
-    "section": "",
-    "text": "These charts show the groups that political parties target with their advertisements leading up to the elections, according to the latest data. The focus is on Meta’s platforms (Facebook and Instagram) because they offer the most detailed targeting options for political advertisements.\nHow much did the campaigns of political parties spend on different audiences? The charts below show both the total and the expenditures per party.\n\nNote: Different targeting criteria may overlap, so the outcome may not necessarily add up to 100%.\n\n\n10 Feb - 10 Mar 20244 Mar - 10 Mar 2024\n\n\n\nTotalBy Party\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTotalBy Party"
-  },
-  {
-    "objectID": "detailed.html",
-    "href": "detailed.html",
-    "title": "Detailed Targeting",
-    "section": "",
-    "text": "The chart below displays the most utilized targeting criteria by political parties on Meta, based on the amounts spent.\n\n10 Feb - 10 Mar 20244 Mar - 10 Mar 2024"
-  },
-  {
-    "objectID": "detailed.html#top-targeted-audiences",
-    "href": "detailed.html#top-targeted-audiences",
-    "title": "Detailed Targeting",
-    "section": "",
-    "text": "The chart below displays the most utilized targeting criteria by political parties on Meta, based on the amounts spent.\n\n10 Feb - 10 Mar 20244 Mar - 10 Mar 2024"
-  },
-  {
-    "objectID": "detailed.html#top-excluded-audiences",
-    "href": "detailed.html#top-excluded-audiences",
-    "title": "Detailed Targeting",
-    "section": "Top Excluded Audiences",
-    "text": "Top Excluded Audiences\nAmong the detailed options offered by Meta, the chart below shows the most excluded target audiences per party. The ranking is based on the amounts spent.\n\n10 Feb - 10 Mar 20244 Mar - 10 Mar 2024"
-  },
-  {
-    "objectID": "detailed.html#top-contested-audiences",
-    "href": "detailed.html#top-contested-audiences",
-    "title": "Detailed Targeting",
-    "section": "Top Contested Audiences",
-    "text": "Top Contested Audiences\nThe charts below show the target audiences where most competition takes place. For example, the groups in which all parties invest large amounts to reach voters with the same interests.\n\n10 Feb - 10 Mar 20244 Mar - 10 Mar 2024\n\n\n\n\nNo data (yet).\n\n\n\n\n\n\nNo data (yet)."
-  },
-  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "Targeting Dashboard - Netherlands",
@@ -98,6 +56,41 @@
     "text": "Relationship Status Targeting\nThe following graphs reveal how political parties utilize different relationship statuses as focus groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n10 Feb - 10 Mar 20244 Mar - 10 Mar 2024\n\n\n\nNo data (yet).\n\n\n\n\nNo data (yet)."
   },
   {
+    "objectID": "detailed.html",
+    "href": "detailed.html",
+    "title": "Detailed Targeting",
+    "section": "",
+    "text": "The chart below displays the most utilized targeting criteria by political parties on Meta, based on the amounts spent.\n\n10 Feb - 10 Mar 20244 Mar - 10 Mar 2024"
+  },
+  {
+    "objectID": "detailed.html#top-targeted-audiences",
+    "href": "detailed.html#top-targeted-audiences",
+    "title": "Detailed Targeting",
+    "section": "",
+    "text": "The chart below displays the most utilized targeting criteria by political parties on Meta, based on the amounts spent.\n\n10 Feb - 10 Mar 20244 Mar - 10 Mar 2024"
+  },
+  {
+    "objectID": "detailed.html#top-excluded-audiences",
+    "href": "detailed.html#top-excluded-audiences",
+    "title": "Detailed Targeting",
+    "section": "Top Excluded Audiences",
+    "text": "Top Excluded Audiences\nAmong the detailed options offered by Meta, the chart below shows the most excluded target audiences per party. The ranking is based on the amounts spent.\n\n10 Feb - 10 Mar 20244 Mar - 10 Mar 2024"
+  },
+  {
+    "objectID": "detailed.html#top-contested-audiences",
+    "href": "detailed.html#top-contested-audiences",
+    "title": "Detailed Targeting",
+    "section": "Top Contested Audiences",
+    "text": "Top Contested Audiences\nThe charts below show the target audiences where most competition takes place. For example, the groups in which all parties invest large amounts to reach voters with the same interests.\n\n10 Feb - 10 Mar 20244 Mar - 10 Mar 2024\n\n\n\n\nNo data (yet).\n\n\n\n\n\n\nNo data (yet)."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Spending",
+    "section": "",
+    "text": "Here you can see the expenditures of political parties in the lead-up to the elections according to the latest data.\n\n10 Feb - 10 Mar 20244 Mar - 10 Mar 2024\n\n\nDuring this period, political parties spent a total of €26,361 and displayed 301 advertisements on Meta.\n\n\n\n\n\n\n  \n    \n    \n      \n      Number of Advertisers\n      Top Spenders\n      Number of Ads\n      Total Spend\n    \n  \n  \n    Anderes\n\n20\n\n1. FNV Vakbond (€16,698)2. Waddenvereniging (€1,934)3. Ministerie van Onderwijs, Cultuur en Wetenschap (€1,181)\n\n229\n\n€22,007\n\n    Partij van de Arbeid\n\n7\n\n1. GroenLinks-PvdA (€505)2. PvdA Limburg (€200)3. PvdA Goes (€100)\n\n20\n\n€1,205\n\n    GroenLinks\n\n4\n\n1. Kim van Sparrentak (€455)2. Bas Eickhout (€250)3. Tineke Strik (€101)\n\n7\n\n€906\n\n    Socialistische Partij\n\n3\n\n1. NA (€404)2. SP Jongeren (€256)3. SP Gouda (€100)\n\n18\n\n€760\n\n    Volkspartij voor Vrijheid en Democratie\n\n7\n\n1. VVD Halderberge (€100)2. VVD Helmond (€100)3. VVD Nijmegen (€100)\n\n10\n\n€700\n\n    ChristenUnie\n\n2\n\n1. Mirjam Bikker (€183)2. ChristenUnie (€100)\n\n9\n\n€283\n\n    Democraten 66\n\n2\n\n1. Dorien Rookmaker MEP (€100)2. Robin Palma (€100)\n\n3\n\n€200\n\n    Christen-Democratisch Appèl\n\n1\n\n1. CDA Barneveld (€100)\n\n1\n\n€100\n\n    Juiste Antwoord 2021\n\n1\n\n1. JA21 (€100)\n\n2\n\n€100\n\n    Partij voor de Dieren\n\n1\n\n1. Partij voor de Dieren Gemeente Groningen (€100)\n\n2\n\n€100\n\n  \n  \n  \n\n\n\n\n\n\nDuring this period, political parties spent a total of €6,955 and displayed 115 advertisements on Meta.\n\n\n\n\n\n\n  \n    \n    \n      \n      Number of Advertisers\n      Top Spenders\n      Number of Ads\n      Total Spend\n    \n  \n  \n    Anderes\n\n13\n\n1. FNV Vakbond (€3,868)2. Waddenvereniging (€587)3. Ministerie van Onderwijs, Cultuur en Wetenschap (€228)\n\n99\n\n€5,732\n\n    Partij van de Arbeid\n\n3\n\n1. GroenLinks-PvdA (€505)2. PvdA Goes (€100)3. Pieter Paul Slikker - PvdA 073 (€100)\n\n9\n\n€705\n\n    Volkspartij voor Vrijheid en Democratie\n\n2\n\n1. VVD Helmond (€100)2. VVD Nijmegen (€100)\n\n2\n\n€200\n\n    GroenLinks\n\n1\n\n1. Kim van Sparrentak (€118)\n\n2\n\n€118\n\n    ChristenUnie\n\n1\n\n1. Mirjam Bikker (€100)\n\n2\n\n€100\n\n    Partij voor de Dieren\n\n1\n\n1. Partij voor de Dieren Gemeente Groningen (€100)\n\n1\n\n€100\n\n  \n  \n  \n\n\n\n\n\n\n\n\nOver Time"
+  },
+  {
     "objectID": "location.html",
     "href": "location.html",
     "title": "Location",
@@ -119,10 +112,10 @@
     "text": "Geographical Exclusion\nThe following graphs depict the geographic locations that certain political advertisements will exclude on Meta, along with the amounts that parties spent on these exclusions.\n\n10 Feb - 10 Mar 2024\n\n\n\nRegionsCities\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.\n\n\n\nNo data (yet).\n\n\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Spending",
+    "objectID": "targeting.html",
+    "href": "targeting.html",
+    "title": "Spending per Targeting",
     "section": "",
-    "text": "Here you can see the expenditures of political parties in the lead-up to the elections according to the latest data.\n\n10 Feb - 10 Mar 20244 Mar - 10 Mar 2024\n\n\nDuring this period, political parties spent a total of €26,361 and displayed 301 advertisements on Meta.\n\n\n\n\n\n\n  \n    \n    \n      \n      Number of Advertisers\n      Top Spenders\n      Number of Ads\n      Total Spend\n    \n  \n  \n    Anderes\n\n20\n\n1. FNV Vakbond (€16,698)2. Waddenvereniging (€1,934)3. Ministerie van Onderwijs, Cultuur en Wetenschap (€1,181)\n\n229\n\n€22,007\n\n    Partij van de Arbeid\n\n7\n\n1. GroenLinks-PvdA (€505)2. PvdA Limburg (€200)3. PvdA Goes (€100)\n\n20\n\n€1,205\n\n    GroenLinks\n\n4\n\n1. Kim van Sparrentak (€455)2. Bas Eickhout (€250)3. Tineke Strik (€101)\n\n7\n\n€906\n\n    Socialistische Partij\n\n3\n\n1. NA (€404)2. SP Jongeren (€256)3. SP Gouda (€100)\n\n18\n\n€760\n\n    Volkspartij voor Vrijheid en Democratie\n\n7\n\n1. VVD Halderberge (€100)2. VVD Helmond (€100)3. VVD Nijmegen (€100)\n\n10\n\n€700\n\n    ChristenUnie\n\n2\n\n1. Mirjam Bikker (€183)2. ChristenUnie (€100)\n\n9\n\n€283\n\n    Democraten 66\n\n2\n\n1. Dorien Rookmaker MEP (€100)2. Robin Palma (€100)\n\n3\n\n€200\n\n    Christen-Democratisch Appèl\n\n1\n\n1. CDA Barneveld (€100)\n\n1\n\n€100\n\n    Juiste Antwoord 2021\n\n1\n\n1. JA21 (€100)\n\n2\n\n€100\n\n    Partij voor de Dieren\n\n1\n\n1. Partij voor de Dieren Gemeente Groningen (€100)\n\n2\n\n€100\n\n  \n  \n  \n\n\n\n\n\n\nDuring this period, political parties spent a total of €6,955 and displayed 115 advertisements on Meta.\n\n\n\n\n\n\n  \n    \n    \n      \n      Number of Advertisers\n      Top Spenders\n      Number of Ads\n      Total Spend\n    \n  \n  \n    Anderes\n\n13\n\n1. FNV Vakbond (€3,868)2. Waddenvereniging (€587)3. Ministerie van Onderwijs, Cultuur en Wetenschap (€228)\n\n99\n\n€5,732\n\n    Partij van de Arbeid\n\n3\n\n1. GroenLinks-PvdA (€505)2. PvdA Goes (€100)3. Pieter Paul Slikker - PvdA 073 (€100)\n\n9\n\n€705\n\n    Volkspartij voor Vrijheid en Democratie\n\n2\n\n1. VVD Helmond (€100)2. VVD Nijmegen (€100)\n\n2\n\n€200\n\n    GroenLinks\n\n1\n\n1. Kim van Sparrentak (€118)\n\n2\n\n€118\n\n    ChristenUnie\n\n1\n\n1. Mirjam Bikker (€100)\n\n2\n\n€100\n\n    Partij voor de Dieren\n\n1\n\n1. Partij voor de Dieren Gemeente Groningen (€100)\n\n1\n\n€100\n\n  \n  \n  \n\n\n\n\n\n\n\n\nOver Time"
+    "text": "These charts show the groups that political parties target with their advertisements leading up to the elections, according to the latest data. The focus is on Meta’s platforms (Facebook and Instagram) because they offer the most detailed targeting options for political advertisements.\nHow much did the campaigns of political parties spend on different audiences? The charts below show both the total and the expenditures per party.\n\nNote: Different targeting criteria may overlap, so the outcome may not necessarily add up to 100%.\n\n\n10 Feb - 10 Mar 20244 Mar - 10 Mar 2024\n\n\n\nTotalBy Party\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTotalBy Party"
   }
 ]

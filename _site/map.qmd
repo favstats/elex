@@ -1,0 +1,230 @@
+---
+format: 
+  html:
+    page-layout: full
+---
+
+```{css, echo = F, message=F, warning=F}
+.highcharts-container {
+  height: 100vh !important;
+  width: 100vw !important;
+}
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .show-data-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff; /* Blue shade */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0, 123, 255, 0.5); /* Add some shadow for depth */
+        }
+
+        .show-data-btn:hover, .show-data-btn:focus {
+            background-color: #0056b3; /* Darker blue on hover/focus */
+            transform: translateY(-2px); /* Slight raise effect */
+            box-shadow: 0 4px 6px rgba(0, 123, 255, 0.6); /* Enhanced shadow on hover/focus */
+        }
+
+        .show-data-btn:active {
+            background-color: #004089; /* Even darker blue on active/click */
+            transform: translateY(1px); /* Press down effect */
+            box-shadow: 0 2px 3px rgba(0, 123, 255, 0.5); /* Subdued shadow to simulate press */
+        }
+```
+
+
+<script>
+    function changeParentIframeURL() {
+        var newURL = "https://favstats.github.io/elex/docs";
+        // Check if running in an iframe and if the parent is accessible
+        if (window.self !== window.top) {
+            try {
+                iframe = window.parent.document.getElementById('iframeDisplay');
+                iframe.src = newURL; 
+            } catch (e) {
+                console.error("Error changing parent iframe URL: ", e);
+            }
+        } 
+    }
+</script>
+
+
+
+
+
+```{r cars, echo = F, message=F, warning=F}
+library(highcharter)
+library(tidyverse)
+
+
+full_cntry_list <- read_rds("https://github.com/favstats/meta_ad_reports/raw/main/cntry_list.rds") %>% 
+  rename(iso2c = iso2,
+         country = cntry) %>% 
+  sample_n(n()) 
+
+      out <- full_cntry_list$iso2c %>% 
+        map(~{
+          .x %>% 
+            paste0(c("-last_30_days"))
+        }) %>% 
+        unlist() %>% 
+        # keep(~str_detect(.x, tf)) %>% 
+        # .[100:120] %>% 
+        map_dfr_progress(~{
+          the_assets <- httr::GET(paste0("https://github.com/favstats/meta_ad_targeting/releases/expanded_assets/", .x))
+          
+          the_assets %>% httr::content() %>% 
+            rvest::html_elements(".Box-row") %>% 
+            rvest::html_text()  %>%
+            tibble(raw = .)   %>%
+            # Split the raw column into separate lines
+            mutate(raw = strsplit(as.character(raw), "\n")) %>%
+            # Extract the relevant lines for filename, file size, and timestamp
+            transmute(
+              filename = sapply(raw, function(x) trimws(x[3])),
+              file_size = sapply(raw, function(x) trimws(x[6])),
+              timestamp = sapply(raw, function(x) trimws(x[7]))
+            ) %>% 
+            filter(filename != "Source code") %>% 
+            mutate(release = .x) %>% 
+            mutate_all(as.character)
+        })
+      
+      thosearethere <- out %>% 
+        rename(tag = release,
+               file_name = filename)  %>% 
+        arrange(desc(tag)) %>% 
+        separate(tag, into = c("cntry", "tframe"), remove = F, sep = "-") %>%
+        # filter(cntry == sets$cntry) %>% 
+        mutate(ds  = str_remove(file_name, "\\.rds|\\.zip|\\.parquet")) %>% 
+        distinct(cntry, ds, tframe) %>% 
+        drop_na(ds) %>% 
+        arrange(desc(ds)) %>% 
+        group_by(cntry) %>% 
+        slice(1) %>% 
+        ungroup()
+      
+      
+    spendd <- thosearethere %>% 
+        split(1:nrow(.)) %>% 
+        map_dfr_progress(~{
+          
+                elex <- arrow::read_parquet(paste0("https://github.com/favstats/meta_ad_targeting/releases/download/", .x$cntry, "-last_", 30,"_days/", .x$ds, ".parquet")) %>% 
+                  filter(is.na(no_data)) %>% 
+                  distinct(page_id, .keep_all = T) %>% 
+                  mutate(cntry = .x$cntry)
+                
+                return(elex)
+          
+        })
+    
+    
+    conversios <- jsonlite::fromJSON(paste0("https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@",thosearethere$ds[1] ,"/v1/currencies/usd.json")) %>% 
+  pluck("usd") %>% 
+  enframe() %>% 
+  unnest(value) %>% 
+  distinct(name, .keep_all = T) %>% 
+  mutate(main_currency = str_to_upper(name)) %>% 
+  filter(str_count(main_currency)==3) %>% 
+  mutate(conversion_rate = value) %>% 
+  select(-name, -value)
+    
+    options(scipen = 999)
+    
+ fin_spend <- spendd %>% 
+    left_join(conversios) %>% 
+    mutate(total_spend_formatted = ifelse(total_spend_formatted == 100, 1, total_spend_formatted)) %>% 
+    mutate(dollar_spend = total_spend_formatted/conversion_rate) %>% 
+    select(cntry, dollar_spend, main_currency, total_spend_formatted,
+           total_num_ads,conversion_rate, ds) %>% 
+   group_by(cntry) %>% 
+   summarise(dollar_spend = sum(dollar_spend),
+             total_num_ads = sum(total_num_ads)) %>% 
+   ungroup() %>% 
+   mutate(dollar_spend = log(dollar_spend))
+   
+  # fin_spend %>% 
+  #   filter(cntry == "ID")
+ 
+ saveRDS(fin_spend, "../data/fin_spend.rds")
+```
+
+```{r}
+# Load the world Map data
+data(worldgeojson, package = "highcharter")
+
+# fin_spend %>% 
+#   mutate(country = countryc)
+
+# worldgeojson
+# 
+# color_stops <- data.frame(
+#   value = c(0, 0.25, 0.5, 0.75, 1), # Normalized positions of your log points on the color axis
+#   color = c('#ffffb2', '#fecc5c', '#fd8d3c', '#f03b20', '#bd0026') # Example colors
+# )
+
+  highchart() %>%
+  hc_add_series_map(
+    worldgeojson, fin_spend, value = "dollar_spend", joinBy = c('iso2','cntry'),
+    name = "LifeExpectancy"
+    )  %>% 
+  hc_colorAxis(stops = color_stops()) %>% 
+  hc_title(text = "World Map")  %>%
+  hc_tooltip(formatter = JS("function () {
+    return this.point.name + ': <b>$' + Math.exp(this.point.value).toFixed(0) + '</b>';
+  }")) %>%
+  hc_mapNavigation(enabled = TRUE) %>%
+  hc_title(text = "Click on Any Country to See More") %>%
+  hc_plotOptions(series = list(
+  cursor = "pointer",
+  point = list(
+      events = list(
+        click = JS("function() { 
+          var iframe = window.parent.document.getElementById('iframeDisplay');
+          if(iframe) {
+            iframe.src = this.options.url; 
+          } else {
+            console.error('Iframe not found');
+          }
+        }")
+      )
+  )
+)) %>% 
+hc_legend(enabled = F)
+```
+
+
+
+
+
+
+
+```{r, echo = F, warning = F, message=F, eval = F}
+shiny::HTML('<div class="button-container">
+    <button class="show-data-btn" onclick="changeParentIframeURL()">Show all data</button>
+</div>')
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

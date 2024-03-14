@@ -233,6 +233,9 @@ dir(full.names = F) %>%
 
 
 
-# system("git add -A")
-# system('git commit -m "update"')
-# system("git push")
+
+if(Sys.info()[["sysname"]]=="Windows"){
+  system("git add -A")
+  system('git commit -m "update"')
+  system("git push")
+}

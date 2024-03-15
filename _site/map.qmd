@@ -155,6 +155,15 @@ full_cntry_list <- read_rds("https://github.com/favstats/meta_ad_reports/raw/mai
   #   filter(cntry == "ID")
  
  saveRDS(fin_spend, "../data/fin_spend.rds")
+ 
+fin_spend <- fin_spend %>% 
+   mutate(url = glue::glue("https://favstats.github.io/elex/{cntry}"))
+
+options(scipen = 999)
+fin_spend <- fin_spend %>%
+  mutate(perc = exp(dollar_spend)/sum(exp(dollar_spend))*100) %>% 
+  arrange(desc(perc)) %>% 
+  mutate(perc = round(perc,2))
 ```
 
 ```{r, echo = F, message=F, warning=F}
@@ -179,7 +188,7 @@ data(worldgeojson, package = "highcharter")
   hc_colorAxis(stops = color_stops()) %>% 
   hc_title(text = "World Map")  %>%
   hc_tooltip(formatter = JS("function () {
-    return '<b>' + this.point.name + '</b>: <i>$' + new Intl.NumberFormat('fr-FR').format(Math.exp(this.point.value).toFixed(0)) + '</i> total spent in last 30 days';
+    return '<b>' + this.point.name + '</b>: <i>$' + new Intl.NumberFormat('fr-FR').format(Math.exp(this.point.value).toFixed(0)) + '</i> total spent in last 30 days (' + this.point.perc + '%)';
   }")) %>%
   hc_mapNavigation(enabled = TRUE) %>%
   hc_title(text = "Click on Any Country to See More") %>%

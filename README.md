@@ -27,9 +27,9 @@ output: github_document
 
 
 ```
-## Error: object 'days30' not found
+## Error in na.omit(days30$ds): object 'days30' not found
 ```
 
 ```
-## Error in eval(expr, envir, enclos): object 'meta' not found
+## Error in knitr::kable(.): object 'meta' not found
 ```

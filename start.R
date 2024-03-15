@@ -207,15 +207,17 @@ for (cntryy in full_cntry_list$iso2c) {
       
     })
     
+    dir("docs", full.names = T) %>% 
+      keep(~str_detect(.x, "site|files")) %>% 
+      walk(fs::dir_delete)
+    
+    dir("docs", full.names = T) %>% 
+      keep(~str_detect(.x, "html|json")) %>% 
+      walk(fs::file_delete)
+    
   })
   
-  dir("docs", full.names = T) %>% 
-    keep(~str_detect(.x, "site|files")) %>% 
-    walk(fs::dir_delete)
-  
-  dir("docs", full.names = T) %>% 
-    keep(~str_detect(.x, "html|json")) %>% 
-    walk(fs::file_delete)
+
   
   # file.remove("_site/_quarto.yml")
   

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
+<meta name="generator" content="quarto-1.4.551">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -47,7 +47,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,12 +62,13 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
-<script src="site_libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 <script src="site_libs/jquery-3.5.1/jquery.min.js"></script>
 <script src="site_libs/proj4js-2.3.15/proj4.js"></script>
 <link href="site_libs/highcharts-9.3.1/css/motion.css" rel="stylesheet">
@@ -112,9 +119,9 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Targeting Dashboard - Serbia</span>
     </a>
@@ -126,47 +133,51 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
- <span class="menu-text"><iconify-icon inline="" icon="ph:coins"></iconify-icon> Spending</span></a>
+    <a class="nav-link" href="./map.html"> 
+<span class="menu-text"><iconify-icon inline="" icon="ph:map-trifold-thin"></iconify-icon> Map</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text"><iconify-icon inline="" icon="ph:coins"></iconify-icon> Spending</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-iconify-ph-users-three-thin--targeting" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-iconify-ph-users-three-thin--targeting" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text"><iconify-icon inline="" icon="ph:users-three-thin"></iconify-icon> Targeting</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-iconify-ph-users-three-thin--targeting">    
         <li>
-    <a class="dropdown-item" href="./targeting.html" rel="" target="">
+    <a class="dropdown-item" href="./targeting.html">
  <span class="dropdown-text">Spending per Targeting</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./detailed.html" rel="" target="">
+    <a class="dropdown-item" href="./detailed.html">
  <span class="dropdown-text">Detailed Targeting</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./location.html" rel="" target="">
+    <a class="dropdown-item" href="./location.html">
  <span class="dropdown-text">Location</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./demographics.html" rel="" target="">
+    <a class="dropdown-item" href="./demographics.html">
  <span class="dropdown-text">Demographics</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./about.html" rel="" target="">
- <span class="menu-text"><iconify-icon inline="" icon="ph:info-thin"></iconify-icon> About</span></a>
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text"><iconify-icon inline="" icon="ph:info-thin"></iconify-icon> About</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/favstats/betargex" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/favstats/betargex"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -193,35 +204,40 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <p>Here you can see the expenditures of political parties in the lead-up to the elections according to the latest data.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">8 Feb - 8 Mar 2024</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">2 Mar - 8 Mar 2024</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">11 Feb - 11 Mar 2024</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">5 Mar - 11 Mar 2024</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p>During this period, political parties spent a total of €791 and displayed 76 advertisements on Meta.</p>
+<p>During this period, political parties spent a total of €795 and displayed 69 advertisements on Meta.</p>
 <div class="cell">
 <div class="cell-output-display">
-
-<div id="ehlbnpzsbe" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div>
+<div id="npukgvspie" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#ehlbnpzsbe table {
-  font-family: Chivo, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cairo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+#npukgvspie table {
+  font-family: Cairo, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ehlbnpzsbe thead, #ehlbnpzsbe tbody, #ehlbnpzsbe tfoot, #ehlbnpzsbe tr, #ehlbnpzsbe td, #ehlbnpzsbe th {
+#npukgvspie thead, #npukgvspie tbody, #npukgvspie tfoot, #npukgvspie tr, #npukgvspie td, #npukgvspie th {
   border-style: none;
 }
 
-#ehlbnpzsbe p {
+#npukgvspie p {
   margin: 0;
   padding: 0;
 }
 
-#ehlbnpzsbe .gt_table {
+#npukgvspie .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -229,7 +245,7 @@ ul.task-list li input[type="checkbox"] {
   margin-right: auto;
   color: #333333;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
   font-style: normal;
   background-color: #FFFFFF;
   width: auto;
@@ -247,12 +263,12 @@ ul.task-list li input[type="checkbox"] {
   border-left-color: #D3D3D3;
 }
 
-#ehlbnpzsbe .gt_caption {
+#npukgvspie .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ehlbnpzsbe .gt_title {
+#npukgvspie .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -264,7 +280,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-width: 0;
 }
 
-#ehlbnpzsbe .gt_subtitle {
+#npukgvspie .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -276,7 +292,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-width: 0;
 }
 
-#ehlbnpzsbe .gt_heading {
+#npukgvspie .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -288,13 +304,13 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#ehlbnpzsbe .gt_bottom_border {
+#npukgvspie .gt_bottom_border {
   border-bottom-style: none;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ehlbnpzsbe .gt_col_headings {
+#npukgvspie .gt_col_headings {
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -309,12 +325,12 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#ehlbnpzsbe .gt_col_heading {
+#npukgvspie .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
-  font-size: 80%;
+  font-size: 100%;
   font-weight: normal;
-  text-transform: uppercase;
+  text-transform: inherit;
   border-left-style: none;
   border-left-width: 1px;
   border-left-color: #D3D3D3;
@@ -329,27 +345,27 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#ehlbnpzsbe .gt_column_spanner_outer {
+#npukgvspie .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
-  font-size: 80%;
+  font-size: 100%;
   font-weight: normal;
-  text-transform: uppercase;
+  text-transform: inherit;
   padding-top: 0;
   padding-bottom: 0;
   padding-left: 4px;
   padding-right: 4px;
 }
 
-#ehlbnpzsbe .gt_column_spanner_outer:first-child {
+#npukgvspie .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ehlbnpzsbe .gt_column_spanner_outer:last-child {
+#npukgvspie .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ehlbnpzsbe .gt_column_spanner {
+#npukgvspie .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #000000;
@@ -361,20 +377,20 @@ ul.task-list li input[type="checkbox"] {
   width: 100%;
 }
 
-#ehlbnpzsbe .gt_spanner_row {
+#npukgvspie .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ehlbnpzsbe .gt_group_heading {
+#npukgvspie .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
   padding-right: 5px;
   color: #333333;
   background-color: #FFFFFF;
-  font-size: 80%;
-  font-weight: bolder;
-  text-transform: uppercase;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #000000;
@@ -391,12 +407,12 @@ ul.task-list li input[type="checkbox"] {
   text-align: left;
 }
 
-#ehlbnpzsbe .gt_empty_group_heading {
+#npukgvspie .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
-  font-size: 80%;
-  font-weight: bolder;
+  font-size: 100%;
+  font-weight: initial;
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #000000;
@@ -406,15 +422,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 
-#ehlbnpzsbe .gt_from_md > :first-child {
+#npukgvspie .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ehlbnpzsbe .gt_from_md > :last-child {
+#npukgvspie .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ehlbnpzsbe .gt_row {
+#npukgvspie .gt_row {
   padding-top: 3px;
   padding-bottom: 3px;
   padding-left: 5px;
@@ -433,12 +449,12 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#ehlbnpzsbe .gt_stub {
+#npukgvspie .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
-  font-size: 80%;
-  font-weight: bolder;
-  text-transform: uppercase;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
   border-right-style: solid;
   border-right-width: 0px;
   border-right-color: #FFFFFF;
@@ -446,7 +462,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#ehlbnpzsbe .gt_stub_row_group {
+#npukgvspie .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -460,15 +476,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: top;
 }
 
-#ehlbnpzsbe .gt_row_group_first td {
+#npukgvspie .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ehlbnpzsbe .gt_row_group_first th {
+#npukgvspie .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ehlbnpzsbe .gt_summary_row {
+#npukgvspie .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -478,16 +494,16 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#ehlbnpzsbe .gt_first_summary_row {
+#npukgvspie .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ehlbnpzsbe .gt_first_summary_row.thick {
+#npukgvspie .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ehlbnpzsbe .gt_last_summary_row {
+#npukgvspie .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -497,7 +513,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#ehlbnpzsbe .gt_grand_summary_row {
+#npukgvspie .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -507,7 +523,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#ehlbnpzsbe .gt_first_grand_summary_row {
+#npukgvspie .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -517,7 +533,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-color: #D3D3D3;
 }
 
-#ehlbnpzsbe .gt_last_grand_summary_row_top {
+#npukgvspie .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -527,11 +543,11 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#ehlbnpzsbe .gt_striped {
+#npukgvspie .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ehlbnpzsbe .gt_table_body {
+#npukgvspie .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -540,7 +556,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#ehlbnpzsbe .gt_footnotes {
+#npukgvspie .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -554,7 +570,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#ehlbnpzsbe .gt_footnote {
+#npukgvspie .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -563,7 +579,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#ehlbnpzsbe .gt_sourcenotes {
+#npukgvspie .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -577,7 +593,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#ehlbnpzsbe .gt_sourcenote {
+#npukgvspie .gt_sourcenote {
   font-size: 12px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -585,63 +601,63 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#ehlbnpzsbe .gt_left {
+#npukgvspie .gt_left {
   text-align: left;
 }
 
-#ehlbnpzsbe .gt_center {
+#npukgvspie .gt_center {
   text-align: center;
 }
 
-#ehlbnpzsbe .gt_right {
+#npukgvspie .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ehlbnpzsbe .gt_font_normal {
+#npukgvspie .gt_font_normal {
   font-weight: normal;
 }
 
-#ehlbnpzsbe .gt_font_bold {
+#npukgvspie .gt_font_bold {
   font-weight: bold;
 }
 
-#ehlbnpzsbe .gt_font_italic {
+#npukgvspie .gt_font_italic {
   font-style: italic;
 }
 
-#ehlbnpzsbe .gt_super {
+#npukgvspie .gt_super {
   font-size: 65%;
 }
 
-#ehlbnpzsbe .gt_footnote_marks {
+#npukgvspie .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ehlbnpzsbe .gt_asterisk {
+#npukgvspie .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ehlbnpzsbe .gt_indent_1 {
+#npukgvspie .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ehlbnpzsbe .gt_indent_2 {
+#npukgvspie .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ehlbnpzsbe .gt_indent_3 {
+#npukgvspie .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ehlbnpzsbe .gt_indent_4 {
+#npukgvspie .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ehlbnpzsbe .gt_indent_5 {
+#npukgvspie .gt_indent_5 {
   text-indent: 25px;
 }
 
@@ -649,69 +665,80 @@ tbody tr:last-child {
   border-bottom: 2px solid #ffffff00;
 }
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-  <thead>
-    
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=""></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Number of Advertisers">Number of Advertisers</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Top Spenders">Top Spenders</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Number of Ads">Number of Ads</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Total Spend">Total Spend</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><th id="stub_1_1" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Srpska napredna stranka (SNS)</p>
-</div></th>
-<td headers="stub_1_1 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #242970;"><div class="gt_from_md"><p>1</p>
-</div></td>
-<td headers="stub_1_1 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RS&amp;view_all_page_id=1704843222876910">Горан Весић</a> (€476)<br><br></p>
-</div></td>
-<td headers="stub_1_1 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>49</p>
-</div></td>
-<td headers="stub_1_1 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€476</p>
-</div></td></tr>
-    <tr><th id="stub_1_2" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Stranka slobode i pravde (SSP)</p>
-</div></th>
-<td headers="stub_1_2 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #DB2927;"><div class="gt_from_md"><p>3</p>
-</div></td>
-<td headers="stub_1_2 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RS&amp;view_all_page_id=113093061374614">Stranka slobode i pravde GrO Požarevac</a> (€115)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RS&amp;view_all_page_id=100773621466954">Stranka slobode i pravde GrO Niš</a> (€100)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RS&amp;view_all_page_id=318271332163597">Stranka slobode i pravde Kragujevac</a> (€100)<br><br></p>
-</div></td>
-<td headers="stub_1_2 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>27</p>
-</div></td>
-<td headers="stub_1_2 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€315</p>
-</div></td></tr>
-  </tbody>
-  
-  
+
+<table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+<th id="Number of Advertisers" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Number of Advertisers</th>
+<th id="Top Spenders" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Top Spenders</th>
+<th id="Number of Ads" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Number of Ads</th>
+<th id="Total Spend" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Total Spend</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td id="stub_1_1" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>Srpska napredna stranka (SNS)</p></td>
+<td class="gt_row gt_center" headers="stub_1_1 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #242970"><p>1</p></td>
+<td class="gt_row gt_left" headers="stub_1_1 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RS&amp;view_all_page_id=1704843222876910">Горан Весић</a> (€388)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_1 Number of Ads"><p>41</p></td>
+<td class="gt_row gt_center" headers="stub_1_1 Total Spend"><p>€388</p></td>
+</tr>
+<tr class="even">
+<td id="stub_1_2" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>Stranka slobode i pravde (SSP)</p></td>
+<td class="gt_row gt_center" headers="stub_1_2 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #DB2927"><p>3</p></td>
+<td class="gt_row gt_left" headers="stub_1_2 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RS&amp;view_all_page_id=113093061374614">Stranka slobode i pravde GrO Požarevac</a> (€107)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RS&amp;view_all_page_id=100773621466954">Stranka slobode i pravde GrO Niš</a> (€100)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RS&amp;view_all_page_id=318271332163597">Stranka slobode i pravde Kragujevac</a> (€100)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_2 Number of Ads"><p>27</p></td>
+<td class="gt_row gt_center" headers="stub_1_2 Total Spend"><p>€307</p></td>
+</tr>
+<tr class="odd">
+<td id="stub_1_3" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>Pokret obnove Kraljevine Srbije (POKS)</p></td>
+<td class="gt_row gt_center" headers="stub_1_3 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #111E6C"><p>1</p></td>
+<td class="gt_row gt_left" headers="stub_1_3 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RS&amp;view_all_page_id=212784378797050">POKS Novi Sad - Покрет обнове Краљевине Србије Нови Сад</a> (€100)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_3 Number of Ads"><p>1</p></td>
+<td class="gt_row gt_center" headers="stub_1_3 Total Spend"><p>€100</p></td>
+</tr>
+</tbody>
 </table>
+
+</div>
 </div>
 </div>
 </div>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p>During this period, political parties spent a total of €300 and displayed 13 advertisements on Meta.</p>
+<p>During this period, political parties spent a total of €400 and displayed 12 advertisements on Meta.</p>
 <div class="cell">
 <div class="cell-output-display">
-
-<div id="jthaqvsxqd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div>
+<div id="oiotyhoywn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#jthaqvsxqd table {
-  font-family: Chivo, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cairo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+#oiotyhoywn table {
+  font-family: Cairo, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#jthaqvsxqd thead, #jthaqvsxqd tbody, #jthaqvsxqd tfoot, #jthaqvsxqd tr, #jthaqvsxqd td, #jthaqvsxqd th {
+#oiotyhoywn thead, #oiotyhoywn tbody, #oiotyhoywn tfoot, #oiotyhoywn tr, #oiotyhoywn td, #oiotyhoywn th {
   border-style: none;
 }
 
-#jthaqvsxqd p {
+#oiotyhoywn p {
   margin: 0;
   padding: 0;
 }
 
-#jthaqvsxqd .gt_table {
+#oiotyhoywn .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -719,7 +746,7 @@ tbody tr:last-child {
   margin-right: auto;
   color: #333333;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
   font-style: normal;
   background-color: #FFFFFF;
   width: auto;
@@ -737,12 +764,12 @@ tbody tr:last-child {
   border-left-color: #D3D3D3;
 }
 
-#jthaqvsxqd .gt_caption {
+#oiotyhoywn .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#jthaqvsxqd .gt_title {
+#oiotyhoywn .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -754,7 +781,7 @@ tbody tr:last-child {
   border-bottom-width: 0;
 }
 
-#jthaqvsxqd .gt_subtitle {
+#oiotyhoywn .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -766,7 +793,7 @@ tbody tr:last-child {
   border-top-width: 0;
 }
 
-#jthaqvsxqd .gt_heading {
+#oiotyhoywn .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -778,13 +805,13 @@ tbody tr:last-child {
   border-right-color: #D3D3D3;
 }
 
-#jthaqvsxqd .gt_bottom_border {
+#oiotyhoywn .gt_bottom_border {
   border-bottom-style: none;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#jthaqvsxqd .gt_col_headings {
+#oiotyhoywn .gt_col_headings {
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -799,12 +826,12 @@ tbody tr:last-child {
   border-right-color: #D3D3D3;
 }
 
-#jthaqvsxqd .gt_col_heading {
+#oiotyhoywn .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
-  font-size: 80%;
+  font-size: 100%;
   font-weight: normal;
-  text-transform: uppercase;
+  text-transform: inherit;
   border-left-style: none;
   border-left-width: 1px;
   border-left-color: #D3D3D3;
@@ -819,27 +846,27 @@ tbody tr:last-child {
   overflow-x: hidden;
 }
 
-#jthaqvsxqd .gt_column_spanner_outer {
+#oiotyhoywn .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
-  font-size: 80%;
+  font-size: 100%;
   font-weight: normal;
-  text-transform: uppercase;
+  text-transform: inherit;
   padding-top: 0;
   padding-bottom: 0;
   padding-left: 4px;
   padding-right: 4px;
 }
 
-#jthaqvsxqd .gt_column_spanner_outer:first-child {
+#oiotyhoywn .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#jthaqvsxqd .gt_column_spanner_outer:last-child {
+#oiotyhoywn .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#jthaqvsxqd .gt_column_spanner {
+#oiotyhoywn .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #000000;
@@ -851,20 +878,20 @@ tbody tr:last-child {
   width: 100%;
 }
 
-#jthaqvsxqd .gt_spanner_row {
+#oiotyhoywn .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#jthaqvsxqd .gt_group_heading {
+#oiotyhoywn .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
   padding-right: 5px;
   color: #333333;
   background-color: #FFFFFF;
-  font-size: 80%;
-  font-weight: bolder;
-  text-transform: uppercase;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #000000;
@@ -881,12 +908,12 @@ tbody tr:last-child {
   text-align: left;
 }
 
-#jthaqvsxqd .gt_empty_group_heading {
+#oiotyhoywn .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
-  font-size: 80%;
-  font-weight: bolder;
+  font-size: 100%;
+  font-weight: initial;
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #000000;
@@ -896,15 +923,15 @@ tbody tr:last-child {
   vertical-align: middle;
 }
 
-#jthaqvsxqd .gt_from_md > :first-child {
+#oiotyhoywn .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#jthaqvsxqd .gt_from_md > :last-child {
+#oiotyhoywn .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#jthaqvsxqd .gt_row {
+#oiotyhoywn .gt_row {
   padding-top: 3px;
   padding-bottom: 3px;
   padding-left: 5px;
@@ -923,12 +950,12 @@ tbody tr:last-child {
   overflow-x: hidden;
 }
 
-#jthaqvsxqd .gt_stub {
+#oiotyhoywn .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
-  font-size: 80%;
-  font-weight: bolder;
-  text-transform: uppercase;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
   border-right-style: solid;
   border-right-width: 0px;
   border-right-color: #FFFFFF;
@@ -936,7 +963,7 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#jthaqvsxqd .gt_stub_row_group {
+#oiotyhoywn .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -950,15 +977,15 @@ tbody tr:last-child {
   vertical-align: top;
 }
 
-#jthaqvsxqd .gt_row_group_first td {
+#oiotyhoywn .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#jthaqvsxqd .gt_row_group_first th {
+#oiotyhoywn .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#jthaqvsxqd .gt_summary_row {
+#oiotyhoywn .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -968,16 +995,16 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#jthaqvsxqd .gt_first_summary_row {
+#oiotyhoywn .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#jthaqvsxqd .gt_first_summary_row.thick {
+#oiotyhoywn .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#jthaqvsxqd .gt_last_summary_row {
+#oiotyhoywn .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -987,7 +1014,7 @@ tbody tr:last-child {
   border-bottom-color: #D3D3D3;
 }
 
-#jthaqvsxqd .gt_grand_summary_row {
+#oiotyhoywn .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -997,7 +1024,7 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#jthaqvsxqd .gt_first_grand_summary_row {
+#oiotyhoywn .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1007,7 +1034,7 @@ tbody tr:last-child {
   border-top-color: #D3D3D3;
 }
 
-#jthaqvsxqd .gt_last_grand_summary_row_top {
+#oiotyhoywn .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1017,11 +1044,11 @@ tbody tr:last-child {
   border-bottom-color: #D3D3D3;
 }
 
-#jthaqvsxqd .gt_striped {
+#oiotyhoywn .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#jthaqvsxqd .gt_table_body {
+#oiotyhoywn .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1030,7 +1057,7 @@ tbody tr:last-child {
   border-bottom-color: #D3D3D3;
 }
 
-#jthaqvsxqd .gt_footnotes {
+#oiotyhoywn .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1044,7 +1071,7 @@ tbody tr:last-child {
   border-right-color: #D3D3D3;
 }
 
-#jthaqvsxqd .gt_footnote {
+#oiotyhoywn .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1053,7 +1080,7 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#jthaqvsxqd .gt_sourcenotes {
+#oiotyhoywn .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1067,7 +1094,7 @@ tbody tr:last-child {
   border-right-color: #D3D3D3;
 }
 
-#jthaqvsxqd .gt_sourcenote {
+#oiotyhoywn .gt_sourcenote {
   font-size: 12px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1075,63 +1102,63 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#jthaqvsxqd .gt_left {
+#oiotyhoywn .gt_left {
   text-align: left;
 }
 
-#jthaqvsxqd .gt_center {
+#oiotyhoywn .gt_center {
   text-align: center;
 }
 
-#jthaqvsxqd .gt_right {
+#oiotyhoywn .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#jthaqvsxqd .gt_font_normal {
+#oiotyhoywn .gt_font_normal {
   font-weight: normal;
 }
 
-#jthaqvsxqd .gt_font_bold {
+#oiotyhoywn .gt_font_bold {
   font-weight: bold;
 }
 
-#jthaqvsxqd .gt_font_italic {
+#oiotyhoywn .gt_font_italic {
   font-style: italic;
 }
 
-#jthaqvsxqd .gt_super {
+#oiotyhoywn .gt_super {
   font-size: 65%;
 }
 
-#jthaqvsxqd .gt_footnote_marks {
+#oiotyhoywn .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#jthaqvsxqd .gt_asterisk {
+#oiotyhoywn .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#jthaqvsxqd .gt_indent_1 {
+#oiotyhoywn .gt_indent_1 {
   text-indent: 5px;
 }
 
-#jthaqvsxqd .gt_indent_2 {
+#oiotyhoywn .gt_indent_2 {
   text-indent: 10px;
 }
 
-#jthaqvsxqd .gt_indent_3 {
+#oiotyhoywn .gt_indent_3 {
   text-indent: 15px;
 }
 
-#jthaqvsxqd .gt_indent_4 {
+#oiotyhoywn .gt_indent_4 {
   text-indent: 20px;
 }
 
-#jthaqvsxqd .gt_indent_5 {
+#oiotyhoywn .gt_indent_5 {
   text-indent: 25px;
 }
 
@@ -1139,42 +1166,50 @@ tbody tr:last-child {
   border-bottom: 2px solid #ffffff00;
 }
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-  <thead>
-    
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=""></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Number of Advertisers">Number of Advertisers</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Top Spenders">Top Spenders</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Number of Ads">Number of Ads</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Total Spend">Total Spend</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><th id="stub_1_1" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Stranka slobode i pravde (SSP)</p>
-</div></th>
-<td headers="stub_1_1 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #DB2927;"><div class="gt_from_md"><p>2</p>
-</div></td>
-<td headers="stub_1_1 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RS&amp;view_all_page_id=113093061374614">Stranka slobode i pravde GrO Požarevac</a> (€100)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RS&amp;view_all_page_id=318271332163597">Stranka slobode i pravde Kragujevac</a> (€100)<br><br></p>
-</div></td>
-<td headers="stub_1_1 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>7</p>
-</div></td>
-<td headers="stub_1_1 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€200</p>
-</div></td></tr>
-    <tr><th id="stub_1_2" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Srpska napredna stranka (SNS)</p>
-</div></th>
-<td headers="stub_1_2 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #242970;"><div class="gt_from_md"><p>1</p>
-</div></td>
-<td headers="stub_1_2 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RS&amp;view_all_page_id=1704843222876910">Горан Весић</a> (€100)<br><br></p>
-</div></td>
-<td headers="stub_1_2 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>6</p>
-</div></td>
-<td headers="stub_1_2 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€100</p>
-</div></td></tr>
-  </tbody>
-  
-  
+
+<table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+<th id="Number of Advertisers" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Number of Advertisers</th>
+<th id="Top Spenders" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Top Spenders</th>
+<th id="Number of Ads" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Number of Ads</th>
+<th id="Total Spend" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Total Spend</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td id="stub_1_1" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>Stranka slobode i pravde (SSP)</p></td>
+<td class="gt_row gt_center" headers="stub_1_1 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #DB2927"><p>2</p></td>
+<td class="gt_row gt_left" headers="stub_1_1 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RS&amp;view_all_page_id=113093061374614">Stranka slobode i pravde GrO Požarevac</a> (€100)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RS&amp;view_all_page_id=318271332163597">Stranka slobode i pravde Kragujevac</a> (€100)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_1 Number of Ads"><p>7</p></td>
+<td class="gt_row gt_center" headers="stub_1_1 Total Spend"><p>€200</p></td>
+</tr>
+<tr class="even">
+<td id="stub_1_2" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>Pokret obnove Kraljevine Srbije (POKS)</p></td>
+<td class="gt_row gt_center" headers="stub_1_2 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #111E6C"><p>1</p></td>
+<td class="gt_row gt_left" headers="stub_1_2 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RS&amp;view_all_page_id=212784378797050">POKS Novi Sad - Покрет обнове Краљевине Србије Нови Сад</a> (€100)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_2 Number of Ads"><p>1</p></td>
+<td class="gt_row gt_center" headers="stub_1_2 Total Spend"><p>€100</p></td>
+</tr>
+<tr class="odd">
+<td id="stub_1_3" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>Srpska napredna stranka (SNS)</p></td>
+<td class="gt_row gt_center" headers="stub_1_3 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #242970"><p>1</p></td>
+<td class="gt_row gt_left" headers="stub_1_3 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=RS&amp;view_all_page_id=1704843222876910">Горан Весић</a> (€100)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_3 Number of Ads"><p>4</p></td>
+<td class="gt_row gt_center" headers="stub_1_3 Total Spend"><p>€100</p></td>
+</tr>
+</tbody>
 </table>
+
+</div>
 </div>
 </div>
 </div>
@@ -1185,9 +1220,8 @@ tbody tr:last-child {
 <h3 class="anchored" data-anchor-id="over-time">Over Time</h3>
 <div class="cell">
 <div class="cell-output-display">
-
-<div class="highchart html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-2245507570c25df00dd0" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-2245507570c25df00dd0">{"x":{"hc_opts":{"chart":{"reflow":true},"title":{"text":null},"yAxis":{"title":{"text":"Daily Spend"},"type":"linear"},"credits":{"enabled":false},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":true},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"area":{"stacking":"normal","lineWidth":1,"marker":{"enabled":false}}},"series":[{"name":"Srpska napredna stranka (SNS)","data":[{"date":"2023-12-31","party":"Srpska napredna stranka (SNS)","amount_spent":20616,"Daily Spend":null,"short_name":"SNS","colors":"#242970","x":1703980800000,"y":null,"fill":"#242970"},{"date":"2024-01-01","party":"Srpska napredna stranka (SNS)","amount_spent":20616,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1704067200000,"y":0,"fill":"#242970"},{"date":"2024-01-02","party":"Srpska napredna stranka (SNS)","amount_spent":20616,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1704153600000,"y":0,"fill":"#242970"},{"date":"2024-01-03","party":"Srpska napredna stranka (SNS)","amount_spent":20616,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1704240000000,"y":0,"fill":"#242970"},{"date":"2024-01-04","party":"Srpska napredna stranka (SNS)","amount_spent":20616,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1704326400000,"y":0,"fill":"#242970"},{"date":"2024-01-05","party":"Srpska napredna stranka (SNS)","amount_spent":20616,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1704412800000,"y":0,"fill":"#242970"},{"date":"2024-01-06","party":"Srpska napredna stranka (SNS)","amount_spent":20616,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1704499200000,"y":0,"fill":"#242970"},{"date":"2024-01-07","party":"Srpska napredna stranka (SNS)","amount_spent":20616,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1704585600000,"y":0,"fill":"#242970"},{"date":"2024-01-08","party":"Srpska napredna stranka (SNS)","amount_spent":20616,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1704672000000,"y":0,"fill":"#242970"},{"date":"2024-01-09","party":"Srpska napredna stranka (SNS)","amount_spent":20616,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1704758400000,"y":0,"fill":"#242970"},{"date":"2024-01-10","party":"Srpska napredna stranka (SNS)","amount_spent":20616,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1704844800000,"y":0,"fill":"#242970"},{"date":"2024-01-11","party":"Srpska napredna stranka (SNS)","amount_spent":20616,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1704931200000,"y":0,"fill":"#242970"},{"date":"2024-01-12","party":"Srpska napredna stranka (SNS)","amount_spent":20616,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1705017600000,"y":0,"fill":"#242970"},{"date":"2024-01-13","party":"Srpska napredna stranka (SNS)","amount_spent":20616,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1705104000000,"y":0,"fill":"#242970"},{"date":"2024-01-14","party":"Srpska napredna stranka (SNS)","amount_spent":20616,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1705190400000,"y":0,"fill":"#242970"},{"date":"2024-01-15","party":"Srpska napredna stranka (SNS)","amount_spent":20616,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1705276800000,"y":0,"fill":"#242970"},{"date":"2024-01-16","party":"Srpska napredna stranka (SNS)","amount_spent":20616,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1705363200000,"y":0,"fill":"#242970"},{"date":"2024-01-17","party":"Srpska napredna stranka (SNS)","amount_spent":20616,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1705449600000,"y":0,"fill":"#242970"},{"date":"2024-01-18","party":"Srpska napredna stranka (SNS)","amount_spent":20616,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1705536000000,"y":0,"fill":"#242970"},{"date":"2024-01-19","party":"Srpska napredna stranka (SNS)","amount_spent":20616,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1705622400000,"y":0,"fill":"#242970"},{"date":"2024-01-20","party":"Srpska napredna stranka (SNS)","amount_spent":20616,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1705708800000,"y":0,"fill":"#242970"},{"date":"2024-01-21","party":"Srpska napredna stranka (SNS)","amount_spent":20616,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1705795200000,"y":0,"fill":"#242970"},{"date":"2024-01-22","party":"Srpska napredna stranka (SNS)","amount_spent":20616,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1705881600000,"y":0,"fill":"#242970"},{"date":"2024-01-23","party":"Srpska napredna stranka (SNS)","amount_spent":20620,"Daily Spend":4,"short_name":"SNS","colors":"#242970","x":1705968000000,"y":4,"fill":"#242970"},{"date":"2024-01-24","party":"Srpska napredna stranka (SNS)","amount_spent":20640,"Daily Spend":20,"short_name":"SNS","colors":"#242970","x":1706054400000,"y":20,"fill":"#242970"},{"date":"2024-01-25","party":"Srpska napredna stranka (SNS)","amount_spent":20642,"Daily Spend":2,"short_name":"SNS","colors":"#242970","x":1706140800000,"y":2,"fill":"#242970"},{"date":"2024-01-26","party":"Srpska napredna stranka (SNS)","amount_spent":20642,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1706227200000,"y":0,"fill":"#242970"},{"date":"2024-01-27","party":"Srpska napredna stranka (SNS)","amount_spent":20642,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1706313600000,"y":0,"fill":"#242970"},{"date":"2024-01-28","party":"Srpska napredna stranka (SNS)","amount_spent":20642,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1706400000000,"y":0,"fill":"#242970"},{"date":"2024-01-29","party":"Srpska napredna stranka (SNS)","amount_spent":20668,"Daily Spend":26,"short_name":"SNS","colors":"#242970","x":1706486400000,"y":26,"fill":"#242970"},{"date":"2024-01-30","party":"Srpska napredna stranka (SNS)","amount_spent":20682,"Daily Spend":14,"short_name":"SNS","colors":"#242970","x":1706572800000,"y":14,"fill":"#242970"},{"date":"2024-01-31","party":"Srpska napredna stranka (SNS)","amount_spent":20688,"Daily Spend":6,"short_name":"SNS","colors":"#242970","x":1706659200000,"y":6,"fill":"#242970"},{"date":"2024-02-01","party":"Srpska napredna stranka (SNS)","amount_spent":20700,"Daily Spend":12,"short_name":"SNS","colors":"#242970","x":1706745600000,"y":12,"fill":"#242970"},{"date":"2024-02-02","party":"Srpska napredna stranka (SNS)","amount_spent":20714,"Daily Spend":14,"short_name":"SNS","colors":"#242970","x":1706832000000,"y":14,"fill":"#242970"},{"date":"2024-02-03","party":"Srpska napredna stranka (SNS)","amount_spent":20728,"Daily Spend":14,"short_name":"SNS","colors":"#242970","x":1706918400000,"y":14,"fill":"#242970"},{"date":"2024-02-04","party":"Srpska napredna stranka (SNS)","amount_spent":20741,"Daily Spend":13,"short_name":"SNS","colors":"#242970","x":1707004800000,"y":13,"fill":"#242970"},{"date":"2024-02-05","party":"Srpska napredna stranka (SNS)","amount_spent":20748,"Daily Spend":7,"short_name":"SNS","colors":"#242970","x":1707091200000,"y":7,"fill":"#242970"},{"date":"2024-02-06","party":"Srpska napredna stranka (SNS)","amount_spent":20748,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1707177600000,"y":0,"fill":"#242970"},{"date":"2024-02-07","party":"Srpska napredna stranka (SNS)","amount_spent":20763,"Daily Spend":15,"short_name":"SNS","colors":"#242970","x":1707264000000,"y":15,"fill":"#242970"},{"date":"2024-02-08","party":"Srpska napredna stranka (SNS)","amount_spent":20789,"Daily Spend":26,"short_name":"SNS","colors":"#242970","x":1707350400000,"y":26,"fill":"#242970"},{"date":"2024-02-09","party":"Srpska napredna stranka (SNS)","amount_spent":20821,"Daily Spend":32,"short_name":"SNS","colors":"#242970","x":1707436800000,"y":32,"fill":"#242970"},{"date":"2024-02-10","party":"Srpska napredna stranka (SNS)","amount_spent":20851,"Daily Spend":30,"short_name":"SNS","colors":"#242970","x":1707523200000,"y":30,"fill":"#242970"},{"date":"2024-02-11","party":"Srpska napredna stranka (SNS)","amount_spent":20898,"Daily Spend":47,"short_name":"SNS","colors":"#242970","x":1707609600000,"y":47,"fill":"#242970"},{"date":"2024-02-12","party":"Srpska napredna stranka (SNS)","amount_spent":20917,"Daily Spend":19,"short_name":"SNS","colors":"#242970","x":1707696000000,"y":19,"fill":"#242970"},{"date":"2024-02-13","party":"Srpska napredna stranka (SNS)","amount_spent":20936,"Daily Spend":19,"short_name":"SNS","colors":"#242970","x":1707782400000,"y":19,"fill":"#242970"},{"date":"2024-02-14","party":"Srpska napredna stranka (SNS)","amount_spent":20948,"Daily Spend":12,"short_name":"SNS","colors":"#242970","x":1707868800000,"y":12,"fill":"#242970"},{"date":"2024-02-15","party":"Srpska napredna stranka (SNS)","amount_spent":20975,"Daily Spend":27,"short_name":"SNS","colors":"#242970","x":1707955200000,"y":27,"fill":"#242970"},{"date":"2024-02-16","party":"Srpska napredna stranka (SNS)","amount_spent":20995,"Daily Spend":20,"short_name":"SNS","colors":"#242970","x":1708041600000,"y":20,"fill":"#242970"},{"date":"2024-02-17","party":"Srpska napredna stranka (SNS)","amount_spent":21007,"Daily Spend":12,"short_name":"SNS","colors":"#242970","x":1708128000000,"y":12,"fill":"#242970"},{"date":"2024-02-18","party":"Srpska napredna stranka (SNS)","amount_spent":21021,"Daily Spend":14,"short_name":"SNS","colors":"#242970","x":1708214400000,"y":14,"fill":"#242970"},{"date":"2024-02-19","party":"Srpska napredna stranka (SNS)","amount_spent":21041,"Daily Spend":20,"short_name":"SNS","colors":"#242970","x":1708300800000,"y":20,"fill":"#242970"},{"date":"2024-02-20","party":"Srpska napredna stranka (SNS)","amount_spent":21053,"Daily Spend":12,"short_name":"SNS","colors":"#242970","x":1708387200000,"y":12,"fill":"#242970"},{"date":"2024-02-21","party":"Srpska napredna stranka (SNS)","amount_spent":21067,"Daily Spend":14,"short_name":"SNS","colors":"#242970","x":1708473600000,"y":14,"fill":"#242970"},{"date":"2024-02-22","party":"Srpska napredna stranka (SNS)","amount_spent":21080,"Daily Spend":13,"short_name":"SNS","colors":"#242970","x":1708560000000,"y":13,"fill":"#242970"},{"date":"2024-02-23","party":"Srpska napredna stranka (SNS)","amount_spent":21098,"Daily Spend":18,"short_name":"SNS","colors":"#242970","x":1708646400000,"y":18,"fill":"#242970"},{"date":"2024-02-24","party":"Srpska napredna stranka (SNS)","amount_spent":21109,"Daily Spend":11,"short_name":"SNS","colors":"#242970","x":1708732800000,"y":11,"fill":"#242970"},{"date":"2024-02-25","party":"Srpska napredna stranka (SNS)","amount_spent":21114,"Daily Spend":5,"short_name":"SNS","colors":"#242970","x":1708819200000,"y":5,"fill":"#242970"},{"date":"2024-02-26","party":"Srpska napredna stranka (SNS)","amount_spent":21114,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1708905600000,"y":0,"fill":"#242970"},{"date":"2024-02-27","party":"Srpska napredna stranka (SNS)","amount_spent":21118,"Daily Spend":4,"short_name":"SNS","colors":"#242970","x":1708992000000,"y":4,"fill":"#242970"},{"date":"2024-02-28","party":"Srpska napredna stranka (SNS)","amount_spent":21135,"Daily Spend":17,"short_name":"SNS","colors":"#242970","x":1709078400000,"y":17,"fill":"#242970"},{"date":"2024-02-29","party":"Srpska napredna stranka (SNS)","amount_spent":21148,"Daily Spend":13,"short_name":"SNS","colors":"#242970","x":1709164800000,"y":13,"fill":"#242970"},{"date":"2024-03-01","party":"Srpska napredna stranka (SNS)","amount_spent":21165,"Daily Spend":17,"short_name":"SNS","colors":"#242970","x":1709251200000,"y":17,"fill":"#242970"},{"date":"2024-03-02","party":"Srpska napredna stranka (SNS)","amount_spent":21190,"Daily Spend":25,"short_name":"SNS","colors":"#242970","x":1709337600000,"y":25,"fill":"#242970"},{"date":"2024-03-03","party":"Srpska napredna stranka (SNS)","amount_spent":21210,"Daily Spend":20,"short_name":"SNS","colors":"#242970","x":1709424000000,"y":20,"fill":"#242970"},{"date":"2024-03-04","party":"Srpska napredna stranka (SNS)","amount_spent":21212,"Daily Spend":2,"short_name":"SNS","colors":"#242970","x":1709510400000,"y":2,"fill":"#242970"},{"date":"2024-03-05","party":"Srpska napredna stranka (SNS)","amount_spent":21224,"Daily Spend":12,"short_name":"SNS","colors":"#242970","x":1709596800000,"y":12,"fill":"#242970"},{"date":"2024-03-06","party":"Srpska napredna stranka (SNS)","amount_spent":21239,"Daily Spend":15,"short_name":"SNS","colors":"#242970","x":1709683200000,"y":15,"fill":"#242970"},{"date":"2024-03-07","party":"Srpska napredna stranka (SNS)","amount_spent":21239,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1709769600000,"y":0,"fill":"#242970"},{"date":"2024-03-08","party":"Srpska napredna stranka (SNS)","amount_spent":21239,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1709856000000,"y":0,"fill":"#242970"},{"date":"2024-03-09","party":"Srpska napredna stranka (SNS)","amount_spent":21239,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1709942400000,"y":0,"fill":"#242970"}],"type":"area"},{"name":"Stranka slobode i pravde (SSP)","data":[{"date":"2023-12-31","party":"Stranka slobode i pravde (SSP)","amount_spent":932,"Daily Spend":null,"short_name":"SSP","colors":"#DB2927","x":1703980800000,"y":null,"fill":"#DB2927"},{"date":"2024-01-01","party":"Stranka slobode i pravde (SSP)","amount_spent":933,"Daily Spend":1,"short_name":"SSP","colors":"#DB2927","x":1704067200000,"y":1,"fill":"#DB2927"},{"date":"2024-01-02","party":"Stranka slobode i pravde (SSP)","amount_spent":935,"Daily Spend":2,"short_name":"SSP","colors":"#DB2927","x":1704153600000,"y":2,"fill":"#DB2927"},{"date":"2024-01-03","party":"Stranka slobode i pravde (SSP)","amount_spent":936,"Daily Spend":1,"short_name":"SSP","colors":"#DB2927","x":1704240000000,"y":1,"fill":"#DB2927"},{"date":"2024-01-04","party":"Stranka slobode i pravde (SSP)","amount_spent":936,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1704326400000,"y":0,"fill":"#DB2927"},{"date":"2024-01-05","party":"Stranka slobode i pravde (SSP)","amount_spent":936,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1704412800000,"y":0,"fill":"#DB2927"},{"date":"2024-01-06","party":"Stranka slobode i pravde (SSP)","amount_spent":936,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1704499200000,"y":0,"fill":"#DB2927"},{"date":"2024-01-07","party":"Stranka slobode i pravde (SSP)","amount_spent":937,"Daily Spend":1,"short_name":"SSP","colors":"#DB2927","x":1704585600000,"y":1,"fill":"#DB2927"},{"date":"2024-01-08","party":"Stranka slobode i pravde (SSP)","amount_spent":938,"Daily Spend":1,"short_name":"SSP","colors":"#DB2927","x":1704672000000,"y":1,"fill":"#DB2927"},{"date":"2024-01-09","party":"Stranka slobode i pravde (SSP)","amount_spent":938,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1704758400000,"y":0,"fill":"#DB2927"},{"date":"2024-01-10","party":"Stranka slobode i pravde (SSP)","amount_spent":938,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1704844800000,"y":0,"fill":"#DB2927"},{"date":"2024-01-11","party":"Stranka slobode i pravde (SSP)","amount_spent":938,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1704931200000,"y":0,"fill":"#DB2927"},{"date":"2024-01-12","party":"Stranka slobode i pravde (SSP)","amount_spent":938,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1705017600000,"y":0,"fill":"#DB2927"},{"date":"2024-01-13","party":"Stranka slobode i pravde (SSP)","amount_spent":938,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1705104000000,"y":0,"fill":"#DB2927"},{"date":"2024-01-14","party":"Stranka slobode i pravde (SSP)","amount_spent":938,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1705190400000,"y":0,"fill":"#DB2927"},{"date":"2024-01-15","party":"Stranka slobode i pravde (SSP)","amount_spent":938,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1705276800000,"y":0,"fill":"#DB2927"},{"date":"2024-01-16","party":"Stranka slobode i pravde (SSP)","amount_spent":938,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1705363200000,"y":0,"fill":"#DB2927"},{"date":"2024-01-17","party":"Stranka slobode i pravde (SSP)","amount_spent":938,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1705449600000,"y":0,"fill":"#DB2927"},{"date":"2024-01-18","party":"Stranka slobode i pravde (SSP)","amount_spent":940,"Daily Spend":2,"short_name":"SSP","colors":"#DB2927","x":1705536000000,"y":2,"fill":"#DB2927"},{"date":"2024-01-19","party":"Stranka slobode i pravde (SSP)","amount_spent":940,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1705622400000,"y":0,"fill":"#DB2927"},{"date":"2024-01-20","party":"Stranka slobode i pravde (SSP)","amount_spent":940,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1705708800000,"y":0,"fill":"#DB2927"},{"date":"2024-01-21","party":"Stranka slobode i pravde (SSP)","amount_spent":941,"Daily Spend":1,"short_name":"SSP","colors":"#DB2927","x":1705795200000,"y":1,"fill":"#DB2927"},{"date":"2024-01-22","party":"Stranka slobode i pravde (SSP)","amount_spent":942,"Daily Spend":1,"short_name":"SSP","colors":"#DB2927","x":1705881600000,"y":1,"fill":"#DB2927"},{"date":"2024-01-23","party":"Stranka slobode i pravde (SSP)","amount_spent":942,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1705968000000,"y":0,"fill":"#DB2927"},{"date":"2024-01-24","party":"Stranka slobode i pravde (SSP)","amount_spent":942,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1706054400000,"y":0,"fill":"#DB2927"},{"date":"2024-01-25","party":"Stranka slobode i pravde (SSP)","amount_spent":942,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1706140800000,"y":0,"fill":"#DB2927"},{"date":"2024-01-26","party":"Stranka slobode i pravde (SSP)","amount_spent":944,"Daily Spend":2,"short_name":"SSP","colors":"#DB2927","x":1706227200000,"y":2,"fill":"#DB2927"},{"date":"2024-01-27","party":"Stranka slobode i pravde (SSP)","amount_spent":944,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1706313600000,"y":0,"fill":"#DB2927"},{"date":"2024-01-28","party":"Stranka slobode i pravde (SSP)","amount_spent":944,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1706400000000,"y":0,"fill":"#DB2927"},{"date":"2024-01-29","party":"Stranka slobode i pravde (SSP)","amount_spent":944,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1706486400000,"y":0,"fill":"#DB2927"},{"date":"2024-01-30","party":"Stranka slobode i pravde (SSP)","amount_spent":944,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1706572800000,"y":0,"fill":"#DB2927"},{"date":"2024-01-31","party":"Stranka slobode i pravde (SSP)","amount_spent":944,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1706659200000,"y":0,"fill":"#DB2927"},{"date":"2024-02-01","party":"Stranka slobode i pravde (SSP)","amount_spent":944,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1706745600000,"y":0,"fill":"#DB2927"},{"date":"2024-02-02","party":"Stranka slobode i pravde (SSP)","amount_spent":944,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1706832000000,"y":0,"fill":"#DB2927"},{"date":"2024-02-03","party":"Stranka slobode i pravde (SSP)","amount_spent":944,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1706918400000,"y":0,"fill":"#DB2927"},{"date":"2024-02-04","party":"Stranka slobode i pravde (SSP)","amount_spent":944,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1707004800000,"y":0,"fill":"#DB2927"},{"date":"2024-02-05","party":"Stranka slobode i pravde (SSP)","amount_spent":944,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1707091200000,"y":0,"fill":"#DB2927"},{"date":"2024-02-06","party":"Stranka slobode i pravde (SSP)","amount_spent":944,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1707177600000,"y":0,"fill":"#DB2927"},{"date":"2024-02-07","party":"Stranka slobode i pravde (SSP)","amount_spent":945,"Daily Spend":1,"short_name":"SSP","colors":"#DB2927","x":1707264000000,"y":1,"fill":"#DB2927"},{"date":"2024-02-08","party":"Stranka slobode i pravde (SSP)","amount_spent":948,"Daily Spend":3,"short_name":"SSP","colors":"#DB2927","x":1707350400000,"y":3,"fill":"#DB2927"},{"date":"2024-02-09","party":"Stranka slobode i pravde (SSP)","amount_spent":952,"Daily Spend":4,"short_name":"SSP","colors":"#DB2927","x":1707436800000,"y":4,"fill":"#DB2927"},{"date":"2024-02-10","party":"Stranka slobode i pravde (SSP)","amount_spent":958,"Daily Spend":6,"short_name":"SSP","colors":"#DB2927","x":1707523200000,"y":6,"fill":"#DB2927"},{"date":"2024-02-11","party":"Stranka slobode i pravde (SSP)","amount_spent":962,"Daily Spend":4,"short_name":"SSP","colors":"#DB2927","x":1707609600000,"y":4,"fill":"#DB2927"},{"date":"2024-02-12","party":"Stranka slobode i pravde (SSP)","amount_spent":966,"Daily Spend":4,"short_name":"SSP","colors":"#DB2927","x":1707696000000,"y":4,"fill":"#DB2927"},{"date":"2024-02-13","party":"Stranka slobode i pravde (SSP)","amount_spent":966,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1707782400000,"y":0,"fill":"#DB2927"},{"date":"2024-02-14","party":"Stranka slobode i pravde (SSP)","amount_spent":967,"Daily Spend":1,"short_name":"SSP","colors":"#DB2927","x":1707868800000,"y":1,"fill":"#DB2927"},{"date":"2024-02-15","party":"Stranka slobode i pravde (SSP)","amount_spent":970,"Daily Spend":3,"short_name":"SSP","colors":"#DB2927","x":1707955200000,"y":3,"fill":"#DB2927"},{"date":"2024-02-16","party":"Stranka slobode i pravde (SSP)","amount_spent":973,"Daily Spend":3,"short_name":"SSP","colors":"#DB2927","x":1708041600000,"y":3,"fill":"#DB2927"},{"date":"2024-02-17","party":"Stranka slobode i pravde (SSP)","amount_spent":976,"Daily Spend":3,"short_name":"SSP","colors":"#DB2927","x":1708128000000,"y":3,"fill":"#DB2927"},{"date":"2024-02-18","party":"Stranka slobode i pravde (SSP)","amount_spent":979,"Daily Spend":3,"short_name":"SSP","colors":"#DB2927","x":1708214400000,"y":3,"fill":"#DB2927"},{"date":"2024-02-19","party":"Stranka slobode i pravde (SSP)","amount_spent":984,"Daily Spend":5,"short_name":"SSP","colors":"#DB2927","x":1708300800000,"y":5,"fill":"#DB2927"},{"date":"2024-02-20","party":"Stranka slobode i pravde (SSP)","amount_spent":990,"Daily Spend":6,"short_name":"SSP","colors":"#DB2927","x":1708387200000,"y":6,"fill":"#DB2927"},{"date":"2024-02-21","party":"Stranka slobode i pravde (SSP)","amount_spent":993,"Daily Spend":3,"short_name":"SSP","colors":"#DB2927","x":1708473600000,"y":3,"fill":"#DB2927"},{"date":"2024-02-22","party":"Stranka slobode i pravde (SSP)","amount_spent":999,"Daily Spend":6,"short_name":"SSP","colors":"#DB2927","x":1708560000000,"y":6,"fill":"#DB2927"},{"date":"2024-02-23","party":"Stranka slobode i pravde (SSP)","amount_spent":1007,"Daily Spend":8,"short_name":"SSP","colors":"#DB2927","x":1708646400000,"y":8,"fill":"#DB2927"},{"date":"2024-02-24","party":"Stranka slobode i pravde (SSP)","amount_spent":1017,"Daily Spend":10,"short_name":"SSP","colors":"#DB2927","x":1708732800000,"y":10,"fill":"#DB2927"},{"date":"2024-02-25","party":"Stranka slobode i pravde (SSP)","amount_spent":1022,"Daily Spend":5,"short_name":"SSP","colors":"#DB2927","x":1708819200000,"y":5,"fill":"#DB2927"},{"date":"2024-02-26","party":"Stranka slobode i pravde (SSP)","amount_spent":1024,"Daily Spend":2,"short_name":"SSP","colors":"#DB2927","x":1708905600000,"y":2,"fill":"#DB2927"},{"date":"2024-02-27","party":"Stranka slobode i pravde (SSP)","amount_spent":1026,"Daily Spend":2,"short_name":"SSP","colors":"#DB2927","x":1708992000000,"y":2,"fill":"#DB2927"},{"date":"2024-02-28","party":"Stranka slobode i pravde (SSP)","amount_spent":1028,"Daily Spend":2,"short_name":"SSP","colors":"#DB2927","x":1709078400000,"y":2,"fill":"#DB2927"},{"date":"2024-02-29","party":"Stranka slobode i pravde (SSP)","amount_spent":1032,"Daily Spend":4,"short_name":"SSP","colors":"#DB2927","x":1709164800000,"y":4,"fill":"#DB2927"},{"date":"2024-03-01","party":"Stranka slobode i pravde (SSP)","amount_spent":1036,"Daily Spend":4,"short_name":"SSP","colors":"#DB2927","x":1709251200000,"y":4,"fill":"#DB2927"},{"date":"2024-03-02","party":"Stranka slobode i pravde (SSP)","amount_spent":1039,"Daily Spend":3,"short_name":"SSP","colors":"#DB2927","x":1709337600000,"y":3,"fill":"#DB2927"},{"date":"2024-03-03","party":"Stranka slobode i pravde (SSP)","amount_spent":1042,"Daily Spend":3,"short_name":"SSP","colors":"#DB2927","x":1709424000000,"y":3,"fill":"#DB2927"},{"date":"2024-03-04","party":"Stranka slobode i pravde (SSP)","amount_spent":1048,"Daily Spend":6,"short_name":"SSP","colors":"#DB2927","x":1709510400000,"y":6,"fill":"#DB2927"},{"date":"2024-03-05","party":"Stranka slobode i pravde (SSP)","amount_spent":1052,"Daily Spend":4,"short_name":"SSP","colors":"#DB2927","x":1709596800000,"y":4,"fill":"#DB2927"},{"date":"2024-03-06","party":"Stranka slobode i pravde (SSP)","amount_spent":1055,"Daily Spend":3,"short_name":"SSP","colors":"#DB2927","x":1709683200000,"y":3,"fill":"#DB2927"},{"date":"2024-03-07","party":"Stranka slobode i pravde (SSP)","amount_spent":1057,"Daily Spend":2,"short_name":"SSP","colors":"#DB2927","x":1709769600000,"y":2,"fill":"#DB2927"},{"date":"2024-03-08","party":"Stranka slobode i pravde (SSP)","amount_spent":1060,"Daily Spend":3,"short_name":"SSP","colors":"#DB2927","x":1709856000000,"y":3,"fill":"#DB2927"},{"date":"2024-03-09","party":"Stranka slobode i pravde (SSP)","amount_spent":1060,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1709942400000,"y":0,"fill":"#DB2927"}],"type":"area"}],"xAxis":{"type":"datetime","title":{"text":"date"},"categories":null},"colors":["#FFE000","#29B146","#E02020","#1E90FF","#111E6C","#A60C19","#242970","#16321b","#DB2927","#F70DC4"],"tooltip":{"shared":true,"positioner":"function (labelWidth, labelHeight, point) {\n        return { x: 200, y: this.chart.plotTop };\n    }"}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":["hc_opts.tooltip.positioner"],"jsHooks":[]}</script>
+<div class="highchart html-widget html-fill-item" id="htmlwidget-470f27ef6becea48e675" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-470f27ef6becea48e675">{"x":{"hc_opts":{"chart":{"reflow":true},"title":{"text":null},"yAxis":{"title":{"text":"Daily Spend"},"type":"linear"},"credits":{"enabled":false},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":true},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"area":{"stacking":"normal","lineWidth":1,"marker":{"enabled":false}}},"series":[{"name":"Pokret obnove Kraljevine Srbije (POKS)","data":[{"date":"2023-12-31","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":12180,"Daily Spend":null,"short_name":"POKS","colors":"#111E6C","x":1703980800000,"y":null,"fill":"#111E6C"},{"date":"2024-01-01","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":12180,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1704067200000,"y":0,"fill":"#111E6C"},{"date":"2024-01-02","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":12180,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1704153600000,"y":0,"fill":"#111E6C"},{"date":"2024-01-03","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":12180,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1704240000000,"y":0,"fill":"#111E6C"},{"date":"2024-01-04","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":12180,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1704326400000,"y":0,"fill":"#111E6C"},{"date":"2024-01-05","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":12180,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1704412800000,"y":0,"fill":"#111E6C"},{"date":"2024-01-06","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":12180,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1704499200000,"y":0,"fill":"#111E6C"},{"date":"2024-01-07","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":12180,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1704585600000,"y":0,"fill":"#111E6C"},{"date":"2024-01-08","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":12180,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1704672000000,"y":0,"fill":"#111E6C"},{"date":"2024-01-09","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":12180,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1704758400000,"y":0,"fill":"#111E6C"},{"date":"2024-01-10","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":12180,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1704844800000,"y":0,"fill":"#111E6C"},{"date":"2024-01-11","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":12180,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1704931200000,"y":0,"fill":"#111E6C"},{"date":"2024-01-12","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":12180,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1705017600000,"y":0,"fill":"#111E6C"},{"date":"2024-01-13","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":12180,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1705104000000,"y":0,"fill":"#111E6C"},{"date":"2024-01-14","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":12180,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1705190400000,"y":0,"fill":"#111E6C"},{"date":"2024-01-15","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":12180,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1705276800000,"y":0,"fill":"#111E6C"},{"date":"2024-01-16","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":12180,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1705363200000,"y":0,"fill":"#111E6C"},{"date":"2024-01-17","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":12180,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1705449600000,"y":0,"fill":"#111E6C"},{"date":"2024-01-18","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":12180,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1705536000000,"y":0,"fill":"#111E6C"},{"date":"2024-01-19","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":12316,"Daily Spend":136,"short_name":"POKS","colors":"#111E6C","x":1705622400000,"y":136,"fill":"#111E6C"},{"date":"2024-01-20","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":12777,"Daily Spend":461,"short_name":"POKS","colors":"#111E6C","x":1705708800000,"y":461,"fill":"#111E6C"},{"date":"2024-01-21","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":12850,"Daily Spend":73,"short_name":"POKS","colors":"#111E6C","x":1705795200000,"y":73,"fill":"#111E6C"},{"date":"2024-01-22","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":13063,"Daily Spend":213,"short_name":"POKS","colors":"#111E6C","x":1705881600000,"y":213,"fill":"#111E6C"},{"date":"2024-01-23","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":13364,"Daily Spend":301,"short_name":"POKS","colors":"#111E6C","x":1705968000000,"y":301,"fill":"#111E6C"},{"date":"2024-01-24","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":13667,"Daily Spend":303,"short_name":"POKS","colors":"#111E6C","x":1706054400000,"y":303,"fill":"#111E6C"},{"date":"2024-01-25","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":13952,"Daily Spend":285,"short_name":"POKS","colors":"#111E6C","x":1706140800000,"y":285,"fill":"#111E6C"},{"date":"2024-01-26","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":14197,"Daily Spend":245,"short_name":"POKS","colors":"#111E6C","x":1706227200000,"y":245,"fill":"#111E6C"},{"date":"2024-01-27","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":14456,"Daily Spend":259,"short_name":"POKS","colors":"#111E6C","x":1706313600000,"y":259,"fill":"#111E6C"},{"date":"2024-01-28","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":14726,"Daily Spend":270,"short_name":"POKS","colors":"#111E6C","x":1706400000000,"y":270,"fill":"#111E6C"},{"date":"2024-01-29","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":14914,"Daily Spend":188,"short_name":"POKS","colors":"#111E6C","x":1706486400000,"y":188,"fill":"#111E6C"},{"date":"2024-01-30","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":14914,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1706572800000,"y":0,"fill":"#111E6C"},{"date":"2024-01-31","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":14950,"Daily Spend":36,"short_name":"POKS","colors":"#111E6C","x":1706659200000,"y":36,"fill":"#111E6C"},{"date":"2024-02-01","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":15011,"Daily Spend":61,"short_name":"POKS","colors":"#111E6C","x":1706745600000,"y":61,"fill":"#111E6C"},{"date":"2024-02-02","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":15064,"Daily Spend":53,"short_name":"POKS","colors":"#111E6C","x":1706832000000,"y":53,"fill":"#111E6C"},{"date":"2024-02-03","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":15158,"Daily Spend":94,"short_name":"POKS","colors":"#111E6C","x":1706918400000,"y":94,"fill":"#111E6C"},{"date":"2024-02-04","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":15292,"Daily Spend":134,"short_name":"POKS","colors":"#111E6C","x":1707004800000,"y":134,"fill":"#111E6C"},{"date":"2024-02-05","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":15418,"Daily Spend":126,"short_name":"POKS","colors":"#111E6C","x":1707091200000,"y":126,"fill":"#111E6C"},{"date":"2024-02-06","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":15546,"Daily Spend":128,"short_name":"POKS","colors":"#111E6C","x":1707177600000,"y":128,"fill":"#111E6C"},{"date":"2024-02-07","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":15614,"Daily Spend":68,"short_name":"POKS","colors":"#111E6C","x":1707264000000,"y":68,"fill":"#111E6C"},{"date":"2024-02-08","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":15614,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1707350400000,"y":0,"fill":"#111E6C"},{"date":"2024-02-09","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":15614,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1707436800000,"y":0,"fill":"#111E6C"},{"date":"2024-02-10","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":15614,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1707523200000,"y":0,"fill":"#111E6C"},{"date":"2024-02-11","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":15614,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1707609600000,"y":0,"fill":"#111E6C"},{"date":"2024-02-12","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":15614,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1707696000000,"y":0,"fill":"#111E6C"},{"date":"2024-02-13","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":15614,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1707782400000,"y":0,"fill":"#111E6C"},{"date":"2024-02-14","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":15614,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1707868800000,"y":0,"fill":"#111E6C"},{"date":"2024-02-15","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":15614,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1707955200000,"y":0,"fill":"#111E6C"},{"date":"2024-02-16","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":15614,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1708041600000,"y":0,"fill":"#111E6C"},{"date":"2024-02-17","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":15614,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1708128000000,"y":0,"fill":"#111E6C"},{"date":"2024-02-18","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":15614,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1708214400000,"y":0,"fill":"#111E6C"},{"date":"2024-02-19","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":15614,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1708300800000,"y":0,"fill":"#111E6C"},{"date":"2024-02-20","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":15614,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1708387200000,"y":0,"fill":"#111E6C"},{"date":"2024-02-21","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":15614,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1708473600000,"y":0,"fill":"#111E6C"},{"date":"2024-02-22","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":15614,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1708560000000,"y":0,"fill":"#111E6C"},{"date":"2024-02-23","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":15614,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1708646400000,"y":0,"fill":"#111E6C"},{"date":"2024-02-24","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":15614,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1708732800000,"y":0,"fill":"#111E6C"},{"date":"2024-02-25","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":15614,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1708819200000,"y":0,"fill":"#111E6C"},{"date":"2024-02-26","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":15614,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1708905600000,"y":0,"fill":"#111E6C"},{"date":"2024-02-27","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":15614,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1708992000000,"y":0,"fill":"#111E6C"},{"date":"2024-02-28","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":15614,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1709078400000,"y":0,"fill":"#111E6C"},{"date":"2024-02-29","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":15614,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1709164800000,"y":0,"fill":"#111E6C"},{"date":"2024-03-01","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":15614,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1709251200000,"y":0,"fill":"#111E6C"},{"date":"2024-03-02","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":15614,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1709337600000,"y":0,"fill":"#111E6C"},{"date":"2024-03-03","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":15614,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1709424000000,"y":0,"fill":"#111E6C"},{"date":"2024-03-04","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":15614,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1709510400000,"y":0,"fill":"#111E6C"},{"date":"2024-03-05","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":15614,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1709596800000,"y":0,"fill":"#111E6C"},{"date":"2024-03-06","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":15614,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1709683200000,"y":0,"fill":"#111E6C"},{"date":"2024-03-07","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":15614,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1709769600000,"y":0,"fill":"#111E6C"},{"date":"2024-03-08","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":15614,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1709856000000,"y":0,"fill":"#111E6C"},{"date":"2024-03-09","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":15614,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1709942400000,"y":0,"fill":"#111E6C"},{"date":"2024-03-10","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":15614,"Daily Spend":0,"short_name":"POKS","colors":"#111E6C","x":1710028800000,"y":0,"fill":"#111E6C"},{"date":"2024-03-11","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":15657,"Daily Spend":43,"short_name":"POKS","colors":"#111E6C","x":1710115200000,"y":43,"fill":"#111E6C"},{"date":"2024-03-12","party":"Pokret obnove Kraljevine Srbije (POKS)","amount_spent":15737,"Daily Spend":80,"short_name":"POKS","colors":"#111E6C","x":1710201600000,"y":80,"fill":"#111E6C"}],"type":"area"},{"name":"Srpska napredna stranka (SNS)","data":[{"date":"2023-12-31","party":"Srpska napredna stranka (SNS)","amount_spent":20616,"Daily Spend":null,"short_name":"SNS","colors":"#242970","x":1703980800000,"y":null,"fill":"#242970"},{"date":"2024-01-01","party":"Srpska napredna stranka (SNS)","amount_spent":20616,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1704067200000,"y":0,"fill":"#242970"},{"date":"2024-01-02","party":"Srpska napredna stranka (SNS)","amount_spent":20616,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1704153600000,"y":0,"fill":"#242970"},{"date":"2024-01-03","party":"Srpska napredna stranka (SNS)","amount_spent":20616,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1704240000000,"y":0,"fill":"#242970"},{"date":"2024-01-04","party":"Srpska napredna stranka (SNS)","amount_spent":20616,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1704326400000,"y":0,"fill":"#242970"},{"date":"2024-01-05","party":"Srpska napredna stranka (SNS)","amount_spent":20616,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1704412800000,"y":0,"fill":"#242970"},{"date":"2024-01-06","party":"Srpska napredna stranka (SNS)","amount_spent":20616,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1704499200000,"y":0,"fill":"#242970"},{"date":"2024-01-07","party":"Srpska napredna stranka (SNS)","amount_spent":20616,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1704585600000,"y":0,"fill":"#242970"},{"date":"2024-01-08","party":"Srpska napredna stranka (SNS)","amount_spent":20616,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1704672000000,"y":0,"fill":"#242970"},{"date":"2024-01-09","party":"Srpska napredna stranka (SNS)","amount_spent":20616,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1704758400000,"y":0,"fill":"#242970"},{"date":"2024-01-10","party":"Srpska napredna stranka (SNS)","amount_spent":20616,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1704844800000,"y":0,"fill":"#242970"},{"date":"2024-01-11","party":"Srpska napredna stranka (SNS)","amount_spent":20616,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1704931200000,"y":0,"fill":"#242970"},{"date":"2024-01-12","party":"Srpska napredna stranka (SNS)","amount_spent":20616,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1705017600000,"y":0,"fill":"#242970"},{"date":"2024-01-13","party":"Srpska napredna stranka (SNS)","amount_spent":20616,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1705104000000,"y":0,"fill":"#242970"},{"date":"2024-01-14","party":"Srpska napredna stranka (SNS)","amount_spent":20616,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1705190400000,"y":0,"fill":"#242970"},{"date":"2024-01-15","party":"Srpska napredna stranka (SNS)","amount_spent":20616,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1705276800000,"y":0,"fill":"#242970"},{"date":"2024-01-16","party":"Srpska napredna stranka (SNS)","amount_spent":20616,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1705363200000,"y":0,"fill":"#242970"},{"date":"2024-01-17","party":"Srpska napredna stranka (SNS)","amount_spent":20616,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1705449600000,"y":0,"fill":"#242970"},{"date":"2024-01-18","party":"Srpska napredna stranka (SNS)","amount_spent":20616,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1705536000000,"y":0,"fill":"#242970"},{"date":"2024-01-19","party":"Srpska napredna stranka (SNS)","amount_spent":20616,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1705622400000,"y":0,"fill":"#242970"},{"date":"2024-01-20","party":"Srpska napredna stranka (SNS)","amount_spent":20616,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1705708800000,"y":0,"fill":"#242970"},{"date":"2024-01-21","party":"Srpska napredna stranka (SNS)","amount_spent":20616,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1705795200000,"y":0,"fill":"#242970"},{"date":"2024-01-22","party":"Srpska napredna stranka (SNS)","amount_spent":20616,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1705881600000,"y":0,"fill":"#242970"},{"date":"2024-01-23","party":"Srpska napredna stranka (SNS)","amount_spent":20620,"Daily Spend":4,"short_name":"SNS","colors":"#242970","x":1705968000000,"y":4,"fill":"#242970"},{"date":"2024-01-24","party":"Srpska napredna stranka (SNS)","amount_spent":20640,"Daily Spend":20,"short_name":"SNS","colors":"#242970","x":1706054400000,"y":20,"fill":"#242970"},{"date":"2024-01-25","party":"Srpska napredna stranka (SNS)","amount_spent":20642,"Daily Spend":2,"short_name":"SNS","colors":"#242970","x":1706140800000,"y":2,"fill":"#242970"},{"date":"2024-01-26","party":"Srpska napredna stranka (SNS)","amount_spent":20642,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1706227200000,"y":0,"fill":"#242970"},{"date":"2024-01-27","party":"Srpska napredna stranka (SNS)","amount_spent":20642,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1706313600000,"y":0,"fill":"#242970"},{"date":"2024-01-28","party":"Srpska napredna stranka (SNS)","amount_spent":20642,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1706400000000,"y":0,"fill":"#242970"},{"date":"2024-01-29","party":"Srpska napredna stranka (SNS)","amount_spent":20668,"Daily Spend":26,"short_name":"SNS","colors":"#242970","x":1706486400000,"y":26,"fill":"#242970"},{"date":"2024-01-30","party":"Srpska napredna stranka (SNS)","amount_spent":20682,"Daily Spend":14,"short_name":"SNS","colors":"#242970","x":1706572800000,"y":14,"fill":"#242970"},{"date":"2024-01-31","party":"Srpska napredna stranka (SNS)","amount_spent":20688,"Daily Spend":6,"short_name":"SNS","colors":"#242970","x":1706659200000,"y":6,"fill":"#242970"},{"date":"2024-02-01","party":"Srpska napredna stranka (SNS)","amount_spent":20700,"Daily Spend":12,"short_name":"SNS","colors":"#242970","x":1706745600000,"y":12,"fill":"#242970"},{"date":"2024-02-02","party":"Srpska napredna stranka (SNS)","amount_spent":20714,"Daily Spend":14,"short_name":"SNS","colors":"#242970","x":1706832000000,"y":14,"fill":"#242970"},{"date":"2024-02-03","party":"Srpska napredna stranka (SNS)","amount_spent":20728,"Daily Spend":14,"short_name":"SNS","colors":"#242970","x":1706918400000,"y":14,"fill":"#242970"},{"date":"2024-02-04","party":"Srpska napredna stranka (SNS)","amount_spent":20741,"Daily Spend":13,"short_name":"SNS","colors":"#242970","x":1707004800000,"y":13,"fill":"#242970"},{"date":"2024-02-05","party":"Srpska napredna stranka (SNS)","amount_spent":20748,"Daily Spend":7,"short_name":"SNS","colors":"#242970","x":1707091200000,"y":7,"fill":"#242970"},{"date":"2024-02-06","party":"Srpska napredna stranka (SNS)","amount_spent":20748,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1707177600000,"y":0,"fill":"#242970"},{"date":"2024-02-07","party":"Srpska napredna stranka (SNS)","amount_spent":20763,"Daily Spend":15,"short_name":"SNS","colors":"#242970","x":1707264000000,"y":15,"fill":"#242970"},{"date":"2024-02-08","party":"Srpska napredna stranka (SNS)","amount_spent":20789,"Daily Spend":26,"short_name":"SNS","colors":"#242970","x":1707350400000,"y":26,"fill":"#242970"},{"date":"2024-02-09","party":"Srpska napredna stranka (SNS)","amount_spent":20821,"Daily Spend":32,"short_name":"SNS","colors":"#242970","x":1707436800000,"y":32,"fill":"#242970"},{"date":"2024-02-10","party":"Srpska napredna stranka (SNS)","amount_spent":20851,"Daily Spend":30,"short_name":"SNS","colors":"#242970","x":1707523200000,"y":30,"fill":"#242970"},{"date":"2024-02-11","party":"Srpska napredna stranka (SNS)","amount_spent":20898,"Daily Spend":47,"short_name":"SNS","colors":"#242970","x":1707609600000,"y":47,"fill":"#242970"},{"date":"2024-02-12","party":"Srpska napredna stranka (SNS)","amount_spent":20917,"Daily Spend":19,"short_name":"SNS","colors":"#242970","x":1707696000000,"y":19,"fill":"#242970"},{"date":"2024-02-13","party":"Srpska napredna stranka (SNS)","amount_spent":20936,"Daily Spend":19,"short_name":"SNS","colors":"#242970","x":1707782400000,"y":19,"fill":"#242970"},{"date":"2024-02-14","party":"Srpska napredna stranka (SNS)","amount_spent":20948,"Daily Spend":12,"short_name":"SNS","colors":"#242970","x":1707868800000,"y":12,"fill":"#242970"},{"date":"2024-02-15","party":"Srpska napredna stranka (SNS)","amount_spent":20975,"Daily Spend":27,"short_name":"SNS","colors":"#242970","x":1707955200000,"y":27,"fill":"#242970"},{"date":"2024-02-16","party":"Srpska napredna stranka (SNS)","amount_spent":20995,"Daily Spend":20,"short_name":"SNS","colors":"#242970","x":1708041600000,"y":20,"fill":"#242970"},{"date":"2024-02-17","party":"Srpska napredna stranka (SNS)","amount_spent":21007,"Daily Spend":12,"short_name":"SNS","colors":"#242970","x":1708128000000,"y":12,"fill":"#242970"},{"date":"2024-02-18","party":"Srpska napredna stranka (SNS)","amount_spent":21021,"Daily Spend":14,"short_name":"SNS","colors":"#242970","x":1708214400000,"y":14,"fill":"#242970"},{"date":"2024-02-19","party":"Srpska napredna stranka (SNS)","amount_spent":21041,"Daily Spend":20,"short_name":"SNS","colors":"#242970","x":1708300800000,"y":20,"fill":"#242970"},{"date":"2024-02-20","party":"Srpska napredna stranka (SNS)","amount_spent":21053,"Daily Spend":12,"short_name":"SNS","colors":"#242970","x":1708387200000,"y":12,"fill":"#242970"},{"date":"2024-02-21","party":"Srpska napredna stranka (SNS)","amount_spent":21067,"Daily Spend":14,"short_name":"SNS","colors":"#242970","x":1708473600000,"y":14,"fill":"#242970"},{"date":"2024-02-22","party":"Srpska napredna stranka (SNS)","amount_spent":21080,"Daily Spend":13,"short_name":"SNS","colors":"#242970","x":1708560000000,"y":13,"fill":"#242970"},{"date":"2024-02-23","party":"Srpska napredna stranka (SNS)","amount_spent":21098,"Daily Spend":18,"short_name":"SNS","colors":"#242970","x":1708646400000,"y":18,"fill":"#242970"},{"date":"2024-02-24","party":"Srpska napredna stranka (SNS)","amount_spent":21109,"Daily Spend":11,"short_name":"SNS","colors":"#242970","x":1708732800000,"y":11,"fill":"#242970"},{"date":"2024-02-25","party":"Srpska napredna stranka (SNS)","amount_spent":21114,"Daily Spend":5,"short_name":"SNS","colors":"#242970","x":1708819200000,"y":5,"fill":"#242970"},{"date":"2024-02-26","party":"Srpska napredna stranka (SNS)","amount_spent":21114,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1708905600000,"y":0,"fill":"#242970"},{"date":"2024-02-27","party":"Srpska napredna stranka (SNS)","amount_spent":21118,"Daily Spend":4,"short_name":"SNS","colors":"#242970","x":1708992000000,"y":4,"fill":"#242970"},{"date":"2024-02-28","party":"Srpska napredna stranka (SNS)","amount_spent":21135,"Daily Spend":17,"short_name":"SNS","colors":"#242970","x":1709078400000,"y":17,"fill":"#242970"},{"date":"2024-02-29","party":"Srpska napredna stranka (SNS)","amount_spent":21148,"Daily Spend":13,"short_name":"SNS","colors":"#242970","x":1709164800000,"y":13,"fill":"#242970"},{"date":"2024-03-01","party":"Srpska napredna stranka (SNS)","amount_spent":21165,"Daily Spend":17,"short_name":"SNS","colors":"#242970","x":1709251200000,"y":17,"fill":"#242970"},{"date":"2024-03-02","party":"Srpska napredna stranka (SNS)","amount_spent":21190,"Daily Spend":25,"short_name":"SNS","colors":"#242970","x":1709337600000,"y":25,"fill":"#242970"},{"date":"2024-03-03","party":"Srpska napredna stranka (SNS)","amount_spent":21210,"Daily Spend":20,"short_name":"SNS","colors":"#242970","x":1709424000000,"y":20,"fill":"#242970"},{"date":"2024-03-04","party":"Srpska napredna stranka (SNS)","amount_spent":21212,"Daily Spend":2,"short_name":"SNS","colors":"#242970","x":1709510400000,"y":2,"fill":"#242970"},{"date":"2024-03-05","party":"Srpska napredna stranka (SNS)","amount_spent":21224,"Daily Spend":12,"short_name":"SNS","colors":"#242970","x":1709596800000,"y":12,"fill":"#242970"},{"date":"2024-03-06","party":"Srpska napredna stranka (SNS)","amount_spent":21239,"Daily Spend":15,"short_name":"SNS","colors":"#242970","x":1709683200000,"y":15,"fill":"#242970"},{"date":"2024-03-07","party":"Srpska napredna stranka (SNS)","amount_spent":21239,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1709769600000,"y":0,"fill":"#242970"},{"date":"2024-03-08","party":"Srpska napredna stranka (SNS)","amount_spent":21239,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1709856000000,"y":0,"fill":"#242970"},{"date":"2024-03-09","party":"Srpska napredna stranka (SNS)","amount_spent":21239,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1709942400000,"y":0,"fill":"#242970"},{"date":"2024-03-10","party":"Srpska napredna stranka (SNS)","amount_spent":21239,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1710028800000,"y":0,"fill":"#242970"},{"date":"2024-03-11","party":"Srpska napredna stranka (SNS)","amount_spent":21239,"Daily Spend":0,"short_name":"SNS","colors":"#242970","x":1710115200000,"y":0,"fill":"#242970"},{"date":"2024-03-12","party":"Srpska napredna stranka (SNS)","amount_spent":21254,"Daily Spend":15,"short_name":"SNS","colors":"#242970","x":1710201600000,"y":15,"fill":"#242970"}],"type":"area"},{"name":"Stranka slobode i pravde (SSP)","data":[{"date":"2023-12-31","party":"Stranka slobode i pravde (SSP)","amount_spent":932,"Daily Spend":null,"short_name":"SSP","colors":"#DB2927","x":1703980800000,"y":null,"fill":"#DB2927"},{"date":"2024-01-01","party":"Stranka slobode i pravde (SSP)","amount_spent":933,"Daily Spend":1,"short_name":"SSP","colors":"#DB2927","x":1704067200000,"y":1,"fill":"#DB2927"},{"date":"2024-01-02","party":"Stranka slobode i pravde (SSP)","amount_spent":935,"Daily Spend":2,"short_name":"SSP","colors":"#DB2927","x":1704153600000,"y":2,"fill":"#DB2927"},{"date":"2024-01-03","party":"Stranka slobode i pravde (SSP)","amount_spent":936,"Daily Spend":1,"short_name":"SSP","colors":"#DB2927","x":1704240000000,"y":1,"fill":"#DB2927"},{"date":"2024-01-04","party":"Stranka slobode i pravde (SSP)","amount_spent":936,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1704326400000,"y":0,"fill":"#DB2927"},{"date":"2024-01-05","party":"Stranka slobode i pravde (SSP)","amount_spent":936,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1704412800000,"y":0,"fill":"#DB2927"},{"date":"2024-01-06","party":"Stranka slobode i pravde (SSP)","amount_spent":936,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1704499200000,"y":0,"fill":"#DB2927"},{"date":"2024-01-07","party":"Stranka slobode i pravde (SSP)","amount_spent":937,"Daily Spend":1,"short_name":"SSP","colors":"#DB2927","x":1704585600000,"y":1,"fill":"#DB2927"},{"date":"2024-01-08","party":"Stranka slobode i pravde (SSP)","amount_spent":938,"Daily Spend":1,"short_name":"SSP","colors":"#DB2927","x":1704672000000,"y":1,"fill":"#DB2927"},{"date":"2024-01-09","party":"Stranka slobode i pravde (SSP)","amount_spent":938,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1704758400000,"y":0,"fill":"#DB2927"},{"date":"2024-01-10","party":"Stranka slobode i pravde (SSP)","amount_spent":938,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1704844800000,"y":0,"fill":"#DB2927"},{"date":"2024-01-11","party":"Stranka slobode i pravde (SSP)","amount_spent":938,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1704931200000,"y":0,"fill":"#DB2927"},{"date":"2024-01-12","party":"Stranka slobode i pravde (SSP)","amount_spent":938,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1705017600000,"y":0,"fill":"#DB2927"},{"date":"2024-01-13","party":"Stranka slobode i pravde (SSP)","amount_spent":938,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1705104000000,"y":0,"fill":"#DB2927"},{"date":"2024-01-14","party":"Stranka slobode i pravde (SSP)","amount_spent":938,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1705190400000,"y":0,"fill":"#DB2927"},{"date":"2024-01-15","party":"Stranka slobode i pravde (SSP)","amount_spent":938,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1705276800000,"y":0,"fill":"#DB2927"},{"date":"2024-01-16","party":"Stranka slobode i pravde (SSP)","amount_spent":938,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1705363200000,"y":0,"fill":"#DB2927"},{"date":"2024-01-17","party":"Stranka slobode i pravde (SSP)","amount_spent":938,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1705449600000,"y":0,"fill":"#DB2927"},{"date":"2024-01-18","party":"Stranka slobode i pravde (SSP)","amount_spent":940,"Daily Spend":2,"short_name":"SSP","colors":"#DB2927","x":1705536000000,"y":2,"fill":"#DB2927"},{"date":"2024-01-19","party":"Stranka slobode i pravde (SSP)","amount_spent":940,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1705622400000,"y":0,"fill":"#DB2927"},{"date":"2024-01-20","party":"Stranka slobode i pravde (SSP)","amount_spent":940,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1705708800000,"y":0,"fill":"#DB2927"},{"date":"2024-01-21","party":"Stranka slobode i pravde (SSP)","amount_spent":941,"Daily Spend":1,"short_name":"SSP","colors":"#DB2927","x":1705795200000,"y":1,"fill":"#DB2927"},{"date":"2024-01-22","party":"Stranka slobode i pravde (SSP)","amount_spent":942,"Daily Spend":1,"short_name":"SSP","colors":"#DB2927","x":1705881600000,"y":1,"fill":"#DB2927"},{"date":"2024-01-23","party":"Stranka slobode i pravde (SSP)","amount_spent":942,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1705968000000,"y":0,"fill":"#DB2927"},{"date":"2024-01-24","party":"Stranka slobode i pravde (SSP)","amount_spent":942,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1706054400000,"y":0,"fill":"#DB2927"},{"date":"2024-01-25","party":"Stranka slobode i pravde (SSP)","amount_spent":942,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1706140800000,"y":0,"fill":"#DB2927"},{"date":"2024-01-26","party":"Stranka slobode i pravde (SSP)","amount_spent":944,"Daily Spend":2,"short_name":"SSP","colors":"#DB2927","x":1706227200000,"y":2,"fill":"#DB2927"},{"date":"2024-01-27","party":"Stranka slobode i pravde (SSP)","amount_spent":944,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1706313600000,"y":0,"fill":"#DB2927"},{"date":"2024-01-28","party":"Stranka slobode i pravde (SSP)","amount_spent":944,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1706400000000,"y":0,"fill":"#DB2927"},{"date":"2024-01-29","party":"Stranka slobode i pravde (SSP)","amount_spent":944,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1706486400000,"y":0,"fill":"#DB2927"},{"date":"2024-01-30","party":"Stranka slobode i pravde (SSP)","amount_spent":944,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1706572800000,"y":0,"fill":"#DB2927"},{"date":"2024-01-31","party":"Stranka slobode i pravde (SSP)","amount_spent":944,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1706659200000,"y":0,"fill":"#DB2927"},{"date":"2024-02-01","party":"Stranka slobode i pravde (SSP)","amount_spent":944,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1706745600000,"y":0,"fill":"#DB2927"},{"date":"2024-02-02","party":"Stranka slobode i pravde (SSP)","amount_spent":944,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1706832000000,"y":0,"fill":"#DB2927"},{"date":"2024-02-03","party":"Stranka slobode i pravde (SSP)","amount_spent":944,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1706918400000,"y":0,"fill":"#DB2927"},{"date":"2024-02-04","party":"Stranka slobode i pravde (SSP)","amount_spent":944,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1707004800000,"y":0,"fill":"#DB2927"},{"date":"2024-02-05","party":"Stranka slobode i pravde (SSP)","amount_spent":944,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1707091200000,"y":0,"fill":"#DB2927"},{"date":"2024-02-06","party":"Stranka slobode i pravde (SSP)","amount_spent":944,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1707177600000,"y":0,"fill":"#DB2927"},{"date":"2024-02-07","party":"Stranka slobode i pravde (SSP)","amount_spent":945,"Daily Spend":1,"short_name":"SSP","colors":"#DB2927","x":1707264000000,"y":1,"fill":"#DB2927"},{"date":"2024-02-08","party":"Stranka slobode i pravde (SSP)","amount_spent":948,"Daily Spend":3,"short_name":"SSP","colors":"#DB2927","x":1707350400000,"y":3,"fill":"#DB2927"},{"date":"2024-02-09","party":"Stranka slobode i pravde (SSP)","amount_spent":952,"Daily Spend":4,"short_name":"SSP","colors":"#DB2927","x":1707436800000,"y":4,"fill":"#DB2927"},{"date":"2024-02-10","party":"Stranka slobode i pravde (SSP)","amount_spent":958,"Daily Spend":6,"short_name":"SSP","colors":"#DB2927","x":1707523200000,"y":6,"fill":"#DB2927"},{"date":"2024-02-11","party":"Stranka slobode i pravde (SSP)","amount_spent":962,"Daily Spend":4,"short_name":"SSP","colors":"#DB2927","x":1707609600000,"y":4,"fill":"#DB2927"},{"date":"2024-02-12","party":"Stranka slobode i pravde (SSP)","amount_spent":966,"Daily Spend":4,"short_name":"SSP","colors":"#DB2927","x":1707696000000,"y":4,"fill":"#DB2927"},{"date":"2024-02-13","party":"Stranka slobode i pravde (SSP)","amount_spent":966,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1707782400000,"y":0,"fill":"#DB2927"},{"date":"2024-02-14","party":"Stranka slobode i pravde (SSP)","amount_spent":967,"Daily Spend":1,"short_name":"SSP","colors":"#DB2927","x":1707868800000,"y":1,"fill":"#DB2927"},{"date":"2024-02-15","party":"Stranka slobode i pravde (SSP)","amount_spent":970,"Daily Spend":3,"short_name":"SSP","colors":"#DB2927","x":1707955200000,"y":3,"fill":"#DB2927"},{"date":"2024-02-16","party":"Stranka slobode i pravde (SSP)","amount_spent":973,"Daily Spend":3,"short_name":"SSP","colors":"#DB2927","x":1708041600000,"y":3,"fill":"#DB2927"},{"date":"2024-02-17","party":"Stranka slobode i pravde (SSP)","amount_spent":976,"Daily Spend":3,"short_name":"SSP","colors":"#DB2927","x":1708128000000,"y":3,"fill":"#DB2927"},{"date":"2024-02-18","party":"Stranka slobode i pravde (SSP)","amount_spent":979,"Daily Spend":3,"short_name":"SSP","colors":"#DB2927","x":1708214400000,"y":3,"fill":"#DB2927"},{"date":"2024-02-19","party":"Stranka slobode i pravde (SSP)","amount_spent":984,"Daily Spend":5,"short_name":"SSP","colors":"#DB2927","x":1708300800000,"y":5,"fill":"#DB2927"},{"date":"2024-02-20","party":"Stranka slobode i pravde (SSP)","amount_spent":990,"Daily Spend":6,"short_name":"SSP","colors":"#DB2927","x":1708387200000,"y":6,"fill":"#DB2927"},{"date":"2024-02-21","party":"Stranka slobode i pravde (SSP)","amount_spent":993,"Daily Spend":3,"short_name":"SSP","colors":"#DB2927","x":1708473600000,"y":3,"fill":"#DB2927"},{"date":"2024-02-22","party":"Stranka slobode i pravde (SSP)","amount_spent":999,"Daily Spend":6,"short_name":"SSP","colors":"#DB2927","x":1708560000000,"y":6,"fill":"#DB2927"},{"date":"2024-02-23","party":"Stranka slobode i pravde (SSP)","amount_spent":1007,"Daily Spend":8,"short_name":"SSP","colors":"#DB2927","x":1708646400000,"y":8,"fill":"#DB2927"},{"date":"2024-02-24","party":"Stranka slobode i pravde (SSP)","amount_spent":1017,"Daily Spend":10,"short_name":"SSP","colors":"#DB2927","x":1708732800000,"y":10,"fill":"#DB2927"},{"date":"2024-02-25","party":"Stranka slobode i pravde (SSP)","amount_spent":1022,"Daily Spend":5,"short_name":"SSP","colors":"#DB2927","x":1708819200000,"y":5,"fill":"#DB2927"},{"date":"2024-02-26","party":"Stranka slobode i pravde (SSP)","amount_spent":1024,"Daily Spend":2,"short_name":"SSP","colors":"#DB2927","x":1708905600000,"y":2,"fill":"#DB2927"},{"date":"2024-02-27","party":"Stranka slobode i pravde (SSP)","amount_spent":1026,"Daily Spend":2,"short_name":"SSP","colors":"#DB2927","x":1708992000000,"y":2,"fill":"#DB2927"},{"date":"2024-02-28","party":"Stranka slobode i pravde (SSP)","amount_spent":1028,"Daily Spend":2,"short_name":"SSP","colors":"#DB2927","x":1709078400000,"y":2,"fill":"#DB2927"},{"date":"2024-02-29","party":"Stranka slobode i pravde (SSP)","amount_spent":1032,"Daily Spend":4,"short_name":"SSP","colors":"#DB2927","x":1709164800000,"y":4,"fill":"#DB2927"},{"date":"2024-03-01","party":"Stranka slobode i pravde (SSP)","amount_spent":1036,"Daily Spend":4,"short_name":"SSP","colors":"#DB2927","x":1709251200000,"y":4,"fill":"#DB2927"},{"date":"2024-03-02","party":"Stranka slobode i pravde (SSP)","amount_spent":1039,"Daily Spend":3,"short_name":"SSP","colors":"#DB2927","x":1709337600000,"y":3,"fill":"#DB2927"},{"date":"2024-03-03","party":"Stranka slobode i pravde (SSP)","amount_spent":1042,"Daily Spend":3,"short_name":"SSP","colors":"#DB2927","x":1709424000000,"y":3,"fill":"#DB2927"},{"date":"2024-03-04","party":"Stranka slobode i pravde (SSP)","amount_spent":1048,"Daily Spend":6,"short_name":"SSP","colors":"#DB2927","x":1709510400000,"y":6,"fill":"#DB2927"},{"date":"2024-03-05","party":"Stranka slobode i pravde (SSP)","amount_spent":1052,"Daily Spend":4,"short_name":"SSP","colors":"#DB2927","x":1709596800000,"y":4,"fill":"#DB2927"},{"date":"2024-03-06","party":"Stranka slobode i pravde (SSP)","amount_spent":1055,"Daily Spend":3,"short_name":"SSP","colors":"#DB2927","x":1709683200000,"y":3,"fill":"#DB2927"},{"date":"2024-03-07","party":"Stranka slobode i pravde (SSP)","amount_spent":1057,"Daily Spend":2,"short_name":"SSP","colors":"#DB2927","x":1709769600000,"y":2,"fill":"#DB2927"},{"date":"2024-03-08","party":"Stranka slobode i pravde (SSP)","amount_spent":1060,"Daily Spend":3,"short_name":"SSP","colors":"#DB2927","x":1709856000000,"y":3,"fill":"#DB2927"},{"date":"2024-03-09","party":"Stranka slobode i pravde (SSP)","amount_spent":1060,"Daily Spend":0,"short_name":"SSP","colors":"#DB2927","x":1709942400000,"y":0,"fill":"#DB2927"},{"date":"2024-03-10","party":"Stranka slobode i pravde (SSP)","amount_spent":1063,"Daily Spend":3,"short_name":"SSP","colors":"#DB2927","x":1710028800000,"y":3,"fill":"#DB2927"},{"date":"2024-03-11","party":"Stranka slobode i pravde (SSP)","amount_spent":1065,"Daily Spend":2,"short_name":"SSP","colors":"#DB2927","x":1710115200000,"y":2,"fill":"#DB2927"},{"date":"2024-03-12","party":"Stranka slobode i pravde (SSP)","amount_spent":1066,"Daily Spend":1,"short_name":"SSP","colors":"#DB2927","x":1710201600000,"y":1,"fill":"#DB2927"}],"type":"area"}],"xAxis":{"type":"datetime","title":{"text":"date"},"categories":null},"colors":["#FFE000","#2EEA2E","#E02020","#1E90FF","#111E6C","#A60C19","#242970","#16321b","#DB2927","#670A64"],"tooltip":{"shared":true,"positioner":"function (labelWidth, labelHeight, point) {\n        return { x: 200, y: this.chart.plotTop };\n    }"}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":["hc_opts.tooltip.positioner"],"jsHooks":[]}</script>
 </div>
 </div>
 
@@ -1274,10 +1308,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1287,8 +1338,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1300,7 +1360,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1344,6 +1527,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1369,6 +1553,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1429,6 +1639,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

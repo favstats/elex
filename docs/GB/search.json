@@ -1,100 +1,129 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "Targeting Dashboard - United Kingdom",
-    "section": "",
-    "text": "Methodology\nIn collaboration with Who Targets Me, we monitored 24323 political advertisers to better understand how campaigns use different targeting methods made available by Meta. To do this, we used data from the Meta Ad Library, using the new ‘Audience’ data which gives some detail on how pages target their ads.\nTo better understand the election, we kept only advertisers who:\n\nAdvertised in the last 7 days (2 Mar - 8 Mar 2024)\nAdvertised in the last 30 days (8 Feb - 8 Mar 2024)\n\n\n\n\n\n\n\nNote\n\n\n\nMeta only provides 7, 30 and 90 days windows for the targeting data in their Ad Library. Meta’s data also lags by a few days. Report will be updated as soon as new data is available.\n\n\n\n\n\n\n\n\nDisclaimer\n\n\n\nThe data shown in this dashboard is based on the platform’s respective ad libraries which are known to be sometimes incomplete (Edelson et al. 2020; Silva et al. 2020). For this reason the data shown here might not reflect the full picture nor all political ads that were targeted at voters.\n\n\n\n\nAbout the Creator of the Dashboard\n\n\n\n\n\n\n\n\n\n\n\nFabio Votta is a Postdoc at the University of Amsterdam who studies (online) political microtargeting and its usage around the world.\n\n\n\n\n\n\n\n\n\n\n\nWant to see how political parties target you? Sign up at Who Targets Me and download the gratis browser plugin to see how parties on Facebook use your data:\nhttps://whotargets.me/\n\n\n\n\n\n\n\nWant to retrieve targeting data from the Facebook Ad Library yourself? This dashboard is powered by the R package: metatargetr. Check it out here:\nhttps://github.com/favstats/metatargetr\n\n\n\n\nElection Targeting Dashboards\nA list of election dashboards:\n\n🇳🇱 2021 Dutch parliamentary election (15th-17th March 2021)\n🇩🇪 2021 German federal election (26 September 2021)\n🇸🇪 2022 Swedish general election (11th September 2022)\n🇺🇸 2022 United States midterm elections (8th November 2022)\n🇺🇸 2022 United States midterm elections - Georgia Runoff (6th December 2022)\n🇮🇹 2023 Lazio & Lombardy regional election (12-13th February 2023)\n🇪🇪 2023 Estonian parliamentary election (5th March 2023)\n🇳🇱 2023 Dutch provincial elections (15th March 2023)\n🇲🇪 2023 Montenegrin presidential elections (19th March 2023) - 1st round\n🇦🇺 2023 New South Wales state election (25th March 2023)\n🇫🇮 2023 Finnish parliamentary election (2 April 2023)\n🇹🇷 2023 Turkish general election (14 May 2023) - Round 1\n🇩🇪 2023 Bremen State election (14 May 2023)\n🇬🇷 2023 Greek Legislative election (21 May 2023)\n🇹🇷 2023 Turkish Presidential election (14 May 2023) - Round 2\n🇲🇪 2023 Montenegrin parliamentary elections (11 June 2023)\n🇬🇷 2nd 2023 Greek Legislative election (25 May 2023)\n🇸🇰 2023 Slovak parliamentary election (30 September 2023)\n🇩🇪 2023 Bavarian state election (8 October 2023)\n🇩🇪 2023 Hessian state election (8 October 2023)\n🇳🇿 2023 New Zealand general election (14 October 2023)\n🇵🇱 2023 Polish parliamentary election (15 October 2023)\n🇺🇸 US Presidential Primaries (2023-2024)"
-  },
-  {
     "objectID": "demographics.html",
     "href": "demographics.html",
     "title": "Demographics",
     "section": "",
-    "text": "The following graphs illustrate how parties target different age groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n8 Feb - 8 Mar 20242 Mar - 8 Mar 2024"
+    "text": "The following graphs illustrate how parties target different age groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n11 Feb - 11 Mar 20245 Mar - 11 Mar 2024",
+    "crumbs": [
+      "Demographics"
+    ]
   },
   {
     "objectID": "demographics.html#age-targeting",
     "href": "demographics.html#age-targeting",
     "title": "Demographics",
     "section": "",
-    "text": "The following graphs illustrate how parties target different age groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n8 Feb - 8 Mar 20242 Mar - 8 Mar 2024"
+    "text": "The following graphs illustrate how parties target different age groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n11 Feb - 11 Mar 20245 Mar - 11 Mar 2024",
+    "crumbs": [
+      "Demographics"
+    ]
   },
   {
     "objectID": "demographics.html#gender-targeting",
     "href": "demographics.html#gender-targeting",
     "title": "Demographics",
     "section": "Gender Targeting",
-    "text": "Gender Targeting\nDe onderstaande grafieken laten zien hoe partijen gender als focusgroep gebruiken en welk percentage van het budget daaraan werd uitgegeven.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n8 Feb - 8 Mar 20242 Mar - 8 Mar 2024"
+    "text": "Gender Targeting\nDe onderstaande grafieken laten zien hoe partijen gender als focusgroep gebruiken en welk percentage van het budget daaraan werd uitgegeven.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n11 Feb - 11 Mar 20245 Mar - 11 Mar 2024",
+    "crumbs": [
+      "Demographics"
+    ]
   },
   {
     "objectID": "demographics.html#language-targeting",
     "href": "demographics.html#language-targeting",
     "title": "Demographics",
     "section": "Language Targeting",
-    "text": "Language Targeting\nThe following graphs show how parties use different languages as focus groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n8 Feb - 8 Mar 20242 Mar - 8 Mar 2024"
+    "text": "Language Targeting\nThe following graphs show how parties use different languages as focus groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n11 Feb - 11 Mar 20245 Mar - 11 Mar 2024",
+    "crumbs": [
+      "Demographics"
+    ]
   },
   {
     "objectID": "demographics.html#targeting-based-on-employment-or-education-instituation",
     "href": "demographics.html#targeting-based-on-employment-or-education-instituation",
     "title": "Demographics",
     "section": "Targeting based on Employment or Education Instituation",
-    "text": "Targeting based on Employment or Education Instituation\nThe following graphs depict how parties utilize various job sectors and types of education as focus groups and the percentage of the budget allocated to them. The next graph focuses on educational levels.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n8 Feb - 8 Mar 20242 Mar - 8 Mar 2024"
+    "text": "Targeting based on Employment or Education Instituation\nThe following graphs depict how parties utilize various job sectors and types of education as focus groups and the percentage of the budget allocated to them. The next graph focuses on educational levels.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n11 Feb - 11 Mar 20245 Mar - 11 Mar 2024",
+    "crumbs": [
+      "Demographics"
+    ]
   },
   {
     "objectID": "demographics.html#education-levels-targeting",
     "href": "demographics.html#education-levels-targeting",
     "title": "Demographics",
     "section": "Education Levels Targeting",
-    "text": "Education Levels Targeting\nThe graphs below illustrate how parties target various education levels as focus groups and the percentage of the budget allocated to each.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n8 Feb - 8 Mar 20242 Mar - 8 Mar 2024"
+    "text": "Education Levels Targeting\nThe graphs below illustrate how parties target various education levels as focus groups and the percentage of the budget allocated to each.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n11 Feb - 11 Mar 20245 Mar - 11 Mar 2024",
+    "crumbs": [
+      "Demographics"
+    ]
   },
   {
     "objectID": "demographics.html#relationship-status-targeting",
     "href": "demographics.html#relationship-status-targeting",
     "title": "Demographics",
     "section": "Relationship Status Targeting",
-    "text": "Relationship Status Targeting\nThe following graphs reveal how political parties utilize different relationship statuses as focus groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n8 Feb - 8 Mar 20242 Mar - 8 Mar 2024"
+    "text": "Relationship Status Targeting\nThe following graphs reveal how political parties utilize different relationship statuses as focus groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n11 Feb - 11 Mar 20245 Mar - 11 Mar 2024",
+    "crumbs": [
+      "Demographics"
+    ]
   },
   {
     "objectID": "detailed.html",
     "href": "detailed.html",
     "title": "Detailed Targeting",
     "section": "",
-    "text": "The chart below displays the most utilized targeting criteria by political parties on Meta, based on the amounts spent.\n\n8 Feb - 8 Mar 20242 Mar - 8 Mar 2024"
+    "text": "The chart below displays the most utilized targeting criteria by political parties on Meta, based on the amounts spent.\n\n11 Feb - 11 Mar 20245 Mar - 11 Mar 2024",
+    "crumbs": [
+      "Detailed Targeting"
+    ]
   },
   {
     "objectID": "detailed.html#top-targeted-audiences",
     "href": "detailed.html#top-targeted-audiences",
     "title": "Detailed Targeting",
     "section": "",
-    "text": "The chart below displays the most utilized targeting criteria by political parties on Meta, based on the amounts spent.\n\n8 Feb - 8 Mar 20242 Mar - 8 Mar 2024"
+    "text": "The chart below displays the most utilized targeting criteria by political parties on Meta, based on the amounts spent.\n\n11 Feb - 11 Mar 20245 Mar - 11 Mar 2024",
+    "crumbs": [
+      "Detailed Targeting"
+    ]
   },
   {
     "objectID": "detailed.html#top-excluded-audiences",
     "href": "detailed.html#top-excluded-audiences",
     "title": "Detailed Targeting",
     "section": "Top Excluded Audiences",
-    "text": "Top Excluded Audiences\nAmong the detailed options offered by Meta, the chart below shows the most excluded target audiences per party. The ranking is based on the amounts spent.\n\n8 Feb - 8 Mar 20242 Mar - 8 Mar 2024"
+    "text": "Top Excluded Audiences\nAmong the detailed options offered by Meta, the chart below shows the most excluded target audiences per party. The ranking is based on the amounts spent.\n\n11 Feb - 11 Mar 20245 Mar - 11 Mar 2024",
+    "crumbs": [
+      "Detailed Targeting"
+    ]
   },
   {
     "objectID": "detailed.html#top-contested-audiences",
     "href": "detailed.html#top-contested-audiences",
     "title": "Detailed Targeting",
     "section": "Top Contested Audiences",
-    "text": "Top Contested Audiences\nThe charts below show the target audiences where most competition takes place. For example, the groups in which all parties invest large amounts to reach voters with the same interests.\n\n8 Feb - 8 Mar 20242 Mar - 8 Mar 2024"
+    "text": "Top Contested Audiences\nThe charts below show the target audiences where most competition takes place. For example, the groups in which all parties invest large amounts to reach voters with the same interests.\n\n11 Feb - 11 Mar 20245 Mar - 11 Mar 2024",
+    "crumbs": [
+      "Detailed Targeting"
+    ]
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Spending",
     "section": "",
-    "text": "Here you can see the expenditures of political parties in the lead-up to the elections according to the latest data.\n\n8 Feb - 8 Mar 20242 Mar - 8 Mar 2024\n\n\nDuring this period, political parties spent a total of £972,999 and displayed 9835 advertisements on Meta.\n\n\n\n\n\n\n  \n    \n    \n      \n      Number of Advertisers\n      Top Spenders\n      Number of Ads\n      Total Spend\n    \n  \n  \n    Conservatives\n\n250\n\n1. Rishi Sunak (£118,781)2. Conservatives (£32,347)3. Susan Hall - London Assembly Member (£13,408)\n\n1,669\n\n£376,729\n\n    Other\n\n107\n\n1. UK government (£53,061)2. Electoral Commission UK (£41,251)3. Mayor of London, Sadiq Khan (£28,508)\n\n1,962\n\n£284,965\n\n    Labour Party\n\n253\n\n1. Keir Starmer (£136,119)2. The Labour Party (£22,308)3. Labour South East (£16,880)\n\n5,660\n\n£280,837\n\n    Northern Ireland\n\n10\n\n1. Claire Hanna (£417)2. Social Democratic and Labour Party (SDLP) (£170)3. Denise Johnston- Moyola SDLP (£100)\n\n87\n\n£14,530\n\n    Green Party\n\n13\n\n1. Bristol Green Party (£4,282)2. Carla Denyer (£2,613)3. Green Party of England and Wales (£1,000)\n\n107\n\n£9,143\n\n    Liberal Democrats\n\n67\n\n1. Charlie Maynard Liberal Democrat (£690)2. Beavan 4 Suffolk (£486)3. Lewisham Lib Dems (£278)\n\n254\n\n£8,545\n\n    Reform\n\n8\n\n1. Rupert Lowe (£6,250)2. Reform UK (£1,607)3. Reform UK - North Cornwall (£100)\n\n78\n\n£8,457\n\n    Independent\n\n17\n\n1. The Reclaim Party (£658)2. Team Campbell London (£277)3. St Albans City and District Council (£118)\n\n48\n\n£2,486\n\n    SNP\n\n2\n\n1. SNP Pentlands West (£150)2. Trossachs & Teith SNP (£100)\n\n15\n\n£250\n\n    Plaid Cymru\n\n2\n\n1. Mabon ap Gwynfor (£100)2. Ann Davies - Caerfyrddin (£100)\n\n2\n\n£200\n\n  \n  \n  \n\n\n\n\n\n\nDuring this period, political parties spent a total of £243,264 and displayed 3677 advertisements on Meta.\n\n\n\n\n\n\n  \n    \n    \n      \n      Number of Advertisers\n      Top Spenders\n      Number of Ads\n      Total Spend\n    \n  \n  \n    Conservatives\n\n188\n\n1. Rishi Sunak (£34,001)2. Birmingham Conservative updates (£3,297)3. Susan Hall - London Assembly Member (£2,536)\n\n881\n\n£96,843\n\n    Other\n\n72\n\n1. Electoral Commission UK (£19,180)2. Mayor of London, Sadiq Khan (£15,161)3. UK government (£6,642)\n\n933\n\n£71,947\n\n    Labour Party\n\n176\n\n1. Keir Starmer (£25,688)2. The Labour Party (£6,399)3. Labour South East (£2,401)\n\n1,656\n\n£67,867\n\n    Liberal Democrats\n\n27\n\n1. Westminster & City Lib Dems (£121)2. Charlie Maynard Liberal Democrat (£118)3. Lewisham Lib Dems (£117)\n\n98\n\n£2,756\n\n    Northern Ireland\n\n5\n\n1. Claire Hanna (£180)2. Jay Basra - Young Unionist (£100)3. Colum Eastwood (£100)\n\n43\n\n£2,591\n\n    Green Party\n\n6\n\n1. Bristol Green Party (£777)2. Glasgow Green Party (£214)3. Green Party of England and Wales (£126)\n\n56\n\n£1,417\n\n    Independent\n\n13\n\n1. The Reclaim Party (£154)2. St Albans City and District Council (£100)3. Councillor James Paul Watson (£100)\n\n20\n\n£1,354\n\n    Reform\n\n4\n\n1. Reform UK - North Cornwall (£100)2. Gareth Beer - Reform UK Llanelli (£100)3. Reform UK - Torbay (£100)\n\n9\n\n£400\n\n    SNP\n\n1\n\n1. SNP Pentlands West (£100)\n\n5\n\n£100\n\n  \n  \n  \n\n\n\n\n\n\n\n\nOver Time"
+    "text": "Here you can see the expenditures of political parties in the lead-up to the elections according to the latest data.\n\n11 Feb - 11 Mar 20245 Mar - 11 Mar 2024\n\n\nDuring this period, political parties spent a total of £984,513 and displayed 9803 advertisements on Meta.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumber of Advertisers\nTop Spenders\nNumber of Ads\nTotal Spend\n\n\n\n\nConservatives\n257\n1. Rishi Sunak (£116,036)2. Conservatives (£15,844)3. Susan Hall - London Assembly Member (£14,668)\n1,694\n£368,700\n\n\nOther\n106\n1. UK government (£56,269)2. Electoral Commission UK (£46,955)3. Mayor of London, Sadiq Khan (£36,415)\n1,925\n£299,852\n\n\nLabour Party\n263\n1. Keir Starmer (£136,462)2. The Labour Party (£24,653)3. Labour South East (£14,795)\n5,615\n£287,234\n\n\nNorthern Ireland\n10\n1. Claire Hanna (£449)2. Colum Eastwood (£139)3. Denise Johnston- Moyola SDLP (£100)\n85\n£14,659\n\n\nGreen Party\n13\n1. Bristol Green Party (£4,418)2. Carla Denyer (£2,318)3. Green Party of England and Wales (£1,000)\n108\n£9,001\n\n\nLiberal Democrats\n69\n1. Charlie Maynard Liberal Democrat (£717)2. Beavan 4 Suffolk (£459)3. Lewisham Lib Dems (£278)\n267\n£8,791\n\n\nReform\n10\n1. Rupert Lowe (£4,209)2. Reform UK (£1,161)3. Reform UK - North Cornwall (£100)\n75\n£6,170\n\n\nIndependent\n21\n1. The Reclaim Party (£800)2. Team Campbell London (£276)3. Alastair Majury for Dunblane & Bridge of Allan (£133)\n63\n£3,027\n\n\nPlaid Cymru\n2\n1. Mabon ap Gwynfor (£100)2. Ann Davies - Caerfyrddin (£100)\n3\n£200\n\n\nSNP\n1\n1. SNP Pentlands West (£150)\n13\n£150\n\n\n\n\n\n\n\n\n\n\nDuring this period, political parties spent a total of £270,696 and displayed 3476 advertisements on Meta.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumber of Advertisers\nTop Spenders\nNumber of Ads\nTotal Spend\n\n\n\n\nConservatives\n192\n1. Rishi Sunak (£44,326)2. Birmingham Conservative updates (£4,387)3. Susan Hall - London Assembly Member (£3,836)\n901\n£114,008\n\n\nOther\n72\n1. Mayor of London, Sadiq Khan (£20,315)2. Electoral Commission UK (£19,187)3. UK government (£6,820)\n877\n£78,846\n\n\nLabour Party\n177\n1. Keir Starmer (£24,114)2. The Labour Party (£7,226)3. Labour South East (£2,504)\n1,489\n£70,169\n\n\nLiberal Democrats\n32\n1. Westminster & City Lib Dems (£156)2. Charlie Maynard Liberal Democrat (£140)3. Bobby Dean (£114)\n107\n£3,310\n\n\nNorthern Ireland\n4\n1. Claire Hanna (£181)2. Colum Eastwood (£100)3. SDLP Coalisland (£100)\n41\n£2,724\n\n\nIndependent\n16\n1. The Reclaim Party (£292)2. Dr Shadman Zaman (£100)3. St Albans City and District Council (£100)\n37\n£1,792\n\n\nGreen Party\n6\n1. Bristol Green Party (£696)2. Glasgow Green Party (£194)3. NR3 Green Party Norwich (£100)\n30\n£1,290\n\n\nReform\n6\n1. Reform UK - North Cornwall (£100)2. Gareth Beer - Reform UK Llanelli (£100)3. Reform UK - Torbay (£100)\n12\n£600\n\n\nPlaid Cymru\n1\n1. Ann Davies - Caerfyrddin (£100)\n1\n£100\n\n\nSNP\n1\n1. SNP Pentlands West (£100)\n5\n£100\n\n\n\n\n\n\n\n\n\n\n\n\nOver Time"
   },
   {
     "objectID": "targeting.html",
     "href": "targeting.html",
     "title": "Spending per Targeting",
     "section": "",
-    "text": "These charts show the groups that political parties target with their advertisements leading up to the elections, according to the latest data. The focus is on Meta’s platforms (Facebook and Instagram) because they offer the most detailed targeting options for political advertisements.\nHow much did the campaigns of political parties spend on different audiences? The charts below show both the total and the expenditures per party.\n\nNote: Different targeting criteria may overlap, so the outcome may not necessarily add up to 100%.\n\n\n8 Feb - 8 Mar 20242 Mar - 8 Mar 2024\n\n\n\nTotalBy Party\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTotalBy Party"
+    "text": "These charts show the groups that political parties target with their advertisements leading up to the elections, according to the latest data. The focus is on Meta’s platforms (Facebook and Instagram) because they offer the most detailed targeting options for political advertisements.\nHow much did the campaigns of political parties spend on different audiences? The charts below show both the total and the expenditures per party.\n\nNote: Different targeting criteria may overlap, so the outcome may not necessarily add up to 100%.\n\n\n11 Feb - 11 Mar 20245 Mar - 11 Mar 2024\n\n\n\nTotalBy Party\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTotalBy Party",
+    "crumbs": [
+      "Spending per Targeting"
+    ]
   }
 ]

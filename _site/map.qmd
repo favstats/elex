@@ -64,8 +64,19 @@ format:
 library(highcharter)
 library(tidyverse)
 
-
-full_cntry_list <- read_rds("https://github.com/favstats/meta_ad_reports/raw/main/cntry_list.rds") %>% 
+    
+    title_txt <- read_lines(here::here("_quarto.yml"))
+    title_txt[which(str_detect(title_txt, "title"))[1]] <- glue::glue("  title: \"Targeting Dashboard\"")
+    # title_txt[which(str_detect(title_txt, "output-dir"))[1]] <- glue::glue("  output-dir: ../docs/{sets$cntry}")  
+    # Sys.sleep(1)
+    write_lines(title_txt, here::here("_site/_quarto.yml"))
+    
+    
+    
+if(Sys.info()[["sysname"]]=="Windows"){
+  fin_spend <- readRDS("../data/fin_spend.rds")
+} else {
+  full_cntry_list <- read_rds("https://github.com/favstats/meta_ad_reports/raw/main/cntry_list.rds") %>% 
   rename(iso2c = iso2,
          country = cntry) %>% 
   sample_n(n()) 
@@ -155,6 +166,9 @@ full_cntry_list <- read_rds("https://github.com/favstats/meta_ad_reports/raw/mai
   #   filter(cntry == "ID")
  
  saveRDS(fin_spend, "../data/fin_spend.rds")
+}
+
+
  
 fin_spend <- fin_spend %>% 
    mutate(url = glue::glue("https://favstats.github.io/elex/{cntry}"))

@@ -5,7 +5,7 @@ pacman::p_load(knitr, tidyverse, openxlsx, sf, rmarkdown, rvest)
 # getwd()
 
 
-source("cntry.R")
+# source("cntry.R")
 source("utils.R")
 
 t1 <- Sys.time()
@@ -29,10 +29,15 @@ full_cntry_list <- read_rds("https://github.com/favstats/meta_ad_reports/raw/mai
   arrange(iso2c)#%>% 
   # filter(iso2c == "NL")
 
+render_it <- function(...) {
+  quarto::quarto_render(..., quiet = T)
+}
+render_it <- possibly(render_it, otherwise = NULL, quiet = F)
+
 # cntryy <- "NL"
 
 for (cntryy in full_cntry_list$iso2c) {
-  # print(cntryy)
+  print(cntryy)
   
   try({
     
@@ -162,7 +167,7 @@ for (cntryy in full_cntry_list$iso2c) {
         # all_dat <- readRDS("data/all_dat.rds")
         
         write_lines(nrow(distinct(election_dat30, internal_id)), file = "n_advertisers.txt")
-        render_it <- possibly(quarto::quarto_render, otherwise = NULL, quiet = F)
+        # render_it <- possibly(quarto::quarto_render, otherwise = NULL, quiet = F)
         dir("_site", full.names = T) %>% keep(~str_detect(.x, "qmd")) %>% walk(render_it)
         
         dir("docs", full.names = T) %>% 
@@ -235,6 +240,31 @@ dir(full.names = F) %>%
 
 
 
+full_cntry_list$iso2c %>%
+  # .[1] %>% 
+  walk_progress( ~ {
+    try({
+      
+    city_name <- .x
+    dir("docs", full.names = T) %>%
+      keep( ~ str_detect(.x, "map")) %>%
+      walk( ~ fs::file_copy(.x, str_replace(
+        .x, "docs/", glue::glue("docs/{city_name}/")
+      ), overwrite = T))
+    
+    # dir("docs", full.names = T) %>%
+    #   keep( ~ str_detect(.x, "blog")) %>%
+    #   walk( ~ fs::file_copy(.x, str_replace(
+    #     .x, "docs/", glue::glue("docs/{city_name}/")
+    #   ), overwrite = T))
+    # 
+    # dir("docs", full.names = T) %>%
+    #   keep( ~ str_detect(.x, "post")) %>%
+    #   walk( ~ fs::dir_copy(.x, str_replace(
+    #     .x, "docs/", glue::glue("docs/{city_name}/")
+    #   ), overwrite = T))
+    })
+  })
 
 if(Sys.info()[["sysname"]]=="Windows"){
   system("git add -A")

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
+<meta name="generator" content="quarto-1.4.551">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -47,7 +47,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,12 +62,13 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
-<script src="site_libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 <script src="site_libs/jquery-3.5.1/jquery.min.js"></script>
 <script src="site_libs/proj4js-2.3.15/proj4.js"></script>
 <link href="site_libs/highcharts-9.3.1/css/motion.css" rel="stylesheet">
@@ -112,9 +119,9 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Targeting Dashboard - San Marino</span>
     </a>
@@ -126,47 +133,51 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
- <span class="menu-text"><iconify-icon inline="" icon="ph:coins"></iconify-icon> Spending</span></a>
+    <a class="nav-link" href="./map.html"> 
+<span class="menu-text"><iconify-icon inline="" icon="ph:map-trifold-thin"></iconify-icon> Map</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text"><iconify-icon inline="" icon="ph:coins"></iconify-icon> Spending</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-iconify-ph-users-three-thin--targeting" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-iconify-ph-users-three-thin--targeting" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text"><iconify-icon inline="" icon="ph:users-three-thin"></iconify-icon> Targeting</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-iconify-ph-users-three-thin--targeting">    
         <li>
-    <a class="dropdown-item" href="./targeting.html" rel="" target="">
+    <a class="dropdown-item" href="./targeting.html">
  <span class="dropdown-text">Spending per Targeting</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./detailed.html" rel="" target="">
+    <a class="dropdown-item" href="./detailed.html">
  <span class="dropdown-text">Detailed Targeting</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./location.html" rel="" target="">
+    <a class="dropdown-item" href="./location.html">
  <span class="dropdown-text">Location</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./demographics.html" rel="" target="">
+    <a class="dropdown-item" href="./demographics.html">
  <span class="dropdown-text">Demographics</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./about.html" rel="" target="">
- <span class="menu-text"><iconify-icon inline="" icon="ph:info-thin"></iconify-icon> About</span></a>
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text"><iconify-icon inline="" icon="ph:info-thin"></iconify-icon> About</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/favstats/betargex" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/favstats/betargex"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -193,35 +204,40 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <p>Here you can see the expenditures of political parties in the lead-up to the elections according to the latest data.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">8 Feb - 8 Mar 2024</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">2 Mar - 8 Mar 2024</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">11 Feb - 11 Mar 2024</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">5 Mar - 11 Mar 2024</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p>During this period, political parties spent a total of €616 and displayed 23 advertisements on Meta.</p>
+<p>During this period, political parties spent a total of €603 and displayed 23 advertisements on Meta.</p>
 <div class="cell">
 <div class="cell-output-display">
-
-<div id="czsbpsmwqm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div>
+<div id="lawdigrfjm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#czsbpsmwqm table {
-  font-family: Chivo, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cairo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+#lawdigrfjm table {
+  font-family: Cairo, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#czsbpsmwqm thead, #czsbpsmwqm tbody, #czsbpsmwqm tfoot, #czsbpsmwqm tr, #czsbpsmwqm td, #czsbpsmwqm th {
+#lawdigrfjm thead, #lawdigrfjm tbody, #lawdigrfjm tfoot, #lawdigrfjm tr, #lawdigrfjm td, #lawdigrfjm th {
   border-style: none;
 }
 
-#czsbpsmwqm p {
+#lawdigrfjm p {
   margin: 0;
   padding: 0;
 }
 
-#czsbpsmwqm .gt_table {
+#lawdigrfjm .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -229,7 +245,7 @@ ul.task-list li input[type="checkbox"] {
   margin-right: auto;
   color: #333333;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
   font-style: normal;
   background-color: #FFFFFF;
   width: auto;
@@ -247,12 +263,12 @@ ul.task-list li input[type="checkbox"] {
   border-left-color: #D3D3D3;
 }
 
-#czsbpsmwqm .gt_caption {
+#lawdigrfjm .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#czsbpsmwqm .gt_title {
+#lawdigrfjm .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -264,7 +280,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-width: 0;
 }
 
-#czsbpsmwqm .gt_subtitle {
+#lawdigrfjm .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -276,7 +292,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-width: 0;
 }
 
-#czsbpsmwqm .gt_heading {
+#lawdigrfjm .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -288,13 +304,13 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#czsbpsmwqm .gt_bottom_border {
+#lawdigrfjm .gt_bottom_border {
   border-bottom-style: none;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#czsbpsmwqm .gt_col_headings {
+#lawdigrfjm .gt_col_headings {
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -309,12 +325,12 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#czsbpsmwqm .gt_col_heading {
+#lawdigrfjm .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
-  font-size: 80%;
+  font-size: 100%;
   font-weight: normal;
-  text-transform: uppercase;
+  text-transform: inherit;
   border-left-style: none;
   border-left-width: 1px;
   border-left-color: #D3D3D3;
@@ -329,27 +345,27 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#czsbpsmwqm .gt_column_spanner_outer {
+#lawdigrfjm .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
-  font-size: 80%;
+  font-size: 100%;
   font-weight: normal;
-  text-transform: uppercase;
+  text-transform: inherit;
   padding-top: 0;
   padding-bottom: 0;
   padding-left: 4px;
   padding-right: 4px;
 }
 
-#czsbpsmwqm .gt_column_spanner_outer:first-child {
+#lawdigrfjm .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#czsbpsmwqm .gt_column_spanner_outer:last-child {
+#lawdigrfjm .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#czsbpsmwqm .gt_column_spanner {
+#lawdigrfjm .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #000000;
@@ -361,20 +377,20 @@ ul.task-list li input[type="checkbox"] {
   width: 100%;
 }
 
-#czsbpsmwqm .gt_spanner_row {
+#lawdigrfjm .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#czsbpsmwqm .gt_group_heading {
+#lawdigrfjm .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
   padding-right: 5px;
   color: #333333;
   background-color: #FFFFFF;
-  font-size: 80%;
-  font-weight: bolder;
-  text-transform: uppercase;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #000000;
@@ -391,12 +407,12 @@ ul.task-list li input[type="checkbox"] {
   text-align: left;
 }
 
-#czsbpsmwqm .gt_empty_group_heading {
+#lawdigrfjm .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
-  font-size: 80%;
-  font-weight: bolder;
+  font-size: 100%;
+  font-weight: initial;
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #000000;
@@ -406,15 +422,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 
-#czsbpsmwqm .gt_from_md > :first-child {
+#lawdigrfjm .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#czsbpsmwqm .gt_from_md > :last-child {
+#lawdigrfjm .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#czsbpsmwqm .gt_row {
+#lawdigrfjm .gt_row {
   padding-top: 3px;
   padding-bottom: 3px;
   padding-left: 5px;
@@ -433,12 +449,12 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#czsbpsmwqm .gt_stub {
+#lawdigrfjm .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
-  font-size: 80%;
-  font-weight: bolder;
-  text-transform: uppercase;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
   border-right-style: solid;
   border-right-width: 0px;
   border-right-color: #FFFFFF;
@@ -446,7 +462,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#czsbpsmwqm .gt_stub_row_group {
+#lawdigrfjm .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -460,15 +476,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: top;
 }
 
-#czsbpsmwqm .gt_row_group_first td {
+#lawdigrfjm .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#czsbpsmwqm .gt_row_group_first th {
+#lawdigrfjm .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#czsbpsmwqm .gt_summary_row {
+#lawdigrfjm .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -478,16 +494,16 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#czsbpsmwqm .gt_first_summary_row {
+#lawdigrfjm .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#czsbpsmwqm .gt_first_summary_row.thick {
+#lawdigrfjm .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#czsbpsmwqm .gt_last_summary_row {
+#lawdigrfjm .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -497,7 +513,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#czsbpsmwqm .gt_grand_summary_row {
+#lawdigrfjm .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -507,7 +523,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#czsbpsmwqm .gt_first_grand_summary_row {
+#lawdigrfjm .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -517,7 +533,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-color: #D3D3D3;
 }
 
-#czsbpsmwqm .gt_last_grand_summary_row_top {
+#lawdigrfjm .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -527,11 +543,11 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#czsbpsmwqm .gt_striped {
+#lawdigrfjm .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#czsbpsmwqm .gt_table_body {
+#lawdigrfjm .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -540,7 +556,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#czsbpsmwqm .gt_footnotes {
+#lawdigrfjm .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -554,7 +570,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#czsbpsmwqm .gt_footnote {
+#lawdigrfjm .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -563,7 +579,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#czsbpsmwqm .gt_sourcenotes {
+#lawdigrfjm .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -577,7 +593,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#czsbpsmwqm .gt_sourcenote {
+#lawdigrfjm .gt_sourcenote {
   font-size: 12px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -585,63 +601,63 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#czsbpsmwqm .gt_left {
+#lawdigrfjm .gt_left {
   text-align: left;
 }
 
-#czsbpsmwqm .gt_center {
+#lawdigrfjm .gt_center {
   text-align: center;
 }
 
-#czsbpsmwqm .gt_right {
+#lawdigrfjm .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#czsbpsmwqm .gt_font_normal {
+#lawdigrfjm .gt_font_normal {
   font-weight: normal;
 }
 
-#czsbpsmwqm .gt_font_bold {
+#lawdigrfjm .gt_font_bold {
   font-weight: bold;
 }
 
-#czsbpsmwqm .gt_font_italic {
+#lawdigrfjm .gt_font_italic {
   font-style: italic;
 }
 
-#czsbpsmwqm .gt_super {
+#lawdigrfjm .gt_super {
   font-size: 65%;
 }
 
-#czsbpsmwqm .gt_footnote_marks {
+#lawdigrfjm .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#czsbpsmwqm .gt_asterisk {
+#lawdigrfjm .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#czsbpsmwqm .gt_indent_1 {
+#lawdigrfjm .gt_indent_1 {
   text-indent: 5px;
 }
 
-#czsbpsmwqm .gt_indent_2 {
+#lawdigrfjm .gt_indent_2 {
   text-indent: 10px;
 }
 
-#czsbpsmwqm .gt_indent_3 {
+#lawdigrfjm .gt_indent_3 {
   text-indent: 15px;
 }
 
-#czsbpsmwqm .gt_indent_4 {
+#lawdigrfjm .gt_indent_4 {
   text-indent: 20px;
 }
 
-#czsbpsmwqm .gt_indent_5 {
+#lawdigrfjm .gt_indent_5 {
   text-indent: 25px;
 }
 
@@ -649,89 +665,87 @@ tbody tr:last-child {
   border-bottom: 2px solid #ffffff00;
 }
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-  <thead>
-    
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=""></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Number of Advertisers">Number of Advertisers</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Top Spenders">Top Spenders</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Number of Ads">Number of Ads</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Total Spend">Total Spend</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><th id="stub_1_1" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Repubblica Futura</p>
-</div></th>
-<td headers="stub_1_1 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #223968;"><div class="gt_from_md"><p>1</p>
-</div></td>
-<td headers="stub_1_1 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=SM&amp;view_all_page_id=925709164184642">Repubblica Futura</a> (€273)<br><br></p>
-</div></td>
-<td headers="stub_1_1 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>11</p>
-</div></td>
-<td headers="stub_1_1 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€273</p>
-</div></td></tr>
-    <tr><th id="stub_1_2" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Libera San Marino</p>
-</div></th>
-<td headers="stub_1_2 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #14AABC;"><div class="gt_from_md"><p>1</p>
-</div></td>
-<td headers="stub_1_2 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=SM&amp;view_all_page_id=100835231341118">Libera - San Marino</a> (€143)<br><br></p>
-</div></td>
-<td headers="stub_1_2 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>5</p>
-</div></td>
-<td headers="stub_1_2 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€143</p>
-</div></td></tr>
-    <tr><th id="stub_1_3" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Domani</p>
-</div></th>
-<td headers="stub_1_3 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #039ADA;"><div class="gt_from_md"><p>1</p>
-</div></td>
-<td headers="stub_1_3 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=SM&amp;view_all_page_id=232745653950621">Domani - Motus Liberi</a> (€100)<br><br></p>
-</div></td>
-<td headers="stub_1_3 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>4</p>
-</div></td>
-<td headers="stub_1_3 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€100</p>
-</div></td></tr>
-    <tr><th id="stub_1_4" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Movimento Civico RETE</p>
-</div></th>
-<td headers="stub_1_4 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #275956;"><div class="gt_from_md"><p>1</p>
-</div></td>
-<td headers="stub_1_4 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=SM&amp;view_all_page_id=1527006474233229">Rete Movimento Civico</a> (€100)<br><br></p>
-</div></td>
-<td headers="stub_1_4 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>3</p>
-</div></td>
-<td headers="stub_1_4 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€100</p>
-</div></td></tr>
-  </tbody>
-  
-  
+
+<table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+<th id="Number of Advertisers" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Number of Advertisers</th>
+<th id="Top Spenders" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Top Spenders</th>
+<th id="Number of Ads" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Number of Ads</th>
+<th id="Total Spend" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Total Spend</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td id="stub_1_1" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>Repubblica Futura</p></td>
+<td class="gt_row gt_center" headers="stub_1_1 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #223968"><p>1</p></td>
+<td class="gt_row gt_left" headers="stub_1_1 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=SM&amp;view_all_page_id=925709164184642">Repubblica Futura</a> (€263)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_1 Number of Ads"><p>10</p></td>
+<td class="gt_row gt_center" headers="stub_1_1 Total Spend"><p>€263</p></td>
+</tr>
+<tr class="even">
+<td id="stub_1_2" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>Libera San Marino</p></td>
+<td class="gt_row gt_center" headers="stub_1_2 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #14AABC"><p>1</p></td>
+<td class="gt_row gt_left" headers="stub_1_2 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=SM&amp;view_all_page_id=100835231341118">Libera - San Marino</a> (€140)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_2 Number of Ads"><p>6</p></td>
+<td class="gt_row gt_center" headers="stub_1_2 Total Spend"><p>€140</p></td>
+</tr>
+<tr class="odd">
+<td id="stub_1_3" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>Domani</p></td>
+<td class="gt_row gt_center" headers="stub_1_3 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #039ADA"><p>1</p></td>
+<td class="gt_row gt_left" headers="stub_1_3 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=SM&amp;view_all_page_id=232745653950621">Domani - Motus Liberi</a> (€100)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_3 Number of Ads"><p>4</p></td>
+<td class="gt_row gt_center" headers="stub_1_3 Total Spend"><p>€100</p></td>
+</tr>
+<tr class="even">
+<td id="stub_1_4" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>Movimento Civico RETE</p></td>
+<td class="gt_row gt_center" headers="stub_1_4 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #275956"><p>1</p></td>
+<td class="gt_row gt_left" headers="stub_1_4 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=SM&amp;view_all_page_id=1527006474233229">Rete Movimento Civico</a> (€100)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_4 Number of Ads"><p>3</p></td>
+<td class="gt_row gt_center" headers="stub_1_4 Total Spend"><p>€100</p></td>
+</tr>
+</tbody>
 </table>
+
+</div>
 </div>
 </div>
 </div>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p>During this period, political parties spent a total of €300 and displayed 6 advertisements on Meta.</p>
+<p>During this period, political parties spent a total of €300 and displayed 7 advertisements on Meta.</p>
 <div class="cell">
 <div class="cell-output-display">
-
-<div id="ysuieyvnfj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div>
+<div id="bagnsbclon" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#ysuieyvnfj table {
-  font-family: Chivo, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cairo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+#bagnsbclon table {
+  font-family: Cairo, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ysuieyvnfj thead, #ysuieyvnfj tbody, #ysuieyvnfj tfoot, #ysuieyvnfj tr, #ysuieyvnfj td, #ysuieyvnfj th {
+#bagnsbclon thead, #bagnsbclon tbody, #bagnsbclon tfoot, #bagnsbclon tr, #bagnsbclon td, #bagnsbclon th {
   border-style: none;
 }
 
-#ysuieyvnfj p {
+#bagnsbclon p {
   margin: 0;
   padding: 0;
 }
 
-#ysuieyvnfj .gt_table {
+#bagnsbclon .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -739,7 +753,7 @@ tbody tr:last-child {
   margin-right: auto;
   color: #333333;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
   font-style: normal;
   background-color: #FFFFFF;
   width: auto;
@@ -757,12 +771,12 @@ tbody tr:last-child {
   border-left-color: #D3D3D3;
 }
 
-#ysuieyvnfj .gt_caption {
+#bagnsbclon .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ysuieyvnfj .gt_title {
+#bagnsbclon .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -774,7 +788,7 @@ tbody tr:last-child {
   border-bottom-width: 0;
 }
 
-#ysuieyvnfj .gt_subtitle {
+#bagnsbclon .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -786,7 +800,7 @@ tbody tr:last-child {
   border-top-width: 0;
 }
 
-#ysuieyvnfj .gt_heading {
+#bagnsbclon .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -798,13 +812,13 @@ tbody tr:last-child {
   border-right-color: #D3D3D3;
 }
 
-#ysuieyvnfj .gt_bottom_border {
+#bagnsbclon .gt_bottom_border {
   border-bottom-style: none;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ysuieyvnfj .gt_col_headings {
+#bagnsbclon .gt_col_headings {
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -819,12 +833,12 @@ tbody tr:last-child {
   border-right-color: #D3D3D3;
 }
 
-#ysuieyvnfj .gt_col_heading {
+#bagnsbclon .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
-  font-size: 80%;
+  font-size: 100%;
   font-weight: normal;
-  text-transform: uppercase;
+  text-transform: inherit;
   border-left-style: none;
   border-left-width: 1px;
   border-left-color: #D3D3D3;
@@ -839,27 +853,27 @@ tbody tr:last-child {
   overflow-x: hidden;
 }
 
-#ysuieyvnfj .gt_column_spanner_outer {
+#bagnsbclon .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
-  font-size: 80%;
+  font-size: 100%;
   font-weight: normal;
-  text-transform: uppercase;
+  text-transform: inherit;
   padding-top: 0;
   padding-bottom: 0;
   padding-left: 4px;
   padding-right: 4px;
 }
 
-#ysuieyvnfj .gt_column_spanner_outer:first-child {
+#bagnsbclon .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ysuieyvnfj .gt_column_spanner_outer:last-child {
+#bagnsbclon .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ysuieyvnfj .gt_column_spanner {
+#bagnsbclon .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #000000;
@@ -871,20 +885,20 @@ tbody tr:last-child {
   width: 100%;
 }
 
-#ysuieyvnfj .gt_spanner_row {
+#bagnsbclon .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ysuieyvnfj .gt_group_heading {
+#bagnsbclon .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
   padding-right: 5px;
   color: #333333;
   background-color: #FFFFFF;
-  font-size: 80%;
-  font-weight: bolder;
-  text-transform: uppercase;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #000000;
@@ -901,12 +915,12 @@ tbody tr:last-child {
   text-align: left;
 }
 
-#ysuieyvnfj .gt_empty_group_heading {
+#bagnsbclon .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
-  font-size: 80%;
-  font-weight: bolder;
+  font-size: 100%;
+  font-weight: initial;
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #000000;
@@ -916,15 +930,15 @@ tbody tr:last-child {
   vertical-align: middle;
 }
 
-#ysuieyvnfj .gt_from_md > :first-child {
+#bagnsbclon .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ysuieyvnfj .gt_from_md > :last-child {
+#bagnsbclon .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ysuieyvnfj .gt_row {
+#bagnsbclon .gt_row {
   padding-top: 3px;
   padding-bottom: 3px;
   padding-left: 5px;
@@ -943,12 +957,12 @@ tbody tr:last-child {
   overflow-x: hidden;
 }
 
-#ysuieyvnfj .gt_stub {
+#bagnsbclon .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
-  font-size: 80%;
-  font-weight: bolder;
-  text-transform: uppercase;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
   border-right-style: solid;
   border-right-width: 0px;
   border-right-color: #FFFFFF;
@@ -956,7 +970,7 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#ysuieyvnfj .gt_stub_row_group {
+#bagnsbclon .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -970,15 +984,15 @@ tbody tr:last-child {
   vertical-align: top;
 }
 
-#ysuieyvnfj .gt_row_group_first td {
+#bagnsbclon .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ysuieyvnfj .gt_row_group_first th {
+#bagnsbclon .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ysuieyvnfj .gt_summary_row {
+#bagnsbclon .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -988,16 +1002,16 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#ysuieyvnfj .gt_first_summary_row {
+#bagnsbclon .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ysuieyvnfj .gt_first_summary_row.thick {
+#bagnsbclon .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ysuieyvnfj .gt_last_summary_row {
+#bagnsbclon .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1007,7 +1021,7 @@ tbody tr:last-child {
   border-bottom-color: #D3D3D3;
 }
 
-#ysuieyvnfj .gt_grand_summary_row {
+#bagnsbclon .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1017,7 +1031,7 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#ysuieyvnfj .gt_first_grand_summary_row {
+#bagnsbclon .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1027,7 +1041,7 @@ tbody tr:last-child {
   border-top-color: #D3D3D3;
 }
 
-#ysuieyvnfj .gt_last_grand_summary_row_top {
+#bagnsbclon .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1037,11 +1051,11 @@ tbody tr:last-child {
   border-bottom-color: #D3D3D3;
 }
 
-#ysuieyvnfj .gt_striped {
+#bagnsbclon .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ysuieyvnfj .gt_table_body {
+#bagnsbclon .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1050,7 +1064,7 @@ tbody tr:last-child {
   border-bottom-color: #D3D3D3;
 }
 
-#ysuieyvnfj .gt_footnotes {
+#bagnsbclon .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1064,7 +1078,7 @@ tbody tr:last-child {
   border-right-color: #D3D3D3;
 }
 
-#ysuieyvnfj .gt_footnote {
+#bagnsbclon .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1073,7 +1087,7 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#ysuieyvnfj .gt_sourcenotes {
+#bagnsbclon .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1087,7 +1101,7 @@ tbody tr:last-child {
   border-right-color: #D3D3D3;
 }
 
-#ysuieyvnfj .gt_sourcenote {
+#bagnsbclon .gt_sourcenote {
   font-size: 12px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1095,63 +1109,63 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#ysuieyvnfj .gt_left {
+#bagnsbclon .gt_left {
   text-align: left;
 }
 
-#ysuieyvnfj .gt_center {
+#bagnsbclon .gt_center {
   text-align: center;
 }
 
-#ysuieyvnfj .gt_right {
+#bagnsbclon .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ysuieyvnfj .gt_font_normal {
+#bagnsbclon .gt_font_normal {
   font-weight: normal;
 }
 
-#ysuieyvnfj .gt_font_bold {
+#bagnsbclon .gt_font_bold {
   font-weight: bold;
 }
 
-#ysuieyvnfj .gt_font_italic {
+#bagnsbclon .gt_font_italic {
   font-style: italic;
 }
 
-#ysuieyvnfj .gt_super {
+#bagnsbclon .gt_super {
   font-size: 65%;
 }
 
-#ysuieyvnfj .gt_footnote_marks {
+#bagnsbclon .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ysuieyvnfj .gt_asterisk {
+#bagnsbclon .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ysuieyvnfj .gt_indent_1 {
+#bagnsbclon .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ysuieyvnfj .gt_indent_2 {
+#bagnsbclon .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ysuieyvnfj .gt_indent_3 {
+#bagnsbclon .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ysuieyvnfj .gt_indent_4 {
+#bagnsbclon .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ysuieyvnfj .gt_indent_5 {
+#bagnsbclon .gt_indent_5 {
   text-indent: 25px;
 }
 
@@ -1159,52 +1173,50 @@ tbody tr:last-child {
   border-bottom: 2px solid #ffffff00;
 }
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-  <thead>
-    
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=""></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Number of Advertisers">Number of Advertisers</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Top Spenders">Top Spenders</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Number of Ads">Number of Ads</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black;" scope="col" id="Total Spend">Total Spend</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><th id="stub_1_1" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Libera San Marino</p>
-</div></th>
-<td headers="stub_1_1 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #14AABC;"><div class="gt_from_md"><p>1</p>
-</div></td>
-<td headers="stub_1_1 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=SM&amp;view_all_page_id=100835231341118">Libera - San Marino</a> (€100)<br><br></p>
-</div></td>
-<td headers="stub_1_1 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>1</p>
-</div></td>
-<td headers="stub_1_1 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€100</p>
-</div></td></tr>
-    <tr><th id="stub_1_2" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Movimento Civico RETE</p>
-</div></th>
-<td headers="stub_1_2 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #275956;"><div class="gt_from_md"><p>1</p>
-</div></td>
-<td headers="stub_1_2 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=SM&amp;view_all_page_id=1527006474233229">Rete Movimento Civico</a> (€100)<br><br></p>
-</div></td>
-<td headers="stub_1_2 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>3</p>
-</div></td>
-<td headers="stub_1_2 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€100</p>
-</div></td></tr>
-    <tr><th id="stub_1_3" scope="row" class="gt_row gt_center gt_stub"><div class="gt_from_md"><p>Repubblica Futura</p>
-</div></th>
-<td headers="stub_1_3 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #223968;"><div class="gt_from_md"><p>1</p>
-</div></td>
-<td headers="stub_1_3 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=SM&amp;view_all_page_id=925709164184642">Repubblica Futura</a> (€100)<br><br></p>
-</div></td>
-<td headers="stub_1_3 Number of Ads" class="gt_row gt_center"><div class="gt_from_md"><p>2</p>
-</div></td>
-<td headers="stub_1_3 Total Spend" class="gt_row gt_center"><div class="gt_from_md"><p>€100</p>
-</div></td></tr>
-  </tbody>
-  
-  
+
+<table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+<th id="Number of Advertisers" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Number of Advertisers</th>
+<th id="Top Spenders" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Top Spenders</th>
+<th id="Number of Ads" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Number of Ads</th>
+<th id="Total Spend" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Total Spend</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td id="stub_1_1" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>Libera San Marino</p></td>
+<td class="gt_row gt_center" headers="stub_1_1 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #14AABC"><p>1</p></td>
+<td class="gt_row gt_left" headers="stub_1_1 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=SM&amp;view_all_page_id=100835231341118">Libera - San Marino</a> (€100)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_1 Number of Ads"><p>2</p></td>
+<td class="gt_row gt_center" headers="stub_1_1 Total Spend"><p>€100</p></td>
+</tr>
+<tr class="even">
+<td id="stub_1_2" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>Movimento Civico RETE</p></td>
+<td class="gt_row gt_center" headers="stub_1_2 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #275956"><p>1</p></td>
+<td class="gt_row gt_left" headers="stub_1_2 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=SM&amp;view_all_page_id=1527006474233229">Rete Movimento Civico</a> (€100)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_2 Number of Ads"><p>3</p></td>
+<td class="gt_row gt_center" headers="stub_1_2 Total Spend"><p>€100</p></td>
+</tr>
+<tr class="odd">
+<td id="stub_1_3" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>Repubblica Futura</p></td>
+<td class="gt_row gt_center" headers="stub_1_3 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #223968"><p>1</p></td>
+<td class="gt_row gt_left" headers="stub_1_3 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=SM&amp;view_all_page_id=925709164184642">Repubblica Futura</a> (€100)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_3 Number of Ads"><p>2</p></td>
+<td class="gt_row gt_center" headers="stub_1_3 Total Spend"><p>€100</p></td>
+</tr>
+</tbody>
 </table>
+
+</div>
 </div>
 </div>
 </div>
@@ -1215,9 +1227,8 @@ tbody tr:last-child {
 <h3 class="anchored" data-anchor-id="over-time">Over Time</h3>
 <div class="cell">
 <div class="cell-output-display">
-
-<div class="highchart html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-9a4982cc83ac9a37daf5" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-9a4982cc83ac9a37daf5">{"x":{"hc_opts":{"chart":{"reflow":true},"title":{"text":null},"yAxis":{"title":{"text":"Daily Spend"},"type":"linear"},"credits":{"enabled":false},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":true},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"area":{"stacking":"normal","lineWidth":1,"marker":{"enabled":false}}},"series":[{"name":"Domani ","data":[{"date":"2023-12-31","party":"Domani ","amount_spent":299,"Daily Spend":null,"short_name":"Dom","colors":"#039ADA","x":1703980800000,"y":null,"fill":"#039ADA"},{"date":"2024-01-01","party":"Domani ","amount_spent":299,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1704067200000,"y":0,"fill":"#039ADA"},{"date":"2024-01-02","party":"Domani ","amount_spent":301,"Daily Spend":2,"short_name":"Dom","colors":"#039ADA","x":1704153600000,"y":2,"fill":"#039ADA"},{"date":"2024-01-03","party":"Domani ","amount_spent":303,"Daily Spend":2,"short_name":"Dom","colors":"#039ADA","x":1704240000000,"y":2,"fill":"#039ADA"},{"date":"2024-01-04","party":"Domani ","amount_spent":305,"Daily Spend":2,"short_name":"Dom","colors":"#039ADA","x":1704326400000,"y":2,"fill":"#039ADA"},{"date":"2024-01-05","party":"Domani ","amount_spent":307,"Daily Spend":2,"short_name":"Dom","colors":"#039ADA","x":1704412800000,"y":2,"fill":"#039ADA"},{"date":"2024-01-06","party":"Domani ","amount_spent":309,"Daily Spend":2,"short_name":"Dom","colors":"#039ADA","x":1704499200000,"y":2,"fill":"#039ADA"},{"date":"2024-01-07","party":"Domani ","amount_spent":309,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1704585600000,"y":0,"fill":"#039ADA"},{"date":"2024-01-08","party":"Domani ","amount_spent":309,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1704672000000,"y":0,"fill":"#039ADA"},{"date":"2024-01-09","party":"Domani ","amount_spent":309,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1704758400000,"y":0,"fill":"#039ADA"},{"date":"2024-01-10","party":"Domani ","amount_spent":309,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1704844800000,"y":0,"fill":"#039ADA"},{"date":"2024-01-11","party":"Domani ","amount_spent":309,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1704931200000,"y":0,"fill":"#039ADA"},{"date":"2024-01-12","party":"Domani ","amount_spent":309,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1705017600000,"y":0,"fill":"#039ADA"},{"date":"2024-01-13","party":"Domani ","amount_spent":309,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1705104000000,"y":0,"fill":"#039ADA"},{"date":"2024-01-14","party":"Domani ","amount_spent":309,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1705190400000,"y":0,"fill":"#039ADA"},{"date":"2024-01-15","party":"Domani ","amount_spent":309,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1705276800000,"y":0,"fill":"#039ADA"},{"date":"2024-01-16","party":"Domani ","amount_spent":309,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1705363200000,"y":0,"fill":"#039ADA"},{"date":"2024-01-17","party":"Domani ","amount_spent":309,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1705449600000,"y":0,"fill":"#039ADA"},{"date":"2024-01-18","party":"Domani ","amount_spent":309,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1705536000000,"y":0,"fill":"#039ADA"},{"date":"2024-01-19","party":"Domani ","amount_spent":309,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1705622400000,"y":0,"fill":"#039ADA"},{"date":"2024-01-20","party":"Domani ","amount_spent":309,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1705708800000,"y":0,"fill":"#039ADA"},{"date":"2024-01-21","party":"Domani ","amount_spent":309,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1705795200000,"y":0,"fill":"#039ADA"},{"date":"2024-01-22","party":"Domani ","amount_spent":309,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1705881600000,"y":0,"fill":"#039ADA"},{"date":"2024-01-23","party":"Domani ","amount_spent":309,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1705968000000,"y":0,"fill":"#039ADA"},{"date":"2024-01-24","party":"Domani ","amount_spent":309,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1706054400000,"y":0,"fill":"#039ADA"},{"date":"2024-01-25","party":"Domani ","amount_spent":309,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1706140800000,"y":0,"fill":"#039ADA"},{"date":"2024-01-26","party":"Domani ","amount_spent":310,"Daily Spend":1,"short_name":"Dom","colors":"#039ADA","x":1706227200000,"y":1,"fill":"#039ADA"},{"date":"2024-01-27","party":"Domani ","amount_spent":312,"Daily Spend":2,"short_name":"Dom","colors":"#039ADA","x":1706313600000,"y":2,"fill":"#039ADA"},{"date":"2024-01-28","party":"Domani ","amount_spent":315,"Daily Spend":3,"short_name":"Dom","colors":"#039ADA","x":1706400000000,"y":3,"fill":"#039ADA"},{"date":"2024-01-29","party":"Domani ","amount_spent":317,"Daily Spend":2,"short_name":"Dom","colors":"#039ADA","x":1706486400000,"y":2,"fill":"#039ADA"},{"date":"2024-01-30","party":"Domani ","amount_spent":320,"Daily Spend":3,"short_name":"Dom","colors":"#039ADA","x":1706572800000,"y":3,"fill":"#039ADA"},{"date":"2024-01-31","party":"Domani ","amount_spent":322,"Daily Spend":2,"short_name":"Dom","colors":"#039ADA","x":1706659200000,"y":2,"fill":"#039ADA"},{"date":"2024-02-01","party":"Domani ","amount_spent":322,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1706745600000,"y":0,"fill":"#039ADA"},{"date":"2024-02-02","party":"Domani ","amount_spent":323,"Daily Spend":1,"short_name":"Dom","colors":"#039ADA","x":1706832000000,"y":1,"fill":"#039ADA"},{"date":"2024-02-03","party":"Domani ","amount_spent":325,"Daily Spend":2,"short_name":"Dom","colors":"#039ADA","x":1706918400000,"y":2,"fill":"#039ADA"},{"date":"2024-02-04","party":"Domani ","amount_spent":327,"Daily Spend":2,"short_name":"Dom","colors":"#039ADA","x":1707004800000,"y":2,"fill":"#039ADA"},{"date":"2024-02-05","party":"Domani ","amount_spent":330,"Daily Spend":3,"short_name":"Dom","colors":"#039ADA","x":1707091200000,"y":3,"fill":"#039ADA"},{"date":"2024-02-06","party":"Domani ","amount_spent":332,"Daily Spend":2,"short_name":"Dom","colors":"#039ADA","x":1707177600000,"y":2,"fill":"#039ADA"},{"date":"2024-02-07","party":"Domani ","amount_spent":333,"Daily Spend":1,"short_name":"Dom","colors":"#039ADA","x":1707264000000,"y":1,"fill":"#039ADA"},{"date":"2024-02-08","party":"Domani ","amount_spent":335,"Daily Spend":2,"short_name":"Dom","colors":"#039ADA","x":1707350400000,"y":2,"fill":"#039ADA"},{"date":"2024-02-09","party":"Domani ","amount_spent":337,"Daily Spend":2,"short_name":"Dom","colors":"#039ADA","x":1707436800000,"y":2,"fill":"#039ADA"},{"date":"2024-02-10","party":"Domani ","amount_spent":340,"Daily Spend":3,"short_name":"Dom","colors":"#039ADA","x":1707523200000,"y":3,"fill":"#039ADA"},{"date":"2024-02-11","party":"Domani ","amount_spent":342,"Daily Spend":2,"short_name":"Dom","colors":"#039ADA","x":1707609600000,"y":2,"fill":"#039ADA"},{"date":"2024-02-12","party":"Domani ","amount_spent":345,"Daily Spend":3,"short_name":"Dom","colors":"#039ADA","x":1707696000000,"y":3,"fill":"#039ADA"},{"date":"2024-02-13","party":"Domani ","amount_spent":345,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1707782400000,"y":0,"fill":"#039ADA"},{"date":"2024-02-14","party":"Domani ","amount_spent":345,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1707868800000,"y":0,"fill":"#039ADA"},{"date":"2024-02-15","party":"Domani ","amount_spent":346,"Daily Spend":1,"short_name":"Dom","colors":"#039ADA","x":1707955200000,"y":1,"fill":"#039ADA"},{"date":"2024-02-16","party":"Domani ","amount_spent":347,"Daily Spend":1,"short_name":"Dom","colors":"#039ADA","x":1708041600000,"y":1,"fill":"#039ADA"},{"date":"2024-02-17","party":"Domani ","amount_spent":348,"Daily Spend":1,"short_name":"Dom","colors":"#039ADA","x":1708128000000,"y":1,"fill":"#039ADA"},{"date":"2024-02-18","party":"Domani ","amount_spent":349,"Daily Spend":1,"short_name":"Dom","colors":"#039ADA","x":1708214400000,"y":1,"fill":"#039ADA"},{"date":"2024-02-19","party":"Domani ","amount_spent":349,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1708300800000,"y":0,"fill":"#039ADA"},{"date":"2024-02-20","party":"Domani ","amount_spent":350,"Daily Spend":1,"short_name":"Dom","colors":"#039ADA","x":1708387200000,"y":1,"fill":"#039ADA"},{"date":"2024-02-21","party":"Domani ","amount_spent":351,"Daily Spend":1,"short_name":"Dom","colors":"#039ADA","x":1708473600000,"y":1,"fill":"#039ADA"},{"date":"2024-02-22","party":"Domani ","amount_spent":352,"Daily Spend":1,"short_name":"Dom","colors":"#039ADA","x":1708560000000,"y":1,"fill":"#039ADA"},{"date":"2024-02-23","party":"Domani ","amount_spent":352,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1708646400000,"y":0,"fill":"#039ADA"},{"date":"2024-02-24","party":"Domani ","amount_spent":352,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1708732800000,"y":0,"fill":"#039ADA"},{"date":"2024-02-25","party":"Domani ","amount_spent":352,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1708819200000,"y":0,"fill":"#039ADA"},{"date":"2024-02-26","party":"Domani ","amount_spent":352,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1708905600000,"y":0,"fill":"#039ADA"},{"date":"2024-02-27","party":"Domani ","amount_spent":352,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1708992000000,"y":0,"fill":"#039ADA"},{"date":"2024-02-28","party":"Domani ","amount_spent":352,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1709078400000,"y":0,"fill":"#039ADA"},{"date":"2024-02-29","party":"Domani ","amount_spent":352,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1709164800000,"y":0,"fill":"#039ADA"},{"date":"2024-03-01","party":"Domani ","amount_spent":352,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1709251200000,"y":0,"fill":"#039ADA"},{"date":"2024-03-02","party":"Domani ","amount_spent":352,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1709337600000,"y":0,"fill":"#039ADA"},{"date":"2024-03-03","party":"Domani ","amount_spent":352,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1709424000000,"y":0,"fill":"#039ADA"},{"date":"2024-03-04","party":"Domani ","amount_spent":352,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1709510400000,"y":0,"fill":"#039ADA"},{"date":"2024-03-05","party":"Domani ","amount_spent":352,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1709596800000,"y":0,"fill":"#039ADA"},{"date":"2024-03-06","party":"Domani ","amount_spent":352,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1709683200000,"y":0,"fill":"#039ADA"},{"date":"2024-03-07","party":"Domani ","amount_spent":352,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1709769600000,"y":0,"fill":"#039ADA"},{"date":"2024-03-08","party":"Domani ","amount_spent":352,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1709856000000,"y":0,"fill":"#039ADA"},{"date":"2024-03-09","party":"Domani ","amount_spent":352,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1709942400000,"y":0,"fill":"#039ADA"}],"type":"area"},{"name":"Libera San Marino","data":[{"date":"2023-12-31","party":"Libera San Marino","amount_spent":381,"Daily Spend":null,"short_name":"Lib","colors":"#14AABC","x":1703980800000,"y":null,"fill":"#14AABC"},{"date":"2024-01-01","party":"Libera San Marino","amount_spent":395,"Daily Spend":14,"short_name":"Lib","colors":"#14AABC","x":1704067200000,"y":14,"fill":"#14AABC"},{"date":"2024-01-02","party":"Libera San Marino","amount_spent":406,"Daily Spend":11,"short_name":"Lib","colors":"#14AABC","x":1704153600000,"y":11,"fill":"#14AABC"},{"date":"2024-01-03","party":"Libera San Marino","amount_spent":415,"Daily Spend":9,"short_name":"Lib","colors":"#14AABC","x":1704240000000,"y":9,"fill":"#14AABC"},{"date":"2024-01-04","party":"Libera San Marino","amount_spent":428,"Daily Spend":13,"short_name":"Lib","colors":"#14AABC","x":1704326400000,"y":13,"fill":"#14AABC"},{"date":"2024-01-05","party":"Libera San Marino","amount_spent":441,"Daily Spend":13,"short_name":"Lib","colors":"#14AABC","x":1704412800000,"y":13,"fill":"#14AABC"},{"date":"2024-01-06","party":"Libera San Marino","amount_spent":451,"Daily Spend":10,"short_name":"Lib","colors":"#14AABC","x":1704499200000,"y":10,"fill":"#14AABC"},{"date":"2024-01-07","party":"Libera San Marino","amount_spent":458,"Daily Spend":7,"short_name":"Lib","colors":"#14AABC","x":1704585600000,"y":7,"fill":"#14AABC"},{"date":"2024-01-08","party":"Libera San Marino","amount_spent":467,"Daily Spend":9,"short_name":"Lib","colors":"#14AABC","x":1704672000000,"y":9,"fill":"#14AABC"},{"date":"2024-01-09","party":"Libera San Marino","amount_spent":473,"Daily Spend":6,"short_name":"Lib","colors":"#14AABC","x":1704758400000,"y":6,"fill":"#14AABC"},{"date":"2024-01-10","party":"Libera San Marino","amount_spent":478,"Daily Spend":5,"short_name":"Lib","colors":"#14AABC","x":1704844800000,"y":5,"fill":"#14AABC"},{"date":"2024-01-11","party":"Libera San Marino","amount_spent":483,"Daily Spend":5,"short_name":"Lib","colors":"#14AABC","x":1704931200000,"y":5,"fill":"#14AABC"},{"date":"2024-01-12","party":"Libera San Marino","amount_spent":488,"Daily Spend":5,"short_name":"Lib","colors":"#14AABC","x":1705017600000,"y":5,"fill":"#14AABC"},{"date":"2024-01-13","party":"Libera San Marino","amount_spent":489,"Daily Spend":1,"short_name":"Lib","colors":"#14AABC","x":1705104000000,"y":1,"fill":"#14AABC"},{"date":"2024-01-14","party":"Libera San Marino","amount_spent":489,"Daily Spend":0,"short_name":"Lib","colors":"#14AABC","x":1705190400000,"y":0,"fill":"#14AABC"},{"date":"2024-01-15","party":"Libera San Marino","amount_spent":496,"Daily Spend":7,"short_name":"Lib","colors":"#14AABC","x":1705276800000,"y":7,"fill":"#14AABC"},{"date":"2024-01-16","party":"Libera San Marino","amount_spent":505,"Daily Spend":9,"short_name":"Lib","colors":"#14AABC","x":1705363200000,"y":9,"fill":"#14AABC"},{"date":"2024-01-17","party":"Libera San Marino","amount_spent":515,"Daily Spend":10,"short_name":"Lib","colors":"#14AABC","x":1705449600000,"y":10,"fill":"#14AABC"},{"date":"2024-01-18","party":"Libera San Marino","amount_spent":526,"Daily Spend":11,"short_name":"Lib","colors":"#14AABC","x":1705536000000,"y":11,"fill":"#14AABC"},{"date":"2024-01-19","party":"Libera San Marino","amount_spent":540,"Daily Spend":14,"short_name":"Lib","colors":"#14AABC","x":1705622400000,"y":14,"fill":"#14AABC"},{"date":"2024-01-20","party":"Libera San Marino","amount_spent":548,"Daily Spend":8,"short_name":"Lib","colors":"#14AABC","x":1705708800000,"y":8,"fill":"#14AABC"},{"date":"2024-01-21","party":"Libera San Marino","amount_spent":552,"Daily Spend":4,"short_name":"Lib","colors":"#14AABC","x":1705795200000,"y":4,"fill":"#14AABC"},{"date":"2024-01-22","party":"Libera San Marino","amount_spent":565,"Daily Spend":13,"short_name":"Lib","colors":"#14AABC","x":1705881600000,"y":13,"fill":"#14AABC"},{"date":"2024-01-23","party":"Libera San Marino","amount_spent":580,"Daily Spend":15,"short_name":"Lib","colors":"#14AABC","x":1705968000000,"y":15,"fill":"#14AABC"},{"date":"2024-01-24","party":"Libera San Marino","amount_spent":596,"Daily Spend":16,"short_name":"Lib","colors":"#14AABC","x":1706054400000,"y":16,"fill":"#14AABC"},{"date":"2024-01-25","party":"Libera San Marino","amount_spent":613,"Daily Spend":17,"short_name":"Lib","colors":"#14AABC","x":1706140800000,"y":17,"fill":"#14AABC"},{"date":"2024-01-26","party":"Libera San Marino","amount_spent":630,"Daily Spend":17,"short_name":"Lib","colors":"#14AABC","x":1706227200000,"y":17,"fill":"#14AABC"},{"date":"2024-01-27","party":"Libera San Marino","amount_spent":643,"Daily Spend":13,"short_name":"Lib","colors":"#14AABC","x":1706313600000,"y":13,"fill":"#14AABC"},{"date":"2024-01-28","party":"Libera San Marino","amount_spent":656,"Daily Spend":13,"short_name":"Lib","colors":"#14AABC","x":1706400000000,"y":13,"fill":"#14AABC"},{"date":"2024-01-29","party":"Libera San Marino","amount_spent":666,"Daily Spend":10,"short_name":"Lib","colors":"#14AABC","x":1706486400000,"y":10,"fill":"#14AABC"},{"date":"2024-01-30","party":"Libera San Marino","amount_spent":675,"Daily Spend":9,"short_name":"Lib","colors":"#14AABC","x":1706572800000,"y":9,"fill":"#14AABC"},{"date":"2024-01-31","party":"Libera San Marino","amount_spent":683,"Daily Spend":8,"short_name":"Lib","colors":"#14AABC","x":1706659200000,"y":8,"fill":"#14AABC"},{"date":"2024-02-01","party":"Libera San Marino","amount_spent":688,"Daily Spend":5,"short_name":"Lib","colors":"#14AABC","x":1706745600000,"y":5,"fill":"#14AABC"},{"date":"2024-02-02","party":"Libera San Marino","amount_spent":691,"Daily Spend":3,"short_name":"Lib","colors":"#14AABC","x":1706832000000,"y":3,"fill":"#14AABC"},{"date":"2024-02-03","party":"Libera San Marino","amount_spent":695,"Daily Spend":4,"short_name":"Lib","colors":"#14AABC","x":1706918400000,"y":4,"fill":"#14AABC"},{"date":"2024-02-04","party":"Libera San Marino","amount_spent":699,"Daily Spend":4,"short_name":"Lib","colors":"#14AABC","x":1707004800000,"y":4,"fill":"#14AABC"},{"date":"2024-02-05","party":"Libera San Marino","amount_spent":699,"Daily Spend":0,"short_name":"Lib","colors":"#14AABC","x":1707091200000,"y":0,"fill":"#14AABC"},{"date":"2024-02-06","party":"Libera San Marino","amount_spent":699,"Daily Spend":0,"short_name":"Lib","colors":"#14AABC","x":1707177600000,"y":0,"fill":"#14AABC"},{"date":"2024-02-07","party":"Libera San Marino","amount_spent":701,"Daily Spend":2,"short_name":"Lib","colors":"#14AABC","x":1707264000000,"y":2,"fill":"#14AABC"},{"date":"2024-02-08","party":"Libera San Marino","amount_spent":704,"Daily Spend":3,"short_name":"Lib","colors":"#14AABC","x":1707350400000,"y":3,"fill":"#14AABC"},{"date":"2024-02-09","party":"Libera San Marino","amount_spent":708,"Daily Spend":4,"short_name":"Lib","colors":"#14AABC","x":1707436800000,"y":4,"fill":"#14AABC"},{"date":"2024-02-10","party":"Libera San Marino","amount_spent":711,"Daily Spend":3,"short_name":"Lib","colors":"#14AABC","x":1707523200000,"y":3,"fill":"#14AABC"},{"date":"2024-02-11","party":"Libera San Marino","amount_spent":715,"Daily Spend":4,"short_name":"Lib","colors":"#14AABC","x":1707609600000,"y":4,"fill":"#14AABC"},{"date":"2024-02-12","party":"Libera San Marino","amount_spent":719,"Daily Spend":4,"short_name":"Lib","colors":"#14AABC","x":1707696000000,"y":4,"fill":"#14AABC"},{"date":"2024-02-13","party":"Libera San Marino","amount_spent":723,"Daily Spend":4,"short_name":"Lib","colors":"#14AABC","x":1707782400000,"y":4,"fill":"#14AABC"},{"date":"2024-02-14","party":"Libera San Marino","amount_spent":724,"Daily Spend":1,"short_name":"Lib","colors":"#14AABC","x":1707868800000,"y":1,"fill":"#14AABC"},{"date":"2024-02-15","party":"Libera San Marino","amount_spent":724,"Daily Spend":0,"short_name":"Lib","colors":"#14AABC","x":1707955200000,"y":0,"fill":"#14AABC"},{"date":"2024-02-16","party":"Libera San Marino","amount_spent":724,"Daily Spend":0,"short_name":"Lib","colors":"#14AABC","x":1708041600000,"y":0,"fill":"#14AABC"},{"date":"2024-02-17","party":"Libera San Marino","amount_spent":724,"Daily Spend":0,"short_name":"Lib","colors":"#14AABC","x":1708128000000,"y":0,"fill":"#14AABC"},{"date":"2024-02-18","party":"Libera San Marino","amount_spent":724,"Daily Spend":0,"short_name":"Lib","colors":"#14AABC","x":1708214400000,"y":0,"fill":"#14AABC"},{"date":"2024-02-19","party":"Libera San Marino","amount_spent":728,"Daily Spend":4,"short_name":"Lib","colors":"#14AABC","x":1708300800000,"y":4,"fill":"#14AABC"},{"date":"2024-02-20","party":"Libera San Marino","amount_spent":735,"Daily Spend":7,"short_name":"Lib","colors":"#14AABC","x":1708387200000,"y":7,"fill":"#14AABC"},{"date":"2024-02-21","party":"Libera San Marino","amount_spent":742,"Daily Spend":7,"short_name":"Lib","colors":"#14AABC","x":1708473600000,"y":7,"fill":"#14AABC"},{"date":"2024-02-22","party":"Libera San Marino","amount_spent":755,"Daily Spend":13,"short_name":"Lib","colors":"#14AABC","x":1708560000000,"y":13,"fill":"#14AABC"},{"date":"2024-02-23","party":"Libera San Marino","amount_spent":769,"Daily Spend":14,"short_name":"Lib","colors":"#14AABC","x":1708646400000,"y":14,"fill":"#14AABC"},{"date":"2024-02-24","party":"Libera San Marino","amount_spent":783,"Daily Spend":14,"short_name":"Lib","colors":"#14AABC","x":1708732800000,"y":14,"fill":"#14AABC"},{"date":"2024-02-25","party":"Libera San Marino","amount_spent":799,"Daily Spend":16,"short_name":"Lib","colors":"#14AABC","x":1708819200000,"y":16,"fill":"#14AABC"},{"date":"2024-02-26","party":"Libera San Marino","amount_spent":810,"Daily Spend":11,"short_name":"Lib","colors":"#14AABC","x":1708905600000,"y":11,"fill":"#14AABC"},{"date":"2024-02-27","party":"Libera San Marino","amount_spent":818,"Daily Spend":8,"short_name":"Lib","colors":"#14AABC","x":1708992000000,"y":8,"fill":"#14AABC"},{"date":"2024-02-28","party":"Libera San Marino","amount_spent":824,"Daily Spend":6,"short_name":"Lib","colors":"#14AABC","x":1709078400000,"y":6,"fill":"#14AABC"},{"date":"2024-02-29","party":"Libera San Marino","amount_spent":824,"Daily Spend":0,"short_name":"Lib","colors":"#14AABC","x":1709164800000,"y":0,"fill":"#14AABC"},{"date":"2024-03-01","party":"Libera San Marino","amount_spent":824,"Daily Spend":0,"short_name":"Lib","colors":"#14AABC","x":1709251200000,"y":0,"fill":"#14AABC"},{"date":"2024-03-02","party":"Libera San Marino","amount_spent":824,"Daily Spend":0,"short_name":"Lib","colors":"#14AABC","x":1709337600000,"y":0,"fill":"#14AABC"},{"date":"2024-03-03","party":"Libera San Marino","amount_spent":825,"Daily Spend":1,"short_name":"Lib","colors":"#14AABC","x":1709424000000,"y":1,"fill":"#14AABC"},{"date":"2024-03-04","party":"Libera San Marino","amount_spent":829,"Daily Spend":4,"short_name":"Lib","colors":"#14AABC","x":1709510400000,"y":4,"fill":"#14AABC"},{"date":"2024-03-05","party":"Libera San Marino","amount_spent":833,"Daily Spend":4,"short_name":"Lib","colors":"#14AABC","x":1709596800000,"y":4,"fill":"#14AABC"},{"date":"2024-03-06","party":"Libera San Marino","amount_spent":837,"Daily Spend":4,"short_name":"Lib","colors":"#14AABC","x":1709683200000,"y":4,"fill":"#14AABC"},{"date":"2024-03-07","party":"Libera San Marino","amount_spent":840,"Daily Spend":3,"short_name":"Lib","colors":"#14AABC","x":1709769600000,"y":3,"fill":"#14AABC"},{"date":"2024-03-08","party":"Libera San Marino","amount_spent":844,"Daily Spend":4,"short_name":"Lib","colors":"#14AABC","x":1709856000000,"y":4,"fill":"#14AABC"},{"date":"2024-03-09","party":"Libera San Marino","amount_spent":847,"Daily Spend":3,"short_name":"Lib","colors":"#14AABC","x":1709942400000,"y":3,"fill":"#14AABC"}],"type":"area"},{"name":"Movimento Civico RETE","data":[{"date":"2023-12-31","party":"Movimento Civico RETE","amount_spent":803,"Daily Spend":null,"short_name":"RETE","colors":"#275956","x":1703980800000,"y":null,"fill":"#275956"},{"date":"2024-01-01","party":"Movimento Civico RETE","amount_spent":803,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1704067200000,"y":0,"fill":"#275956"},{"date":"2024-01-02","party":"Movimento Civico RETE","amount_spent":803,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1704153600000,"y":0,"fill":"#275956"},{"date":"2024-01-03","party":"Movimento Civico RETE","amount_spent":803,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1704240000000,"y":0,"fill":"#275956"},{"date":"2024-01-04","party":"Movimento Civico RETE","amount_spent":803,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1704326400000,"y":0,"fill":"#275956"},{"date":"2024-01-05","party":"Movimento Civico RETE","amount_spent":803,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1704412800000,"y":0,"fill":"#275956"},{"date":"2024-01-06","party":"Movimento Civico RETE","amount_spent":803,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1704499200000,"y":0,"fill":"#275956"},{"date":"2024-01-07","party":"Movimento Civico RETE","amount_spent":803,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1704585600000,"y":0,"fill":"#275956"},{"date":"2024-01-08","party":"Movimento Civico RETE","amount_spent":803,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1704672000000,"y":0,"fill":"#275956"},{"date":"2024-01-09","party":"Movimento Civico RETE","amount_spent":803,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1704758400000,"y":0,"fill":"#275956"},{"date":"2024-01-10","party":"Movimento Civico RETE","amount_spent":803,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1704844800000,"y":0,"fill":"#275956"},{"date":"2024-01-11","party":"Movimento Civico RETE","amount_spent":803,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1704931200000,"y":0,"fill":"#275956"},{"date":"2024-01-12","party":"Movimento Civico RETE","amount_spent":811,"Daily Spend":8,"short_name":"RETE","colors":"#275956","x":1705017600000,"y":8,"fill":"#275956"},{"date":"2024-01-13","party":"Movimento Civico RETE","amount_spent":822,"Daily Spend":11,"short_name":"RETE","colors":"#275956","x":1705104000000,"y":11,"fill":"#275956"},{"date":"2024-01-14","party":"Movimento Civico RETE","amount_spent":834,"Daily Spend":12,"short_name":"RETE","colors":"#275956","x":1705190400000,"y":12,"fill":"#275956"},{"date":"2024-01-15","party":"Movimento Civico RETE","amount_spent":845,"Daily Spend":11,"short_name":"RETE","colors":"#275956","x":1705276800000,"y":11,"fill":"#275956"},{"date":"2024-01-16","party":"Movimento Civico RETE","amount_spent":856,"Daily Spend":11,"short_name":"RETE","colors":"#275956","x":1705363200000,"y":11,"fill":"#275956"},{"date":"2024-01-17","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":3,"short_name":"RETE","colors":"#275956","x":1705449600000,"y":3,"fill":"#275956"},{"date":"2024-01-18","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1705536000000,"y":0,"fill":"#275956"},{"date":"2024-01-19","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1705622400000,"y":0,"fill":"#275956"},{"date":"2024-01-20","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1705708800000,"y":0,"fill":"#275956"},{"date":"2024-01-21","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1705795200000,"y":0,"fill":"#275956"},{"date":"2024-01-22","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1705881600000,"y":0,"fill":"#275956"},{"date":"2024-01-23","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1705968000000,"y":0,"fill":"#275956"},{"date":"2024-01-24","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1706054400000,"y":0,"fill":"#275956"},{"date":"2024-01-25","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1706140800000,"y":0,"fill":"#275956"},{"date":"2024-01-26","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1706227200000,"y":0,"fill":"#275956"},{"date":"2024-01-27","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1706313600000,"y":0,"fill":"#275956"},{"date":"2024-01-28","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1706400000000,"y":0,"fill":"#275956"},{"date":"2024-01-29","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1706486400000,"y":0,"fill":"#275956"},{"date":"2024-01-30","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1706572800000,"y":0,"fill":"#275956"},{"date":"2024-01-31","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1706659200000,"y":0,"fill":"#275956"},{"date":"2024-02-01","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1706745600000,"y":0,"fill":"#275956"},{"date":"2024-02-02","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1706832000000,"y":0,"fill":"#275956"},{"date":"2024-02-03","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1706918400000,"y":0,"fill":"#275956"},{"date":"2024-02-04","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1707004800000,"y":0,"fill":"#275956"},{"date":"2024-02-05","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1707091200000,"y":0,"fill":"#275956"},{"date":"2024-02-06","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1707177600000,"y":0,"fill":"#275956"},{"date":"2024-02-07","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1707264000000,"y":0,"fill":"#275956"},{"date":"2024-02-08","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1707350400000,"y":0,"fill":"#275956"},{"date":"2024-02-09","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1707436800000,"y":0,"fill":"#275956"},{"date":"2024-02-10","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1707523200000,"y":0,"fill":"#275956"},{"date":"2024-02-11","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1707609600000,"y":0,"fill":"#275956"},{"date":"2024-02-12","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1707696000000,"y":0,"fill":"#275956"},{"date":"2024-02-13","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1707782400000,"y":0,"fill":"#275956"},{"date":"2024-02-14","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1707868800000,"y":0,"fill":"#275956"},{"date":"2024-02-15","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1707955200000,"y":0,"fill":"#275956"},{"date":"2024-02-16","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1708041600000,"y":0,"fill":"#275956"},{"date":"2024-02-17","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1708128000000,"y":0,"fill":"#275956"},{"date":"2024-02-18","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1708214400000,"y":0,"fill":"#275956"},{"date":"2024-02-19","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1708300800000,"y":0,"fill":"#275956"},{"date":"2024-02-20","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1708387200000,"y":0,"fill":"#275956"},{"date":"2024-02-21","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1708473600000,"y":0,"fill":"#275956"},{"date":"2024-02-22","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1708560000000,"y":0,"fill":"#275956"},{"date":"2024-02-23","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1708646400000,"y":0,"fill":"#275956"},{"date":"2024-02-24","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1708732800000,"y":0,"fill":"#275956"},{"date":"2024-02-25","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1708819200000,"y":0,"fill":"#275956"},{"date":"2024-02-26","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1708905600000,"y":0,"fill":"#275956"},{"date":"2024-02-27","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1708992000000,"y":0,"fill":"#275956"},{"date":"2024-02-28","party":"Movimento Civico RETE","amount_spent":866,"Daily Spend":7,"short_name":"RETE","colors":"#275956","x":1709078400000,"y":7,"fill":"#275956"},{"date":"2024-02-29","party":"Movimento Civico RETE","amount_spent":875,"Daily Spend":9,"short_name":"RETE","colors":"#275956","x":1709164800000,"y":9,"fill":"#275956"},{"date":"2024-03-01","party":"Movimento Civico RETE","amount_spent":885,"Daily Spend":10,"short_name":"RETE","colors":"#275956","x":1709251200000,"y":10,"fill":"#275956"},{"date":"2024-03-02","party":"Movimento Civico RETE","amount_spent":895,"Daily Spend":10,"short_name":"RETE","colors":"#275956","x":1709337600000,"y":10,"fill":"#275956"},{"date":"2024-03-03","party":"Movimento Civico RETE","amount_spent":906,"Daily Spend":11,"short_name":"RETE","colors":"#275956","x":1709424000000,"y":11,"fill":"#275956"},{"date":"2024-03-04","party":"Movimento Civico RETE","amount_spent":917,"Daily Spend":11,"short_name":"RETE","colors":"#275956","x":1709510400000,"y":11,"fill":"#275956"},{"date":"2024-03-05","party":"Movimento Civico RETE","amount_spent":928,"Daily Spend":11,"short_name":"RETE","colors":"#275956","x":1709596800000,"y":11,"fill":"#275956"},{"date":"2024-03-06","party":"Movimento Civico RETE","amount_spent":936,"Daily Spend":8,"short_name":"RETE","colors":"#275956","x":1709683200000,"y":8,"fill":"#275956"},{"date":"2024-03-07","party":"Movimento Civico RETE","amount_spent":943,"Daily Spend":7,"short_name":"RETE","colors":"#275956","x":1709769600000,"y":7,"fill":"#275956"},{"date":"2024-03-08","party":"Movimento Civico RETE","amount_spent":949,"Daily Spend":6,"short_name":"RETE","colors":"#275956","x":1709856000000,"y":6,"fill":"#275956"},{"date":"2024-03-09","party":"Movimento Civico RETE","amount_spent":957,"Daily Spend":8,"short_name":"RETE","colors":"#275956","x":1709942400000,"y":8,"fill":"#275956"}],"type":"area"},{"name":"Repubblica Futura","data":[{"date":"2023-12-31","party":"Repubblica Futura","amount_spent":455,"Daily Spend":null,"short_name":"RF","colors":"#223968","x":1703980800000,"y":null,"fill":"#223968"},{"date":"2024-01-01","party":"Repubblica Futura","amount_spent":460,"Daily Spend":5,"short_name":"RF","colors":"#223968","x":1704067200000,"y":5,"fill":"#223968"},{"date":"2024-01-02","party":"Repubblica Futura","amount_spent":461,"Daily Spend":1,"short_name":"RF","colors":"#223968","x":1704153600000,"y":1,"fill":"#223968"},{"date":"2024-01-03","party":"Repubblica Futura","amount_spent":461,"Daily Spend":0,"short_name":"RF","colors":"#223968","x":1704240000000,"y":0,"fill":"#223968"},{"date":"2024-01-04","party":"Repubblica Futura","amount_spent":464,"Daily Spend":3,"short_name":"RF","colors":"#223968","x":1704326400000,"y":3,"fill":"#223968"},{"date":"2024-01-05","party":"Repubblica Futura","amount_spent":470,"Daily Spend":6,"short_name":"RF","colors":"#223968","x":1704412800000,"y":6,"fill":"#223968"},{"date":"2024-01-06","party":"Repubblica Futura","amount_spent":474,"Daily Spend":4,"short_name":"RF","colors":"#223968","x":1704499200000,"y":4,"fill":"#223968"},{"date":"2024-01-07","party":"Repubblica Futura","amount_spent":479,"Daily Spend":5,"short_name":"RF","colors":"#223968","x":1704585600000,"y":5,"fill":"#223968"},{"date":"2024-01-08","party":"Repubblica Futura","amount_spent":485,"Daily Spend":6,"short_name":"RF","colors":"#223968","x":1704672000000,"y":6,"fill":"#223968"},{"date":"2024-01-09","party":"Repubblica Futura","amount_spent":486,"Daily Spend":1,"short_name":"RF","colors":"#223968","x":1704758400000,"y":1,"fill":"#223968"},{"date":"2024-01-10","party":"Repubblica Futura","amount_spent":486,"Daily Spend":0,"short_name":"RF","colors":"#223968","x":1704844800000,"y":0,"fill":"#223968"},{"date":"2024-01-11","party":"Repubblica Futura","amount_spent":486,"Daily Spend":0,"short_name":"RF","colors":"#223968","x":1704931200000,"y":0,"fill":"#223968"},{"date":"2024-01-12","party":"Repubblica Futura","amount_spent":490,"Daily Spend":4,"short_name":"RF","colors":"#223968","x":1705017600000,"y":4,"fill":"#223968"},{"date":"2024-01-13","party":"Repubblica Futura","amount_spent":494,"Daily Spend":4,"short_name":"RF","colors":"#223968","x":1705104000000,"y":4,"fill":"#223968"},{"date":"2024-01-14","party":"Repubblica Futura","amount_spent":500,"Daily Spend":6,"short_name":"RF","colors":"#223968","x":1705190400000,"y":6,"fill":"#223968"},{"date":"2024-01-15","party":"Repubblica Futura","amount_spent":505,"Daily Spend":5,"short_name":"RF","colors":"#223968","x":1705276800000,"y":5,"fill":"#223968"},{"date":"2024-01-16","party":"Repubblica Futura","amount_spent":514,"Daily Spend":9,"short_name":"RF","colors":"#223968","x":1705363200000,"y":9,"fill":"#223968"},{"date":"2024-01-17","party":"Repubblica Futura","amount_spent":528,"Daily Spend":14,"short_name":"RF","colors":"#223968","x":1705449600000,"y":14,"fill":"#223968"},{"date":"2024-01-18","party":"Repubblica Futura","amount_spent":548,"Daily Spend":20,"short_name":"RF","colors":"#223968","x":1705536000000,"y":20,"fill":"#223968"},{"date":"2024-01-19","party":"Repubblica Futura","amount_spent":567,"Daily Spend":19,"short_name":"RF","colors":"#223968","x":1705622400000,"y":19,"fill":"#223968"},{"date":"2024-01-20","party":"Repubblica Futura","amount_spent":585,"Daily Spend":18,"short_name":"RF","colors":"#223968","x":1705708800000,"y":18,"fill":"#223968"},{"date":"2024-01-21","party":"Repubblica Futura","amount_spent":602,"Daily Spend":17,"short_name":"RF","colors":"#223968","x":1705795200000,"y":17,"fill":"#223968"},{"date":"2024-01-22","party":"Repubblica Futura","amount_spent":614,"Daily Spend":12,"short_name":"RF","colors":"#223968","x":1705881600000,"y":12,"fill":"#223968"},{"date":"2024-01-23","party":"Repubblica Futura","amount_spent":624,"Daily Spend":10,"short_name":"RF","colors":"#223968","x":1705968000000,"y":10,"fill":"#223968"},{"date":"2024-01-24","party":"Repubblica Futura","amount_spent":637,"Daily Spend":13,"short_name":"RF","colors":"#223968","x":1706054400000,"y":13,"fill":"#223968"},{"date":"2024-01-25","party":"Repubblica Futura","amount_spent":647,"Daily Spend":10,"short_name":"RF","colors":"#223968","x":1706140800000,"y":10,"fill":"#223968"},{"date":"2024-01-26","party":"Repubblica Futura","amount_spent":658,"Daily Spend":11,"short_name":"RF","colors":"#223968","x":1706227200000,"y":11,"fill":"#223968"},{"date":"2024-01-27","party":"Repubblica Futura","amount_spent":670,"Daily Spend":12,"short_name":"RF","colors":"#223968","x":1706313600000,"y":12,"fill":"#223968"},{"date":"2024-01-28","party":"Repubblica Futura","amount_spent":682,"Daily Spend":12,"short_name":"RF","colors":"#223968","x":1706400000000,"y":12,"fill":"#223968"},{"date":"2024-01-29","party":"Repubblica Futura","amount_spent":695,"Daily Spend":13,"short_name":"RF","colors":"#223968","x":1706486400000,"y":13,"fill":"#223968"},{"date":"2024-01-30","party":"Repubblica Futura","amount_spent":706,"Daily Spend":11,"short_name":"RF","colors":"#223968","x":1706572800000,"y":11,"fill":"#223968"},{"date":"2024-01-31","party":"Repubblica Futura","amount_spent":716,"Daily Spend":10,"short_name":"RF","colors":"#223968","x":1706659200000,"y":10,"fill":"#223968"},{"date":"2024-02-01","party":"Repubblica Futura","amount_spent":730,"Daily Spend":14,"short_name":"RF","colors":"#223968","x":1706745600000,"y":14,"fill":"#223968"},{"date":"2024-02-02","party":"Repubblica Futura","amount_spent":740,"Daily Spend":10,"short_name":"RF","colors":"#223968","x":1706832000000,"y":10,"fill":"#223968"},{"date":"2024-02-03","party":"Repubblica Futura","amount_spent":750,"Daily Spend":10,"short_name":"RF","colors":"#223968","x":1706918400000,"y":10,"fill":"#223968"},{"date":"2024-02-04","party":"Repubblica Futura","amount_spent":762,"Daily Spend":12,"short_name":"RF","colors":"#223968","x":1707004800000,"y":12,"fill":"#223968"},{"date":"2024-02-05","party":"Repubblica Futura","amount_spent":770,"Daily Spend":8,"short_name":"RF","colors":"#223968","x":1707091200000,"y":8,"fill":"#223968"},{"date":"2024-02-06","party":"Repubblica Futura","amount_spent":775,"Daily Spend":5,"short_name":"RF","colors":"#223968","x":1707177600000,"y":5,"fill":"#223968"},{"date":"2024-02-07","party":"Repubblica Futura","amount_spent":782,"Daily Spend":7,"short_name":"RF","colors":"#223968","x":1707264000000,"y":7,"fill":"#223968"},{"date":"2024-02-08","party":"Repubblica Futura","amount_spent":786,"Daily Spend":4,"short_name":"RF","colors":"#223968","x":1707350400000,"y":4,"fill":"#223968"},{"date":"2024-02-09","party":"Repubblica Futura","amount_spent":789,"Daily Spend":3,"short_name":"RF","colors":"#223968","x":1707436800000,"y":3,"fill":"#223968"},{"date":"2024-02-10","party":"Repubblica Futura","amount_spent":793,"Daily Spend":4,"short_name":"RF","colors":"#223968","x":1707523200000,"y":4,"fill":"#223968"},{"date":"2024-02-11","party":"Repubblica Futura","amount_spent":797,"Daily Spend":4,"short_name":"RF","colors":"#223968","x":1707609600000,"y":4,"fill":"#223968"},{"date":"2024-02-12","party":"Repubblica Futura","amount_spent":800,"Daily Spend":3,"short_name":"RF","colors":"#223968","x":1707696000000,"y":3,"fill":"#223968"},{"date":"2024-02-13","party":"Repubblica Futura","amount_spent":807,"Daily Spend":7,"short_name":"RF","colors":"#223968","x":1707782400000,"y":7,"fill":"#223968"},{"date":"2024-02-14","party":"Repubblica Futura","amount_spent":814,"Daily Spend":7,"short_name":"RF","colors":"#223968","x":1707868800000,"y":7,"fill":"#223968"},{"date":"2024-02-15","party":"Repubblica Futura","amount_spent":824,"Daily Spend":10,"short_name":"RF","colors":"#223968","x":1707955200000,"y":10,"fill":"#223968"},{"date":"2024-02-16","party":"Repubblica Futura","amount_spent":836,"Daily Spend":12,"short_name":"RF","colors":"#223968","x":1708041600000,"y":12,"fill":"#223968"},{"date":"2024-02-17","party":"Repubblica Futura","amount_spent":848,"Daily Spend":12,"short_name":"RF","colors":"#223968","x":1708128000000,"y":12,"fill":"#223968"},{"date":"2024-02-18","party":"Repubblica Futura","amount_spent":861,"Daily Spend":13,"short_name":"RF","colors":"#223968","x":1708214400000,"y":13,"fill":"#223968"},{"date":"2024-02-19","party":"Repubblica Futura","amount_spent":877,"Daily Spend":16,"short_name":"RF","colors":"#223968","x":1708300800000,"y":16,"fill":"#223968"},{"date":"2024-02-20","party":"Repubblica Futura","amount_spent":888,"Daily Spend":11,"short_name":"RF","colors":"#223968","x":1708387200000,"y":11,"fill":"#223968"},{"date":"2024-02-21","party":"Repubblica Futura","amount_spent":903,"Daily Spend":15,"short_name":"RF","colors":"#223968","x":1708473600000,"y":15,"fill":"#223968"},{"date":"2024-02-22","party":"Repubblica Futura","amount_spent":917,"Daily Spend":14,"short_name":"RF","colors":"#223968","x":1708560000000,"y":14,"fill":"#223968"},{"date":"2024-02-23","party":"Repubblica Futura","amount_spent":932,"Daily Spend":15,"short_name":"RF","colors":"#223968","x":1708646400000,"y":15,"fill":"#223968"},{"date":"2024-02-24","party":"Repubblica Futura","amount_spent":949,"Daily Spend":17,"short_name":"RF","colors":"#223968","x":1708732800000,"y":17,"fill":"#223968"},{"date":"2024-02-25","party":"Repubblica Futura","amount_spent":969,"Daily Spend":20,"short_name":"RF","colors":"#223968","x":1708819200000,"y":20,"fill":"#223968"},{"date":"2024-02-26","party":"Repubblica Futura","amount_spent":982,"Daily Spend":13,"short_name":"RF","colors":"#223968","x":1708905600000,"y":13,"fill":"#223968"},{"date":"2024-02-27","party":"Repubblica Futura","amount_spent":992,"Daily Spend":10,"short_name":"RF","colors":"#223968","x":1708992000000,"y":10,"fill":"#223968"},{"date":"2024-02-28","party":"Repubblica Futura","amount_spent":1001,"Daily Spend":9,"short_name":"RF","colors":"#223968","x":1709078400000,"y":9,"fill":"#223968"},{"date":"2024-02-29","party":"Repubblica Futura","amount_spent":1011,"Daily Spend":10,"short_name":"RF","colors":"#223968","x":1709164800000,"y":10,"fill":"#223968"},{"date":"2024-03-01","party":"Repubblica Futura","amount_spent":1018,"Daily Spend":7,"short_name":"RF","colors":"#223968","x":1709251200000,"y":7,"fill":"#223968"},{"date":"2024-03-02","party":"Repubblica Futura","amount_spent":1024,"Daily Spend":6,"short_name":"RF","colors":"#223968","x":1709337600000,"y":6,"fill":"#223968"},{"date":"2024-03-03","party":"Repubblica Futura","amount_spent":1031,"Daily Spend":7,"short_name":"RF","colors":"#223968","x":1709424000000,"y":7,"fill":"#223968"},{"date":"2024-03-04","party":"Repubblica Futura","amount_spent":1038,"Daily Spend":7,"short_name":"RF","colors":"#223968","x":1709510400000,"y":7,"fill":"#223968"},{"date":"2024-03-05","party":"Repubblica Futura","amount_spent":1045,"Daily Spend":7,"short_name":"RF","colors":"#223968","x":1709596800000,"y":7,"fill":"#223968"},{"date":"2024-03-06","party":"Repubblica Futura","amount_spent":1049,"Daily Spend":4,"short_name":"RF","colors":"#223968","x":1709683200000,"y":4,"fill":"#223968"},{"date":"2024-03-07","party":"Repubblica Futura","amount_spent":1052,"Daily Spend":3,"short_name":"RF","colors":"#223968","x":1709769600000,"y":3,"fill":"#223968"},{"date":"2024-03-08","party":"Repubblica Futura","amount_spent":1054,"Daily Spend":2,"short_name":"RF","colors":"#223968","x":1709856000000,"y":2,"fill":"#223968"},{"date":"2024-03-09","party":"Repubblica Futura","amount_spent":1056,"Daily Spend":2,"short_name":"RF","colors":"#223968","x":1709942400000,"y":2,"fill":"#223968"}],"type":"area"}],"xAxis":{"type":"datetime","title":{"text":"date"},"categories":null},"colors":["#86087D","#039ADA","#14AABC","#275956","#EE3338","#9CB2D8","#223968"],"tooltip":{"shared":true,"positioner":"function (labelWidth, labelHeight, point) {\n        return { x: 200, y: this.chart.plotTop };\n    }"}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":["hc_opts.tooltip.positioner"],"jsHooks":[]}</script>
+<div class="highchart html-widget html-fill-item" id="htmlwidget-bf6218cb2f2a923a375f" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-bf6218cb2f2a923a375f">{"x":{"hc_opts":{"chart":{"reflow":true},"title":{"text":null},"yAxis":{"title":{"text":"Daily Spend"},"type":"linear"},"credits":{"enabled":false},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":true},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"area":{"stacking":"normal","lineWidth":1,"marker":{"enabled":false}}},"series":[{"name":"Domani ","data":[{"date":"2023-12-31","party":"Domani ","amount_spent":299,"Daily Spend":null,"short_name":"Dom","colors":"#039ADA","x":1703980800000,"y":null,"fill":"#039ADA"},{"date":"2024-01-01","party":"Domani ","amount_spent":299,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1704067200000,"y":0,"fill":"#039ADA"},{"date":"2024-01-02","party":"Domani ","amount_spent":301,"Daily Spend":2,"short_name":"Dom","colors":"#039ADA","x":1704153600000,"y":2,"fill":"#039ADA"},{"date":"2024-01-03","party":"Domani ","amount_spent":303,"Daily Spend":2,"short_name":"Dom","colors":"#039ADA","x":1704240000000,"y":2,"fill":"#039ADA"},{"date":"2024-01-04","party":"Domani ","amount_spent":305,"Daily Spend":2,"short_name":"Dom","colors":"#039ADA","x":1704326400000,"y":2,"fill":"#039ADA"},{"date":"2024-01-05","party":"Domani ","amount_spent":307,"Daily Spend":2,"short_name":"Dom","colors":"#039ADA","x":1704412800000,"y":2,"fill":"#039ADA"},{"date":"2024-01-06","party":"Domani ","amount_spent":309,"Daily Spend":2,"short_name":"Dom","colors":"#039ADA","x":1704499200000,"y":2,"fill":"#039ADA"},{"date":"2024-01-07","party":"Domani ","amount_spent":309,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1704585600000,"y":0,"fill":"#039ADA"},{"date":"2024-01-08","party":"Domani ","amount_spent":309,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1704672000000,"y":0,"fill":"#039ADA"},{"date":"2024-01-09","party":"Domani ","amount_spent":309,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1704758400000,"y":0,"fill":"#039ADA"},{"date":"2024-01-10","party":"Domani ","amount_spent":309,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1704844800000,"y":0,"fill":"#039ADA"},{"date":"2024-01-11","party":"Domani ","amount_spent":309,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1704931200000,"y":0,"fill":"#039ADA"},{"date":"2024-01-12","party":"Domani ","amount_spent":309,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1705017600000,"y":0,"fill":"#039ADA"},{"date":"2024-01-13","party":"Domani ","amount_spent":309,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1705104000000,"y":0,"fill":"#039ADA"},{"date":"2024-01-14","party":"Domani ","amount_spent":309,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1705190400000,"y":0,"fill":"#039ADA"},{"date":"2024-01-15","party":"Domani ","amount_spent":309,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1705276800000,"y":0,"fill":"#039ADA"},{"date":"2024-01-16","party":"Domani ","amount_spent":309,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1705363200000,"y":0,"fill":"#039ADA"},{"date":"2024-01-17","party":"Domani ","amount_spent":309,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1705449600000,"y":0,"fill":"#039ADA"},{"date":"2024-01-18","party":"Domani ","amount_spent":309,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1705536000000,"y":0,"fill":"#039ADA"},{"date":"2024-01-19","party":"Domani ","amount_spent":309,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1705622400000,"y":0,"fill":"#039ADA"},{"date":"2024-01-20","party":"Domani ","amount_spent":309,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1705708800000,"y":0,"fill":"#039ADA"},{"date":"2024-01-21","party":"Domani ","amount_spent":309,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1705795200000,"y":0,"fill":"#039ADA"},{"date":"2024-01-22","party":"Domani ","amount_spent":309,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1705881600000,"y":0,"fill":"#039ADA"},{"date":"2024-01-23","party":"Domani ","amount_spent":309,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1705968000000,"y":0,"fill":"#039ADA"},{"date":"2024-01-24","party":"Domani ","amount_spent":309,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1706054400000,"y":0,"fill":"#039ADA"},{"date":"2024-01-25","party":"Domani ","amount_spent":309,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1706140800000,"y":0,"fill":"#039ADA"},{"date":"2024-01-26","party":"Domani ","amount_spent":310,"Daily Spend":1,"short_name":"Dom","colors":"#039ADA","x":1706227200000,"y":1,"fill":"#039ADA"},{"date":"2024-01-27","party":"Domani ","amount_spent":312,"Daily Spend":2,"short_name":"Dom","colors":"#039ADA","x":1706313600000,"y":2,"fill":"#039ADA"},{"date":"2024-01-28","party":"Domani ","amount_spent":315,"Daily Spend":3,"short_name":"Dom","colors":"#039ADA","x":1706400000000,"y":3,"fill":"#039ADA"},{"date":"2024-01-29","party":"Domani ","amount_spent":317,"Daily Spend":2,"short_name":"Dom","colors":"#039ADA","x":1706486400000,"y":2,"fill":"#039ADA"},{"date":"2024-01-30","party":"Domani ","amount_spent":320,"Daily Spend":3,"short_name":"Dom","colors":"#039ADA","x":1706572800000,"y":3,"fill":"#039ADA"},{"date":"2024-01-31","party":"Domani ","amount_spent":322,"Daily Spend":2,"short_name":"Dom","colors":"#039ADA","x":1706659200000,"y":2,"fill":"#039ADA"},{"date":"2024-02-01","party":"Domani ","amount_spent":322,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1706745600000,"y":0,"fill":"#039ADA"},{"date":"2024-02-02","party":"Domani ","amount_spent":323,"Daily Spend":1,"short_name":"Dom","colors":"#039ADA","x":1706832000000,"y":1,"fill":"#039ADA"},{"date":"2024-02-03","party":"Domani ","amount_spent":325,"Daily Spend":2,"short_name":"Dom","colors":"#039ADA","x":1706918400000,"y":2,"fill":"#039ADA"},{"date":"2024-02-04","party":"Domani ","amount_spent":327,"Daily Spend":2,"short_name":"Dom","colors":"#039ADA","x":1707004800000,"y":2,"fill":"#039ADA"},{"date":"2024-02-05","party":"Domani ","amount_spent":330,"Daily Spend":3,"short_name":"Dom","colors":"#039ADA","x":1707091200000,"y":3,"fill":"#039ADA"},{"date":"2024-02-06","party":"Domani ","amount_spent":332,"Daily Spend":2,"short_name":"Dom","colors":"#039ADA","x":1707177600000,"y":2,"fill":"#039ADA"},{"date":"2024-02-07","party":"Domani ","amount_spent":333,"Daily Spend":1,"short_name":"Dom","colors":"#039ADA","x":1707264000000,"y":1,"fill":"#039ADA"},{"date":"2024-02-08","party":"Domani ","amount_spent":335,"Daily Spend":2,"short_name":"Dom","colors":"#039ADA","x":1707350400000,"y":2,"fill":"#039ADA"},{"date":"2024-02-09","party":"Domani ","amount_spent":337,"Daily Spend":2,"short_name":"Dom","colors":"#039ADA","x":1707436800000,"y":2,"fill":"#039ADA"},{"date":"2024-02-10","party":"Domani ","amount_spent":340,"Daily Spend":3,"short_name":"Dom","colors":"#039ADA","x":1707523200000,"y":3,"fill":"#039ADA"},{"date":"2024-02-11","party":"Domani ","amount_spent":342,"Daily Spend":2,"short_name":"Dom","colors":"#039ADA","x":1707609600000,"y":2,"fill":"#039ADA"},{"date":"2024-02-12","party":"Domani ","amount_spent":345,"Daily Spend":3,"short_name":"Dom","colors":"#039ADA","x":1707696000000,"y":3,"fill":"#039ADA"},{"date":"2024-02-13","party":"Domani ","amount_spent":345,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1707782400000,"y":0,"fill":"#039ADA"},{"date":"2024-02-14","party":"Domani ","amount_spent":345,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1707868800000,"y":0,"fill":"#039ADA"},{"date":"2024-02-15","party":"Domani ","amount_spent":346,"Daily Spend":1,"short_name":"Dom","colors":"#039ADA","x":1707955200000,"y":1,"fill":"#039ADA"},{"date":"2024-02-16","party":"Domani ","amount_spent":347,"Daily Spend":1,"short_name":"Dom","colors":"#039ADA","x":1708041600000,"y":1,"fill":"#039ADA"},{"date":"2024-02-17","party":"Domani ","amount_spent":348,"Daily Spend":1,"short_name":"Dom","colors":"#039ADA","x":1708128000000,"y":1,"fill":"#039ADA"},{"date":"2024-02-18","party":"Domani ","amount_spent":349,"Daily Spend":1,"short_name":"Dom","colors":"#039ADA","x":1708214400000,"y":1,"fill":"#039ADA"},{"date":"2024-02-19","party":"Domani ","amount_spent":349,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1708300800000,"y":0,"fill":"#039ADA"},{"date":"2024-02-20","party":"Domani ","amount_spent":350,"Daily Spend":1,"short_name":"Dom","colors":"#039ADA","x":1708387200000,"y":1,"fill":"#039ADA"},{"date":"2024-02-21","party":"Domani ","amount_spent":351,"Daily Spend":1,"short_name":"Dom","colors":"#039ADA","x":1708473600000,"y":1,"fill":"#039ADA"},{"date":"2024-02-22","party":"Domani ","amount_spent":352,"Daily Spend":1,"short_name":"Dom","colors":"#039ADA","x":1708560000000,"y":1,"fill":"#039ADA"},{"date":"2024-02-23","party":"Domani ","amount_spent":352,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1708646400000,"y":0,"fill":"#039ADA"},{"date":"2024-02-24","party":"Domani ","amount_spent":352,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1708732800000,"y":0,"fill":"#039ADA"},{"date":"2024-02-25","party":"Domani ","amount_spent":352,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1708819200000,"y":0,"fill":"#039ADA"},{"date":"2024-02-26","party":"Domani ","amount_spent":352,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1708905600000,"y":0,"fill":"#039ADA"},{"date":"2024-02-27","party":"Domani ","amount_spent":352,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1708992000000,"y":0,"fill":"#039ADA"},{"date":"2024-02-28","party":"Domani ","amount_spent":352,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1709078400000,"y":0,"fill":"#039ADA"},{"date":"2024-02-29","party":"Domani ","amount_spent":352,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1709164800000,"y":0,"fill":"#039ADA"},{"date":"2024-03-01","party":"Domani ","amount_spent":352,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1709251200000,"y":0,"fill":"#039ADA"},{"date":"2024-03-02","party":"Domani ","amount_spent":352,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1709337600000,"y":0,"fill":"#039ADA"},{"date":"2024-03-03","party":"Domani ","amount_spent":352,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1709424000000,"y":0,"fill":"#039ADA"},{"date":"2024-03-04","party":"Domani ","amount_spent":352,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1709510400000,"y":0,"fill":"#039ADA"},{"date":"2024-03-05","party":"Domani ","amount_spent":352,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1709596800000,"y":0,"fill":"#039ADA"},{"date":"2024-03-06","party":"Domani ","amount_spent":352,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1709683200000,"y":0,"fill":"#039ADA"},{"date":"2024-03-07","party":"Domani ","amount_spent":352,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1709769600000,"y":0,"fill":"#039ADA"},{"date":"2024-03-08","party":"Domani ","amount_spent":352,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1709856000000,"y":0,"fill":"#039ADA"},{"date":"2024-03-09","party":"Domani ","amount_spent":352,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1709942400000,"y":0,"fill":"#039ADA"},{"date":"2024-03-10","party":"Domani ","amount_spent":352,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1710028800000,"y":0,"fill":"#039ADA"},{"date":"2024-03-11","party":"Domani ","amount_spent":352,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1710115200000,"y":0,"fill":"#039ADA"},{"date":"2024-03-12","party":"Domani ","amount_spent":352,"Daily Spend":0,"short_name":"Dom","colors":"#039ADA","x":1710201600000,"y":0,"fill":"#039ADA"}],"type":"area"},{"name":"Libera San Marino","data":[{"date":"2023-12-31","party":"Libera San Marino","amount_spent":381,"Daily Spend":null,"short_name":"Lib","colors":"#14AABC","x":1703980800000,"y":null,"fill":"#14AABC"},{"date":"2024-01-01","party":"Libera San Marino","amount_spent":395,"Daily Spend":14,"short_name":"Lib","colors":"#14AABC","x":1704067200000,"y":14,"fill":"#14AABC"},{"date":"2024-01-02","party":"Libera San Marino","amount_spent":406,"Daily Spend":11,"short_name":"Lib","colors":"#14AABC","x":1704153600000,"y":11,"fill":"#14AABC"},{"date":"2024-01-03","party":"Libera San Marino","amount_spent":415,"Daily Spend":9,"short_name":"Lib","colors":"#14AABC","x":1704240000000,"y":9,"fill":"#14AABC"},{"date":"2024-01-04","party":"Libera San Marino","amount_spent":428,"Daily Spend":13,"short_name":"Lib","colors":"#14AABC","x":1704326400000,"y":13,"fill":"#14AABC"},{"date":"2024-01-05","party":"Libera San Marino","amount_spent":441,"Daily Spend":13,"short_name":"Lib","colors":"#14AABC","x":1704412800000,"y":13,"fill":"#14AABC"},{"date":"2024-01-06","party":"Libera San Marino","amount_spent":451,"Daily Spend":10,"short_name":"Lib","colors":"#14AABC","x":1704499200000,"y":10,"fill":"#14AABC"},{"date":"2024-01-07","party":"Libera San Marino","amount_spent":458,"Daily Spend":7,"short_name":"Lib","colors":"#14AABC","x":1704585600000,"y":7,"fill":"#14AABC"},{"date":"2024-01-08","party":"Libera San Marino","amount_spent":467,"Daily Spend":9,"short_name":"Lib","colors":"#14AABC","x":1704672000000,"y":9,"fill":"#14AABC"},{"date":"2024-01-09","party":"Libera San Marino","amount_spent":473,"Daily Spend":6,"short_name":"Lib","colors":"#14AABC","x":1704758400000,"y":6,"fill":"#14AABC"},{"date":"2024-01-10","party":"Libera San Marino","amount_spent":478,"Daily Spend":5,"short_name":"Lib","colors":"#14AABC","x":1704844800000,"y":5,"fill":"#14AABC"},{"date":"2024-01-11","party":"Libera San Marino","amount_spent":483,"Daily Spend":5,"short_name":"Lib","colors":"#14AABC","x":1704931200000,"y":5,"fill":"#14AABC"},{"date":"2024-01-12","party":"Libera San Marino","amount_spent":488,"Daily Spend":5,"short_name":"Lib","colors":"#14AABC","x":1705017600000,"y":5,"fill":"#14AABC"},{"date":"2024-01-13","party":"Libera San Marino","amount_spent":489,"Daily Spend":1,"short_name":"Lib","colors":"#14AABC","x":1705104000000,"y":1,"fill":"#14AABC"},{"date":"2024-01-14","party":"Libera San Marino","amount_spent":489,"Daily Spend":0,"short_name":"Lib","colors":"#14AABC","x":1705190400000,"y":0,"fill":"#14AABC"},{"date":"2024-01-15","party":"Libera San Marino","amount_spent":496,"Daily Spend":7,"short_name":"Lib","colors":"#14AABC","x":1705276800000,"y":7,"fill":"#14AABC"},{"date":"2024-01-16","party":"Libera San Marino","amount_spent":505,"Daily Spend":9,"short_name":"Lib","colors":"#14AABC","x":1705363200000,"y":9,"fill":"#14AABC"},{"date":"2024-01-17","party":"Libera San Marino","amount_spent":515,"Daily Spend":10,"short_name":"Lib","colors":"#14AABC","x":1705449600000,"y":10,"fill":"#14AABC"},{"date":"2024-01-18","party":"Libera San Marino","amount_spent":526,"Daily Spend":11,"short_name":"Lib","colors":"#14AABC","x":1705536000000,"y":11,"fill":"#14AABC"},{"date":"2024-01-19","party":"Libera San Marino","amount_spent":540,"Daily Spend":14,"short_name":"Lib","colors":"#14AABC","x":1705622400000,"y":14,"fill":"#14AABC"},{"date":"2024-01-20","party":"Libera San Marino","amount_spent":548,"Daily Spend":8,"short_name":"Lib","colors":"#14AABC","x":1705708800000,"y":8,"fill":"#14AABC"},{"date":"2024-01-21","party":"Libera San Marino","amount_spent":552,"Daily Spend":4,"short_name":"Lib","colors":"#14AABC","x":1705795200000,"y":4,"fill":"#14AABC"},{"date":"2024-01-22","party":"Libera San Marino","amount_spent":565,"Daily Spend":13,"short_name":"Lib","colors":"#14AABC","x":1705881600000,"y":13,"fill":"#14AABC"},{"date":"2024-01-23","party":"Libera San Marino","amount_spent":580,"Daily Spend":15,"short_name":"Lib","colors":"#14AABC","x":1705968000000,"y":15,"fill":"#14AABC"},{"date":"2024-01-24","party":"Libera San Marino","amount_spent":596,"Daily Spend":16,"short_name":"Lib","colors":"#14AABC","x":1706054400000,"y":16,"fill":"#14AABC"},{"date":"2024-01-25","party":"Libera San Marino","amount_spent":613,"Daily Spend":17,"short_name":"Lib","colors":"#14AABC","x":1706140800000,"y":17,"fill":"#14AABC"},{"date":"2024-01-26","party":"Libera San Marino","amount_spent":630,"Daily Spend":17,"short_name":"Lib","colors":"#14AABC","x":1706227200000,"y":17,"fill":"#14AABC"},{"date":"2024-01-27","party":"Libera San Marino","amount_spent":643,"Daily Spend":13,"short_name":"Lib","colors":"#14AABC","x":1706313600000,"y":13,"fill":"#14AABC"},{"date":"2024-01-28","party":"Libera San Marino","amount_spent":656,"Daily Spend":13,"short_name":"Lib","colors":"#14AABC","x":1706400000000,"y":13,"fill":"#14AABC"},{"date":"2024-01-29","party":"Libera San Marino","amount_spent":666,"Daily Spend":10,"short_name":"Lib","colors":"#14AABC","x":1706486400000,"y":10,"fill":"#14AABC"},{"date":"2024-01-30","party":"Libera San Marino","amount_spent":675,"Daily Spend":9,"short_name":"Lib","colors":"#14AABC","x":1706572800000,"y":9,"fill":"#14AABC"},{"date":"2024-01-31","party":"Libera San Marino","amount_spent":683,"Daily Spend":8,"short_name":"Lib","colors":"#14AABC","x":1706659200000,"y":8,"fill":"#14AABC"},{"date":"2024-02-01","party":"Libera San Marino","amount_spent":688,"Daily Spend":5,"short_name":"Lib","colors":"#14AABC","x":1706745600000,"y":5,"fill":"#14AABC"},{"date":"2024-02-02","party":"Libera San Marino","amount_spent":691,"Daily Spend":3,"short_name":"Lib","colors":"#14AABC","x":1706832000000,"y":3,"fill":"#14AABC"},{"date":"2024-02-03","party":"Libera San Marino","amount_spent":695,"Daily Spend":4,"short_name":"Lib","colors":"#14AABC","x":1706918400000,"y":4,"fill":"#14AABC"},{"date":"2024-02-04","party":"Libera San Marino","amount_spent":699,"Daily Spend":4,"short_name":"Lib","colors":"#14AABC","x":1707004800000,"y":4,"fill":"#14AABC"},{"date":"2024-02-05","party":"Libera San Marino","amount_spent":699,"Daily Spend":0,"short_name":"Lib","colors":"#14AABC","x":1707091200000,"y":0,"fill":"#14AABC"},{"date":"2024-02-06","party":"Libera San Marino","amount_spent":699,"Daily Spend":0,"short_name":"Lib","colors":"#14AABC","x":1707177600000,"y":0,"fill":"#14AABC"},{"date":"2024-02-07","party":"Libera San Marino","amount_spent":701,"Daily Spend":2,"short_name":"Lib","colors":"#14AABC","x":1707264000000,"y":2,"fill":"#14AABC"},{"date":"2024-02-08","party":"Libera San Marino","amount_spent":704,"Daily Spend":3,"short_name":"Lib","colors":"#14AABC","x":1707350400000,"y":3,"fill":"#14AABC"},{"date":"2024-02-09","party":"Libera San Marino","amount_spent":708,"Daily Spend":4,"short_name":"Lib","colors":"#14AABC","x":1707436800000,"y":4,"fill":"#14AABC"},{"date":"2024-02-10","party":"Libera San Marino","amount_spent":711,"Daily Spend":3,"short_name":"Lib","colors":"#14AABC","x":1707523200000,"y":3,"fill":"#14AABC"},{"date":"2024-02-11","party":"Libera San Marino","amount_spent":715,"Daily Spend":4,"short_name":"Lib","colors":"#14AABC","x":1707609600000,"y":4,"fill":"#14AABC"},{"date":"2024-02-12","party":"Libera San Marino","amount_spent":719,"Daily Spend":4,"short_name":"Lib","colors":"#14AABC","x":1707696000000,"y":4,"fill":"#14AABC"},{"date":"2024-02-13","party":"Libera San Marino","amount_spent":723,"Daily Spend":4,"short_name":"Lib","colors":"#14AABC","x":1707782400000,"y":4,"fill":"#14AABC"},{"date":"2024-02-14","party":"Libera San Marino","amount_spent":724,"Daily Spend":1,"short_name":"Lib","colors":"#14AABC","x":1707868800000,"y":1,"fill":"#14AABC"},{"date":"2024-02-15","party":"Libera San Marino","amount_spent":724,"Daily Spend":0,"short_name":"Lib","colors":"#14AABC","x":1707955200000,"y":0,"fill":"#14AABC"},{"date":"2024-02-16","party":"Libera San Marino","amount_spent":724,"Daily Spend":0,"short_name":"Lib","colors":"#14AABC","x":1708041600000,"y":0,"fill":"#14AABC"},{"date":"2024-02-17","party":"Libera San Marino","amount_spent":724,"Daily Spend":0,"short_name":"Lib","colors":"#14AABC","x":1708128000000,"y":0,"fill":"#14AABC"},{"date":"2024-02-18","party":"Libera San Marino","amount_spent":724,"Daily Spend":0,"short_name":"Lib","colors":"#14AABC","x":1708214400000,"y":0,"fill":"#14AABC"},{"date":"2024-02-19","party":"Libera San Marino","amount_spent":728,"Daily Spend":4,"short_name":"Lib","colors":"#14AABC","x":1708300800000,"y":4,"fill":"#14AABC"},{"date":"2024-02-20","party":"Libera San Marino","amount_spent":735,"Daily Spend":7,"short_name":"Lib","colors":"#14AABC","x":1708387200000,"y":7,"fill":"#14AABC"},{"date":"2024-02-21","party":"Libera San Marino","amount_spent":742,"Daily Spend":7,"short_name":"Lib","colors":"#14AABC","x":1708473600000,"y":7,"fill":"#14AABC"},{"date":"2024-02-22","party":"Libera San Marino","amount_spent":755,"Daily Spend":13,"short_name":"Lib","colors":"#14AABC","x":1708560000000,"y":13,"fill":"#14AABC"},{"date":"2024-02-23","party":"Libera San Marino","amount_spent":769,"Daily Spend":14,"short_name":"Lib","colors":"#14AABC","x":1708646400000,"y":14,"fill":"#14AABC"},{"date":"2024-02-24","party":"Libera San Marino","amount_spent":783,"Daily Spend":14,"short_name":"Lib","colors":"#14AABC","x":1708732800000,"y":14,"fill":"#14AABC"},{"date":"2024-02-25","party":"Libera San Marino","amount_spent":799,"Daily Spend":16,"short_name":"Lib","colors":"#14AABC","x":1708819200000,"y":16,"fill":"#14AABC"},{"date":"2024-02-26","party":"Libera San Marino","amount_spent":810,"Daily Spend":11,"short_name":"Lib","colors":"#14AABC","x":1708905600000,"y":11,"fill":"#14AABC"},{"date":"2024-02-27","party":"Libera San Marino","amount_spent":818,"Daily Spend":8,"short_name":"Lib","colors":"#14AABC","x":1708992000000,"y":8,"fill":"#14AABC"},{"date":"2024-02-28","party":"Libera San Marino","amount_spent":824,"Daily Spend":6,"short_name":"Lib","colors":"#14AABC","x":1709078400000,"y":6,"fill":"#14AABC"},{"date":"2024-02-29","party":"Libera San Marino","amount_spent":824,"Daily Spend":0,"short_name":"Lib","colors":"#14AABC","x":1709164800000,"y":0,"fill":"#14AABC"},{"date":"2024-03-01","party":"Libera San Marino","amount_spent":824,"Daily Spend":0,"short_name":"Lib","colors":"#14AABC","x":1709251200000,"y":0,"fill":"#14AABC"},{"date":"2024-03-02","party":"Libera San Marino","amount_spent":824,"Daily Spend":0,"short_name":"Lib","colors":"#14AABC","x":1709337600000,"y":0,"fill":"#14AABC"},{"date":"2024-03-03","party":"Libera San Marino","amount_spent":825,"Daily Spend":1,"short_name":"Lib","colors":"#14AABC","x":1709424000000,"y":1,"fill":"#14AABC"},{"date":"2024-03-04","party":"Libera San Marino","amount_spent":829,"Daily Spend":4,"short_name":"Lib","colors":"#14AABC","x":1709510400000,"y":4,"fill":"#14AABC"},{"date":"2024-03-05","party":"Libera San Marino","amount_spent":833,"Daily Spend":4,"short_name":"Lib","colors":"#14AABC","x":1709596800000,"y":4,"fill":"#14AABC"},{"date":"2024-03-06","party":"Libera San Marino","amount_spent":837,"Daily Spend":4,"short_name":"Lib","colors":"#14AABC","x":1709683200000,"y":4,"fill":"#14AABC"},{"date":"2024-03-07","party":"Libera San Marino","amount_spent":840,"Daily Spend":3,"short_name":"Lib","colors":"#14AABC","x":1709769600000,"y":3,"fill":"#14AABC"},{"date":"2024-03-08","party":"Libera San Marino","amount_spent":844,"Daily Spend":4,"short_name":"Lib","colors":"#14AABC","x":1709856000000,"y":4,"fill":"#14AABC"},{"date":"2024-03-09","party":"Libera San Marino","amount_spent":847,"Daily Spend":3,"short_name":"Lib","colors":"#14AABC","x":1709942400000,"y":3,"fill":"#14AABC"},{"date":"2024-03-10","party":"Libera San Marino","amount_spent":849,"Daily Spend":2,"short_name":"Lib","colors":"#14AABC","x":1710028800000,"y":2,"fill":"#14AABC"},{"date":"2024-03-11","party":"Libera San Marino","amount_spent":851,"Daily Spend":2,"short_name":"Lib","colors":"#14AABC","x":1710115200000,"y":2,"fill":"#14AABC"},{"date":"2024-03-12","party":"Libera San Marino","amount_spent":851,"Daily Spend":0,"short_name":"Lib","colors":"#14AABC","x":1710201600000,"y":0,"fill":"#14AABC"}],"type":"area"},{"name":"Movimento Civico RETE","data":[{"date":"2023-12-31","party":"Movimento Civico RETE","amount_spent":803,"Daily Spend":null,"short_name":"RETE","colors":"#275956","x":1703980800000,"y":null,"fill":"#275956"},{"date":"2024-01-01","party":"Movimento Civico RETE","amount_spent":803,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1704067200000,"y":0,"fill":"#275956"},{"date":"2024-01-02","party":"Movimento Civico RETE","amount_spent":803,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1704153600000,"y":0,"fill":"#275956"},{"date":"2024-01-03","party":"Movimento Civico RETE","amount_spent":803,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1704240000000,"y":0,"fill":"#275956"},{"date":"2024-01-04","party":"Movimento Civico RETE","amount_spent":803,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1704326400000,"y":0,"fill":"#275956"},{"date":"2024-01-05","party":"Movimento Civico RETE","amount_spent":803,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1704412800000,"y":0,"fill":"#275956"},{"date":"2024-01-06","party":"Movimento Civico RETE","amount_spent":803,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1704499200000,"y":0,"fill":"#275956"},{"date":"2024-01-07","party":"Movimento Civico RETE","amount_spent":803,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1704585600000,"y":0,"fill":"#275956"},{"date":"2024-01-08","party":"Movimento Civico RETE","amount_spent":803,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1704672000000,"y":0,"fill":"#275956"},{"date":"2024-01-09","party":"Movimento Civico RETE","amount_spent":803,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1704758400000,"y":0,"fill":"#275956"},{"date":"2024-01-10","party":"Movimento Civico RETE","amount_spent":803,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1704844800000,"y":0,"fill":"#275956"},{"date":"2024-01-11","party":"Movimento Civico RETE","amount_spent":803,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1704931200000,"y":0,"fill":"#275956"},{"date":"2024-01-12","party":"Movimento Civico RETE","amount_spent":811,"Daily Spend":8,"short_name":"RETE","colors":"#275956","x":1705017600000,"y":8,"fill":"#275956"},{"date":"2024-01-13","party":"Movimento Civico RETE","amount_spent":822,"Daily Spend":11,"short_name":"RETE","colors":"#275956","x":1705104000000,"y":11,"fill":"#275956"},{"date":"2024-01-14","party":"Movimento Civico RETE","amount_spent":834,"Daily Spend":12,"short_name":"RETE","colors":"#275956","x":1705190400000,"y":12,"fill":"#275956"},{"date":"2024-01-15","party":"Movimento Civico RETE","amount_spent":845,"Daily Spend":11,"short_name":"RETE","colors":"#275956","x":1705276800000,"y":11,"fill":"#275956"},{"date":"2024-01-16","party":"Movimento Civico RETE","amount_spent":856,"Daily Spend":11,"short_name":"RETE","colors":"#275956","x":1705363200000,"y":11,"fill":"#275956"},{"date":"2024-01-17","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":3,"short_name":"RETE","colors":"#275956","x":1705449600000,"y":3,"fill":"#275956"},{"date":"2024-01-18","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1705536000000,"y":0,"fill":"#275956"},{"date":"2024-01-19","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1705622400000,"y":0,"fill":"#275956"},{"date":"2024-01-20","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1705708800000,"y":0,"fill":"#275956"},{"date":"2024-01-21","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1705795200000,"y":0,"fill":"#275956"},{"date":"2024-01-22","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1705881600000,"y":0,"fill":"#275956"},{"date":"2024-01-23","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1705968000000,"y":0,"fill":"#275956"},{"date":"2024-01-24","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1706054400000,"y":0,"fill":"#275956"},{"date":"2024-01-25","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1706140800000,"y":0,"fill":"#275956"},{"date":"2024-01-26","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1706227200000,"y":0,"fill":"#275956"},{"date":"2024-01-27","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1706313600000,"y":0,"fill":"#275956"},{"date":"2024-01-28","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1706400000000,"y":0,"fill":"#275956"},{"date":"2024-01-29","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1706486400000,"y":0,"fill":"#275956"},{"date":"2024-01-30","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1706572800000,"y":0,"fill":"#275956"},{"date":"2024-01-31","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1706659200000,"y":0,"fill":"#275956"},{"date":"2024-02-01","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1706745600000,"y":0,"fill":"#275956"},{"date":"2024-02-02","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1706832000000,"y":0,"fill":"#275956"},{"date":"2024-02-03","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1706918400000,"y":0,"fill":"#275956"},{"date":"2024-02-04","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1707004800000,"y":0,"fill":"#275956"},{"date":"2024-02-05","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1707091200000,"y":0,"fill":"#275956"},{"date":"2024-02-06","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1707177600000,"y":0,"fill":"#275956"},{"date":"2024-02-07","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1707264000000,"y":0,"fill":"#275956"},{"date":"2024-02-08","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1707350400000,"y":0,"fill":"#275956"},{"date":"2024-02-09","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1707436800000,"y":0,"fill":"#275956"},{"date":"2024-02-10","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1707523200000,"y":0,"fill":"#275956"},{"date":"2024-02-11","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1707609600000,"y":0,"fill":"#275956"},{"date":"2024-02-12","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1707696000000,"y":0,"fill":"#275956"},{"date":"2024-02-13","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1707782400000,"y":0,"fill":"#275956"},{"date":"2024-02-14","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1707868800000,"y":0,"fill":"#275956"},{"date":"2024-02-15","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1707955200000,"y":0,"fill":"#275956"},{"date":"2024-02-16","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1708041600000,"y":0,"fill":"#275956"},{"date":"2024-02-17","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1708128000000,"y":0,"fill":"#275956"},{"date":"2024-02-18","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1708214400000,"y":0,"fill":"#275956"},{"date":"2024-02-19","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1708300800000,"y":0,"fill":"#275956"},{"date":"2024-02-20","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1708387200000,"y":0,"fill":"#275956"},{"date":"2024-02-21","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1708473600000,"y":0,"fill":"#275956"},{"date":"2024-02-22","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1708560000000,"y":0,"fill":"#275956"},{"date":"2024-02-23","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1708646400000,"y":0,"fill":"#275956"},{"date":"2024-02-24","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1708732800000,"y":0,"fill":"#275956"},{"date":"2024-02-25","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1708819200000,"y":0,"fill":"#275956"},{"date":"2024-02-26","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1708905600000,"y":0,"fill":"#275956"},{"date":"2024-02-27","party":"Movimento Civico RETE","amount_spent":859,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1708992000000,"y":0,"fill":"#275956"},{"date":"2024-02-28","party":"Movimento Civico RETE","amount_spent":866,"Daily Spend":7,"short_name":"RETE","colors":"#275956","x":1709078400000,"y":7,"fill":"#275956"},{"date":"2024-02-29","party":"Movimento Civico RETE","amount_spent":875,"Daily Spend":9,"short_name":"RETE","colors":"#275956","x":1709164800000,"y":9,"fill":"#275956"},{"date":"2024-03-01","party":"Movimento Civico RETE","amount_spent":885,"Daily Spend":10,"short_name":"RETE","colors":"#275956","x":1709251200000,"y":10,"fill":"#275956"},{"date":"2024-03-02","party":"Movimento Civico RETE","amount_spent":895,"Daily Spend":10,"short_name":"RETE","colors":"#275956","x":1709337600000,"y":10,"fill":"#275956"},{"date":"2024-03-03","party":"Movimento Civico RETE","amount_spent":906,"Daily Spend":11,"short_name":"RETE","colors":"#275956","x":1709424000000,"y":11,"fill":"#275956"},{"date":"2024-03-04","party":"Movimento Civico RETE","amount_spent":917,"Daily Spend":11,"short_name":"RETE","colors":"#275956","x":1709510400000,"y":11,"fill":"#275956"},{"date":"2024-03-05","party":"Movimento Civico RETE","amount_spent":928,"Daily Spend":11,"short_name":"RETE","colors":"#275956","x":1709596800000,"y":11,"fill":"#275956"},{"date":"2024-03-06","party":"Movimento Civico RETE","amount_spent":936,"Daily Spend":8,"short_name":"RETE","colors":"#275956","x":1709683200000,"y":8,"fill":"#275956"},{"date":"2024-03-07","party":"Movimento Civico RETE","amount_spent":943,"Daily Spend":7,"short_name":"RETE","colors":"#275956","x":1709769600000,"y":7,"fill":"#275956"},{"date":"2024-03-08","party":"Movimento Civico RETE","amount_spent":949,"Daily Spend":6,"short_name":"RETE","colors":"#275956","x":1709856000000,"y":6,"fill":"#275956"},{"date":"2024-03-09","party":"Movimento Civico RETE","amount_spent":957,"Daily Spend":8,"short_name":"RETE","colors":"#275956","x":1709942400000,"y":8,"fill":"#275956"},{"date":"2024-03-10","party":"Movimento Civico RETE","amount_spent":959,"Daily Spend":2,"short_name":"RETE","colors":"#275956","x":1710028800000,"y":2,"fill":"#275956"},{"date":"2024-03-11","party":"Movimento Civico RETE","amount_spent":959,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1710115200000,"y":0,"fill":"#275956"},{"date":"2024-03-12","party":"Movimento Civico RETE","amount_spent":959,"Daily Spend":0,"short_name":"RETE","colors":"#275956","x":1710201600000,"y":0,"fill":"#275956"}],"type":"area"},{"name":"Repubblica Futura","data":[{"date":"2023-12-31","party":"Repubblica Futura","amount_spent":455,"Daily Spend":null,"short_name":"RF","colors":"#223968","x":1703980800000,"y":null,"fill":"#223968"},{"date":"2024-01-01","party":"Repubblica Futura","amount_spent":460,"Daily Spend":5,"short_name":"RF","colors":"#223968","x":1704067200000,"y":5,"fill":"#223968"},{"date":"2024-01-02","party":"Repubblica Futura","amount_spent":461,"Daily Spend":1,"short_name":"RF","colors":"#223968","x":1704153600000,"y":1,"fill":"#223968"},{"date":"2024-01-03","party":"Repubblica Futura","amount_spent":461,"Daily Spend":0,"short_name":"RF","colors":"#223968","x":1704240000000,"y":0,"fill":"#223968"},{"date":"2024-01-04","party":"Repubblica Futura","amount_spent":464,"Daily Spend":3,"short_name":"RF","colors":"#223968","x":1704326400000,"y":3,"fill":"#223968"},{"date":"2024-01-05","party":"Repubblica Futura","amount_spent":470,"Daily Spend":6,"short_name":"RF","colors":"#223968","x":1704412800000,"y":6,"fill":"#223968"},{"date":"2024-01-06","party":"Repubblica Futura","amount_spent":474,"Daily Spend":4,"short_name":"RF","colors":"#223968","x":1704499200000,"y":4,"fill":"#223968"},{"date":"2024-01-07","party":"Repubblica Futura","amount_spent":479,"Daily Spend":5,"short_name":"RF","colors":"#223968","x":1704585600000,"y":5,"fill":"#223968"},{"date":"2024-01-08","party":"Repubblica Futura","amount_spent":485,"Daily Spend":6,"short_name":"RF","colors":"#223968","x":1704672000000,"y":6,"fill":"#223968"},{"date":"2024-01-09","party":"Repubblica Futura","amount_spent":486,"Daily Spend":1,"short_name":"RF","colors":"#223968","x":1704758400000,"y":1,"fill":"#223968"},{"date":"2024-01-10","party":"Repubblica Futura","amount_spent":486,"Daily Spend":0,"short_name":"RF","colors":"#223968","x":1704844800000,"y":0,"fill":"#223968"},{"date":"2024-01-11","party":"Repubblica Futura","amount_spent":486,"Daily Spend":0,"short_name":"RF","colors":"#223968","x":1704931200000,"y":0,"fill":"#223968"},{"date":"2024-01-12","party":"Repubblica Futura","amount_spent":490,"Daily Spend":4,"short_name":"RF","colors":"#223968","x":1705017600000,"y":4,"fill":"#223968"},{"date":"2024-01-13","party":"Repubblica Futura","amount_spent":494,"Daily Spend":4,"short_name":"RF","colors":"#223968","x":1705104000000,"y":4,"fill":"#223968"},{"date":"2024-01-14","party":"Repubblica Futura","amount_spent":500,"Daily Spend":6,"short_name":"RF","colors":"#223968","x":1705190400000,"y":6,"fill":"#223968"},{"date":"2024-01-15","party":"Repubblica Futura","amount_spent":505,"Daily Spend":5,"short_name":"RF","colors":"#223968","x":1705276800000,"y":5,"fill":"#223968"},{"date":"2024-01-16","party":"Repubblica Futura","amount_spent":514,"Daily Spend":9,"short_name":"RF","colors":"#223968","x":1705363200000,"y":9,"fill":"#223968"},{"date":"2024-01-17","party":"Repubblica Futura","amount_spent":528,"Daily Spend":14,"short_name":"RF","colors":"#223968","x":1705449600000,"y":14,"fill":"#223968"},{"date":"2024-01-18","party":"Repubblica Futura","amount_spent":548,"Daily Spend":20,"short_name":"RF","colors":"#223968","x":1705536000000,"y":20,"fill":"#223968"},{"date":"2024-01-19","party":"Repubblica Futura","amount_spent":567,"Daily Spend":19,"short_name":"RF","colors":"#223968","x":1705622400000,"y":19,"fill":"#223968"},{"date":"2024-01-20","party":"Repubblica Futura","amount_spent":585,"Daily Spend":18,"short_name":"RF","colors":"#223968","x":1705708800000,"y":18,"fill":"#223968"},{"date":"2024-01-21","party":"Repubblica Futura","amount_spent":602,"Daily Spend":17,"short_name":"RF","colors":"#223968","x":1705795200000,"y":17,"fill":"#223968"},{"date":"2024-01-22","party":"Repubblica Futura","amount_spent":614,"Daily Spend":12,"short_name":"RF","colors":"#223968","x":1705881600000,"y":12,"fill":"#223968"},{"date":"2024-01-23","party":"Repubblica Futura","amount_spent":624,"Daily Spend":10,"short_name":"RF","colors":"#223968","x":1705968000000,"y":10,"fill":"#223968"},{"date":"2024-01-24","party":"Repubblica Futura","amount_spent":637,"Daily Spend":13,"short_name":"RF","colors":"#223968","x":1706054400000,"y":13,"fill":"#223968"},{"date":"2024-01-25","party":"Repubblica Futura","amount_spent":647,"Daily Spend":10,"short_name":"RF","colors":"#223968","x":1706140800000,"y":10,"fill":"#223968"},{"date":"2024-01-26","party":"Repubblica Futura","amount_spent":658,"Daily Spend":11,"short_name":"RF","colors":"#223968","x":1706227200000,"y":11,"fill":"#223968"},{"date":"2024-01-27","party":"Repubblica Futura","amount_spent":670,"Daily Spend":12,"short_name":"RF","colors":"#223968","x":1706313600000,"y":12,"fill":"#223968"},{"date":"2024-01-28","party":"Repubblica Futura","amount_spent":682,"Daily Spend":12,"short_name":"RF","colors":"#223968","x":1706400000000,"y":12,"fill":"#223968"},{"date":"2024-01-29","party":"Repubblica Futura","amount_spent":695,"Daily Spend":13,"short_name":"RF","colors":"#223968","x":1706486400000,"y":13,"fill":"#223968"},{"date":"2024-01-30","party":"Repubblica Futura","amount_spent":706,"Daily Spend":11,"short_name":"RF","colors":"#223968","x":1706572800000,"y":11,"fill":"#223968"},{"date":"2024-01-31","party":"Repubblica Futura","amount_spent":716,"Daily Spend":10,"short_name":"RF","colors":"#223968","x":1706659200000,"y":10,"fill":"#223968"},{"date":"2024-02-01","party":"Repubblica Futura","amount_spent":730,"Daily Spend":14,"short_name":"RF","colors":"#223968","x":1706745600000,"y":14,"fill":"#223968"},{"date":"2024-02-02","party":"Repubblica Futura","amount_spent":740,"Daily Spend":10,"short_name":"RF","colors":"#223968","x":1706832000000,"y":10,"fill":"#223968"},{"date":"2024-02-03","party":"Repubblica Futura","amount_spent":750,"Daily Spend":10,"short_name":"RF","colors":"#223968","x":1706918400000,"y":10,"fill":"#223968"},{"date":"2024-02-04","party":"Repubblica Futura","amount_spent":762,"Daily Spend":12,"short_name":"RF","colors":"#223968","x":1707004800000,"y":12,"fill":"#223968"},{"date":"2024-02-05","party":"Repubblica Futura","amount_spent":770,"Daily Spend":8,"short_name":"RF","colors":"#223968","x":1707091200000,"y":8,"fill":"#223968"},{"date":"2024-02-06","party":"Repubblica Futura","amount_spent":775,"Daily Spend":5,"short_name":"RF","colors":"#223968","x":1707177600000,"y":5,"fill":"#223968"},{"date":"2024-02-07","party":"Repubblica Futura","amount_spent":782,"Daily Spend":7,"short_name":"RF","colors":"#223968","x":1707264000000,"y":7,"fill":"#223968"},{"date":"2024-02-08","party":"Repubblica Futura","amount_spent":786,"Daily Spend":4,"short_name":"RF","colors":"#223968","x":1707350400000,"y":4,"fill":"#223968"},{"date":"2024-02-09","party":"Repubblica Futura","amount_spent":789,"Daily Spend":3,"short_name":"RF","colors":"#223968","x":1707436800000,"y":3,"fill":"#223968"},{"date":"2024-02-10","party":"Repubblica Futura","amount_spent":793,"Daily Spend":4,"short_name":"RF","colors":"#223968","x":1707523200000,"y":4,"fill":"#223968"},{"date":"2024-02-11","party":"Repubblica Futura","amount_spent":797,"Daily Spend":4,"short_name":"RF","colors":"#223968","x":1707609600000,"y":4,"fill":"#223968"},{"date":"2024-02-12","party":"Repubblica Futura","amount_spent":800,"Daily Spend":3,"short_name":"RF","colors":"#223968","x":1707696000000,"y":3,"fill":"#223968"},{"date":"2024-02-13","party":"Repubblica Futura","amount_spent":807,"Daily Spend":7,"short_name":"RF","colors":"#223968","x":1707782400000,"y":7,"fill":"#223968"},{"date":"2024-02-14","party":"Repubblica Futura","amount_spent":814,"Daily Spend":7,"short_name":"RF","colors":"#223968","x":1707868800000,"y":7,"fill":"#223968"},{"date":"2024-02-15","party":"Repubblica Futura","amount_spent":824,"Daily Spend":10,"short_name":"RF","colors":"#223968","x":1707955200000,"y":10,"fill":"#223968"},{"date":"2024-02-16","party":"Repubblica Futura","amount_spent":836,"Daily Spend":12,"short_name":"RF","colors":"#223968","x":1708041600000,"y":12,"fill":"#223968"},{"date":"2024-02-17","party":"Repubblica Futura","amount_spent":848,"Daily Spend":12,"short_name":"RF","colors":"#223968","x":1708128000000,"y":12,"fill":"#223968"},{"date":"2024-02-18","party":"Repubblica Futura","amount_spent":861,"Daily Spend":13,"short_name":"RF","colors":"#223968","x":1708214400000,"y":13,"fill":"#223968"},{"date":"2024-02-19","party":"Repubblica Futura","amount_spent":877,"Daily Spend":16,"short_name":"RF","colors":"#223968","x":1708300800000,"y":16,"fill":"#223968"},{"date":"2024-02-20","party":"Repubblica Futura","amount_spent":888,"Daily Spend":11,"short_name":"RF","colors":"#223968","x":1708387200000,"y":11,"fill":"#223968"},{"date":"2024-02-21","party":"Repubblica Futura","amount_spent":903,"Daily Spend":15,"short_name":"RF","colors":"#223968","x":1708473600000,"y":15,"fill":"#223968"},{"date":"2024-02-22","party":"Repubblica Futura","amount_spent":917,"Daily Spend":14,"short_name":"RF","colors":"#223968","x":1708560000000,"y":14,"fill":"#223968"},{"date":"2024-02-23","party":"Repubblica Futura","amount_spent":932,"Daily Spend":15,"short_name":"RF","colors":"#223968","x":1708646400000,"y":15,"fill":"#223968"},{"date":"2024-02-24","party":"Repubblica Futura","amount_spent":949,"Daily Spend":17,"short_name":"RF","colors":"#223968","x":1708732800000,"y":17,"fill":"#223968"},{"date":"2024-02-25","party":"Repubblica Futura","amount_spent":969,"Daily Spend":20,"short_name":"RF","colors":"#223968","x":1708819200000,"y":20,"fill":"#223968"},{"date":"2024-02-26","party":"Repubblica Futura","amount_spent":982,"Daily Spend":13,"short_name":"RF","colors":"#223968","x":1708905600000,"y":13,"fill":"#223968"},{"date":"2024-02-27","party":"Repubblica Futura","amount_spent":992,"Daily Spend":10,"short_name":"RF","colors":"#223968","x":1708992000000,"y":10,"fill":"#223968"},{"date":"2024-02-28","party":"Repubblica Futura","amount_spent":1001,"Daily Spend":9,"short_name":"RF","colors":"#223968","x":1709078400000,"y":9,"fill":"#223968"},{"date":"2024-02-29","party":"Repubblica Futura","amount_spent":1011,"Daily Spend":10,"short_name":"RF","colors":"#223968","x":1709164800000,"y":10,"fill":"#223968"},{"date":"2024-03-01","party":"Repubblica Futura","amount_spent":1018,"Daily Spend":7,"short_name":"RF","colors":"#223968","x":1709251200000,"y":7,"fill":"#223968"},{"date":"2024-03-02","party":"Repubblica Futura","amount_spent":1024,"Daily Spend":6,"short_name":"RF","colors":"#223968","x":1709337600000,"y":6,"fill":"#223968"},{"date":"2024-03-03","party":"Repubblica Futura","amount_spent":1031,"Daily Spend":7,"short_name":"RF","colors":"#223968","x":1709424000000,"y":7,"fill":"#223968"},{"date":"2024-03-04","party":"Repubblica Futura","amount_spent":1038,"Daily Spend":7,"short_name":"RF","colors":"#223968","x":1709510400000,"y":7,"fill":"#223968"},{"date":"2024-03-05","party":"Repubblica Futura","amount_spent":1045,"Daily Spend":7,"short_name":"RF","colors":"#223968","x":1709596800000,"y":7,"fill":"#223968"},{"date":"2024-03-06","party":"Repubblica Futura","amount_spent":1049,"Daily Spend":4,"short_name":"RF","colors":"#223968","x":1709683200000,"y":4,"fill":"#223968"},{"date":"2024-03-07","party":"Repubblica Futura","amount_spent":1052,"Daily Spend":3,"short_name":"RF","colors":"#223968","x":1709769600000,"y":3,"fill":"#223968"},{"date":"2024-03-08","party":"Repubblica Futura","amount_spent":1054,"Daily Spend":2,"short_name":"RF","colors":"#223968","x":1709856000000,"y":2,"fill":"#223968"},{"date":"2024-03-09","party":"Repubblica Futura","amount_spent":1056,"Daily Spend":2,"short_name":"RF","colors":"#223968","x":1709942400000,"y":2,"fill":"#223968"},{"date":"2024-03-10","party":"Repubblica Futura","amount_spent":1056,"Daily Spend":0,"short_name":"RF","colors":"#223968","x":1710028800000,"y":0,"fill":"#223968"},{"date":"2024-03-11","party":"Repubblica Futura","amount_spent":1056,"Daily Spend":0,"short_name":"RF","colors":"#223968","x":1710115200000,"y":0,"fill":"#223968"},{"date":"2024-03-12","party":"Repubblica Futura","amount_spent":1056,"Daily Spend":0,"short_name":"RF","colors":"#223968","x":1710201600000,"y":0,"fill":"#223968"}],"type":"area"}],"xAxis":{"type":"datetime","title":{"text":"date"},"categories":null},"colors":["#DF70AF","#039ADA","#14AABC","#275956","#EE3338","#9CB2D8","#223968"],"tooltip":{"shared":true,"positioner":"function (labelWidth, labelHeight, point) {\n        return { x: 200, y: this.chart.plotTop };\n    }"}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":["hc_opts.tooltip.positioner"],"jsHooks":[]}</script>
 </div>
 </div>
 
@@ -1304,10 +1315,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1317,8 +1345,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1330,7 +1367,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1374,6 +1534,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1399,6 +1560,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1459,6 +1646,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

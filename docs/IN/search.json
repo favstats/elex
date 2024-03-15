@@ -1,100 +1,129 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "Targeting Dashboard - India",
-    "section": "",
-    "text": "Methodology\nIn collaboration with Who Targets Me, we monitored 24973 political advertisers to better understand how campaigns use different targeting methods made available by Meta. To do this, we used data from the Meta Ad Library, using the new ‘Audience’ data which gives some detail on how pages target their ads.\nTo better understand the election, we kept only advertisers who:\n\nAdvertised in the last 7 days (2 Mar - 8 Mar 2024)\nAdvertised in the last 30 days (8 Feb - 8 Mar 2024)\n\n\n\n\n\n\n\nNote\n\n\n\nMeta only provides 7, 30 and 90 days windows for the targeting data in their Ad Library. Meta’s data also lags by a few days. Report will be updated as soon as new data is available.\n\n\n\n\n\n\n\n\nDisclaimer\n\n\n\nThe data shown in this dashboard is based on the platform’s respective ad libraries which are known to be sometimes incomplete (Edelson et al. 2020; Silva et al. 2020). For this reason the data shown here might not reflect the full picture nor all political ads that were targeted at voters.\n\n\n\n\nAbout the Creator of the Dashboard\n\n\n\n\n\n\n\n\n\n\n\nFabio Votta is a Postdoc at the University of Amsterdam who studies (online) political microtargeting and its usage around the world.\n\n\n\n\n\n\n\n\n\n\n\nWant to see how political parties target you? Sign up at Who Targets Me and download the gratis browser plugin to see how parties on Facebook use your data:\nhttps://whotargets.me/\n\n\n\n\n\n\n\nWant to retrieve targeting data from the Facebook Ad Library yourself? This dashboard is powered by the R package: metatargetr. Check it out here:\nhttps://github.com/favstats/metatargetr\n\n\n\n\nElection Targeting Dashboards\nA list of election dashboards:\n\n🇳🇱 2021 Dutch parliamentary election (15th-17th March 2021)\n🇩🇪 2021 German federal election (26 September 2021)\n🇸🇪 2022 Swedish general election (11th September 2022)\n🇺🇸 2022 United States midterm elections (8th November 2022)\n🇺🇸 2022 United States midterm elections - Georgia Runoff (6th December 2022)\n🇮🇹 2023 Lazio & Lombardy regional election (12-13th February 2023)\n🇪🇪 2023 Estonian parliamentary election (5th March 2023)\n🇳🇱 2023 Dutch provincial elections (15th March 2023)\n🇲🇪 2023 Montenegrin presidential elections (19th March 2023) - 1st round\n🇦🇺 2023 New South Wales state election (25th March 2023)\n🇫🇮 2023 Finnish parliamentary election (2 April 2023)\n🇹🇷 2023 Turkish general election (14 May 2023) - Round 1\n🇩🇪 2023 Bremen State election (14 May 2023)\n🇬🇷 2023 Greek Legislative election (21 May 2023)\n🇹🇷 2023 Turkish Presidential election (14 May 2023) - Round 2\n🇲🇪 2023 Montenegrin parliamentary elections (11 June 2023)\n🇬🇷 2nd 2023 Greek Legislative election (25 May 2023)\n🇸🇰 2023 Slovak parliamentary election (30 September 2023)\n🇩🇪 2023 Bavarian state election (8 October 2023)\n🇩🇪 2023 Hessian state election (8 October 2023)\n🇳🇿 2023 New Zealand general election (14 October 2023)\n🇵🇱 2023 Polish parliamentary election (15 October 2023)\n🇺🇸 US Presidential Primaries (2023-2024)"
-  },
-  {
     "objectID": "demographics.html",
     "href": "demographics.html",
     "title": "Demographics",
     "section": "",
-    "text": "The following graphs illustrate how parties target different age groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n8 Feb - 8 Mar 20242 Mar - 8 Mar 2024"
+    "text": "The following graphs illustrate how parties target different age groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n11 Feb - 11 Mar 20245 Mar - 11 Mar 2024",
+    "crumbs": [
+      "Demographics"
+    ]
   },
   {
     "objectID": "demographics.html#age-targeting",
     "href": "demographics.html#age-targeting",
     "title": "Demographics",
     "section": "",
-    "text": "The following graphs illustrate how parties target different age groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n8 Feb - 8 Mar 20242 Mar - 8 Mar 2024"
+    "text": "The following graphs illustrate how parties target different age groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n11 Feb - 11 Mar 20245 Mar - 11 Mar 2024",
+    "crumbs": [
+      "Demographics"
+    ]
   },
   {
     "objectID": "demographics.html#gender-targeting",
     "href": "demographics.html#gender-targeting",
     "title": "Demographics",
     "section": "Gender Targeting",
-    "text": "Gender Targeting\nDe onderstaande grafieken laten zien hoe partijen gender als focusgroep gebruiken en welk percentage van het budget daaraan werd uitgegeven.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n8 Feb - 8 Mar 20242 Mar - 8 Mar 2024"
+    "text": "Gender Targeting\nDe onderstaande grafieken laten zien hoe partijen gender als focusgroep gebruiken en welk percentage van het budget daaraan werd uitgegeven.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n11 Feb - 11 Mar 20245 Mar - 11 Mar 2024",
+    "crumbs": [
+      "Demographics"
+    ]
   },
   {
     "objectID": "demographics.html#language-targeting",
     "href": "demographics.html#language-targeting",
     "title": "Demographics",
     "section": "Language Targeting",
-    "text": "Language Targeting\nThe following graphs show how parties use different languages as focus groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n8 Feb - 8 Mar 20242 Mar - 8 Mar 2024"
+    "text": "Language Targeting\nThe following graphs show how parties use different languages as focus groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n11 Feb - 11 Mar 20245 Mar - 11 Mar 2024",
+    "crumbs": [
+      "Demographics"
+    ]
   },
   {
     "objectID": "demographics.html#targeting-based-on-employment-or-education-instituation",
     "href": "demographics.html#targeting-based-on-employment-or-education-instituation",
     "title": "Demographics",
     "section": "Targeting based on Employment or Education Instituation",
-    "text": "Targeting based on Employment or Education Instituation\nThe following graphs depict how parties utilize various job sectors and types of education as focus groups and the percentage of the budget allocated to them. The next graph focuses on educational levels.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n8 Feb - 8 Mar 20242 Mar - 8 Mar 2024"
+    "text": "Targeting based on Employment or Education Instituation\nThe following graphs depict how parties utilize various job sectors and types of education as focus groups and the percentage of the budget allocated to them. The next graph focuses on educational levels.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n11 Feb - 11 Mar 20245 Mar - 11 Mar 2024",
+    "crumbs": [
+      "Demographics"
+    ]
   },
   {
     "objectID": "demographics.html#education-levels-targeting",
     "href": "demographics.html#education-levels-targeting",
     "title": "Demographics",
     "section": "Education Levels Targeting",
-    "text": "Education Levels Targeting\nThe graphs below illustrate how parties target various education levels as focus groups and the percentage of the budget allocated to each.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n8 Feb - 8 Mar 20242 Mar - 8 Mar 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo data (yet)."
+    "text": "Education Levels Targeting\nThe graphs below illustrate how parties target various education levels as focus groups and the percentage of the budget allocated to each.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n11 Feb - 11 Mar 20245 Mar - 11 Mar 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo data (yet).",
+    "crumbs": [
+      "Demographics"
+    ]
   },
   {
     "objectID": "demographics.html#relationship-status-targeting",
     "href": "demographics.html#relationship-status-targeting",
     "title": "Demographics",
     "section": "Relationship Status Targeting",
-    "text": "Relationship Status Targeting\nThe following graphs reveal how political parties utilize different relationship statuses as focus groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n8 Feb - 8 Mar 20242 Mar - 8 Mar 2024\n\n\n\nNo data (yet).\n\n\n\n\nNo data (yet)."
+    "text": "Relationship Status Targeting\nThe following graphs reveal how political parties utilize different relationship statuses as focus groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n11 Feb - 11 Mar 20245 Mar - 11 Mar 2024\n\n\nNo data (yet).\n\n\nNo data (yet).",
+    "crumbs": [
+      "Demographics"
+    ]
   },
   {
     "objectID": "detailed.html",
     "href": "detailed.html",
     "title": "Detailed Targeting",
     "section": "",
-    "text": "The chart below displays the most utilized targeting criteria by political parties on Meta, based on the amounts spent.\n\n8 Feb - 8 Mar 20242 Mar - 8 Mar 2024"
+    "text": "The chart below displays the most utilized targeting criteria by political parties on Meta, based on the amounts spent.\n\n11 Feb - 11 Mar 20245 Mar - 11 Mar 2024",
+    "crumbs": [
+      "Detailed Targeting"
+    ]
   },
   {
     "objectID": "detailed.html#top-targeted-audiences",
     "href": "detailed.html#top-targeted-audiences",
     "title": "Detailed Targeting",
     "section": "",
-    "text": "The chart below displays the most utilized targeting criteria by political parties on Meta, based on the amounts spent.\n\n8 Feb - 8 Mar 20242 Mar - 8 Mar 2024"
+    "text": "The chart below displays the most utilized targeting criteria by political parties on Meta, based on the amounts spent.\n\n11 Feb - 11 Mar 20245 Mar - 11 Mar 2024",
+    "crumbs": [
+      "Detailed Targeting"
+    ]
   },
   {
     "objectID": "detailed.html#top-excluded-audiences",
     "href": "detailed.html#top-excluded-audiences",
     "title": "Detailed Targeting",
     "section": "Top Excluded Audiences",
-    "text": "Top Excluded Audiences\nAmong the detailed options offered by Meta, the chart below shows the most excluded target audiences per party. The ranking is based on the amounts spent.\n\n8 Feb - 8 Mar 20242 Mar - 8 Mar 2024\n\n\n\nNo data (yet).\n\n\n\n\nNo data (yet)."
+    "text": "Top Excluded Audiences\nAmong the detailed options offered by Meta, the chart below shows the most excluded target audiences per party. The ranking is based on the amounts spent.\n\n11 Feb - 11 Mar 20245 Mar - 11 Mar 2024\n\n\nNo data (yet).\n\n\nNo data (yet).",
+    "crumbs": [
+      "Detailed Targeting"
+    ]
   },
   {
     "objectID": "detailed.html#top-contested-audiences",
     "href": "detailed.html#top-contested-audiences",
     "title": "Detailed Targeting",
     "section": "Top Contested Audiences",
-    "text": "Top Contested Audiences\nThe charts below show the target audiences where most competition takes place. For example, the groups in which all parties invest large amounts to reach voters with the same interests.\n\n8 Feb - 8 Mar 20242 Mar - 8 Mar 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo data (yet)."
+    "text": "Top Contested Audiences\nThe charts below show the target audiences where most competition takes place. For example, the groups in which all parties invest large amounts to reach voters with the same interests.\n\n11 Feb - 11 Mar 20245 Mar - 11 Mar 2024",
+    "crumbs": [
+      "Detailed Targeting"
+    ]
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Spending",
     "section": "",
-    "text": "Here you can see the expenditures of political parties in the lead-up to the elections according to the latest data.\n\n8 Feb - 8 Mar 20242 Mar - 8 Mar 2024\n\n\nDuring this period, political parties spent a total of ₹72,743,385 and displayed 11361 advertisements on Meta.\n\n\n\n\n\n\n  \n    \n    \n      \n      Number of Advertisers\n      Top Spenders\n      Number of Ads\n      Total Spend\n    \n  \n  \n    BJP\n\n269\n\n1. Bharatiya Janata Party (BJP) (₹53,298,816)2. Phir Ek Baar Modi Sarkar (₹2,717,261)3. BJP Odisha (₹2,186,078)\n\n7,977\n\n₹63,132,358\n\n    Trinamool Congress\n\n3\n\n1. All India Trinamool Congress (₹2,761,526)2. Trinamoole Nabo Jowar (₹876,428)3. Tollygunge Trinamool Congress (₹19,000)\n\n352\n\n₹3,656,954\n\n    Others\n\n14\n\n1. Mahathugbandhan - महाठगबंधन (₹2,121,270)2. India News (₹65,739)3. NewsX (₹24,621)\n\n715\n\n₹2,232,215\n\n    Congress\n\n99\n\n1. Rahul Gandhi (₹668,777)2. Indian National Congress (₹534,959)3. Karan Singh Uchiyarda (₹93,489)\n\n1,893\n\n₹2,025,116\n\n    Government\n\n5\n\n1. DIPR TN (₹1,275,814)2. GAIL (India) Limited (₹216,879)3. Department of Science and Technology, Government of Rajasthan (₹12,525)\n\n199\n\n₹1,512,483\n\n    Regional\n\n3\n\n1. Jan Adhikar Party (₹54,241)2. షాద్ నగర్ అంటే ఇష్టం (₹1,096)3. Pareekshith Reddy (₹700)\n\n12\n\n₹56,037\n\n    Nationalist Congress Party\n\n1\n\n1. Nationalist Congress Party - NCP (₹51,914)\n\n24\n\n₹51,914\n\n    Shiv Sena\n\n1\n\n1. Eknath Shinde - एकनाथ संभाजी शिंदे (₹43,660)\n\n4\n\n₹43,660\n\n    Samajwadi Party\n\n1\n\n1. Nallapati Ramu (₹17,754)\n\n140\n\n₹17,754\n\n    Aam Aadmi Party\n\n8\n\n1. Aam Aadmi Party- Ratnagiri (₹4,000)2. AAP Ka Deepak Singla (₹3,380)3. Aam Aadmi Party Maharashtra (₹3,350)\n\n37\n\n₹14,153\n\n    Bahujan Samaj Party\n\n1\n\n1. Manoj Ghumariya (₹314)\n\n3\n\n₹314\n\n    Bharat Rashtra Samithi\n\n2\n\n1. Aindala Mithra Krishna (₹160)2. Putta Madhu (₹100)\n\n4\n\n₹260\n\n    Rashtriya Loktantrik Party\n\n1\n\n1. Vijay Pal Singh (₹167)\n\n1\n\n₹167\n\n  \n  \n  \n\n\n\n\n\n\nDuring this period, political parties spent a total of ₹6,559,218 and displayed 2772 advertisements on Meta.\n\n\n\n\n\n\n  \n    \n    \n      \n      Number of Advertisers\n      Top Spenders\n      Number of Ads\n      Total Spend\n    \n  \n  \n    BJP\n\n186\n\n1. Bharatiya Janata Party (BJP) (₹1,066,569)2. Phir Ek Baar Modi Sarkar (₹876,204)3. BJP Odisha (₹527,861)\n\n2,033\n\n₹3,665,580\n\n    Others\n\n9\n\n1. Mahathugbandhan - महाठगबंधन (₹1,461,227)2. India News (₹14,677)3. NewsX (₹3,619)\n\n174\n\n₹1,483,942\n\n    Trinamool Congress\n\n3\n\n1. All India Trinamool Congress (₹496,229)2. Trinamoole Nabo Jowar (₹303,272)3. Tollygunge Trinamool Congress (₹11,533)\n\n141\n\n₹811,034\n\n    Congress\n\n66\n\n1. Rahul Gandhi (₹137,070)2. Indian National Congress (₹112,970)3. Umang Singhar (₹46,904)\n\n343\n\n₹504,011\n\n    Government\n\n4\n\n1. GAIL (India) Limited (₹33,647)2. Department of Science and Technology, Government of Rajasthan (₹11,693)3. DIPR TN (₹9,215)\n\n31\n\n₹55,501\n\n    Regional\n\n1\n\n1. Jan Adhikar Party (₹15,547)\n\n3\n\n₹15,547\n\n    Shiv Sena\n\n1\n\n1. Eknath Shinde - एकनाथ संभाजी शिंदे (₹7,937)\n\n2\n\n₹7,937\n\n    Nationalist Congress Party\n\n1\n\n1. Nationalist Congress Party - NCP (₹7,816)\n\n7\n\n₹7,816\n\n    Aam Aadmi Party\n\n2\n\n1. Aam Aadmi Party Maharashtra (₹3,132)2. AAP Ka Deepak Singla (₹1,500)\n\n5\n\n₹4,632\n\n    Samajwadi Party\n\n1\n\n1. Nallapati Ramu (₹2,891)\n\n30\n\n₹2,891\n\n    Rashtriya Loktantrik Party\n\n1\n\n1. Vijay Pal Singh (₹167)\n\n1\n\n₹167\n\n    Bharat Rashtra Samithi\n\n1\n\n1. Aindala Mithra Krishna (₹160)\n\n2\n\n₹160\n\n  \n  \n  \n\n\n\n\n\n\n\n\nOver Time"
+    "text": "Here you can see the expenditures of political parties in the lead-up to the elections according to the latest data.\n\n11 Feb - 11 Mar 20245 Mar - 11 Mar 2024\n\n\nDuring this period, political parties spent a total of ₹58,387,774 and displayed 11351 advertisements on Meta.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumber of Advertisers\nTop Spenders\nNumber of Ads\nTotal Spend\n\n\n\n\nBJP\n275\n1. Bharatiya Janata Party (BJP) (₹38,016,730)2. Phir Ek Baar Modi Sarkar (₹2,785,580)3. మన మోదీ (₹1,772,703)\n8,006\n₹47,512,038\n\n\nTrinamool Congress\n3\n1. All India Trinamool Congress (₹2,838,092)2. Trinamoole Nabo Jowar (₹940,520)3. Tollygunge Trinamool Congress (₹21,090)\n335\n₹3,799,702\n\n\nOthers\n13\n1. Mahathugbandhan - महाठगबंधन (₹3,005,313)2. India News (₹67,068)3. NewsX (₹26,573)\n723\n₹3,122,327\n\n\nCongress\n101\n1. Rahul Gandhi (₹822,453)2. Indian National Congress (₹554,895)3. CMO Chhattisgarh (₹116,408)\n1,843\n₹2,295,706\n\n\nGovernment\n5\n1. DIPR TN (₹1,275,814)2. GAIL (India) Limited (₹200,542)3. Department of Science and Technology, Government of Rajasthan (₹13,403)\n198\n₹1,498,008\n\n\nNationalist Congress Party\n1\n1. Nationalist Congress Party - NCP (₹57,142)\n48\n₹57,142\n\n\nRegional\n3\n1. Jan Adhikar Party (₹51,628)2. షాద్ నగర్ అంటే ఇష్టం (₹1,096)3. Pareekshith Reddy (₹700)\n12\n₹53,424\n\n\nShiv Sena\n1\n1. Eknath Shinde - एकनाथ संभाजी शिंदे (₹20,610)\n3\n₹20,610\n\n\nSamajwadi Party\n1\n1. Nallapati Ramu (₹15,449)\n138\n₹15,449\n\n\nAam Aadmi Party\n8\n1. AAP Ka Deepak Singla (₹3,380)2. Aam Aadmi Party Maharashtra (₹3,350)3. Aam Aadmi Party- Ratnagiri (₹2,835)\n36\n₹12,301\n\n\nBharat Rashtra Samithi\n2\n1. Aindala Mithra Krishna (₹533)2. Putta Madhu (₹100)\n5\n₹633\n\n\nRashtriya Loktantrik Party\n2\n1. Vijay Pal Singh (₹167)2. Harendra Jakhar (₹100)\n2\n₹267\n\n\nBahujan Samaj Party\n1\n1. Manoj Ghumariya (₹167)\n2\n₹167\n\n\n\n\n\n\n\n\n\n\nDuring this period, political parties spent a total of ₹5,145,309 and displayed 2774 advertisements on Meta.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumber of Advertisers\nTop Spenders\nNumber of Ads\nTotal Spend\n\n\n\n\nOthers\n10\n1. Mahathugbandhan - महाठगबंधन (₹1,827,995)2. India News (₹17,261)3. TheSootr (₹6,616)\n176\n₹1,860,690\n\n\nBJP\n161\n1. Phir Ek Baar Modi Sarkar (₹392,418)2. మన మోదీ (₹336,496)3. BJP Odisha (₹217,447)\n1,999\n₹1,729,696\n\n\nTrinamool Congress\n3\n1. All India Trinamool Congress (₹566,553)2. Trinamoole Nabo Jowar (₹235,291)3. Tollygunge Trinamool Congress (₹10,727)\n151\n₹812,571\n\n\nCongress\n67\n1. Rahul Gandhi (₹227,640)2. CMO Chhattisgarh (₹116,408)3. Indian National Congress (₹112,666)\n349\n₹653,218\n\n\nGovernment\n4\n1. GAIL (India) Limited (₹31,720)2. Department of Science and Technology, Government of Rajasthan (₹12,678)3. DIPR TN (₹9,215)\n30\n₹55,551\n\n\nRegional\n1\n1. Jan Adhikar Party (₹13,402)\n3\n₹13,402\n\n\nNationalist Congress Party\n1\n1. Nationalist Congress Party - NCP (₹9,553)\n28\n₹9,553\n\n\nShiv Sena\n1\n1. Eknath Shinde - एकनाथ संभाजी शिंदे (₹4,969)\n2\n₹4,969\n\n\nAam Aadmi Party\n3\n1. Aam Aadmi Party Maharashtra (₹1,700)2. AAP Ka Deepak Singla (₹1,092)3. Aam Aadmi Party- Ratnagiri (₹670)\n3\n₹3,462\n\n\nSamajwadi Party\n1\n1. Nallapati Ramu (₹1,564)\n29\n₹1,564\n\n\nBharat Rashtra Samithi\n1\n1. Aindala Mithra Krishna (₹533)\n3\n₹533\n\n\nRashtriya Loktantrik Party\n1\n1. Harendra Jakhar (₹100)\n1\n₹100\n\n\n\n\n\n\n\n\n\n\n\n\nOver Time"
   },
   {
     "objectID": "targeting.html",
     "href": "targeting.html",
     "title": "Spending per Targeting",
     "section": "",
-    "text": "These charts show the groups that political parties target with their advertisements leading up to the elections, according to the latest data. The focus is on Meta’s platforms (Facebook and Instagram) because they offer the most detailed targeting options for political advertisements.\nHow much did the campaigns of political parties spend on different audiences? The charts below show both the total and the expenditures per party.\n\nNote: Different targeting criteria may overlap, so the outcome may not necessarily add up to 100%.\n\n\n8 Feb - 8 Mar 20242 Mar - 8 Mar 2024\n\n\n\nTotalBy Party\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTotalBy Party"
+    "text": "These charts show the groups that political parties target with their advertisements leading up to the elections, according to the latest data. The focus is on Meta’s platforms (Facebook and Instagram) because they offer the most detailed targeting options for political advertisements.\nHow much did the campaigns of political parties spend on different audiences? The charts below show both the total and the expenditures per party.\n\nNote: Different targeting criteria may overlap, so the outcome may not necessarily add up to 100%.\n\n\n11 Feb - 11 Mar 20245 Mar - 11 Mar 2024\n\n\n\nTotalBy Party\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTotalBy Party",
+    "crumbs": [
+      "Spending per Targeting"
+    ]
   }
 ]

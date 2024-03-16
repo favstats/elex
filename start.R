@@ -35,20 +35,27 @@ render_it <- function(...) {
 render_it <- possibly(render_it, otherwise = NULL, quiet = F)
 
 # cntryy <- "NL"
-
 for (cntryy in full_cntry_list$iso2c) {
-  print(cntryy)
+  # print(cntryy)
+  
+  t2 <- Sys.time()
+  
+  print(paste0(cntryy,": ", t2))
+  
   
   try({
     
     
-    t2 <- Sys.time()
-    
     time_difference_seconds <- difftime(t2, t1, units = "hours")
+
     
-    if(as.numeric(time_difference_seconds)>4){
-      break
+    if (as.numeric(time_difference_seconds) > 4) {
+      if (Sys.info()[["sysname"]] != "Windows") {
+        break
+      }
     }
+    
+ 
     
     sets$the_country <- full_cntry_list$country[which(full_cntry_list$iso2c==cntryy)]
     sets$cntry <- cntryy
@@ -116,7 +123,7 @@ for (cntryy in full_cntry_list$iso2c) {
         drop_na(ds) %>% 
         arrange(desc(ds))
       
-      print(thosearethere)
+      # print(thosearethere)
       
       if(is.na(thosearethere$ds[1])){
         print("go next")
@@ -168,7 +175,7 @@ for (cntryy in full_cntry_list$iso2c) {
         
         write_lines(nrow(distinct(election_dat30, internal_id)), file = "n_advertisers.txt")
         # render_it <- possibly(quarto::quarto_render, otherwise = NULL, quiet = F)
-        dir("_site", full.names = T) %>% keep(~str_detect(.x, "qmd")) %>% walk(render_it)
+        dir("_site", full.names = T) %>% keep(~str_detect(.x, "qmd")) %>% keep(~str_detect(.x, "qmd")) %>% walk(render_it)
         
         dir("docs", full.names = T) %>% 
           keep(~str_detect(.x, "site|files")) %>% 

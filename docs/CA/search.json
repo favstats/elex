@@ -1,159 +1,121 @@
 [
   {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Targeting Dashboard - Canada",
+    "section": "",
+    "text": "Methodology\nIn collaboration with Who Targets Me, we monitored 10354 political advertisers to better understand how campaigns use different targeting methods made available by Meta. To do this, we used data from the Meta Ad Library, using the new ‘Audience’ data which gives some detail on how pages target their ads.\nTo better understand the election, we kept only advertisers who:\n\nAdvertised in the last 7 days (6 Mar - 12 Mar 2024)\nAdvertised in the last 30 days (12 Feb - 12 Mar 2024)\n\n\n\n\n\n\n\nNote\n\n\n\nMeta only provides 7, 30 and 90 days windows for the targeting data in their Ad Library. Meta’s data also lags by a few days. Report will be updated as soon as new data is available.\n\n\n\n\n\n\n\n\nDisclaimer\n\n\n\nThe data shown in this dashboard is based on the platform’s respective ad libraries which are known to be sometimes incomplete (Edelson et al. 2020; Silva et al. 2020). For this reason the data shown here might not reflect the full picture nor all political ads that were targeted at voters.\n\n\n\n\nAbout the Creator of the Dashboard\n\n\n\n\n\n\n\n\n\n\n\nFabio Votta is a Postdoc at the University of Amsterdam who studies (online) political microtargeting and its usage around the world.\n\n\n\n\n\n\n\n\n\n\n\nWant to see how political parties target you? Sign up at Who Targets Me and download the gratis browser plugin to see how parties on Facebook use your data:\nhttps://whotargets.me/\n\n\n\n\n\n\n\nWant to retrieve targeting data from the Facebook Ad Library yourself? This dashboard is powered by the R package: metatargetr. Check it out here:\nhttps://github.com/favstats/metatargetr\n\n\n\n\nElection Targeting Dashboards\nA list of election dashboards:\n\n🇳🇱 2021 Dutch parliamentary election (15th-17th March 2021)\n🇩🇪 2021 German federal election (26 September 2021)\n🇸🇪 2022 Swedish general election (11th September 2022)\n🇺🇸 2022 United States midterm elections (8th November 2022)\n🇺🇸 2022 United States midterm elections - Georgia Runoff (6th December 2022)\n🇮🇹 2023 Lazio & Lombardy regional election (12-13th February 2023)\n🇪🇪 2023 Estonian parliamentary election (5th March 2023)\n🇳🇱 2023 Dutch provincial elections (15th March 2023)\n🇲🇪 2023 Montenegrin presidential elections (19th March 2023) - 1st round\n🇦🇺 2023 New South Wales state election (25th March 2023)\n🇫🇮 2023 Finnish parliamentary election (2 April 2023)\n🇹🇷 2023 Turkish general election (14 May 2023) - Round 1\n🇩🇪 2023 Bremen State election (14 May 2023)\n🇬🇷 2023 Greek Legislative election (21 May 2023)\n🇹🇷 2023 Turkish Presidential election (14 May 2023) - Round 2\n🇲🇪 2023 Montenegrin parliamentary elections (11 June 2023)\n🇬🇷 2nd 2023 Greek Legislative election (25 May 2023)\n🇸🇰 2023 Slovak parliamentary election (30 September 2023)\n🇩🇪 2023 Bavarian state election (8 October 2023)\n🇩🇪 2023 Hessian state election (8 October 2023)\n🇳🇿 2023 New Zealand general election (14 October 2023)\n🇵🇱 2023 Polish parliamentary election (15 October 2023)\n🇺🇸 US Presidential Primaries (2023-2024)"
+  },
+  {
     "objectID": "demographics.html",
     "href": "demographics.html",
     "title": "Demographics",
     "section": "",
-    "text": "The following graphs illustrate how parties target different age groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n11 Feb - 11 Mar 20245 Mar - 11 Mar 2024",
-    "crumbs": [
-      "Demographics"
-    ]
+    "text": "The following graphs illustrate how parties target different age groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n12 Feb - 12 Mar 20246 Mar - 12 Mar 2024"
   },
   {
     "objectID": "demographics.html#age-targeting",
     "href": "demographics.html#age-targeting",
     "title": "Demographics",
     "section": "",
-    "text": "The following graphs illustrate how parties target different age groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n11 Feb - 11 Mar 20245 Mar - 11 Mar 2024",
-    "crumbs": [
-      "Demographics"
-    ]
+    "text": "The following graphs illustrate how parties target different age groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n12 Feb - 12 Mar 20246 Mar - 12 Mar 2024"
   },
   {
     "objectID": "demographics.html#gender-targeting",
     "href": "demographics.html#gender-targeting",
     "title": "Demographics",
     "section": "Gender Targeting",
-    "text": "Gender Targeting\nDe onderstaande grafieken laten zien hoe partijen gender als focusgroep gebruiken en welk percentage van het budget daaraan werd uitgegeven.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n11 Feb - 11 Mar 20245 Mar - 11 Mar 2024",
-    "crumbs": [
-      "Demographics"
-    ]
+    "text": "Gender Targeting\nDe onderstaande grafieken laten zien hoe partijen gender als focusgroep gebruiken en welk percentage van het budget daaraan werd uitgegeven.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n12 Feb - 12 Mar 20246 Mar - 12 Mar 2024"
   },
   {
     "objectID": "demographics.html#language-targeting",
     "href": "demographics.html#language-targeting",
     "title": "Demographics",
     "section": "Language Targeting",
-    "text": "Language Targeting\nThe following graphs show how parties use different languages as focus groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n11 Feb - 11 Mar 20245 Mar - 11 Mar 2024",
-    "crumbs": [
-      "Demographics"
-    ]
+    "text": "Language Targeting\nThe following graphs show how parties use different languages as focus groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n12 Feb - 12 Mar 20246 Mar - 12 Mar 2024"
   },
   {
     "objectID": "demographics.html#targeting-based-on-employment-or-education-instituation",
     "href": "demographics.html#targeting-based-on-employment-or-education-instituation",
     "title": "Demographics",
     "section": "Targeting based on Employment or Education Instituation",
-    "text": "Targeting based on Employment or Education Instituation\nThe following graphs depict how parties utilize various job sectors and types of education as focus groups and the percentage of the budget allocated to them. The next graph focuses on educational levels.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n11 Feb - 11 Mar 20245 Mar - 11 Mar 2024",
-    "crumbs": [
-      "Demographics"
-    ]
+    "text": "Targeting based on Employment or Education Instituation\nThe following graphs depict how parties utilize various job sectors and types of education as focus groups and the percentage of the budget allocated to them. The next graph focuses on educational levels.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n12 Feb - 12 Mar 20246 Mar - 12 Mar 2024"
   },
   {
     "objectID": "demographics.html#education-levels-targeting",
     "href": "demographics.html#education-levels-targeting",
     "title": "Demographics",
     "section": "Education Levels Targeting",
-    "text": "Education Levels Targeting\nThe graphs below illustrate how parties target various education levels as focus groups and the percentage of the budget allocated to each.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n11 Feb - 11 Mar 20245 Mar - 11 Mar 2024",
-    "crumbs": [
-      "Demographics"
-    ]
+    "text": "Education Levels Targeting\nThe graphs below illustrate how parties target various education levels as focus groups and the percentage of the budget allocated to each.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n12 Feb - 12 Mar 20246 Mar - 12 Mar 2024"
   },
   {
     "objectID": "demographics.html#relationship-status-targeting",
     "href": "demographics.html#relationship-status-targeting",
     "title": "Demographics",
     "section": "Relationship Status Targeting",
-    "text": "Relationship Status Targeting\nThe following graphs reveal how political parties utilize different relationship statuses as focus groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n11 Feb - 11 Mar 20245 Mar - 11 Mar 2024",
-    "crumbs": [
-      "Demographics"
-    ]
+    "text": "Relationship Status Targeting\nThe following graphs reveal how political parties utilize different relationship statuses as focus groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n12 Feb - 12 Mar 20246 Mar - 12 Mar 2024"
   },
   {
     "objectID": "detailed.html",
     "href": "detailed.html",
     "title": "Detailed Targeting",
     "section": "",
-    "text": "The chart below displays the most utilized targeting criteria by political parties on Meta, based on the amounts spent.\n\n11 Feb - 11 Mar 20245 Mar - 11 Mar 2024",
-    "crumbs": [
-      "Detailed Targeting"
-    ]
+    "text": "The chart below displays the most utilized targeting criteria by political parties on Meta, based on the amounts spent.\n\n12 Feb - 12 Mar 20246 Mar - 12 Mar 2024"
   },
   {
     "objectID": "detailed.html#top-targeted-audiences",
     "href": "detailed.html#top-targeted-audiences",
     "title": "Detailed Targeting",
     "section": "",
-    "text": "The chart below displays the most utilized targeting criteria by political parties on Meta, based on the amounts spent.\n\n11 Feb - 11 Mar 20245 Mar - 11 Mar 2024",
-    "crumbs": [
-      "Detailed Targeting"
-    ]
+    "text": "The chart below displays the most utilized targeting criteria by political parties on Meta, based on the amounts spent.\n\n12 Feb - 12 Mar 20246 Mar - 12 Mar 2024"
   },
   {
     "objectID": "detailed.html#top-excluded-audiences",
     "href": "detailed.html#top-excluded-audiences",
     "title": "Detailed Targeting",
     "section": "Top Excluded Audiences",
-    "text": "Top Excluded Audiences\nAmong the detailed options offered by Meta, the chart below shows the most excluded target audiences per party. The ranking is based on the amounts spent.\n\n11 Feb - 11 Mar 20245 Mar - 11 Mar 2024\n\n\nNo data (yet).\n\n\nNo data (yet).",
-    "crumbs": [
-      "Detailed Targeting"
-    ]
+    "text": "Top Excluded Audiences\nAmong the detailed options offered by Meta, the chart below shows the most excluded target audiences per party. The ranking is based on the amounts spent.\n\n12 Feb - 12 Mar 20246 Mar - 12 Mar 2024\n\n\n\nNo data (yet).\n\n\n\n\nNo data (yet)."
   },
   {
     "objectID": "detailed.html#top-contested-audiences",
     "href": "detailed.html#top-contested-audiences",
     "title": "Detailed Targeting",
     "section": "Top Contested Audiences",
-    "text": "Top Contested Audiences\nThe charts below show the target audiences where most competition takes place. For example, the groups in which all parties invest large amounts to reach voters with the same interests.\n\n11 Feb - 11 Mar 20245 Mar - 11 Mar 2024",
-    "crumbs": [
-      "Detailed Targeting"
-    ]
+    "text": "Top Contested Audiences\nThe charts below show the target audiences where most competition takes place. For example, the groups in which all parties invest large amounts to reach voters with the same interests.\n\n12 Feb - 12 Mar 20246 Mar - 12 Mar 2024"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Spending",
     "section": "",
-    "text": "Here you can see the expenditures of political parties in the lead-up to the elections according to the latest data.\n\n11 Feb - 11 Mar 20245 Mar - 11 Mar 2024\n\n\nDuring this period, political parties spent a total of $562,642 and displayed 2522 advertisements on Meta.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumber of Advertisers\nTop Spenders\nNumber of Ads\nTotal Spend\n\n\n\n\nConservative Party of Canada\n48\n1. Conservative Party of Canada - Parti conservateur du Canada ($114,084)2. Progressive Conservative Party of Ontario ($30,048)3. Pierre Poilievre ($9,724)\n685\n$172,990\n\n\nOthers\n38\n1. YourAlberta (Government of Alberta) ($92,876)2. Elections Canada ($15,430)3. Elections BC ($11,506)\n279\n$167,720\n\n\nLiberal Party of Canada\n31\n1. British Columbia Liberal Party ($117,357)2. Justin Trudeau ($11,538)3. Zach Churchill ($11,200)\n1,131\n$165,000\n\n\nNew Democratic Party\n16\n1. Carla Beck ($28,231)2. British Columbia New Democratic Party ($8,159)3. Canada`s NDP / Le NPD du Canada ($6,402)\n361\n$45,068\n\n\nGreen Party of Canada\n5\n1. British Columbia Green Party ($4,660)2. Green Party of Ontario ($2,711)3. Green Party of New Brunswick ($100)\n50\n$7,671\n\n\nPeople’s Party of Canada\n3\n1. People`s Party of Canada ($3,870)2. Darrell Shelley ($223)3. People’s Alliance Party of NB - L’Alliance des Gens du NB ($100)\n16\n$4,193\n\n\n\n\n\n\n\n\n\n\nDuring this period, political parties spent a total of $126,741 and displayed 1392 advertisements on Meta.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumber of Advertisers\nTop Spenders\nNumber of Ads\nTotal Spend\n\n\n\n\nOthers\n20\n1. YourAlberta (Government of Alberta) ($25,637)2. Elections BC ($3,892)3. Ontario Public Service Employees Union (OPSEU) ($2,629)\n91\n$42,656\n\n\nConservative Party of Canada\n32\n1. Conservative Party of Canada - Parti conservateur du Canada ($23,763)2. Progressive Conservative Party of Ontario ($11,325)3. Pierre Poilievre ($2,734)\n495\n$42,272\n\n\nLiberal Party of Canada\n19\n1. British Columbia Liberal Party ($26,500)2. Justin Trudeau ($2,404)3. Liberal Party of Canada | Parti libéral du Canada ($1,172)\n588\n$33,426\n\n\nNew Democratic Party\n8\n1. Carla Beck ($2,846)2. Canada`s NDP / Le NPD du Canada ($1,685)3. British Columbia New Democratic Party ($517)\n174\n$5,715\n\n\nGreen Party of Canada\n3\n1. British Columbia Green Party ($1,083)2. Green Party of Ontario ($625)3. David Coon ($100)\n40\n$1,808\n\n\nPeople’s Party of Canada\n2\n1. People`s Party of Canada ($764)2. People’s Alliance Party of NB - L’Alliance des Gens du NB ($100)\n4\n$864\n\n\n\n\n\n\n\n\n\n\n\n\nOver Time"
+    "text": "Here you can see the expenditures of political parties in the lead-up to the elections according to the latest data.\n\n12 Feb - 12 Mar 20246 Mar - 12 Mar 2024\n\n\nDuring this period, political parties spent a total of $562,086 and displayed 2551 advertisements on Meta.\n\n\n\n\n\n\n  \n    \n    \n      \n      Number of Advertisers\n      Top Spenders\n      Number of Ads\n      Total Spend\n    \n  \n  \n    Conservative Party of Canada\n\n47\n\n1. Conservative Party of Canada - Parti conservateur du Canada ($113,440)2. Progressive Conservative Party of Ontario ($31,027)3. Pierre Poilievre ($10,425)\n\n687\n\n$173,923\n\n    Others\n\n36\n\n1. YourAlberta (Government of Alberta) ($95,629)2. Elections Canada ($15,786)3. Elections BC ($12,065)\n\n269\n\n$168,380\n\n    Liberal Party of Canada\n\n31\n\n1. British Columbia Liberal Party ($117,151)2. Justin Trudeau ($11,438)3. Zach Churchill ($11,200)\n\n1,139\n\n$164,566\n\n    New Democratic Party\n\n18\n\n1. Carla Beck ($26,614)2. British Columbia New Democratic Party ($8,065)3. Canada`s NDP / Le NPD du Canada ($6,459)\n\n390\n\n$43,556\n\n    Green Party of Canada\n\n5\n\n1. British Columbia Green Party ($4,652)2. Green Party of Ontario ($2,706)3. Green Party of New Brunswick ($100)\n\n50\n\n$7,658\n\n    People’s Party of Canada\n\n3\n\n1. People`s Party of Canada ($3,690)2. Darrell Shelley ($213)3. People’s Alliance Party of NB - L’Alliance des Gens du NB ($100)\n\n16\n\n$4,003\n\n  \n  \n  \n\n\n\n\n\n\nDuring this period, political parties spent a total of $126,741 and displayed 1392 advertisements on Meta.\n\n\n\n\n\n\n  \n    \n    \n      \n      Number of Advertisers\n      Top Spenders\n      Number of Ads\n      Total Spend\n    \n  \n  \n    Others\n\n20\n\n1. YourAlberta (Government of Alberta) ($25,637)2. Elections BC ($3,892)3. Ontario Public Service Employees Union (OPSEU) ($2,629)\n\n91\n\n$42,656\n\n    Conservative Party of Canada\n\n32\n\n1. Conservative Party of Canada - Parti conservateur du Canada ($23,763)2. Progressive Conservative Party of Ontario ($11,325)3. Pierre Poilievre ($2,734)\n\n495\n\n$42,272\n\n    Liberal Party of Canada\n\n19\n\n1. British Columbia Liberal Party ($26,500)2. Justin Trudeau ($2,404)3. Liberal Party of Canada | Parti libéral du Canada ($1,172)\n\n588\n\n$33,426\n\n    New Democratic Party\n\n8\n\n1. Carla Beck ($2,846)2. Canada`s NDP / Le NPD du Canada ($1,685)3. British Columbia New Democratic Party ($517)\n\n174\n\n$5,715\n\n    Green Party of Canada\n\n3\n\n1. British Columbia Green Party ($1,083)2. Green Party of Ontario ($625)3. David Coon ($100)\n\n40\n\n$1,808\n\n    People’s Party of Canada\n\n2\n\n1. People`s Party of Canada ($764)2. People’s Alliance Party of NB - L’Alliance des Gens du NB ($100)\n\n4\n\n$864\n\n  \n  \n  \n\n\n\n\n\n\n\n\nOver Time"
   },
   {
     "objectID": "location.html",
     "href": "location.html",
     "title": "Location",
     "section": "",
-    "text": "The chart below displays the geographical targeting of that political parties on Meta platforms.\n\n11 Feb - 11 Mar 2024\n\n\n\nRegionsCities\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.",
-    "crumbs": [
-      "Location"
-    ]
+    "text": "The chart below displays the geographical targeting of that political parties on Meta platforms.\n\n12 Feb - 12 Mar 2024\n\n\n\nRegionsCities\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.\n\n\n\n\n\n\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations."
   },
   {
     "objectID": "location.html#geographical-targeting",
     "href": "location.html#geographical-targeting",
     "title": "Location",
     "section": "",
-    "text": "The chart below displays the geographical targeting of that political parties on Meta platforms.\n\n11 Feb - 11 Mar 2024\n\n\n\nRegionsCities\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.",
-    "crumbs": [
-      "Location"
-    ]
+    "text": "The chart below displays the geographical targeting of that political parties on Meta platforms.\n\n12 Feb - 12 Mar 2024\n\n\n\nRegionsCities\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.\n\n\n\n\n\n\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations."
   },
   {
     "objectID": "location.html#geographical-exclusion",
     "href": "location.html#geographical-exclusion",
     "title": "Location",
     "section": "Geographical Exclusion",
-    "text": "Geographical Exclusion\nThe following graphs depict the geographic locations that certain political advertisements will exclude on Meta, along with the amounts that parties spent on these exclusions.\n\n11 Feb - 11 Mar 2024\n\n\n\nRegionsCities\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.",
-    "crumbs": [
-      "Location"
-    ]
+    "text": "Geographical Exclusion\nThe following graphs depict the geographic locations that certain political advertisements will exclude on Meta, along with the amounts that parties spent on these exclusions.\n\n12 Feb - 12 Mar 2024\n\n\n\nRegionsCities\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.\n\n\n\n\n\n\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations."
   },
   {
     "objectID": "targeting.html",
     "href": "targeting.html",
     "title": "Spending per Targeting",
     "section": "",
-    "text": "These charts show the groups that political parties target with their advertisements leading up to the elections, according to the latest data. The focus is on Meta’s platforms (Facebook and Instagram) because they offer the most detailed targeting options for political advertisements.\nHow much did the campaigns of political parties spend on different audiences? The charts below show both the total and the expenditures per party.\n\nNote: Different targeting criteria may overlap, so the outcome may not necessarily add up to 100%.\n\n\n11 Feb - 11 Mar 20245 Mar - 11 Mar 2024\n\n\n\nTotalBy Party\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTotalBy Party",
-    "crumbs": [
-      "Spending per Targeting"
-    ]
+    "text": "These charts show the groups that political parties target with their advertisements leading up to the elections, according to the latest data. The focus is on Meta’s platforms (Facebook and Instagram) because they offer the most detailed targeting options for political advertisements.\nHow much did the campaigns of political parties spend on different audiences? The charts below show both the total and the expenditures per party.\n\nNote: Different targeting criteria may overlap, so the outcome may not necessarily add up to 100%.\n\n\n12 Feb - 12 Mar 20246 Mar - 12 Mar 2024\n\n\n\nTotalBy Party\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTotalBy Party"
   }
 ]

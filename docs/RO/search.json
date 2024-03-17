@@ -4,118 +4,118 @@
     "href": "about.html",
     "title": "Targeting Dashboard - Romania",
     "section": "",
-    "text": "Methodology\nIn collaboration with Who Targets Me, we monitored 4485 political advertisers to better understand how campaigns use different targeting methods made available by Meta. To do this, we used data from the Meta Ad Library, using the new ‘Audience’ data which gives some detail on how pages target their ads.\nTo better understand the election, we kept only advertisers who:\n\nAdvertised in the last 7 days (6 Mar - 12 Mar 2024)\nAdvertised in the last 30 days (12 Feb - 12 Mar 2024)\n\n\n\n\n\n\n\nNote\n\n\n\nMeta only provides 7, 30 and 90 days windows for the targeting data in their Ad Library. Meta’s data also lags by a few days. Report will be updated as soon as new data is available.\n\n\n\n\n\n\n\n\nDisclaimer\n\n\n\nThe data shown in this dashboard is based on the platform’s respective ad libraries which are known to be sometimes incomplete (Edelson et al. 2020; Silva et al. 2020). For this reason the data shown here might not reflect the full picture nor all political ads that were targeted at voters.\n\n\n\n\nAbout the Creator of the Dashboard\n\n\n\n\n\n\n\n\n\n\n\nFabio Votta is a Postdoc at the University of Amsterdam who studies (online) political microtargeting and its usage around the world.\n\n\n\n\n\n\n\n\n\n\n\nWant to see how political parties target you? Sign up at Who Targets Me and download the gratis browser plugin to see how parties on Facebook use your data:\nhttps://whotargets.me/\n\n\n\n\n\n\n\nWant to retrieve targeting data from the Facebook Ad Library yourself? This dashboard is powered by the R package: metatargetr. Check it out here:\nhttps://github.com/favstats/metatargetr\n\n\n\n\nElection Targeting Dashboards\nA list of election dashboards:\n\n🇳🇱 2021 Dutch parliamentary election (15th-17th March 2021)\n🇩🇪 2021 German federal election (26 September 2021)\n🇸🇪 2022 Swedish general election (11th September 2022)\n🇺🇸 2022 United States midterm elections (8th November 2022)\n🇺🇸 2022 United States midterm elections - Georgia Runoff (6th December 2022)\n🇮🇹 2023 Lazio & Lombardy regional election (12-13th February 2023)\n🇪🇪 2023 Estonian parliamentary election (5th March 2023)\n🇳🇱 2023 Dutch provincial elections (15th March 2023)\n🇲🇪 2023 Montenegrin presidential elections (19th March 2023) - 1st round\n🇦🇺 2023 New South Wales state election (25th March 2023)\n🇫🇮 2023 Finnish parliamentary election (2 April 2023)\n🇹🇷 2023 Turkish general election (14 May 2023) - Round 1\n🇩🇪 2023 Bremen State election (14 May 2023)\n🇬🇷 2023 Greek Legislative election (21 May 2023)\n🇹🇷 2023 Turkish Presidential election (14 May 2023) - Round 2\n🇲🇪 2023 Montenegrin parliamentary elections (11 June 2023)\n🇬🇷 2nd 2023 Greek Legislative election (25 May 2023)\n🇸🇰 2023 Slovak parliamentary election (30 September 2023)\n🇩🇪 2023 Bavarian state election (8 October 2023)\n🇩🇪 2023 Hessian state election (8 October 2023)\n🇳🇿 2023 New Zealand general election (14 October 2023)\n🇵🇱 2023 Polish parliamentary election (15 October 2023)\n🇺🇸 US Presidential Primaries (2023-2024)"
+    "text": "Methodology\nIn collaboration with Who Targets Me, we monitored 4481 political advertisers to better understand how campaigns use different targeting methods made available by Meta. To do this, we used data from the Meta Ad Library, using the new ‘Audience’ data which gives some detail on how pages target their ads.\nTo better understand the election, we kept only advertisers who:\n\nAdvertised in the last 7 days (7 Mar - 13 Mar 2024)\nAdvertised in the last 30 days (13 Feb - 13 Mar 2024)\n\n\n\n\n\n\n\nNote\n\n\n\nMeta only provides 7, 30 and 90 days windows for the targeting data in their Ad Library. Meta’s data also lags by a few days. Report will be updated as soon as new data is available.\n\n\n\n\n\n\n\n\nDisclaimer\n\n\n\nThe data shown in this dashboard is based on the platform’s respective ad libraries which are known to be sometimes incomplete (Edelson et al. 2020; Silva et al. 2020). For this reason the data shown here might not reflect the full picture nor all political ads that were targeted at voters.\n\n\n\n\nAbout the Creator of the Dashboard\n\n\n\n\n\n\n\n\n\n\n\nFabio Votta is a Postdoc at the University of Amsterdam who studies (online) political microtargeting and its usage around the world.\n\n\n\n\n\n\n\n\n\n\n\nWant to see how political parties target you? Sign up at Who Targets Me and download the gratis browser plugin to see how parties on Facebook use your data:\nhttps://whotargets.me/\n\n\n\n\n\n\n\nWant to retrieve targeting data from the Facebook Ad Library yourself? This dashboard is powered by the R package: metatargetr. Check it out here:\nhttps://github.com/favstats/metatargetr\n\n\n\n\nElection Targeting Dashboards\nA list of election dashboards:\n\n🇳🇱 2021 Dutch parliamentary election (15th-17th March 2021)\n🇩🇪 2021 German federal election (26 September 2021)\n🇸🇪 2022 Swedish general election (11th September 2022)\n🇺🇸 2022 United States midterm elections (8th November 2022)\n🇺🇸 2022 United States midterm elections - Georgia Runoff (6th December 2022)\n🇮🇹 2023 Lazio & Lombardy regional election (12-13th February 2023)\n🇪🇪 2023 Estonian parliamentary election (5th March 2023)\n🇳🇱 2023 Dutch provincial elections (15th March 2023)\n🇲🇪 2023 Montenegrin presidential elections (19th March 2023) - 1st round\n🇦🇺 2023 New South Wales state election (25th March 2023)\n🇫🇮 2023 Finnish parliamentary election (2 April 2023)\n🇹🇷 2023 Turkish general election (14 May 2023) - Round 1\n🇩🇪 2023 Bremen State election (14 May 2023)\n🇬🇷 2023 Greek Legislative election (21 May 2023)\n🇹🇷 2023 Turkish Presidential election (14 May 2023) - Round 2\n🇲🇪 2023 Montenegrin parliamentary elections (11 June 2023)\n🇬🇷 2nd 2023 Greek Legislative election (25 May 2023)\n🇸🇰 2023 Slovak parliamentary election (30 September 2023)\n🇩🇪 2023 Bavarian state election (8 October 2023)\n🇩🇪 2023 Hessian state election (8 October 2023)\n🇳🇿 2023 New Zealand general election (14 October 2023)\n🇵🇱 2023 Polish parliamentary election (15 October 2023)\n🇺🇸 US Presidential Primaries (2023-2024)"
   },
   {
     "objectID": "demographics.html",
     "href": "demographics.html",
     "title": "Demographics",
     "section": "",
-    "text": "The following graphs illustrate how parties target different age groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n12 Feb - 12 Mar 20246 Mar - 12 Mar 2024"
+    "text": "The following graphs illustrate how parties target different age groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n13 Feb - 13 Mar 20247 Mar - 13 Mar 2024"
   },
   {
     "objectID": "demographics.html#age-targeting",
     "href": "demographics.html#age-targeting",
     "title": "Demographics",
     "section": "",
-    "text": "The following graphs illustrate how parties target different age groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n12 Feb - 12 Mar 20246 Mar - 12 Mar 2024"
+    "text": "The following graphs illustrate how parties target different age groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n13 Feb - 13 Mar 20247 Mar - 13 Mar 2024"
   },
   {
     "objectID": "demographics.html#gender-targeting",
     "href": "demographics.html#gender-targeting",
     "title": "Demographics",
     "section": "Gender Targeting",
-    "text": "Gender Targeting\nDe onderstaande grafieken laten zien hoe partijen gender als focusgroep gebruiken en welk percentage van het budget daaraan werd uitgegeven.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n12 Feb - 12 Mar 20246 Mar - 12 Mar 2024"
+    "text": "Gender Targeting\nDe onderstaande grafieken laten zien hoe partijen gender als focusgroep gebruiken en welk percentage van het budget daaraan werd uitgegeven.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n13 Feb - 13 Mar 20247 Mar - 13 Mar 2024"
   },
   {
     "objectID": "demographics.html#language-targeting",
     "href": "demographics.html#language-targeting",
     "title": "Demographics",
     "section": "Language Targeting",
-    "text": "Language Targeting\nThe following graphs show how parties use different languages as focus groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n12 Feb - 12 Mar 20246 Mar - 12 Mar 2024"
+    "text": "Language Targeting\nThe following graphs show how parties use different languages as focus groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n13 Feb - 13 Mar 20247 Mar - 13 Mar 2024"
   },
   {
     "objectID": "demographics.html#targeting-based-on-employment-or-education-instituation",
     "href": "demographics.html#targeting-based-on-employment-or-education-instituation",
     "title": "Demographics",
     "section": "Targeting based on Employment or Education Instituation",
-    "text": "Targeting based on Employment or Education Instituation\nThe following graphs depict how parties utilize various job sectors and types of education as focus groups and the percentage of the budget allocated to them. The next graph focuses on educational levels.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n12 Feb - 12 Mar 20246 Mar - 12 Mar 2024"
+    "text": "Targeting based on Employment or Education Instituation\nThe following graphs depict how parties utilize various job sectors and types of education as focus groups and the percentage of the budget allocated to them. The next graph focuses on educational levels.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n13 Feb - 13 Mar 20247 Mar - 13 Mar 2024"
   },
   {
     "objectID": "demographics.html#education-levels-targeting",
     "href": "demographics.html#education-levels-targeting",
     "title": "Demographics",
     "section": "Education Levels Targeting",
-    "text": "Education Levels Targeting\nThe graphs below illustrate how parties target various education levels as focus groups and the percentage of the budget allocated to each.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n12 Feb - 12 Mar 20246 Mar - 12 Mar 2024"
+    "text": "Education Levels Targeting\nThe graphs below illustrate how parties target various education levels as focus groups and the percentage of the budget allocated to each.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n13 Feb - 13 Mar 20247 Mar - 13 Mar 2024"
   },
   {
     "objectID": "demographics.html#relationship-status-targeting",
     "href": "demographics.html#relationship-status-targeting",
     "title": "Demographics",
     "section": "Relationship Status Targeting",
-    "text": "Relationship Status Targeting\nThe following graphs reveal how political parties utilize different relationship statuses as focus groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n12 Feb - 12 Mar 20246 Mar - 12 Mar 2024"
+    "text": "Relationship Status Targeting\nThe following graphs reveal how political parties utilize different relationship statuses as focus groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n13 Feb - 13 Mar 20247 Mar - 13 Mar 2024"
   },
   {
     "objectID": "detailed.html",
     "href": "detailed.html",
     "title": "Detailed Targeting",
     "section": "",
-    "text": "The chart below displays the most utilized targeting criteria by political parties on Meta, based on the amounts spent.\n\n12 Feb - 12 Mar 20246 Mar - 12 Mar 2024"
+    "text": "The chart below displays the most utilized targeting criteria by political parties on Meta, based on the amounts spent.\n\n13 Feb - 13 Mar 20247 Mar - 13 Mar 2024"
   },
   {
     "objectID": "detailed.html#top-targeted-audiences",
     "href": "detailed.html#top-targeted-audiences",
     "title": "Detailed Targeting",
     "section": "",
-    "text": "The chart below displays the most utilized targeting criteria by political parties on Meta, based on the amounts spent.\n\n12 Feb - 12 Mar 20246 Mar - 12 Mar 2024"
+    "text": "The chart below displays the most utilized targeting criteria by political parties on Meta, based on the amounts spent.\n\n13 Feb - 13 Mar 20247 Mar - 13 Mar 2024"
   },
   {
     "objectID": "detailed.html#top-excluded-audiences",
     "href": "detailed.html#top-excluded-audiences",
     "title": "Detailed Targeting",
     "section": "Top Excluded Audiences",
-    "text": "Top Excluded Audiences\nAmong the detailed options offered by Meta, the chart below shows the most excluded target audiences per party. The ranking is based on the amounts spent.\n\n12 Feb - 12 Mar 20246 Mar - 12 Mar 2024"
+    "text": "Top Excluded Audiences\nAmong the detailed options offered by Meta, the chart below shows the most excluded target audiences per party. The ranking is based on the amounts spent.\n\n13 Feb - 13 Mar 20247 Mar - 13 Mar 2024"
   },
   {
     "objectID": "detailed.html#top-contested-audiences",
     "href": "detailed.html#top-contested-audiences",
     "title": "Detailed Targeting",
     "section": "Top Contested Audiences",
-    "text": "Top Contested Audiences\nThe charts below show the target audiences where most competition takes place. For example, the groups in which all parties invest large amounts to reach voters with the same interests.\n\n12 Feb - 12 Mar 20246 Mar - 12 Mar 2024"
+    "text": "Top Contested Audiences\nThe charts below show the target audiences where most competition takes place. For example, the groups in which all parties invest large amounts to reach voters with the same interests.\n\n13 Feb - 13 Mar 20247 Mar - 13 Mar 2024"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Spending",
     "section": "",
-    "text": "Here you can see the expenditures of political parties in the lead-up to the elections according to the latest data.\n\n12 Feb - 12 Mar 20246 Mar - 12 Mar 2024\n\n\nDuring this period, political parties spent a total of Lei611,865 and displayed 2833 advertisements on Meta.\n\n\n\n\n\n\n  \n    \n    \n      \n      Number of Advertisers\n      Top Spenders\n      Number of Ads\n      Total Spend\n    \n  \n  \n    Partidul Social Democrat\n\n63\n\n1. Marcel Ciolacu (Lei103,783)2. Alfred Simonis (Lei16,352)3. Mihai Alexandru Ghigiu (Lei13,680)\n\n596\n\nLei197,884\n\n    Uniunea Salvați România\n\n100\n\n1. Uniunea Salvați România - USR (Lei37,748)2. Stelian Ion (Lei27,603)3. Cătălin Drulă (Lei23,384)\n\n782\n\nLei187,098\n\n    Partidul Național Liberal\n\n84\n\n1. Nicolae Ionel Ciucă (Lei34,266)2. Ion Iordache (Lei16,031)3. Partidul Național Liberal (Lei14,404)\n\n1,046\n\nLei180,441\n\n    Alianța pentru Unirea Românilor\n\n6\n\n1. George Simion (Lei8,853)2. Adrian Axinia (Lei5,471)3. Alianța pentru Unirea Românilor - AUR (Lei3,481)\n\n120\n\nLei19,636\n\n    Uniunea Democrată Maghiară din România\n\n16\n\n1. Uniunea Democrată Maghiară din România (Lei8,485)2. Kelemen Hunor (Lei5,531)3. Kelemen Attila (Lei1,045)\n\n184\n\nLei19,365\n\n    Forța Dreptei\n\n7\n\n1. Forța Dreptei - Ilfov (Lei2,059)2. Forța Dreptei Constanța (Lei820)3. Forța Dreptei - Cluj (Lei800)\n\n90\n\nLei5,095\n\n    Reînnoim Proiectul European al României\n\n4\n\n1. Partidul REPER (Lei878)2. Alin Prunean (Lei567)3. Andrei Lupu (Lei400)\n\n13\n\nLei2,145\n\n    ProRomania\n\n1\n\n1. Petru Florea (Lei201)\n\n2\n\nLei201\n\n  \n  \n  \n\n\n\n\n\n\nDuring this period, political parties spent a total of Lei150,908 and displayed 868 advertisements on Meta.\n\n\n\n\n\n\n  \n    \n    \n      \n      Number of Advertisers\n      Top Spenders\n      Number of Ads\n      Total Spend\n    \n  \n  \n    Partidul Național Liberal\n\n61\n\n1. Nicolae Ionel Ciucă (Lei25,662)2. Partidul Național Liberal (Lei7,897)3. PNL Cluj (Lei3,797)\n\n310\n\nLei58,563\n\n    Partidul Social Democrat\n\n44\n\n1. Marcel Ciolacu (Lei28,733)2. Mihai Alexandru Ghigiu (Lei5,000)3. Cojocaru Petru Bogdan (Lei2,358)\n\n173\n\nLei45,710\n\n    Uniunea Salvați România\n\n60\n\n1. USR Timiș (Lei7,300)2. Stelian Ion (Lei6,177)3. Dominic Fritz (Lei2,430)\n\n284\n\nLei36,578\n\n    Uniunea Democrată Maghiară din România\n\n11\n\n1. Uniunea Democrată Maghiară din România (Lei2,770)2. Kelemen Hunor (Lei1,862)3. Kelemen Attila (Lei522)\n\n67\n\nLei6,348\n\n    Alianța pentru Unirea Românilor\n\n4\n\n1. George Simion (Lei1,588)2. Anamaria Gavrilă (Lei122)3. Alianța pentru Unirea Romanilor Ialomița (Lei100)\n\n10\n\nLei1,910\n\n    Forța Dreptei\n\n5\n\n1. Forța Dreptei - Ilfov (Lei430)2. Forța Dreptei - Cluj (Lei200)3. Forța Dreptei Constanța (Lei200)\n\n20\n\nLei1,054\n\n    Reînnoim Proiectul European al României\n\n2\n\n1. Partidul REPER (Lei574)2. Alin Prunean (Lei171)\n\n4\n\nLei745\n\n  \n  \n  \n\n\n\n\n\n\n\n\nOver Time"
+    "text": "Here you can see the expenditures of political parties in the lead-up to the elections according to the latest data.\n\n13 Feb - 13 Mar 20247 Mar - 13 Mar 2024\n\n\nDuring this period, political parties spent a total of Lei596,399 and displayed 2840 advertisements on Meta.\n\n\n\n\n\n\n  \n    \n    \n      \n      Number of Advertisers\n      Top Spenders\n      Number of Ads\n      Total Spend\n    \n  \n  \n    Partidul Social Democrat\n\n63\n\n1. Marcel Ciolacu (Lei99,586)2. Alfred Simonis (Lei19,229)3. Mihai Alexandru Ghigiu (Lei12,018)\n\n579\n\nLei189,205\n\n    Uniunea Salvați România\n\n102\n\n1. Uniunea Salvați România - USR (Lei36,505)2. Stelian Ion (Lei27,969)3. Cătălin Drulă (Lei22,926)\n\n786\n\nLei185,676\n\n    Partidul Național Liberal\n\n85\n\n1. Nicolae Ionel Ciucă (Lei34,266)2. Ion Iordache (Lei15,625)3. Partidul Național Liberal (Lei14,801)\n\n1,071\n\nLei175,858\n\n    Uniunea Democrată Maghiară din România\n\n16\n\n1. Uniunea Democrată Maghiară din România (Lei8,748)2. Kelemen Hunor (Lei5,361)3. Kelemen Attila (Lei1,003)\n\n193\n\nLei19,564\n\n    Alianța pentru Unirea Românilor\n\n6\n\n1. George Simion (Lei8,695)2. Adrian Axinia (Lei5,209)3. Alianța pentru Unirea Românilor - AUR (Lei3,125)\n\n103\n\nLei18,784\n\n    Forța Dreptei\n\n7\n\n1. Forța Dreptei - Ilfov (Lei2,018)2. Forța Dreptei - Cluj (Lei800)3. Forța Dreptei Constanța (Lei800)\n\n92\n\nLei5,003\n\n    Reînnoim Proiectul European al României\n\n4\n\n1. Partidul REPER (Lei878)2. Alin Prunean (Lei547)3. Andrei Lupu (Lei409)\n\n14\n\nLei2,134\n\n    ProRomania\n\n1\n\n1. Petru Florea (Lei175)\n\n2\n\nLei175\n\n  \n  \n  \n\n\n\n\n\n\nDuring this period, political parties spent a total of Lei158,380 and displayed 915 advertisements on Meta.\n\n\n\n\n\n\n  \n    \n    \n      \n      Number of Advertisers\n      Top Spenders\n      Number of Ads\n      Total Spend\n    \n  \n  \n    Partidul Social Democrat\n\n42\n\n1. Marcel Ciolacu (Lei36,640)2. Alfred Simonis (Lei6,229)3. Mihai Alexandru Ghigiu (Lei5,000)\n\n174\n\nLei60,930\n\n    Partidul Național Liberal\n\n59\n\n1. Nicolae Ionel Ciucă (Lei18,221)2. Partidul Național Liberal (Lei6,826)3. PNL Cluj (Lei4,404)\n\n330\n\nLei49,099\n\n    Uniunea Salvați România\n\n63\n\n1. USR Timiș (Lei6,862)2. Stelian Ion (Lei6,702)3. USR Iași (Lei2,435)\n\n291\n\nLei37,578\n\n    Uniunea Democrată Maghiară din România\n\n14\n\n1. Uniunea Democrată Maghiară din România (Lei2,923)2. Kelemen Hunor (Lei1,295)3. RMDSZ Bihar Megye (Lei579)\n\n69\n\nLei6,367\n\n    Alianța pentru Unirea Românilor\n\n5\n\n1. George Simion (Lei1,589)2. Alianța pentru Unirea Românilor - AUR (Lei470)3. Anamaria Gavrilă (Lei122)\n\n24\n\nLei2,381\n\n    Reînnoim Proiectul European al României\n\n3\n\n1. Partidul REPER (Lei878)2. Alin Prunean (Lei177)3. Andrei Lupu (Lei100)\n\n6\n\nLei1,155\n\n    Forța Dreptei\n\n5\n\n1. Forța Dreptei - Ilfov (Lei360)2. Forța Dreptei - Cluj (Lei200)3. Forța Dreptei Constanța (Lei110)\n\n21\n\nLei870\n\n  \n  \n  \n\n\n\n\n\n\n\n\nOver Time"
   },
   {
     "objectID": "location.html",
     "href": "location.html",
     "title": "Location",
     "section": "",
-    "text": "The chart below displays the geographical targeting of that political parties on Meta platforms.\n\n12 Feb - 12 Mar 2024\n\n\n\nRegionsCities\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.\n\n\n\n\n\n\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations."
+    "text": "The chart below displays the geographical targeting of that political parties on Meta platforms.\n\n13 Feb - 13 Mar 2024\n\n\n\nRegionsCities\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.\n\n\n\n\n\n\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations."
   },
   {
     "objectID": "location.html#geographical-targeting",
     "href": "location.html#geographical-targeting",
     "title": "Location",
     "section": "",
-    "text": "The chart below displays the geographical targeting of that political parties on Meta platforms.\n\n12 Feb - 12 Mar 2024\n\n\n\nRegionsCities\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.\n\n\n\n\n\n\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations."
+    "text": "The chart below displays the geographical targeting of that political parties on Meta platforms.\n\n13 Feb - 13 Mar 2024\n\n\n\nRegionsCities\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.\n\n\n\n\n\n\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations."
   },
   {
     "objectID": "location.html#geographical-exclusion",
     "href": "location.html#geographical-exclusion",
     "title": "Location",
     "section": "Geographical Exclusion",
-    "text": "Geographical Exclusion\nThe following graphs depict the geographic locations that certain political advertisements will exclude on Meta, along with the amounts that parties spent on these exclusions.\n\n12 Feb - 12 Mar 2024\n\n\n\nRegionsCities\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.\n\n\n\n\n\n\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations."
+    "text": "Geographical Exclusion\nThe following graphs depict the geographic locations that certain political advertisements will exclude on Meta, along with the amounts that parties spent on these exclusions.\n\n13 Feb - 13 Mar 2024\n\n\n\nRegionsCities\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.\n\n\n\n\n\n\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations."
   },
   {
     "objectID": "targeting.html",
     "href": "targeting.html",
     "title": "Spending per Targeting",
     "section": "",
-    "text": "These charts show the groups that political parties target with their advertisements leading up to the elections, according to the latest data. The focus is on Meta’s platforms (Facebook and Instagram) because they offer the most detailed targeting options for political advertisements.\nHow much did the campaigns of political parties spend on different audiences? The charts below show both the total and the expenditures per party.\n\nNote: Different targeting criteria may overlap, so the outcome may not necessarily add up to 100%.\n\n\n12 Feb - 12 Mar 20246 Mar - 12 Mar 2024\n\n\n\nTotalBy Party\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTotalBy Party"
+    "text": "These charts show the groups that political parties target with their advertisements leading up to the elections, according to the latest data. The focus is on Meta’s platforms (Facebook and Instagram) because they offer the most detailed targeting options for political advertisements.\nHow much did the campaigns of political parties spend on different audiences? The charts below show both the total and the expenditures per party.\n\nNote: Different targeting criteria may overlap, so the outcome may not necessarily add up to 100%.\n\n\n13 Feb - 13 Mar 20247 Mar - 13 Mar 2024\n\n\n\nTotalBy Party\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTotalBy Party"
   }
 ]

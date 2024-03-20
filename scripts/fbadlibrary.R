@@ -121,7 +121,7 @@ search_fields=c("ad_creation_time",
                 "region_distribution") %>% 
   stringr::str_c(., collapse=", ")
 
-min_date <- "2023-08-01"
+min_date <- "2023-05-01"
 
 get_em <- function(pgid, pgname) {
   
@@ -189,7 +189,18 @@ get_em <- function(pgid, pgname) {
   
 }
 
-df_imp2 <- elex30%>% 
+library(tidyverse)
+sk <- c(102146246492040, 557862947737785, 150674111712306, 113775847050590, 
+  71030757230, 121130481252381, 163449818290, 101522455351569, 1185998661417403, 
+  403027089864701) %>% 
+  tibble(page_id = .) %>% 
+  mutate(page_name = "")
+
+df_imp2 <- sk %>% 
+  split(1:nrow(.)) %>% 
+  map_dfr_progress(~get_em(.x$page_id, .x$page_name))
+
+df_imp2 <- elex30 %>% 
   filter(page_id == "320374518118") %>% 
   # slice(92) %>% 
   # pull(page_id) %>% 

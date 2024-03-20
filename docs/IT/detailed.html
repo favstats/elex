@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
+<meta name="generator" content="quarto-1.4.551">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -47,7 +47,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,54 +62,12 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
-<script src="site_libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
-<script src="site_libs/jquery-3.5.1/jquery.min.js"></script>
-<script src="site_libs/proj4js-2.3.15/proj4.js"></script>
-<link href="site_libs/highcharts-9.3.1/css/motion.css" rel="stylesheet">
-<script src="site_libs/highcharts-9.3.1/highcharts.js"></script>
-<script src="site_libs/highcharts-9.3.1/highcharts-3d.js"></script>
-<script src="site_libs/highcharts-9.3.1/highcharts-more.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/stock.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/map.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/data.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/exporting.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/offline-exporting.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/drilldown.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/item-series.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/overlapping-datalabels.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/annotations.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/export-data.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/funnel.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/heatmap.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/treemap.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/sankey.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/dependency-wheel.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/organization.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/solid-gauge.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/streamgraph.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/sunburst.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/vector.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/wordcloud.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/xrange.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/tilemap.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/venn.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/gantt.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/timeline.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/parallel-coordinates.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/bullet.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/coloraxis.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/dumbbell.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/lollipop.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/series-label.js"></script>
-<script src="site_libs/highcharts-9.3.1/plugins/motion.js"></script>
-<script src="site_libs/highcharts-9.3.1/custom/reset.js"></script>
-<script src="site_libs/highcharts-9.3.1/modules/boost.js"></script>
-<script src="site_libs/highchart-binding-0.9.4/highchart.js"></script>
 
 
 </head>
@@ -112,9 +76,9 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Targeting Dashboard - Italy</span>
     </a>
@@ -126,68 +90,68 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./map.html" rel="" target="">
- <span class="menu-text"><iconify-icon inline="" icon="ph:map-trifold-thin"></iconify-icon> Map</span></a>
+    <a class="nav-link" href="./map.html"> 
+<span class="menu-text"><iconify-icon inline="" icon="ph:map-trifold-thin"></iconify-icon> Map</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./index.html" rel="" target="">
- <span class="menu-text"><iconify-icon inline="" icon="ph:coins"></iconify-icon> Spending</span></a>
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text"><iconify-icon inline="" icon="ph:coins"></iconify-icon> Spending</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-iconify-ph-users-three-thin--targeting" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-iconify-ph-users-three-thin--targeting" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text"><iconify-icon inline="" icon="ph:users-three-thin"></iconify-icon> Targeting</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-iconify-ph-users-three-thin--targeting">    
         <li>
-    <a class="dropdown-item" href="./targeting.html" rel="" target="">
+    <a class="dropdown-item" href="./targeting.html">
  <span class="dropdown-text">Spending per Targeting</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./detailed.html" rel="" target="">
+    <a class="dropdown-item" href="./detailed.html">
  <span class="dropdown-text">Detailed Targeting</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./location.html" rel="" target="">
+    <a class="dropdown-item" href="./location.html">
  <span class="dropdown-text">Location</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./demographics.html" rel="" target="">
+    <a class="dropdown-item" href="./demographics.html">
  <span class="dropdown-text">Demographics</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./about.html" rel="" target="">
- <span class="menu-text"><iconify-icon inline="" icon="ph:info-thin"></iconify-icon> About</span></a>
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text"><iconify-icon inline="" icon="ph:info-thin"></iconify-icon> About</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/favstats/betargex" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/favstats/betargex"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./detailed.html">Detailed Targeting</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./detailed.html">Detailed Targeting</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -217,7 +181,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -248,12 +212,15 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <section id="top-targeted-audiences" class="level2">
 <h2 class="anchored" data-anchor-id="top-targeted-audiences">Top Targeted Audiences</h2>
 <p>The chart below displays the most utilized targeting criteria by political parties on Meta, based on the amounts spent.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
+<<<<<<< HEAD
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">13 Feb - 13 Mar 2024</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">7 Mar - 13 Mar 2024</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
@@ -360,6 +327,15 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
+=======
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">14 Feb - 14 Mar 2024</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">8 Mar - 14 Mar 2024</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+No data (yet).
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+No data (yet).
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
 </div>
 </div>
 </div>
@@ -369,6 +345,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="top-excluded-audiences">Top Excluded Audiences</h2>
 <p>Among the detailed options offered by Meta, the chart below shows the most excluded target audiences per party. The ranking is based on the amounts spent.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
+<<<<<<< HEAD
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">13 Feb - 13 Mar 2024</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">7 Mar - 13 Mar 2024</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
@@ -412,6 +389,15 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
+=======
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">14 Feb - 14 Mar 2024</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">8 Mar - 14 Mar 2024</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+No data (yet).
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+No data (yet).
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
 </div>
 </div>
 </div>
@@ -420,23 +406,35 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="top-contested-audiences">Top Contested Audiences</h2>
 <p>The charts below show the target audiences where most competition takes place. For example, the groups in which all parties invest large amounts to reach voters with the same interests.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
+<<<<<<< HEAD
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">13 Feb - 13 Mar 2024</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">7 Mar - 13 Mar 2024</a></li></ul>
+=======
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">14 Feb - 14 Mar 2024</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">8 Mar - 14 Mar 2024</a></li></ul>
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
 <div class="tab-content">
 <div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
 <div class="cell">
 <div class="cell-output-display">
+<<<<<<< HEAD
 
 <div class="highchart html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-de59b9a43972d7c9adad" style="width:100%;height:464px;"></div>
 <script type="application/json" data-for="htmlwidget-de59b9a43972d7c9adad">{"x":{"hc_opts":{"chart":{"reflow":true},"title":{"text":null},"yAxis":{"title":{"text":"% of budget spent on targeting method"},"type":"linear","labels":{"format":"{value}%"},"max":100,"min":0},"credits":{"enabled":true,"text":"Source: Meta Ad Library and data compiled by Who Targets Me. Data Viz: Fabio Votta (@favstats)."},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":true},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"bar":{"stacking":"normal"}},"series":[{"name":"Europa Verde","data":[{"party":"Europa Verde","value":"INTERESTS: Ecology","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":305.845374383773,"n":3,"total_spenderino":750.400998314306,"perc":40.7575916171248,"labb":null,"short_name":"EV","colors":"#54C160","y":40.7575916171248,"color":"#54C160","name":"INTERESTS: Ecology"},{"party":"Europa Verde","value":"INTERESTS: Politics (politics)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":100,"n":5,"total_spenderino":1407.73211357765,"perc":7.10362426455251,"labb":null,"short_name":"EV","colors":"#54C160","y":7.10362426455251,"color":"#54C160","name":"INTERESTS: Politics (politics)"},{"party":"Europa Verde","value":"INTERESTS: Politics and social issues","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":100,"n":5,"total_spenderino":2068.79899577187,"perc":4.83372237730084,"labb":null,"short_name":"EV","colors":"#54C160","y":4.83372237730084,"color":"#54C160","name":"INTERESTS: Politics and social issues"}],"type":"bar","showInLegend":true},{"name":"Forza Italia","data":[{"party":"Forza Italia","value":"INTERESTS: Politics and social issues","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":478.061712616394,"n":5,"total_spenderino":2068.79899577187,"perc":23.1081759800463,"labb":null,"short_name":"FI","colors":"#0039AA","y":23.1081759800463,"color":"#0039AA","name":"INTERESTS: Politics and social issues"},{"party":"Forza Italia","value":"BEHAVIORS: Small business owners","is_exclusion":false,"detailed_type":"BEHAVIORS","total_spend":434.557896658757,"n":3,"total_spenderino":2358.72345870504,"perc":18.4234355687179,"labb":null,"short_name":"FI","colors":"#0039AA","y":18.4234355687179,"color":"#0039AA","name":"BEHAVIORS: Small business owners"},{"party":"Forza Italia","value":"INTERESTS: Small and medium enterprises (business and finance)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":434.557896658757,"n":3,"total_spenderino":3235.71127796612,"perc":13.4300578552209,"labb":null,"short_name":"FI","colors":"#0039AA","y":13.4300578552209,"color":"#0039AA","name":"INTERESTS: Small and medium enterprises (business and finance)"},{"party":"Forza Italia","value":"INTERESTS: Activism","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":100,"n":3,"total_spenderino":531.66836639318,"perc":18.808717298416,"labb":null,"short_name":"FI","colors":"#0039AA","y":18.808717298416,"color":"#0039AA","name":"INTERESTS: Activism"},{"party":"Forza Italia","value":"INTERESTS: Community issues (law and government)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":100,"n":4,"total_spenderino":1819.22285685513,"perc":5.49685266008964,"labb":null,"short_name":"FI","colors":"#0039AA","y":5.49685266008964,"color":"#0039AA","name":"INTERESTS: Community issues (law and government)"},{"party":"Forza Italia","value":"INTERESTS: Politics (politics)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":100,"n":5,"total_spenderino":1407.73211357765,"perc":7.10362426455251,"labb":null,"short_name":"FI","colors":"#0039AA","y":7.10362426455251,"color":"#0039AA","name":"INTERESTS: Politics (politics)"},{"party":"Forza Italia","value":"INTERESTS: Social change (politics)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":100,"n":3,"total_spenderino":633.333333333333,"perc":15.7894736842105,"labb":null,"short_name":"FI","colors":"#0039AA","y":15.7894736842105,"color":"#0039AA","name":"INTERESTS: Social change (politics)"},{"party":"Forza Italia","value":"INTERESTS: Social movement (social causes)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":100,"n":3,"total_spenderino":483.321258955163,"perc":20.6901720433689,"labb":null,"short_name":"FI","colors":"#0039AA","y":20.6901720433689,"color":"#0039AA","name":"INTERESTS: Social movement (social causes)"}],"type":"bar","showInLegend":true},{"name":"Fratelli d'Italia","data":[{"party":"Fratelli d'Italia","value":"INTERESTS: Politics (politics)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":415.045756442136,"n":5,"total_spenderino":1407.73211357765,"perc":29.4832910636191,"labb":null,"short_name":"FdI","colors":"#03386A","y":29.4832910636191,"color":"#03386A","name":"INTERESTS: Politics (politics)"},{"party":"Fratelli d'Italia","value":"INTERESTS: Politics and social issues","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":335.52032158969,"n":5,"total_spenderino":2068.79899577187,"perc":16.2181208650726,"labb":null,"short_name":"FdI","colors":"#03386A","y":16.2181208650726,"color":"#03386A","name":"INTERESTS: Politics and social issues"},{"party":"Fratelli d'Italia","value":"INTERESTS: Entrepreneurship (business and finance)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":194.927903606597,"n":4,"total_spenderino":3129.41461824729,"perc":6.22889349560752,"labb":null,"short_name":"FdI","colors":"#03386A","y":6.22889349560752,"color":"#03386A","name":"INTERESTS: Entrepreneurship (business and finance)"}],"type":"bar","showInLegend":true},{"name":"Italia Viva","data":[{"party":"Italia Viva","value":"INTERESTS: Entrepreneurship (business and finance)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":2251.12408402778,"n":4,"total_spenderino":3129.41461824729,"perc":71.9343506258872,"labb":null,"short_name":"Viv","colors":"#D6418C","y":71.9343506258872,"color":"#D6418C","name":"INTERESTS: Entrepreneurship (business and finance)"},{"party":"Italia Viva","value":"INTERESTS: Small and medium enterprises (business and finance)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":2251.12408402778,"n":3,"total_spenderino":3235.71127796612,"perc":69.5712284145071,"labb":null,"short_name":"Viv","colors":"#D6418C","y":69.5712284145071,"color":"#D6418C","name":"INTERESTS: Small and medium enterprises (business and finance)"},{"party":"Italia Viva","value":"BEHAVIORS: Small business owners","is_exclusion":false,"detailed_type":"BEHAVIORS","total_spend":1374.1362647667,"n":3,"total_spenderino":2358.72345870504,"perc":58.2576248900797,"labb":null,"short_name":"Viv","colors":"#D6418C","y":58.2576248900797,"color":"#D6418C","name":"BEHAVIORS: Small business owners"},{"party":"Italia Viva","value":"INTERESTS: Business (business and finance)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1374.1362647667,"n":3,"total_spenderino":2024.16556204629,"perc":67.8865548615275,"labb":null,"short_name":"Viv","colors":"#D6418C","y":67.8865548615275,"color":"#D6418C","name":"INTERESTS: Business (business and finance)"},{"party":"Italia Viva","value":"INTERESTS: Small business (business and finance)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1374.1362647667,"n":3,"total_spenderino":2057.49889537962,"perc":66.7867315920558,"labb":null,"short_name":"Viv","colors":"#D6418C","y":66.7867315920558,"color":"#D6418C","name":"INTERESTS: Small business (business and finance)"},{"party":"Italia Viva","value":"INTERESTS: Community issues (law and government)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":907.380169563608,"n":4,"total_spenderino":1819.22285685513,"perc":49.8773509877831,"labb":null,"short_name":"Viv","colors":"#D6418C","y":49.8773509877831,"color":"#D6418C","name":"INTERESTS: Community issues (law and government)"}],"type":"bar","showInLegend":true},{"name":"Movimento 5 Stelle","data":[{"party":"Movimento 5 Stelle","value":"INTERESTS: Ecology","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":333.333333333333,"n":3,"total_spenderino":750.400998314306,"perc":44.4206942797424,"labb":null,"short_name":"5S","colors":"#FFEB3B","y":44.4206942797424,"color":"#FFEB3B","name":"INTERESTS: Ecology"},{"party":"Movimento 5 Stelle","value":"INTERESTS: Activism","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":233.333333333333,"n":3,"total_spenderino":531.66836639318,"perc":43.8870070296373,"labb":null,"short_name":"5S","colors":"#FFEB3B","y":43.8870070296373,"color":"#FFEB3B","name":"INTERESTS: Activism"},{"party":"Movimento 5 Stelle","value":"INTERESTS: Community issues (law and government)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":233.333333333333,"n":4,"total_spenderino":1819.22285685513,"perc":12.8259895402092,"labb":null,"short_name":"5S","colors":"#FFEB3B","y":12.8259895402092,"color":"#FFEB3B","name":"INTERESTS: Community issues (law and government)"},{"party":"Movimento 5 Stelle","value":"INTERESTS: Social change (politics)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":233.333333333333,"n":3,"total_spenderino":633.333333333333,"perc":36.8421052631579,"labb":null,"short_name":"5S","colors":"#FFEB3B","y":36.8421052631579,"color":"#FFEB3B","name":"INTERESTS: Social change (politics)"},{"party":"Movimento 5 Stelle","value":"INTERESTS: Politics and social issues","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":200,"n":5,"total_spenderino":2068.79899577187,"perc":9.66744475460168,"labb":null,"short_name":"5S","colors":"#FFEB3B","y":9.66744475460168,"color":"#FFEB3B","name":"INTERESTS: Politics and social issues"},{"party":"Movimento 5 Stelle","value":"INTERESTS: Entrepreneurship (business and finance)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":133.333333333333,"n":4,"total_spenderino":3129.41461824729,"perc":4.26064774401832,"labb":null,"short_name":"5S","colors":"#FFEB3B","y":4.26064774401832,"color":"#FFEB3B","name":"INTERESTS: Entrepreneurship (business and finance)"},{"party":"Movimento 5 Stelle","value":"INTERESTS: Politics (politics)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":133.333333333333,"n":5,"total_spenderino":1407.73211357765,"perc":9.47149901940333,"labb":null,"short_name":"5S","colors":"#FFEB3B","y":9.47149901940333,"color":"#FFEB3B","name":"INTERESTS: Politics (politics)"},{"party":"Movimento 5 Stelle","value":"INTERESTS: Small business (business and finance)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":133.333333333333,"n":3,"total_spenderino":2057.49889537962,"perc":6.4803598987465,"labb":null,"short_name":"5S","colors":"#FFEB3B","y":6.4803598987465,"color":"#FFEB3B","name":"INTERESTS: Small business (business and finance)"},{"party":"Movimento 5 Stelle","value":"INTERESTS: Social movement (social causes)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":133.333333333333,"n":3,"total_spenderino":483.321258955163,"perc":27.5868960578252,"labb":null,"short_name":"5S","colors":"#FFEB3B","y":27.5868960578252,"color":"#FFEB3B","name":"INTERESTS: Social movement (social causes)"},{"party":"Movimento 5 Stelle","value":"INTERESTS: Business (business and finance)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":100,"n":3,"total_spenderino":2024.16556204629,"perc":4.94030734812557,"labb":null,"short_name":"5S","colors":"#FFEB3B","y":4.94030734812557,"color":"#FFEB3B","name":"INTERESTS: Business (business and finance)"}],"type":"bar","showInLegend":true},{"name":"Partito Democratico","data":[{"party":"Partito Democratico","value":"INTERESTS: Politics and social issues","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":955.216961565789,"n":5,"total_spenderino":2068.79899577187,"perc":46.1725360229787,"labb":null,"short_name":"PD","colors":"#EF3E3E","y":46.1725360229787,"color":"#EF3E3E","name":"INTERESTS: Politics and social issues"},{"party":"Partito Democratico","value":"INTERESTS: Politics (politics)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":659.353023802182,"n":5,"total_spenderino":1407.73211357765,"perc":46.8379613878725,"labb":null,"short_name":"PD","colors":"#EF3E3E","y":46.8379613878725,"color":"#EF3E3E","name":"INTERESTS: Politics (politics)"},{"party":"Partito Democratico","value":"INTERESTS: Community issues (law and government)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":578.509353958189,"n":4,"total_spenderino":1819.22285685513,"perc":31.7998068119181,"labb":null,"short_name":"PD","colors":"#EF3E3E","y":31.7998068119181,"color":"#EF3E3E","name":"INTERESTS: Community issues (law and government)"},{"party":"Partito Democratico","value":"BEHAVIORS: Small business owners","is_exclusion":false,"detailed_type":"BEHAVIORS","total_spend":550.029297279588,"n":3,"total_spenderino":2358.72345870504,"perc":23.3189395412024,"labb":null,"short_name":"PD","colors":"#EF3E3E","y":23.3189395412024,"color":"#EF3E3E","name":"BEHAVIORS: Small business owners"},{"party":"Partito Democratico","value":"INTERESTS: Business (business and finance)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":550.029297279588,"n":3,"total_spenderino":2024.16556204629,"perc":27.1731377903469,"labb":null,"short_name":"PD","colors":"#EF3E3E","y":27.1731377903469,"color":"#EF3E3E","name":"INTERESTS: Business (business and finance)"},{"party":"Partito Democratico","value":"INTERESTS: Entrepreneurship (business and finance)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":550.029297279588,"n":4,"total_spenderino":3129.41461824729,"perc":17.576108134487,"labb":null,"short_name":"PD","colors":"#EF3E3E","y":17.576108134487,"color":"#EF3E3E","name":"INTERESTS: Entrepreneurship (business and finance)"},{"party":"Partito Democratico","value":"INTERESTS: Small and medium enterprises (business and finance)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":550.029297279588,"n":3,"total_spenderino":3235.71127796612,"perc":16.998713730272,"labb":null,"short_name":"PD","colors":"#EF3E3E","y":16.998713730272,"color":"#EF3E3E","name":"INTERESTS: Small and medium enterprises (business and finance)"},{"party":"Partito Democratico","value":"INTERESTS: Small business (business and finance)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":550.029297279588,"n":3,"total_spenderino":2057.49889537962,"perc":26.7329085091977,"labb":null,"short_name":"PD","colors":"#EF3E3E","y":26.7329085091977,"color":"#EF3E3E","name":"INTERESTS: Small business (business and finance)"},{"party":"Partito Democratico","value":"INTERESTS: Social change (politics)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":300,"n":3,"total_spenderino":633.333333333333,"perc":47.3684210526316,"labb":null,"short_name":"PD","colors":"#EF3E3E","y":47.3684210526316,"color":"#EF3E3E","name":"INTERESTS: Social change (politics)"},{"party":"Partito Democratico","value":"INTERESTS: Social movement (social causes)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":249.98792562183,"n":3,"total_spenderino":483.321258955163,"perc":51.7229318988059,"labb":null,"short_name":"PD","colors":"#EF3E3E","y":51.7229318988059,"color":"#EF3E3E","name":"INTERESTS: Social movement (social causes)"},{"party":"Partito Democratico","value":"INTERESTS: Activism","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":198.335033059847,"n":3,"total_spenderino":531.66836639318,"perc":37.3042756719466,"labb":null,"short_name":"PD","colors":"#EF3E3E","y":37.3042756719466,"color":"#EF3E3E","name":"INTERESTS: Activism"},{"party":"Partito Democratico","value":"INTERESTS: Ecology","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":111.2222905972,"n":3,"total_spenderino":750.400998314306,"perc":14.8217141031327,"labb":null,"short_name":"PD","colors":"#EF3E3E","y":14.8217141031327,"color":"#EF3E3E","name":"INTERESTS: Ecology"}],"type":"bar","showInLegend":true}],"xAxis":{"type":"category","title":{"text":"Targeting criteria"},"labels":{"style":{"fontSize":"10px"}},"categories":["INTERESTS: Entrepreneurship (business and finance)","INTERESTS: Small and medium enterprises (business and finance)","BEHAVIORS: Small business owners","INTERESTS: Business (business and finance)","INTERESTS: Small business (business and finance)","INTERESTS: Politics and social issues","INTERESTS: Community issues (law and government)","INTERESTS: Politics (politics)","INTERESTS: Ecology","INTERESTS: Social change (politics)","INTERESTS: Social movement (social causes)","INTERESTS: Activism"]},"tooltip":{"pointFormat":"<b>{point.party}<\/b><br>..makes up {point.y:.1f}% of total budget spent on {point.value}. <br>..a total of €{point.total_spend:.0f} on this audience.<br><br>Total Expenditure on audience is €{point.total_spenderino:.0f}.","headerFormat":""},"legend":{"enabled":true,"verticalAlign":"bottom","layout":"horizontal"},"colors":{"#54C160":"#54C160","#0039AA":"#0039AA","#03386A":"#03386A","#D6418C":"#D6418C","#FFEB3B":"#FFEB3B","#EF3E3E":"#EF3E3E"}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":[],"jsHooks":[]}</script>
+=======
+No data (yet).
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
 </div>
 </div>
 </div>
 <div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
 <div class="cell">
 <div class="cell-output-display">
+<<<<<<< HEAD
 
 <div class="highchart html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-e9919cc2babf6ddf3f11" style="width:100%;height:464px;"></div>
 <script type="application/json" data-for="htmlwidget-e9919cc2babf6ddf3f11">{"x":{"hc_opts":{"chart":{"reflow":true},"title":{"text":null},"yAxis":{"title":{"text":"% of budget spent on targeting method"},"type":"linear","labels":{"format":"{value}%"},"max":100,"min":0},"credits":{"enabled":true,"text":"Source: Meta Ad Library and data compiled by Who Targets Me. Data Viz: Fabio Votta (@favstats)."},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":true},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"bar":{"stacking":"normal"}},"series":[{"name":"Azione","data":[{"party":"Azione","value":"INTERESTS: Politics (politics)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":100,"n":3,"total_spenderino":409.053993081666,"perc":24.4466504890065,"labb":null,"short_name":"Az","colors":"#03B803","y":24.4466504890065,"color":"#03B803","name":"INTERESTS: Politics (politics)"},{"party":"Azione","value":"INTERESTS: Politics and social issues","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":100,"n":4,"total_spenderino":731.605214152699,"perc":13.6685739884746,"labb":null,"short_name":"Az","colors":"#03B803","y":13.6685739884746,"color":"#03B803","name":"INTERESTS: Politics and social issues"}],"type":"bar","showInLegend":true},{"name":"Forza Italia","data":[{"party":"Forza Italia","value":"INTERESTS: Politics and social issues","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":231.605214152699,"n":4,"total_spenderino":731.605214152699,"perc":31.6571300576268,"labb":null,"short_name":"FI","colors":"#0039AA","y":31.6571300576268,"color":"#0039AA","name":"INTERESTS: Politics and social issues"}],"type":"bar","showInLegend":true},{"name":"Movimento 5 Stelle","data":[{"party":"Movimento 5 Stelle","value":"INTERESTS: Politics (politics)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":100,"n":3,"total_spenderino":409.053993081666,"perc":24.4466504890065,"labb":null,"short_name":"5S","colors":"#FFEB3B","y":24.4466504890065,"color":"#FFEB3B","name":"INTERESTS: Politics (politics)"},{"party":"Movimento 5 Stelle","value":"INTERESTS: Politics and social issues","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":100,"n":4,"total_spenderino":731.605214152699,"perc":13.6685739884746,"labb":null,"short_name":"5S","colors":"#FFEB3B","y":13.6685739884746,"color":"#FFEB3B","name":"INTERESTS: Politics and social issues"}],"type":"bar","showInLegend":true},{"name":"Partito Democratico","data":[{"party":"Partito Democratico","value":"INTERESTS: Politics and social issues","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":300,"n":4,"total_spenderino":731.605214152699,"perc":41.0057219654239,"labb":null,"short_name":"PD","colors":"#EF3E3E","y":41.0057219654239,"color":"#EF3E3E","name":"INTERESTS: Politics and social issues"},{"party":"Partito Democratico","value":"INTERESTS: Politics (politics)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":209.053993081666,"n":3,"total_spenderino":409.053993081666,"perc":51.1066990219869,"labb":null,"short_name":"PD","colors":"#EF3E3E","y":51.1066990219869,"color":"#EF3E3E","name":"INTERESTS: Politics (politics)"}],"type":"bar","showInLegend":true}],"xAxis":{"type":"category","title":{"text":"Targeting criteria"},"labels":{"style":{"fontSize":"10px"}},"categories":["INTERESTS: Politics and social issues","INTERESTS: Politics (politics)"]},"tooltip":{"pointFormat":"<b>{point.party}<\/b><br>..makes up {point.y:.1f}% of total budget spent on {point.value}. <br>..a total of €{point.total_spend:.0f} on this audience.<br><br>Total Expenditure on audience is €{point.total_spenderino:.0f}.","headerFormat":""},"legend":{"enabled":true,"verticalAlign":"bottom","layout":"horizontal"},"colors":{"#03B803":"#03B803","#0039AA":"#0039AA","#FFEB3B":"#FFEB3B","#EF3E3E":"#EF3E3E"}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":[],"jsHooks":[]}</script>
+=======
+No data (yet).
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
 </div>
 </div>
 </div>
@@ -526,10 +524,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -539,8 +554,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -552,7 +576,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -596,6 +743,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -621,6 +769,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -681,6 +855,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

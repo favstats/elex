@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
+<meta name="generator" content="quarto-1.4.551">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -47,7 +47,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,12 +62,13 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
-<script src="site_libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 <script src="site_libs/jquery-3.5.1/jquery.min.js"></script>
 <script src="site_libs/proj4js-2.3.15/proj4.js"></script>
 <link href="site_libs/highcharts-9.3.1/css/motion.css" rel="stylesheet">
@@ -112,9 +119,9 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Targeting Dashboard - Germany</span>
     </a>
@@ -126,51 +133,51 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./map.html" rel="" target="">
- <span class="menu-text"><iconify-icon inline="" icon="ph:map-trifold-thin"></iconify-icon> Map</span></a>
+    <a class="nav-link" href="./map.html"> 
+<span class="menu-text"><iconify-icon inline="" icon="ph:map-trifold-thin"></iconify-icon> Map</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
- <span class="menu-text"><iconify-icon inline="" icon="ph:coins"></iconify-icon> Spending</span></a>
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text"><iconify-icon inline="" icon="ph:coins"></iconify-icon> Spending</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-iconify-ph-users-three-thin--targeting" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-iconify-ph-users-three-thin--targeting" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text"><iconify-icon inline="" icon="ph:users-three-thin"></iconify-icon> Targeting</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-iconify-ph-users-three-thin--targeting">    
         <li>
-    <a class="dropdown-item" href="./targeting.html" rel="" target="">
+    <a class="dropdown-item" href="./targeting.html">
  <span class="dropdown-text">Spending per Targeting</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./detailed.html" rel="" target="">
+    <a class="dropdown-item" href="./detailed.html">
  <span class="dropdown-text">Detailed Targeting</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./location.html" rel="" target="">
+    <a class="dropdown-item" href="./location.html">
  <span class="dropdown-text">Location</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./demographics.html" rel="" target="">
+    <a class="dropdown-item" href="./demographics.html">
  <span class="dropdown-text">Demographics</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./about.html" rel="" target="">
- <span class="menu-text"><iconify-icon inline="" icon="ph:info-thin"></iconify-icon> About</span></a>
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text"><iconify-icon inline="" icon="ph:info-thin"></iconify-icon> About</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/favstats/betargex" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/favstats/betargex"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -197,10 +204,13 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <p>Here you can see the expenditures of political parties in the lead-up to the elections according to the latest data.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
+<<<<<<< HEAD
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">13 Feb - 13 Mar 2024</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">7 Mar - 13 Mar 2024</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
@@ -212,20 +222,48 @@ ul.task-list li input[type="checkbox"] {
 <style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 #hcvrvraixy table {
   font-family: Chivo, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+=======
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">15 Feb - 15 Mar 2024</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">9 Mar - 15 Mar 2024</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>During this period, political parties spent a total of €200 and displayed 5 advertisements on Meta.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<div id="pumygydjjc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cairo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+#pumygydjjc table {
+  font-family: Cairo, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+<<<<<<< HEAD
 #hcvrvraixy thead, #hcvrvraixy tbody, #hcvrvraixy tfoot, #hcvrvraixy tr, #hcvrvraixy td, #hcvrvraixy th {
   border-style: none;
 }
 
 #hcvrvraixy p {
+=======
+#pumygydjjc thead, #pumygydjjc tbody, #pumygydjjc tfoot, #pumygydjjc tr, #pumygydjjc td, #pumygydjjc th {
+  border-style: none;
+}
+
+#pumygydjjc p {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   margin: 0;
   padding: 0;
 }
 
+<<<<<<< HEAD
 #hcvrvraixy .gt_table {
+=======
+#pumygydjjc .gt_table {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -233,7 +271,7 @@ ul.task-list li input[type="checkbox"] {
   margin-right: auto;
   color: #333333;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
   font-style: normal;
   background-color: #FFFFFF;
   width: auto;
@@ -251,12 +289,20 @@ ul.task-list li input[type="checkbox"] {
   border-left-color: #D3D3D3;
 }
 
+<<<<<<< HEAD
 #hcvrvraixy .gt_caption {
+=======
+#pumygydjjc .gt_caption {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
+<<<<<<< HEAD
 #hcvrvraixy .gt_title {
+=======
+#pumygydjjc .gt_title {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -268,7 +314,11 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-width: 0;
 }
 
+<<<<<<< HEAD
 #hcvrvraixy .gt_subtitle {
+=======
+#pumygydjjc .gt_subtitle {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -280,7 +330,11 @@ ul.task-list li input[type="checkbox"] {
   border-top-width: 0;
 }
 
+<<<<<<< HEAD
 #hcvrvraixy .gt_heading {
+=======
+#pumygydjjc .gt_heading {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -292,13 +346,21 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
+<<<<<<< HEAD
 #hcvrvraixy .gt_bottom_border {
+=======
+#pumygydjjc .gt_bottom_border {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   border-bottom-style: none;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
+<<<<<<< HEAD
 #hcvrvraixy .gt_col_headings {
+=======
+#pumygydjjc .gt_col_headings {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -313,12 +375,16 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
+<<<<<<< HEAD
 #hcvrvraixy .gt_col_heading {
+=======
+#pumygydjjc .gt_col_heading {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   color: #333333;
   background-color: #FFFFFF;
-  font-size: 80%;
+  font-size: 100%;
   font-weight: normal;
-  text-transform: uppercase;
+  text-transform: inherit;
   border-left-style: none;
   border-left-width: 1px;
   border-left-color: #D3D3D3;
@@ -333,18 +399,23 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
+<<<<<<< HEAD
 #hcvrvraixy .gt_column_spanner_outer {
+=======
+#pumygydjjc .gt_column_spanner_outer {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   color: #333333;
   background-color: #FFFFFF;
-  font-size: 80%;
+  font-size: 100%;
   font-weight: normal;
-  text-transform: uppercase;
+  text-transform: inherit;
   padding-top: 0;
   padding-bottom: 0;
   padding-left: 4px;
   padding-right: 4px;
 }
 
+<<<<<<< HEAD
 #hcvrvraixy .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
@@ -354,6 +425,17 @@ ul.task-list li input[type="checkbox"] {
 }
 
 #hcvrvraixy .gt_column_spanner {
+=======
+#pumygydjjc .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#pumygydjjc .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#pumygydjjc .gt_column_spanner {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #000000;
@@ -365,20 +447,28 @@ ul.task-list li input[type="checkbox"] {
   width: 100%;
 }
 
+<<<<<<< HEAD
 #hcvrvraixy .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
 #hcvrvraixy .gt_group_heading {
+=======
+#pumygydjjc .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#pumygydjjc .gt_group_heading {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
   padding-right: 5px;
   color: #333333;
   background-color: #FFFFFF;
-  font-size: 80%;
-  font-weight: bolder;
-  text-transform: uppercase;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #000000;
@@ -395,12 +485,16 @@ ul.task-list li input[type="checkbox"] {
   text-align: left;
 }
 
+<<<<<<< HEAD
 #hcvrvraixy .gt_empty_group_heading {
+=======
+#pumygydjjc .gt_empty_group_heading {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
-  font-size: 80%;
-  font-weight: bolder;
+  font-size: 100%;
+  font-weight: initial;
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #000000;
@@ -410,6 +504,7 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 
+<<<<<<< HEAD
 #hcvrvraixy .gt_from_md > :first-child {
   margin-top: 0;
 }
@@ -419,6 +514,17 @@ ul.task-list li input[type="checkbox"] {
 }
 
 #hcvrvraixy .gt_row {
+=======
+#pumygydjjc .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#pumygydjjc .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#pumygydjjc .gt_row {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   padding-top: 3px;
   padding-bottom: 3px;
   padding-left: 5px;
@@ -437,12 +543,16 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
+<<<<<<< HEAD
 #hcvrvraixy .gt_stub {
+=======
+#pumygydjjc .gt_stub {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   color: #333333;
   background-color: #FFFFFF;
-  font-size: 80%;
-  font-weight: bolder;
-  text-transform: uppercase;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
   border-right-style: solid;
   border-right-width: 0px;
   border-right-color: #FFFFFF;
@@ -450,7 +560,11 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
+<<<<<<< HEAD
 #hcvrvraixy .gt_stub_row_group {
+=======
+#pumygydjjc .gt_stub_row_group {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -464,6 +578,7 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: top;
 }
 
+<<<<<<< HEAD
 #hcvrvraixy .gt_row_group_first td {
   border-top-width: 2px;
 }
@@ -473,6 +588,17 @@ ul.task-list li input[type="checkbox"] {
 }
 
 #hcvrvraixy .gt_summary_row {
+=======
+#pumygydjjc .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#pumygydjjc .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#pumygydjjc .gt_summary_row {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -482,16 +608,28 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
+<<<<<<< HEAD
 #hcvrvraixy .gt_first_summary_row {
+=======
+#pumygydjjc .gt_first_summary_row {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
+<<<<<<< HEAD
 #hcvrvraixy .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
 #hcvrvraixy .gt_last_summary_row {
+=======
+#pumygydjjc .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#pumygydjjc .gt_last_summary_row {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -501,7 +639,11 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
+<<<<<<< HEAD
 #hcvrvraixy .gt_grand_summary_row {
+=======
+#pumygydjjc .gt_grand_summary_row {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -511,7 +653,11 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
+<<<<<<< HEAD
 #hcvrvraixy .gt_first_grand_summary_row {
+=======
+#pumygydjjc .gt_first_grand_summary_row {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -521,7 +667,11 @@ ul.task-list li input[type="checkbox"] {
   border-top-color: #D3D3D3;
 }
 
+<<<<<<< HEAD
 #hcvrvraixy .gt_last_grand_summary_row_top {
+=======
+#pumygydjjc .gt_last_grand_summary_row_top {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -531,11 +681,19 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
+<<<<<<< HEAD
 #hcvrvraixy .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
 #hcvrvraixy .gt_table_body {
+=======
+#pumygydjjc .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#pumygydjjc .gt_table_body {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -544,7 +702,11 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
+<<<<<<< HEAD
 #hcvrvraixy .gt_footnotes {
+=======
+#pumygydjjc .gt_footnotes {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -558,7 +720,11 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
+<<<<<<< HEAD
 #hcvrvraixy .gt_footnote {
+=======
+#pumygydjjc .gt_footnote {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -567,7 +733,11 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
+<<<<<<< HEAD
 #hcvrvraixy .gt_sourcenotes {
+=======
+#pumygydjjc .gt_sourcenotes {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -581,7 +751,11 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
+<<<<<<< HEAD
 #hcvrvraixy .gt_sourcenote {
+=======
+#pumygydjjc .gt_sourcenote {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   font-size: 12px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -589,6 +763,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
+<<<<<<< HEAD
 #hcvrvraixy .gt_left {
   text-align: left;
 }
@@ -598,10 +773,22 @@ ul.task-list li input[type="checkbox"] {
 }
 
 #hcvrvraixy .gt_right {
+=======
+#pumygydjjc .gt_left {
+  text-align: left;
+}
+
+#pumygydjjc .gt_center {
+  text-align: center;
+}
+
+#pumygydjjc .gt_right {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
+<<<<<<< HEAD
 #hcvrvraixy .gt_font_normal {
   font-weight: normal;
 }
@@ -619,16 +806,40 @@ ul.task-list li input[type="checkbox"] {
 }
 
 #hcvrvraixy .gt_footnote_marks {
+=======
+#pumygydjjc .gt_font_normal {
+  font-weight: normal;
+}
+
+#pumygydjjc .gt_font_bold {
+  font-weight: bold;
+}
+
+#pumygydjjc .gt_font_italic {
+  font-style: italic;
+}
+
+#pumygydjjc .gt_super {
+  font-size: 65%;
+}
+
+#pumygydjjc .gt_footnote_marks {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
+<<<<<<< HEAD
 #hcvrvraixy .gt_asterisk {
+=======
+#pumygydjjc .gt_asterisk {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   font-size: 100%;
   vertical-align: 0;
 }
 
+<<<<<<< HEAD
 #hcvrvraixy .gt_indent_1 {
   text-indent: 5px;
 }
@@ -646,6 +857,25 @@ ul.task-list li input[type="checkbox"] {
 }
 
 #hcvrvraixy .gt_indent_5 {
+=======
+#pumygydjjc .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#pumygydjjc .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#pumygydjjc .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#pumygydjjc .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#pumygydjjc .gt_indent_5 {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   text-indent: 25px;
 }
 
@@ -653,6 +883,7 @@ tbody tr:last-child {
   border-bottom: 2px solid #ffffff00;
 }
 </style>
+<<<<<<< HEAD
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
   <thead>
     
@@ -758,12 +989,51 @@ tbody tr:last-child {
   </tbody>
   
   
+=======
+
+<table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+<th id="Number of Advertisers" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Number of Advertisers</th>
+<th id="Top Spenders" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Top Spenders</th>
+<th id="Number of Ads" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Number of Ads</th>
+<th id="Total Spend" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Total Spend</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td id="stub_1_1" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>AfD</p></td>
+<td class="gt_row gt_center" headers="stub_1_1 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #009EE0"><p>1</p></td>
+<td class="gt_row gt_left" headers="stub_1_1 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=DE&amp;view_all_page_id=100166866328132">Rene Dierkes</a> (€100)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_1 Number of Ads"><p>2</p></td>
+<td class="gt_row gt_center" headers="stub_1_1 Total Spend"><p>€100</p></td>
+</tr>
+<tr class="even">
+<td id="stub_1_2" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>Andere Seiten</p></td>
+<td class="gt_row gt_center" headers="stub_1_2 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #CCCCCC"><p>1</p></td>
+<td class="gt_row gt_left" headers="stub_1_2 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=DE&amp;view_all_page_id=100217685139706">Melanie Leicher - Bürgermeisterkandidatin Stadt Montabaur 2024</a> (€100)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_2 Number of Ads"><p>3</p></td>
+<td class="gt_row gt_center" headers="stub_1_2 Total Spend"><p>€100</p></td>
+</tr>
+</tbody>
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
 </table>
+
+</div>
 </div>
 </div>
 </div>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<<<<<<< HEAD
 <p>During this period, political parties spent a total of €188,234 and displayed 2137 advertisements on Meta.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -772,20 +1042,45 @@ tbody tr:last-child {
 <style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 #slfzhomfxy table {
   font-family: Chivo, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+=======
+<p>During this period, political parties spent a total of €1,200 and displayed 37 advertisements on Meta.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<div id="opyksromci" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cairo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+#opyksromci table {
+  font-family: Cairo, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+<<<<<<< HEAD
 #slfzhomfxy thead, #slfzhomfxy tbody, #slfzhomfxy tfoot, #slfzhomfxy tr, #slfzhomfxy td, #slfzhomfxy th {
   border-style: none;
 }
 
 #slfzhomfxy p {
+=======
+#opyksromci thead, #opyksromci tbody, #opyksromci tfoot, #opyksromci tr, #opyksromci td, #opyksromci th {
+  border-style: none;
+}
+
+#opyksromci p {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   margin: 0;
   padding: 0;
 }
 
+<<<<<<< HEAD
 #slfzhomfxy .gt_table {
+=======
+#opyksromci .gt_table {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -793,7 +1088,7 @@ tbody tr:last-child {
   margin-right: auto;
   color: #333333;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
   font-style: normal;
   background-color: #FFFFFF;
   width: auto;
@@ -811,12 +1106,20 @@ tbody tr:last-child {
   border-left-color: #D3D3D3;
 }
 
+<<<<<<< HEAD
 #slfzhomfxy .gt_caption {
+=======
+#opyksromci .gt_caption {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
+<<<<<<< HEAD
 #slfzhomfxy .gt_title {
+=======
+#opyksromci .gt_title {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -828,7 +1131,11 @@ tbody tr:last-child {
   border-bottom-width: 0;
 }
 
+<<<<<<< HEAD
 #slfzhomfxy .gt_subtitle {
+=======
+#opyksromci .gt_subtitle {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -840,7 +1147,11 @@ tbody tr:last-child {
   border-top-width: 0;
 }
 
+<<<<<<< HEAD
 #slfzhomfxy .gt_heading {
+=======
+#opyksromci .gt_heading {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -852,13 +1163,21 @@ tbody tr:last-child {
   border-right-color: #D3D3D3;
 }
 
+<<<<<<< HEAD
 #slfzhomfxy .gt_bottom_border {
+=======
+#opyksromci .gt_bottom_border {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   border-bottom-style: none;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
+<<<<<<< HEAD
 #slfzhomfxy .gt_col_headings {
+=======
+#opyksromci .gt_col_headings {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -873,12 +1192,16 @@ tbody tr:last-child {
   border-right-color: #D3D3D3;
 }
 
+<<<<<<< HEAD
 #slfzhomfxy .gt_col_heading {
+=======
+#opyksromci .gt_col_heading {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   color: #333333;
   background-color: #FFFFFF;
-  font-size: 80%;
+  font-size: 100%;
   font-weight: normal;
-  text-transform: uppercase;
+  text-transform: inherit;
   border-left-style: none;
   border-left-width: 1px;
   border-left-color: #D3D3D3;
@@ -893,18 +1216,23 @@ tbody tr:last-child {
   overflow-x: hidden;
 }
 
+<<<<<<< HEAD
 #slfzhomfxy .gt_column_spanner_outer {
+=======
+#opyksromci .gt_column_spanner_outer {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   color: #333333;
   background-color: #FFFFFF;
-  font-size: 80%;
+  font-size: 100%;
   font-weight: normal;
-  text-transform: uppercase;
+  text-transform: inherit;
   padding-top: 0;
   padding-bottom: 0;
   padding-left: 4px;
   padding-right: 4px;
 }
 
+<<<<<<< HEAD
 #slfzhomfxy .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
@@ -914,6 +1242,17 @@ tbody tr:last-child {
 }
 
 #slfzhomfxy .gt_column_spanner {
+=======
+#opyksromci .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#opyksromci .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#opyksromci .gt_column_spanner {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #000000;
@@ -925,20 +1264,28 @@ tbody tr:last-child {
   width: 100%;
 }
 
+<<<<<<< HEAD
 #slfzhomfxy .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
 #slfzhomfxy .gt_group_heading {
+=======
+#opyksromci .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#opyksromci .gt_group_heading {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
   padding-right: 5px;
   color: #333333;
   background-color: #FFFFFF;
-  font-size: 80%;
-  font-weight: bolder;
-  text-transform: uppercase;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #000000;
@@ -955,12 +1302,16 @@ tbody tr:last-child {
   text-align: left;
 }
 
+<<<<<<< HEAD
 #slfzhomfxy .gt_empty_group_heading {
+=======
+#opyksromci .gt_empty_group_heading {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
-  font-size: 80%;
-  font-weight: bolder;
+  font-size: 100%;
+  font-weight: initial;
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #000000;
@@ -970,6 +1321,7 @@ tbody tr:last-child {
   vertical-align: middle;
 }
 
+<<<<<<< HEAD
 #slfzhomfxy .gt_from_md > :first-child {
   margin-top: 0;
 }
@@ -979,6 +1331,17 @@ tbody tr:last-child {
 }
 
 #slfzhomfxy .gt_row {
+=======
+#opyksromci .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#opyksromci .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#opyksromci .gt_row {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   padding-top: 3px;
   padding-bottom: 3px;
   padding-left: 5px;
@@ -997,12 +1360,16 @@ tbody tr:last-child {
   overflow-x: hidden;
 }
 
+<<<<<<< HEAD
 #slfzhomfxy .gt_stub {
+=======
+#opyksromci .gt_stub {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   color: #333333;
   background-color: #FFFFFF;
-  font-size: 80%;
-  font-weight: bolder;
-  text-transform: uppercase;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
   border-right-style: solid;
   border-right-width: 0px;
   border-right-color: #FFFFFF;
@@ -1010,7 +1377,11 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
+<<<<<<< HEAD
 #slfzhomfxy .gt_stub_row_group {
+=======
+#opyksromci .gt_stub_row_group {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1024,6 +1395,7 @@ tbody tr:last-child {
   vertical-align: top;
 }
 
+<<<<<<< HEAD
 #slfzhomfxy .gt_row_group_first td {
   border-top-width: 2px;
 }
@@ -1033,6 +1405,17 @@ tbody tr:last-child {
 }
 
 #slfzhomfxy .gt_summary_row {
+=======
+#opyksromci .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#opyksromci .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#opyksromci .gt_summary_row {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1042,16 +1425,28 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
+<<<<<<< HEAD
 #slfzhomfxy .gt_first_summary_row {
+=======
+#opyksromci .gt_first_summary_row {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
+<<<<<<< HEAD
 #slfzhomfxy .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
 #slfzhomfxy .gt_last_summary_row {
+=======
+#opyksromci .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#opyksromci .gt_last_summary_row {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1061,7 +1456,11 @@ tbody tr:last-child {
   border-bottom-color: #D3D3D3;
 }
 
+<<<<<<< HEAD
 #slfzhomfxy .gt_grand_summary_row {
+=======
+#opyksromci .gt_grand_summary_row {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1071,7 +1470,11 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
+<<<<<<< HEAD
 #slfzhomfxy .gt_first_grand_summary_row {
+=======
+#opyksromci .gt_first_grand_summary_row {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1081,7 +1484,11 @@ tbody tr:last-child {
   border-top-color: #D3D3D3;
 }
 
+<<<<<<< HEAD
 #slfzhomfxy .gt_last_grand_summary_row_top {
+=======
+#opyksromci .gt_last_grand_summary_row_top {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1091,11 +1498,19 @@ tbody tr:last-child {
   border-bottom-color: #D3D3D3;
 }
 
+<<<<<<< HEAD
 #slfzhomfxy .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
 #slfzhomfxy .gt_table_body {
+=======
+#opyksromci .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#opyksromci .gt_table_body {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1104,7 +1519,11 @@ tbody tr:last-child {
   border-bottom-color: #D3D3D3;
 }
 
+<<<<<<< HEAD
 #slfzhomfxy .gt_footnotes {
+=======
+#opyksromci .gt_footnotes {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1118,7 +1537,11 @@ tbody tr:last-child {
   border-right-color: #D3D3D3;
 }
 
+<<<<<<< HEAD
 #slfzhomfxy .gt_footnote {
+=======
+#opyksromci .gt_footnote {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1127,7 +1550,11 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
+<<<<<<< HEAD
 #slfzhomfxy .gt_sourcenotes {
+=======
+#opyksromci .gt_sourcenotes {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1141,7 +1568,11 @@ tbody tr:last-child {
   border-right-color: #D3D3D3;
 }
 
+<<<<<<< HEAD
 #slfzhomfxy .gt_sourcenote {
+=======
+#opyksromci .gt_sourcenote {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   font-size: 12px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1149,6 +1580,7 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
+<<<<<<< HEAD
 #slfzhomfxy .gt_left {
   text-align: left;
 }
@@ -1158,10 +1590,22 @@ tbody tr:last-child {
 }
 
 #slfzhomfxy .gt_right {
+=======
+#opyksromci .gt_left {
+  text-align: left;
+}
+
+#opyksromci .gt_center {
+  text-align: center;
+}
+
+#opyksromci .gt_right {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
+<<<<<<< HEAD
 #slfzhomfxy .gt_font_normal {
   font-weight: normal;
 }
@@ -1179,16 +1623,40 @@ tbody tr:last-child {
 }
 
 #slfzhomfxy .gt_footnote_marks {
+=======
+#opyksromci .gt_font_normal {
+  font-weight: normal;
+}
+
+#opyksromci .gt_font_bold {
+  font-weight: bold;
+}
+
+#opyksromci .gt_font_italic {
+  font-style: italic;
+}
+
+#opyksromci .gt_super {
+  font-size: 65%;
+}
+
+#opyksromci .gt_footnote_marks {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
+<<<<<<< HEAD
 #slfzhomfxy .gt_asterisk {
+=======
+#opyksromci .gt_asterisk {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   font-size: 100%;
   vertical-align: 0;
 }
 
+<<<<<<< HEAD
 #slfzhomfxy .gt_indent_1 {
   text-indent: 5px;
 }
@@ -1206,6 +1674,25 @@ tbody tr:last-child {
 }
 
 #slfzhomfxy .gt_indent_5 {
+=======
+#opyksromci .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#opyksromci .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#opyksromci .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#opyksromci .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#opyksromci .gt_indent_5 {
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   text-indent: 25px;
 }
 
@@ -1213,6 +1700,7 @@ tbody tr:last-child {
   border-bottom: 2px solid #ffffff00;
 }
 </style>
+<<<<<<< HEAD
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
   <thead>
     
@@ -1318,7 +1806,73 @@ tbody tr:last-child {
   </tbody>
   
   
+=======
+
+<table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+<th id="Number of Advertisers" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Number of Advertisers</th>
+<th id="Top Spenders" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Top Spenders</th>
+<th id="Number of Ads" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Number of Ads</th>
+<th id="Total Spend" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Total Spend</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td id="stub_1_1" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>CDU</p></td>
+<td class="gt_row gt_center" headers="stub_1_1 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #FFA500"><p>4</p></td>
+<td class="gt_row gt_left" headers="stub_1_1 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=DE&amp;view_all_page_id=100643570087424">CDU Emsdetten</a> (€100)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=DE&amp;view_all_page_id=101034666025687">Paul Georg Wandrey</a> (€100)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=DE&amp;view_all_page_id=102081592078">CDU Velbert</a> (€100)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_1 Number of Ads"><p>6</p></td>
+<td class="gt_row gt_center" headers="stub_1_1 Total Spend"><p>€400</p></td>
+</tr>
+<tr class="even">
+<td id="stub_1_2" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>AfD</p></td>
+<td class="gt_row gt_center" headers="stub_1_2 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #009EE0"><p>3</p></td>
+<td class="gt_row gt_left" headers="stub_1_2 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=DE&amp;view_all_page_id=101945883972500">Bastian Treuheit - AfD Stadtrat Zirndorf</a> (€100)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=DE&amp;view_all_page_id=102004726050161">Sandra Weegels</a> (€100)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=DE&amp;view_all_page_id=100166866328132">Rene Dierkes</a> (€100)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_2 Number of Ads"><p>5</p></td>
+<td class="gt_row gt_center" headers="stub_1_2 Total Spend"><p>€300</p></td>
+</tr>
+<tr class="odd">
+<td id="stub_1_3" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>FDP</p></td>
+<td class="gt_row gt_center" headers="stub_1_3 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #FFED00"><p>2</p></td>
+<td class="gt_row gt_left" headers="stub_1_3 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=DE&amp;view_all_page_id=100728913356">FDP Kaarst</a> (€100)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=DE&amp;view_all_page_id=101985564727063">Tamer Kandemir</a> (€100)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_3 Number of Ads"><p>3</p></td>
+<td class="gt_row gt_center" headers="stub_1_3 Total Spend"><p>€200</p></td>
+</tr>
+<tr class="even">
+<td id="stub_1_4" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>Andere Seiten</p></td>
+<td class="gt_row gt_center" headers="stub_1_4 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #CCCCCC"><p>1</p></td>
+<td class="gt_row gt_left" headers="stub_1_4 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=DE&amp;view_all_page_id=100657495671604">Die PARTEI Steinbach-Hallenberg</a> (€100)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_4 Number of Ads"><p>1</p></td>
+<td class="gt_row gt_center" headers="stub_1_4 Total Spend"><p>€100</p></td>
+</tr>
+<tr class="odd">
+<td id="stub_1_5" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>Bündnis 90/Die Grünen</p></td>
+<td class="gt_row gt_center" headers="stub_1_5 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #64A12D"><p>1</p></td>
+<td class="gt_row gt_left" headers="stub_1_5 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=DE&amp;view_all_page_id=1014215128693491">Bündnis 90/Die Grünen Groß-Umstadt</a> (€100)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_5 Number of Ads"><p>1</p></td>
+<td class="gt_row gt_center" headers="stub_1_5 Total Spend"><p>€100</p></td>
+</tr>
+<tr class="even">
+<td id="stub_1_6" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>Politische Player</p></td>
+<td class="gt_row gt_center" headers="stub_1_6 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #36015e"><p>1</p></td>
+<td class="gt_row gt_left" headers="stub_1_6 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=DE&amp;view_all_page_id=100572773318575">Ärzte der Welt</a> (€100)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_6 Number of Ads"><p>21</p></td>
+<td class="gt_row gt_center" headers="stub_1_6 Total Spend"><p>€100</p></td>
+</tr>
+</tbody>
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
 </table>
+
+</div>
 </div>
 </div>
 </div>
@@ -1329,9 +1883,14 @@ tbody tr:last-child {
 <h3 class="anchored" data-anchor-id="over-time">Over Time</h3>
 <div class="cell">
 <div class="cell-output-display">
+<<<<<<< HEAD
 
 <div class="highchart html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-ea51b22d224e140ba260" style="width:100%;height:464px;"></div>
 <script type="application/json" data-for="htmlwidget-ea51b22d224e140ba260">{"x":{"hc_opts":{"chart":{"reflow":true},"title":{"text":null},"yAxis":{"title":{"text":"Daily Spend"},"type":"linear"},"credits":{"enabled":false},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":true},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"area":{"stacking":"normal","lineWidth":1,"marker":{"enabled":false}}},"series":[{"name":"AfD","data":[{"date":"2023-12-31","party":"AfD","amount_spent":975398,"Daily Spend":null,"short_name":"AfD","colors":"#009EE0","x":1703980800000,"y":null,"fill":"#009EE0"},{"date":"2024-01-01","party":"AfD","amount_spent":975937,"Daily Spend":539,"short_name":"AfD","colors":"#009EE0","x":1704067200000,"y":539,"fill":"#009EE0"},{"date":"2024-01-02","party":"AfD","amount_spent":976389,"Daily Spend":452,"short_name":"AfD","colors":"#009EE0","x":1704153600000,"y":452,"fill":"#009EE0"},{"date":"2024-01-03","party":"AfD","amount_spent":976914,"Daily Spend":525,"short_name":"AfD","colors":"#009EE0","x":1704240000000,"y":525,"fill":"#009EE0"},{"date":"2024-01-04","party":"AfD","amount_spent":977537,"Daily Spend":623,"short_name":"AfD","colors":"#009EE0","x":1704326400000,"y":623,"fill":"#009EE0"},{"date":"2024-01-05","party":"AfD","amount_spent":978196,"Daily Spend":659,"short_name":"AfD","colors":"#009EE0","x":1704412800000,"y":659,"fill":"#009EE0"},{"date":"2024-01-06","party":"AfD","amount_spent":978829,"Daily Spend":633,"short_name":"AfD","colors":"#009EE0","x":1704499200000,"y":633,"fill":"#009EE0"},{"date":"2024-01-07","party":"AfD","amount_spent":979579,"Daily Spend":750,"short_name":"AfD","colors":"#009EE0","x":1704585600000,"y":750,"fill":"#009EE0"},{"date":"2024-01-08","party":"AfD","amount_spent":980320,"Daily Spend":741,"short_name":"AfD","colors":"#009EE0","x":1704672000000,"y":741,"fill":"#009EE0"},{"date":"2024-01-09","party":"AfD","amount_spent":980824,"Daily Spend":504,"short_name":"AfD","colors":"#009EE0","x":1704758400000,"y":504,"fill":"#009EE0"},{"date":"2024-01-10","party":"AfD","amount_spent":981268,"Daily Spend":444,"short_name":"AfD","colors":"#009EE0","x":1704844800000,"y":444,"fill":"#009EE0"},{"date":"2024-01-11","party":"AfD","amount_spent":981765,"Daily Spend":497,"short_name":"AfD","colors":"#009EE0","x":1704931200000,"y":497,"fill":"#009EE0"},{"date":"2024-01-12","party":"AfD","amount_spent":982341,"Daily Spend":576,"short_name":"AfD","colors":"#009EE0","x":1705017600000,"y":576,"fill":"#009EE0"},{"date":"2024-01-13","party":"AfD","amount_spent":982955,"Daily Spend":614,"short_name":"AfD","colors":"#009EE0","x":1705104000000,"y":614,"fill":"#009EE0"},{"date":"2024-01-14","party":"AfD","amount_spent":983586,"Daily Spend":631,"short_name":"AfD","colors":"#009EE0","x":1705190400000,"y":631,"fill":"#009EE0"},{"date":"2024-01-15","party":"AfD","amount_spent":984207,"Daily Spend":621,"short_name":"AfD","colors":"#009EE0","x":1705276800000,"y":621,"fill":"#009EE0"},{"date":"2024-01-16","party":"AfD","amount_spent":984939,"Daily Spend":732,"short_name":"AfD","colors":"#009EE0","x":1705363200000,"y":732,"fill":"#009EE0"},{"date":"2024-01-17","party":"AfD","amount_spent":986043,"Daily Spend":1104,"short_name":"AfD","colors":"#009EE0","x":1705449600000,"y":1104,"fill":"#009EE0"},{"date":"2024-01-18","party":"AfD","amount_spent":987317,"Daily Spend":1274,"short_name":"AfD","colors":"#009EE0","x":1705536000000,"y":1274,"fill":"#009EE0"},{"date":"2024-01-19","party":"AfD","amount_spent":988555,"Daily Spend":1238,"short_name":"AfD","colors":"#009EE0","x":1705622400000,"y":1238,"fill":"#009EE0"},{"date":"2024-01-20","party":"AfD","amount_spent":989464,"Daily Spend":909,"short_name":"AfD","colors":"#009EE0","x":1705708800000,"y":909,"fill":"#009EE0"},{"date":"2024-01-21","party":"AfD","amount_spent":990260,"Daily Spend":796,"short_name":"AfD","colors":"#009EE0","x":1705795200000,"y":796,"fill":"#009EE0"},{"date":"2024-01-22","party":"AfD","amount_spent":990989,"Daily Spend":729,"short_name":"AfD","colors":"#009EE0","x":1705881600000,"y":729,"fill":"#009EE0"},{"date":"2024-01-23","party":"AfD","amount_spent":991553,"Daily Spend":564,"short_name":"AfD","colors":"#009EE0","x":1705968000000,"y":564,"fill":"#009EE0"},{"date":"2024-01-24","party":"AfD","amount_spent":992477,"Daily Spend":924,"short_name":"AfD","colors":"#009EE0","x":1706054400000,"y":924,"fill":"#009EE0"},{"date":"2024-01-25","party":"AfD","amount_spent":993956,"Daily Spend":1479,"short_name":"AfD","colors":"#009EE0","x":1706140800000,"y":1479,"fill":"#009EE0"},{"date":"2024-01-26","party":"AfD","amount_spent":994750,"Daily Spend":794,"short_name":"AfD","colors":"#009EE0","x":1706227200000,"y":794,"fill":"#009EE0"},{"date":"2024-01-27","party":"AfD","amount_spent":995664,"Daily Spend":914,"short_name":"AfD","colors":"#009EE0","x":1706313600000,"y":914,"fill":"#009EE0"},{"date":"2024-01-28","party":"AfD","amount_spent":996479,"Daily Spend":815,"short_name":"AfD","colors":"#009EE0","x":1706400000000,"y":815,"fill":"#009EE0"},{"date":"2024-01-29","party":"AfD","amount_spent":997134,"Daily Spend":655,"short_name":"AfD","colors":"#009EE0","x":1706486400000,"y":655,"fill":"#009EE0"},{"date":"2024-01-30","party":"AfD","amount_spent":997884,"Daily Spend":750,"short_name":"AfD","colors":"#009EE0","x":1706572800000,"y":750,"fill":"#009EE0"},{"date":"2024-01-31","party":"AfD","amount_spent":998756,"Daily Spend":872,"short_name":"AfD","colors":"#009EE0","x":1706659200000,"y":872,"fill":"#009EE0"},{"date":"2024-02-01","party":"AfD","amount_spent":999747,"Daily Spend":991,"short_name":"AfD","colors":"#009EE0","x":1706745600000,"y":991,"fill":"#009EE0"},{"date":"2024-02-02","party":"AfD","amount_spent":1000811,"Daily Spend":1064,"short_name":"AfD","colors":"#009EE0","x":1706832000000,"y":1064,"fill":"#009EE0"},{"date":"2024-02-03","party":"AfD","amount_spent":1002070,"Daily Spend":1259,"short_name":"AfD","colors":"#009EE0","x":1706918400000,"y":1259,"fill":"#009EE0"},{"date":"2024-02-04","party":"AfD","amount_spent":1003125,"Daily Spend":1055,"short_name":"AfD","colors":"#009EE0","x":1707004800000,"y":1055,"fill":"#009EE0"},{"date":"2024-02-05","party":"AfD","amount_spent":1003961,"Daily Spend":836,"short_name":"AfD","colors":"#009EE0","x":1707091200000,"y":836,"fill":"#009EE0"},{"date":"2024-02-06","party":"AfD","amount_spent":1004760,"Daily Spend":799,"short_name":"AfD","colors":"#009EE0","x":1707177600000,"y":799,"fill":"#009EE0"},{"date":"2024-02-07","party":"AfD","amount_spent":1005662,"Daily Spend":902,"short_name":"AfD","colors":"#009EE0","x":1707264000000,"y":902,"fill":"#009EE0"},{"date":"2024-02-08","party":"AfD","amount_spent":1006449,"Daily Spend":787,"short_name":"AfD","colors":"#009EE0","x":1707350400000,"y":787,"fill":"#009EE0"},{"date":"2024-02-09","party":"AfD","amount_spent":1007313,"Daily Spend":864,"short_name":"AfD","colors":"#009EE0","x":1707436800000,"y":864,"fill":"#009EE0"},{"date":"2024-02-10","party":"AfD","amount_spent":1008064,"Daily Spend":751,"short_name":"AfD","colors":"#009EE0","x":1707523200000,"y":751,"fill":"#009EE0"},{"date":"2024-02-11","party":"AfD","amount_spent":1008875,"Daily Spend":811,"short_name":"AfD","colors":"#009EE0","x":1707609600000,"y":811,"fill":"#009EE0"},{"date":"2024-02-12","party":"AfD","amount_spent":1009665,"Daily Spend":790,"short_name":"AfD","colors":"#009EE0","x":1707696000000,"y":790,"fill":"#009EE0"},{"date":"2024-02-13","party":"AfD","amount_spent":1010388,"Daily Spend":723,"short_name":"AfD","colors":"#009EE0","x":1707782400000,"y":723,"fill":"#009EE0"},{"date":"2024-02-14","party":"AfD","amount_spent":1011195,"Daily Spend":807,"short_name":"AfD","colors":"#009EE0","x":1707868800000,"y":807,"fill":"#009EE0"},{"date":"2024-02-15","party":"AfD","amount_spent":1011995,"Daily Spend":800,"short_name":"AfD","colors":"#009EE0","x":1707955200000,"y":800,"fill":"#009EE0"},{"date":"2024-02-16","party":"AfD","amount_spent":1012892,"Daily Spend":897,"short_name":"AfD","colors":"#009EE0","x":1708041600000,"y":897,"fill":"#009EE0"},{"date":"2024-02-17","party":"AfD","amount_spent":1013770,"Daily Spend":878,"short_name":"AfD","colors":"#009EE0","x":1708128000000,"y":878,"fill":"#009EE0"},{"date":"2024-02-18","party":"AfD","amount_spent":1014725,"Daily Spend":955,"short_name":"AfD","colors":"#009EE0","x":1708214400000,"y":955,"fill":"#009EE0"},{"date":"2024-02-19","party":"AfD","amount_spent":1015478,"Daily Spend":753,"short_name":"AfD","colors":"#009EE0","x":1708300800000,"y":753,"fill":"#009EE0"},{"date":"2024-02-20","party":"AfD","amount_spent":1016473,"Daily Spend":995,"short_name":"AfD","colors":"#009EE0","x":1708387200000,"y":995,"fill":"#009EE0"},{"date":"2024-02-21","party":"AfD","amount_spent":1017248,"Daily Spend":775,"short_name":"AfD","colors":"#009EE0","x":1708473600000,"y":775,"fill":"#009EE0"},{"date":"2024-02-22","party":"AfD","amount_spent":1018387,"Daily Spend":1139,"short_name":"AfD","colors":"#009EE0","x":1708560000000,"y":1139,"fill":"#009EE0"},{"date":"2024-02-23","party":"AfD","amount_spent":1019557,"Daily Spend":1170,"short_name":"AfD","colors":"#009EE0","x":1708646400000,"y":1170,"fill":"#009EE0"},{"date":"2024-02-24","party":"AfD","amount_spent":1020734,"Daily Spend":1177,"short_name":"AfD","colors":"#009EE0","x":1708732800000,"y":1177,"fill":"#009EE0"},{"date":"2024-02-25","party":"AfD","amount_spent":1021970,"Daily Spend":1236,"short_name":"AfD","colors":"#009EE0","x":1708819200000,"y":1236,"fill":"#009EE0"},{"date":"2024-02-26","party":"AfD","amount_spent":1023085,"Daily Spend":1115,"short_name":"AfD","colors":"#009EE0","x":1708905600000,"y":1115,"fill":"#009EE0"},{"date":"2024-02-27","party":"AfD","amount_spent":1024124,"Daily Spend":1039,"short_name":"AfD","colors":"#009EE0","x":1708992000000,"y":1039,"fill":"#009EE0"},{"date":"2024-02-28","party":"AfD","amount_spent":1025254,"Daily Spend":1130,"short_name":"AfD","colors":"#009EE0","x":1709078400000,"y":1130,"fill":"#009EE0"},{"date":"2024-02-29","party":"AfD","amount_spent":1026256,"Daily Spend":1002,"short_name":"AfD","colors":"#009EE0","x":1709164800000,"y":1002,"fill":"#009EE0"},{"date":"2024-03-01","party":"AfD","amount_spent":1027265,"Daily Spend":1009,"short_name":"AfD","colors":"#009EE0","x":1709251200000,"y":1009,"fill":"#009EE0"},{"date":"2024-03-02","party":"AfD","amount_spent":1028300,"Daily Spend":1035,"short_name":"AfD","colors":"#009EE0","x":1709337600000,"y":1035,"fill":"#009EE0"},{"date":"2024-03-03","party":"AfD","amount_spent":1029223,"Daily Spend":923,"short_name":"AfD","colors":"#009EE0","x":1709424000000,"y":923,"fill":"#009EE0"},{"date":"2024-03-04","party":"AfD","amount_spent":1029936,"Daily Spend":713,"short_name":"AfD","colors":"#009EE0","x":1709510400000,"y":713,"fill":"#009EE0"},{"date":"2024-03-05","party":"AfD","amount_spent":1030655,"Daily Spend":719,"short_name":"AfD","colors":"#009EE0","x":1709596800000,"y":719,"fill":"#009EE0"},{"date":"2024-03-06","party":"AfD","amount_spent":1031492,"Daily Spend":837,"short_name":"AfD","colors":"#009EE0","x":1709683200000,"y":837,"fill":"#009EE0"},{"date":"2024-03-07","party":"AfD","amount_spent":1032232,"Daily Spend":740,"short_name":"AfD","colors":"#009EE0","x":1709769600000,"y":740,"fill":"#009EE0"},{"date":"2024-03-08","party":"AfD","amount_spent":1033055,"Daily Spend":823,"short_name":"AfD","colors":"#009EE0","x":1709856000000,"y":823,"fill":"#009EE0"},{"date":"2024-03-09","party":"AfD","amount_spent":1034107,"Daily Spend":1052,"short_name":"AfD","colors":"#009EE0","x":1709942400000,"y":1052,"fill":"#009EE0"},{"date":"2024-03-10","party":"AfD","amount_spent":1034961,"Daily Spend":854,"short_name":"AfD","colors":"#009EE0","x":1710028800000,"y":854,"fill":"#009EE0"},{"date":"2024-03-11","party":"AfD","amount_spent":1035780,"Daily Spend":819,"short_name":"AfD","colors":"#009EE0","x":1710115200000,"y":819,"fill":"#009EE0"},{"date":"2024-03-12","party":"AfD","amount_spent":1036594,"Daily Spend":814,"short_name":"AfD","colors":"#009EE0","x":1710201600000,"y":814,"fill":"#009EE0"},{"date":"2024-03-13","party":"AfD","amount_spent":1037313,"Daily Spend":719,"short_name":"AfD","colors":"#009EE0","x":1710288000000,"y":719,"fill":"#009EE0"}],"type":"area"},{"name":"Andere Seiten","data":[{"date":"2023-12-31","party":"Andere Seiten","amount_spent":538087,"Daily Spend":null,"short_name":"AND","colors":"#CCCCCC","x":1703980800000,"y":null,"fill":"#CCCCCC"},{"date":"2024-01-01","party":"Andere Seiten","amount_spent":538749,"Daily Spend":662,"short_name":"AND","colors":"#CCCCCC","x":1704067200000,"y":662,"fill":"#CCCCCC"},{"date":"2024-01-02","party":"Andere Seiten","amount_spent":539467,"Daily Spend":718,"short_name":"AND","colors":"#CCCCCC","x":1704153600000,"y":718,"fill":"#CCCCCC"},{"date":"2024-01-03","party":"Andere Seiten","amount_spent":540140,"Daily Spend":673,"short_name":"AND","colors":"#CCCCCC","x":1704240000000,"y":673,"fill":"#CCCCCC"},{"date":"2024-01-04","party":"Andere Seiten","amount_spent":540535,"Daily Spend":395,"short_name":"AND","colors":"#CCCCCC","x":1704326400000,"y":395,"fill":"#CCCCCC"},{"date":"2024-01-05","party":"Andere Seiten","amount_spent":540937,"Daily Spend":402,"short_name":"AND","colors":"#CCCCCC","x":1704412800000,"y":402,"fill":"#CCCCCC"},{"date":"2024-01-06","party":"Andere Seiten","amount_spent":541344,"Daily Spend":407,"short_name":"AND","colors":"#CCCCCC","x":1704499200000,"y":407,"fill":"#CCCCCC"},{"date":"2024-01-07","party":"Andere Seiten","amount_spent":541760,"Daily Spend":416,"short_name":"AND","colors":"#CCCCCC","x":1704585600000,"y":416,"fill":"#CCCCCC"},{"date":"2024-01-08","party":"Andere Seiten","amount_spent":542166,"Daily Spend":406,"short_name":"AND","colors":"#CCCCCC","x":1704672000000,"y":406,"fill":"#CCCCCC"},{"date":"2024-01-09","party":"Andere Seiten","amount_spent":542576,"Daily Spend":410,"short_name":"AND","colors":"#CCCCCC","x":1704758400000,"y":410,"fill":"#CCCCCC"},{"date":"2024-01-10","party":"Andere Seiten","amount_spent":543160,"Daily Spend":584,"short_name":"AND","colors":"#CCCCCC","x":1704844800000,"y":584,"fill":"#CCCCCC"},{"date":"2024-01-11","party":"Andere Seiten","amount_spent":543963,"Daily Spend":803,"short_name":"AND","colors":"#CCCCCC","x":1704931200000,"y":803,"fill":"#CCCCCC"},{"date":"2024-01-12","party":"Andere Seiten","amount_spent":544799,"Daily Spend":836,"short_name":"AND","colors":"#CCCCCC","x":1705017600000,"y":836,"fill":"#CCCCCC"},{"date":"2024-01-13","party":"Andere Seiten","amount_spent":545721,"Daily Spend":922,"short_name":"AND","colors":"#CCCCCC","x":1705104000000,"y":922,"fill":"#CCCCCC"},{"date":"2024-01-14","party":"Andere Seiten","amount_spent":546617,"Daily Spend":896,"short_name":"AND","colors":"#CCCCCC","x":1705190400000,"y":896,"fill":"#CCCCCC"},{"date":"2024-01-15","party":"Andere Seiten","amount_spent":547457,"Daily Spend":840,"short_name":"AND","colors":"#CCCCCC","x":1705276800000,"y":840,"fill":"#CCCCCC"},{"date":"2024-01-16","party":"Andere Seiten","amount_spent":548297,"Daily Spend":840,"short_name":"AND","colors":"#CCCCCC","x":1705363200000,"y":840,"fill":"#CCCCCC"},{"date":"2024-01-17","party":"Andere Seiten","amount_spent":549013,"Daily Spend":716,"short_name":"AND","colors":"#CCCCCC","x":1705449600000,"y":716,"fill":"#CCCCCC"},{"date":"2024-01-18","party":"Andere Seiten","amount_spent":549688,"Daily Spend":675,"short_name":"AND","colors":"#CCCCCC","x":1705536000000,"y":675,"fill":"#CCCCCC"},{"date":"2024-01-19","party":"Andere Seiten","amount_spent":550274,"Daily Spend":586,"short_name":"AND","colors":"#CCCCCC","x":1705622400000,"y":586,"fill":"#CCCCCC"},{"date":"2024-01-20","party":"Andere Seiten","amount_spent":550875,"Daily Spend":601,"short_name":"AND","colors":"#CCCCCC","x":1705708800000,"y":601,"fill":"#CCCCCC"},{"date":"2024-01-21","party":"Andere Seiten","amount_spent":551506,"Daily Spend":631,"short_name":"AND","colors":"#CCCCCC","x":1705795200000,"y":631,"fill":"#CCCCCC"},{"date":"2024-01-22","party":"Andere Seiten","amount_spent":552129,"Daily Spend":623,"short_name":"AND","colors":"#CCCCCC","x":1705881600000,"y":623,"fill":"#CCCCCC"},{"date":"2024-01-23","party":"Andere Seiten","amount_spent":552717,"Daily Spend":588,"short_name":"AND","colors":"#CCCCCC","x":1705968000000,"y":588,"fill":"#CCCCCC"},{"date":"2024-01-24","party":"Andere Seiten","amount_spent":553339,"Daily Spend":622,"short_name":"AND","colors":"#CCCCCC","x":1706054400000,"y":622,"fill":"#CCCCCC"},{"date":"2024-01-25","party":"Andere Seiten","amount_spent":553879,"Daily Spend":540,"short_name":"AND","colors":"#CCCCCC","x":1706140800000,"y":540,"fill":"#CCCCCC"},{"date":"2024-01-26","party":"Andere Seiten","amount_spent":554429,"Daily Spend":550,"short_name":"AND","colors":"#CCCCCC","x":1706227200000,"y":550,"fill":"#CCCCCC"},{"date":"2024-01-27","party":"Andere Seiten","amount_spent":554976,"Daily Spend":547,"short_name":"AND","colors":"#CCCCCC","x":1706313600000,"y":547,"fill":"#CCCCCC"},{"date":"2024-01-28","party":"Andere Seiten","amount_spent":555552,"Daily Spend":576,"short_name":"AND","colors":"#CCCCCC","x":1706400000000,"y":576,"fill":"#CCCCCC"},{"date":"2024-01-29","party":"Andere Seiten","amount_spent":556105,"Daily Spend":553,"short_name":"AND","colors":"#CCCCCC","x":1706486400000,"y":553,"fill":"#CCCCCC"},{"date":"2024-01-30","party":"Andere Seiten","amount_spent":556651,"Daily Spend":546,"short_name":"AND","colors":"#CCCCCC","x":1706572800000,"y":546,"fill":"#CCCCCC"},{"date":"2024-01-31","party":"Andere Seiten","amount_spent":557171,"Daily Spend":520,"short_name":"AND","colors":"#CCCCCC","x":1706659200000,"y":520,"fill":"#CCCCCC"},{"date":"2024-02-01","party":"Andere Seiten","amount_spent":557655,"Daily Spend":484,"short_name":"AND","colors":"#CCCCCC","x":1706745600000,"y":484,"fill":"#CCCCCC"},{"date":"2024-02-02","party":"Andere Seiten","amount_spent":558162,"Daily Spend":507,"short_name":"AND","colors":"#CCCCCC","x":1706832000000,"y":507,"fill":"#CCCCCC"},{"date":"2024-02-03","party":"Andere Seiten","amount_spent":558701,"Daily Spend":539,"short_name":"AND","colors":"#CCCCCC","x":1706918400000,"y":539,"fill":"#CCCCCC"},{"date":"2024-02-04","party":"Andere Seiten","amount_spent":559267,"Daily Spend":566,"short_name":"AND","colors":"#CCCCCC","x":1707004800000,"y":566,"fill":"#CCCCCC"},{"date":"2024-02-05","party":"Andere Seiten","amount_spent":559915,"Daily Spend":648,"short_name":"AND","colors":"#CCCCCC","x":1707091200000,"y":648,"fill":"#CCCCCC"},{"date":"2024-02-06","party":"Andere Seiten","amount_spent":560512,"Daily Spend":597,"short_name":"AND","colors":"#CCCCCC","x":1707177600000,"y":597,"fill":"#CCCCCC"},{"date":"2024-02-07","party":"Andere Seiten","amount_spent":561312,"Daily Spend":800,"short_name":"AND","colors":"#CCCCCC","x":1707264000000,"y":800,"fill":"#CCCCCC"},{"date":"2024-02-08","party":"Andere Seiten","amount_spent":562288,"Daily Spend":976,"short_name":"AND","colors":"#CCCCCC","x":1707350400000,"y":976,"fill":"#CCCCCC"},{"date":"2024-02-09","party":"Andere Seiten","amount_spent":563369,"Daily Spend":1081,"short_name":"AND","colors":"#CCCCCC","x":1707436800000,"y":1081,"fill":"#CCCCCC"},{"date":"2024-02-10","party":"Andere Seiten","amount_spent":564492,"Daily Spend":1123,"short_name":"AND","colors":"#CCCCCC","x":1707523200000,"y":1123,"fill":"#CCCCCC"},{"date":"2024-02-11","party":"Andere Seiten","amount_spent":565780,"Daily Spend":1288,"short_name":"AND","colors":"#CCCCCC","x":1707609600000,"y":1288,"fill":"#CCCCCC"},{"date":"2024-02-12","party":"Andere Seiten","amount_spent":567035,"Daily Spend":1255,"short_name":"AND","colors":"#CCCCCC","x":1707696000000,"y":1255,"fill":"#CCCCCC"},{"date":"2024-02-13","party":"Andere Seiten","amount_spent":568470,"Daily Spend":1435,"short_name":"AND","colors":"#CCCCCC","x":1707782400000,"y":1435,"fill":"#CCCCCC"},{"date":"2024-02-14","party":"Andere Seiten","amount_spent":570337,"Daily Spend":1867,"short_name":"AND","colors":"#CCCCCC","x":1707868800000,"y":1867,"fill":"#CCCCCC"},{"date":"2024-02-15","party":"Andere Seiten","amount_spent":572042,"Daily Spend":1705,"short_name":"AND","colors":"#CCCCCC","x":1707955200000,"y":1705,"fill":"#CCCCCC"},{"date":"2024-02-16","party":"Andere Seiten","amount_spent":573412,"Daily Spend":1370,"short_name":"AND","colors":"#CCCCCC","x":1708041600000,"y":1370,"fill":"#CCCCCC"},{"date":"2024-02-17","party":"Andere Seiten","amount_spent":574934,"Daily Spend":1522,"short_name":"AND","colors":"#CCCCCC","x":1708128000000,"y":1522,"fill":"#CCCCCC"},{"date":"2024-02-18","party":"Andere Seiten","amount_spent":576163,"Daily Spend":1229,"short_name":"AND","colors":"#CCCCCC","x":1708214400000,"y":1229,"fill":"#CCCCCC"},{"date":"2024-02-19","party":"Andere Seiten","amount_spent":577180,"Daily Spend":1017,"short_name":"AND","colors":"#CCCCCC","x":1708300800000,"y":1017,"fill":"#CCCCCC"},{"date":"2024-02-20","party":"Andere Seiten","amount_spent":578074,"Daily Spend":894,"short_name":"AND","colors":"#CCCCCC","x":1708387200000,"y":894,"fill":"#CCCCCC"},{"date":"2024-02-21","party":"Andere Seiten","amount_spent":578900,"Daily Spend":826,"short_name":"AND","colors":"#CCCCCC","x":1708473600000,"y":826,"fill":"#CCCCCC"},{"date":"2024-02-22","party":"Andere Seiten","amount_spent":579719,"Daily Spend":819,"short_name":"AND","colors":"#CCCCCC","x":1708560000000,"y":819,"fill":"#CCCCCC"},{"date":"2024-02-23","party":"Andere Seiten","amount_spent":580495,"Daily Spend":776,"short_name":"AND","colors":"#CCCCCC","x":1708646400000,"y":776,"fill":"#CCCCCC"},{"date":"2024-02-24","party":"Andere Seiten","amount_spent":581335,"Daily Spend":840,"short_name":"AND","colors":"#CCCCCC","x":1708732800000,"y":840,"fill":"#CCCCCC"},{"date":"2024-02-25","party":"Andere Seiten","amount_spent":582132,"Daily Spend":797,"short_name":"AND","colors":"#CCCCCC","x":1708819200000,"y":797,"fill":"#CCCCCC"},{"date":"2024-02-26","party":"Andere Seiten","amount_spent":583022,"Daily Spend":890,"short_name":"AND","colors":"#CCCCCC","x":1708905600000,"y":890,"fill":"#CCCCCC"},{"date":"2024-02-27","party":"Andere Seiten","amount_spent":583888,"Daily Spend":866,"short_name":"AND","colors":"#CCCCCC","x":1708992000000,"y":866,"fill":"#CCCCCC"},{"date":"2024-02-28","party":"Andere Seiten","amount_spent":584809,"Daily Spend":921,"short_name":"AND","colors":"#CCCCCC","x":1709078400000,"y":921,"fill":"#CCCCCC"},{"date":"2024-02-29","party":"Andere Seiten","amount_spent":585684,"Daily Spend":875,"short_name":"AND","colors":"#CCCCCC","x":1709164800000,"y":875,"fill":"#CCCCCC"},{"date":"2024-03-01","party":"Andere Seiten","amount_spent":586449,"Daily Spend":765,"short_name":"AND","colors":"#CCCCCC","x":1709251200000,"y":765,"fill":"#CCCCCC"},{"date":"2024-03-02","party":"Andere Seiten","amount_spent":587475,"Daily Spend":1026,"short_name":"AND","colors":"#CCCCCC","x":1709337600000,"y":1026,"fill":"#CCCCCC"},{"date":"2024-03-03","party":"Andere Seiten","amount_spent":588497,"Daily Spend":1022,"short_name":"AND","colors":"#CCCCCC","x":1709424000000,"y":1022,"fill":"#CCCCCC"},{"date":"2024-03-04","party":"Andere Seiten","amount_spent":589362,"Daily Spend":865,"short_name":"AND","colors":"#CCCCCC","x":1709510400000,"y":865,"fill":"#CCCCCC"},{"date":"2024-03-05","party":"Andere Seiten","amount_spent":590135,"Daily Spend":773,"short_name":"AND","colors":"#CCCCCC","x":1709596800000,"y":773,"fill":"#CCCCCC"},{"date":"2024-03-06","party":"Andere Seiten","amount_spent":591159,"Daily Spend":1024,"short_name":"AND","colors":"#CCCCCC","x":1709683200000,"y":1024,"fill":"#CCCCCC"},{"date":"2024-03-07","party":"Andere Seiten","amount_spent":592185,"Daily Spend":1026,"short_name":"AND","colors":"#CCCCCC","x":1709769600000,"y":1026,"fill":"#CCCCCC"},{"date":"2024-03-08","party":"Andere Seiten","amount_spent":593273,"Daily Spend":1088,"short_name":"AND","colors":"#CCCCCC","x":1709856000000,"y":1088,"fill":"#CCCCCC"},{"date":"2024-03-09","party":"Andere Seiten","amount_spent":594558,"Daily Spend":1285,"short_name":"AND","colors":"#CCCCCC","x":1709942400000,"y":1285,"fill":"#CCCCCC"},{"date":"2024-03-10","party":"Andere Seiten","amount_spent":595751,"Daily Spend":1193,"short_name":"AND","colors":"#CCCCCC","x":1710028800000,"y":1193,"fill":"#CCCCCC"},{"date":"2024-03-11","party":"Andere Seiten","amount_spent":597227,"Daily Spend":1476,"short_name":"AND","colors":"#CCCCCC","x":1710115200000,"y":1476,"fill":"#CCCCCC"},{"date":"2024-03-12","party":"Andere Seiten","amount_spent":598584,"Daily Spend":1357,"short_name":"AND","colors":"#CCCCCC","x":1710201600000,"y":1357,"fill":"#CCCCCC"},{"date":"2024-03-13","party":"Andere Seiten","amount_spent":599858,"Daily Spend":1274,"short_name":"AND","colors":"#CCCCCC","x":1710288000000,"y":1274,"fill":"#CCCCCC"}],"type":"area"},{"name":"Bündnis 90/Die Grünen","data":[{"date":"2023-12-31","party":"Bündnis 90/Die Grünen","amount_spent":1318698,"Daily Spend":null,"short_name":"Grü","colors":"#64A12D","x":1703980800000,"y":null,"fill":"#64A12D"},{"date":"2024-01-01","party":"Bündnis 90/Die Grünen","amount_spent":1318709,"Daily Spend":11,"short_name":"Grü","colors":"#64A12D","x":1704067200000,"y":11,"fill":"#64A12D"},{"date":"2024-01-02","party":"Bündnis 90/Die Grünen","amount_spent":1318720,"Daily Spend":11,"short_name":"Grü","colors":"#64A12D","x":1704153600000,"y":11,"fill":"#64A12D"},{"date":"2024-01-03","party":"Bündnis 90/Die Grünen","amount_spent":1318731,"Daily Spend":11,"short_name":"Grü","colors":"#64A12D","x":1704240000000,"y":11,"fill":"#64A12D"},{"date":"2024-01-04","party":"Bündnis 90/Die Grünen","amount_spent":1319357,"Daily Spend":626,"short_name":"Grü","colors":"#64A12D","x":1704326400000,"y":626,"fill":"#64A12D"},{"date":"2024-01-05","party":"Bündnis 90/Die Grünen","amount_spent":1320183,"Daily Spend":826,"short_name":"Grü","colors":"#64A12D","x":1704412800000,"y":826,"fill":"#64A12D"},{"date":"2024-01-06","party":"Bündnis 90/Die Grünen","amount_spent":1321033,"Daily Spend":850,"short_name":"Grü","colors":"#64A12D","x":1704499200000,"y":850,"fill":"#64A12D"},{"date":"2024-01-07","party":"Bündnis 90/Die Grünen","amount_spent":1321906,"Daily Spend":873,"short_name":"Grü","colors":"#64A12D","x":1704585600000,"y":873,"fill":"#64A12D"},{"date":"2024-01-08","party":"Bündnis 90/Die Grünen","amount_spent":1322643,"Daily Spend":737,"short_name":"Grü","colors":"#64A12D","x":1704672000000,"y":737,"fill":"#64A12D"},{"date":"2024-01-09","party":"Bündnis 90/Die Grünen","amount_spent":1323050,"Daily Spend":407,"short_name":"Grü","colors":"#64A12D","x":1704758400000,"y":407,"fill":"#64A12D"},{"date":"2024-01-10","party":"Bündnis 90/Die Grünen","amount_spent":1323523,"Daily Spend":473,"short_name":"Grü","colors":"#64A12D","x":1704844800000,"y":473,"fill":"#64A12D"},{"date":"2024-01-11","party":"Bündnis 90/Die Grünen","amount_spent":1323937,"Daily Spend":414,"short_name":"Grü","colors":"#64A12D","x":1704931200000,"y":414,"fill":"#64A12D"},{"date":"2024-01-12","party":"Bündnis 90/Die Grünen","amount_spent":1324428,"Daily Spend":491,"short_name":"Grü","colors":"#64A12D","x":1705017600000,"y":491,"fill":"#64A12D"},{"date":"2024-01-13","party":"Bündnis 90/Die Grünen","amount_spent":1324776,"Daily Spend":348,"short_name":"Grü","colors":"#64A12D","x":1705104000000,"y":348,"fill":"#64A12D"},{"date":"2024-01-14","party":"Bündnis 90/Die Grünen","amount_spent":1325077,"Daily Spend":301,"short_name":"Grü","colors":"#64A12D","x":1705190400000,"y":301,"fill":"#64A12D"},{"date":"2024-01-15","party":"Bündnis 90/Die Grünen","amount_spent":1325284,"Daily Spend":207,"short_name":"Grü","colors":"#64A12D","x":1705276800000,"y":207,"fill":"#64A12D"},{"date":"2024-01-16","party":"Bündnis 90/Die Grünen","amount_spent":1325375,"Daily Spend":91,"short_name":"Grü","colors":"#64A12D","x":1705363200000,"y":91,"fill":"#64A12D"},{"date":"2024-01-17","party":"Bündnis 90/Die Grünen","amount_spent":1325717,"Daily Spend":342,"short_name":"Grü","colors":"#64A12D","x":1705449600000,"y":342,"fill":"#64A12D"},{"date":"2024-01-18","party":"Bündnis 90/Die Grünen","amount_spent":1326212,"Daily Spend":495,"short_name":"Grü","colors":"#64A12D","x":1705536000000,"y":495,"fill":"#64A12D"},{"date":"2024-01-19","party":"Bündnis 90/Die Grünen","amount_spent":1326598,"Daily Spend":386,"short_name":"Grü","colors":"#64A12D","x":1705622400000,"y":386,"fill":"#64A12D"},{"date":"2024-01-20","party":"Bündnis 90/Die Grünen","amount_spent":1326889,"Daily Spend":291,"short_name":"Grü","colors":"#64A12D","x":1705708800000,"y":291,"fill":"#64A12D"},{"date":"2024-01-21","party":"Bündnis 90/Die Grünen","amount_spent":1327178,"Daily Spend":289,"short_name":"Grü","colors":"#64A12D","x":1705795200000,"y":289,"fill":"#64A12D"},{"date":"2024-01-22","party":"Bündnis 90/Die Grünen","amount_spent":1327426,"Daily Spend":248,"short_name":"Grü","colors":"#64A12D","x":1705881600000,"y":248,"fill":"#64A12D"},{"date":"2024-01-23","party":"Bündnis 90/Die Grünen","amount_spent":1327604,"Daily Spend":178,"short_name":"Grü","colors":"#64A12D","x":1705968000000,"y":178,"fill":"#64A12D"},{"date":"2024-01-24","party":"Bündnis 90/Die Grünen","amount_spent":1327799,"Daily Spend":195,"short_name":"Grü","colors":"#64A12D","x":1706054400000,"y":195,"fill":"#64A12D"},{"date":"2024-01-25","party":"Bündnis 90/Die Grünen","amount_spent":1328169,"Daily Spend":370,"short_name":"Grü","colors":"#64A12D","x":1706140800000,"y":370,"fill":"#64A12D"},{"date":"2024-01-26","party":"Bündnis 90/Die Grünen","amount_spent":1328681,"Daily Spend":512,"short_name":"Grü","colors":"#64A12D","x":1706227200000,"y":512,"fill":"#64A12D"},{"date":"2024-01-27","party":"Bündnis 90/Die Grünen","amount_spent":1329080,"Daily Spend":399,"short_name":"Grü","colors":"#64A12D","x":1706313600000,"y":399,"fill":"#64A12D"},{"date":"2024-01-28","party":"Bündnis 90/Die Grünen","amount_spent":1329490,"Daily Spend":410,"short_name":"Grü","colors":"#64A12D","x":1706400000000,"y":410,"fill":"#64A12D"},{"date":"2024-01-29","party":"Bündnis 90/Die Grünen","amount_spent":1329856,"Daily Spend":366,"short_name":"Grü","colors":"#64A12D","x":1706486400000,"y":366,"fill":"#64A12D"},{"date":"2024-01-30","party":"Bündnis 90/Die Grünen","amount_spent":1330203,"Daily Spend":347,"short_name":"Grü","colors":"#64A12D","x":1706572800000,"y":347,"fill":"#64A12D"},{"date":"2024-01-31","party":"Bündnis 90/Die Grünen","amount_spent":1330570,"Daily Spend":367,"short_name":"Grü","colors":"#64A12D","x":1706659200000,"y":367,"fill":"#64A12D"},{"date":"2024-02-01","party":"Bündnis 90/Die Grünen","amount_spent":1331368,"Daily Spend":798,"short_name":"Grü","colors":"#64A12D","x":1706745600000,"y":798,"fill":"#64A12D"},{"date":"2024-02-02","party":"Bündnis 90/Die Grünen","amount_spent":1332093,"Daily Spend":725,"short_name":"Grü","colors":"#64A12D","x":1706832000000,"y":725,"fill":"#64A12D"},{"date":"2024-02-03","party":"Bündnis 90/Die Grünen","amount_spent":1332944,"Daily Spend":851,"short_name":"Grü","colors":"#64A12D","x":1706918400000,"y":851,"fill":"#64A12D"},{"date":"2024-02-04","party":"Bündnis 90/Die Grünen","amount_spent":1333823,"Daily Spend":879,"short_name":"Grü","colors":"#64A12D","x":1707004800000,"y":879,"fill":"#64A12D"},{"date":"2024-02-05","party":"Bündnis 90/Die Grünen","amount_spent":1334618,"Daily Spend":795,"short_name":"Grü","colors":"#64A12D","x":1707091200000,"y":795,"fill":"#64A12D"},{"date":"2024-02-06","party":"Bündnis 90/Die Grünen","amount_spent":1335440,"Daily Spend":822,"short_name":"Grü","colors":"#64A12D","x":1707177600000,"y":822,"fill":"#64A12D"},{"date":"2024-02-07","party":"Bündnis 90/Die Grünen","amount_spent":1336307,"Daily Spend":867,"short_name":"Grü","colors":"#64A12D","x":1707264000000,"y":867,"fill":"#64A12D"},{"date":"2024-02-08","party":"Bündnis 90/Die Grünen","amount_spent":1337093,"Daily Spend":786,"short_name":"Grü","colors":"#64A12D","x":1707350400000,"y":786,"fill":"#64A12D"},{"date":"2024-02-09","party":"Bündnis 90/Die Grünen","amount_spent":1337831,"Daily Spend":738,"short_name":"Grü","colors":"#64A12D","x":1707436800000,"y":738,"fill":"#64A12D"},{"date":"2024-02-10","party":"Bündnis 90/Die Grünen","amount_spent":1338601,"Daily Spend":770,"short_name":"Grü","colors":"#64A12D","x":1707523200000,"y":770,"fill":"#64A12D"},{"date":"2024-02-11","party":"Bündnis 90/Die Grünen","amount_spent":1339074,"Daily Spend":473,"short_name":"Grü","colors":"#64A12D","x":1707609600000,"y":473,"fill":"#64A12D"},{"date":"2024-02-12","party":"Bündnis 90/Die Grünen","amount_spent":1339442,"Daily Spend":368,"short_name":"Grü","colors":"#64A12D","x":1707696000000,"y":368,"fill":"#64A12D"},{"date":"2024-02-13","party":"Bündnis 90/Die Grünen","amount_spent":1339618,"Daily Spend":176,"short_name":"Grü","colors":"#64A12D","x":1707782400000,"y":176,"fill":"#64A12D"},{"date":"2024-02-14","party":"Bündnis 90/Die Grünen","amount_spent":1339788,"Daily Spend":170,"short_name":"Grü","colors":"#64A12D","x":1707868800000,"y":170,"fill":"#64A12D"},{"date":"2024-02-15","party":"Bündnis 90/Die Grünen","amount_spent":1339932,"Daily Spend":144,"short_name":"Grü","colors":"#64A12D","x":1707955200000,"y":144,"fill":"#64A12D"},{"date":"2024-02-16","party":"Bündnis 90/Die Grünen","amount_spent":1340106,"Daily Spend":174,"short_name":"Grü","colors":"#64A12D","x":1708041600000,"y":174,"fill":"#64A12D"},{"date":"2024-02-17","party":"Bündnis 90/Die Grünen","amount_spent":1340284,"Daily Spend":178,"short_name":"Grü","colors":"#64A12D","x":1708128000000,"y":178,"fill":"#64A12D"},{"date":"2024-02-18","party":"Bündnis 90/Die Grünen","amount_spent":1340392,"Daily Spend":108,"short_name":"Grü","colors":"#64A12D","x":1708214400000,"y":108,"fill":"#64A12D"},{"date":"2024-02-19","party":"Bündnis 90/Die Grünen","amount_spent":1340481,"Daily Spend":89,"short_name":"Grü","colors":"#64A12D","x":1708300800000,"y":89,"fill":"#64A12D"},{"date":"2024-02-20","party":"Bündnis 90/Die Grünen","amount_spent":1340849,"Daily Spend":368,"short_name":"Grü","colors":"#64A12D","x":1708387200000,"y":368,"fill":"#64A12D"},{"date":"2024-02-21","party":"Bündnis 90/Die Grünen","amount_spent":1341440,"Daily Spend":591,"short_name":"Grü","colors":"#64A12D","x":1708473600000,"y":591,"fill":"#64A12D"},{"date":"2024-02-22","party":"Bündnis 90/Die Grünen","amount_spent":1342067,"Daily Spend":627,"short_name":"Grü","colors":"#64A12D","x":1708560000000,"y":627,"fill":"#64A12D"},{"date":"2024-02-23","party":"Bündnis 90/Die Grünen","amount_spent":1342751,"Daily Spend":684,"short_name":"Grü","colors":"#64A12D","x":1708646400000,"y":684,"fill":"#64A12D"},{"date":"2024-02-24","party":"Bündnis 90/Die Grünen","amount_spent":1343437,"Daily Spend":686,"short_name":"Grü","colors":"#64A12D","x":1708732800000,"y":686,"fill":"#64A12D"},{"date":"2024-02-25","party":"Bündnis 90/Die Grünen","amount_spent":1344233,"Daily Spend":796,"short_name":"Grü","colors":"#64A12D","x":1708819200000,"y":796,"fill":"#64A12D"},{"date":"2024-02-26","party":"Bündnis 90/Die Grünen","amount_spent":1344895,"Daily Spend":662,"short_name":"Grü","colors":"#64A12D","x":1708905600000,"y":662,"fill":"#64A12D"},{"date":"2024-02-27","party":"Bündnis 90/Die Grünen","amount_spent":1345570,"Daily Spend":675,"short_name":"Grü","colors":"#64A12D","x":1708992000000,"y":675,"fill":"#64A12D"},{"date":"2024-02-28","party":"Bündnis 90/Die Grünen","amount_spent":1346289,"Daily Spend":719,"short_name":"Grü","colors":"#64A12D","x":1709078400000,"y":719,"fill":"#64A12D"},{"date":"2024-02-29","party":"Bündnis 90/Die Grünen","amount_spent":1346981,"Daily Spend":692,"short_name":"Grü","colors":"#64A12D","x":1709164800000,"y":692,"fill":"#64A12D"},{"date":"2024-03-01","party":"Bündnis 90/Die Grünen","amount_spent":1347669,"Daily Spend":688,"short_name":"Grü","colors":"#64A12D","x":1709251200000,"y":688,"fill":"#64A12D"},{"date":"2024-03-02","party":"Bündnis 90/Die Grünen","amount_spent":1348397,"Daily Spend":728,"short_name":"Grü","colors":"#64A12D","x":1709337600000,"y":728,"fill":"#64A12D"},{"date":"2024-03-03","party":"Bündnis 90/Die Grünen","amount_spent":1349074,"Daily Spend":677,"short_name":"Grü","colors":"#64A12D","x":1709424000000,"y":677,"fill":"#64A12D"},{"date":"2024-03-04","party":"Bündnis 90/Die Grünen","amount_spent":1349732,"Daily Spend":658,"short_name":"Grü","colors":"#64A12D","x":1709510400000,"y":658,"fill":"#64A12D"},{"date":"2024-03-05","party":"Bündnis 90/Die Grünen","amount_spent":1350260,"Daily Spend":528,"short_name":"Grü","colors":"#64A12D","x":1709596800000,"y":528,"fill":"#64A12D"},{"date":"2024-03-06","party":"Bündnis 90/Die Grünen","amount_spent":1350344,"Daily Spend":84,"short_name":"Grü","colors":"#64A12D","x":1709683200000,"y":84,"fill":"#64A12D"},{"date":"2024-03-07","party":"Bündnis 90/Die Grünen","amount_spent":1350415,"Daily Spend":71,"short_name":"Grü","colors":"#64A12D","x":1709769600000,"y":71,"fill":"#64A12D"},{"date":"2024-03-08","party":"Bündnis 90/Die Grünen","amount_spent":1350624,"Daily Spend":209,"short_name":"Grü","colors":"#64A12D","x":1709856000000,"y":209,"fill":"#64A12D"},{"date":"2024-03-09","party":"Bündnis 90/Die Grünen","amount_spent":1350909,"Daily Spend":285,"short_name":"Grü","colors":"#64A12D","x":1709942400000,"y":285,"fill":"#64A12D"},{"date":"2024-03-10","party":"Bündnis 90/Die Grünen","amount_spent":1351140,"Daily Spend":231,"short_name":"Grü","colors":"#64A12D","x":1710028800000,"y":231,"fill":"#64A12D"},{"date":"2024-03-11","party":"Bündnis 90/Die Grünen","amount_spent":1351293,"Daily Spend":153,"short_name":"Grü","colors":"#64A12D","x":1710115200000,"y":153,"fill":"#64A12D"},{"date":"2024-03-12","party":"Bündnis 90/Die Grünen","amount_spent":1351436,"Daily Spend":143,"short_name":"Grü","colors":"#64A12D","x":1710201600000,"y":143,"fill":"#64A12D"},{"date":"2024-03-13","party":"Bündnis 90/Die Grünen","amount_spent":1351569,"Daily Spend":133,"short_name":"Grü","colors":"#64A12D","x":1710288000000,"y":133,"fill":"#64A12D"}],"type":"area"},{"name":"CDU","data":[{"date":"2023-12-31","party":"CDU","amount_spent":1133206,"Daily Spend":null,"short_name":"CDU","colors":"#FFA500","x":1703980800000,"y":null,"fill":"#FFA500"},{"date":"2024-01-01","party":"CDU","amount_spent":1133298,"Daily Spend":92,"short_name":"CDU","colors":"#FFA500","x":1704067200000,"y":92,"fill":"#FFA500"},{"date":"2024-01-02","party":"CDU","amount_spent":1133357,"Daily Spend":59,"short_name":"CDU","colors":"#FFA500","x":1704153600000,"y":59,"fill":"#FFA500"},{"date":"2024-01-03","party":"CDU","amount_spent":1133396,"Daily Spend":39,"short_name":"CDU","colors":"#FFA500","x":1704240000000,"y":39,"fill":"#FFA500"},{"date":"2024-01-04","party":"CDU","amount_spent":1133429,"Daily Spend":33,"short_name":"CDU","colors":"#FFA500","x":1704326400000,"y":33,"fill":"#FFA500"},{"date":"2024-01-05","party":"CDU","amount_spent":1133473,"Daily Spend":44,"short_name":"CDU","colors":"#FFA500","x":1704412800000,"y":44,"fill":"#FFA500"},{"date":"2024-01-06","party":"CDU","amount_spent":1133564,"Daily Spend":91,"short_name":"CDU","colors":"#FFA500","x":1704499200000,"y":91,"fill":"#FFA500"},{"date":"2024-01-07","party":"CDU","amount_spent":1133673,"Daily Spend":109,"short_name":"CDU","colors":"#FFA500","x":1704585600000,"y":109,"fill":"#FFA500"},{"date":"2024-01-08","party":"CDU","amount_spent":1133823,"Daily Spend":150,"short_name":"CDU","colors":"#FFA500","x":1704672000000,"y":150,"fill":"#FFA500"},{"date":"2024-01-09","party":"CDU","amount_spent":1134000,"Daily Spend":177,"short_name":"CDU","colors":"#FFA500","x":1704758400000,"y":177,"fill":"#FFA500"},{"date":"2024-01-10","party":"CDU","amount_spent":1134405,"Daily Spend":405,"short_name":"CDU","colors":"#FFA500","x":1704844800000,"y":405,"fill":"#FFA500"},{"date":"2024-01-11","party":"CDU","amount_spent":1135025,"Daily Spend":620,"short_name":"CDU","colors":"#FFA500","x":1704931200000,"y":620,"fill":"#FFA500"},{"date":"2024-01-12","party":"CDU","amount_spent":1135861,"Daily Spend":836,"short_name":"CDU","colors":"#FFA500","x":1705017600000,"y":836,"fill":"#FFA500"},{"date":"2024-01-13","party":"CDU","amount_spent":1136876,"Daily Spend":1015,"short_name":"CDU","colors":"#FFA500","x":1705104000000,"y":1015,"fill":"#FFA500"},{"date":"2024-01-14","party":"CDU","amount_spent":1137715,"Daily Spend":839,"short_name":"CDU","colors":"#FFA500","x":1705190400000,"y":839,"fill":"#FFA500"},{"date":"2024-01-15","party":"CDU","amount_spent":1138118,"Daily Spend":403,"short_name":"CDU","colors":"#FFA500","x":1705276800000,"y":403,"fill":"#FFA500"},{"date":"2024-01-16","party":"CDU","amount_spent":1138490,"Daily Spend":372,"short_name":"CDU","colors":"#FFA500","x":1705363200000,"y":372,"fill":"#FFA500"},{"date":"2024-01-17","party":"CDU","amount_spent":1138903,"Daily Spend":413,"short_name":"CDU","colors":"#FFA500","x":1705449600000,"y":413,"fill":"#FFA500"},{"date":"2024-01-18","party":"CDU","amount_spent":1139503,"Daily Spend":600,"short_name":"CDU","colors":"#FFA500","x":1705536000000,"y":600,"fill":"#FFA500"},{"date":"2024-01-19","party":"CDU","amount_spent":1140318,"Daily Spend":815,"short_name":"CDU","colors":"#FFA500","x":1705622400000,"y":815,"fill":"#FFA500"},{"date":"2024-01-20","party":"CDU","amount_spent":1141218,"Daily Spend":900,"short_name":"CDU","colors":"#FFA500","x":1705708800000,"y":900,"fill":"#FFA500"},{"date":"2024-01-21","party":"CDU","amount_spent":1142151,"Daily Spend":933,"short_name":"CDU","colors":"#FFA500","x":1705795200000,"y":933,"fill":"#FFA500"},{"date":"2024-01-22","party":"CDU","amount_spent":1143040,"Daily Spend":889,"short_name":"CDU","colors":"#FFA500","x":1705881600000,"y":889,"fill":"#FFA500"},{"date":"2024-01-23","party":"CDU","amount_spent":1144162,"Daily Spend":1122,"short_name":"CDU","colors":"#FFA500","x":1705968000000,"y":1122,"fill":"#FFA500"},{"date":"2024-01-24","party":"CDU","amount_spent":1145392,"Daily Spend":1230,"short_name":"CDU","colors":"#FFA500","x":1706054400000,"y":1230,"fill":"#FFA500"},{"date":"2024-01-25","party":"CDU","amount_spent":1146523,"Daily Spend":1131,"short_name":"CDU","colors":"#FFA500","x":1706140800000,"y":1131,"fill":"#FFA500"},{"date":"2024-01-26","party":"CDU","amount_spent":1147490,"Daily Spend":967,"short_name":"CDU","colors":"#FFA500","x":1706227200000,"y":967,"fill":"#FFA500"},{"date":"2024-01-27","party":"CDU","amount_spent":1148326,"Daily Spend":836,"short_name":"CDU","colors":"#FFA500","x":1706313600000,"y":836,"fill":"#FFA500"},{"date":"2024-01-28","party":"CDU","amount_spent":1149169,"Daily Spend":843,"short_name":"CDU","colors":"#FFA500","x":1706400000000,"y":843,"fill":"#FFA500"},{"date":"2024-01-29","party":"CDU","amount_spent":1149926,"Daily Spend":757,"short_name":"CDU","colors":"#FFA500","x":1706486400000,"y":757,"fill":"#FFA500"},{"date":"2024-01-30","party":"CDU","amount_spent":1150704,"Daily Spend":778,"short_name":"CDU","colors":"#FFA500","x":1706572800000,"y":778,"fill":"#FFA500"},{"date":"2024-01-31","party":"CDU","amount_spent":1151676,"Daily Spend":972,"short_name":"CDU","colors":"#FFA500","x":1706659200000,"y":972,"fill":"#FFA500"},{"date":"2024-02-01","party":"CDU","amount_spent":1152328,"Daily Spend":652,"short_name":"CDU","colors":"#FFA500","x":1706745600000,"y":652,"fill":"#FFA500"},{"date":"2024-02-02","party":"CDU","amount_spent":1152763,"Daily Spend":435,"short_name":"CDU","colors":"#FFA500","x":1706832000000,"y":435,"fill":"#FFA500"},{"date":"2024-02-03","party":"CDU","amount_spent":1153297,"Daily Spend":534,"short_name":"CDU","colors":"#FFA500","x":1706918400000,"y":534,"fill":"#FFA500"},{"date":"2024-02-04","party":"CDU","amount_spent":1153875,"Daily Spend":578,"short_name":"CDU","colors":"#FFA500","x":1707004800000,"y":578,"fill":"#FFA500"},{"date":"2024-02-05","party":"CDU","amount_spent":1154364,"Daily Spend":489,"short_name":"CDU","colors":"#FFA500","x":1707091200000,"y":489,"fill":"#FFA500"},{"date":"2024-02-06","party":"CDU","amount_spent":1154904,"Daily Spend":540,"short_name":"CDU","colors":"#FFA500","x":1707177600000,"y":540,"fill":"#FFA500"},{"date":"2024-02-07","party":"CDU","amount_spent":1155609,"Daily Spend":705,"short_name":"CDU","colors":"#FFA500","x":1707264000000,"y":705,"fill":"#FFA500"},{"date":"2024-02-08","party":"CDU","amount_spent":1156219,"Daily Spend":610,"short_name":"CDU","colors":"#FFA500","x":1707350400000,"y":610,"fill":"#FFA500"},{"date":"2024-02-09","party":"CDU","amount_spent":1157134,"Daily Spend":915,"short_name":"CDU","colors":"#FFA500","x":1707436800000,"y":915,"fill":"#FFA500"},{"date":"2024-02-10","party":"CDU","amount_spent":1158423,"Daily Spend":1289,"short_name":"CDU","colors":"#FFA500","x":1707523200000,"y":1289,"fill":"#FFA500"},{"date":"2024-02-11","party":"CDU","amount_spent":1159744,"Daily Spend":1321,"short_name":"CDU","colors":"#FFA500","x":1707609600000,"y":1321,"fill":"#FFA500"},{"date":"2024-02-12","party":"CDU","amount_spent":1160902,"Daily Spend":1158,"short_name":"CDU","colors":"#FFA500","x":1707696000000,"y":1158,"fill":"#FFA500"},{"date":"2024-02-13","party":"CDU","amount_spent":1161931,"Daily Spend":1029,"short_name":"CDU","colors":"#FFA500","x":1707782400000,"y":1029,"fill":"#FFA500"},{"date":"2024-02-14","party":"CDU","amount_spent":1163259,"Daily Spend":1328,"short_name":"CDU","colors":"#FFA500","x":1707868800000,"y":1328,"fill":"#FFA500"},{"date":"2024-02-15","party":"CDU","amount_spent":1164635,"Daily Spend":1376,"short_name":"CDU","colors":"#FFA500","x":1707955200000,"y":1376,"fill":"#FFA500"},{"date":"2024-02-16","party":"CDU","amount_spent":1165793,"Daily Spend":1158,"short_name":"CDU","colors":"#FFA500","x":1708041600000,"y":1158,"fill":"#FFA500"},{"date":"2024-02-17","party":"CDU","amount_spent":1166881,"Daily Spend":1088,"short_name":"CDU","colors":"#FFA500","x":1708128000000,"y":1088,"fill":"#FFA500"},{"date":"2024-02-18","party":"CDU","amount_spent":1167986,"Daily Spend":1105,"short_name":"CDU","colors":"#FFA500","x":1708214400000,"y":1105,"fill":"#FFA500"},{"date":"2024-02-19","party":"CDU","amount_spent":1168766,"Daily Spend":780,"short_name":"CDU","colors":"#FFA500","x":1708300800000,"y":780,"fill":"#FFA500"},{"date":"2024-02-20","party":"CDU","amount_spent":1169835,"Daily Spend":1069,"short_name":"CDU","colors":"#FFA500","x":1708387200000,"y":1069,"fill":"#FFA500"},{"date":"2024-02-21","party":"CDU","amount_spent":1170330,"Daily Spend":495,"short_name":"CDU","colors":"#FFA500","x":1708473600000,"y":495,"fill":"#FFA500"},{"date":"2024-02-22","party":"CDU","amount_spent":1170930,"Daily Spend":600,"short_name":"CDU","colors":"#FFA500","x":1708560000000,"y":600,"fill":"#FFA500"},{"date":"2024-02-23","party":"CDU","amount_spent":1171567,"Daily Spend":637,"short_name":"CDU","colors":"#FFA500","x":1708646400000,"y":637,"fill":"#FFA500"},{"date":"2024-02-24","party":"CDU","amount_spent":1172104,"Daily Spend":537,"short_name":"CDU","colors":"#FFA500","x":1708732800000,"y":537,"fill":"#FFA500"},{"date":"2024-02-25","party":"CDU","amount_spent":1172806,"Daily Spend":702,"short_name":"CDU","colors":"#FFA500","x":1708819200000,"y":702,"fill":"#FFA500"},{"date":"2024-02-26","party":"CDU","amount_spent":1173340,"Daily Spend":534,"short_name":"CDU","colors":"#FFA500","x":1708905600000,"y":534,"fill":"#FFA500"},{"date":"2024-02-27","party":"CDU","amount_spent":1174142,"Daily Spend":802,"short_name":"CDU","colors":"#FFA500","x":1708992000000,"y":802,"fill":"#FFA500"},{"date":"2024-02-28","party":"CDU","amount_spent":1175126,"Daily Spend":984,"short_name":"CDU","colors":"#FFA500","x":1709078400000,"y":984,"fill":"#FFA500"},{"date":"2024-02-29","party":"CDU","amount_spent":1175773,"Daily Spend":647,"short_name":"CDU","colors":"#FFA500","x":1709164800000,"y":647,"fill":"#FFA500"},{"date":"2024-03-01","party":"CDU","amount_spent":1176612,"Daily Spend":839,"short_name":"CDU","colors":"#FFA500","x":1709251200000,"y":839,"fill":"#FFA500"},{"date":"2024-03-02","party":"CDU","amount_spent":1177417,"Daily Spend":805,"short_name":"CDU","colors":"#FFA500","x":1709337600000,"y":805,"fill":"#FFA500"},{"date":"2024-03-03","party":"CDU","amount_spent":1178216,"Daily Spend":799,"short_name":"CDU","colors":"#FFA500","x":1709424000000,"y":799,"fill":"#FFA500"},{"date":"2024-03-04","party":"CDU","amount_spent":1178782,"Daily Spend":566,"short_name":"CDU","colors":"#FFA500","x":1709510400000,"y":566,"fill":"#FFA500"},{"date":"2024-03-05","party":"CDU","amount_spent":1179208,"Daily Spend":426,"short_name":"CDU","colors":"#FFA500","x":1709596800000,"y":426,"fill":"#FFA500"},{"date":"2024-03-06","party":"CDU","amount_spent":1179557,"Daily Spend":349,"short_name":"CDU","colors":"#FFA500","x":1709683200000,"y":349,"fill":"#FFA500"},{"date":"2024-03-07","party":"CDU","amount_spent":1179807,"Daily Spend":250,"short_name":"CDU","colors":"#FFA500","x":1709769600000,"y":250,"fill":"#FFA500"},{"date":"2024-03-08","party":"CDU","amount_spent":1180247,"Daily Spend":440,"short_name":"CDU","colors":"#FFA500","x":1709856000000,"y":440,"fill":"#FFA500"},{"date":"2024-03-09","party":"CDU","amount_spent":1180663,"Daily Spend":416,"short_name":"CDU","colors":"#FFA500","x":1709942400000,"y":416,"fill":"#FFA500"},{"date":"2024-03-10","party":"CDU","amount_spent":1181153,"Daily Spend":490,"short_name":"CDU","colors":"#FFA500","x":1710028800000,"y":490,"fill":"#FFA500"},{"date":"2024-03-11","party":"CDU","amount_spent":1181517,"Daily Spend":364,"short_name":"CDU","colors":"#FFA500","x":1710115200000,"y":364,"fill":"#FFA500"},{"date":"2024-03-12","party":"CDU","amount_spent":1182071,"Daily Spend":554,"short_name":"CDU","colors":"#FFA500","x":1710201600000,"y":554,"fill":"#FFA500"},{"date":"2024-03-13","party":"CDU","amount_spent":1182746,"Daily Spend":675,"short_name":"CDU","colors":"#FFA500","x":1710288000000,"y":675,"fill":"#FFA500"}],"type":"area"},{"name":"Die Linke","data":[{"date":"2023-12-31","party":"Die Linke","amount_spent":278118,"Daily Spend":null,"short_name":"Lin","colors":"#BE3075","x":1703980800000,"y":null,"fill":"#BE3075"},{"date":"2024-01-01","party":"Die Linke","amount_spent":278472,"Daily Spend":354,"short_name":"Lin","colors":"#BE3075","x":1704067200000,"y":354,"fill":"#BE3075"},{"date":"2024-01-02","party":"Die Linke","amount_spent":278783,"Daily Spend":311,"short_name":"Lin","colors":"#BE3075","x":1704153600000,"y":311,"fill":"#BE3075"},{"date":"2024-01-03","party":"Die Linke","amount_spent":279067,"Daily Spend":284,"short_name":"Lin","colors":"#BE3075","x":1704240000000,"y":284,"fill":"#BE3075"},{"date":"2024-01-04","party":"Die Linke","amount_spent":279208,"Daily Spend":141,"short_name":"Lin","colors":"#BE3075","x":1704326400000,"y":141,"fill":"#BE3075"},{"date":"2024-01-05","party":"Die Linke","amount_spent":279342,"Daily Spend":134,"short_name":"Lin","colors":"#BE3075","x":1704412800000,"y":134,"fill":"#BE3075"},{"date":"2024-01-06","party":"Die Linke","amount_spent":279404,"Daily Spend":62,"short_name":"Lin","colors":"#BE3075","x":1704499200000,"y":62,"fill":"#BE3075"},{"date":"2024-01-07","party":"Die Linke","amount_spent":279469,"Daily Spend":65,"short_name":"Lin","colors":"#BE3075","x":1704585600000,"y":65,"fill":"#BE3075"},{"date":"2024-01-08","party":"Die Linke","amount_spent":279518,"Daily Spend":49,"short_name":"Lin","colors":"#BE3075","x":1704672000000,"y":49,"fill":"#BE3075"},{"date":"2024-01-09","party":"Die Linke","amount_spent":279578,"Daily Spend":60,"short_name":"Lin","colors":"#BE3075","x":1704758400000,"y":60,"fill":"#BE3075"},{"date":"2024-01-10","party":"Die Linke","amount_spent":279667,"Daily Spend":89,"short_name":"Lin","colors":"#BE3075","x":1704844800000,"y":89,"fill":"#BE3075"},{"date":"2024-01-11","party":"Die Linke","amount_spent":279747,"Daily Spend":80,"short_name":"Lin","colors":"#BE3075","x":1704931200000,"y":80,"fill":"#BE3075"},{"date":"2024-01-12","party":"Die Linke","amount_spent":279819,"Daily Spend":72,"short_name":"Lin","colors":"#BE3075","x":1705017600000,"y":72,"fill":"#BE3075"},{"date":"2024-01-13","party":"Die Linke","amount_spent":279922,"Daily Spend":103,"short_name":"Lin","colors":"#BE3075","x":1705104000000,"y":103,"fill":"#BE3075"},{"date":"2024-01-14","party":"Die Linke","amount_spent":280050,"Daily Spend":128,"short_name":"Lin","colors":"#BE3075","x":1705190400000,"y":128,"fill":"#BE3075"},{"date":"2024-01-15","party":"Die Linke","amount_spent":280279,"Daily Spend":229,"short_name":"Lin","colors":"#BE3075","x":1705276800000,"y":229,"fill":"#BE3075"},{"date":"2024-01-16","party":"Die Linke","amount_spent":280428,"Daily Spend":149,"short_name":"Lin","colors":"#BE3075","x":1705363200000,"y":149,"fill":"#BE3075"},{"date":"2024-01-17","party":"Die Linke","amount_spent":280594,"Daily Spend":166,"short_name":"Lin","colors":"#BE3075","x":1705449600000,"y":166,"fill":"#BE3075"},{"date":"2024-01-18","party":"Die Linke","amount_spent":280755,"Daily Spend":161,"short_name":"Lin","colors":"#BE3075","x":1705536000000,"y":161,"fill":"#BE3075"},{"date":"2024-01-19","party":"Die Linke","amount_spent":280935,"Daily Spend":180,"short_name":"Lin","colors":"#BE3075","x":1705622400000,"y":180,"fill":"#BE3075"},{"date":"2024-01-20","party":"Die Linke","amount_spent":281114,"Daily Spend":179,"short_name":"Lin","colors":"#BE3075","x":1705708800000,"y":179,"fill":"#BE3075"},{"date":"2024-01-21","party":"Die Linke","amount_spent":281267,"Daily Spend":153,"short_name":"Lin","colors":"#BE3075","x":1705795200000,"y":153,"fill":"#BE3075"},{"date":"2024-01-22","party":"Die Linke","amount_spent":281452,"Daily Spend":185,"short_name":"Lin","colors":"#BE3075","x":1705881600000,"y":185,"fill":"#BE3075"},{"date":"2024-01-23","party":"Die Linke","amount_spent":281678,"Daily Spend":226,"short_name":"Lin","colors":"#BE3075","x":1705968000000,"y":226,"fill":"#BE3075"},{"date":"2024-01-24","party":"Die Linke","amount_spent":281911,"Daily Spend":233,"short_name":"Lin","colors":"#BE3075","x":1706054400000,"y":233,"fill":"#BE3075"},{"date":"2024-01-25","party":"Die Linke","amount_spent":282078,"Daily Spend":167,"short_name":"Lin","colors":"#BE3075","x":1706140800000,"y":167,"fill":"#BE3075"},{"date":"2024-01-26","party":"Die Linke","amount_spent":282252,"Daily Spend":174,"short_name":"Lin","colors":"#BE3075","x":1706227200000,"y":174,"fill":"#BE3075"},{"date":"2024-01-27","party":"Die Linke","amount_spent":282404,"Daily Spend":152,"short_name":"Lin","colors":"#BE3075","x":1706313600000,"y":152,"fill":"#BE3075"},{"date":"2024-01-28","party":"Die Linke","amount_spent":282498,"Daily Spend":94,"short_name":"Lin","colors":"#BE3075","x":1706400000000,"y":94,"fill":"#BE3075"},{"date":"2024-01-29","party":"Die Linke","amount_spent":282573,"Daily Spend":75,"short_name":"Lin","colors":"#BE3075","x":1706486400000,"y":75,"fill":"#BE3075"},{"date":"2024-01-30","party":"Die Linke","amount_spent":282680,"Daily Spend":107,"short_name":"Lin","colors":"#BE3075","x":1706572800000,"y":107,"fill":"#BE3075"},{"date":"2024-01-31","party":"Die Linke","amount_spent":282789,"Daily Spend":109,"short_name":"Lin","colors":"#BE3075","x":1706659200000,"y":109,"fill":"#BE3075"},{"date":"2024-02-01","party":"Die Linke","amount_spent":282874,"Daily Spend":85,"short_name":"Lin","colors":"#BE3075","x":1706745600000,"y":85,"fill":"#BE3075"},{"date":"2024-02-02","party":"Die Linke","amount_spent":283062,"Daily Spend":188,"short_name":"Lin","colors":"#BE3075","x":1706832000000,"y":188,"fill":"#BE3075"},{"date":"2024-02-03","party":"Die Linke","amount_spent":283101,"Daily Spend":39,"short_name":"Lin","colors":"#BE3075","x":1706918400000,"y":39,"fill":"#BE3075"},{"date":"2024-02-04","party":"Die Linke","amount_spent":283147,"Daily Spend":46,"short_name":"Lin","colors":"#BE3075","x":1707004800000,"y":46,"fill":"#BE3075"},{"date":"2024-02-05","party":"Die Linke","amount_spent":283243,"Daily Spend":96,"short_name":"Lin","colors":"#BE3075","x":1707091200000,"y":96,"fill":"#BE3075"},{"date":"2024-02-06","party":"Die Linke","amount_spent":283332,"Daily Spend":89,"short_name":"Lin","colors":"#BE3075","x":1707177600000,"y":89,"fill":"#BE3075"},{"date":"2024-02-07","party":"Die Linke","amount_spent":283548,"Daily Spend":216,"short_name":"Lin","colors":"#BE3075","x":1707264000000,"y":216,"fill":"#BE3075"},{"date":"2024-02-08","party":"Die Linke","amount_spent":283740,"Daily Spend":192,"short_name":"Lin","colors":"#BE3075","x":1707350400000,"y":192,"fill":"#BE3075"},{"date":"2024-02-09","party":"Die Linke","amount_spent":283852,"Daily Spend":112,"short_name":"Lin","colors":"#BE3075","x":1707436800000,"y":112,"fill":"#BE3075"},{"date":"2024-02-10","party":"Die Linke","amount_spent":284013,"Daily Spend":161,"short_name":"Lin","colors":"#BE3075","x":1707523200000,"y":161,"fill":"#BE3075"},{"date":"2024-02-11","party":"Die Linke","amount_spent":284163,"Daily Spend":150,"short_name":"Lin","colors":"#BE3075","x":1707609600000,"y":150,"fill":"#BE3075"},{"date":"2024-02-12","party":"Die Linke","amount_spent":284322,"Daily Spend":159,"short_name":"Lin","colors":"#BE3075","x":1707696000000,"y":159,"fill":"#BE3075"},{"date":"2024-02-13","party":"Die Linke","amount_spent":284496,"Daily Spend":174,"short_name":"Lin","colors":"#BE3075","x":1707782400000,"y":174,"fill":"#BE3075"},{"date":"2024-02-14","party":"Die Linke","amount_spent":284788,"Daily Spend":292,"short_name":"Lin","colors":"#BE3075","x":1707868800000,"y":292,"fill":"#BE3075"},{"date":"2024-02-15","party":"Die Linke","amount_spent":285165,"Daily Spend":377,"short_name":"Lin","colors":"#BE3075","x":1707955200000,"y":377,"fill":"#BE3075"},{"date":"2024-02-16","party":"Die Linke","amount_spent":285641,"Daily Spend":476,"short_name":"Lin","colors":"#BE3075","x":1708041600000,"y":476,"fill":"#BE3075"},{"date":"2024-02-17","party":"Die Linke","amount_spent":285868,"Daily Spend":227,"short_name":"Lin","colors":"#BE3075","x":1708128000000,"y":227,"fill":"#BE3075"},{"date":"2024-02-18","party":"Die Linke","amount_spent":286127,"Daily Spend":259,"short_name":"Lin","colors":"#BE3075","x":1708214400000,"y":259,"fill":"#BE3075"},{"date":"2024-02-19","party":"Die Linke","amount_spent":286352,"Daily Spend":225,"short_name":"Lin","colors":"#BE3075","x":1708300800000,"y":225,"fill":"#BE3075"},{"date":"2024-02-20","party":"Die Linke","amount_spent":286573,"Daily Spend":221,"short_name":"Lin","colors":"#BE3075","x":1708387200000,"y":221,"fill":"#BE3075"},{"date":"2024-02-21","party":"Die Linke","amount_spent":286814,"Daily Spend":241,"short_name":"Lin","colors":"#BE3075","x":1708473600000,"y":241,"fill":"#BE3075"},{"date":"2024-02-22","party":"Die Linke","amount_spent":287116,"Daily Spend":302,"short_name":"Lin","colors":"#BE3075","x":1708560000000,"y":302,"fill":"#BE3075"},{"date":"2024-02-23","party":"Die Linke","amount_spent":287399,"Daily Spend":283,"short_name":"Lin","colors":"#BE3075","x":1708646400000,"y":283,"fill":"#BE3075"},{"date":"2024-02-24","party":"Die Linke","amount_spent":287715,"Daily Spend":316,"short_name":"Lin","colors":"#BE3075","x":1708732800000,"y":316,"fill":"#BE3075"},{"date":"2024-02-25","party":"Die Linke","amount_spent":288075,"Daily Spend":360,"short_name":"Lin","colors":"#BE3075","x":1708819200000,"y":360,"fill":"#BE3075"},{"date":"2024-02-26","party":"Die Linke","amount_spent":288334,"Daily Spend":259,"short_name":"Lin","colors":"#BE3075","x":1708905600000,"y":259,"fill":"#BE3075"},{"date":"2024-02-27","party":"Die Linke","amount_spent":288581,"Daily Spend":247,"short_name":"Lin","colors":"#BE3075","x":1708992000000,"y":247,"fill":"#BE3075"},{"date":"2024-02-28","party":"Die Linke","amount_spent":288845,"Daily Spend":264,"short_name":"Lin","colors":"#BE3075","x":1709078400000,"y":264,"fill":"#BE3075"},{"date":"2024-02-29","party":"Die Linke","amount_spent":289170,"Daily Spend":325,"short_name":"Lin","colors":"#BE3075","x":1709164800000,"y":325,"fill":"#BE3075"},{"date":"2024-03-01","party":"Die Linke","amount_spent":289414,"Daily Spend":244,"short_name":"Lin","colors":"#BE3075","x":1709251200000,"y":244,"fill":"#BE3075"},{"date":"2024-03-02","party":"Die Linke","amount_spent":289600,"Daily Spend":186,"short_name":"Lin","colors":"#BE3075","x":1709337600000,"y":186,"fill":"#BE3075"},{"date":"2024-03-03","party":"Die Linke","amount_spent":289789,"Daily Spend":189,"short_name":"Lin","colors":"#BE3075","x":1709424000000,"y":189,"fill":"#BE3075"},{"date":"2024-03-04","party":"Die Linke","amount_spent":289955,"Daily Spend":166,"short_name":"Lin","colors":"#BE3075","x":1709510400000,"y":166,"fill":"#BE3075"},{"date":"2024-03-05","party":"Die Linke","amount_spent":290121,"Daily Spend":166,"short_name":"Lin","colors":"#BE3075","x":1709596800000,"y":166,"fill":"#BE3075"},{"date":"2024-03-06","party":"Die Linke","amount_spent":290304,"Daily Spend":183,"short_name":"Lin","colors":"#BE3075","x":1709683200000,"y":183,"fill":"#BE3075"},{"date":"2024-03-07","party":"Die Linke","amount_spent":290474,"Daily Spend":170,"short_name":"Lin","colors":"#BE3075","x":1709769600000,"y":170,"fill":"#BE3075"},{"date":"2024-03-08","party":"Die Linke","amount_spent":290663,"Daily Spend":189,"short_name":"Lin","colors":"#BE3075","x":1709856000000,"y":189,"fill":"#BE3075"},{"date":"2024-03-09","party":"Die Linke","amount_spent":291001,"Daily Spend":338,"short_name":"Lin","colors":"#BE3075","x":1709942400000,"y":338,"fill":"#BE3075"},{"date":"2024-03-10","party":"Die Linke","amount_spent":291261,"Daily Spend":260,"short_name":"Lin","colors":"#BE3075","x":1710028800000,"y":260,"fill":"#BE3075"},{"date":"2024-03-11","party":"Die Linke","amount_spent":291480,"Daily Spend":219,"short_name":"Lin","colors":"#BE3075","x":1710115200000,"y":219,"fill":"#BE3075"},{"date":"2024-03-12","party":"Die Linke","amount_spent":291815,"Daily Spend":335,"short_name":"Lin","colors":"#BE3075","x":1710201600000,"y":335,"fill":"#BE3075"},{"date":"2024-03-13","party":"Die Linke","amount_spent":292160,"Daily Spend":345,"short_name":"Lin","colors":"#BE3075","x":1710288000000,"y":345,"fill":"#BE3075"}],"type":"area"},{"name":"FDP","data":[{"date":"2023-12-31","party":"FDP","amount_spent":1697375,"Daily Spend":null,"short_name":"FDP","colors":"#FFED00","x":1703980800000,"y":null,"fill":"#FFED00"},{"date":"2024-01-01","party":"FDP","amount_spent":1697426,"Daily Spend":51,"short_name":"FDP","colors":"#FFED00","x":1704067200000,"y":51,"fill":"#FFED00"},{"date":"2024-01-02","party":"FDP","amount_spent":1697477,"Daily Spend":51,"short_name":"FDP","colors":"#FFED00","x":1704153600000,"y":51,"fill":"#FFED00"},{"date":"2024-01-03","party":"FDP","amount_spent":1697528,"Daily Spend":51,"short_name":"FDP","colors":"#FFED00","x":1704240000000,"y":51,"fill":"#FFED00"},{"date":"2024-01-04","party":"FDP","amount_spent":1697633,"Daily Spend":105,"short_name":"FDP","colors":"#FFED00","x":1704326400000,"y":105,"fill":"#FFED00"},{"date":"2024-01-05","party":"FDP","amount_spent":1697934,"Daily Spend":301,"short_name":"FDP","colors":"#FFED00","x":1704412800000,"y":301,"fill":"#FFED00"},{"date":"2024-01-06","party":"FDP","amount_spent":1698295,"Daily Spend":361,"short_name":"FDP","colors":"#FFED00","x":1704499200000,"y":361,"fill":"#FFED00"},{"date":"2024-01-07","party":"FDP","amount_spent":1698611,"Daily Spend":316,"short_name":"FDP","colors":"#FFED00","x":1704585600000,"y":316,"fill":"#FFED00"},{"date":"2024-01-08","party":"FDP","amount_spent":1698837,"Daily Spend":226,"short_name":"FDP","colors":"#FFED00","x":1704672000000,"y":226,"fill":"#FFED00"},{"date":"2024-01-09","party":"FDP","amount_spent":1699123,"Daily Spend":286,"short_name":"FDP","colors":"#FFED00","x":1704758400000,"y":286,"fill":"#FFED00"},{"date":"2024-01-10","party":"FDP","amount_spent":1699430,"Daily Spend":307,"short_name":"FDP","colors":"#FFED00","x":1704844800000,"y":307,"fill":"#FFED00"},{"date":"2024-01-11","party":"FDP","amount_spent":1699703,"Daily Spend":273,"short_name":"FDP","colors":"#FFED00","x":1704931200000,"y":273,"fill":"#FFED00"},{"date":"2024-01-12","party":"FDP","amount_spent":1700038,"Daily Spend":335,"short_name":"FDP","colors":"#FFED00","x":1705017600000,"y":335,"fill":"#FFED00"},{"date":"2024-01-13","party":"FDP","amount_spent":1700387,"Daily Spend":349,"short_name":"FDP","colors":"#FFED00","x":1705104000000,"y":349,"fill":"#FFED00"},{"date":"2024-01-14","party":"FDP","amount_spent":1700651,"Daily Spend":264,"short_name":"FDP","colors":"#FFED00","x":1705190400000,"y":264,"fill":"#FFED00"},{"date":"2024-01-15","party":"FDP","amount_spent":1700940,"Daily Spend":289,"short_name":"FDP","colors":"#FFED00","x":1705276800000,"y":289,"fill":"#FFED00"},{"date":"2024-01-16","party":"FDP","amount_spent":1701229,"Daily Spend":289,"short_name":"FDP","colors":"#FFED00","x":1705363200000,"y":289,"fill":"#FFED00"},{"date":"2024-01-17","party":"FDP","amount_spent":1701546,"Daily Spend":317,"short_name":"FDP","colors":"#FFED00","x":1705449600000,"y":317,"fill":"#FFED00"},{"date":"2024-01-18","party":"FDP","amount_spent":1701907,"Daily Spend":361,"short_name":"FDP","colors":"#FFED00","x":1705536000000,"y":361,"fill":"#FFED00"},{"date":"2024-01-19","party":"FDP","amount_spent":1702445,"Daily Spend":538,"short_name":"FDP","colors":"#FFED00","x":1705622400000,"y":538,"fill":"#FFED00"},{"date":"2024-01-20","party":"FDP","amount_spent":1703143,"Daily Spend":698,"short_name":"FDP","colors":"#FFED00","x":1705708800000,"y":698,"fill":"#FFED00"},{"date":"2024-01-21","party":"FDP","amount_spent":1703865,"Daily Spend":722,"short_name":"FDP","colors":"#FFED00","x":1705795200000,"y":722,"fill":"#FFED00"},{"date":"2024-01-22","party":"FDP","amount_spent":1704551,"Daily Spend":686,"short_name":"FDP","colors":"#FFED00","x":1705881600000,"y":686,"fill":"#FFED00"},{"date":"2024-01-23","party":"FDP","amount_spent":1705205,"Daily Spend":654,"short_name":"FDP","colors":"#FFED00","x":1705968000000,"y":654,"fill":"#FFED00"},{"date":"2024-01-24","party":"FDP","amount_spent":1705871,"Daily Spend":666,"short_name":"FDP","colors":"#FFED00","x":1706054400000,"y":666,"fill":"#FFED00"},{"date":"2024-01-25","party":"FDP","amount_spent":1706533,"Daily Spend":662,"short_name":"FDP","colors":"#FFED00","x":1706140800000,"y":662,"fill":"#FFED00"},{"date":"2024-01-26","party":"FDP","amount_spent":1707099,"Daily Spend":566,"short_name":"FDP","colors":"#FFED00","x":1706227200000,"y":566,"fill":"#FFED00"},{"date":"2024-01-27","party":"FDP","amount_spent":1707688,"Daily Spend":589,"short_name":"FDP","colors":"#FFED00","x":1706313600000,"y":589,"fill":"#FFED00"},{"date":"2024-01-28","party":"FDP","amount_spent":1708318,"Daily Spend":630,"short_name":"FDP","colors":"#FFED00","x":1706400000000,"y":630,"fill":"#FFED00"},{"date":"2024-01-29","party":"FDP","amount_spent":1708914,"Daily Spend":596,"short_name":"FDP","colors":"#FFED00","x":1706486400000,"y":596,"fill":"#FFED00"},{"date":"2024-01-30","party":"FDP","amount_spent":1709598,"Daily Spend":684,"short_name":"FDP","colors":"#FFED00","x":1706572800000,"y":684,"fill":"#FFED00"},{"date":"2024-01-31","party":"FDP","amount_spent":1710280,"Daily Spend":682,"short_name":"FDP","colors":"#FFED00","x":1706659200000,"y":682,"fill":"#FFED00"},{"date":"2024-02-01","party":"FDP","amount_spent":1710932,"Daily Spend":652,"short_name":"FDP","colors":"#FFED00","x":1706745600000,"y":652,"fill":"#FFED00"},{"date":"2024-02-02","party":"FDP","amount_spent":1711649,"Daily Spend":717,"short_name":"FDP","colors":"#FFED00","x":1706832000000,"y":717,"fill":"#FFED00"},{"date":"2024-02-03","party":"FDP","amount_spent":1712587,"Daily Spend":938,"short_name":"FDP","colors":"#FFED00","x":1706918400000,"y":938,"fill":"#FFED00"},{"date":"2024-02-04","party":"FDP","amount_spent":1713584,"Daily Spend":997,"short_name":"FDP","colors":"#FFED00","x":1707004800000,"y":997,"fill":"#FFED00"},{"date":"2024-02-05","party":"FDP","amount_spent":1714383,"Daily Spend":799,"short_name":"FDP","colors":"#FFED00","x":1707091200000,"y":799,"fill":"#FFED00"},{"date":"2024-02-06","party":"FDP","amount_spent":1715120,"Daily Spend":737,"short_name":"FDP","colors":"#FFED00","x":1707177600000,"y":737,"fill":"#FFED00"},{"date":"2024-02-07","party":"FDP","amount_spent":1715809,"Daily Spend":689,"short_name":"FDP","colors":"#FFED00","x":1707264000000,"y":689,"fill":"#FFED00"},{"date":"2024-02-08","party":"FDP","amount_spent":1716692,"Daily Spend":883,"short_name":"FDP","colors":"#FFED00","x":1707350400000,"y":883,"fill":"#FFED00"},{"date":"2024-02-09","party":"FDP","amount_spent":1717420,"Daily Spend":728,"short_name":"FDP","colors":"#FFED00","x":1707436800000,"y":728,"fill":"#FFED00"},{"date":"2024-02-10","party":"FDP","amount_spent":1718119,"Daily Spend":699,"short_name":"FDP","colors":"#FFED00","x":1707523200000,"y":699,"fill":"#FFED00"},{"date":"2024-02-11","party":"FDP","amount_spent":1718793,"Daily Spend":674,"short_name":"FDP","colors":"#FFED00","x":1707609600000,"y":674,"fill":"#FFED00"},{"date":"2024-02-12","party":"FDP","amount_spent":1719303,"Daily Spend":510,"short_name":"FDP","colors":"#FFED00","x":1707696000000,"y":510,"fill":"#FFED00"},{"date":"2024-02-13","party":"FDP","amount_spent":1719741,"Daily Spend":438,"short_name":"FDP","colors":"#FFED00","x":1707782400000,"y":438,"fill":"#FFED00"},{"date":"2024-02-14","party":"FDP","amount_spent":1720176,"Daily Spend":435,"short_name":"FDP","colors":"#FFED00","x":1707868800000,"y":435,"fill":"#FFED00"},{"date":"2024-02-15","party":"FDP","amount_spent":1720588,"Daily Spend":412,"short_name":"FDP","colors":"#FFED00","x":1707955200000,"y":412,"fill":"#FFED00"},{"date":"2024-02-16","party":"FDP","amount_spent":1720979,"Daily Spend":391,"short_name":"FDP","colors":"#FFED00","x":1708041600000,"y":391,"fill":"#FFED00"},{"date":"2024-02-17","party":"FDP","amount_spent":1721359,"Daily Spend":380,"short_name":"FDP","colors":"#FFED00","x":1708128000000,"y":380,"fill":"#FFED00"},{"date":"2024-02-18","party":"FDP","amount_spent":1721763,"Daily Spend":404,"short_name":"FDP","colors":"#FFED00","x":1708214400000,"y":404,"fill":"#FFED00"},{"date":"2024-02-19","party":"FDP","amount_spent":1722022,"Daily Spend":259,"short_name":"FDP","colors":"#FFED00","x":1708300800000,"y":259,"fill":"#FFED00"},{"date":"2024-02-20","party":"FDP","amount_spent":1722280,"Daily Spend":258,"short_name":"FDP","colors":"#FFED00","x":1708387200000,"y":258,"fill":"#FFED00"},{"date":"2024-02-21","party":"FDP","amount_spent":1722690,"Daily Spend":410,"short_name":"FDP","colors":"#FFED00","x":1708473600000,"y":410,"fill":"#FFED00"},{"date":"2024-02-22","party":"FDP","amount_spent":1722949,"Daily Spend":259,"short_name":"FDP","colors":"#FFED00","x":1708560000000,"y":259,"fill":"#FFED00"},{"date":"2024-02-23","party":"FDP","amount_spent":1723245,"Daily Spend":296,"short_name":"FDP","colors":"#FFED00","x":1708646400000,"y":296,"fill":"#FFED00"},{"date":"2024-02-24","party":"FDP","amount_spent":1723543,"Daily Spend":298,"short_name":"FDP","colors":"#FFED00","x":1708732800000,"y":298,"fill":"#FFED00"},{"date":"2024-02-25","party":"FDP","amount_spent":1723855,"Daily Spend":312,"short_name":"FDP","colors":"#FFED00","x":1708819200000,"y":312,"fill":"#FFED00"},{"date":"2024-02-26","party":"FDP","amount_spent":1724164,"Daily Spend":309,"short_name":"FDP","colors":"#FFED00","x":1708905600000,"y":309,"fill":"#FFED00"},{"date":"2024-02-27","party":"FDP","amount_spent":1724765,"Daily Spend":601,"short_name":"FDP","colors":"#FFED00","x":1708992000000,"y":601,"fill":"#FFED00"},{"date":"2024-02-28","party":"FDP","amount_spent":1725354,"Daily Spend":589,"short_name":"FDP","colors":"#FFED00","x":1709078400000,"y":589,"fill":"#FFED00"},{"date":"2024-02-29","party":"FDP","amount_spent":1725863,"Daily Spend":509,"short_name":"FDP","colors":"#FFED00","x":1709164800000,"y":509,"fill":"#FFED00"},{"date":"2024-03-01","party":"FDP","amount_spent":1726363,"Daily Spend":500,"short_name":"FDP","colors":"#FFED00","x":1709251200000,"y":500,"fill":"#FFED00"},{"date":"2024-03-02","party":"FDP","amount_spent":1726865,"Daily Spend":502,"short_name":"FDP","colors":"#FFED00","x":1709337600000,"y":502,"fill":"#FFED00"},{"date":"2024-03-03","party":"FDP","amount_spent":1727312,"Daily Spend":447,"short_name":"FDP","colors":"#FFED00","x":1709424000000,"y":447,"fill":"#FFED00"},{"date":"2024-03-04","party":"FDP","amount_spent":1727601,"Daily Spend":289,"short_name":"FDP","colors":"#FFED00","x":1709510400000,"y":289,"fill":"#FFED00"},{"date":"2024-03-05","party":"FDP","amount_spent":1727869,"Daily Spend":268,"short_name":"FDP","colors":"#FFED00","x":1709596800000,"y":268,"fill":"#FFED00"},{"date":"2024-03-06","party":"FDP","amount_spent":1728196,"Daily Spend":327,"short_name":"FDP","colors":"#FFED00","x":1709683200000,"y":327,"fill":"#FFED00"},{"date":"2024-03-07","party":"FDP","amount_spent":1728540,"Daily Spend":344,"short_name":"FDP","colors":"#FFED00","x":1709769600000,"y":344,"fill":"#FFED00"},{"date":"2024-03-08","party":"FDP","amount_spent":1728869,"Daily Spend":329,"short_name":"FDP","colors":"#FFED00","x":1709856000000,"y":329,"fill":"#FFED00"},{"date":"2024-03-09","party":"FDP","amount_spent":1729147,"Daily Spend":278,"short_name":"FDP","colors":"#FFED00","x":1709942400000,"y":278,"fill":"#FFED00"},{"date":"2024-03-10","party":"FDP","amount_spent":1729527,"Daily Spend":380,"short_name":"FDP","colors":"#FFED00","x":1710028800000,"y":380,"fill":"#FFED00"},{"date":"2024-03-11","party":"FDP","amount_spent":1729863,"Daily Spend":336,"short_name":"FDP","colors":"#FFED00","x":1710115200000,"y":336,"fill":"#FFED00"},{"date":"2024-03-12","party":"FDP","amount_spent":1730153,"Daily Spend":290,"short_name":"FDP","colors":"#FFED00","x":1710201600000,"y":290,"fill":"#FFED00"},{"date":"2024-03-13","party":"FDP","amount_spent":1730431,"Daily Spend":278,"short_name":"FDP","colors":"#FFED00","x":1710288000000,"y":278,"fill":"#FFED00"}],"type":"area"},{"name":"Politische Player","data":[{"date":"2023-12-31","party":"Politische Player","amount_spent":20248403,"Daily Spend":null,"short_name":"Pol","colors":"#36015e","x":1703980800000,"y":null,"fill":"#36015e"},{"date":"2024-01-01","party":"Politische Player","amount_spent":20266877,"Daily Spend":18474,"short_name":"Pol","colors":"#36015e","x":1704067200000,"y":18474,"fill":"#36015e"},{"date":"2024-01-02","party":"Politische Player","amount_spent":20284353,"Daily Spend":17476,"short_name":"Pol","colors":"#36015e","x":1704153600000,"y":17476,"fill":"#36015e"},{"date":"2024-01-03","party":"Politische Player","amount_spent":20300658,"Daily Spend":16305,"short_name":"Pol","colors":"#36015e","x":1704240000000,"y":16305,"fill":"#36015e"},{"date":"2024-01-04","party":"Politische Player","amount_spent":20315925,"Daily Spend":15267,"short_name":"Pol","colors":"#36015e","x":1704326400000,"y":15267,"fill":"#36015e"},{"date":"2024-01-05","party":"Politische Player","amount_spent":20329916,"Daily Spend":13991,"short_name":"Pol","colors":"#36015e","x":1704412800000,"y":13991,"fill":"#36015e"},{"date":"2024-01-06","party":"Politische Player","amount_spent":20344272,"Daily Spend":14356,"short_name":"Pol","colors":"#36015e","x":1704499200000,"y":14356,"fill":"#36015e"},{"date":"2024-01-07","party":"Politische Player","amount_spent":20358392,"Daily Spend":14120,"short_name":"Pol","colors":"#36015e","x":1704585600000,"y":14120,"fill":"#36015e"},{"date":"2024-01-08","party":"Politische Player","amount_spent":20369469,"Daily Spend":11077,"short_name":"Pol","colors":"#36015e","x":1704672000000,"y":11077,"fill":"#36015e"},{"date":"2024-01-09","party":"Politische Player","amount_spent":20380317,"Daily Spend":10848,"short_name":"Pol","colors":"#36015e","x":1704758400000,"y":10848,"fill":"#36015e"},{"date":"2024-01-10","party":"Politische Player","amount_spent":20390301,"Daily Spend":9984,"short_name":"Pol","colors":"#36015e","x":1704844800000,"y":9984,"fill":"#36015e"},{"date":"2024-01-11","party":"Politische Player","amount_spent":20401181,"Daily Spend":10880,"short_name":"Pol","colors":"#36015e","x":1704931200000,"y":10880,"fill":"#36015e"},{"date":"2024-01-12","party":"Politische Player","amount_spent":20415821,"Daily Spend":14640,"short_name":"Pol","colors":"#36015e","x":1705017600000,"y":14640,"fill":"#36015e"},{"date":"2024-01-13","party":"Politische Player","amount_spent":20435392,"Daily Spend":19571,"short_name":"Pol","colors":"#36015e","x":1705104000000,"y":19571,"fill":"#36015e"},{"date":"2024-01-14","party":"Politische Player","amount_spent":20457692,"Daily Spend":22300,"short_name":"Pol","colors":"#36015e","x":1705190400000,"y":22300,"fill":"#36015e"},{"date":"2024-01-15","party":"Politische Player","amount_spent":20484063,"Daily Spend":26371,"short_name":"Pol","colors":"#36015e","x":1705276800000,"y":26371,"fill":"#36015e"},{"date":"2024-01-16","party":"Politische Player","amount_spent":20515447,"Daily Spend":31384,"short_name":"Pol","colors":"#36015e","x":1705363200000,"y":31384,"fill":"#36015e"},{"date":"2024-01-17","party":"Politische Player","amount_spent":20548117,"Daily Spend":32670,"short_name":"Pol","colors":"#36015e","x":1705449600000,"y":32670,"fill":"#36015e"},{"date":"2024-01-18","party":"Politische Player","amount_spent":20584045,"Daily Spend":35928,"short_name":"Pol","colors":"#36015e","x":1705536000000,"y":35928,"fill":"#36015e"},{"date":"2024-01-19","party":"Politische Player","amount_spent":20617325,"Daily Spend":33280,"short_name":"Pol","colors":"#36015e","x":1705622400000,"y":33280,"fill":"#36015e"},{"date":"2024-01-20","party":"Politische Player","amount_spent":20652668,"Daily Spend":35343,"short_name":"Pol","colors":"#36015e","x":1705708800000,"y":35343,"fill":"#36015e"},{"date":"2024-01-21","party":"Politische Player","amount_spent":20681794,"Daily Spend":29126,"short_name":"Pol","colors":"#36015e","x":1705795200000,"y":29126,"fill":"#36015e"},{"date":"2024-01-22","party":"Politische Player","amount_spent":20701897,"Daily Spend":20103,"short_name":"Pol","colors":"#36015e","x":1705881600000,"y":20103,"fill":"#36015e"},{"date":"2024-01-23","party":"Politische Player","amount_spent":20720659,"Daily Spend":18762,"short_name":"Pol","colors":"#36015e","x":1705968000000,"y":18762,"fill":"#36015e"},{"date":"2024-01-24","party":"Politische Player","amount_spent":20740540,"Daily Spend":19881,"short_name":"Pol","colors":"#36015e","x":1706054400000,"y":19881,"fill":"#36015e"},{"date":"2024-01-25","party":"Politische Player","amount_spent":20761673,"Daily Spend":21133,"short_name":"Pol","colors":"#36015e","x":1706140800000,"y":21133,"fill":"#36015e"},{"date":"2024-01-26","party":"Politische Player","amount_spent":20781262,"Daily Spend":19589,"short_name":"Pol","colors":"#36015e","x":1706227200000,"y":19589,"fill":"#36015e"},{"date":"2024-01-27","party":"Politische Player","amount_spent":20801651,"Daily Spend":20389,"short_name":"Pol","colors":"#36015e","x":1706313600000,"y":20389,"fill":"#36015e"},{"date":"2024-01-28","party":"Politische Player","amount_spent":20819956,"Daily Spend":18305,"short_name":"Pol","colors":"#36015e","x":1706400000000,"y":18305,"fill":"#36015e"},{"date":"2024-01-29","party":"Politische Player","amount_spent":20829524,"Daily Spend":9568,"short_name":"Pol","colors":"#36015e","x":1706486400000,"y":9568,"fill":"#36015e"},{"date":"2024-01-30","party":"Politische Player","amount_spent":20842664,"Daily Spend":13140,"short_name":"Pol","colors":"#36015e","x":1706572800000,"y":13140,"fill":"#36015e"},{"date":"2024-01-31","party":"Politische Player","amount_spent":20854546,"Daily Spend":11882,"short_name":"Pol","colors":"#36015e","x":1706659200000,"y":11882,"fill":"#36015e"},{"date":"2024-02-01","party":"Politische Player","amount_spent":20867504,"Daily Spend":12958,"short_name":"Pol","colors":"#36015e","x":1706745600000,"y":12958,"fill":"#36015e"},{"date":"2024-02-02","party":"Politische Player","amount_spent":20880838,"Daily Spend":13334,"short_name":"Pol","colors":"#36015e","x":1706832000000,"y":13334,"fill":"#36015e"},{"date":"2024-02-03","party":"Politische Player","amount_spent":20892695,"Daily Spend":11857,"short_name":"Pol","colors":"#36015e","x":1706918400000,"y":11857,"fill":"#36015e"},{"date":"2024-02-04","party":"Politische Player","amount_spent":20903460,"Daily Spend":10765,"short_name":"Pol","colors":"#36015e","x":1707004800000,"y":10765,"fill":"#36015e"},{"date":"2024-02-05","party":"Politische Player","amount_spent":20913843,"Daily Spend":10383,"short_name":"Pol","colors":"#36015e","x":1707091200000,"y":10383,"fill":"#36015e"},{"date":"2024-02-06","party":"Politische Player","amount_spent":20926009,"Daily Spend":12166,"short_name":"Pol","colors":"#36015e","x":1707177600000,"y":12166,"fill":"#36015e"},{"date":"2024-02-07","party":"Politische Player","amount_spent":20939329,"Daily Spend":13320,"short_name":"Pol","colors":"#36015e","x":1707264000000,"y":13320,"fill":"#36015e"},{"date":"2024-02-08","party":"Politische Player","amount_spent":20951232,"Daily Spend":11903,"short_name":"Pol","colors":"#36015e","x":1707350400000,"y":11903,"fill":"#36015e"},{"date":"2024-02-09","party":"Politische Player","amount_spent":20962760,"Daily Spend":11528,"short_name":"Pol","colors":"#36015e","x":1707436800000,"y":11528,"fill":"#36015e"},{"date":"2024-02-10","party":"Politische Player","amount_spent":20974788,"Daily Spend":12028,"short_name":"Pol","colors":"#36015e","x":1707523200000,"y":12028,"fill":"#36015e"},{"date":"2024-02-11","party":"Politische Player","amount_spent":20986108,"Daily Spend":11320,"short_name":"Pol","colors":"#36015e","x":1707609600000,"y":11320,"fill":"#36015e"},{"date":"2024-02-12","party":"Politische Player","amount_spent":20996021,"Daily Spend":9913,"short_name":"Pol","colors":"#36015e","x":1707696000000,"y":9913,"fill":"#36015e"},{"date":"2024-02-13","party":"Politische Player","amount_spent":21006245,"Daily Spend":10224,"short_name":"Pol","colors":"#36015e","x":1707782400000,"y":10224,"fill":"#36015e"},{"date":"2024-02-14","party":"Politische Player","amount_spent":21016969,"Daily Spend":10724,"short_name":"Pol","colors":"#36015e","x":1707868800000,"y":10724,"fill":"#36015e"},{"date":"2024-02-15","party":"Politische Player","amount_spent":21026847,"Daily Spend":9878,"short_name":"Pol","colors":"#36015e","x":1707955200000,"y":9878,"fill":"#36015e"},{"date":"2024-02-16","party":"Politische Player","amount_spent":21036656,"Daily Spend":9809,"short_name":"Pol","colors":"#36015e","x":1708041600000,"y":9809,"fill":"#36015e"},{"date":"2024-02-17","party":"Politische Player","amount_spent":21046052,"Daily Spend":9396,"short_name":"Pol","colors":"#36015e","x":1708128000000,"y":9396,"fill":"#36015e"},{"date":"2024-02-18","party":"Politische Player","amount_spent":21055682,"Daily Spend":9630,"short_name":"Pol","colors":"#36015e","x":1708214400000,"y":9630,"fill":"#36015e"},{"date":"2024-02-19","party":"Politische Player","amount_spent":21063813,"Daily Spend":8131,"short_name":"Pol","colors":"#36015e","x":1708300800000,"y":8131,"fill":"#36015e"},{"date":"2024-02-20","party":"Politische Player","amount_spent":21075644,"Daily Spend":11831,"short_name":"Pol","colors":"#36015e","x":1708387200000,"y":11831,"fill":"#36015e"},{"date":"2024-02-21","party":"Politische Player","amount_spent":21088139,"Daily Spend":12495,"short_name":"Pol","colors":"#36015e","x":1708473600000,"y":12495,"fill":"#36015e"},{"date":"2024-02-22","party":"Politische Player","amount_spent":21100030,"Daily Spend":11891,"short_name":"Pol","colors":"#36015e","x":1708560000000,"y":11891,"fill":"#36015e"},{"date":"2024-02-23","party":"Politische Player","amount_spent":21111408,"Daily Spend":11378,"short_name":"Pol","colors":"#36015e","x":1708646400000,"y":11378,"fill":"#36015e"},{"date":"2024-02-24","party":"Politische Player","amount_spent":21123501,"Daily Spend":12093,"short_name":"Pol","colors":"#36015e","x":1708732800000,"y":12093,"fill":"#36015e"},{"date":"2024-02-25","party":"Politische Player","amount_spent":21135521,"Daily Spend":12020,"short_name":"Pol","colors":"#36015e","x":1708819200000,"y":12020,"fill":"#36015e"},{"date":"2024-02-26","party":"Politische Player","amount_spent":21144687,"Daily Spend":9166,"short_name":"Pol","colors":"#36015e","x":1708905600000,"y":9166,"fill":"#36015e"},{"date":"2024-02-27","party":"Politische Player","amount_spent":21155741,"Daily Spend":11054,"short_name":"Pol","colors":"#36015e","x":1708992000000,"y":11054,"fill":"#36015e"},{"date":"2024-02-28","party":"Politische Player","amount_spent":21170468,"Daily Spend":14727,"short_name":"Pol","colors":"#36015e","x":1709078400000,"y":14727,"fill":"#36015e"},{"date":"2024-02-29","party":"Politische Player","amount_spent":21184825,"Daily Spend":14357,"short_name":"Pol","colors":"#36015e","x":1709164800000,"y":14357,"fill":"#36015e"},{"date":"2024-03-01","party":"Politische Player","amount_spent":21200633,"Daily Spend":15808,"short_name":"Pol","colors":"#36015e","x":1709251200000,"y":15808,"fill":"#36015e"},{"date":"2024-03-02","party":"Politische Player","amount_spent":21215047,"Daily Spend":14414,"short_name":"Pol","colors":"#36015e","x":1709337600000,"y":14414,"fill":"#36015e"},{"date":"2024-03-03","party":"Politische Player","amount_spent":21230178,"Daily Spend":15131,"short_name":"Pol","colors":"#36015e","x":1709424000000,"y":15131,"fill":"#36015e"},{"date":"2024-03-04","party":"Politische Player","amount_spent":21242400,"Daily Spend":12222,"short_name":"Pol","colors":"#36015e","x":1709510400000,"y":12222,"fill":"#36015e"},{"date":"2024-03-05","party":"Politische Player","amount_spent":21252835,"Daily Spend":10435,"short_name":"Pol","colors":"#36015e","x":1709596800000,"y":10435,"fill":"#36015e"},{"date":"2024-03-06","party":"Politische Player","amount_spent":21263751,"Daily Spend":10916,"short_name":"Pol","colors":"#36015e","x":1709683200000,"y":10916,"fill":"#36015e"},{"date":"2024-03-07","party":"Politische Player","amount_spent":21274687,"Daily Spend":10936,"short_name":"Pol","colors":"#36015e","x":1709769600000,"y":10936,"fill":"#36015e"},{"date":"2024-03-08","party":"Politische Player","amount_spent":21283986,"Daily Spend":9299,"short_name":"Pol","colors":"#36015e","x":1709856000000,"y":9299,"fill":"#36015e"},{"date":"2024-03-09","party":"Politische Player","amount_spent":21294197,"Daily Spend":10211,"short_name":"Pol","colors":"#36015e","x":1709942400000,"y":10211,"fill":"#36015e"},{"date":"2024-03-10","party":"Politische Player","amount_spent":21304382,"Daily Spend":10185,"short_name":"Pol","colors":"#36015e","x":1710028800000,"y":10185,"fill":"#36015e"},{"date":"2024-03-11","party":"Politische Player","amount_spent":21313829,"Daily Spend":9447,"short_name":"Pol","colors":"#36015e","x":1710115200000,"y":9447,"fill":"#36015e"},{"date":"2024-03-12","party":"Politische Player","amount_spent":21322487,"Daily Spend":8658,"short_name":"Pol","colors":"#36015e","x":1710201600000,"y":8658,"fill":"#36015e"},{"date":"2024-03-13","party":"Politische Player","amount_spent":21333945,"Daily Spend":11458,"short_name":"Pol","colors":"#36015e","x":1710288000000,"y":11458,"fill":"#36015e"}],"type":"area"},{"name":"SPD","data":[{"date":"2023-12-31","party":"SPD","amount_spent":906574,"Daily Spend":null,"short_name":"SPD","colors":"#EB001F","x":1703980800000,"y":null,"fill":"#EB001F"},{"date":"2024-01-01","party":"SPD","amount_spent":906671,"Daily Spend":97,"short_name":"SPD","colors":"#EB001F","x":1704067200000,"y":97,"fill":"#EB001F"},{"date":"2024-01-02","party":"SPD","amount_spent":906782,"Daily Spend":111,"short_name":"SPD","colors":"#EB001F","x":1704153600000,"y":111,"fill":"#EB001F"},{"date":"2024-01-03","party":"SPD","amount_spent":907048,"Daily Spend":266,"short_name":"SPD","colors":"#EB001F","x":1704240000000,"y":266,"fill":"#EB001F"},{"date":"2024-01-04","party":"SPD","amount_spent":907591,"Daily Spend":543,"short_name":"SPD","colors":"#EB001F","x":1704326400000,"y":543,"fill":"#EB001F"},{"date":"2024-01-05","party":"SPD","amount_spent":908328,"Daily Spend":737,"short_name":"SPD","colors":"#EB001F","x":1704412800000,"y":737,"fill":"#EB001F"},{"date":"2024-01-06","party":"SPD","amount_spent":909323,"Daily Spend":995,"short_name":"SPD","colors":"#EB001F","x":1704499200000,"y":995,"fill":"#EB001F"},{"date":"2024-01-07","party":"SPD","amount_spent":910005,"Daily Spend":682,"short_name":"SPD","colors":"#EB001F","x":1704585600000,"y":682,"fill":"#EB001F"},{"date":"2024-01-08","party":"SPD","amount_spent":910494,"Daily Spend":489,"short_name":"SPD","colors":"#EB001F","x":1704672000000,"y":489,"fill":"#EB001F"},{"date":"2024-01-09","party":"SPD","amount_spent":910880,"Daily Spend":386,"short_name":"SPD","colors":"#EB001F","x":1704758400000,"y":386,"fill":"#EB001F"},{"date":"2024-01-10","party":"SPD","amount_spent":911228,"Daily Spend":348,"short_name":"SPD","colors":"#EB001F","x":1704844800000,"y":348,"fill":"#EB001F"},{"date":"2024-01-11","party":"SPD","amount_spent":911588,"Daily Spend":360,"short_name":"SPD","colors":"#EB001F","x":1704931200000,"y":360,"fill":"#EB001F"},{"date":"2024-01-12","party":"SPD","amount_spent":912051,"Daily Spend":463,"short_name":"SPD","colors":"#EB001F","x":1705017600000,"y":463,"fill":"#EB001F"},{"date":"2024-01-13","party":"SPD","amount_spent":912422,"Daily Spend":371,"short_name":"SPD","colors":"#EB001F","x":1705104000000,"y":371,"fill":"#EB001F"},{"date":"2024-01-14","party":"SPD","amount_spent":912768,"Daily Spend":346,"short_name":"SPD","colors":"#EB001F","x":1705190400000,"y":346,"fill":"#EB001F"},{"date":"2024-01-15","party":"SPD","amount_spent":913095,"Daily Spend":327,"short_name":"SPD","colors":"#EB001F","x":1705276800000,"y":327,"fill":"#EB001F"},{"date":"2024-01-16","party":"SPD","amount_spent":914376,"Daily Spend":1281,"short_name":"SPD","colors":"#EB001F","x":1705363200000,"y":1281,"fill":"#EB001F"},{"date":"2024-01-17","party":"SPD","amount_spent":915542,"Daily Spend":1166,"short_name":"SPD","colors":"#EB001F","x":1705449600000,"y":1166,"fill":"#EB001F"},{"date":"2024-01-18","party":"SPD","amount_spent":916645,"Daily Spend":1103,"short_name":"SPD","colors":"#EB001F","x":1705536000000,"y":1103,"fill":"#EB001F"},{"date":"2024-01-19","party":"SPD","amount_spent":917861,"Daily Spend":1216,"short_name":"SPD","colors":"#EB001F","x":1705622400000,"y":1216,"fill":"#EB001F"},{"date":"2024-01-20","party":"SPD","amount_spent":918980,"Daily Spend":1119,"short_name":"SPD","colors":"#EB001F","x":1705708800000,"y":1119,"fill":"#EB001F"},{"date":"2024-01-21","party":"SPD","amount_spent":920058,"Daily Spend":1078,"short_name":"SPD","colors":"#EB001F","x":1705795200000,"y":1078,"fill":"#EB001F"},{"date":"2024-01-22","party":"SPD","amount_spent":920751,"Daily Spend":693,"short_name":"SPD","colors":"#EB001F","x":1705881600000,"y":693,"fill":"#EB001F"},{"date":"2024-01-23","party":"SPD","amount_spent":921546,"Daily Spend":795,"short_name":"SPD","colors":"#EB001F","x":1705968000000,"y":795,"fill":"#EB001F"},{"date":"2024-01-24","party":"SPD","amount_spent":922442,"Daily Spend":896,"short_name":"SPD","colors":"#EB001F","x":1706054400000,"y":896,"fill":"#EB001F"},{"date":"2024-01-25","party":"SPD","amount_spent":923384,"Daily Spend":942,"short_name":"SPD","colors":"#EB001F","x":1706140800000,"y":942,"fill":"#EB001F"},{"date":"2024-01-26","party":"SPD","amount_spent":924364,"Daily Spend":980,"short_name":"SPD","colors":"#EB001F","x":1706227200000,"y":980,"fill":"#EB001F"},{"date":"2024-01-27","party":"SPD","amount_spent":925366,"Daily Spend":1002,"short_name":"SPD","colors":"#EB001F","x":1706313600000,"y":1002,"fill":"#EB001F"},{"date":"2024-01-28","party":"SPD","amount_spent":926210,"Daily Spend":844,"short_name":"SPD","colors":"#EB001F","x":1706400000000,"y":844,"fill":"#EB001F"},{"date":"2024-01-29","party":"SPD","amount_spent":927003,"Daily Spend":793,"short_name":"SPD","colors":"#EB001F","x":1706486400000,"y":793,"fill":"#EB001F"},{"date":"2024-01-30","party":"SPD","amount_spent":927851,"Daily Spend":848,"short_name":"SPD","colors":"#EB001F","x":1706572800000,"y":848,"fill":"#EB001F"},{"date":"2024-01-31","party":"SPD","amount_spent":928781,"Daily Spend":930,"short_name":"SPD","colors":"#EB001F","x":1706659200000,"y":930,"fill":"#EB001F"},{"date":"2024-02-01","party":"SPD","amount_spent":930138,"Daily Spend":1357,"short_name":"SPD","colors":"#EB001F","x":1706745600000,"y":1357,"fill":"#EB001F"},{"date":"2024-02-02","party":"SPD","amount_spent":931437,"Daily Spend":1299,"short_name":"SPD","colors":"#EB001F","x":1706832000000,"y":1299,"fill":"#EB001F"},{"date":"2024-02-03","party":"SPD","amount_spent":932672,"Daily Spend":1235,"short_name":"SPD","colors":"#EB001F","x":1706918400000,"y":1235,"fill":"#EB001F"},{"date":"2024-02-04","party":"SPD","amount_spent":933780,"Daily Spend":1108,"short_name":"SPD","colors":"#EB001F","x":1707004800000,"y":1108,"fill":"#EB001F"},{"date":"2024-02-05","party":"SPD","amount_spent":934508,"Daily Spend":728,"short_name":"SPD","colors":"#EB001F","x":1707091200000,"y":728,"fill":"#EB001F"},{"date":"2024-02-06","party":"SPD","amount_spent":935375,"Daily Spend":867,"short_name":"SPD","colors":"#EB001F","x":1707177600000,"y":867,"fill":"#EB001F"},{"date":"2024-02-07","party":"SPD","amount_spent":936569,"Daily Spend":1194,"short_name":"SPD","colors":"#EB001F","x":1707264000000,"y":1194,"fill":"#EB001F"},{"date":"2024-02-08","party":"SPD","amount_spent":937810,"Daily Spend":1241,"short_name":"SPD","colors":"#EB001F","x":1707350400000,"y":1241,"fill":"#EB001F"},{"date":"2024-02-09","party":"SPD","amount_spent":938972,"Daily Spend":1162,"short_name":"SPD","colors":"#EB001F","x":1707436800000,"y":1162,"fill":"#EB001F"},{"date":"2024-02-10","party":"SPD","amount_spent":940219,"Daily Spend":1247,"short_name":"SPD","colors":"#EB001F","x":1707523200000,"y":1247,"fill":"#EB001F"},{"date":"2024-02-11","party":"SPD","amount_spent":941070,"Daily Spend":851,"short_name":"SPD","colors":"#EB001F","x":1707609600000,"y":851,"fill":"#EB001F"},{"date":"2024-02-12","party":"SPD","amount_spent":941798,"Daily Spend":728,"short_name":"SPD","colors":"#EB001F","x":1707696000000,"y":728,"fill":"#EB001F"},{"date":"2024-02-13","party":"SPD","amount_spent":942741,"Daily Spend":943,"short_name":"SPD","colors":"#EB001F","x":1707782400000,"y":943,"fill":"#EB001F"},{"date":"2024-02-14","party":"SPD","amount_spent":944061,"Daily Spend":1320,"short_name":"SPD","colors":"#EB001F","x":1707868800000,"y":1320,"fill":"#EB001F"},{"date":"2024-02-15","party":"SPD","amount_spent":945473,"Daily Spend":1412,"short_name":"SPD","colors":"#EB001F","x":1707955200000,"y":1412,"fill":"#EB001F"},{"date":"2024-02-16","party":"SPD","amount_spent":946901,"Daily Spend":1428,"short_name":"SPD","colors":"#EB001F","x":1708041600000,"y":1428,"fill":"#EB001F"},{"date":"2024-02-17","party":"SPD","amount_spent":948064,"Daily Spend":1163,"short_name":"SPD","colors":"#EB001F","x":1708128000000,"y":1163,"fill":"#EB001F"},{"date":"2024-02-18","party":"SPD","amount_spent":948885,"Daily Spend":821,"short_name":"SPD","colors":"#EB001F","x":1708214400000,"y":821,"fill":"#EB001F"},{"date":"2024-02-19","party":"SPD","amount_spent":949621,"Daily Spend":736,"short_name":"SPD","colors":"#EB001F","x":1708300800000,"y":736,"fill":"#EB001F"},{"date":"2024-02-20","party":"SPD","amount_spent":950316,"Daily Spend":695,"short_name":"SPD","colors":"#EB001F","x":1708387200000,"y":695,"fill":"#EB001F"},{"date":"2024-02-21","party":"SPD","amount_spent":951180,"Daily Spend":864,"short_name":"SPD","colors":"#EB001F","x":1708473600000,"y":864,"fill":"#EB001F"},{"date":"2024-02-22","party":"SPD","amount_spent":952167,"Daily Spend":987,"short_name":"SPD","colors":"#EB001F","x":1708560000000,"y":987,"fill":"#EB001F"},{"date":"2024-02-23","party":"SPD","amount_spent":953136,"Daily Spend":969,"short_name":"SPD","colors":"#EB001F","x":1708646400000,"y":969,"fill":"#EB001F"},{"date":"2024-02-24","party":"SPD","amount_spent":954072,"Daily Spend":936,"short_name":"SPD","colors":"#EB001F","x":1708732800000,"y":936,"fill":"#EB001F"},{"date":"2024-02-25","party":"SPD","amount_spent":954781,"Daily Spend":709,"short_name":"SPD","colors":"#EB001F","x":1708819200000,"y":709,"fill":"#EB001F"},{"date":"2024-02-26","party":"SPD","amount_spent":955775,"Daily Spend":994,"short_name":"SPD","colors":"#EB001F","x":1708905600000,"y":994,"fill":"#EB001F"},{"date":"2024-02-27","party":"SPD","amount_spent":957032,"Daily Spend":1257,"short_name":"SPD","colors":"#EB001F","x":1708992000000,"y":1257,"fill":"#EB001F"},{"date":"2024-02-28","party":"SPD","amount_spent":958112,"Daily Spend":1080,"short_name":"SPD","colors":"#EB001F","x":1709078400000,"y":1080,"fill":"#EB001F"},{"date":"2024-02-29","party":"SPD","amount_spent":959153,"Daily Spend":1041,"short_name":"SPD","colors":"#EB001F","x":1709164800000,"y":1041,"fill":"#EB001F"},{"date":"2024-03-01","party":"SPD","amount_spent":960004,"Daily Spend":851,"short_name":"SPD","colors":"#EB001F","x":1709251200000,"y":851,"fill":"#EB001F"},{"date":"2024-03-02","party":"SPD","amount_spent":960687,"Daily Spend":683,"short_name":"SPD","colors":"#EB001F","x":1709337600000,"y":683,"fill":"#EB001F"},{"date":"2024-03-03","party":"SPD","amount_spent":961475,"Daily Spend":788,"short_name":"SPD","colors":"#EB001F","x":1709424000000,"y":788,"fill":"#EB001F"},{"date":"2024-03-04","party":"SPD","amount_spent":962218,"Daily Spend":743,"short_name":"SPD","colors":"#EB001F","x":1709510400000,"y":743,"fill":"#EB001F"},{"date":"2024-03-05","party":"SPD","amount_spent":963013,"Daily Spend":795,"short_name":"SPD","colors":"#EB001F","x":1709596800000,"y":795,"fill":"#EB001F"},{"date":"2024-03-06","party":"SPD","amount_spent":963813,"Daily Spend":800,"short_name":"SPD","colors":"#EB001F","x":1709683200000,"y":800,"fill":"#EB001F"},{"date":"2024-03-07","party":"SPD","amount_spent":964969,"Daily Spend":1156,"short_name":"SPD","colors":"#EB001F","x":1709769600000,"y":1156,"fill":"#EB001F"},{"date":"2024-03-08","party":"SPD","amount_spent":965791,"Daily Spend":822,"short_name":"SPD","colors":"#EB001F","x":1709856000000,"y":822,"fill":"#EB001F"},{"date":"2024-03-09","party":"SPD","amount_spent":966735,"Daily Spend":944,"short_name":"SPD","colors":"#EB001F","x":1709942400000,"y":944,"fill":"#EB001F"},{"date":"2024-03-10","party":"SPD","amount_spent":967922,"Daily Spend":1187,"short_name":"SPD","colors":"#EB001F","x":1710028800000,"y":1187,"fill":"#EB001F"},{"date":"2024-03-11","party":"SPD","amount_spent":968635,"Daily Spend":713,"short_name":"SPD","colors":"#EB001F","x":1710115200000,"y":713,"fill":"#EB001F"},{"date":"2024-03-12","party":"SPD","amount_spent":969380,"Daily Spend":745,"short_name":"SPD","colors":"#EB001F","x":1710201600000,"y":745,"fill":"#EB001F"},{"date":"2024-03-13","party":"SPD","amount_spent":970174,"Daily Spend":794,"short_name":"SPD","colors":"#EB001F","x":1710288000000,"y":794,"fill":"#EB001F"}],"type":"area"},{"name":"Staat","data":[{"date":"2023-12-31","party":"Staat","amount_spent":4906696,"Daily Spend":null,"short_name":"Sta","colors":"#6e6d67","x":1703980800000,"y":null,"fill":"#6e6d67"},{"date":"2024-01-01","party":"Staat","amount_spent":4912687,"Daily Spend":5991,"short_name":"Sta","colors":"#6e6d67","x":1704067200000,"y":5991,"fill":"#6e6d67"},{"date":"2024-01-02","party":"Staat","amount_spent":4918206,"Daily Spend":5519,"short_name":"Sta","colors":"#6e6d67","x":1704153600000,"y":5519,"fill":"#6e6d67"},{"date":"2024-01-03","party":"Staat","amount_spent":4922468,"Daily Spend":4262,"short_name":"Sta","colors":"#6e6d67","x":1704240000000,"y":4262,"fill":"#6e6d67"},{"date":"2024-01-04","party":"Staat","amount_spent":4926274,"Daily Spend":3806,"short_name":"Sta","colors":"#6e6d67","x":1704326400000,"y":3806,"fill":"#6e6d67"},{"date":"2024-01-05","party":"Staat","amount_spent":4930312,"Daily Spend":4038,"short_name":"Sta","colors":"#6e6d67","x":1704412800000,"y":4038,"fill":"#6e6d67"},{"date":"2024-01-06","party":"Staat","amount_spent":4934290,"Daily Spend":3978,"short_name":"Sta","colors":"#6e6d67","x":1704499200000,"y":3978,"fill":"#6e6d67"},{"date":"2024-01-07","party":"Staat","amount_spent":4938213,"Daily Spend":3923,"short_name":"Sta","colors":"#6e6d67","x":1704585600000,"y":3923,"fill":"#6e6d67"},{"date":"2024-01-08","party":"Staat","amount_spent":4942169,"Daily Spend":3956,"short_name":"Sta","colors":"#6e6d67","x":1704672000000,"y":3956,"fill":"#6e6d67"},{"date":"2024-01-09","party":"Staat","amount_spent":4946190,"Daily Spend":4021,"short_name":"Sta","colors":"#6e6d67","x":1704758400000,"y":4021,"fill":"#6e6d67"},{"date":"2024-01-10","party":"Staat","amount_spent":4950548,"Daily Spend":4358,"short_name":"Sta","colors":"#6e6d67","x":1704844800000,"y":4358,"fill":"#6e6d67"},{"date":"2024-01-11","party":"Staat","amount_spent":4955011,"Daily Spend":4463,"short_name":"Sta","colors":"#6e6d67","x":1704931200000,"y":4463,"fill":"#6e6d67"},{"date":"2024-01-12","party":"Staat","amount_spent":4959744,"Daily Spend":4733,"short_name":"Sta","colors":"#6e6d67","x":1705017600000,"y":4733,"fill":"#6e6d67"},{"date":"2024-01-13","party":"Staat","amount_spent":4964539,"Daily Spend":4795,"short_name":"Sta","colors":"#6e6d67","x":1705104000000,"y":4795,"fill":"#6e6d67"},{"date":"2024-01-14","party":"Staat","amount_spent":4969227,"Daily Spend":4688,"short_name":"Sta","colors":"#6e6d67","x":1705190400000,"y":4688,"fill":"#6e6d67"},{"date":"2024-01-15","party":"Staat","amount_spent":4973693,"Daily Spend":4466,"short_name":"Sta","colors":"#6e6d67","x":1705276800000,"y":4466,"fill":"#6e6d67"},{"date":"2024-01-16","party":"Staat","amount_spent":4978178,"Daily Spend":4485,"short_name":"Sta","colors":"#6e6d67","x":1705363200000,"y":4485,"fill":"#6e6d67"},{"date":"2024-01-17","party":"Staat","amount_spent":4982869,"Daily Spend":4691,"short_name":"Sta","colors":"#6e6d67","x":1705449600000,"y":4691,"fill":"#6e6d67"},{"date":"2024-01-18","party":"Staat","amount_spent":4987963,"Daily Spend":5094,"short_name":"Sta","colors":"#6e6d67","x":1705536000000,"y":5094,"fill":"#6e6d67"},{"date":"2024-01-19","party":"Staat","amount_spent":4993607,"Daily Spend":5644,"short_name":"Sta","colors":"#6e6d67","x":1705622400000,"y":5644,"fill":"#6e6d67"},{"date":"2024-01-20","party":"Staat","amount_spent":4999105,"Daily Spend":5498,"short_name":"Sta","colors":"#6e6d67","x":1705708800000,"y":5498,"fill":"#6e6d67"},{"date":"2024-01-21","party":"Staat","amount_spent":5004848,"Daily Spend":5743,"short_name":"Sta","colors":"#6e6d67","x":1705795200000,"y":5743,"fill":"#6e6d67"},{"date":"2024-01-22","party":"Staat","amount_spent":5010525,"Daily Spend":5677,"short_name":"Sta","colors":"#6e6d67","x":1705881600000,"y":5677,"fill":"#6e6d67"},{"date":"2024-01-23","party":"Staat","amount_spent":5016499,"Daily Spend":5974,"short_name":"Sta","colors":"#6e6d67","x":1705968000000,"y":5974,"fill":"#6e6d67"},{"date":"2024-01-24","party":"Staat","amount_spent":5022401,"Daily Spend":5902,"short_name":"Sta","colors":"#6e6d67","x":1706054400000,"y":5902,"fill":"#6e6d67"},{"date":"2024-01-25","party":"Staat","amount_spent":5027588,"Daily Spend":5187,"short_name":"Sta","colors":"#6e6d67","x":1706140800000,"y":5187,"fill":"#6e6d67"},{"date":"2024-01-26","party":"Staat","amount_spent":5033113,"Daily Spend":5525,"short_name":"Sta","colors":"#6e6d67","x":1706227200000,"y":5525,"fill":"#6e6d67"},{"date":"2024-01-27","party":"Staat","amount_spent":5038606,"Daily Spend":5493,"short_name":"Sta","colors":"#6e6d67","x":1706313600000,"y":5493,"fill":"#6e6d67"},{"date":"2024-01-28","party":"Staat","amount_spent":5044192,"Daily Spend":5586,"short_name":"Sta","colors":"#6e6d67","x":1706400000000,"y":5586,"fill":"#6e6d67"},{"date":"2024-01-29","party":"Staat","amount_spent":5049823,"Daily Spend":5631,"short_name":"Sta","colors":"#6e6d67","x":1706486400000,"y":5631,"fill":"#6e6d67"},{"date":"2024-01-30","party":"Staat","amount_spent":5055329,"Daily Spend":5506,"short_name":"Sta","colors":"#6e6d67","x":1706572800000,"y":5506,"fill":"#6e6d67"},{"date":"2024-01-31","party":"Staat","amount_spent":5059430,"Daily Spend":4101,"short_name":"Sta","colors":"#6e6d67","x":1706659200000,"y":4101,"fill":"#6e6d67"},{"date":"2024-02-01","party":"Staat","amount_spent":5062892,"Daily Spend":3462,"short_name":"Sta","colors":"#6e6d67","x":1706745600000,"y":3462,"fill":"#6e6d67"},{"date":"2024-02-02","party":"Staat","amount_spent":5066990,"Daily Spend":4098,"short_name":"Sta","colors":"#6e6d67","x":1706832000000,"y":4098,"fill":"#6e6d67"},{"date":"2024-02-03","party":"Staat","amount_spent":5073250,"Daily Spend":6260,"short_name":"Sta","colors":"#6e6d67","x":1706918400000,"y":6260,"fill":"#6e6d67"},{"date":"2024-02-04","party":"Staat","amount_spent":5079749,"Daily Spend":6499,"short_name":"Sta","colors":"#6e6d67","x":1707004800000,"y":6499,"fill":"#6e6d67"},{"date":"2024-02-05","party":"Staat","amount_spent":5085662,"Daily Spend":5913,"short_name":"Sta","colors":"#6e6d67","x":1707091200000,"y":5913,"fill":"#6e6d67"},{"date":"2024-02-06","party":"Staat","amount_spent":5091802,"Daily Spend":6140,"short_name":"Sta","colors":"#6e6d67","x":1707177600000,"y":6140,"fill":"#6e6d67"},{"date":"2024-02-07","party":"Staat","amount_spent":5098445,"Daily Spend":6643,"short_name":"Sta","colors":"#6e6d67","x":1707264000000,"y":6643,"fill":"#6e6d67"},{"date":"2024-02-08","party":"Staat","amount_spent":5104277,"Daily Spend":5832,"short_name":"Sta","colors":"#6e6d67","x":1707350400000,"y":5832,"fill":"#6e6d67"},{"date":"2024-02-09","party":"Staat","amount_spent":5109852,"Daily Spend":5575,"short_name":"Sta","colors":"#6e6d67","x":1707436800000,"y":5575,"fill":"#6e6d67"},{"date":"2024-02-10","party":"Staat","amount_spent":5113466,"Daily Spend":3614,"short_name":"Sta","colors":"#6e6d67","x":1707523200000,"y":3614,"fill":"#6e6d67"},{"date":"2024-02-11","party":"Staat","amount_spent":5117026,"Daily Spend":3560,"short_name":"Sta","colors":"#6e6d67","x":1707609600000,"y":3560,"fill":"#6e6d67"},{"date":"2024-02-12","party":"Staat","amount_spent":5120596,"Daily Spend":3570,"short_name":"Sta","colors":"#6e6d67","x":1707696000000,"y":3570,"fill":"#6e6d67"},{"date":"2024-02-13","party":"Staat","amount_spent":5124310,"Daily Spend":3714,"short_name":"Sta","colors":"#6e6d67","x":1707782400000,"y":3714,"fill":"#6e6d67"},{"date":"2024-02-14","party":"Staat","amount_spent":5127655,"Daily Spend":3345,"short_name":"Sta","colors":"#6e6d67","x":1707868800000,"y":3345,"fill":"#6e6d67"},{"date":"2024-02-15","party":"Staat","amount_spent":5131003,"Daily Spend":3348,"short_name":"Sta","colors":"#6e6d67","x":1707955200000,"y":3348,"fill":"#6e6d67"},{"date":"2024-02-16","party":"Staat","amount_spent":5134359,"Daily Spend":3356,"short_name":"Sta","colors":"#6e6d67","x":1708041600000,"y":3356,"fill":"#6e6d67"},{"date":"2024-02-17","party":"Staat","amount_spent":5137640,"Daily Spend":3281,"short_name":"Sta","colors":"#6e6d67","x":1708128000000,"y":3281,"fill":"#6e6d67"},{"date":"2024-02-18","party":"Staat","amount_spent":5140901,"Daily Spend":3261,"short_name":"Sta","colors":"#6e6d67","x":1708214400000,"y":3261,"fill":"#6e6d67"},{"date":"2024-02-19","party":"Staat","amount_spent":5143818,"Daily Spend":2917,"short_name":"Sta","colors":"#6e6d67","x":1708300800000,"y":2917,"fill":"#6e6d67"},{"date":"2024-02-20","party":"Staat","amount_spent":5146743,"Daily Spend":2925,"short_name":"Sta","colors":"#6e6d67","x":1708387200000,"y":2925,"fill":"#6e6d67"},{"date":"2024-02-21","party":"Staat","amount_spent":5149178,"Daily Spend":2435,"short_name":"Sta","colors":"#6e6d67","x":1708473600000,"y":2435,"fill":"#6e6d67"},{"date":"2024-02-22","party":"Staat","amount_spent":5151473,"Daily Spend":2295,"short_name":"Sta","colors":"#6e6d67","x":1708560000000,"y":2295,"fill":"#6e6d67"},{"date":"2024-02-23","party":"Staat","amount_spent":5153724,"Daily Spend":2251,"short_name":"Sta","colors":"#6e6d67","x":1708646400000,"y":2251,"fill":"#6e6d67"},{"date":"2024-02-24","party":"Staat","amount_spent":5155914,"Daily Spend":2190,"short_name":"Sta","colors":"#6e6d67","x":1708732800000,"y":2190,"fill":"#6e6d67"},{"date":"2024-02-25","party":"Staat","amount_spent":5158076,"Daily Spend":2162,"short_name":"Sta","colors":"#6e6d67","x":1708819200000,"y":2162,"fill":"#6e6d67"},{"date":"2024-02-26","party":"Staat","amount_spent":5160916,"Daily Spend":2840,"short_name":"Sta","colors":"#6e6d67","x":1708905600000,"y":2840,"fill":"#6e6d67"},{"date":"2024-02-27","party":"Staat","amount_spent":5163293,"Daily Spend":2377,"short_name":"Sta","colors":"#6e6d67","x":1708992000000,"y":2377,"fill":"#6e6d67"},{"date":"2024-02-28","party":"Staat","amount_spent":5165912,"Daily Spend":2619,"short_name":"Sta","colors":"#6e6d67","x":1709078400000,"y":2619,"fill":"#6e6d67"},{"date":"2024-02-29","party":"Staat","amount_spent":5168392,"Daily Spend":2480,"short_name":"Sta","colors":"#6e6d67","x":1709164800000,"y":2480,"fill":"#6e6d67"},{"date":"2024-03-01","party":"Staat","amount_spent":5170743,"Daily Spend":2351,"short_name":"Sta","colors":"#6e6d67","x":1709251200000,"y":2351,"fill":"#6e6d67"},{"date":"2024-03-02","party":"Staat","amount_spent":5173009,"Daily Spend":2266,"short_name":"Sta","colors":"#6e6d67","x":1709337600000,"y":2266,"fill":"#6e6d67"},{"date":"2024-03-03","party":"Staat","amount_spent":5174854,"Daily Spend":1845,"short_name":"Sta","colors":"#6e6d67","x":1709424000000,"y":1845,"fill":"#6e6d67"},{"date":"2024-03-04","party":"Staat","amount_spent":5176057,"Daily Spend":1203,"short_name":"Sta","colors":"#6e6d67","x":1709510400000,"y":1203,"fill":"#6e6d67"},{"date":"2024-03-05","party":"Staat","amount_spent":5177769,"Daily Spend":1712,"short_name":"Sta","colors":"#6e6d67","x":1709596800000,"y":1712,"fill":"#6e6d67"},{"date":"2024-03-06","party":"Staat","amount_spent":5180744,"Daily Spend":2975,"short_name":"Sta","colors":"#6e6d67","x":1709683200000,"y":2975,"fill":"#6e6d67"},{"date":"2024-03-07","party":"Staat","amount_spent":5184299,"Daily Spend":3555,"short_name":"Sta","colors":"#6e6d67","x":1709769600000,"y":3555,"fill":"#6e6d67"},{"date":"2024-03-08","party":"Staat","amount_spent":5188134,"Daily Spend":3835,"short_name":"Sta","colors":"#6e6d67","x":1709856000000,"y":3835,"fill":"#6e6d67"},{"date":"2024-03-09","party":"Staat","amount_spent":5192223,"Daily Spend":4089,"short_name":"Sta","colors":"#6e6d67","x":1709942400000,"y":4089,"fill":"#6e6d67"},{"date":"2024-03-10","party":"Staat","amount_spent":5196039,"Daily Spend":3816,"short_name":"Sta","colors":"#6e6d67","x":1710028800000,"y":3816,"fill":"#6e6d67"},{"date":"2024-03-11","party":"Staat","amount_spent":5199601,"Daily Spend":3562,"short_name":"Sta","colors":"#6e6d67","x":1710115200000,"y":3562,"fill":"#6e6d67"},{"date":"2024-03-12","party":"Staat","amount_spent":5203211,"Daily Spend":3610,"short_name":"Sta","colors":"#6e6d67","x":1710201600000,"y":3610,"fill":"#6e6d67"},{"date":"2024-03-13","party":"Staat","amount_spent":5206362,"Daily Spend":3151,"short_name":"Sta","colors":"#6e6d67","x":1710288000000,"y":3151,"fill":"#6e6d67"}],"type":"area"}],"xAxis":{"type":"datetime","title":{"text":"date"},"categories":null},"colors":["#009EE0","#CCCCCC","#64A12D","#FFA500","#BE3075","#897C78","#FFED00","#9F867F","#FF0000","#36015e","#EB001F","#6e6d67"],"tooltip":{"shared":true,"positioner":"function (labelWidth, labelHeight, point) {\n        return { x: 200, y: this.chart.plotTop };\n    }"}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":["hc_opts.tooltip.positioner"],"jsHooks":[]}</script>
+=======
+<div class="highchart html-widget html-fill-item" id="htmlwidget-3b9ecafd028a09764c80" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-3b9ecafd028a09764c80">{"x":{"hc_opts":{"chart":{"reflow":true},"title":{"text":null},"yAxis":{"title":{"text":"Daily Spend"},"type":"linear"},"credits":{"enabled":false},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":true},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"area":{"stacking":"normal","lineWidth":1,"marker":{"enabled":false}}},"series":[{"name":"AfD","data":[{"date":"2023-12-31","party":"AfD","amount_spent":1274,"Daily Spend":null,"short_name":"AfD","colors":"#009EE0","x":1703980800000,"y":null,"fill":"#009EE0"},{"date":"2024-01-01","party":"AfD","amount_spent":1274,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1704067200000,"y":0,"fill":"#009EE0"},{"date":"2024-01-02","party":"AfD","amount_spent":1274,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1704153600000,"y":0,"fill":"#009EE0"},{"date":"2024-01-03","party":"AfD","amount_spent":1274,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1704240000000,"y":0,"fill":"#009EE0"},{"date":"2024-01-04","party":"AfD","amount_spent":1274,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1704326400000,"y":0,"fill":"#009EE0"},{"date":"2024-01-05","party":"AfD","amount_spent":1274,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1704412800000,"y":0,"fill":"#009EE0"},{"date":"2024-01-06","party":"AfD","amount_spent":1274,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1704499200000,"y":0,"fill":"#009EE0"},{"date":"2024-01-07","party":"AfD","amount_spent":1274,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1704585600000,"y":0,"fill":"#009EE0"},{"date":"2024-01-08","party":"AfD","amount_spent":1274,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1704672000000,"y":0,"fill":"#009EE0"},{"date":"2024-01-09","party":"AfD","amount_spent":1274,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1704758400000,"y":0,"fill":"#009EE0"},{"date":"2024-01-10","party":"AfD","amount_spent":1274,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1704844800000,"y":0,"fill":"#009EE0"},{"date":"2024-01-11","party":"AfD","amount_spent":1274,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1704931200000,"y":0,"fill":"#009EE0"},{"date":"2024-01-12","party":"AfD","amount_spent":1274,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1705017600000,"y":0,"fill":"#009EE0"},{"date":"2024-01-13","party":"AfD","amount_spent":1274,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1705104000000,"y":0,"fill":"#009EE0"},{"date":"2024-01-14","party":"AfD","amount_spent":1274,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1705190400000,"y":0,"fill":"#009EE0"},{"date":"2024-01-15","party":"AfD","amount_spent":1274,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1705276800000,"y":0,"fill":"#009EE0"},{"date":"2024-01-16","party":"AfD","amount_spent":1274,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1705363200000,"y":0,"fill":"#009EE0"},{"date":"2024-01-17","party":"AfD","amount_spent":1274,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1705449600000,"y":0,"fill":"#009EE0"},{"date":"2024-01-18","party":"AfD","amount_spent":1274,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1705536000000,"y":0,"fill":"#009EE0"},{"date":"2024-01-19","party":"AfD","amount_spent":1274,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1705622400000,"y":0,"fill":"#009EE0"},{"date":"2024-01-20","party":"AfD","amount_spent":1274,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1705708800000,"y":0,"fill":"#009EE0"},{"date":"2024-01-21","party":"AfD","amount_spent":1274,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1705795200000,"y":0,"fill":"#009EE0"},{"date":"2024-01-22","party":"AfD","amount_spent":1274,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1705881600000,"y":0,"fill":"#009EE0"},{"date":"2024-01-23","party":"AfD","amount_spent":1274,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1705968000000,"y":0,"fill":"#009EE0"},{"date":"2024-01-24","party":"AfD","amount_spent":1274,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1706054400000,"y":0,"fill":"#009EE0"},{"date":"2024-01-25","party":"AfD","amount_spent":1274,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1706140800000,"y":0,"fill":"#009EE0"},{"date":"2024-01-26","party":"AfD","amount_spent":1274,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1706227200000,"y":0,"fill":"#009EE0"},{"date":"2024-01-27","party":"AfD","amount_spent":1274,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1706313600000,"y":0,"fill":"#009EE0"},{"date":"2024-01-28","party":"AfD","amount_spent":1274,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1706400000000,"y":0,"fill":"#009EE0"},{"date":"2024-01-29","party":"AfD","amount_spent":1274,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1706486400000,"y":0,"fill":"#009EE0"},{"date":"2024-01-30","party":"AfD","amount_spent":1274,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1706572800000,"y":0,"fill":"#009EE0"},{"date":"2024-01-31","party":"AfD","amount_spent":1279,"Daily Spend":5,"short_name":"AfD","colors":"#009EE0","x":1706659200000,"y":5,"fill":"#009EE0"},{"date":"2024-02-01","party":"AfD","amount_spent":1284,"Daily Spend":5,"short_name":"AfD","colors":"#009EE0","x":1706745600000,"y":5,"fill":"#009EE0"},{"date":"2024-02-02","party":"AfD","amount_spent":1288,"Daily Spend":4,"short_name":"AfD","colors":"#009EE0","x":1706832000000,"y":4,"fill":"#009EE0"},{"date":"2024-02-03","party":"AfD","amount_spent":1294,"Daily Spend":6,"short_name":"AfD","colors":"#009EE0","x":1706918400000,"y":6,"fill":"#009EE0"},{"date":"2024-02-04","party":"AfD","amount_spent":1299,"Daily Spend":5,"short_name":"AfD","colors":"#009EE0","x":1707004800000,"y":5,"fill":"#009EE0"},{"date":"2024-02-05","party":"AfD","amount_spent":1299,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1707091200000,"y":0,"fill":"#009EE0"},{"date":"2024-02-06","party":"AfD","amount_spent":1299,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1707177600000,"y":0,"fill":"#009EE0"},{"date":"2024-02-07","party":"AfD","amount_spent":1305,"Daily Spend":6,"short_name":"AfD","colors":"#009EE0","x":1707264000000,"y":6,"fill":"#009EE0"},{"date":"2024-02-08","party":"AfD","amount_spent":1312,"Daily Spend":7,"short_name":"AfD","colors":"#009EE0","x":1707350400000,"y":7,"fill":"#009EE0"},{"date":"2024-02-09","party":"AfD","amount_spent":1320,"Daily Spend":8,"short_name":"AfD","colors":"#009EE0","x":1707436800000,"y":8,"fill":"#009EE0"},{"date":"2024-02-10","party":"AfD","amount_spent":1328,"Daily Spend":8,"short_name":"AfD","colors":"#009EE0","x":1707523200000,"y":8,"fill":"#009EE0"},{"date":"2024-02-11","party":"AfD","amount_spent":1337,"Daily Spend":9,"short_name":"AfD","colors":"#009EE0","x":1707609600000,"y":9,"fill":"#009EE0"},{"date":"2024-02-12","party":"AfD","amount_spent":1338,"Daily Spend":1,"short_name":"AfD","colors":"#009EE0","x":1707696000000,"y":1,"fill":"#009EE0"},{"date":"2024-02-13","party":"AfD","amount_spent":1338,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1707782400000,"y":0,"fill":"#009EE0"},{"date":"2024-02-14","party":"AfD","amount_spent":1338,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1707868800000,"y":0,"fill":"#009EE0"},{"date":"2024-02-15","party":"AfD","amount_spent":1338,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1707955200000,"y":0,"fill":"#009EE0"},{"date":"2024-02-16","party":"AfD","amount_spent":1338,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1708041600000,"y":0,"fill":"#009EE0"},{"date":"2024-02-17","party":"AfD","amount_spent":1338,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1708128000000,"y":0,"fill":"#009EE0"},{"date":"2024-02-18","party":"AfD","amount_spent":1338,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1708214400000,"y":0,"fill":"#009EE0"},{"date":"2024-02-19","party":"AfD","amount_spent":1338,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1708300800000,"y":0,"fill":"#009EE0"},{"date":"2024-02-20","party":"AfD","amount_spent":1338,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1708387200000,"y":0,"fill":"#009EE0"},{"date":"2024-02-21","party":"AfD","amount_spent":1338,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1708473600000,"y":0,"fill":"#009EE0"},{"date":"2024-02-22","party":"AfD","amount_spent":1338,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1708560000000,"y":0,"fill":"#009EE0"},{"date":"2024-02-23","party":"AfD","amount_spent":1338,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1708646400000,"y":0,"fill":"#009EE0"},{"date":"2024-02-24","party":"AfD","amount_spent":1338,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1708732800000,"y":0,"fill":"#009EE0"},{"date":"2024-02-25","party":"AfD","amount_spent":1338,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1708819200000,"y":0,"fill":"#009EE0"},{"date":"2024-02-26","party":"AfD","amount_spent":1338,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1708905600000,"y":0,"fill":"#009EE0"},{"date":"2024-02-27","party":"AfD","amount_spent":1338,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1708992000000,"y":0,"fill":"#009EE0"},{"date":"2024-02-28","party":"AfD","amount_spent":1338,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1709078400000,"y":0,"fill":"#009EE0"},{"date":"2024-02-29","party":"AfD","amount_spent":1338,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1709164800000,"y":0,"fill":"#009EE0"},{"date":"2024-03-01","party":"AfD","amount_spent":1338,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1709251200000,"y":0,"fill":"#009EE0"},{"date":"2024-03-02","party":"AfD","amount_spent":1338,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1709337600000,"y":0,"fill":"#009EE0"},{"date":"2024-03-03","party":"AfD","amount_spent":1338,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1709424000000,"y":0,"fill":"#009EE0"},{"date":"2024-03-04","party":"AfD","amount_spent":1338,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1709510400000,"y":0,"fill":"#009EE0"},{"date":"2024-03-05","party":"AfD","amount_spent":1338,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1709596800000,"y":0,"fill":"#009EE0"},{"date":"2024-03-06","party":"AfD","amount_spent":1338,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1709683200000,"y":0,"fill":"#009EE0"},{"date":"2024-03-07","party":"AfD","amount_spent":1338,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1709769600000,"y":0,"fill":"#009EE0"},{"date":"2024-03-08","party":"AfD","amount_spent":1340,"Daily Spend":2,"short_name":"AfD","colors":"#009EE0","x":1709856000000,"y":2,"fill":"#009EE0"},{"date":"2024-03-09","party":"AfD","amount_spent":1346,"Daily Spend":6,"short_name":"AfD","colors":"#009EE0","x":1709942400000,"y":6,"fill":"#009EE0"},{"date":"2024-03-10","party":"AfD","amount_spent":1356,"Daily Spend":10,"short_name":"AfD","colors":"#009EE0","x":1710028800000,"y":10,"fill":"#009EE0"},{"date":"2024-03-11","party":"AfD","amount_spent":1368,"Daily Spend":12,"short_name":"AfD","colors":"#009EE0","x":1710115200000,"y":12,"fill":"#009EE0"},{"date":"2024-03-12","party":"AfD","amount_spent":1377,"Daily Spend":9,"short_name":"AfD","colors":"#009EE0","x":1710201600000,"y":9,"fill":"#009EE0"},{"date":"2024-03-13","party":"AfD","amount_spent":1384,"Daily Spend":7,"short_name":"AfD","colors":"#009EE0","x":1710288000000,"y":7,"fill":"#009EE0"},{"date":"2024-03-14","party":"AfD","amount_spent":1391,"Daily Spend":7,"short_name":"AfD","colors":"#009EE0","x":1710374400000,"y":7,"fill":"#009EE0"},{"date":"2024-03-15","party":"AfD","amount_spent":1393,"Daily Spend":2,"short_name":"AfD","colors":"#009EE0","x":1710460800000,"y":2,"fill":"#009EE0"},{"date":"2024-03-16","party":"AfD","amount_spent":1393,"Daily Spend":0,"short_name":"AfD","colors":"#009EE0","x":1710547200000,"y":0,"fill":"#009EE0"}],"type":"area"},{"name":"Andere Seiten","data":[{"date":"2024-02-08","party":"Andere Seiten","amount_spent":1,"Daily Spend":null,"short_name":"AND","colors":"#CCCCCC","x":1707350400000,"y":null,"fill":"#CCCCCC"},{"date":"2024-02-09","party":"Andere Seiten","amount_spent":1,"Daily Spend":0,"short_name":"AND","colors":"#CCCCCC","x":1707436800000,"y":0,"fill":"#CCCCCC"},{"date":"2024-02-10","party":"Andere Seiten","amount_spent":1,"Daily Spend":0,"short_name":"AND","colors":"#CCCCCC","x":1707523200000,"y":0,"fill":"#CCCCCC"},{"date":"2024-02-11","party":"Andere Seiten","amount_spent":136,"Daily Spend":135,"short_name":"AND","colors":"#CCCCCC","x":1707609600000,"y":135,"fill":"#CCCCCC"},{"date":"2024-02-12","party":"Andere Seiten","amount_spent":182,"Daily Spend":46,"short_name":"AND","colors":"#CCCCCC","x":1707696000000,"y":46,"fill":"#CCCCCC"},{"date":"2024-02-13","party":"Andere Seiten","amount_spent":229,"Daily Spend":47,"short_name":"AND","colors":"#CCCCCC","x":1707782400000,"y":47,"fill":"#CCCCCC"},{"date":"2024-02-14","party":"Andere Seiten","amount_spent":276,"Daily Spend":47,"short_name":"AND","colors":"#CCCCCC","x":1707868800000,"y":47,"fill":"#CCCCCC"},{"date":"2024-02-15","party":"Andere Seiten","amount_spent":323,"Daily Spend":47,"short_name":"AND","colors":"#CCCCCC","x":1707955200000,"y":47,"fill":"#CCCCCC"},{"date":"2024-02-16","party":"Andere Seiten","amount_spent":370,"Daily Spend":47,"short_name":"AND","colors":"#CCCCCC","x":1708041600000,"y":47,"fill":"#CCCCCC"},{"date":"2024-02-17","party":"Andere Seiten","amount_spent":370,"Daily Spend":0,"short_name":"AND","colors":"#CCCCCC","x":1708128000000,"y":0,"fill":"#CCCCCC"},{"date":"2024-02-18","party":"Andere Seiten","amount_spent":370,"Daily Spend":0,"short_name":"AND","colors":"#CCCCCC","x":1708214400000,"y":0,"fill":"#CCCCCC"},{"date":"2024-02-19","party":"Andere Seiten","amount_spent":370,"Daily Spend":0,"short_name":"AND","colors":"#CCCCCC","x":1708300800000,"y":0,"fill":"#CCCCCC"},{"date":"2024-02-20","party":"Andere Seiten","amount_spent":370,"Daily Spend":0,"short_name":"AND","colors":"#CCCCCC","x":1708387200000,"y":0,"fill":"#CCCCCC"},{"date":"2024-02-21","party":"Andere Seiten","amount_spent":370,"Daily Spend":0,"short_name":"AND","colors":"#CCCCCC","x":1708473600000,"y":0,"fill":"#CCCCCC"},{"date":"2024-02-22","party":"Andere Seiten","amount_spent":370,"Daily Spend":0,"short_name":"AND","colors":"#CCCCCC","x":1708560000000,"y":0,"fill":"#CCCCCC"},{"date":"2024-02-23","party":"Andere Seiten","amount_spent":370,"Daily Spend":0,"short_name":"AND","colors":"#CCCCCC","x":1708646400000,"y":0,"fill":"#CCCCCC"},{"date":"2024-02-24","party":"Andere Seiten","amount_spent":370,"Daily Spend":0,"short_name":"AND","colors":"#CCCCCC","x":1708732800000,"y":0,"fill":"#CCCCCC"},{"date":"2024-02-25","party":"Andere Seiten","amount_spent":370,"Daily Spend":0,"short_name":"AND","colors":"#CCCCCC","x":1708819200000,"y":0,"fill":"#CCCCCC"},{"date":"2024-02-26","party":"Andere Seiten","amount_spent":370,"Daily Spend":0,"short_name":"AND","colors":"#CCCCCC","x":1708905600000,"y":0,"fill":"#CCCCCC"},{"date":"2024-02-27","party":"Andere Seiten","amount_spent":370,"Daily Spend":0,"short_name":"AND","colors":"#CCCCCC","x":1708992000000,"y":0,"fill":"#CCCCCC"},{"date":"2024-02-28","party":"Andere Seiten","amount_spent":370,"Daily Spend":0,"short_name":"AND","colors":"#CCCCCC","x":1709078400000,"y":0,"fill":"#CCCCCC"},{"date":"2024-02-29","party":"Andere Seiten","amount_spent":370,"Daily Spend":0,"short_name":"AND","colors":"#CCCCCC","x":1709164800000,"y":0,"fill":"#CCCCCC"},{"date":"2024-03-01","party":"Andere Seiten","amount_spent":370,"Daily Spend":0,"short_name":"AND","colors":"#CCCCCC","x":1709251200000,"y":0,"fill":"#CCCCCC"},{"date":"2024-03-02","party":"Andere Seiten","amount_spent":370,"Daily Spend":0,"short_name":"AND","colors":"#CCCCCC","x":1709337600000,"y":0,"fill":"#CCCCCC"},{"date":"2024-03-03","party":"Andere Seiten","amount_spent":370,"Daily Spend":0,"short_name":"AND","colors":"#CCCCCC","x":1709424000000,"y":0,"fill":"#CCCCCC"},{"date":"2024-03-04","party":"Andere Seiten","amount_spent":370,"Daily Spend":0,"short_name":"AND","colors":"#CCCCCC","x":1709510400000,"y":0,"fill":"#CCCCCC"},{"date":"2024-03-05","party":"Andere Seiten","amount_spent":370,"Daily Spend":0,"short_name":"AND","colors":"#CCCCCC","x":1709596800000,"y":0,"fill":"#CCCCCC"},{"date":"2024-03-06","party":"Andere Seiten","amount_spent":370,"Daily Spend":0,"short_name":"AND","colors":"#CCCCCC","x":1709683200000,"y":0,"fill":"#CCCCCC"},{"date":"2024-03-07","party":"Andere Seiten","amount_spent":370,"Daily Spend":0,"short_name":"AND","colors":"#CCCCCC","x":1709769600000,"y":0,"fill":"#CCCCCC"},{"date":"2024-03-08","party":"Andere Seiten","amount_spent":370,"Daily Spend":0,"short_name":"AND","colors":"#CCCCCC","x":1709856000000,"y":0,"fill":"#CCCCCC"},{"date":"2024-03-09","party":"Andere Seiten","amount_spent":370,"Daily Spend":0,"short_name":"AND","colors":"#CCCCCC","x":1709942400000,"y":0,"fill":"#CCCCCC"},{"date":"2024-03-10","party":"Andere Seiten","amount_spent":370,"Daily Spend":0,"short_name":"AND","colors":"#CCCCCC","x":1710028800000,"y":0,"fill":"#CCCCCC"},{"date":"2024-03-11","party":"Andere Seiten","amount_spent":370,"Daily Spend":0,"short_name":"AND","colors":"#CCCCCC","x":1710115200000,"y":0,"fill":"#CCCCCC"},{"date":"2024-03-12","party":"Andere Seiten","amount_spent":370,"Daily Spend":0,"short_name":"AND","colors":"#CCCCCC","x":1710201600000,"y":0,"fill":"#CCCCCC"},{"date":"2024-03-13","party":"Andere Seiten","amount_spent":370,"Daily Spend":0,"short_name":"AND","colors":"#CCCCCC","x":1710288000000,"y":0,"fill":"#CCCCCC"},{"date":"2024-03-14","party":"Andere Seiten","amount_spent":370,"Daily Spend":0,"short_name":"AND","colors":"#CCCCCC","x":1710374400000,"y":0,"fill":"#CCCCCC"},{"date":"2024-03-15","party":"Andere Seiten","amount_spent":370,"Daily Spend":0,"short_name":"AND","colors":"#CCCCCC","x":1710460800000,"y":0,"fill":"#CCCCCC"},{"date":"2024-03-16","party":"Andere Seiten","amount_spent":370,"Daily Spend":0,"short_name":"AND","colors":"#CCCCCC","x":1710547200000,"y":0,"fill":"#CCCCCC"}],"type":"area"}],"xAxis":{"type":"datetime","title":{"text":"date"},"categories":null},"colors":["#009EE0","#CCCCCC","#64A12D","#FFA500","#BE3075","#D1EA22","#FFED00","#FCF117","#FF0000","#36015e","#EB001F","#6e6d67"],"tooltip":{"shared":true,"positioner":"function (labelWidth, labelHeight, point) {\n        return { x: 200, y: this.chart.plotTop };\n    }"}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":["hc_opts.tooltip.positioner"],"jsHooks":[]}</script>
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
 </div>
 </div>
 
@@ -1418,10 +1977,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1431,8 +2007,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1444,7 +2029,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1488,6 +2196,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1513,6 +2222,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1573,6 +2308,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

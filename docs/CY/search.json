@@ -1,5 +1,6 @@
 [
   {
+<<<<<<< HEAD
     "objectID": "about.html",
     "href": "about.html",
     "title": "Targeting Dashboard - Cyprus",
@@ -91,24 +92,41 @@
     "text": "Here you can see the expenditures of political parties in the lead-up to the elections according to the latest data.\n\n13 Feb - 13 Mar 20247 Mar - 13 Mar 2024\n\n\nDuring this period, political parties spent a total of €11,372 and displayed 281 advertisements on Meta.\n\n\n\n\n\n\n  \n    \n    \n      \n      Number of Advertisers\n      Top Spenders\n      Number of Ads\n      Total Spend\n    \n  \n  \n    OTH\n\n9\n\n1. Δήμος Λεμεσού - Limassol Municipality (€720)2. Νίκος Νικολαΐδης / Nicos Nicolaides (€686)3. Yiannis Karousos - Γιάννης Καρούσος (€601)\n\n97\n\n€2,846\n\n    Government\n\n2\n\n1. Γραφείο Τύπου και Πληροφοριών - Press and Information Office (€2,250)2. Γραφείο Επιτρόπου Επικοινωνιών (€575)\n\n33\n\n€2,825\n\n    DISY\n\n5\n\n1. Dr. Eleni Stavrou - Δρ Ελένη Σταύρου (€907)2. Φωτεινή Τσιρίδου - Fotini Tsiridou (€517)3. Ευθύμιος Δίπλαρος - Efthimios Diplaros (€210)\n\n45\n\n€1,914\n\n    DIKO\n\n6\n\n1. Costas Mavrides - Κώστας Μαυρίδης (€1,140)2. Δημοκρατικό Κόμμα (€197)3. ΧΡΥΣΗΣ ΠΑΝΤΕΛΙΔΗΣ (€164)\n\n49\n\n€1,825\n\n    AKEL\n\n2\n\n1. Ανορθωτικό Κόμμα Εργαζόμενου Λαού (€591)2. AKEL Türkçe (€210)\n\n17\n\n€801\n\n    EDEK\n\n2\n\n1. Ανδρέας Αποστόλου (€611)2. Κινήμα Σοσιαλδημοκρατών (€110)\n\n26\n\n€721\n\n    Independent\n\n1\n\n1. Andronicos CY (€274)\n\n6\n\n€274\n\n    KOSP\n\n1\n\n1. Κίνημα Οικολόγων - Συνεργασία Πολιτών (€166)\n\n8\n\n€166\n\n  \n  \n  \n\n\n\n\n\n\nDuring this period, political parties spent a total of €4,013 and displayed 100 advertisements on Meta.\n\n\n\n\n\n\n  \n    \n    \n      \n      Number of Advertisers\n      Top Spenders\n      Number of Ads\n      Total Spend\n    \n  \n  \n    OTH\n\n6\n\n1. Yiannis Karousos - Γιάννης Καρούσος (€433)2. Νίκος Νικολαΐδης / Nicos Nicolaides (€295)3. Δήμος Λεμεσού - Limassol Municipality (€204)\n\n39\n\n€1,232\n\n    Government\n\n2\n\n1. Γραφείο Τύπου και Πληροφοριών - Press and Information Office (€824)2. Γραφείο Επιτρόπου Επικοινωνιών (€203)\n\n15\n\n€1,027\n\n    DIKO\n\n5\n\n1. Costas Mavrides - Κώστας Μαυρίδης (€184)2. Δημοκρατικό Κόμμα (€171)3. Μιχάλης Δαμιανός - Michael Damianos (€100)\n\n15\n\n€655\n\n    DISY\n\n4\n\n1. Dr. Eleni Stavrou - Δρ Ελένη Σταύρου (€325)2. Φωτεινή Τσιρίδου - Fotini Tsiridou (€100)3. Ευθύμιος Δίπλαρος - Efthimios Diplaros (€100)\n\n15\n\n€625\n\n    EDEK\n\n1\n\n1. Ανδρέας Αποστόλου (€174)\n\n11\n\n€174\n\n    AKEL\n\n1\n\n1. AKEL Türkçe (€100)\n\n1\n\n€100\n\n    Independent\n\n1\n\n1. Andronicos CY (€100)\n\n2\n\n€100\n\n    KOSP\n\n1\n\n1. Κίνημα Οικολόγων - Συνεργασία Πολιτών (€100)\n\n2\n\n€100\n\n  \n  \n  \n\n\n\n\n\n\n\n\nOver Time"
   },
   {
+=======
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
     "objectID": "location.html",
     "href": "location.html",
     "title": "Location",
     "section": "",
+<<<<<<< HEAD
     "text": "The chart below displays the geographical targeting of that political parties on Meta platforms.\n\n13 Feb - 13 Mar 2024\n\n\n\nRegionsCities\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.\n\n\n\n\n\n\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations."
+=======
+    "text": "The chart below displays the geographical targeting of that political parties on Meta platforms.\n\n15 Feb - 15 Mar 2024\n\n\n\nRegionsCities\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.\n\n\n\nNo data (yet).\n\n\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.\n\n\n\nNo data (yet).",
+    "crumbs": [
+      "Location"
+    ]
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   },
   {
     "objectID": "location.html#geographical-targeting",
     "href": "location.html#geographical-targeting",
     "title": "Location",
     "section": "",
+<<<<<<< HEAD
     "text": "The chart below displays the geographical targeting of that political parties on Meta platforms.\n\n13 Feb - 13 Mar 2024\n\n\n\nRegionsCities\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.\n\n\n\n\n\n\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations."
+=======
+    "text": "The chart below displays the geographical targeting of that political parties on Meta platforms.\n\n15 Feb - 15 Mar 2024\n\n\n\nRegionsCities\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.\n\n\n\nNo data (yet).\n\n\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.\n\n\n\nNo data (yet).",
+    "crumbs": [
+      "Location"
+    ]
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   },
   {
     "objectID": "location.html#geographical-exclusion",
     "href": "location.html#geographical-exclusion",
     "title": "Location",
     "section": "Geographical Exclusion",
+<<<<<<< HEAD
     "text": "Geographical Exclusion\nThe following graphs depict the geographic locations that certain political advertisements will exclude on Meta, along with the amounts that parties spent on these exclusions.\n\n13 Feb - 13 Mar 2024\n\n\n\nRegionsCities\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.\n\n\n\nNo data (yet).\n\n\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations."
   },
   {
@@ -117,5 +135,11 @@
     "title": "Spending per Targeting",
     "section": "",
     "text": "These charts show the groups that political parties target with their advertisements leading up to the elections, according to the latest data. The focus is on Meta’s platforms (Facebook and Instagram) because they offer the most detailed targeting options for political advertisements.\nHow much did the campaigns of political parties spend on different audiences? The charts below show both the total and the expenditures per party.\n\nNote: Different targeting criteria may overlap, so the outcome may not necessarily add up to 100%.\n\n\n13 Feb - 13 Mar 20247 Mar - 13 Mar 2024\n\n\n\nTotalBy Party\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTotalBy Party"
+=======
+    "text": "Geographical Exclusion\nThe following graphs depict the geographic locations that certain political advertisements will exclude on Meta, along with the amounts that parties spent on these exclusions.\n\n15 Feb - 15 Mar 2024\n\n\n\nRegionsCities\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.\n\n\n\nNo data (yet).\n\n\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.\n\n\n\nNo data (yet).",
+    "crumbs": [
+      "Location"
+    ]
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   }
 ]

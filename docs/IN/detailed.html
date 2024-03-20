@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
+<meta name="generator" content="quarto-1.4.551">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -47,7 +47,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,12 +62,13 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
-<script src="site_libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 <script src="site_libs/jquery-3.5.1/jquery.min.js"></script>
 <script src="site_libs/proj4js-2.3.15/proj4.js"></script>
 <link href="site_libs/highcharts-9.3.1/css/motion.css" rel="stylesheet">
@@ -112,9 +119,9 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Targeting Dashboard - India</span>
     </a>
@@ -126,68 +133,68 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./map.html" rel="" target="">
- <span class="menu-text"><iconify-icon inline="" icon="ph:map-trifold-thin"></iconify-icon> Map</span></a>
+    <a class="nav-link" href="./map.html"> 
+<span class="menu-text"><iconify-icon inline="" icon="ph:map-trifold-thin"></iconify-icon> Map</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./index.html" rel="" target="">
- <span class="menu-text"><iconify-icon inline="" icon="ph:coins"></iconify-icon> Spending</span></a>
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text"><iconify-icon inline="" icon="ph:coins"></iconify-icon> Spending</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-iconify-ph-users-three-thin--targeting" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-iconify-ph-users-three-thin--targeting" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text"><iconify-icon inline="" icon="ph:users-three-thin"></iconify-icon> Targeting</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-iconify-ph-users-three-thin--targeting">    
         <li>
-    <a class="dropdown-item" href="./targeting.html" rel="" target="">
+    <a class="dropdown-item" href="./targeting.html">
  <span class="dropdown-text">Spending per Targeting</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./detailed.html" rel="" target="">
+    <a class="dropdown-item" href="./detailed.html">
  <span class="dropdown-text">Detailed Targeting</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./location.html" rel="" target="">
+    <a class="dropdown-item" href="./location.html">
  <span class="dropdown-text">Location</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./demographics.html" rel="" target="">
+    <a class="dropdown-item" href="./demographics.html">
  <span class="dropdown-text">Demographics</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./about.html" rel="" target="">
- <span class="menu-text"><iconify-icon inline="" icon="ph:info-thin"></iconify-icon> About</span></a>
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text"><iconify-icon inline="" icon="ph:info-thin"></iconify-icon> About</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/favstats/betargex" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/favstats/betargex"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./detailed.html">Detailed Targeting</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./detailed.html">Detailed Targeting</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -217,7 +224,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -248,21 +255,22 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <section id="top-targeted-audiences" class="level2">
 <h2 class="anchored" data-anchor-id="top-targeted-audiences">Top Targeted Audiences</h2>
 <p>The chart below displays the most utilized targeting criteria by political parties on Meta, based on the amounts spent.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">13 Feb - 13 Mar 2024</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">7 Mar - 13 Mar 2024</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">15 Feb - 15 Mar 2024</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">9 Mar - 15 Mar 2024</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<div class="cell-output-display">
-
 <div class="container">
 <div>
 <div class="row">
 <div style="width: 50%; float: left;">
+<<<<<<< HEAD
 <div id="htmlwidget-c79d2fcf4474520268bf" style="width:100%;height:300px;" class="highchart html-widget "></div>
 <script type="application/json" data-for="htmlwidget-c79d2fcf4474520268bf">{"x":{"hc_opts":{"chart":{"reflow":true,"height":300},"title":{"text":"Bharat Rashtra Samithi\t","align":"left","style":{"fontWeight":"bold"}},"yAxis":{"title":{"text":"% party budget spent on targeting audience"},"type":"linear","max":100},"credits":{"enabled":false},"exporting":{"enabled":true},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":false},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"bar":{"horizontal":true,"stacking":"normal"}},"series":[{"group":"group","data":[{"party":"Bharat Rashtra Samithi\t","value":"Android: 360 degree media not supported","is_exclusion":false,"detailed_type":"BEHAVIORS","total_spend":100,"total_spenderino":905,"perc":11.0497237569061,"spend_perlab":"100","y":11.0497237569061,"name":"Android: 360 degree media not supported"},{"party":"Bharat Rashtra Samithi\t","value":"Android: 360 degree media supported","is_exclusion":false,"detailed_type":"BEHAVIORS","total_spend":100,"total_spenderino":905,"perc":11.0497237569061,"spend_perlab":"100","y":11.0497237569061,"name":"Android: 360 degree media supported"},{"party":"Bharat Rashtra Samithi\t","value":"Business Page admins","is_exclusion":false,"detailed_type":"BEHAVIORS","total_spend":100,"total_spenderino":905,"perc":11.0497237569061,"spend_perlab":"100","y":11.0497237569061,"name":"Business Page admins"},{"party":"Bharat Rashtra Samithi\t","value":"Community and club Page admins","is_exclusion":false,"detailed_type":"BEHAVIORS","total_spend":100,"total_spenderino":905,"perc":11.0497237569061,"spend_perlab":"100","y":11.0497237569061,"name":"Community and club Page admins"},{"party":"Bharat Rashtra Samithi\t","value":"Console gamers","is_exclusion":false,"detailed_type":"BEHAVIORS","total_spend":100,"total_spenderino":905,"perc":11.0497237569061,"spend_perlab":"100","y":11.0497237569061,"name":"Console gamers"},{"party":"Bharat Rashtra Samithi\t","value":"Early technology adopters","is_exclusion":false,"detailed_type":"BEHAVIORS","total_spend":100,"total_spenderino":905,"perc":11.0497237569061,"spend_perlab":"100","y":11.0497237569061,"name":"Early technology adopters"},{"party":"Bharat Rashtra Samithi\t","value":"Facebook Lite app users","is_exclusion":false,"detailed_type":"BEHAVIORS","total_spend":100,"total_spenderino":905,"perc":11.0497237569061,"spend_perlab":"100","y":11.0497237569061,"name":"Facebook Lite app users"},{"party":"Bharat Rashtra Samithi\t","value":"Facebook Page admins","is_exclusion":false,"detailed_type":"BEHAVIORS","total_spend":100,"total_spenderino":905,"perc":11.0497237569061,"spend_perlab":"100","y":11.0497237569061,"name":"Facebook Page admins"},{"party":"Bharat Rashtra Samithi\t","value":"Facebook Payments users (30 days)","is_exclusion":false,"detailed_type":"BEHAVIORS","total_spend":100,"total_spenderino":905,"perc":11.0497237569061,"spend_perlab":"100","y":11.0497237569061,"name":"Facebook Payments users (30 days)"},{"party":"Bharat Rashtra Samithi\t","value":"Facebook access (mobile): HTC Android mobile devices","is_exclusion":false,"detailed_type":"BEHAVIORS","total_spend":100,"total_spenderino":905,"perc":11.0497237569061,"spend_perlab":"100","y":11.0497237569061,"name":"Facebook access (mobile): HTC Android mobile devices"}],"type":"bar","color":"#795425"}],"xAxis":{"type":"category","title":"","labels":{"style":{"fontSize":"10px"}}},"tooltip":{"pointFormat":"<b>{point.value}<\/b><br>% of total budget spent: {point.y:.1f}%<br>a total of ₹{point.spend_perlab} on ads including this audience.","headerFormat":""}},"theme":{"colors":["#0266C8","#F90101","#F2B50F","#00933B"],"chart":{"style":{"fontFamily":"Roboto","color":"#444444"}},"xAxis":{"gridLineWidth":1,"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"yAxis":{"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"legendBackgroundColor":"rgba(0, 0, 0, 0.5)","background2":"#505053","dataLabelsColor":"#B0B0B3","textColor":"#C0C0C0","contrastTextColor":"#F0F0F3","maskColor":"rgba(255,255,255,0.3)"},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":"Roboto","debug":false},"evals":[],"jsHooks":[]}</script>
 </div>
@@ -300,18 +308,22 @@ ul.task-list li input[type="checkbox"] {
 <div id="htmlwidget-00acfc46ed2d270880c8" style="width:100%;height:300px;" class="highchart html-widget "></div>
 <script type="application/json" data-for="htmlwidget-00acfc46ed2d270880c8">{"x":{"hc_opts":{"chart":{"reflow":true,"height":300},"title":{"text":"Samajwadi Party","align":"left","style":{"fontWeight":"bold"}},"yAxis":{"title":{"text":"% party budget spent on targeting audience"},"type":"linear","max":100},"credits":{"enabled":false},"exporting":{"enabled":true},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":false},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"bar":{"horizontal":true,"stacking":"normal"}},"series":[{"group":"group","data":[{"party":"Samajwadi Party","value":"Indian Institutes of Technology","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":2799.96251453576,"total_spenderino":14929,"perc":18.755191335895,"spend_perlab":"2,800","y":18.755191335895,"name":"Indian Institutes of Technology"},{"party":"Samajwadi Party","value":"Telugu Filmnagar","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":2499.95688779755,"total_spenderino":14929,"perc":16.745641957248,"spend_perlab":"2,500","y":16.745641957248,"name":"Telugu Filmnagar"},{"party":"Samajwadi Party","value":"Secure Digital","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":2299.98313720124,"total_spenderino":14929,"perc":15.40614332642,"spend_perlab":"2,300","y":15.40614332642,"name":"Secure Digital"},{"party":"Samajwadi Party","value":"Drop shipping (retailer)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":2127.93991045455,"total_spenderino":14929,"perc":14.253733742746,"spend_perlab":"2,128","y":14.253733742746,"name":"Drop shipping (retailer)"},{"party":"Samajwadi Party","value":"New house (place)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":2127.93991045455,"total_spenderino":14929,"perc":14.253733742746,"spend_perlab":"2,128","y":14.253733742746,"name":"New house (place)"},{"party":"Samajwadi Party","value":"ICICI Bank","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1400.00625773676,"total_spenderino":14929,"perc":9.3777631303956,"spend_perlab":"1,400","y":9.3777631303956,"name":"ICICI Bank"},{"party":"Samajwadi Party","value":"Indian Institute of Technology Madras","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1399.99625754921,"total_spenderino":14929,"perc":9.3776961454164,"spend_perlab":"1,400","y":9.3776961454164,"name":"Indian Institute of Technology Madras"},{"party":"Samajwadi Party","value":"Tata Sky","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1399.9762571741,"total_spenderino":14929,"perc":9.3775621754578,"spend_perlab":"1,400","y":9.3775621754578,"name":"Tata Sky"},{"party":"Samajwadi Party","value":"Virat Kohli","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1300.01438234491,"total_spenderino":14929,"perc":8.7079803224925,"spend_perlab":"1,300","y":8.7079803224925,"name":"Virat Kohli"},{"party":"Samajwadi Party","value":"Beauty Shop","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1100.02063137362,"total_spenderino":14929,"perc":7.3683477217069,"spend_perlab":"1,100","y":7.3683477217069,"name":"Beauty Shop"}],"type":"bar","color":"Red and Green "}],"xAxis":{"type":"category","title":"","labels":{"style":{"fontSize":"10px"}}},"tooltip":{"pointFormat":"<b>{point.value}<\/b><br>% of total budget spent: {point.y:.1f}%<br>a total of ₹{point.spend_perlab} on ads including this audience.","headerFormat":""}},"theme":{"colors":["#0266C8","#F90101","#F2B50F","#00933B"],"chart":{"style":{"fontFamily":"Roboto","color":"#444444"}},"xAxis":{"gridLineWidth":1,"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"yAxis":{"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"legendBackgroundColor":"rgba(0, 0, 0, 0.5)","background2":"#505053","dataLabelsColor":"#B0B0B3","textColor":"#C0C0C0","contrastTextColor":"#F0F0F3","maskColor":"rgba(255,255,255,0.3)"},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":"Roboto","debug":false},"evals":[],"jsHooks":[]}</script>
 </div>
+=======
+<div id="htmlwidget-870e99f972d605a14994" style="width:100%;height:300px;" class="highchart html-widget"></div>
+<script type="application/json" data-for="htmlwidget-870e99f972d605a14994">{"x":{"hc_opts":{"chart":{"reflow":true,"height":300},"title":{"text":"Samajwadi Party","align":"left","style":{"fontWeight":"bold"}},"yAxis":{"title":{"text":"% party budget spent on targeting audience"},"type":"linear","max":20.592964040587},"credits":{"enabled":false},"exporting":{"enabled":true},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":false},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"bar":{"horizontal":true,"stacking":"normal"}},"series":[{"group":"group","data":[{"party":"Samajwadi Party","value":"Indian Institutes of Technology","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":2799.819390958209,"total_spenderino":13596,"perc":20.592964040587,"spend_perlab":"2,800","y":20.592964040587,"name":"Indian Institutes of Technology"},{"party":"Samajwadi Party","value":"Telugu Filmnagar","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":2499.82909938186,"total_spenderino":13596,"perc":18.386504114312,"spend_perlab":"2,500","y":18.386504114312,"name":"Telugu Filmnagar"},{"party":"Samajwadi Party","value":"Secure Digital","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":2299.865570693547,"total_spenderino":13596,"perc":16.915751476122,"spend_perlab":"2,300","y":16.915751476122,"name":"Secure Digital"},{"party":"Samajwadi Party","value":"Drop shipping (retailer)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":2127.831138150829,"total_spenderino":13596,"perc":15.650420257067,"spend_perlab":"2,128","y":15.650420257067,"name":"Drop shipping (retailer)"},{"party":"Samajwadi Party","value":"New house (place)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":2127.831138150829,"total_spenderino":13596,"perc":15.650420257067,"spend_perlab":"2,128","y":15.650420257067,"name":"New house (place)"},{"party":"Samajwadi Party","value":"ICICI Bank","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1399.934694670066,"total_spenderino":13596,"perc":10.296665891954,"spend_perlab":"1,400","y":10.296665891954,"name":"ICICI Bank"},{"party":"Samajwadi Party","value":"Indian Institute of Technology Madras","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1399.924694993708,"total_spenderino":13596,"perc":10.29659234329,"spend_perlab":"1,400","y":10.29659234329,"name":"Indian Institute of Technology Madras"},{"party":"Samajwadi Party","value":"Tata Sky","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1399.904695640858,"total_spenderino":13596,"perc":10.296445245961,"spend_perlab":"1,400","y":10.296445245961,"name":"Tata Sky"},{"party":"Samajwadi Party","value":"Virat Kohli","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1299.94793048769,"total_spenderino":13596,"perc":9.561252798526699,"spend_perlab":"1,300","y":9.561252798526699,"name":"Virat Kohli"},{"party":"Samajwadi Party","value":"Beauty Shop","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1099.964402446527,"total_spenderino":13596,"perc":8.090353063007701,"spend_perlab":"1,100","y":8.090353063007701,"name":"Beauty Shop"}],"type":"bar","color":"Red and Green "}],"xAxis":{"type":"category","title":"","labels":{"style":{"fontSize":"10px"}}},"tooltip":{"pointFormat":"<b>{point.value}<\/b><br>% of total budget spent: {point.y:.1f}%<br>a total of ₹{point.spend_perlab} on ads including this audience.","headerFormat":""}},"theme":{"colors":["#0266C8","#F90101","#F2B50F","#00933B"],"chart":{"style":{"fontFamily":"Roboto","color":"#444444"}},"xAxis":{"gridLineWidth":1,"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"yAxis":{"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"legendBackgroundColor":"rgba(0, 0, 0, 0.5)","background2":"#505053","dataLabelsColor":"#B0B0B3","textColor":"#C0C0C0","contrastTextColor":"#F0F0F3","maskColor":"rgba(255,255,255,0.3)"},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":"Roboto","debug":false},"evals":[],"jsHooks":[]}</script>
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
 </div>
+<div style="width: 50%; float: left;"></div>
 </div>
 </div>
 </div>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<div class="cell-output-display">
-
 <div class="container">
 <div>
 <div class="row">
 <div style="width: 50%; float: left;">
+<<<<<<< HEAD
 <div id="htmlwidget-76fbb2c1eeb0bebb6ce0" style="width:100%;height:300px;" class="highchart html-widget "></div>
 <script type="application/json" data-for="htmlwidget-76fbb2c1eeb0bebb6ce0">{"x":{"hc_opts":{"chart":{"reflow":true,"height":300},"title":{"text":"BJP","align":"left","style":{"fontWeight":"bold"}},"yAxis":{"title":{"text":"% party budget spent on targeting audience"},"type":"linear","max":100},"credits":{"enabled":false},"exporting":{"enabled":true},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":false},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"bar":{"horizontal":true,"stacking":"normal"}},"series":[{"group":"group","data":[{"party":"BJP","value":"Politics (politics)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":31253.4100736862,"total_spenderino":1590019,"perc":1.96559978677527,"spend_perlab":"31,253","y":1.96559978677527,"name":"Politics (politics)"},{"party":"BJP","value":"Political party","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":17724.5737509039,"total_spenderino":1590019,"perc":1.11473974530518,"spend_perlab":"17,725","y":1.11473974530518,"name":"Political party"},{"party":"BJP","value":"Politics and social issues","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":13168.5149229317,"total_spenderino":1590019,"perc":0.828198589006274,"spend_perlab":"13,169","y":0.828198589006274,"name":"Politics and social issues"},{"party":"BJP","value":"Social movement (social causes)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":12249.601265461,"total_spenderino":1590019,"perc":0.770405967819317,"spend_perlab":"12,250","y":0.770405967819317,"name":"Social movement (social causes)"},{"party":"BJP","value":"Breaking news (news service)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":12103.1789609182,"total_spenderino":1590019,"perc":0.761197127890813,"spend_perlab":"12,103","y":0.761197127890813,"name":"Breaking news (news service)"},{"party":"BJP","value":"Current events (politics)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":12103.1789609182,"total_spenderino":1590019,"perc":0.761197127890813,"spend_perlab":"12,103","y":0.761197127890813,"name":"Current events (politics)"},{"party":"BJP","value":"News media (news service)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":12103.1789609182,"total_spenderino":1590019,"perc":0.761197127890813,"spend_perlab":"12,103","y":0.761197127890813,"name":"News media (news service)"},{"party":"BJP","value":"Social media (online media)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":12103.1789609182,"total_spenderino":1590019,"perc":0.761197127890813,"spend_perlab":"12,103","y":0.761197127890813,"name":"Social media (online media)"},{"party":"BJP","value":"Social network","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":12044,"total_spenderino":1590019,"perc":0.757475225138819,"spend_perlab":"12,044","y":0.757475225138819,"name":"Social network"},{"party":"BJP","value":"Fashion accessories (accessories)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":11867.1789609182,"total_spenderino":1590019,"perc":0.746354537959498,"spend_perlab":"11,867","y":0.746354537959498,"name":"Fashion accessories (accessories)"}],"type":"bar","color":"#FF9933"}],"xAxis":{"type":"category","title":"","labels":{"style":{"fontSize":"10px"}}},"tooltip":{"pointFormat":"<b>{point.value}<\/b><br>% of total budget spent: {point.y:.1f}%<br>a total of ₹{point.spend_perlab} on ads including this audience.","headerFormat":""}},"theme":{"colors":["#0266C8","#F90101","#F2B50F","#00933B"],"chart":{"style":{"fontFamily":"Roboto","color":"#444444"}},"xAxis":{"gridLineWidth":1,"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"yAxis":{"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"legendBackgroundColor":"rgba(0, 0, 0, 0.5)","background2":"#505053","dataLabelsColor":"#B0B0B3","textColor":"#C0C0C0","contrastTextColor":"#F0F0F3","maskColor":"rgba(255,255,255,0.3)"},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":"Roboto","debug":false},"evals":[],"jsHooks":[]}</script>
 </div>
@@ -336,6 +348,14 @@ ul.task-list li input[type="checkbox"] {
 <script type="application/json" data-for="htmlwidget-c68f63a794ea23cb4e46">{"x":{"hc_opts":{"chart":{"reflow":true,"height":300},"title":{"text":"Others","align":"left","style":{"fontWeight":"bold"}},"yAxis":{"title":{"text":"% party budget spent on targeting audience"},"type":"linear","max":100},"credits":{"enabled":false},"exporting":{"enabled":true},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":false},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"bar":{"horizontal":true,"stacking":"normal"}},"series":[{"group":"group","data":[{"party":"Others","value":"Breaking news (news service)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":499,"total_spenderino":1978409,"perc":0.0252222872014836,"spend_perlab":"499","y":0.0252222872014836,"name":"Breaking news (news service)"},{"party":"Others","value":"Local news (news service)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":499,"total_spenderino":1978409,"perc":0.0252222872014836,"spend_perlab":"499","y":0.0252222872014836,"name":"Local news (news service)"},{"party":"Others","value":"News broadcasting (news service)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":499,"total_spenderino":1978409,"perc":0.0252222872014836,"spend_perlab":"499","y":0.0252222872014836,"name":"News broadcasting (news service)"},{"party":"Others","value":"Politics (politics)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":499,"total_spenderino":1978409,"perc":0.0252222872014836,"spend_perlab":"499","y":0.0252222872014836,"name":"Politics (politics)"},{"party":"Others","value":"Politics and social issues","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":499,"total_spenderino":1978409,"perc":0.0252222872014836,"spend_perlab":"499","y":0.0252222872014836,"name":"Politics and social issues"}],"type":"bar","color":"#cccccc"}],"xAxis":{"type":"category","title":"","labels":{"style":{"fontSize":"10px"}}},"tooltip":{"pointFormat":"<b>{point.value}<\/b><br>% of total budget spent: {point.y:.1f}%<br>a total of ₹{point.spend_perlab} on ads including this audience.","headerFormat":""}},"theme":{"colors":["#0266C8","#F90101","#F2B50F","#00933B"],"chart":{"style":{"fontFamily":"Roboto","color":"#444444"}},"xAxis":{"gridLineWidth":1,"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"yAxis":{"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"legendBackgroundColor":"rgba(0, 0, 0, 0.5)","background2":"#505053","dataLabelsColor":"#B0B0B3","textColor":"#C0C0C0","contrastTextColor":"#F0F0F3","maskColor":"rgba(255,255,255,0.3)"},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":"Roboto","debug":false},"evals":[],"jsHooks":[]}</script>
 </div>
 <div style="width: 50%; float: left;"></div>
+=======
+<div id="htmlwidget-f8acae88dcb5b09d8f24" style="width:100%;height:300px;" class="highchart html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f8acae88dcb5b09d8f24">{"x":{"hc_opts":{"chart":{"reflow":true,"height":300},"title":{"text":"BJP","align":"left","style":{"fontWeight":"bold"}},"yAxis":{"title":{"text":"% party budget spent on targeting audience"},"type":"linear","max":7.316825138556974},"credits":{"enabled":false},"exporting":{"enabled":true},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":false},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"bar":{"horizontal":true,"stacking":"normal"}},"series":[{"group":"group","data":[{"party":"BJP","value":"Charity and causes (social causes)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1439,"total_spenderino":19667,"perc":7.316825138556974,"spend_perlab":"1,439","y":7.316825138556974,"name":"Charity and causes (social causes)"},{"party":"BJP","value":"Community issues (law and government)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1439,"total_spenderino":19667,"perc":7.316825138556974,"spend_perlab":"1,439","y":7.316825138556974,"name":"Community issues (law and government)"},{"party":"BJP","value":"Law (law and legal services)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1439,"total_spenderino":19667,"perc":7.316825138556974,"spend_perlab":"1,439","y":7.316825138556974,"name":"Law (law and legal services)"},{"party":"BJP","value":"Politics (politics)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1439,"total_spenderino":19667,"perc":7.316825138556974,"spend_perlab":"1,439","y":7.316825138556974,"name":"Politics (politics)"},{"party":"BJP","value":"Volunteering (social causes)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1439,"total_spenderino":19667,"perc":7.316825138556974,"spend_perlab":"1,439","y":7.316825138556974,"name":"Volunteering (social causes)"}],"type":"bar","color":"#FF9933"}],"xAxis":{"type":"category","title":"","labels":{"style":{"fontSize":"10px"}}},"tooltip":{"pointFormat":"<b>{point.value}<\/b><br>% of total budget spent: {point.y:.1f}%<br>a total of ₹{point.spend_perlab} on ads including this audience.","headerFormat":""}},"theme":{"colors":["#0266C8","#F90101","#F2B50F","#00933B"],"chart":{"style":{"fontFamily":"Roboto","color":"#444444"}},"xAxis":{"gridLineWidth":1,"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"yAxis":{"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"legendBackgroundColor":"rgba(0, 0, 0, 0.5)","background2":"#505053","dataLabelsColor":"#B0B0B3","textColor":"#C0C0C0","contrastTextColor":"#F0F0F3","maskColor":"rgba(255,255,255,0.3)"},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":"Roboto","debug":false},"evals":[],"jsHooks":[]}</script>
+</div>
+<div style="width: 50%; float: left;">
+<div id="htmlwidget-d0af687d66f55406e3ef" style="width:100%;height:300px;" class="highchart html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d0af687d66f55406e3ef">{"x":{"hc_opts":{"chart":{"reflow":true,"height":300},"title":{"text":"Congress","align":"left","style":{"fontWeight":"bold"}},"yAxis":{"title":{"text":"% party budget spent on targeting audience"},"type":"linear","max":7.316825138556974},"credits":{"enabled":false},"exporting":{"enabled":true},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":false},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"bar":{"horizontal":true,"stacking":"normal"}},"series":[{"group":"group","data":[{"party":"Congress","value":"Politician","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":181.556523962597,"total_spenderino":2647,"perc":6.858954437574501,"spend_perlab":"182","y":6.858954437574501,"name":"Politician"},{"party":"Congress","value":"Politics (politics)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":181.556523962597,"total_spenderino":2647,"perc":6.858954437574501,"spend_perlab":"182","y":6.858954437574501,"name":"Politics (politics)"},{"party":"Congress","value":"Small business owners","is_exclusion":false,"detailed_type":"BEHAVIORS","total_spend":96.79414085330164,"total_spenderino":2647,"perc":3.656748804431494,"spend_perlab":"97","y":3.656748804431494,"name":"Small business owners"},{"party":"Congress","value":"Social media","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":96.79414085330164,"total_spenderino":2647,"perc":3.656748804431494,"spend_perlab":"97","y":3.656748804431494,"name":"Social media"},{"party":"Congress","value":"Cricket (sport)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":96.79414085330164,"total_spenderino":2647,"perc":3.656748804431494,"spend_perlab":"97","y":3.656748804431494,"name":"Cricket (sport)"},{"party":"Congress","value":"Entertainment (social concept)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":96.79414085330164,"total_spenderino":2647,"perc":3.656748804431494,"spend_perlab":"97","y":3.656748804431494,"name":"Entertainment (social concept)"},{"party":"Congress","value":"Football (football)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":96.79414085330164,"total_spenderino":2647,"perc":3.656748804431494,"spend_perlab":"97","y":3.656748804431494,"name":"Football (football)"},{"party":"Congress","value":"Funny Videos","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":96.79414085330164,"total_spenderino":2647,"perc":3.656748804431494,"spend_perlab":"97","y":3.656748804431494,"name":"Funny Videos"},{"party":"Congress","value":"Gaming (video games)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":96.79414085330164,"total_spenderino":2647,"perc":3.656748804431494,"spend_perlab":"97","y":3.656748804431494,"name":"Gaming (video games)"},{"party":"Congress","value":"Jio","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":96.79414085330164,"total_spenderino":2647,"perc":3.656748804431494,"spend_perlab":"97","y":3.656748804431494,"name":"Jio"}],"type":"bar","color":"#19AAED"}],"xAxis":{"type":"category","title":"","labels":{"style":{"fontSize":"10px"}}},"tooltip":{"pointFormat":"<b>{point.value}<\/b><br>% of total budget spent: {point.y:.1f}%<br>a total of ₹{point.spend_perlab} on ads including this audience.","headerFormat":""}},"theme":{"colors":["#0266C8","#F90101","#F2B50F","#00933B"],"chart":{"style":{"fontFamily":"Roboto","color":"#444444"}},"xAxis":{"gridLineWidth":1,"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"yAxis":{"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"legendBackgroundColor":"rgba(0, 0, 0, 0.5)","background2":"#505053","dataLabelsColor":"#B0B0B3","textColor":"#C0C0C0","contrastTextColor":"#F0F0F3","maskColor":"rgba(255,255,255,0.3)"},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":"Roboto","debug":false},"evals":[],"jsHooks":[]}</script>
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
 </div>
 </div>
 </div>
@@ -349,17 +369,13 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="top-excluded-audiences">Top Excluded Audiences</h2>
 <p>Among the detailed options offered by Meta, the chart below shows the most excluded target audiences per party. The ranking is based on the amounts spent.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">13 Feb - 13 Mar 2024</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">7 Mar - 13 Mar 2024</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">15 Feb - 15 Mar 2024</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">9 Mar - 15 Mar 2024</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
-<div class="cell-output-display">
 No data (yet).
-</div>
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
-<div class="cell-output-display">
 No data (yet).
-</div>
 </div>
 </div>
 </div>
@@ -368,23 +384,31 @@ No data (yet).
 <h2 class="anchored" data-anchor-id="top-contested-audiences">Top Contested Audiences</h2>
 <p>The charts below show the target audiences where most competition takes place. For example, the groups in which all parties invest large amounts to reach voters with the same interests.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">13 Feb - 13 Mar 2024</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">7 Mar - 13 Mar 2024</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">15 Feb - 15 Mar 2024</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">9 Mar - 15 Mar 2024</a></li></ul>
 <div class="tab-content">
 <div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
 <div class="cell">
 <div class="cell-output-display">
+<<<<<<< HEAD
 
 <div class="highchart html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-ab0138466442f41539ae" style="width:100%;height:464px;"></div>
 <script type="application/json" data-for="htmlwidget-ab0138466442f41539ae">{"x":{"hc_opts":{"chart":{"reflow":true},"title":{"text":null},"yAxis":{"title":{"text":"% of budget spent on targeting method"},"type":"linear","labels":{"format":"{value}%"},"max":100,"min":0},"credits":{"enabled":true,"text":"Source: Meta Ad Library and data compiled by Who Targets Me. Data Viz: Fabio Votta (@favstats)."},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":true},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"bar":{"stacking":"normal"}},"series":[{"name":"Bharat Rashtra Samithi\t","data":[{"party":"Bharat Rashtra Samithi\t","value":"INTERESTS: Agriculture (industry)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":100,"n":3,"total_spenderino":153950.036870083,"perc":0.0649561390390499,"labb":null,"short_name":"BRS","colors":"#795425","y":0.0649561390390499,"color":"#2C6079","name":"INTERESTS: Agriculture (industry)","colorv":"#795425"},{"party":"Bharat Rashtra Samithi\t","value":"INTERESTS: Bollywood films","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":100,"n":3,"total_spenderino":2370.6301073105,"perc":4.21828777469846,"labb":null,"short_name":"BRS","colors":"#795425","y":4.21828777469846,"color":"#2C6079","name":"INTERESTS: Bollywood films","colorv":"#795425"},{"party":"Bharat Rashtra Samithi\t","value":"INTERESTS: Charity and causes (social causes)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":100,"n":3,"total_spenderino":10153.0745216916,"perc":0.984923333186948,"labb":null,"short_name":"BRS","colors":"#795425","y":0.984923333186948,"color":"#2C6079","name":"INTERESTS: Charity and causes (social causes)","colorv":"#795425"},{"party":"Bharat Rashtra Samithi\t","value":"INTERESTS: Community issues (law and government)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":100,"n":3,"total_spenderino":76202.2258905064,"perc":0.131229762426741,"labb":null,"short_name":"BRS","colors":"#795425","y":0.131229762426741,"color":"#2C6079","name":"INTERESTS: Community issues (law and government)","colorv":"#795425"},{"party":"Bharat Rashtra Samithi\t","value":"INTERESTS: Current events (politics)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":100,"n":4,"total_spenderino":122075.883107241,"perc":0.0819162617993535,"labb":null,"short_name":"BRS","colors":"#795425","y":0.0819162617993535,"color":"#2C6079","name":"INTERESTS: Current events (politics)","colorv":"#795425"},{"party":"Bharat Rashtra Samithi\t","value":"INTERESTS: Engineering (science)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":100,"n":3,"total_spenderino":1074.88664392828,"perc":9.30330659189701,"labb":null,"short_name":"BRS","colors":"#795425","y":9.30330659189701,"color":"#2C6079","name":"INTERESTS: Engineering (science)","colorv":"#795425"},{"party":"Bharat Rashtra Samithi\t","value":"INTERESTS: Entrepreneurship (business and finance)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":100,"n":3,"total_spenderino":101948.258006798,"perc":0.0980889737157956,"labb":null,"short_name":"BRS","colors":"#795425","y":0.0980889737157956,"color":"#2C6079","name":"INTERESTS: Entrepreneurship (business and finance)","colorv":"#795425"},{"party":"Bharat Rashtra Samithi\t","value":"INTERESTS: Newspapers (publications)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":100,"n":3,"total_spenderino":6775.77383870884,"perc":1.47584618938603,"labb":null,"short_name":"BRS","colors":"#795425","y":1.47584618938603,"color":"#2C6079","name":"INTERESTS: Newspapers (publications)","colorv":"#795425"},{"party":"Bharat Rashtra Samithi\t","value":"INTERESTS: Politics (politics)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":100,"n":5,"total_spenderino":311758.96593896,"perc":0.0320760622549599,"labb":null,"short_name":"BRS","colors":"#795425","y":0.0320760622549599,"color":"#2C6079","name":"INTERESTS: Politics (politics)","colorv":"#795425"},{"party":"Bharat Rashtra Samithi\t","value":"INTERESTS: Social media (online media)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":100,"n":3,"total_spenderino":24109.6295777383,"perc":0.414772029896036,"labb":null,"short_name":"BRS","colors":"#795425","y":0.414772029896036,"color":"#2C6079","name":"INTERESTS: Social media (online media)","colorv":"#795425"},{"party":"Bharat Rashtra Samithi\t","value":"INTERESTS: Social media marketing (marketing)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":100,"n":3,"total_spenderino":2732.69404088208,"perc":3.65939247145726,"labb":null,"short_name":"BRS","colors":"#795425","y":3.65939247145726,"color":"#2C6079","name":"INTERESTS: Social media marketing (marketing)","colorv":"#795425"},{"party":"Bharat Rashtra Samithi\t","value":"INTERESTS: Telangana","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":100,"n":3,"total_spenderino":1800.00000000001,"perc":5.55555555555554,"labb":null,"short_name":"BRS","colors":"#795425","y":5.55555555555554,"color":"#2C6079","name":"INTERESTS: Telangana","colorv":"#795425"},{"party":"Bharat Rashtra Samithi\t","value":"INTERESTS: Telugu language","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":100,"n":3,"total_spenderino":1026.09091049456,"perc":9.74572515721843,"labb":null,"short_name":"BRS","colors":"#795425","y":9.74572515721843,"color":"#2C6079","name":"INTERESTS: Telugu language","colorv":"#795425"},{"party":"Bharat Rashtra Samithi\t","value":"INTERESTS: Volunteering (social causes)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":100,"n":3,"total_spenderino":8432.81188568983,"perc":1.1858440737863,"labb":null,"short_name":"BRS","colors":"#795425","y":1.1858440737863,"color":"#2C6079","name":"INTERESTS: Volunteering (social causes)","colorv":"#795425"}],"type":"bar","showInLegend":true},{"name":"BJP","data":[{"party":"BJP","value":"INTERESTS: Politics (politics)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":150554.82258354,"n":5,"total_spenderino":311758.96593896,"perc":48.2920586197407,"labb":null,"short_name":"BJP","colors":"#FF9933","y":48.2920586197407,"color":"#B3CA47","name":"INTERESTS: Politics (politics)","colorv":"#FF9933"},{"party":"BJP","value":"INTERESTS: Political party","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":87019.5035319577,"n":3,"total_spenderino":103595.322098899,"perc":83.999452647952,"labb":null,"short_name":"BJP","colors":"#FF9933","y":83.999452647952,"color":"#B3CA47","name":"INTERESTS: Political party","colorv":"#FF9933"},{"party":"BJP","value":"INTERESTS: Politics and social issues","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":77736.4479603846,"n":3,"total_spenderino":88920.0703670797,"perc":87.4228367560587,"labb":null,"short_name":"BJP","colors":"#FF9933","y":87.4228367560587,"color":"#B3CA47","name":"INTERESTS: Politics and social issues","colorv":"#FF9933"},{"party":"BJP","value":"INTERESTS: Current events (politics)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":27968.4956714487,"n":4,"total_spenderino":122075.883107241,"perc":22.9107461355648,"labb":null,"short_name":"BJP","colors":"#FF9933","y":22.9107461355648,"color":"#B3CA47","name":"INTERESTS: Current events (politics)","colorv":"#FF9933"},{"party":"BJP","value":"INTERESTS: Social media (online media)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":23397.6657256823,"n":3,"total_spenderino":24109.6295777383,"perc":97.0469730787013,"labb":null,"short_name":"BJP","colors":"#FF9933","y":97.0469730787013,"color":"#B3CA47","name":"INTERESTS: Social media (online media)","colorv":"#FF9933"},{"party":"BJP","value":"INTERESTS: Breaking news (news service)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":22786.5887713175,"n":3,"total_spenderino":94145.374684567,"perc":24.2036200372708,"labb":null,"short_name":"BJP","colors":"#FF9933","y":24.2036200372708,"color":"#B3CA47","name":"INTERESTS: Breaking news (news service)","colorv":"#FF9933"},{"party":"BJP","value":"INTERESTS: Charity and causes (social causes)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":8893.59234438098,"n":3,"total_spenderino":10153.0745216916,"perc":87.5950661583363,"labb":null,"short_name":"BJP","colors":"#FF9933","y":87.5950661583363,"color":"#B3CA47","name":"INTERESTS: Charity and causes (social causes)","colorv":"#FF9933"},{"party":"BJP","value":"INTERESTS: Volunteering (social causes)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":7173.32970837917,"n":3,"total_spenderino":8432.81188568983,"perc":85.0645052399668,"labb":null,"short_name":"BJP","colors":"#FF9933","y":85.0645052399668,"color":"#B3CA47","name":"INTERESTS: Volunteering (social causes)","colorv":"#FF9933"},{"party":"BJP","value":"INTERESTS: Newspapers (publications)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":6375.77383870884,"n":3,"total_spenderino":6775.77383870884,"perc":94.0966152424559,"labb":null,"short_name":"BJP","colors":"#FF9933","y":94.0966152424559,"color":"#B3CA47","name":"INTERESTS: Newspapers (publications)","colorv":"#FF9933"},{"party":"BJP","value":"INTERESTS: Community issues (law and government)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":4493.34343315043,"n":3,"total_spenderino":76202.2258905064,"perc":5.89660391234087,"labb":null,"short_name":"BJP","colors":"#FF9933","y":5.89660391234087,"color":"#B3CA47","name":"INTERESTS: Community issues (law and government)","colorv":"#FF9933"},{"party":"BJP","value":"INTERESTS: Social media marketing (marketing)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":2420.69404088208,"n":3,"total_spenderino":2732.69404088208,"perc":88.5826954890534,"labb":null,"short_name":"BJP","colors":"#FF9933","y":88.5826954890534,"color":"#B3CA47","name":"INTERESTS: Social media marketing (marketing)","colorv":"#FF9933"},{"party":"BJP","value":"INTERESTS: Cricket (sport)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1766.88351198934,"n":3,"total_spenderino":2392.37949670061,"perc":73.8546503356217,"labb":null,"short_name":"BJP","colors":"#FF9933","y":73.8546503356217,"color":"#B3CA47","name":"INTERESTS: Cricket (sport)","colorv":"#FF9933"},{"party":"BJP","value":"INTERESTS: Entrepreneurship (business and finance)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1611.43193938393,"n":3,"total_spenderino":101948.258006798,"perc":1.58063705147024,"labb":null,"short_name":"BJP","colors":"#FF9933","y":1.58063705147024,"color":"#B3CA47","name":"INTERESTS: Entrepreneurship (business and finance)","colorv":"#FF9933"},{"party":"BJP","value":"INTERESTS: Bollywood films","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1239.19001508709,"n":3,"total_spenderino":2370.6301073105,"perc":52.2726009117026,"labb":null,"short_name":"BJP","colors":"#FF9933","y":52.2726009117026,"color":"#B3CA47","name":"INTERESTS: Bollywood films","colorv":"#FF9933"},{"party":"BJP","value":"INTERESTS: Telangana","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1000,"n":3,"total_spenderino":1800.00000000001,"perc":55.5555555555557,"labb":null,"short_name":"BJP","colors":"#FF9933","y":55.5555555555557,"color":"#B3CA47","name":"INTERESTS: Telangana","colorv":"#FF9933"},{"party":"BJP","value":"INTERESTS: Election","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":923.954803590104,"n":3,"total_spenderino":2739.8836858485,"perc":33.722409763682,"labb":null,"short_name":"BJP","colors":"#FF9933","y":33.722409763682,"color":"#B3CA47","name":"INTERESTS: Election","colorv":"#FF9933"},{"party":"BJP","value":"INTERESTS: Virat Kohli","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":880.154337139525,"n":3,"total_spenderino":2580.16871948443,"perc":34.1122784139247,"labb":null,"short_name":"BJP","colors":"#FF9933","y":34.1122784139247,"color":"#B3CA47","name":"INTERESTS: Virat Kohli","colorv":"#FF9933"},{"party":"BJP","value":"INTERESTS: Engineering (science)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":624.891384464956,"n":3,"total_spenderino":1074.88664392828,"perc":58.1355613631248,"labb":null,"short_name":"BJP","colors":"#FF9933","y":58.1355613631248,"color":"#B3CA47","name":"INTERESTS: Engineering (science)","colorv":"#FF9933"},{"party":"BJP","value":"INTERESTS: Agriculture (industry)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":346.43508059623,"n":3,"total_spenderino":153950.036870083,"perc":0.225030852632132,"labb":null,"short_name":"BJP","colors":"#FF9933","y":0.225030852632132,"color":"#B3CA47","name":"INTERESTS: Agriculture (industry)","colorv":"#FF9933"},{"party":"BJP","value":"INTERESTS: Telugu language","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":126.105906421872,"n":3,"total_spenderino":1026.09091049456,"perc":12.2899350468947,"labb":null,"short_name":"BJP","colors":"#FF9933","y":12.2899350468947,"color":"#B3CA47","name":"INTERESTS: Telugu language","colorv":"#FF9933"}],"type":"bar","showInLegend":true},{"name":"Congress","data":[{"party":"Congress","value":"INTERESTS: Politics (politics)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":150436.188214658,"n":5,"total_spenderino":311758.96593896,"perc":48.2540053857223,"labb":null,"short_name":"INC","colors":"#19AAED","y":48.2540053857223,"color":"#440154","name":"INTERESTS: Politics (politics)","colorv":"#19AAED"},{"party":"Congress","value":"INTERESTS: Entrepreneurship (business and finance)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":100236.826067415,"n":3,"total_spenderino":101948.258006798,"perc":98.321273974814,"labb":null,"short_name":"INC","colors":"#19AAED","y":98.321273974814,"color":"#440154","name":"INTERESTS: Entrepreneurship (business and finance)","colorv":"#19AAED"},{"party":"Congress","value":"INTERESTS: Current events (politics)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":93607.2977295798,"n":4,"total_spenderino":122075.883107241,"perc":76.6795990714629,"labb":null,"short_name":"INC","colors":"#19AAED","y":76.6795990714629,"color":"#440154","name":"INTERESTS: Current events (politics)","colorv":"#19AAED"},{"party":"Congress","value":"INTERESTS: Community issues (law and government)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":71608.882457356,"n":3,"total_spenderino":76202.2258905064,"perc":93.9721663252324,"labb":null,"short_name":"INC","colors":"#19AAED","y":93.9721663252324,"color":"#440154","name":"INTERESTS: Community issues (law and government)","colorv":"#19AAED"},{"party":"Congress","value":"INTERESTS: Breaking news (news service)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":69929.4002800453,"n":3,"total_spenderino":94145.374684567,"perc":74.2781050203932,"labb":null,"short_name":"INC","colors":"#19AAED","y":74.2781050203932,"color":"#440154","name":"INTERESTS: Breaking news (news service)","colorv":"#19AAED"},{"party":"Congress","value":"INTERESTS: Politics and social issues","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":10684.4453404342,"n":3,"total_spenderino":88920.0703670797,"perc":12.0157859708463,"labb":null,"short_name":"INC","colors":"#19AAED","y":12.0157859708463,"color":"#440154","name":"INTERESTS: Politics and social issues","colorv":"#19AAED"},{"party":"Congress","value":"INTERESTS: Political party","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":6807.13019865177,"n":3,"total_spenderino":103595.322098899,"perc":6.57088569322971,"labb":null,"short_name":"INC","colors":"#19AAED","y":6.57088569322971,"color":"#440154","name":"INTERESTS: Political party","colorv":"#19AAED"},{"party":"Congress","value":"INTERESTS: Charity and causes (social causes)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1159.48217731066,"n":3,"total_spenderino":10153.0745216916,"perc":11.4200105084767,"labb":null,"short_name":"INC","colors":"#19AAED","y":11.4200105084767,"color":"#440154","name":"INTERESTS: Charity and causes (social causes)","colorv":"#19AAED"},{"party":"Congress","value":"INTERESTS: Volunteering (social causes)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1159.48217731066,"n":3,"total_spenderino":8432.81188568983,"perc":13.7496506862469,"labb":null,"short_name":"INC","colors":"#19AAED","y":13.7496506862469,"color":"#440154","name":"INTERESTS: Volunteering (social causes)","colorv":"#19AAED"},{"party":"Congress","value":"INTERESTS: Election","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1115.9288822584,"n":3,"total_spenderino":2739.8836858485,"perc":40.7290604350166,"labb":null,"short_name":"INC","colors":"#19AAED","y":40.7290604350166,"color":"#440154","name":"INTERESTS: Election","colorv":"#19AAED"},{"party":"Congress","value":"INTERESTS: Bollywood films","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1031.44009222342,"n":3,"total_spenderino":2370.6301073105,"perc":43.5091113135989,"labb":null,"short_name":"INC","colors":"#19AAED","y":43.5091113135989,"color":"#440154","name":"INTERESTS: Bollywood films","colorv":"#19AAED"},{"party":"Congress","value":"INTERESTS: Social media (online media)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":611.963852055995,"n":3,"total_spenderino":24109.6295777383,"perc":2.53825489140262,"labb":null,"short_name":"INC","colors":"#19AAED","y":2.53825489140262,"color":"#440154","name":"INTERESTS: Social media (online media)","colorv":"#19AAED"},{"party":"Congress","value":"INTERESTS: Engineering (science)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":349.995259463321,"n":3,"total_spenderino":1074.88664392828,"perc":32.5611320449782,"labb":null,"short_name":"INC","colors":"#19AAED","y":32.5611320449782,"color":"#440154","name":"INTERESTS: Engineering (science)","colorv":"#19AAED"},{"party":"Congress","value":"INTERESTS: Cricket (sport)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":225.49598471127,"n":3,"total_spenderino":2392.37949670061,"perc":9.42559426806061,"labb":null,"short_name":"INC","colors":"#19AAED","y":9.42559426806061,"color":"#440154","name":"INTERESTS: Cricket (sport)","colorv":"#19AAED"},{"party":"Congress","value":"INTERESTS: Social media marketing (marketing)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":212,"n":3,"total_spenderino":2732.69404088208,"perc":7.75791203948939,"labb":null,"short_name":"INC","colors":"#19AAED","y":7.75791203948939,"color":"#440154","name":"INTERESTS: Social media marketing (marketing)","colorv":"#19AAED"}],"type":"bar","showInLegend":true},{"name":"Government","data":[{"party":"Government","value":"INTERESTS: Agriculture (industry)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":153503.601789487,"n":3,"total_spenderino":153950.036870083,"perc":99.7100130083288,"labb":null,"short_name":"Gov","colors":"#666666","y":99.7100130083288,"color":"#383066","name":"INTERESTS: Agriculture (industry)","colorv":"#666666"}],"type":"bar","showInLegend":true},{"name":"Others","data":[{"party":"Others","value":"INTERESTS: Breaking news (news service)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1429.38563320409,"n":3,"total_spenderino":94145.374684567,"perc":1.51827494233596,"labb":null,"short_name":"Oth","colors":"#cccccc","y":1.51827494233596,"color":"#6AAD69","name":"INTERESTS: Breaking news (news service)","colorv":"#cccccc"},{"party":"Others","value":"INTERESTS: Politics (politics)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":899.26677247299,"n":5,"total_spenderino":311758.96593896,"perc":0.288449369776604,"labb":null,"short_name":"Oth","colors":"#cccccc","y":0.288449369776604,"color":"#6AAD69","name":"INTERESTS: Politics (politics)","colorv":"#cccccc"},{"party":"Others","value":"INTERESTS: Politics and social issues","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":499.177066260831,"n":3,"total_spenderino":88920.0703670797,"perc":0.56137727309496,"labb":null,"short_name":"Oth","colors":"#cccccc","y":0.56137727309496,"color":"#6AAD69","name":"INTERESTS: Politics and social issues","colorv":"#cccccc"},{"party":"Others","value":"INTERESTS: Current events (politics)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":400.089706212159,"n":4,"total_spenderino":122075.883107241,"perc":0.327738531173016,"labb":null,"short_name":"Oth","colors":"#cccccc","y":0.327738531173016,"color":"#6AAD69","name":"INTERESTS: Current events (politics)","colorv":"#cccccc"}],"type":"bar","showInLegend":true},{"name":"Regional","data":[{"party":"Regional","value":"INTERESTS: Political party","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":9768.68836828918,"n":3,"total_spenderino":103595.322098899,"perc":9.42966165881831,"labb":null,"short_name":"Reg","colors":"#A87E7D","y":9.42966165881831,"color":"#21908C","name":"INTERESTS: Political party","colorv":"#A87E7D"},{"party":"Regional","value":"INTERESTS: Politics (politics)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":9768.68836828918,"n":5,"total_spenderino":311758.96593896,"perc":3.13341056250546,"labb":null,"short_name":"Reg","colors":"#A87E7D","y":3.13341056250546,"color":"#21908C","name":"INTERESTS: Politics (politics)","colorv":"#A87E7D"},{"party":"Regional","value":"INTERESTS: Election","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":700,"n":3,"total_spenderino":2739.8836858485,"perc":25.5485298013014,"labb":null,"short_name":"Reg","colors":"#A87E7D","y":25.5485298013014,"color":"#21908C","name":"INTERESTS: Election","colorv":"#A87E7D"},{"party":"Regional","value":"INTERESTS: Telangana","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":700,"n":3,"total_spenderino":1800.00000000001,"perc":38.8888888888888,"labb":null,"short_name":"Reg","colors":"#A87E7D","y":38.8888888888888,"color":"#21908C","name":"INTERESTS: Telangana","colorv":"#A87E7D"},{"party":"Regional","value":"INTERESTS: Cricket (sport)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":399.999999999999,"n":3,"total_spenderino":2392.37949670061,"perc":16.7197553963177,"labb":null,"short_name":"Reg","colors":"#A87E7D","y":16.7197553963177,"color":"#21908C","name":"INTERESTS: Cricket (sport)","colorv":"#A87E7D"},{"party":"Regional","value":"INTERESTS: Virat Kohli","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":399.999999999999,"n":3,"total_spenderino":2580.16871948443,"perc":15.5028621570115,"labb":null,"short_name":"Reg","colors":"#A87E7D","y":15.5028621570115,"color":"#21908C","name":"INTERESTS: Virat Kohli","colorv":"#A87E7D"},{"party":"Regional","value":"INTERESTS: Newspapers (publications)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":300.000000000001,"n":3,"total_spenderino":6775.77383870884,"perc":4.42753856815811,"labb":null,"short_name":"Reg","colors":"#A87E7D","y":4.42753856815811,"color":"#21908C","name":"INTERESTS: Newspapers (publications)","colorv":"#A87E7D"}],"type":"bar","showInLegend":true},{"name":"Samajwadi Party","data":[{"party":"Samajwadi Party","value":"INTERESTS: Virat Kohli","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1300.01438234491,"n":3,"total_spenderino":2580.16871948443,"perc":50.3848594290638,"labb":null,"short_name":"Samaj","colors":"Red and Green ","y":50.3848594290638,"color":"#FDE725","name":"INTERESTS: Virat Kohli","colorv":"Red and Green "},{"party":"Samajwadi Party","value":"INTERESTS: Telugu language","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":799.985004072689,"n":3,"total_spenderino":1026.09091049456,"perc":77.9643397958869,"labb":null,"short_name":"Samaj","colors":"Red and Green ","y":77.9643397958869,"color":"#FDE725","name":"INTERESTS: Telugu language","colorv":"Red and Green "}],"type":"bar","showInLegend":true}],"xAxis":{"type":"category","title":{"text":"Targeting criteria"},"labels":{"style":{"fontSize":"10px"}},"categories":["INTERESTS: Agriculture (industry)","INTERESTS: Politics (politics)","INTERESTS: Entrepreneurship (business and finance)","INTERESTS: Current events (politics)","INTERESTS: Political party","INTERESTS: Politics and social issues","INTERESTS: Community issues (law and government)","INTERESTS: Breaking news (news service)","INTERESTS: Social media (online media)","INTERESTS: Charity and causes (social causes)","INTERESTS: Volunteering (social causes)","INTERESTS: Newspapers (publications)","INTERESTS: Social media marketing (marketing)","INTERESTS: Cricket (sport)","INTERESTS: Virat Kohli","INTERESTS: Bollywood films","INTERESTS: Election","INTERESTS: Telangana","INTERESTS: Telugu language","INTERESTS: Engineering (science)"]},"tooltip":{"pointFormat":"<b>{point.party}<\/b><br>..makes up {point.y:.1f}% of total budget spent on {point.value}. <br>..a total of ₹{point.total_spend:.0f} on this audience.<br><br>Total Expenditure on audience is ₹{point.total_spenderino:.0f}.","headerFormat":""},"legend":{"enabled":true,"verticalAlign":"bottom","layout":"horizontal"},"colors":{"pink":"#795425","#FF9933":"#FF9933","#19AAED":"#19AAED","#666666":"#666666","#cccccc":"#cccccc","#ccc":"#A87E7D","Red and Green ":"Red and Green "}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":[],"jsHooks":[]}</script>
+=======
+No data (yet).
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
 </div>
 </div>
 </div>
 <div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
 <div class="cell">
 <div class="cell-output-display">
+<<<<<<< HEAD
 
 <div class="highchart html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-238fba7d9ba991bcb91e" style="width:100%;height:464px;"></div>
 <script type="application/json" data-for="htmlwidget-238fba7d9ba991bcb91e">{"x":{"hc_opts":{"chart":{"reflow":true},"title":{"text":null},"yAxis":{"title":{"text":"% of budget spent on targeting method"},"type":"linear","labels":{"format":"{value}%"},"max":100,"min":0},"credits":{"enabled":true,"text":"Source: Meta Ad Library and data compiled by Who Targets Me. Data Viz: Fabio Votta (@favstats)."},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":true},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"bar":{"stacking":"normal"}},"series":[{"name":"BJP","data":[{"party":"BJP","value":"INTERESTS: Politics (politics)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":31253.4100736862,"n":3,"total_spenderino":49915.3015476695,"perc":62.6128844355252,"labb":null,"short_name":"BJP","colors":"#FF9933","y":62.6128844355252,"color":"#FF9933","name":"INTERESTS: Politics (politics)"},{"party":"BJP","value":"INTERESTS: Politics and social issues","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":13168.5149229317,"n":3,"total_spenderino":15988.5715740563,"perc":82.3620475533879,"labb":null,"short_name":"BJP","colors":"#FF9933","y":82.3620475533879,"color":"#FF9933","name":"INTERESTS: Politics and social issues"}],"type":"bar","showInLegend":true},{"name":"Congress","data":[{"party":"Congress","value":"INTERESTS: Politics (politics)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":18162.8914739833,"n":3,"total_spenderino":49915.3015476695,"perc":36.3874221147148,"labb":null,"short_name":"INC","colors":"#19AAED","y":36.3874221147148,"color":"#19AAED","name":"INTERESTS: Politics (politics)"},{"party":"Congress","value":"INTERESTS: Politics and social issues","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":2321.05665112459,"n":3,"total_spenderino":15988.5715740563,"perc":14.5169732041031,"labb":null,"short_name":"INC","colors":"#19AAED","y":14.5169732041031,"color":"#19AAED","name":"INTERESTS: Politics and social issues"}],"type":"bar","showInLegend":true},{"name":"Others","data":[{"party":"Others","value":"INTERESTS: Politics (politics)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":499,"n":3,"total_spenderino":49915.3015476695,"perc":0.999693449759993,"labb":null,"short_name":"Oth","colors":"#cccccc","y":0.999693449759993,"color":"#cccccc","name":"INTERESTS: Politics (politics)"},{"party":"Others","value":"INTERESTS: Politics and social issues","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":499,"n":3,"total_spenderino":15988.5715740563,"perc":3.12097924250906,"labb":null,"short_name":"Oth","colors":"#cccccc","y":3.12097924250906,"color":"#cccccc","name":"INTERESTS: Politics and social issues"}],"type":"bar","showInLegend":true}],"xAxis":{"type":"category","title":{"text":"Targeting criteria"},"labels":{"style":{"fontSize":"10px"}},"categories":["INTERESTS: Politics (politics)","INTERESTS: Politics and social issues"]},"tooltip":{"pointFormat":"<b>{point.party}<\/b><br>..makes up {point.y:.1f}% of total budget spent on {point.value}. <br>..a total of ₹{point.total_spend:.0f} on this audience.<br><br>Total Expenditure on audience is ₹{point.total_spenderino:.0f}.","headerFormat":""},"legend":{"enabled":true,"verticalAlign":"bottom","layout":"horizontal"},"colors":{"#FF9933":"#FF9933","#19AAED":"#19AAED","#cccccc":"#cccccc"}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":[],"jsHooks":[]}</script>
+=======
+No data (yet).
+>>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
 </div>
 </div>
 </div>
@@ -474,10 +498,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -487,8 +528,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -500,7 +550,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -544,6 +717,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -569,6 +743,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -629,6 +829,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

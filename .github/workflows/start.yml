@@ -14,9 +14,6 @@ jobs:
       contents: write
     steps:
       - uses: quarto-dev/quarto-actions/setup@v2
-      - name: Add Quarto to PATH
-        run: |
-          echo "export PATH=$PATH:$HOME/.local/bin" >> $GITHUB_ENV
       - run: |
           quarto --version
       - name: Setup - Checkout repo

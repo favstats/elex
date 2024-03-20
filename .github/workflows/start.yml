@@ -62,7 +62,6 @@ jobs:
             any::DT
             any::piggyback
             any::arrow
-      - name: Apt-get update things
       - name: "Script - Meta Run"
         run: Rscript 'start.R'
       - name: "Script - Log Run"

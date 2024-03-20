@@ -19,6 +19,8 @@ source(here::here("cntry.R"))
 
 sets <- jsonlite::fromJSON(here::here("settings.json"))
 
+# sets$cntry <- "NP"
+
 
 # sets$cntry <- "AD"
 
@@ -80,7 +82,7 @@ if(!exists("thedat")){
 
 
 ###### get colors ####
-if(!custom){
+# if(!custom){
   if(sets$cntry %in% country_codes & nrow(thedat)!=0){
     res <- GET(url = paste0("https://data-api.whotargets.me/entities?%24client%5BwithCountries%5D=true&countries.alpha2%5B%24in%5D%5B0%5D=", str_to_lower(sets$cntry)))
     color_dat <- content(res) %>% 
@@ -114,7 +116,7 @@ if(!custom){
   
   
   saveRDS(color_dat, here::here("data/color_dat.rds"))
-} 
+# } 
 
 
 
@@ -138,17 +140,17 @@ scale_color_parties <- function(...){
 
 # print("hello")
 
-if(custom){
-  election_dat30 <- readRDS(here::here("data/election_dat30.rds"))  %>% 
-    select(-contains("party")) %>%
-    left_join(all_dat %>% distinct(page_id, party))
-  
-  election_dat7 <- readRDS(here::here("data/election_dat7.rds"))  %>% 
-    select(-contains("party")) %>%
-    left_join(all_dat %>% distinct(page_id, party))
-}
+# if(custom){
+#   election_dat30 <- readRDS(here::here("data/election_dat30.rds"))  %>% 
+#     select(-contains("party")) %>%
+#     left_join(all_dat %>% distinct(page_id, party))
+#   
+#   election_dat7 <- readRDS(here::here("data/election_dat7.rds"))  %>% 
+#     select(-contains("party")) %>%
+#     left_join(all_dat %>% distinct(page_id, party))
+# }
 
-if(!exists("election_dat30")){
+# if(!exists("election_dat30")){
   out <- sets$cntry %>% 
     map(~{
       .x %>% 
@@ -193,9 +195,9 @@ if(!exists("election_dat30")){
     election_dat30 <- arrow::read_parquet(paste0("https://github.com/favstats/meta_ad_targeting/releases/download/", sets$cntry, "-last_", 30,"_days/", thosearethere$ds[1], ".parquet"))
   # })
   
-}
+# }
 
-if(!exists("election_dat7")){
+# if(!exists("election_dat7")){
   out <- sets$cntry %>% 
     map(~{
       .x %>% 
@@ -237,7 +239,7 @@ if(!exists("election_dat7")){
   # try({
   election_dat7 <- arrow::read_parquet(paste0("https://github.com/favstats/meta_ad_targeting/releases/download/", sets$cntry, "-last_", 7,"_days/", thosearethere$ds[1], ".parquet"))
   # })
-}
+# }
 # print("hello2")
 
 if(sets$cntry %in% country_codes & nrow(thedat)!=0){
@@ -254,7 +256,9 @@ if(sets$cntry %in% country_codes & nrow(thedat)!=0){
       # count(party)
       left_join(color_dat %>% set_names(c("long_name", "party", "colors"))) %>% 
       select(-colors) %>% 
+      mutate(partyoold = party) %>% 
       mutate(party = long_name) %>% 
+      mutate(party = ifelse(is.na(party), partyoold, party)) %>% 
       filter(party %in% color_dat$party)
     
     
@@ -265,7 +269,9 @@ if(sets$cntry %in% country_codes & nrow(thedat)!=0){
       # count(party)
       left_join(color_dat %>% set_names(c("long_name", "party", "colors"))) %>% 
       select(-colors) %>% 
+      mutate(partyoold = party) %>% 
       mutate(party = long_name) %>% 
+      mutate(party = ifelse(is.na(party), partyoold, party)) %>% 
       filter(party %in% color_dat$party)
     
   } else {
@@ -284,34 +290,6 @@ if(sets$cntry %in% country_codes & nrow(thedat)!=0){
       drop_na(party) %>% 
       filter(party %in% color_dat$party)
     
-  }
-  
-} else if (custom){
-  
-  raw <- election_dat30 %>%
-    rename(internal_id = contains("page_id")) %>%
-    filter(is.na(no_data)) 
-  
-  if(nrow(raw)==0){
-    election_dat30 <- tibble()
-  } else {
-    election_dat30 <- raw %>% 
-      drop_na(party) %>% 
-      filter(party %in% color_dat$party)
-  }
-  
-  
-  
-  raw <- election_dat7 %>%
-    rename(internal_id = contains("page_id")) %>%
-    filter(is.na(no_data)) 
-  
-  if(nrow(raw)==0){
-    election_dat7 <- tibble()
-  } else {
-    election_dat7 <- raw %>% 
-      drop_na(party)  %>% 
-      filter(party %in% color_dat$party)
   }
   
 } else {

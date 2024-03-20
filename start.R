@@ -273,7 +273,7 @@ full_cntry_list$iso2c %>%
     })
   })
 
-if(Sys.info()[["sysname"]]=="Windows"){
+if (Sys.info()[["effective_user"]] == "fabio") {
   system("git add -A")
   system('git commit -m "update"')
   system("git push")

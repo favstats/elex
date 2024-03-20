@@ -94,12 +94,12 @@ my_link<- "https://graph.facebook.com"
 search_fields=c("ad_creation_time", 
                 "ad_delivery_start_time",
                 "ad_delivery_stop_time",
-                "ad_creative_link_caption",
-                "ad_creative_link_description",
-                "ad_creative_link_title",
+                "ad_creative_link_descriptions",
+                "ad_creative_link_titles",
+                "ad_creative_link_captions",
+                "ad_creative_bodies",
                 "age_country_gender_reach_breakdown",
                 "beneficiary_payers",
-                "bylines",
                 "delivery_by_region",
                 "estimated_audience_size",
                 "eu_total_reach",
@@ -108,21 +108,36 @@ search_fields=c("ad_creation_time",
                 "target_gender",
                 "target_locations",
                 "currency",
-                "ad_creative_body", 
+                "bylines",
                 "page_id",
                 "page_name",
                 "spend",
                 "ad_snapshot_url",
                 "demographic_distribution",
-                "funding_entity",
-                "potential_reach",
                 "publisher_platforms",
-                "impressions",
-                "region_distribution") %>% 
+                "impressions") %>% 
   stringr::str_c(., collapse=", ")
 
 min_date <- "2023-05-01"
 
+
+
+
+page_one_response <- GET(my_link,
+                         path = "/ads_archive",
+                         query = list(access_token = token,
+                                      limit=100,
+                                      ad_type="EMPLOYMENT_ADS",
+                                      ad_active_status="ALL",
+                                      search_terms="''",
+                                      search_page_ids="1496771993974463",
+                                      # ad_delivery_date_min = min_date,
+                                      fields=search_fields,
+                                      ad_reached_countries="NL"))
+page_one_content<<- content(page_one_response)
+x <- tibble(data=page_one_content$data)
+df_imp <- x %>% 
+  unnest_wider(data) 
 get_em <- function(pgid, pgname) {
   
   # print(pgid)
@@ -139,14 +154,14 @@ get_em <- function(pgid, pgname) {
                                         search_page_ids=pgid,
                                         # ad_delivery_date_min = min_date,
                                         fields=search_fields,
-                                        ad_reached_countries="NL"))
+                                        ad_reached_countries="SK"))
   # print(page_one_response)
   page_one_content<<- content(page_one_response)
   
   x <- tibble(data=page_one_content$data)
   df_imp <- x %>% 
     unnest_wider(data) 
-  
+  # return(df_imp)
   #get the link refering to the next page
   next_link <- page_one_content$paging$`next`
   
@@ -195,6 +210,7 @@ sk <- c(102146246492040, 557862947737785, 150674111712306, 113775847050590,
   403027089864701) %>% 
   tibble(page_id = .) %>% 
   mutate(page_name = "")
+
 
 df_imp2 <- sk %>% 
   split(1:nrow(.)) %>% 
@@ -548,3 +564,50 @@ saveRDS(fb_aggr, file = "data/fb_aggr.rds")
 
 
 cat("\n\nFB Data: Done\n\n") 
+
+
+########## SLovakia ##########
+
+
+df_imp2    %>% #count(page_name)
+  mutate(ad_delivery_start_time = lubridate::ymd(ad_delivery_start_time)) %>% 
+  filter(ad_delivery_start_time >= "2023-05-01") %>%
+  # arrange(desc(ad_delivery_start_time))
+  # count(page_name) %>% 
+  add_count(page_name) %>% 
+  # filter(n > 50) %>% 
+  unnest_wider(impressions) %>% 
+  rename(imp_lower = lower_bound)%>% 
+  rename(imp_upper = upper_bound) %>% 
+  unnest_wider(spend) %>% 
+  rename(spend_lower = lower_bound)%>% 
+  rename(spend_upper = upper_bound) %>% 
+  # glimpse() %>% 
+  mutate(spend_lower = ifelse(spend_lower==0,50, spend_lower)) %>% 
+  mutate(spend_lower = as.numeric(spend_lower)) %>% 
+  mutate(imp_lower = as.numeric(imp_lower)) %>% 
+  group_by(page_name) %>% 
+  summarize(spend_lower = sum(spend_lower),
+            lower_impressions = sum(imp_lower)) %>% 
+  mutate(price = spend_lower/lower_impressions*1000) %>% 
+  ungroup() %>% 
+  mutate(page_name = fct_reorder(page_name, price))  %>%
+  mutate(party_color = case_when(
+    str_detect(page_name, "SMER") ~ "#d82222",
+    page_name == "KDH" ~ "#173a70",
+    page_name == "Progresívne Slovensko" ~ "#00bdff",
+    page_name == "Ivan Korčok" ~ "darkblue",
+    page_name == "Peter Pellegrini" ~ "purple",
+    str_detect(page_name, "HLAS") ~ "#7e1447",
+    str_detect(page_name, "Solidarita") ~ "#74fd00",
+    str_detect(page_name, "Repub") ~ "orange",
+    page_name == "Slovenská národná strana" ~ "#253a79", 
+    TRUE ~ "#000000" # Default color if none of the conditions above are met
+  )) %>%
+  ggplot(aes(x = page_name, y = price)) +
+  geom_col(aes(fill = party_color)) +
+  scale_fill_identity() + # Use the colors assigned in the data
+  coord_flip() +
+  geom_label(aes(label = round(price, 2))) +
+  labs(y = "Cost per 1000 Impressions", x="", caption = "Source: Meta Ad Library. Aggregated Data between May 5th 2023 to March 19th 2024") +
+  theme_minimal()

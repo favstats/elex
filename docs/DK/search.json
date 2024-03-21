@@ -1,233 +1,159 @@
 [
   {
-<<<<<<< HEAD
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "Targeting Dashboard - Denmark",
-    "section": "",
-    "text": "Methodology\nIn collaboration with Who Targets Me, we monitored 7642 political advertisers to better understand how campaigns use different targeting methods made available by Meta. To do this, we used data from the Meta Ad Library, using the new ‘Audience’ data which gives some detail on how pages target their ads.\nTo better understand the election, we kept only advertisers who:\n\nAdvertised in the last 7 days (7 Mar - 13 Mar 2024)\nAdvertised in the last 30 days (13 Feb - 13 Mar 2024)\n\n\n\n\n\n\n\nNote\n\n\n\nMeta only provides 7, 30 and 90 days windows for the targeting data in their Ad Library. Meta’s data also lags by a few days. Report will be updated as soon as new data is available.\n\n\n\n\n\n\n\n\nDisclaimer\n\n\n\nThe data shown in this dashboard is based on the platform’s respective ad libraries which are known to be sometimes incomplete (Edelson et al. 2020; Silva et al. 2020). For this reason the data shown here might not reflect the full picture nor all political ads that were targeted at voters.\n\n\n\n\nAbout the Creator of the Dashboard\n\n\n\n\n\n\n\n\n\n\n\nFabio Votta is a Postdoc at the University of Amsterdam who studies (online) political microtargeting and its usage around the world.\n\n\n\n\n\n\n\n\n\n\n\nWant to see how political parties target you? Sign up at Who Targets Me and download the gratis browser plugin to see how parties on Facebook use your data:\nhttps://whotargets.me/\n\n\n\n\n\n\n\nWant to retrieve targeting data from the Facebook Ad Library yourself? This dashboard is powered by the R package: metatargetr. Check it out here:\nhttps://github.com/favstats/metatargetr\n\n\n\n\nElection Targeting Dashboards\nA list of election dashboards:\n\n🇳🇱 2021 Dutch parliamentary election (15th-17th March 2021)\n🇩🇪 2021 German federal election (26 September 2021)\n🇸🇪 2022 Swedish general election (11th September 2022)\n🇺🇸 2022 United States midterm elections (8th November 2022)\n🇺🇸 2022 United States midterm elections - Georgia Runoff (6th December 2022)\n🇮🇹 2023 Lazio & Lombardy regional election (12-13th February 2023)\n🇪🇪 2023 Estonian parliamentary election (5th March 2023)\n🇳🇱 2023 Dutch provincial elections (15th March 2023)\n🇲🇪 2023 Montenegrin presidential elections (19th March 2023) - 1st round\n🇦🇺 2023 New South Wales state election (25th March 2023)\n🇫🇮 2023 Finnish parliamentary election (2 April 2023)\n🇹🇷 2023 Turkish general election (14 May 2023) - Round 1\n🇩🇪 2023 Bremen State election (14 May 2023)\n🇬🇷 2023 Greek Legislative election (21 May 2023)\n🇹🇷 2023 Turkish Presidential election (14 May 2023) - Round 2\n🇲🇪 2023 Montenegrin parliamentary elections (11 June 2023)\n🇬🇷 2nd 2023 Greek Legislative election (25 May 2023)\n🇸🇰 2023 Slovak parliamentary election (30 September 2023)\n🇩🇪 2023 Bavarian state election (8 October 2023)\n🇩🇪 2023 Hessian state election (8 October 2023)\n🇳🇿 2023 New Zealand general election (14 October 2023)\n🇵🇱 2023 Polish parliamentary election (15 October 2023)\n🇺🇸 US Presidential Primaries (2023-2024)"
-  },
-  {
-=======
->>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
     "objectID": "demographics.html",
     "href": "demographics.html",
     "title": "Demographics",
     "section": "",
-<<<<<<< HEAD
-    "text": "The following graphs illustrate how parties target different age groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n13 Feb - 13 Mar 20247 Mar - 13 Mar 2024"
-=======
-    "text": "The following graphs illustrate how parties target different age groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n15 Feb - 15 Mar 20249 Mar - 15 Mar 2024",
+    "text": "The following graphs illustrate how parties target different age groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n17 Feb - 17 Mar 202411 Mar - 17 Mar 2024",
     "crumbs": [
       "Demographics"
     ]
->>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   },
   {
     "objectID": "demographics.html#age-targeting",
     "href": "demographics.html#age-targeting",
     "title": "Demographics",
     "section": "",
-<<<<<<< HEAD
-    "text": "The following graphs illustrate how parties target different age groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n13 Feb - 13 Mar 20247 Mar - 13 Mar 2024"
-=======
-    "text": "The following graphs illustrate how parties target different age groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n15 Feb - 15 Mar 20249 Mar - 15 Mar 2024",
+    "text": "The following graphs illustrate how parties target different age groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n17 Feb - 17 Mar 202411 Mar - 17 Mar 2024",
     "crumbs": [
       "Demographics"
     ]
->>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   },
   {
     "objectID": "demographics.html#gender-targeting",
     "href": "demographics.html#gender-targeting",
     "title": "Demographics",
     "section": "Gender Targeting",
-<<<<<<< HEAD
-    "text": "Gender Targeting\nDe onderstaande grafieken laten zien hoe partijen gender als focusgroep gebruiken en welk percentage van het budget daaraan werd uitgegeven.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n13 Feb - 13 Mar 20247 Mar - 13 Mar 2024"
-=======
-    "text": "Gender Targeting\nDe onderstaande grafieken laten zien hoe partijen gender als focusgroep gebruiken en welk percentage van het budget daaraan werd uitgegeven.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n15 Feb - 15 Mar 20249 Mar - 15 Mar 2024",
+    "text": "Gender Targeting\nDe onderstaande grafieken laten zien hoe partijen gender als focusgroep gebruiken en welk percentage van het budget daaraan werd uitgegeven.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n17 Feb - 17 Mar 202411 Mar - 17 Mar 2024",
     "crumbs": [
       "Demographics"
     ]
->>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   },
   {
     "objectID": "demographics.html#language-targeting",
     "href": "demographics.html#language-targeting",
     "title": "Demographics",
     "section": "Language Targeting",
-<<<<<<< HEAD
-    "text": "Language Targeting\nThe following graphs show how parties use different languages as focus groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n13 Feb - 13 Mar 20247 Mar - 13 Mar 2024"
-=======
-    "text": "Language Targeting\nThe following graphs show how parties use different languages as focus groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n15 Feb - 15 Mar 20249 Mar - 15 Mar 2024",
+    "text": "Language Targeting\nThe following graphs show how parties use different languages as focus groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n17 Feb - 17 Mar 202411 Mar - 17 Mar 2024",
     "crumbs": [
       "Demographics"
     ]
->>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   },
   {
     "objectID": "demographics.html#targeting-based-on-employment-or-education-instituation",
     "href": "demographics.html#targeting-based-on-employment-or-education-instituation",
     "title": "Demographics",
     "section": "Targeting based on Employment or Education Instituation",
-<<<<<<< HEAD
-    "text": "Targeting based on Employment or Education Instituation\nThe following graphs depict how parties utilize various job sectors and types of education as focus groups and the percentage of the budget allocated to them. The next graph focuses on educational levels.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n13 Feb - 13 Mar 20247 Mar - 13 Mar 2024"
-=======
-    "text": "Targeting based on Employment or Education Instituation\nThe following graphs depict how parties utilize various job sectors and types of education as focus groups and the percentage of the budget allocated to them. The next graph focuses on educational levels.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n15 Feb - 15 Mar 20249 Mar - 15 Mar 2024",
+    "text": "Targeting based on Employment or Education Instituation\nThe following graphs depict how parties utilize various job sectors and types of education as focus groups and the percentage of the budget allocated to them. The next graph focuses on educational levels.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n17 Feb - 17 Mar 202411 Mar - 17 Mar 2024",
     "crumbs": [
       "Demographics"
     ]
->>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   },
   {
     "objectID": "demographics.html#education-levels-targeting",
     "href": "demographics.html#education-levels-targeting",
     "title": "Demographics",
     "section": "Education Levels Targeting",
-<<<<<<< HEAD
-    "text": "Education Levels Targeting\nThe graphs below illustrate how parties target various education levels as focus groups and the percentage of the budget allocated to each.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n13 Feb - 13 Mar 20247 Mar - 13 Mar 2024"
-=======
-    "text": "Education Levels Targeting\nThe graphs below illustrate how parties target various education levels as focus groups and the percentage of the budget allocated to each.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n15 Feb - 15 Mar 20249 Mar - 15 Mar 2024",
+    "text": "Education Levels Targeting\nThe graphs below illustrate how parties target various education levels as focus groups and the percentage of the budget allocated to each.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n17 Feb - 17 Mar 202411 Mar - 17 Mar 2024\n\n\nNo data (yet).\n\n\nNo data (yet).",
     "crumbs": [
       "Demographics"
     ]
->>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   },
   {
     "objectID": "demographics.html#relationship-status-targeting",
     "href": "demographics.html#relationship-status-targeting",
     "title": "Demographics",
     "section": "Relationship Status Targeting",
-<<<<<<< HEAD
-    "text": "Relationship Status Targeting\nThe following graphs reveal how political parties utilize different relationship statuses as focus groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n13 Feb - 13 Mar 20247 Mar - 13 Mar 2024\n\n\n\nNo data (yet)."
-=======
-    "text": "Relationship Status Targeting\nThe following graphs reveal how political parties utilize different relationship statuses as focus groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n15 Feb - 15 Mar 20249 Mar - 15 Mar 2024",
+    "text": "Relationship Status Targeting\nThe following graphs reveal how political parties utilize different relationship statuses as focus groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n17 Feb - 17 Mar 202411 Mar - 17 Mar 2024",
     "crumbs": [
       "Demographics"
     ]
->>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   },
   {
     "objectID": "detailed.html",
     "href": "detailed.html",
     "title": "Detailed Targeting",
     "section": "",
-<<<<<<< HEAD
-    "text": "The chart below displays the most utilized targeting criteria by political parties on Meta, based on the amounts spent.\n\n13 Feb - 13 Mar 20247 Mar - 13 Mar 2024"
-=======
-    "text": "The chart below displays the most utilized targeting criteria by political parties on Meta, based on the amounts spent.\n\n15 Feb - 15 Mar 20249 Mar - 15 Mar 2024",
+    "text": "The chart below displays the most utilized targeting criteria by political parties on Meta, based on the amounts spent.\n\n17 Feb - 17 Mar 202411 Mar - 17 Mar 2024",
     "crumbs": [
       "Detailed Targeting"
     ]
->>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   },
   {
     "objectID": "detailed.html#top-targeted-audiences",
     "href": "detailed.html#top-targeted-audiences",
     "title": "Detailed Targeting",
     "section": "",
-<<<<<<< HEAD
-    "text": "The chart below displays the most utilized targeting criteria by political parties on Meta, based on the amounts spent.\n\n13 Feb - 13 Mar 20247 Mar - 13 Mar 2024"
-=======
-    "text": "The chart below displays the most utilized targeting criteria by political parties on Meta, based on the amounts spent.\n\n15 Feb - 15 Mar 20249 Mar - 15 Mar 2024",
+    "text": "The chart below displays the most utilized targeting criteria by political parties on Meta, based on the amounts spent.\n\n17 Feb - 17 Mar 202411 Mar - 17 Mar 2024",
     "crumbs": [
       "Detailed Targeting"
     ]
->>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   },
   {
     "objectID": "detailed.html#top-excluded-audiences",
     "href": "detailed.html#top-excluded-audiences",
     "title": "Detailed Targeting",
     "section": "Top Excluded Audiences",
-<<<<<<< HEAD
-    "text": "Top Excluded Audiences\nAmong the detailed options offered by Meta, the chart below shows the most excluded target audiences per party. The ranking is based on the amounts spent.\n\n13 Feb - 13 Mar 20247 Mar - 13 Mar 2024"
-=======
-    "text": "Top Excluded Audiences\nAmong the detailed options offered by Meta, the chart below shows the most excluded target audiences per party. The ranking is based on the amounts spent.\n\n15 Feb - 15 Mar 20249 Mar - 15 Mar 2024",
+    "text": "Top Excluded Audiences\nAmong the detailed options offered by Meta, the chart below shows the most excluded target audiences per party. The ranking is based on the amounts spent.\n\n17 Feb - 17 Mar 202411 Mar - 17 Mar 2024",
     "crumbs": [
       "Detailed Targeting"
     ]
->>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   },
   {
     "objectID": "detailed.html#top-contested-audiences",
     "href": "detailed.html#top-contested-audiences",
     "title": "Detailed Targeting",
     "section": "Top Contested Audiences",
-<<<<<<< HEAD
-    "text": "Top Contested Audiences\nThe charts below show the target audiences where most competition takes place. For example, the groups in which all parties invest large amounts to reach voters with the same interests.\n\n13 Feb - 13 Mar 20247 Mar - 13 Mar 2024"
-=======
-    "text": "Top Contested Audiences\nThe charts below show the target audiences where most competition takes place. For example, the groups in which all parties invest large amounts to reach voters with the same interests.\n\n15 Feb - 15 Mar 20249 Mar - 15 Mar 2024",
+    "text": "Top Contested Audiences\nThe charts below show the target audiences where most competition takes place. For example, the groups in which all parties invest large amounts to reach voters with the same interests.\n\n17 Feb - 17 Mar 202411 Mar - 17 Mar 2024\n\n\n\n\nNo data (yet).\n\n\n\n\n\n\nNo data (yet).",
     "crumbs": [
       "Detailed Targeting"
     ]
->>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Spending",
     "section": "",
-<<<<<<< HEAD
-    "text": "Here you can see the expenditures of political parties in the lead-up to the elections according to the latest data.\n\n13 Feb - 13 Mar 20247 Mar - 13 Mar 2024\n\n\nDuring this period, political parties spent a total of kr.1,100,064 and displayed 1051 advertisements on Meta.\n\n\n\n\n\n\n  \n    \n    \n      \n      Number of Advertisers\n      Top Spenders\n      Number of Ads\n      Total Spend\n    \n  \n  \n    Radikale Venstre\n\n10\n\n1. Metin Lindved Aydin - Radikale Venstre (kr.7,000)2. Emrah Tuncer (kr.600)3. Radikale Venstre Lolland-Falster (kr.350)\n\n28\n\nkr.9,072\n\n    Others\n\n33\n\n1. Mellemfolkeligt Samvirke (kr.117,332)2. Dagbladet Information (kr.107,088)3. Berlingske (kr.81,263)\n\n437\n\nkr.645,056\n\n    Danmarksdemokraterne\n\n3\n\n1. Inger Støjberg (kr.16,313)2. Danmarksdemokraterne - Inger Støjberg (kr.14,578)3. Susie Jessen - Folketingskandidat for Danmarksdemokraterne (kr.812)\n\n60\n\nkr.31,703\n\n    Enhedslisten\n\n9\n\n1. Nikolaj Villumsen (kr.11,993)2. Søren Søndergaard, formand for Landbrug & Fødevarer (kr.5,475)3. Enhedslisten (kr.4,800)\n\n19\n\nkr.24,921\n\n    Nye Borgerlige\n\n3\n\n1. Lars Boje Mathiesen (kr.20,242)2. Hans-Christian Gjerlevsen Nye Borgerlige (kr.177)3. Jonas René Jensen (kr.121)\n\n8\n\nkr.20,540\n\n    Det Konservative Folkeparti\n\n18\n\n1. Nicolaj Bang (kr.14,013)2. Det Konservative Folkeparti (kr.1,825)3. Dan Kornbek Christiansen (kr.511)\n\n56\n\nkr.18,997\n\n    SF\n\n19\n\n1. Socialistisk Folkeparti (kr.4,035)2. Anja Rosengreen (kr.3,257)3. Pia Olsen Dyhr (kr.2,942)\n\n208\n\nkr.18,692\n\n    Liberal Alliance\n\n6\n\n1. Liberal Alliance (kr.149,831)2. Alex Vanopslagh (kr.26,153)3. Martin Sibast Laugesen - Liberal Alliance (kr.1,877)\n\n38\n\nkr.179,233\n\n    Kristendemokraterne\n\n1\n\n1. Frank Engdal - KD Aarhus (kr.160)\n\n1\n\nkr.160\n\n    Socialdemokratiet\n\n15\n\n1. Niels Fuglsang (kr.5,491)2. Magnus Barsøe (kr.2,730)3. Marianne Vind (kr.2,702)\n\n78\n\nkr.15,176\n\n    Venstre\n\n19\n\n1. Venstres Ungdom - VU (kr.3,811)2. Venstre (kr.2,445)3. Erling Bonnesen (kr.1,753)\n\n64\n\nkr.13,462\n\n    Alternativet\n\n1\n\n1. Valentina Crast - EP kandidat for Å (kr.1,309)\n\n9\n\nkr.1,309\n\n    Moderaterne\n\n4\n\n1. Stine Bosse (kr.8,115)2. Moderaterne (kr.3,203)3. Tobias William Marney (kr.192)\n\n26\n\nkr.11,610\n\n    Dansk Folkeparti\n\n4\n\n1. Anders Vistisen (kr.105,833)2. Dansk Folkeparti (kr.3,900)3. Michael Rosenmark (kr.300)\n\n19\n\nkr.110,133\n\n  \n  \n  \n\n\n\n\n\n\nDuring this period, political parties spent a total of kr.267,640 and displayed 439 advertisements on Meta.\n\n\n\n\n\n\n  \n    \n    \n      \n      Number of Advertisers\n      Top Spenders\n      Number of Ads\n      Total Spend\n    \n  \n  \n    Nye Borgerlige\n\n3\n\n1. Lars Boje Mathiesen (kr.9,302)2. Jonas René Jensen (kr.106)3. Hans-Christian Gjerlevsen Nye Borgerlige (kr.100)\n\n4\n\nkr.9,508\n\n    Enhedslisten\n\n4\n\n1. Nikolaj Villumsen (kr.2,815)2. Enhedslisten (kr.2,632)3. Søren Søndergaard, formand for Landbrug & Fødevarer (kr.1,336)\n\n7\n\nkr.7,247\n\n    Alternativet\n\n1\n\n1. Valentina Crast - EP kandidat for Å (kr.608)\n\n4\n\nkr.608\n\n    SF\n\n15\n\n1. Socialistisk Folkeparti (kr.853)2. Anja Rosengreen (kr.719)3. Kirsten Normann Andersen (kr.672)\n\n80\n\nkr.4,958\n\n    Socialdemokratiet\n\n8\n\n1. Marianne Vind (kr.1,655)2. Niels Fuglsang (kr.1,131)3. Magnus Barsøe (kr.948)\n\n39\n\nkr.4,547\n\n    Liberal Alliance\n\n4\n\n1. Liberal Alliance (kr.43,306)2. Alex Vanopslagh (kr.177)3. Nicolai Sandager - Liberal Alliance (kr.111)\n\n12\n\nkr.43,694\n\n    Moderaterne\n\n1\n\n1. Stine Bosse (kr.3,623)\n\n9\n\nkr.3,623\n\n    Det Konservative Folkeparti\n\n5\n\n1. Nicolaj Bang (kr.2,733)2. Maj Allin Thorup (kr.164)3. Vladimir Stanic (kr.134)\n\n13\n\nkr.3,231\n\n    Radikale Venstre\n\n2\n\n1. Daniel Nyboe Andersen (kr.208)2. Brian Køster - Radikale Venstre (kr.100)\n\n4\n\nkr.308\n\n    Dansk Folkeparti\n\n3\n\n1. Anders Vistisen (kr.19,576)2. Dansk Folkeparti (kr.2,400)3. Brian Lyck Jørgensen - Dansk Folkeparti (kr.100)\n\n14\n\nkr.22,076\n\n    Venstre\n\n12\n\n1. Erling Bonnesen (kr.396)2. Troels Lund Poulsen (kr.381)3. Venstre Gladsaxe (kr.205)\n\n17\n\nkr.2,088\n\n    Kristendemokraterne\n\n1\n\n1. Frank Engdal - KD Aarhus (kr.160)\n\n1\n\nkr.160\n\n    Others\n\n25\n\n1. Børns Vilkår (kr.28,881)2. Dagbladet Information (kr.25,887)3. Mellemfolkeligt Samvirke (kr.25,585)\n\n190\n\nkr.154,934\n\n    Danmarksdemokraterne\n\n3\n\n1. Inger Støjberg (kr.5,485)2. Danmarksdemokraterne - Inger Støjberg (kr.4,714)3. Susie Jessen - Folketingskandidat for Danmarksdemokraterne (kr.459)\n\n45\n\nkr.10,658\n\n  \n  \n  \n\n\n\n\n\n\n\n\nOver Time"
-=======
-    "text": "Here you can see the expenditures of political parties in the lead-up to the elections according to the latest data.\n\n15 Feb - 15 Mar 20249 Mar - 15 Mar 2024\n\n\nDuring this period, political parties spent a total of kr.642,683 and displayed 600 advertisements on Meta.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumber of Advertisers\nTop Spenders\nNumber of Ads\nTotal Spend\n\n\n\n\nRadikale Venstre\n6\n1. Metin Lindved Aydin - Radikale Venstre (kr.7,000)2. Emrah Tuncer (kr.556)3. Radikale Venstre Lolland-Falster (kr.350)\n15\nkr.8,331\n\n\nEnhedslisten\n5\n1. Enhedslisten (kr.4,800)2. Ludvig Goldschmidt (kr.200)3. Enhedslisten Roskilde (kr.169)\n7\nkr.5,369\n\n\nDanmarksdemokraterne\n4\n1. Inger Støjberg (kr.17,673)2. Danmarksdemokraterne - Inger Støjberg (kr.15,494)3. Susie Jessen - Folketingskandidat for Danmarksdemokraterne (kr.975)\n61\nkr.34,242\n\n\nNye Borgerlige\n2\n1. Hans-Christian Gjerlevsen Nye Borgerlige (kr.193)2. Jonas René Jensen (kr.146)\n2\nkr.339\n\n\nOthers\n19\n1. Berlingske (kr.80,460)2. Politiken (kr.46,603)3. IDA (kr.36,721)\n190\nkr.260,697\n\n\nDet Konservative Folkeparti\n13\n1. Nicolaj Bang (kr.13,761)2. Dan Kornbek Christiansen (kr.464)3. Vladimir Stanic (kr.388)\n41\nkr.16,141\n\n\nKristendemokraterne\n1\n1. Frank Engdal - KD Aarhus (kr.160)\n1\nkr.160\n\n\nLiberal Alliance\n3\n1. Liberal Alliance (kr.157,262)2. Martin Sibast Laugesen - Liberal Alliance (kr.1,749)3. Marcus Techow Danielsson - Venstre, Danmarks Liberale Parti (kr.500)\n24\nkr.159,511\n\n\nAlternativet\n1\n1. Valentina Crast - EP kandidat for Å (kr.1,419)\n9\nkr.1,419\n\n\nSocialdemokratiet\n12\n1. Niels Fuglsang (kr.5,482)2. Magnus Barsøe (kr.3,346)3. Frederik Vad (kr.1,565)\n69\nkr.12,736\n\n\nModeraterne\n4\n1. Stine Bosse (kr.8,985)2. Moderaterne (kr.2,800)3. Tobias William Marney (kr.164)\n26\nkr.12,049\n\n\nSF\n19\n1. Anja Rosengreen (kr.3,257)2. Kirsten Normann Andersen (kr.2,236)3. Annette Blynel (kr.1,814)\n93\nkr.12,031\n\n\nDansk Folkeparti\n3\n1. Anders Vistisen (kr.108,753)2. Michael Rosenmark (kr.300)3. Morten Messerschmidt (kr.100)\n19\nkr.109,153\n\n\nVenstre\n13\n1. Venstres Ungdom - VU (kr.3,811)2. Venstre (kr.2,000)3. Marianne Lynghøj (kr.1,130)\n43\nkr.10,505\n\n\n\n\n\n\n\n\n\n\nDuring this period, political parties spent a total of kr.143,083 and displayed 216 advertisements on Meta.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumber of Advertisers\nTop Spenders\nNumber of Ads\nTotal Spend\n\n\n\n\nOthers\n11\n1. Berlingske (kr.16,974)2. Europa-Parlamentet i Danmark (kr.16,091)3. Politiken (kr.9,665)\n66\nkr.60,560\n\n\nAlternativet\n1\n1. Valentina Crast - EP kandidat for Å (kr.588)\n3\nkr.588\n\n\nDanmarksdemokraterne\n3\n1. Danmarksdemokraterne - Inger Støjberg (kr.4,454)2. Susie Jessen - Folketingskandidat for Danmarksdemokraterne (kr.508)3. Ulrik Knudsen - Folketingskandidat Østjylland, Danmarksdemokraterne (kr.100)\n36\nkr.5,062\n\n\nLiberal Alliance\n1\n1. Liberal Alliance (kr.43,995)\n3\nkr.43,995\n\n\nDet Konservative Folkeparti\n4\n1. Nicolaj Bang (kr.2,734)2. Maj Allin Thorup (kr.180)3. Konservative i København (kr.100)\n11\nkr.3,114\n\n\nSF\n15\n1. Annette Blynel (kr.601)2. Anja Rosengreen (kr.588)3. Kirsten Normann Andersen (kr.286)\n35\nkr.2,966\n\n\nModeraterne\n1\n1. Stine Bosse (kr.2,958)\n8\nkr.2,958\n\n\nSocialdemokratiet\n5\n1. Magnus Barsøe (kr.1,512)2. Frederik Vad (kr.318)3. Nikolaj Lykke Vad (kr.213)\n25\nkr.2,272\n\n\nNye Borgerlige\n2\n1. Jonas René Jensen (kr.101)2. Hans-Christian Gjerlevsen Nye Borgerlige (kr.100)\n2\nkr.201\n\n\nDansk Folkeparti\n2\n1. Anders Vistisen (kr.19,496)2. Morten Messerschmidt (kr.100)\n12\nkr.19,596\n\n\nVenstre\n7\n1. Troels Lund Poulsen (kr.679)2. Venstre Gladsaxe (kr.244)3. Marianne Lynghøj (kr.171)\n11\nkr.1,546\n\n\nRadikale Venstre\n1\n1. Brian Køster - Radikale Venstre (kr.125)\n3\nkr.125\n\n\nKristendemokraterne\n1\n1. Frank Engdal - KD Aarhus (kr.100)\n1\nkr.100\n\n\n\n\n\n\n\n\n\n\n\n\nOver Time"
->>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
+    "text": "Here you can see the expenditures of political parties in the lead-up to the elections according to the latest data.\n\n17 Feb - 17 Mar 202411 Mar - 17 Mar 2024\n\n\nDuring this period, political parties spent a total of kr.42,835 and displayed 235 advertisements on Meta.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumber of Advertisers\nTop Spenders\nNumber of Ads\nTotal Spend\n\n\n\n\nEnh\n8\n1. Nikolaj Villumsen (kr.12,023)2. Enhedslisten (kr.4,800)3. Søren Søndergaard, formand for Landbrug & Fødevarer (kr.4,415)\n17\nkr.23,715\n\n\nSF\n24\n1. Socialistisk Folkeparti (kr.3,651)2. Anja Rosengreen (kr.3,141)3. Pia Olsen Dyhr (kr.3,114)\n218\nkr.19,120\n\n\n\n\n\n\n\n\n\n\nDuring this period, political parties spent a total of kr.8,373 and displayed 73 advertisements on Meta.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumber of Advertisers\nTop Spenders\nNumber of Ads\nTotal Spend\n\n\n\n\nSF\n18\n1. Pia Olsen Dyhr (kr.1,025)2. Annette Blynel (kr.638)3. Socialistisk Folkeparti (kr.318)\n69\nkr.4,451\n\n\nEnh\n3\n1. Nikolaj Villumsen (kr.2,799)2. Søren Søndergaard, formand for Landbrug & Fødevarer (kr.654)3. Pernille Skipper (kr.469)\n4\nkr.3,922\n\n\n\n\n\n\n\n\n\n\n\n\nOver Time"
   },
   {
     "objectID": "location.html",
     "href": "location.html",
     "title": "Location",
     "section": "",
-<<<<<<< HEAD
-    "text": "The chart below displays the geographical targeting of that political parties on Meta platforms.\n\n13 Feb - 13 Mar 2024\n\n\n\nRegionsCities\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.\n\n\n\n\n\n\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations."
-=======
-    "text": "The chart below displays the geographical targeting of that political parties on Meta platforms.\n\n15 Feb - 15 Mar 2024\n\n\n\nRegionsCities\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.",
+    "text": "The chart below displays the geographical targeting of that political parties on Meta platforms.\n\n17 Feb - 17 Mar 2024\n\n\n\nRegionsCities\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.",
     "crumbs": [
       "Location"
     ]
->>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   },
   {
     "objectID": "location.html#geographical-targeting",
     "href": "location.html#geographical-targeting",
     "title": "Location",
     "section": "",
-<<<<<<< HEAD
-    "text": "The chart below displays the geographical targeting of that political parties on Meta platforms.\n\n13 Feb - 13 Mar 2024\n\n\n\nRegionsCities\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.\n\n\n\n\n\n\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations."
-=======
-    "text": "The chart below displays the geographical targeting of that political parties on Meta platforms.\n\n15 Feb - 15 Mar 2024\n\n\n\nRegionsCities\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.",
+    "text": "The chart below displays the geographical targeting of that political parties on Meta platforms.\n\n17 Feb - 17 Mar 2024\n\n\n\nRegionsCities\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.",
     "crumbs": [
       "Location"
     ]
->>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   },
   {
     "objectID": "location.html#geographical-exclusion",
     "href": "location.html#geographical-exclusion",
     "title": "Location",
     "section": "Geographical Exclusion",
-<<<<<<< HEAD
-    "text": "Geographical Exclusion\nThe following graphs depict the geographic locations that certain political advertisements will exclude on Meta, along with the amounts that parties spent on these exclusions.\n\n13 Feb - 13 Mar 2024\n\n\n\nRegionsCities\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.\n\n\n\nNo data (yet).\n\n\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations."
-=======
-    "text": "Geographical Exclusion\nThe following graphs depict the geographic locations that certain political advertisements will exclude on Meta, along with the amounts that parties spent on these exclusions.\n\n15 Feb - 15 Mar 2024\n\n\n\nRegionsCities\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.\n\n\n\nNo data (yet).\n\n\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.",
+    "text": "Geographical Exclusion\nThe following graphs depict the geographic locations that certain political advertisements will exclude on Meta, along with the amounts that parties spent on these exclusions.\n\n17 Feb - 17 Mar 2024\n\n\n\nRegionsCities\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.\n\n\n\nNo data (yet).\n\n\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.",
     "crumbs": [
       "Location"
     ]
->>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   },
   {
     "objectID": "targeting.html",
     "href": "targeting.html",
     "title": "Spending per Targeting",
     "section": "",
-<<<<<<< HEAD
-    "text": "These charts show the groups that political parties target with their advertisements leading up to the elections, according to the latest data. The focus is on Meta’s platforms (Facebook and Instagram) because they offer the most detailed targeting options for political advertisements.\nHow much did the campaigns of political parties spend on different audiences? The charts below show both the total and the expenditures per party.\n\nNote: Different targeting criteria may overlap, so the outcome may not necessarily add up to 100%.\n\n\n13 Feb - 13 Mar 20247 Mar - 13 Mar 2024\n\n\n\nTotalBy Party\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTotalBy Party"
-=======
-    "text": "These charts show the groups that political parties target with their advertisements leading up to the elections, according to the latest data. The focus is on Meta’s platforms (Facebook and Instagram) because they offer the most detailed targeting options for political advertisements.\nHow much did the campaigns of political parties spend on different audiences? The charts below show both the total and the expenditures per party.\n\nNote: Different targeting criteria may overlap, so the outcome may not necessarily add up to 100%.\n\n\n15 Feb - 15 Mar 20249 Mar - 15 Mar 2024\n\n\n\nTotalBy Party\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTotalBy Party",
+    "text": "These charts show the groups that political parties target with their advertisements leading up to the elections, according to the latest data. The focus is on Meta’s platforms (Facebook and Instagram) because they offer the most detailed targeting options for political advertisements.\nHow much did the campaigns of political parties spend on different audiences? The charts below show both the total and the expenditures per party.\n\nNote: Different targeting criteria may overlap, so the outcome may not necessarily add up to 100%.\n\n\n17 Feb - 17 Mar 202411 Mar - 17 Mar 2024\n\n\n\nTotalBy Party\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTotalBy Party",
     "crumbs": [
       "Spending per Targeting"
     ]
->>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   }
 ]

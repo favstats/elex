@@ -455,6 +455,8 @@ tags$div(class = "container", do.call(tags$div, rows))
 
 :::
 
+<br>
+
 ## Top Contested Audiences
 
 The charts below show the target audiences where most competition takes place. For example, the groups in which all parties invest large amounts to reach voters with the same interests.

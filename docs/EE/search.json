@@ -1,233 +1,159 @@
 [
   {
-<<<<<<< HEAD
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "Targeting Dashboard - Estonia",
-    "section": "",
-    "text": "Methodology\nIn collaboration with Who Targets Me, we monitored 1074 political advertisers to better understand how campaigns use different targeting methods made available by Meta. To do this, we used data from the Meta Ad Library, using the new ‘Audience’ data which gives some detail on how pages target their ads.\nTo better understand the election, we kept only advertisers who:\n\nAdvertised in the last 7 days (7 Mar - 13 Mar 2024)\nAdvertised in the last 30 days (13 Feb - 13 Mar 2024)\n\n\n\n\n\n\n\nNote\n\n\n\nMeta only provides 7, 30 and 90 days windows for the targeting data in their Ad Library. Meta’s data also lags by a few days. Report will be updated as soon as new data is available.\n\n\n\n\n\n\n\n\nDisclaimer\n\n\n\nThe data shown in this dashboard is based on the platform’s respective ad libraries which are known to be sometimes incomplete (Edelson et al. 2020; Silva et al. 2020). For this reason the data shown here might not reflect the full picture nor all political ads that were targeted at voters.\n\n\n\n\nAbout the Creator of the Dashboard\n\n\n\n\n\n\n\n\n\n\n\nFabio Votta is a Postdoc at the University of Amsterdam who studies (online) political microtargeting and its usage around the world.\n\n\n\n\n\n\n\n\n\n\n\nWant to see how political parties target you? Sign up at Who Targets Me and download the gratis browser plugin to see how parties on Facebook use your data:\nhttps://whotargets.me/\n\n\n\n\n\n\n\nWant to retrieve targeting data from the Facebook Ad Library yourself? This dashboard is powered by the R package: metatargetr. Check it out here:\nhttps://github.com/favstats/metatargetr\n\n\n\n\nElection Targeting Dashboards\nA list of election dashboards:\n\n🇳🇱 2021 Dutch parliamentary election (15th-17th March 2021)\n🇩🇪 2021 German federal election (26 September 2021)\n🇸🇪 2022 Swedish general election (11th September 2022)\n🇺🇸 2022 United States midterm elections (8th November 2022)\n🇺🇸 2022 United States midterm elections - Georgia Runoff (6th December 2022)\n🇮🇹 2023 Lazio & Lombardy regional election (12-13th February 2023)\n🇪🇪 2023 Estonian parliamentary election (5th March 2023)\n🇳🇱 2023 Dutch provincial elections (15th March 2023)\n🇲🇪 2023 Montenegrin presidential elections (19th March 2023) - 1st round\n🇦🇺 2023 New South Wales state election (25th March 2023)\n🇫🇮 2023 Finnish parliamentary election (2 April 2023)\n🇹🇷 2023 Turkish general election (14 May 2023) - Round 1\n🇩🇪 2023 Bremen State election (14 May 2023)\n🇬🇷 2023 Greek Legislative election (21 May 2023)\n🇹🇷 2023 Turkish Presidential election (14 May 2023) - Round 2\n🇲🇪 2023 Montenegrin parliamentary elections (11 June 2023)\n🇬🇷 2nd 2023 Greek Legislative election (25 May 2023)\n🇸🇰 2023 Slovak parliamentary election (30 September 2023)\n🇩🇪 2023 Bavarian state election (8 October 2023)\n🇩🇪 2023 Hessian state election (8 October 2023)\n🇳🇿 2023 New Zealand general election (14 October 2023)\n🇵🇱 2023 Polish parliamentary election (15 October 2023)\n🇺🇸 US Presidential Primaries (2023-2024)"
-  },
-  {
-=======
->>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
     "objectID": "demographics.html",
     "href": "demographics.html",
     "title": "Demographics",
     "section": "",
-<<<<<<< HEAD
-    "text": "The following graphs illustrate how parties target different age groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n13 Feb - 13 Mar 20247 Mar - 13 Mar 2024"
-=======
-    "text": "The following graphs illustrate how parties target different age groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n15 Feb - 15 Mar 20249 Mar - 15 Mar 2024",
+    "text": "The following graphs illustrate how parties target different age groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n2 May - 31 May 202425 May - 31 May 2024",
     "crumbs": [
       "Demographics"
     ]
->>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   },
   {
     "objectID": "demographics.html#age-targeting",
     "href": "demographics.html#age-targeting",
     "title": "Demographics",
     "section": "",
-<<<<<<< HEAD
-    "text": "The following graphs illustrate how parties target different age groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n13 Feb - 13 Mar 20247 Mar - 13 Mar 2024"
-=======
-    "text": "The following graphs illustrate how parties target different age groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n15 Feb - 15 Mar 20249 Mar - 15 Mar 2024",
+    "text": "The following graphs illustrate how parties target different age groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n2 May - 31 May 202425 May - 31 May 2024",
     "crumbs": [
       "Demographics"
     ]
->>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   },
   {
     "objectID": "demographics.html#gender-targeting",
     "href": "demographics.html#gender-targeting",
     "title": "Demographics",
     "section": "Gender Targeting",
-<<<<<<< HEAD
-    "text": "Gender Targeting\nDe onderstaande grafieken laten zien hoe partijen gender als focusgroep gebruiken en welk percentage van het budget daaraan werd uitgegeven.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n13 Feb - 13 Mar 20247 Mar - 13 Mar 2024"
-=======
-    "text": "Gender Targeting\nDe onderstaande grafieken laten zien hoe partijen gender als focusgroep gebruiken en welk percentage van het budget daaraan werd uitgegeven.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n15 Feb - 15 Mar 20249 Mar - 15 Mar 2024",
+    "text": "Gender Targeting\nDe onderstaande grafieken laten zien hoe partijen gender als focusgroep gebruiken en welk percentage van het budget daaraan werd uitgegeven.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n2 May - 31 May 202425 May - 31 May 2024",
     "crumbs": [
       "Demographics"
     ]
->>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   },
   {
     "objectID": "demographics.html#language-targeting",
     "href": "demographics.html#language-targeting",
     "title": "Demographics",
     "section": "Language Targeting",
-<<<<<<< HEAD
-    "text": "Language Targeting\nThe following graphs show how parties use different languages as focus groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n13 Feb - 13 Mar 20247 Mar - 13 Mar 2024"
-=======
-    "text": "Language Targeting\nThe following graphs show how parties use different languages as focus groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n15 Feb - 15 Mar 20249 Mar - 15 Mar 2024",
+    "text": "Language Targeting\nThe following graphs show how parties use different languages as focus groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n2 May - 31 May 202425 May - 31 May 2024",
     "crumbs": [
       "Demographics"
     ]
->>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   },
   {
     "objectID": "demographics.html#targeting-based-on-employment-or-education-instituation",
     "href": "demographics.html#targeting-based-on-employment-or-education-instituation",
     "title": "Demographics",
     "section": "Targeting based on Employment or Education Instituation",
-<<<<<<< HEAD
-    "text": "Targeting based on Employment or Education Instituation\nThe following graphs depict how parties utilize various job sectors and types of education as focus groups and the percentage of the budget allocated to them. The next graph focuses on educational levels.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n13 Feb - 13 Mar 20247 Mar - 13 Mar 2024"
-=======
-    "text": "Targeting based on Employment or Education Instituation\nThe following graphs depict how parties utilize various job sectors and types of education as focus groups and the percentage of the budget allocated to them. The next graph focuses on educational levels.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n15 Feb - 15 Mar 20249 Mar - 15 Mar 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo data (yet).",
+    "text": "Targeting based on Employment or Education Instituation\nThe following graphs depict how parties utilize various job sectors and types of education as focus groups and the percentage of the budget allocated to them. The next graph focuses on educational levels.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n2 May - 31 May 202425 May - 31 May 2024",
     "crumbs": [
       "Demographics"
     ]
->>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   },
   {
     "objectID": "demographics.html#education-levels-targeting",
     "href": "demographics.html#education-levels-targeting",
     "title": "Demographics",
     "section": "Education Levels Targeting",
-<<<<<<< HEAD
-    "text": "Education Levels Targeting\nThe graphs below illustrate how parties target various education levels as focus groups and the percentage of the budget allocated to each.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n13 Feb - 13 Mar 20247 Mar - 13 Mar 2024\n\n\n\nNo data (yet).\n\n\n\n\nNo data (yet)."
-=======
-    "text": "Education Levels Targeting\nThe graphs below illustrate how parties target various education levels as focus groups and the percentage of the budget allocated to each.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n15 Feb - 15 Mar 20249 Mar - 15 Mar 2024\n\n\nNo data (yet).\n\n\nNo data (yet).",
+    "text": "Education Levels Targeting\nThe graphs below illustrate how parties target various education levels as focus groups and the percentage of the budget allocated to each.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n2 May - 31 May 202425 May - 31 May 2024",
     "crumbs": [
       "Demographics"
     ]
->>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   },
   {
     "objectID": "demographics.html#relationship-status-targeting",
     "href": "demographics.html#relationship-status-targeting",
     "title": "Demographics",
     "section": "Relationship Status Targeting",
-<<<<<<< HEAD
-    "text": "Relationship Status Targeting\nThe following graphs reveal how political parties utilize different relationship statuses as focus groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n13 Feb - 13 Mar 20247 Mar - 13 Mar 2024\n\n\n\nNo data (yet).\n\n\n\n\nNo data (yet)."
-=======
-    "text": "Relationship Status Targeting\nThe following graphs reveal how political parties utilize different relationship statuses as focus groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n15 Feb - 15 Mar 20249 Mar - 15 Mar 2024\n\n\nNo data (yet).\n\n\nNo data (yet).",
+    "text": "Relationship Status Targeting\nThe following graphs reveal how political parties utilize different relationship statuses as focus groups and the percentage of the budget allocated to them.\n\nNote: targeting criteria may overlap, so the total may not necessarily be 100%.\n\n\n2 May - 31 May 202425 May - 31 May 2024\n\n\nNo data (yet).\n\n\nNo data (yet).",
     "crumbs": [
       "Demographics"
     ]
->>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   },
   {
     "objectID": "detailed.html",
     "href": "detailed.html",
     "title": "Detailed Targeting",
     "section": "",
-<<<<<<< HEAD
-    "text": "The chart below displays the most utilized targeting criteria by political parties on Meta, based on the amounts spent.\n\n13 Feb - 13 Mar 20247 Mar - 13 Mar 2024"
-=======
-    "text": "The chart below displays the most utilized targeting criteria by political parties on Meta, based on the amounts spent.\n\n15 Feb - 15 Mar 20249 Mar - 15 Mar 2024",
+    "text": "The chart below displays the most utilized targeting criteria by political parties on Meta, based on the amounts spent.\n\n2 May - 31 May 202425 May - 31 May 2024",
     "crumbs": [
       "Detailed Targeting"
     ]
->>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   },
   {
     "objectID": "detailed.html#top-targeted-audiences",
     "href": "detailed.html#top-targeted-audiences",
     "title": "Detailed Targeting",
     "section": "",
-<<<<<<< HEAD
-    "text": "The chart below displays the most utilized targeting criteria by political parties on Meta, based on the amounts spent.\n\n13 Feb - 13 Mar 20247 Mar - 13 Mar 2024"
-=======
-    "text": "The chart below displays the most utilized targeting criteria by political parties on Meta, based on the amounts spent.\n\n15 Feb - 15 Mar 20249 Mar - 15 Mar 2024",
+    "text": "The chart below displays the most utilized targeting criteria by political parties on Meta, based on the amounts spent.\n\n2 May - 31 May 202425 May - 31 May 2024",
     "crumbs": [
       "Detailed Targeting"
     ]
->>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   },
   {
     "objectID": "detailed.html#top-excluded-audiences",
     "href": "detailed.html#top-excluded-audiences",
     "title": "Detailed Targeting",
     "section": "Top Excluded Audiences",
-<<<<<<< HEAD
-    "text": "Top Excluded Audiences\nAmong the detailed options offered by Meta, the chart below shows the most excluded target audiences per party. The ranking is based on the amounts spent.\n\n13 Feb - 13 Mar 20247 Mar - 13 Mar 2024\n\n\n\nNo data (yet).\n\n\n\n\nNo data (yet)."
-=======
-    "text": "Top Excluded Audiences\nAmong the detailed options offered by Meta, the chart below shows the most excluded target audiences per party. The ranking is based on the amounts spent.\n\n15 Feb - 15 Mar 20249 Mar - 15 Mar 2024\n\n\nNo data (yet).\n\n\nNo data (yet).",
+    "text": "Top Excluded Audiences\nAmong the detailed options offered by Meta, the chart below shows the most excluded target audiences per party. The ranking is based on the amounts spent.\n\n2 May - 31 May 202425 May - 31 May 2024\n\n\nNo data (yet).\n\n\nNo data (yet).",
     "crumbs": [
       "Detailed Targeting"
     ]
->>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   },
   {
     "objectID": "detailed.html#top-contested-audiences",
     "href": "detailed.html#top-contested-audiences",
     "title": "Detailed Targeting",
     "section": "Top Contested Audiences",
-<<<<<<< HEAD
-    "text": "Top Contested Audiences\nThe charts below show the target audiences where most competition takes place. For example, the groups in which all parties invest large amounts to reach voters with the same interests.\n\n13 Feb - 13 Mar 20247 Mar - 13 Mar 2024\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo data (yet)."
-=======
-    "text": "Top Contested Audiences\nThe charts below show the target audiences where most competition takes place. For example, the groups in which all parties invest large amounts to reach voters with the same interests.\n\n15 Feb - 15 Mar 20249 Mar - 15 Mar 2024\n\n\n\n\nNo data (yet).\n\n\n\n\n\n\nNo data (yet).",
+    "text": "Top Contested Audiences\nThe charts below show the target audiences where most competition takes place. For example, the groups in which all parties invest large amounts to reach voters with the same interests.\n\n2 May - 31 May 202425 May - 31 May 2024",
     "crumbs": [
       "Detailed Targeting"
     ]
->>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Spending",
     "section": "",
-<<<<<<< HEAD
-    "text": "Here you can see the expenditures of political parties in the lead-up to the elections according to the latest data.\n\n13 Feb - 13 Mar 20247 Mar - 13 Mar 2024\n\n\nDuring this period, political parties spent a total of €11,835 and displayed 149 advertisements on Meta.\n\n\n\n\n\n\n  \n    \n    \n      \n      Number of Advertisers\n      Top Spenders\n      Number of Ads\n      Total Spend\n    \n  \n  \n    Eesti Konservatiivne Rahvaerakond\n\n4\n\n1. Eesti Konservatiivne Rahvaerakond (€3,730)2. Jaak Madison (€1,069)3. Rain Epler (€100)\n\n16\n\n€4,999\n\n    Eesti Keskerakond\n\n9\n\n1. Jüri Ratas (€621)2. YanaToom.ee (€500)3. Keskerakond (€225)\n\n52\n\n€1,970\n\n    Isamaa\n\n2\n\n1. Riho Terras (€1,087)2. Isamaa (€330)\n\n8\n\n€1,417\n\n    Sotsiaaldemokraatlik Erakond\n\n7\n\n1. Sotsiaaldemokraatlik Erakond (€558)2. Marina Kaljurand (€210)3. Karmo Kuri (€100)\n\n16\n\n€1,268\n\n    Eesti Reformierakond\n\n7\n\n1. Eesti Reformierakond (€454)2. Urmas Paet (€130)3. Kristen Michal Eesti (€125)\n\n34\n\n€1,109\n\n    Eesti 200\n\n1\n\n1. Eesti 200 (€482)\n\n5\n\n€482\n\n    Other\n\n2\n\n1. Parempoolsed (€294)2. Progressiivne Liikumine (€182)\n\n13\n\n€476\n\n    Government\n\n1\n\n1. Põhjamaade Ministrite Nõukogu esindus Eestis (€114)\n\n5\n\n€114\n\n  \n  \n  \n\n\n\n\n\n\nDuring this period, political parties spent a total of €3,637 and displayed 56 advertisements on Meta.\n\n\n\n\n\n\n  \n    \n    \n      \n      Number of Advertisers\n      Top Spenders\n      Number of Ads\n      Total Spend\n    \n  \n  \n    Eesti Keskerakond\n\n6\n\n1. Jüri Ratas (€498)2. Keskerakond (€162)3. YanaToom.ee (€127)\n\n22\n\n€1,087\n\n    Sotsiaaldemokraatlik Erakond\n\n5\n\n1. Sotsiaaldemokraatlik Erakond (€484)2. Reili Rand (€100)3. Tartu ja Tartumaa sotsiaaldemokraadid (€100)\n\n9\n\n€884\n\n    Eesti Reformierakond\n\n6\n\n1. Eesti Reformierakond (€162)2. Reforminoored (€100)3. Reformierakond Jõgevamaal (€100)\n\n13\n\n€662\n\n    Eesti Konservatiivne Rahvaerakond\n\n2\n\n1. Eesti Konservatiivne Rahvaerakond (€334)2. Jaak Madison (€116)\n\n4\n\n€450\n\n    Isamaa\n\n2\n\n1. Isamaa (€154)2. Riho Terras (€100)\n\n2\n\n€254\n\n    Other\n\n2\n\n1. Progressiivne Liikumine (€100)2. Parempoolsed (€100)\n\n3\n\n€200\n\n    Government\n\n1\n\n1. Põhjamaade Ministrite Nõukogu esindus Eestis (€100)\n\n3\n\n€100\n\n  \n  \n  \n\n\n\n\n\n\n\n\nOver Time"
-=======
-    "text": "Here you can see the expenditures of political parties in the lead-up to the elections according to the latest data.\n\n15 Feb - 15 Mar 20249 Mar - 15 Mar 2024\n\n\nDuring this period, political parties spent a total of €944 and displayed 19 advertisements on Meta.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumber of Advertisers\nTop Spenders\nNumber of Ads\nTotal Spend\n\n\n\n\nOther\n2\n1. Parempoolsed (€284)2. Progressiivne Liikumine (€160)\n10\n€444\n\n\nEesti Keskerakond\n2\n1. Andro Roos - 1008 Tartu linn (€100)2. Julianna Jurtšenko (€100)\n6\n€200\n\n\nSotsiaaldemokraatlik Erakond\n2\n1. Karmo Kuri (€100)2. Natalie Mets (€100)\n2\n€200\n\n\nEesti Konservatiivne Rahvaerakond\n1\n1. Rain Epler (€100)\n1\n€100\n\n\n\n\n\n\n\n\n\n\nDuring this period, political parties spent a total of €5,036 and displayed 58 advertisements on Meta.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumber of Advertisers\nTop Spenders\nNumber of Ads\nTotal Spend\n\n\n\n\nEesti Konservatiivne Rahvaerakond\n2\n1. Eesti Konservatiivne Rahvaerakond (€1,173)2. Jaak Madison (€641)\n5\n€1,814\n\n\nEesti Keskerakond\n7\n1. Jüri Ratas (€586)2. Keskerakond (€182)3. Центристская партия / Tsentristskaja partija (€148)\n25\n€1,327\n\n\nSotsiaaldemokraatlik Erakond\n6\n1. Sotsiaaldemokraatlik Erakond (€483)2. Lauri Läänemets (€100)3. Marina Kaljurand (€100)\n9\n€983\n\n\nEesti Reformierakond\n5\n1. Eesti Reformierakond (€212)2. Urmas Paet (€100)3. Kristen Michal Eesti (€100)\n14\n€612\n\n\nEesti 200\n1\n1. Eesti 200 (€100)\n1\n€100\n\n\nGovernment\n1\n1. Põhjamaade Ministrite Nõukogu esindus Eestis (€100)\n3\n€100\n\n\nIsamaa\n1\n1. Isamaa (€100)\n1\n€100\n\n\n\n\n\n\n\n\n\n\n\n\nOver Time"
->>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
+    "text": "Here you can see the expenditures of political parties in the lead-up to the elections according to the latest data.\n\n2 May - 31 May 202425 May - 31 May 2024\n\n\nDuring this period, political parties spent a total of $86,450 and displayed 591 advertisements on Meta.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumber of Advertisers\nTop Spenders\nNumber of Ads\nTotal Spend\n\n\n\n\nEKRE\n5\n1. Eesti Konservatiivne Rahvaerakond ($17,751)2. Jaak Madison ($3,127)3. Anti Poolamets, kandidaat Euroopa Parlamendi valimistel ($329)\n31\n$21,485\n\n\nE200\n2\n1. Eesti 200 ($9,391)2. Hendrik Johannes Terras ($7,720)\n79\n$17,112\n\n\nI\n4\n1. Urmas Reinsalu ($5,356)2. Isamaa erakond ($4,967)3. Riho Terras ($4,277)\n65\n$15,643\n\n\nRE\n8\n1. Reformierakond ($7,418)2. Hanah Lahe ($2,445)3. Luukas Kristjan Ilves ($1,778)\n143\n$12,153\n\n\nK\n11\n1. Jüri Ratas ($6,515)2. Keskerakond ($407)3. Maria Jufereva-Skuratovski ($407)\n107\n$8,598\n\n\nSDE\n10\n1. Sotsiaaldemokraatlik Erakond ($4,749)2. Marina Kaljurand ($1,311)3. Natalie Mets ($1)\n78\n$6,068\n\n\nOTH\n7\n1. Parempoolsed ($4,109)2. Progressiivne Liikumine ($324)3. Indrek Luberg ($1)\n43\n$4,438\n\n\nPar\n4\n1. Annela Anger-Kraavi ($592)2. Rainer Saks ($196)3. Lavly Perling ($162)\n43\n$951\n\n\nGOV\n1\n1. Põhjamaade Ministrite Nõukogu esindus Eestis ($1)\n2\n$1\n\n\n\n\n\n\n\n\n\nDuring this period, political parties spent a total of $46,212 and displayed 370 advertisements on Meta.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumber of Advertisers\nTop Spenders\nNumber of Ads\nTotal Spend\n\n\n\n\nEKRE\n4\n1. Eesti Konservatiivne Rahvaerakond ($11,417)2. Jaak Madison ($1,757)3. Anti Poolamets, kandidaat Euroopa Parlamendi valimistel ($1)\n25\n$13,175\n\n\nE200\n2\n1. Hendrik Johannes Terras ($7,314)2. Eesti 200 ($3,426)\n60\n$10,740\n\n\nRE\n7\n1. Reformierakond ($4,504)2. Hanah Lahe ($2,055)3. Luukas Kristjan Ilves ($752)\n84\n$7,573\n\n\nI\n4\n1. Urmas Reinsalu ($1,790)2. Isamaa erakond ($1,302)3. Riho Terras ($1,083)\n23\n$4,441\n\n\nSDE\n7\n1. Sotsiaaldemokraatlik Erakond ($2,961)2. Marina Kaljurand ($652)3. Reili Rand ($1)\n56\n$3,618\n\n\nK\n8\n1. Jüri Ratas ($2,328)2. Maria Jufereva-Skuratovski ($336)3. Keskerakond ($250)\n65\n$3,374\n\n\nOTH\n4\n1. Parempoolsed ($2,680)2. Indrek Luberg ($1)3. Tartu linn ($1)\n27\n$2,683\n\n\nPar\n4\n1. Annela Anger-Kraavi ($467)2. Rainer Saks ($139)3. Lavly Perling ($1)\n30\n$608\n\n\n\n\n\n\n\n\n\n\n\nOver Time"
   },
   {
     "objectID": "location.html",
     "href": "location.html",
     "title": "Location",
     "section": "",
-<<<<<<< HEAD
-    "text": "The chart below displays the geographical targeting of that political parties on Meta platforms.\n\n13 Feb - 13 Mar 2024\n\n\n\nRegionsCities\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.\n\n\n\n\n\n\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations."
-=======
-    "text": "The chart below displays the geographical targeting of that political parties on Meta platforms.\n\n15 Feb - 15 Mar 2024\n\n\n\nRegionsCities\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.\n\n\n\nNo data (yet).\n\n\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.",
+    "text": "The chart below displays the geographical targeting of that political parties on Meta platforms.\n\n2 May - 31 May 2024\n\n\n\nRegionsCities\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.",
     "crumbs": [
       "Location"
     ]
->>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   },
   {
     "objectID": "location.html#geographical-targeting",
     "href": "location.html#geographical-targeting",
     "title": "Location",
     "section": "",
-<<<<<<< HEAD
-    "text": "The chart below displays the geographical targeting of that political parties on Meta platforms.\n\n13 Feb - 13 Mar 2024\n\n\n\nRegionsCities\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.\n\n\n\n\n\n\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations."
-=======
-    "text": "The chart below displays the geographical targeting of that political parties on Meta platforms.\n\n15 Feb - 15 Mar 2024\n\n\n\nRegionsCities\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.\n\n\n\nNo data (yet).\n\n\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.",
+    "text": "The chart below displays the geographical targeting of that political parties on Meta platforms.\n\n2 May - 31 May 2024\n\n\n\nRegionsCities\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.",
     "crumbs": [
       "Location"
     ]
->>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   },
   {
     "objectID": "location.html#geographical-exclusion",
     "href": "location.html#geographical-exclusion",
     "title": "Location",
     "section": "Geographical Exclusion",
-<<<<<<< HEAD
-    "text": "Geographical Exclusion\nThe following graphs depict the geographic locations that certain political advertisements will exclude on Meta, along with the amounts that parties spent on these exclusions.\n\n13 Feb - 13 Mar 2024\n\n\n\nRegionsCities\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.\n\n\n\nNo data (yet).\n\n\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.\n\n\n\nNo data (yet)."
-=======
-    "text": "Geographical Exclusion\nThe following graphs depict the geographic locations that certain political advertisements will exclude on Meta, along with the amounts that parties spent on these exclusions.\n\n15 Feb - 15 Mar 2024\n\n\n\nRegionsCities\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.\n\n\n\nNo data (yet).\n\n\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.\n\n\n\nNo data (yet).",
+    "text": "Geographical Exclusion\nThe following graphs depict the geographic locations that certain political advertisements will exclude on Meta, along with the amounts that parties spent on these exclusions.\n\n2 May - 31 May 2024\n\n\n\nRegionsCities\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe size of each area in the chart indicates the amount of money spent by each political party on specific locations.",
     "crumbs": [
       "Location"
     ]
->>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   },
   {
     "objectID": "targeting.html",
     "href": "targeting.html",
     "title": "Spending per Targeting",
     "section": "",
-<<<<<<< HEAD
-    "text": "These charts show the groups that political parties target with their advertisements leading up to the elections, according to the latest data. The focus is on Meta’s platforms (Facebook and Instagram) because they offer the most detailed targeting options for political advertisements.\nHow much did the campaigns of political parties spend on different audiences? The charts below show both the total and the expenditures per party.\n\nNote: Different targeting criteria may overlap, so the outcome may not necessarily add up to 100%.\n\n\n13 Feb - 13 Mar 20247 Mar - 13 Mar 2024\n\n\n\nTotalBy Party\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTotalBy Party"
-=======
-    "text": "These charts show the groups that political parties target with their advertisements leading up to the elections, according to the latest data. The focus is on Meta’s platforms (Facebook and Instagram) because they offer the most detailed targeting options for political advertisements.\nHow much did the campaigns of political parties spend on different audiences? The charts below show both the total and the expenditures per party.\n\nNote: Different targeting criteria may overlap, so the outcome may not necessarily add up to 100%.\n\n\n15 Feb - 15 Mar 20249 Mar - 15 Mar 2024\n\n\n\nTotalBy Party\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTotalBy Party",
+    "text": "These charts show the groups that political parties target with their advertisements leading up to the elections, according to the latest data. The focus is on Meta’s platforms (Facebook and Instagram) because they offer the most detailed targeting options for political advertisements.\nHow much did the campaigns of political parties spend on different audiences? The charts below show both the total and the expenditures per party.\n\nNote: Different targeting criteria may overlap, so the outcome may not necessarily add up to 100%.\n\n\n2 May - 31 May 202425 May - 31 May 2024\n\n\n\nTotalBy Party\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTotalBy Party",
     "crumbs": [
       "Spending per Targeting"
     ]
->>>>>>> 124e641af345586eace9eb5db0d6642c4e189272
   }
 ]

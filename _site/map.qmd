@@ -585,6 +585,21 @@ highchart() %>%
                    }"
     )
   ))) %>%
+  hc_plotOptions(series = list(
+  cursor = "pointer",
+  point = list(
+      events = list(
+        click = JS("function() { 
+          var iframe = window.parent.document.getElementById('iframeDisplay');
+          if(iframe) {
+            iframe.src = this.options.url; 
+          } else {
+            console.error('Iframe not found');
+          }
+        }")
+      )
+  )
+)) %>% 
   hc_legend(enabled = F)
 ```
 

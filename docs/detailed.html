@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="How do political parties chase your vote, what do they want to keep hidden, and how much money do they spend on it? In the lead-up to the elections, we monitor political microtargeting.">
+
+<title>Targeting Dashboard - Detailed Targeting</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/iconify-1.0.8/iconify-icon.min.js"></script>
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="site_libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<script src="site_libs/jquery-3.5.1/jquery.min.js"></script>
+<script src="site_libs/proj4js-2.3.15/proj4.js"></script>
+<link href="site_libs/highcharts-9.3.1/css/motion.css" rel="stylesheet">
+<script src="site_libs/highcharts-9.3.1/highcharts.js"></script>
+<script src="site_libs/highcharts-9.3.1/highcharts-3d.js"></script>
+<script src="site_libs/highcharts-9.3.1/highcharts-more.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/stock.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/map.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/data.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/exporting.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/offline-exporting.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/drilldown.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/item-series.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/overlapping-datalabels.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/annotations.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/export-data.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/funnel.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/heatmap.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/treemap.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/sankey.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/dependency-wheel.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/organization.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/solid-gauge.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/streamgraph.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/sunburst.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/vector.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/wordcloud.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/xrange.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/tilemap.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/venn.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/gantt.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/timeline.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/parallel-coordinates.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/bullet.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/coloraxis.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/dumbbell.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/lollipop.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/series-label.js"></script>
+<script src="site_libs/highcharts-9.3.1/plugins/motion.js"></script>
+<script src="site_libs/highcharts-9.3.1/custom/reset.js"></script>
+<script src="site_libs/highcharts-9.3.1/modules/boost.js"></script>
+<script src="site_libs/highchart-binding-0.9.4/highchart.js"></script>
+
+
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Targeting Dashboard</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://favstats.github.io/elex" rel="" target="">
+ <span class="menu-text"><iconify-icon inline="" icon="ph:map-trifold-thin"></iconify-icon> Map</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html" rel="" target="">
+ <span class="menu-text"><iconify-icon inline="" icon="ph:coins"></iconify-icon> Spending</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-iconify-ph-users-three-thin--targeting" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text"><iconify-icon inline="" icon="ph:users-three-thin"></iconify-icon> Targeting</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-iconify-ph-users-three-thin--targeting">    
+        <li>
+    <a class="dropdown-item" href="./targeting.html" rel="" target="">
+ <span class="dropdown-text">Spending per Targeting</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./detailed.html" rel="" target="">
+ <span class="dropdown-text">Detailed Targeting</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./location.html" rel="" target="">
+ <span class="dropdown-text">Location</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./demographics.html" rel="" target="">
+ <span class="dropdown-text">Demographics</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html" rel="" target="">
+ <span class="menu-text"><iconify-icon inline="" icon="ph:info-thin"></iconify-icon> About</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/favstats/elex" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./detailed.html">Detailed Targeting</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./targeting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spending per Targeting</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./detailed.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Detailed Targeting</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./location.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Location</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./demographics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Demographics</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#top-targeted-audiences" id="toc-top-targeted-audiences" class="nav-link active" data-scroll-target="#top-targeted-audiences">Top Targeted Audiences</a></li>
+  <li><a href="#top-excluded-audiences" id="toc-top-excluded-audiences" class="nav-link" data-scroll-target="#top-excluded-audiences">Top Excluded Audiences</a></li>
+  <li><a href="#top-contested-audiences" id="toc-top-contested-audiences" class="nav-link" data-scroll-target="#top-contested-audiences">Top Contested Audiences</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Detailed Targeting</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="top-targeted-audiences" class="level2">
+<h2 class="anchored" data-anchor-id="top-targeted-audiences">Top Targeted Audiences</h2>
+<p>The chart below displays the most utilized targeting criteria by political parties on Meta, based on the amounts spent.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">2 May - 31 May 2024</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">25 May - 31 May 2024</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="cell-output-display">
+
+<div class="container">
+<div>
+<div class="row">
+<div style="width: 50%; float: left;">
+<div id="htmlwidget-3675e8bbb0e5b52a07a0" style="width:100%;height:300px;" class="highchart html-widget "></div>
+<script type="application/json" data-for="htmlwidget-3675e8bbb0e5b52a07a0">{"x":{"hc_opts":{"chart":{"reflow":true,"height":300},"title":{"text":"MDB","align":"left","style":{"fontWeight":"bold"}},"yAxis":{"title":{"text":"% party budget spent on targeting audience"},"type":"linear","max":41.6496059741686},"credits":{"enabled":false},"exporting":{"enabled":true},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":false},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"bar":{"horizontal":true,"stacking":"normal"}},"series":[{"group":"group","data":[{"party":"MDB","value":"Political science","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":178.559279191169,"total_spenderino":5307.37383344263,"perc":3.36436220237658,"spend_perlab":"179","y":3.36436220237658,"name":"Political science"},{"party":"MDB","value":"Religious studies","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":117.557015082645,"total_spenderino":5307.37383344263,"perc":2.21497521696886,"spend_perlab":"118","y":2.21497521696886,"name":"Religious studies"},{"party":"MDB","value":"Community issues (law and government)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":117.557015082645,"total_spenderino":5307.37383344263,"perc":2.21497521696886,"spend_perlab":"118","y":2.21497521696886,"name":"Community issues (law and government)"},{"party":"MDB","value":"Current events (politics)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":117.557015082645,"total_spenderino":5307.37383344263,"perc":2.21497521696886,"spend_perlab":"118","y":2.21497521696886,"name":"Current events (politics)"},{"party":"MDB","value":"Politics (politics)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":117.557015082645,"total_spenderino":5307.37383344263,"perc":2.21497521696886,"spend_perlab":"118","y":2.21497521696886,"name":"Politics (politics)"},{"party":"MDB","value":"Politics and social issues","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":117.557015082645,"total_spenderino":5307.37383344263,"perc":2.21497521696886,"spend_perlab":"118","y":2.21497521696886,"name":"Politics and social issues"},{"party":"MDB","value":"Politician","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":61.0022641085245,"total_spenderino":5307.37383344263,"perc":1.14938698540772,"spend_perlab":"61","y":1.14938698540772,"name":"Politician"},{"party":"MDB","value":"Political communication","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":61.0022641085245,"total_spenderino":5307.37383344263,"perc":1.14938698540772,"spend_perlab":"61","y":1.14938698540772,"name":"Political communication"},{"party":"MDB","value":"Political movement","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":61.0022641085245,"total_spenderino":5307.37383344263,"perc":1.14938698540772,"spend_perlab":"61","y":1.14938698540772,"name":"Political movement"},{"party":"MDB","value":"Political party","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":61.0022641085245,"total_spenderino":5307.37383344263,"perc":1.14938698540772,"spend_perlab":"61","y":1.14938698540772,"name":"Political party"}],"type":"bar","color":"#50B747"}],"xAxis":{"type":"category","title":"","labels":{"style":{"fontSize":"10px"}}},"tooltip":{"pointFormat":"<b>{point.value}<\/b><br>% of total budget spent: {point.y:.1f}%<br>a total of ${point.spend_perlab} on ads including this audience.","headerFormat":""}},"theme":{"colors":["#0266C8","#F90101","#F2B50F","#00933B"],"chart":{"style":{"fontFamily":"Roboto","color":"#444444"}},"xAxis":{"gridLineWidth":1,"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"yAxis":{"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"legendBackgroundColor":"rgba(0, 0, 0, 0.5)","background2":"#505053","dataLabelsColor":"#B0B0B3","textColor":"#C0C0C0","contrastTextColor":"#F0F0F3","maskColor":"rgba(255,255,255,0.3)"},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":"Roboto","debug":false},"evals":[],"jsHooks":[]}</script>
+</div>
+<div style="width: 50%; float: left;">
+<div id="htmlwidget-c405874738dc6c2f9cfa" style="width:100%;height:300px;" class="highchart html-widget "></div>
+<script type="application/json" data-for="htmlwidget-c405874738dc6c2f9cfa">{"x":{"hc_opts":{"chart":{"reflow":true,"height":300},"title":{"text":"OUT","align":"left","style":{"fontWeight":"bold"}},"yAxis":{"title":{"text":"% party budget spent on targeting audience"},"type":"linear","max":41.6496059741686},"credits":{"enabled":false},"exporting":{"enabled":true},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":false},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"bar":{"horizontal":true,"stacking":"normal"}},"series":[{"group":"group","data":[{"party":"OUT","value":"Business (business and finance)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":209.85916656014,"total_spenderino":3821.26341014263,"perc":5.49187909954385,"spend_perlab":"210","y":5.49187909954385,"name":"Business (business and finance)"},{"party":"OUT","value":"Entrepreneurship (business and finance)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":209.85916656014,"total_spenderino":3821.26341014263,"perc":5.49187909954385,"spend_perlab":"210","y":5.49187909954385,"name":"Entrepreneurship (business and finance)"},{"party":"OUT","value":"Small business (business and finance)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":209.85916656014,"total_spenderino":3821.26341014263,"perc":5.49187909954385,"spend_perlab":"210","y":5.49187909954385,"name":"Small business (business and finance)"},{"party":"OUT","value":"Pastor","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":120.747940994948,"total_spenderino":3821.26341014263,"perc":3.15989577359289,"spend_perlab":"121","y":3.15989577359289,"name":"Pastor"},{"party":"OUT","value":"Deus (band)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":120.747940994948,"total_spenderino":3821.26341014263,"perc":3.15989577359289,"spend_perlab":"121","y":3.15989577359289,"name":"Deus (band)"},{"party":"OUT","value":"Priest (2011 film)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":120.747940994948,"total_spenderino":3821.26341014263,"perc":3.15989577359289,"spend_perlab":"121","y":3.15989577359289,"name":"Priest (2011 film)"},{"party":"OUT","value":"Small and medium enterprises (business and finance)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":92.0926562070383,"total_spenderino":3821.26341014263,"perc":2.41000544381736,"spend_perlab":"92","y":2.41000544381736,"name":"Small and medium enterprises (business and finance)"},{"party":"OUT","value":"Adoption","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":57.1965338193516,"total_spenderino":3821.26341014263,"perc":1.49679641731939,"spend_perlab":"57","y":1.49679641731939,"name":"Adoption"},{"party":"OUT","value":"Animal rescue groups","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":44.7904663986307,"total_spenderino":3821.26341014263,"perc":1.17213763070468,"spend_perlab":"45","y":1.17213763070468,"name":"Animal rescue groups"},{"party":"OUT","value":"Animal rights","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":44.7904663986307,"total_spenderino":3821.26341014263,"perc":1.17213763070468,"spend_perlab":"45","y":1.17213763070468,"name":"Animal rights"}],"type":"bar","color":"#666666"}],"xAxis":{"type":"category","title":"","labels":{"style":{"fontSize":"10px"}}},"tooltip":{"pointFormat":"<b>{point.value}<\/b><br>% of total budget spent: {point.y:.1f}%<br>a total of ${point.spend_perlab} on ads including this audience.","headerFormat":""}},"theme":{"colors":["#0266C8","#F90101","#F2B50F","#00933B"],"chart":{"style":{"fontFamily":"Roboto","color":"#444444"}},"xAxis":{"gridLineWidth":1,"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"yAxis":{"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"legendBackgroundColor":"rgba(0, 0, 0, 0.5)","background2":"#505053","dataLabelsColor":"#B0B0B3","textColor":"#C0C0C0","contrastTextColor":"#F0F0F3","maskColor":"rgba(255,255,255,0.3)"},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":"Roboto","debug":false},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="row">
+<div style="width: 50%; float: left;">
+<div id="htmlwidget-5b2c2946b476b4b5a109" style="width:100%;height:300px;" class="highchart html-widget "></div>
+<script type="application/json" data-for="htmlwidget-5b2c2946b476b4b5a109">{"x":{"hc_opts":{"chart":{"reflow":true,"height":300},"title":{"text":"PL","align":"left","style":{"fontWeight":"bold"}},"yAxis":{"title":{"text":"% party budget spent on targeting audience"},"type":"linear","max":41.6496059741686},"credits":{"enabled":false},"exporting":{"enabled":true},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":false},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"bar":{"horizontal":true,"stacking":"normal"}},"series":[{"group":"group","data":[{"party":"PL","value":"Exército Brasileiro","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":37.8023425166177,"total_spenderino":504.393045158006,"perc":7.4946200942909,"spend_perlab":"38","y":7.4946200942909,"name":"Exército Brasileiro"},{"party":"PL","value":"Pastor","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":30.7389422258755,"total_spenderino":504.393045158006,"perc":6.0942438681418,"spend_perlab":"31","y":6.0942438681418,"name":"Pastor"},{"party":"PL","value":"Familia","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":30.110132241354,"total_spenderino":504.393045158006,"perc":5.96957720380971,"spend_perlab":"30","y":5.96957720380971,"name":"Familia"},{"party":"PL","value":"Politics (politics)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":30.110132241354,"total_spenderino":504.393045158006,"perc":5.96957720380971,"spend_perlab":"30","y":5.96957720380971,"name":"Politics (politics)"},{"party":"PL","value":"Polícia Federal - PF","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":15.3694711129377,"total_spenderino":504.393045158006,"perc":3.0471219340709,"spend_perlab":"15","y":3.0471219340709,"name":"Polícia Federal - PF"},{"party":"PL","value":"Polícia Militar","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":15.3694711129377,"total_spenderino":504.393045158006,"perc":3.0471219340709,"spend_perlab":"15","y":3.0471219340709,"name":"Polícia Militar"},{"party":"PL","value":"Polícia Segurança Pública","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":15.3694711129377,"total_spenderino":504.393045158006,"perc":3.0471219340709,"spend_perlab":"15","y":3.0471219340709,"name":"Polícia Segurança Pública"},{"party":"PL","value":"Religious studies","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":15.3694711129377,"total_spenderino":504.393045158006,"perc":3.0471219340709,"spend_perlab":"15","y":3.0471219340709,"name":"Religious studies"},{"party":"PL","value":"Family (social concept)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":15.3694711129377,"total_spenderino":504.393045158006,"perc":3.0471219340709,"spend_perlab":"15","y":3.0471219340709,"name":"Family (social concept)"},{"party":"PL","value":"Fatherhood (children and parenting)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":15.3694711129377,"total_spenderino":504.393045158006,"perc":3.0471219340709,"spend_perlab":"15","y":3.0471219340709,"name":"Fatherhood (children and parenting)"}],"type":"bar","color":"#282883"}],"xAxis":{"type":"category","title":"","labels":{"style":{"fontSize":"10px"}}},"tooltip":{"pointFormat":"<b>{point.value}<\/b><br>% of total budget spent: {point.y:.1f}%<br>a total of ${point.spend_perlab} on ads including this audience.","headerFormat":""}},"theme":{"colors":["#0266C8","#F90101","#F2B50F","#00933B"],"chart":{"style":{"fontFamily":"Roboto","color":"#444444"}},"xAxis":{"gridLineWidth":1,"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"yAxis":{"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"legendBackgroundColor":"rgba(0, 0, 0, 0.5)","background2":"#505053","dataLabelsColor":"#B0B0B3","textColor":"#C0C0C0","contrastTextColor":"#F0F0F3","maskColor":"rgba(255,255,255,0.3)"},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":"Roboto","debug":false},"evals":[],"jsHooks":[]}</script>
+</div>
+<div style="width: 50%; float: left;">
+<div id="htmlwidget-f71c7e189ec48696e049" style="width:100%;height:300px;" class="highchart html-widget "></div>
+<script type="application/json" data-for="htmlwidget-f71c7e189ec48696e049">{"x":{"hc_opts":{"chart":{"reflow":true,"height":300},"title":{"text":"PP","align":"left","style":{"fontWeight":"bold"}},"yAxis":{"title":{"text":"% party budget spent on targeting audience"},"type":"linear","max":41.6496059741686},"credits":{"enabled":false},"exporting":{"enabled":true},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":false},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"bar":{"horizontal":true,"stacking":"normal"}},"series":[{"group":"group","data":[{"party":"PP","value":"Professor","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":3478.9060294657,"total_spenderino":8352.79457775265,"perc":41.6496059741686,"spend_perlab":"3,479","y":41.6496059741686,"name":"Professor"},{"party":"PP","value":"Associate professor","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":1776.46662807368,"total_spenderino":8352.79457775265,"perc":21.2679314873279,"spend_perlab":"1,776","y":21.2679314873279,"name":"Associate professor"},{"party":"PP","value":"Usp","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":1776.46662807368,"total_spenderino":8352.79457775265,"perc":21.2679314873279,"spend_perlab":"1,776","y":21.2679314873279,"name":"Usp"},{"party":"PP","value":"Auxiliar de Classe / Professora","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":1739.45301473285,"total_spenderino":8352.79457775265,"perc":20.8248029870843,"spend_perlab":"1,739","y":20.8248029870843,"name":"Auxiliar de Classe / Professora"},{"party":"PP","value":"Professora de Língua Inglesa","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":1739.45301473285,"total_spenderino":8352.79457775265,"perc":20.8248029870843,"spend_perlab":"1,739","y":20.8248029870843,"name":"Professora de Língua Inglesa"},{"party":"PP","value":"Unopar Universidade","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":1739.45301473285,"total_spenderino":8352.79457775265,"perc":20.8248029870843,"spend_perlab":"1,739","y":20.8248029870843,"name":"Unopar Universidade"},{"party":"PP","value":"Exército Brasileiro","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":1164.09596298412,"total_spenderino":8352.79457775265,"perc":13.9366047153206,"spend_perlab":"1,164","y":13.9366047153206,"name":"Exército Brasileiro"},{"party":"PP","value":"Police","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":1164.09596298412,"total_spenderino":8352.79457775265,"perc":13.9366047153206,"spend_perlab":"1,164","y":13.9366047153206,"name":"Police"},{"party":"PP","value":"Técnico em Segurança do Trabalho","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":1164.09596298412,"total_spenderino":8352.79457775265,"perc":13.9366047153206,"spend_perlab":"1,164","y":13.9366047153206,"name":"Técnico em Segurança do Trabalho"},{"party":"PP","value":"Business (business and finance)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1092.08554646454,"total_spenderino":8352.79457775265,"perc":13.0744930489882,"spend_perlab":"1,092","y":13.0744930489882,"name":"Business (business and finance)"}],"type":"bar","color":"#68C1EC"}],"xAxis":{"type":"category","title":"","labels":{"style":{"fontSize":"10px"}}},"tooltip":{"pointFormat":"<b>{point.value}<\/b><br>% of total budget spent: {point.y:.1f}%<br>a total of ${point.spend_perlab} on ads including this audience.","headerFormat":""}},"theme":{"colors":["#0266C8","#F90101","#F2B50F","#00933B"],"chart":{"style":{"fontFamily":"Roboto","color":"#444444"}},"xAxis":{"gridLineWidth":1,"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"yAxis":{"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"legendBackgroundColor":"rgba(0, 0, 0, 0.5)","background2":"#505053","dataLabelsColor":"#B0B0B3","textColor":"#C0C0C0","contrastTextColor":"#F0F0F3","maskColor":"rgba(255,255,255,0.3)"},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":"Roboto","debug":false},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="row">
+<div style="width: 50%; float: left;">
+<div id="htmlwidget-d1bf54b98130e604f3a5" style="width:100%;height:300px;" class="highchart html-widget "></div>
+<script type="application/json" data-for="htmlwidget-d1bf54b98130e604f3a5">{"x":{"hc_opts":{"chart":{"reflow":true,"height":300},"title":{"text":"PT","align":"left","style":{"fontWeight":"bold"}},"yAxis":{"title":{"text":"% party budget spent on targeting audience"},"type":"linear","max":41.6496059741686},"credits":{"enabled":false},"exporting":{"enabled":true},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":false},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"bar":{"horizontal":true,"stacking":"normal"}},"series":[{"group":"group","data":[{"party":"PT","value":"Activism","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":405.829776944914,"total_spenderino":22721.89637328,"perc":1.78607353135433,"spend_perlab":"406","y":1.78607353135433,"name":"Activism"},{"party":"PT","value":"Charitable organisation (social cause)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":405.829776944914,"total_spenderino":22721.89637328,"perc":1.78607353135433,"spend_perlab":"406","y":1.78607353135433,"name":"Charitable organisation (social cause)"},{"party":"PT","value":"Charity and causes (social causes)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":405.829776944914,"total_spenderino":22721.89637328,"perc":1.78607353135433,"spend_perlab":"406","y":1.78607353135433,"name":"Charity and causes (social causes)"},{"party":"PT","value":"Cultural heritage","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":405.829776944914,"total_spenderino":22721.89637328,"perc":1.78607353135433,"spend_perlab":"406","y":1.78607353135433,"name":"Cultural heritage"},{"party":"PT","value":"Cultural history","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":405.829776944914,"total_spenderino":22721.89637328,"perc":1.78607353135433,"spend_perlab":"406","y":1.78607353135433,"name":"Cultural history"},{"party":"PT","value":"History (history)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":405.829776944914,"total_spenderino":22721.89637328,"perc":1.78607353135433,"spend_perlab":"406","y":1.78607353135433,"name":"History (history)"},{"party":"PT","value":"Non-governmental organization","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":405.829776944914,"total_spenderino":22721.89637328,"perc":1.78607353135433,"spend_perlab":"406","y":1.78607353135433,"name":"Non-governmental organization"},{"party":"PT","value":"Philanthropy (social causes)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":405.829776944914,"total_spenderino":22721.89637328,"perc":1.78607353135433,"spend_perlab":"406","y":1.78607353135433,"name":"Philanthropy (social causes)"},{"party":"PT","value":"Philosophy","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":405.829776944914,"total_spenderino":22721.89637328,"perc":1.78607353135433,"spend_perlab":"406","y":1.78607353135433,"name":"Philosophy"},{"party":"PT","value":"Social movement (social causes)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":405.829776944914,"total_spenderino":22721.89637328,"perc":1.78607353135433,"spend_perlab":"406","y":1.78607353135433,"name":"Social movement (social causes)"}],"type":"bar","color":"#e20e28"}],"xAxis":{"type":"category","title":"","labels":{"style":{"fontSize":"10px"}}},"tooltip":{"pointFormat":"<b>{point.value}<\/b><br>% of total budget spent: {point.y:.1f}%<br>a total of ${point.spend_perlab} on ads including this audience.","headerFormat":""}},"theme":{"colors":["#0266C8","#F90101","#F2B50F","#00933B"],"chart":{"style":{"fontFamily":"Roboto","color":"#444444"}},"xAxis":{"gridLineWidth":1,"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"yAxis":{"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"legendBackgroundColor":"rgba(0, 0, 0, 0.5)","background2":"#505053","dataLabelsColor":"#B0B0B3","textColor":"#C0C0C0","contrastTextColor":"#F0F0F3","maskColor":"rgba(255,255,255,0.3)"},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":"Roboto","debug":false},"evals":[],"jsHooks":[]}</script>
+</div>
+<div style="width: 50%; float: left;">
+<div id="htmlwidget-68f4a8a084c1c5e9e93a" style="width:100%;height:300px;" class="highchart html-widget "></div>
+<script type="application/json" data-for="htmlwidget-68f4a8a084c1c5e9e93a">{"x":{"hc_opts":{"chart":{"reflow":true,"height":300},"title":{"text":"PV","align":"left","style":{"fontWeight":"bold"}},"yAxis":{"title":{"text":"% party budget spent on targeting audience"},"type":"linear","max":41.6496059741686},"credits":{"enabled":false},"exporting":{"enabled":true},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":false},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"bar":{"horizontal":true,"stacking":"normal"}},"series":[{"group":"group","data":[{"party":"PV","value":"Engaged","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":64.809817208575,"total_spenderino":1509.36664080162,"perc":4.29384189743021,"spend_perlab":"65","y":4.29384189743021,"name":"Engaged"},{"party":"PV","value":"Life, physical and social sciences","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":38.1163559711872,"total_spenderino":1509.36664080162,"perc":2.52532121360146,"spend_perlab":"38","y":2.52532121360146,"name":"Life, physical and social sciences"},{"party":"PV","value":"Single","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":38.1163559711872,"total_spenderino":1509.36664080162,"perc":2.52532121360146,"spend_perlab":"38","y":2.52532121360146,"name":"Single"},{"party":"PV","value":"Some high school","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":38.1163559711872,"total_spenderino":1509.36664080162,"perc":2.52532121360146,"spend_perlab":"38","y":2.52532121360146,"name":"Some high school"},{"party":"PV","value":"Free public transport","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":38.1163559711872,"total_spenderino":1509.36664080162,"perc":2.52532121360146,"spend_perlab":"38","y":2.52532121360146,"name":"Free public transport"},{"party":"PV","value":"Sewage","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":38.1163559711872,"total_spenderino":1509.36664080162,"perc":2.52532121360146,"spend_perlab":"38","y":2.52532121360146,"name":"Sewage"},{"party":"PV","value":"Sewage treatment","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":38.1163559711872,"total_spenderino":1509.36664080162,"perc":2.52532121360146,"spend_perlab":"38","y":2.52532121360146,"name":"Sewage treatment"},{"party":"PV","value":"Social change (politics)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":38.1163559711872,"total_spenderino":1509.36664080162,"perc":2.52532121360146,"spend_perlab":"38","y":2.52532121360146,"name":"Social change (politics)"},{"party":"PV","value":"Water (science)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":38.1163559711872,"total_spenderino":1509.36664080162,"perc":2.52532121360146,"spend_perlab":"38","y":2.52532121360146,"name":"Water (science)"},{"party":"PV","value":"Water purification","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":38.1163559711872,"total_spenderino":1509.36664080162,"perc":2.52532121360146,"spend_perlab":"38","y":2.52532121360146,"name":"Water purification"}],"type":"bar","color":"#006600"}],"xAxis":{"type":"category","title":"","labels":{"style":{"fontSize":"10px"}}},"tooltip":{"pointFormat":"<b>{point.value}<\/b><br>% of total budget spent: {point.y:.1f}%<br>a total of ${point.spend_perlab} on ads including this audience.","headerFormat":""}},"theme":{"colors":["#0266C8","#F90101","#F2B50F","#00933B"],"chart":{"style":{"fontFamily":"Roboto","color":"#444444"}},"xAxis":{"gridLineWidth":1,"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"yAxis":{"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"legendBackgroundColor":"rgba(0, 0, 0, 0.5)","background2":"#505053","dataLabelsColor":"#B0B0B3","textColor":"#C0C0C0","contrastTextColor":"#F0F0F3","maskColor":"rgba(255,255,255,0.3)"},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":"Roboto","debug":false},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="row">
+<div style="width: 50%; float: left;">
+<div id="htmlwidget-12b3eedd0279aed69ac2" style="width:100%;height:300px;" class="highchart html-widget "></div>
+<script type="application/json" data-for="htmlwidget-12b3eedd0279aed69ac2">{"x":{"hc_opts":{"chart":{"reflow":true,"height":300},"title":{"text":"SDB","align":"left","style":{"fontWeight":"bold"}},"yAxis":{"title":{"text":"% party budget spent on targeting audience"},"type":"linear","max":41.6496059741686},"credits":{"enabled":false},"exporting":{"enabled":true},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":false},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"bar":{"horizontal":true,"stacking":"normal"}},"series":[{"group":"group","data":[{"party":"SDB","value":"Cattle (livestock)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":815.356953566834,"total_spenderino":19856.0441280398,"perc":4.10634136542547,"spend_perlab":"815","y":4.10634136542547,"name":"Cattle (livestock)"},{"party":"SDB","value":"Rural area","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":815.356953566834,"total_spenderino":19856.0441280398,"perc":4.10634136542547,"spend_perlab":"815","y":4.10634136542547,"name":"Rural area"},{"party":"SDB","value":"Agribusiness (agriculture)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":798.401264282472,"total_spenderino":19856.0441280398,"perc":4.02094827717977,"spend_perlab":"798","y":4.02094827717977,"name":"Agribusiness (agriculture)"},{"party":"SDB","value":"Animal husbandry (agriculture)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":742.944754766881,"total_spenderino":19856.0441280398,"perc":3.74165543738759,"spend_perlab":"743","y":3.74165543738759,"name":"Animal husbandry (agriculture)"},{"party":"SDB","value":"Beef cattle","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":688.220168250224,"total_spenderino":19856.0441280398,"perc":3.46604874471622,"spend_perlab":"688","y":3.46604874471622,"name":"Beef cattle"},{"party":"SDB","value":"Dairy","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":688.220168250224,"total_spenderino":19856.0441280398,"perc":3.46604874471622,"spend_perlab":"688","y":3.46604874471622,"name":"Dairy"},{"party":"SDB","value":"Farm (agriculture)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":688.220168250224,"total_spenderino":19856.0441280398,"perc":3.46604874471622,"spend_perlab":"688","y":3.46604874471622,"name":"Farm (agriculture)"},{"party":"SDB","value":"Fertiliser (agriculture)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":688.220168250224,"total_spenderino":19856.0441280398,"perc":3.46604874471622,"spend_perlab":"688","y":3.46604874471622,"name":"Fertiliser (agriculture)"},{"party":"SDB","value":"Field (agriculture)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":688.220168250224,"total_spenderino":19856.0441280398,"perc":3.46604874471622,"spend_perlab":"688","y":3.46604874471622,"name":"Field (agriculture)"},{"party":"SDB","value":"Tractor (vehicles)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":688.220168250224,"total_spenderino":19856.0441280398,"perc":3.46604874471622,"spend_perlab":"688","y":3.46604874471622,"name":"Tractor (vehicles)"}],"type":"bar","color":"#0f2bc5"}],"xAxis":{"type":"category","title":"","labels":{"style":{"fontSize":"10px"}}},"tooltip":{"pointFormat":"<b>{point.value}<\/b><br>% of total budget spent: {point.y:.1f}%<br>a total of ${point.spend_perlab} on ads including this audience.","headerFormat":""}},"theme":{"colors":["#0266C8","#F90101","#F2B50F","#00933B"],"chart":{"style":{"fontFamily":"Roboto","color":"#444444"}},"xAxis":{"gridLineWidth":1,"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"yAxis":{"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"legendBackgroundColor":"rgba(0, 0, 0, 0.5)","background2":"#505053","dataLabelsColor":"#B0B0B3","textColor":"#C0C0C0","contrastTextColor":"#F0F0F3","maskColor":"rgba(255,255,255,0.3)"},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":"Roboto","debug":false},"evals":[],"jsHooks":[]}</script>
+</div>
+<div style="width: 50%; float: left;"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="cell-output-display">
+
+<div class="container">
+<div>
+<div class="row">
+<div style="width: 50%; float: left;">
+<div id="htmlwidget-5014640c51e34e0028a3" style="width:100%;height:300px;" class="highchart html-widget "></div>
+<script type="application/json" data-for="htmlwidget-5014640c51e34e0028a3">{"x":{"hc_opts":{"chart":{"reflow":true,"height":300},"title":{"text":"OUT","align":"left","style":{"fontWeight":"bold"}},"yAxis":{"title":{"text":"% party budget spent on targeting audience"},"type":"linear","max":80.0753860411849},"credits":{"enabled":false},"exporting":{"enabled":true},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":false},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"bar":{"horizontal":true,"stacking":"normal"}},"series":[{"group":"group","data":[{"party":"OUT","value":"Community issues (law and government)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":26.4942082668449,"total_spenderino":1285.19195406473,"perc":2.06149814298561,"spend_perlab":"26","y":2.06149814298561,"name":"Community issues (law and government)"},{"party":"OUT","value":"Current events (politics)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":26.4942082668449,"total_spenderino":1285.19195406473,"perc":2.06149814298561,"spend_perlab":"26","y":2.06149814298561,"name":"Current events (politics)"},{"party":"OUT","value":"Government (government agency)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":26.4942082668449,"total_spenderino":1285.19195406473,"perc":2.06149814298561,"spend_perlab":"26","y":2.06149814298561,"name":"Government (government agency)"},{"party":"OUT","value":"Journalism (news service)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":26.4942082668449,"total_spenderino":1285.19195406473,"perc":2.06149814298561,"spend_perlab":"26","y":2.06149814298561,"name":"Journalism (news service)"},{"party":"OUT","value":"Local news (news service)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":26.4942082668449,"total_spenderino":1285.19195406473,"perc":2.06149814298561,"spend_perlab":"26","y":2.06149814298561,"name":"Local news (news service)"},{"party":"OUT","value":"Municipal corporation","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":26.4942082668449,"total_spenderino":1285.19195406473,"perc":2.06149814298561,"spend_perlab":"26","y":2.06149814298561,"name":"Municipal corporation"},{"party":"OUT","value":"News media (news service)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":26.4942082668449,"total_spenderino":1285.19195406473,"perc":2.06149814298561,"spend_perlab":"26","y":2.06149814298561,"name":"News media (news service)"},{"party":"OUT","value":"Newspapers (publications)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":26.4942082668449,"total_spenderino":1285.19195406473,"perc":2.06149814298561,"spend_perlab":"26","y":2.06149814298561,"name":"Newspapers (publications)"},{"party":"OUT","value":"Political science","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":26.4942082668449,"total_spenderino":1285.19195406473,"perc":2.06149814298561,"spend_perlab":"26","y":2.06149814298561,"name":"Political science"},{"party":"OUT","value":"Politics (politics)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":26.4942082668449,"total_spenderino":1285.19195406473,"perc":2.06149814298561,"spend_perlab":"26","y":2.06149814298561,"name":"Politics (politics)"}],"type":"bar","color":"#666666"}],"xAxis":{"type":"category","title":"","labels":{"style":{"fontSize":"10px"}}},"tooltip":{"pointFormat":"<b>{point.value}<\/b><br>% of total budget spent: {point.y:.1f}%<br>a total of ${point.spend_perlab} on ads including this audience.","headerFormat":""}},"theme":{"colors":["#0266C8","#F90101","#F2B50F","#00933B"],"chart":{"style":{"fontFamily":"Roboto","color":"#444444"}},"xAxis":{"gridLineWidth":1,"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"yAxis":{"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"legendBackgroundColor":"rgba(0, 0, 0, 0.5)","background2":"#505053","dataLabelsColor":"#B0B0B3","textColor":"#C0C0C0","contrastTextColor":"#F0F0F3","maskColor":"rgba(255,255,255,0.3)"},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":"Roboto","debug":false},"evals":[],"jsHooks":[]}</script>
+</div>
+<div style="width: 50%; float: left;">
+<div id="htmlwidget-3dfddc435204e85077ad" style="width:100%;height:300px;" class="highchart html-widget "></div>
+<script type="application/json" data-for="htmlwidget-3dfddc435204e85077ad">{"x":{"hc_opts":{"chart":{"reflow":true,"height":300},"title":{"text":"PL","align":"left","style":{"fontWeight":"bold"}},"yAxis":{"title":{"text":"% party budget spent on targeting audience"},"type":"linear","max":80.0753860411849},"credits":{"enabled":false},"exporting":{"enabled":true},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":false},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"bar":{"horizontal":true,"stacking":"normal"}},"series":[{"group":"group","data":[{"party":"PL","value":"Familia","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":17.1769613544676,"total_spenderino":220.171567330876,"perc":7.80162559712075,"spend_perlab":"17","y":7.80162559712075,"name":"Familia"},{"party":"PL","value":"Politics (politics)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":17.1769613544676,"total_spenderino":220.171567330876,"perc":7.80162559712075,"spend_perlab":"17","y":7.80162559712075,"name":"Politics (politics)"}],"type":"bar","color":"#282883"}],"xAxis":{"type":"category","title":"","labels":{"style":{"fontSize":"10px"}}},"tooltip":{"pointFormat":"<b>{point.value}<\/b><br>% of total budget spent: {point.y:.1f}%<br>a total of ${point.spend_perlab} on ads including this audience.","headerFormat":""}},"theme":{"colors":["#0266C8","#F90101","#F2B50F","#00933B"],"chart":{"style":{"fontFamily":"Roboto","color":"#444444"}},"xAxis":{"gridLineWidth":1,"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"yAxis":{"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"legendBackgroundColor":"rgba(0, 0, 0, 0.5)","background2":"#505053","dataLabelsColor":"#B0B0B3","textColor":"#C0C0C0","contrastTextColor":"#F0F0F3","maskColor":"rgba(255,255,255,0.3)"},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":"Roboto","debug":false},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="row">
+<div style="width: 50%; float: left;">
+<div id="htmlwidget-1f45f76ca45882eb7135" style="width:100%;height:300px;" class="highchart html-widget "></div>
+<script type="application/json" data-for="htmlwidget-1f45f76ca45882eb7135">{"x":{"hc_opts":{"chart":{"reflow":true,"height":300},"title":{"text":"PP","align":"left","style":{"fontWeight":"bold"}},"yAxis":{"title":{"text":"% party budget spent on targeting audience"},"type":"linear","max":80.0753860411849},"credits":{"enabled":false},"exporting":{"enabled":true},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":false},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"bar":{"horizontal":true,"stacking":"normal"}},"series":[{"group":"group","data":[{"party":"PP","value":"Professor","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":1176.11810074419,"total_spenderino":1468.7635725406,"perc":80.0753860411849,"spend_perlab":"1,176","y":80.0753860411849,"name":"Professor"},{"party":"PP","value":"Associate professor","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":588.059050372094,"total_spenderino":1468.7635725406,"perc":40.0376930205924,"spend_perlab":"588","y":40.0376930205924,"name":"Associate professor"},{"party":"PP","value":"Auxiliar de Classe / Professora","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":588.059050372094,"total_spenderino":1468.7635725406,"perc":40.0376930205924,"spend_perlab":"588","y":40.0376930205924,"name":"Auxiliar de Classe / Professora"},{"party":"PP","value":"Professora de Língua Inglesa","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":588.059050372094,"total_spenderino":1468.7635725406,"perc":40.0376930205924,"spend_perlab":"588","y":40.0376930205924,"name":"Professora de Língua Inglesa"},{"party":"PP","value":"Unopar Universidade","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":588.059050372094,"total_spenderino":1468.7635725406,"perc":40.0376930205924,"spend_perlab":"588","y":40.0376930205924,"name":"Unopar Universidade"},{"party":"PP","value":"Usp","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":588.059050372094,"total_spenderino":1468.7635725406,"perc":40.0376930205924,"spend_perlab":"588","y":40.0376930205924,"name":"Usp"},{"party":"PP","value":"Faculdade de Medicina da Universidade de São Paulo","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":370.378079949586,"total_spenderino":1468.7635725406,"perc":25.2169979480715,"spend_perlab":"370","y":25.2169979480715,"name":"Faculdade de Medicina da Universidade de São Paulo"},{"party":"PP","value":"Adjunct Professor","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":294.029525186047,"total_spenderino":1468.7635725406,"perc":20.0188465102962,"spend_perlab":"294","y":20.0188465102962,"name":"Adjunct Professor"},{"party":"PP","value":"Assistant Professor of English","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":294.029525186047,"total_spenderino":1468.7635725406,"perc":20.0188465102962,"spend_perlab":"294","y":20.0188465102962,"name":"Assistant Professor of English"},{"party":"PP","value":"Atitus Educação","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":294.029525186047,"total_spenderino":1468.7635725406,"perc":20.0188465102962,"spend_perlab":"294","y":20.0188465102962,"name":"Atitus Educação"}],"type":"bar","color":"#68C1EC"}],"xAxis":{"type":"category","title":"","labels":{"style":{"fontSize":"10px"}}},"tooltip":{"pointFormat":"<b>{point.value}<\/b><br>% of total budget spent: {point.y:.1f}%<br>a total of ${point.spend_perlab} on ads including this audience.","headerFormat":""}},"theme":{"colors":["#0266C8","#F90101","#F2B50F","#00933B"],"chart":{"style":{"fontFamily":"Roboto","color":"#444444"}},"xAxis":{"gridLineWidth":1,"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"yAxis":{"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"legendBackgroundColor":"rgba(0, 0, 0, 0.5)","background2":"#505053","dataLabelsColor":"#B0B0B3","textColor":"#C0C0C0","contrastTextColor":"#F0F0F3","maskColor":"rgba(255,255,255,0.3)"},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":"Roboto","debug":false},"evals":[],"jsHooks":[]}</script>
+</div>
+<div style="width: 50%; float: left;">
+<div id="htmlwidget-ec0d45f9c13c52cc9ca2" style="width:100%;height:300px;" class="highchart html-widget "></div>
+<script type="application/json" data-for="htmlwidget-ec0d45f9c13c52cc9ca2">{"x":{"hc_opts":{"chart":{"reflow":true,"height":300},"title":{"text":"PT","align":"left","style":{"fontWeight":"bold"}},"yAxis":{"title":{"text":"% party budget spent on targeting audience"},"type":"linear","max":80.0753860411849},"credits":{"enabled":false},"exporting":{"enabled":true},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":false},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"bar":{"horizontal":true,"stacking":"normal"}},"series":[{"group":"group","data":[{"party":"PT","value":"Activism","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":336.278276647527,"total_spenderino":15361.1129092848,"perc":2.18915308176837,"spend_perlab":"336","y":2.18915308176837,"name":"Activism"},{"party":"PT","value":"Charitable organisation (social cause)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":336.278276647527,"total_spenderino":15361.1129092848,"perc":2.18915308176837,"spend_perlab":"336","y":2.18915308176837,"name":"Charitable organisation (social cause)"},{"party":"PT","value":"Charity and causes (social causes)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":336.278276647527,"total_spenderino":15361.1129092848,"perc":2.18915308176837,"spend_perlab":"336","y":2.18915308176837,"name":"Charity and causes (social causes)"},{"party":"PT","value":"Cultural heritage","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":336.278276647527,"total_spenderino":15361.1129092848,"perc":2.18915308176837,"spend_perlab":"336","y":2.18915308176837,"name":"Cultural heritage"},{"party":"PT","value":"Cultural history","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":336.278276647527,"total_spenderino":15361.1129092848,"perc":2.18915308176837,"spend_perlab":"336","y":2.18915308176837,"name":"Cultural history"},{"party":"PT","value":"History (history)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":336.278276647527,"total_spenderino":15361.1129092848,"perc":2.18915308176837,"spend_perlab":"336","y":2.18915308176837,"name":"History (history)"},{"party":"PT","value":"Non-governmental organization","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":336.278276647527,"total_spenderino":15361.1129092848,"perc":2.18915308176837,"spend_perlab":"336","y":2.18915308176837,"name":"Non-governmental organization"},{"party":"PT","value":"Philanthropy (social causes)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":336.278276647527,"total_spenderino":15361.1129092848,"perc":2.18915308176837,"spend_perlab":"336","y":2.18915308176837,"name":"Philanthropy (social causes)"},{"party":"PT","value":"Philosophy","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":336.278276647527,"total_spenderino":15361.1129092848,"perc":2.18915308176837,"spend_perlab":"336","y":2.18915308176837,"name":"Philosophy"},{"party":"PT","value":"Social movement (social causes)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":336.278276647527,"total_spenderino":15361.1129092848,"perc":2.18915308176837,"spend_perlab":"336","y":2.18915308176837,"name":"Social movement (social causes)"}],"type":"bar","color":"#e20e28"}],"xAxis":{"type":"category","title":"","labels":{"style":{"fontSize":"10px"}}},"tooltip":{"pointFormat":"<b>{point.value}<\/b><br>% of total budget spent: {point.y:.1f}%<br>a total of ${point.spend_perlab} on ads including this audience.","headerFormat":""}},"theme":{"colors":["#0266C8","#F90101","#F2B50F","#00933B"],"chart":{"style":{"fontFamily":"Roboto","color":"#444444"}},"xAxis":{"gridLineWidth":1,"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"yAxis":{"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"legendBackgroundColor":"rgba(0, 0, 0, 0.5)","background2":"#505053","dataLabelsColor":"#B0B0B3","textColor":"#C0C0C0","contrastTextColor":"#F0F0F3","maskColor":"rgba(255,255,255,0.3)"},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":"Roboto","debug":false},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="row">
+<div style="width: 50%; float: left;">
+<div id="htmlwidget-4c1d541ba059020b3020" style="width:100%;height:300px;" class="highchart html-widget "></div>
+<script type="application/json" data-for="htmlwidget-4c1d541ba059020b3020">{"x":{"hc_opts":{"chart":{"reflow":true,"height":300},"title":{"text":"PV","align":"left","style":{"fontWeight":"bold"}},"yAxis":{"title":{"text":"% party budget spent on targeting audience"},"type":"linear","max":80.0753860411849},"credits":{"enabled":false},"exporting":{"enabled":true},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":false},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"bar":{"horizontal":true,"stacking":"normal"}},"series":[{"group":"group","data":[{"party":"PV","value":"University (higher education)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":38.1332624190859,"total_spenderino":782.133282042063,"perc":4.87554529319149,"spend_perlab":"38","y":4.87554529319149,"name":"University (higher education)"},{"party":"PV","value":"Professor","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":19.066631209543,"total_spenderino":782.133282042063,"perc":2.43777264659574,"spend_perlab":"19","y":2.43777264659574,"name":"Professor"},{"party":"PV","value":"Education (social concept)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":19.066631209543,"total_spenderino":782.133282042063,"perc":2.43777264659574,"spend_perlab":"19","y":2.43777264659574,"name":"Education (social concept)"},{"party":"PV","value":"Higher education (education)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":19.066631209543,"total_spenderino":782.133282042063,"perc":2.43777264659574,"spend_perlab":"19","y":2.43777264659574,"name":"Higher education (education)"},{"party":"PV","value":"Learning (education)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":19.066631209543,"total_spenderino":782.133282042063,"perc":2.43777264659574,"spend_perlab":"19","y":2.43777264659574,"name":"Learning (education)"},{"party":"PV","value":"Student (education)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":19.066631209543,"total_spenderino":782.133282042063,"perc":2.43777264659574,"spend_perlab":"19","y":2.43777264659574,"name":"Student (education)"}],"type":"bar","color":"#006600"}],"xAxis":{"type":"category","title":"","labels":{"style":{"fontSize":"10px"}}},"tooltip":{"pointFormat":"<b>{point.value}<\/b><br>% of total budget spent: {point.y:.1f}%<br>a total of ${point.spend_perlab} on ads including this audience.","headerFormat":""}},"theme":{"colors":["#0266C8","#F90101","#F2B50F","#00933B"],"chart":{"style":{"fontFamily":"Roboto","color":"#444444"}},"xAxis":{"gridLineWidth":1,"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"yAxis":{"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"legendBackgroundColor":"rgba(0, 0, 0, 0.5)","background2":"#505053","dataLabelsColor":"#B0B0B3","textColor":"#C0C0C0","contrastTextColor":"#F0F0F3","maskColor":"rgba(255,255,255,0.3)"},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":"Roboto","debug":false},"evals":[],"jsHooks":[]}</script>
+</div>
+<div style="width: 50%; float: left;">
+<div id="htmlwidget-bb6eef5ac5d42213438d" style="width:100%;height:300px;" class="highchart html-widget "></div>
+<script type="application/json" data-for="htmlwidget-bb6eef5ac5d42213438d">{"x":{"hc_opts":{"chart":{"reflow":true,"height":300},"title":{"text":"SDB","align":"left","style":{"fontWeight":"bold"}},"yAxis":{"title":{"text":"% party budget spent on targeting audience"},"type":"linear","max":80.0753860411849},"credits":{"enabled":false},"exporting":{"enabled":true},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":false},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"bar":{"horizontal":true,"stacking":"normal"}},"series":[{"group":"group","data":[{"party":"SDB","value":"Agribusiness (agriculture)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":110.181096032248,"total_spenderino":4751.13086074004,"perc":2.31904991173166,"spend_perlab":"110","y":2.31904991173166,"name":"Agribusiness (agriculture)"},{"party":"SDB","value":"Exército Brasileiro","is_exclusion":false,"detailed_type":"DEMOGRAPHICS","total_spend":57.1794630909825,"total_spenderino":4751.13086074004,"perc":1.20349164792477,"spend_perlab":"57","y":1.20349164792477,"name":"Exército Brasileiro"},{"party":"SDB","value":"Agriculture (industry)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":54.7245865166571,"total_spenderino":4751.13086074004,"perc":1.15182233705373,"spend_perlab":"55","y":1.15182233705373,"name":"Agriculture (industry)"},{"party":"SDB","value":"Animal husbandry (agriculture)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":54.7245865166571,"total_spenderino":4751.13086074004,"perc":1.15182233705373,"spend_perlab":"55","y":1.15182233705373,"name":"Animal husbandry (agriculture)"},{"party":"SDB","value":"Government (government agency)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":44.2400567482654,"total_spenderino":4751.13086074004,"perc":0.931147931828899,"spend_perlab":"44","y":0.931147931828899,"name":"Government (government agency)"},{"party":"SDB","value":"Local government","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":44.2400567482654,"total_spenderino":4751.13086074004,"perc":0.931147931828899,"spend_perlab":"44","y":0.931147931828899,"name":"Local government"},{"party":"SDB","value":"Politics (politics)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":37.3331136657115,"total_spenderino":4751.13086074004,"perc":0.785773213998497,"spend_perlab":"37","y":0.785773213998497,"name":"Politics (politics)"},{"party":"SDB","value":"Journalism (news service)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":27.5843480223279,"total_spenderino":4751.13086074004,"perc":0.580584892962333,"spend_perlab":"28","y":0.580584892962333,"name":"Journalism (news service)"},{"party":"SDB","value":"Floratta Modas Evangelica","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":19.0598210303275,"total_spenderino":4751.13086074004,"perc":0.401163882641589,"spend_perlab":"19","y":0.401163882641589,"name":"Floratta Modas Evangelica"},{"party":"SDB","value":"Military history","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":19.0598210303275,"total_spenderino":4751.13086074004,"perc":0.401163882641589,"spend_perlab":"19","y":0.401163882641589,"name":"Military history"}],"type":"bar","color":"#0f2bc5"}],"xAxis":{"type":"category","title":"","labels":{"style":{"fontSize":"10px"}}},"tooltip":{"pointFormat":"<b>{point.value}<\/b><br>% of total budget spent: {point.y:.1f}%<br>a total of ${point.spend_perlab} on ads including this audience.","headerFormat":""}},"theme":{"colors":["#0266C8","#F90101","#F2B50F","#00933B"],"chart":{"style":{"fontFamily":"Roboto","color":"#444444"}},"xAxis":{"gridLineWidth":1,"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"yAxis":{"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"legendBackgroundColor":"rgba(0, 0, 0, 0.5)","background2":"#505053","dataLabelsColor":"#B0B0B3","textColor":"#C0C0C0","contrastTextColor":"#F0F0F3","maskColor":"rgba(255,255,255,0.3)"},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":"Roboto","debug":false},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="top-excluded-audiences" class="level2">
+<h2 class="anchored" data-anchor-id="top-excluded-audiences">Top Excluded Audiences</h2>
+<p>Among the detailed options offered by Meta, the chart below shows the most excluded target audiences per party. The ranking is based on the amounts spent.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">2 May - 31 May 2024</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">25 May - 31 May 2024</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div class="cell-output-display">
+
+<div class="container">
+<div>
+<div class="row">
+<div style="width: 50%; float: left;">
+<div id="htmlwidget-a33fe3d3f25d3a8a2d8a" style="width:100%;height:300px;" class="highchart html-widget "></div>
+<script type="application/json" data-for="htmlwidget-a33fe3d3f25d3a8a2d8a">{"x":{"hc_opts":{"chart":{"reflow":true,"height":300},"title":{"text":"PP","align":"left","style":{"fontWeight":"bold"}},"yAxis":{"title":{"text":"% party budget spent on excluding audience"},"type":"linear","max":13.0744930489882},"credits":{"enabled":false},"exporting":{"enabled":true},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":false},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"bar":{"horizontal":true,"stacking":"normal"}},"series":[{"group":"group","data":[{"party":"PP","value":"Frequent international travellers","is_exclusion":true,"detailed_type":"BEHAVIORS","total_spend":1092.08554646454,"total_spenderino":8352.79457775265,"perc":13.0744930489882,"spend_perlab":"1,092","y":13.0744930489882,"name":"Frequent international travellers"},{"party":"PP","value":"Luxury goods (retail)","is_exclusion":true,"detailed_type":"INTERESTS","total_spend":1092.08554646454,"total_spenderino":8352.79457775265,"perc":13.0744930489882,"spend_perlab":"1,092","y":13.0744930489882,"name":"Luxury goods (retail)"}],"type":"bar","color":"#68C1EC"}],"xAxis":{"type":"category","title":"","labels":{"style":{"fontSize":"10px"}}},"tooltip":{"pointFormat":"<b>{point.value}<\/b><br>% of total budget spent: {point.y:.1f}%<br>a total of ${point.spend_perlab} on ads excluding this audience.","headerFormat":""}},"theme":{"colors":["#0266C8","#F90101","#F2B50F","#00933B"],"chart":{"style":{"fontFamily":"Roboto","color":"#444444"}},"xAxis":{"gridLineWidth":1,"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"yAxis":{"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"legendBackgroundColor":"rgba(0, 0, 0, 0.5)","background2":"#505053","dataLabelsColor":"#B0B0B3","textColor":"#C0C0C0","contrastTextColor":"#F0F0F3","maskColor":"rgba(255,255,255,0.3)"},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":"Roboto","debug":false},"evals":[],"jsHooks":[]}</script>
+</div>
+<div style="width: 50%; float: left;">
+<div id="htmlwidget-9b7525f95a308fcaee94" style="width:100%;height:300px;" class="highchart html-widget "></div>
+<script type="application/json" data-for="htmlwidget-9b7525f95a308fcaee94">{"x":{"hc_opts":{"chart":{"reflow":true,"height":300},"title":{"text":"PT","align":"left","style":{"fontWeight":"bold"}},"yAxis":{"title":{"text":"% party budget spent on excluding audience"},"type":"linear","max":13.0744930489882},"credits":{"enabled":false},"exporting":{"enabled":true},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":false},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"bar":{"horizontal":true,"stacking":"normal"}},"series":[{"group":"group","data":[{"party":"PT","value":"Polícia Militar","is_exclusion":true,"detailed_type":"DEMOGRAPHICS","total_spend":811.659553889828,"total_spenderino":22721.89637328,"perc":3.57214706270866,"spend_perlab":"812","y":3.57214706270866,"name":"Polícia Militar"},{"party":"PT","value":"Exército Brasileiro","is_exclusion":true,"detailed_type":"DEMOGRAPHICS","total_spend":405.829776944914,"total_spenderino":22721.89637328,"perc":1.78607353135433,"spend_perlab":"406","y":1.78607353135433,"name":"Exército Brasileiro"},{"party":"PT","value":"ARMA 3","is_exclusion":true,"detailed_type":"INTERESTS","total_spend":405.829776944914,"total_spenderino":22721.89637328,"perc":1.78607353135433,"spend_perlab":"406","y":1.78607353135433,"name":"ARMA 3"},{"party":"PT","value":"Civil War (comics)","is_exclusion":true,"detailed_type":"INTERESTS","total_spend":405.829776944914,"total_spenderino":22721.89637328,"perc":1.78607353135433,"spend_perlab":"406","y":1.78607353135433,"name":"Civil War (comics)"},{"party":"PT","value":"Policia 24H","is_exclusion":true,"detailed_type":"INTERESTS","total_spend":405.829776944914,"total_spenderino":22721.89637328,"perc":1.78607353135433,"spend_perlab":"406","y":1.78607353135433,"name":"Policia 24H"}],"type":"bar","color":"#e20e28"}],"xAxis":{"type":"category","title":"","labels":{"style":{"fontSize":"10px"}}},"tooltip":{"pointFormat":"<b>{point.value}<\/b><br>% of total budget spent: {point.y:.1f}%<br>a total of ${point.spend_perlab} on ads excluding this audience.","headerFormat":""}},"theme":{"colors":["#0266C8","#F90101","#F2B50F","#00933B"],"chart":{"style":{"fontFamily":"Roboto","color":"#444444"}},"xAxis":{"gridLineWidth":1,"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"yAxis":{"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"legendBackgroundColor":"rgba(0, 0, 0, 0.5)","background2":"#505053","dataLabelsColor":"#B0B0B3","textColor":"#C0C0C0","contrastTextColor":"#F0F0F3","maskColor":"rgba(255,255,255,0.3)"},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":"Roboto","debug":false},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="cell-output-display">
+
+<div class="container">
+<div>
+<div class="row">
+<div style="width: 50%; float: left;">
+<div id="htmlwidget-6e5afdb93052c12fc66a" style="width:100%;height:300px;" class="highchart html-widget "></div>
+<script type="application/json" data-for="htmlwidget-6e5afdb93052c12fc66a">{"x":{"hc_opts":{"chart":{"reflow":true,"height":300},"title":{"text":"PT","align":"left","style":{"fontWeight":"bold"}},"yAxis":{"title":{"text":"% party budget spent on excluding audience"},"type":"linear","max":4.37830616353673},"credits":{"enabled":false},"exporting":{"enabled":true},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":false},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"bar":{"horizontal":true,"stacking":"normal"}},"series":[{"group":"group","data":[{"party":"PT","value":"Polícia Militar","is_exclusion":true,"detailed_type":"DEMOGRAPHICS","total_spend":672.556553295053,"total_spenderino":15361.1129092848,"perc":4.37830616353673,"spend_perlab":"673","y":4.37830616353673,"name":"Polícia Militar"},{"party":"PT","value":"Exército Brasileiro","is_exclusion":true,"detailed_type":"DEMOGRAPHICS","total_spend":336.278276647527,"total_spenderino":15361.1129092848,"perc":2.18915308176837,"spend_perlab":"336","y":2.18915308176837,"name":"Exército Brasileiro"},{"party":"PT","value":"ARMA 3","is_exclusion":true,"detailed_type":"INTERESTS","total_spend":336.278276647527,"total_spenderino":15361.1129092848,"perc":2.18915308176837,"spend_perlab":"336","y":2.18915308176837,"name":"ARMA 3"},{"party":"PT","value":"Civil War (comics)","is_exclusion":true,"detailed_type":"INTERESTS","total_spend":336.278276647527,"total_spenderino":15361.1129092848,"perc":2.18915308176837,"spend_perlab":"336","y":2.18915308176837,"name":"Civil War (comics)"},{"party":"PT","value":"Policia 24H","is_exclusion":true,"detailed_type":"INTERESTS","total_spend":336.278276647527,"total_spenderino":15361.1129092848,"perc":2.18915308176837,"spend_perlab":"336","y":2.18915308176837,"name":"Policia 24H"}],"type":"bar","color":"#e20e28"}],"xAxis":{"type":"category","title":"","labels":{"style":{"fontSize":"10px"}}},"tooltip":{"pointFormat":"<b>{point.value}<\/b><br>% of total budget spent: {point.y:.1f}%<br>a total of ${point.spend_perlab} on ads excluding this audience.","headerFormat":""}},"theme":{"colors":["#0266C8","#F90101","#F2B50F","#00933B"],"chart":{"style":{"fontFamily":"Roboto","color":"#444444"}},"xAxis":{"gridLineWidth":1,"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"yAxis":{"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"legendBackgroundColor":"rgba(0, 0, 0, 0.5)","background2":"#505053","dataLabelsColor":"#B0B0B3","textColor":"#C0C0C0","contrastTextColor":"#F0F0F3","maskColor":"rgba(255,255,255,0.3)"},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":"Roboto","debug":false},"evals":[],"jsHooks":[]}</script>
+</div>
+<div style="width: 50%; float: left;"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="top-contested-audiences" class="level2">
+<h2 class="anchored" data-anchor-id="top-contested-audiences">Top Contested Audiences</h2>
+<p>The charts below show the target audiences where most competition takes place. For example, the groups in which all parties invest large amounts to reach voters with the same interests.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">2 May - 31 May 2024</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">25 May - 31 May 2024</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<div class="cell">
+<div class="cell-output-display">
+
+<div class="highchart html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-cf98468f50d63b2bd3bc" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-cf98468f50d63b2bd3bc">{"x":{"hc_opts":{"chart":{"reflow":true},"title":{"text":null},"yAxis":{"title":{"text":"% of budget spent on targeting method"},"type":"linear","labels":{"format":"{value}%"},"max":100,"min":0},"credits":{"enabled":true,"text":"Source: Meta Ad Library and data compiled by Who Targets Me. Data Viz: Fabio Votta (@favstats)."},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":true},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}},"bar":{"stacking":"normal"}},"series":[{"name":"OUT","data":[{"party":"OUT","value":"INTERESTS: Entrepreneurship (business and finance)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":209.85916656014,"n":3,"total_spenderino":1443.35910633821,"perc":14.5396364382631,"labb":null,"colors":"#666666","y":14.5396364382631,"color":"#666666","name":"INTERESTS: Entrepreneurship (business and finance)"},{"party":"OUT","value":"INTERESTS: Small business (business and finance)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":209.85916656014,"n":3,"total_spenderino":1443.35910633821,"perc":14.5396364382631,"labb":null,"colors":"#666666","y":14.5396364382631,"color":"#666666","name":"INTERESTS: Small business (business and finance)"}],"type":"bar","showInLegend":true},{"name":"PP","data":[{"party":"PP","value":"INTERESTS: Entrepreneurship (business and finance)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1092.08554646454,"n":3,"total_spenderino":1443.35910633821,"perc":75.662774542307,"labb":null,"colors":"#68C1EC","y":75.662774542307,"color":"#68C1EC","name":"INTERESTS: Entrepreneurship (business and finance)"},{"party":"PP","value":"INTERESTS: Small business (business and finance)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":1092.08554646454,"n":3,"total_spenderino":1443.35910633821,"perc":75.662774542307,"labb":null,"colors":"#68C1EC","y":75.662774542307,"color":"#68C1EC","name":"INTERESTS: Small business (business and finance)"}],"type":"bar","showInLegend":true},{"name":"PT","data":[{"party":"PT","value":"INTERESTS: Entrepreneurship (business and finance)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":141.414393313534,"n":3,"total_spenderino":1443.35910633821,"perc":9.79758901942989,"labb":null,"colors":"#e20e28","y":9.79758901942989,"color":"#e20e28","name":"INTERESTS: Entrepreneurship (business and finance)"},{"party":"PT","value":"INTERESTS: Small business (business and finance)","is_exclusion":false,"detailed_type":"INTERESTS","total_spend":141.414393313534,"n":3,"total_spenderino":1443.35910633821,"perc":9.79758901942989,"labb":null,"colors":"#e20e28","y":9.79758901942989,"color":"#e20e28","name":"INTERESTS: Small business (business and finance)"}],"type":"bar","showInLegend":true}],"xAxis":{"type":"category","title":{"text":"Targeting criteria"},"labels":{"style":{"fontSize":"10px"}},"categories":["INTERESTS: Entrepreneurship (business and finance)","INTERESTS: Small business (business and finance)"]},"tooltip":{"pointFormat":"<b>{point.party}<\/b><br>..makes up {point.y:.1f}% of total budget spent on {point.value}. <br>..a total of ${point.total_spend:.0f} on this audience.<br><br>Total Expenditure on audience is ${point.total_spenderino:.0f}.","headerFormat":""},"legend":{"enabled":true,"verticalAlign":"bottom","layout":"horizontal"},"colors":{"#666666":"#666666","#68C1EC":"#68C1EC","#e20e28":"#e20e28"}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<div class="cell">
+<div class="cell-output-display">
+No data (yet).
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

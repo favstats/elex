@@ -120,7 +120,7 @@ for (cntryy in full_cntry_list$iso2c) {
           keep(~str_detect(.x, "html|json|logo")) %>% 
           walk(~fs::file_copy(.x, str_replace(.x, "docs/", glue::glue("docs/{sets$cntry}/")), overwrite = T))
         
-        knitr::knit("README.Rmd")
+        # knitr::knit("README.Rmd")
         
         rmarkdown::render("logs/overview.Rmd")
         
@@ -171,6 +171,7 @@ dir(full.names = F) %>%
   keep(~str_detect(.x, "_libs")) %>%
   walk(~fs::dir_copy(.x, "docs/site_libs", overwrite = T))
 
+file.copy(from = "logs/log.html", to = glue::glue("docs/log.html"), overwrite = T, recursive = T)
 
 
 

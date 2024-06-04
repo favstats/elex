@@ -36,8 +36,11 @@ options(scipen = 999)
 source(here::here("utils.R"))
 source(here::here("party_utils.R"))
 
+write_lines(nrow(distinct(election_dat30, internal_id)), file = "n_advertisers.txt")
+
+
 total_spend_id <- election_dat30 %>%
-    filter(main_currency == the_currency) %>%
+    # filter(main_currency == the_currency) %>%
   distinct(internal_id, .keep_all = T) %>%
   group_by(party) %>%
   summarize(total_spend_formatted = sum(total_spend_formatted)) %>%
@@ -48,13 +51,13 @@ total_spend_id <- election_dat30 %>%
 
 ```{r}
 sum30 <- election_dat30 %>%
-    filter(main_currency == the_currency) %>%
+    # filter(main_currency == the_currency) %>%
     distinct(internal_id, .keep_all = T) %>%
     summarize(total_spend_formatted = sum(total_spend_formatted),
               total_num_ads = sum(total_num_ads))
 
 sum7 <- election_dat7 %>%
-    filter(main_currency == the_currency) %>%
+    # filter(main_currency == the_currency) %>%
     distinct(internal_id, .keep_all = T) %>%
     summarize(total_spend_formatted = sum(total_spend_formatted),
               total_num_ads = sum(total_num_ads))
@@ -127,7 +130,7 @@ During this period, political parties spent a total of `r paste0(currency_symbol
 get_table_dat <- function(x, var) {
 
   x %>%
-    filter(main_currency == the_currency) %>%
+    # filter(main_currency == the_currency) %>%
     distinct(internal_id, .keep_all = T) %>%
     group_by({
       {
@@ -145,7 +148,7 @@ get_table_dat <- function(x, var) {
     mutate(`party_col` = "Number of Advertisers") %>%
     bind_rows(
       x %>%
-        filter(main_currency == the_currency) %>%
+        # filter(main_currency == the_currency) %>%
         distinct(internal_id, .keep_all = T) %>%
         group_by({
           {
@@ -293,6 +296,9 @@ eval(parse(text = paste0("gt(the_table7, rowname_col = 'party_col') %>% fmt_mark
 
 ```{r, eval = T}
 
+
+if (Sys.info()[["effective_user"]] != "fabio") {
+
 linkie <- function(.x, sets) {
     download.file(glue::glue("https://github.com/favstats/meta_ad_reports/releases/download/{sets$cntry}-lifelong/{.x}.rds"), destfile = "data.rds", quiet = T)
     
@@ -362,6 +368,7 @@ hc_data_dafb %>%
     }")
   )  
 
+}
 ```
 
 

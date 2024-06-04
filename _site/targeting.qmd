@@ -5,6 +5,7 @@ format:
   html:
     toc: true
     toc-location: right
+    page-layout: full
 ---
 
 
@@ -60,16 +61,46 @@ How much did the campaigns of political parties spend on different audiences? Th
 
 
 ```{r, fig.width=8, fig.height=5, dpi=300}
-col_each30 <- election_dat30 %>%
-    mutate(total_spend = total_spend_formatted) %>%
-    filter(main_currency == the_currency) %>%
-    group_split(internal_id) %>%
+
+
+# library(tidytable)
+# if(Sys.info()[["user"]] == "fabio"){
+#   col_each30 <- readRDS("col_each30.rds")
+# } else {
+  
+  
+election_dat30 <- election_dat30 %>% 
+    mutate(total_spend = dollar_spend) 
+# t1 <- Sys.time()
+
+  col_each30 <- election_dat30 %>%
+    mutate(cntry_party = paste0(cntry, "XXXXXXX", party)) %>% 
+    pull(cntry_party) %>% 
+    unique() %>% 
     map_dfr(~{
-        calc_targeting(.x) %>%
+      important <- str_split(.x, "XXXXXXX") %>% unlist()
+      the_dat <- election_dat30 %>% filter(cntry == important[1]) %>% filter(party == important[2])  
+      
+        calc_targeting(the_dat) %>%
             mutate(#coalition = .x$coalition[1],
-                   party = .x$party[1],
-                   internal_id = .x$internal_id[1])
-    })
+                   party = the_dat$party[1],
+                   internal_id = the_dat$internal_id[1],
+                   cntry = the_dat$cntry[1])
+    }, .progress = T) %>% 
+  filter(target != "Gender: All") %>% 
+  filter(target != "Unknown")
+
+# t2 <- Sys.time()
+# t2-t1
+#   
+
+# saveRDS(col_each30, "col_each30.rds")
+
+
+
+  
+  
+# }
 
 all_spend <- col_each30  %>% 
   distinct(internal_id, .keep_all = T) %>% 
@@ -136,7 +167,6 @@ gg %>%
     hc_exporting(
       enabled = TRUE
     )
-
 
 
 
@@ -282,16 +312,26 @@ tags$div(class = "container", do.call(tags$div, rows))
 
 
 ```{r, fig.width=8, fig.height=5, dpi=300}
-col_each7 <- election_dat7 %>%
-    mutate(total_spend = total_spend_formatted) %>%
-    filter(main_currency == the_currency) %>%
-    group_split(internal_id) %>%
+election_dat7 <- election_dat7 %>% 
+    mutate(total_spend = dollar_spend) 
+# t1 <- Sys.time()
+
+  col_each7 <- election_dat7 %>%
+    mutate(cntry_party = paste0(cntry, "XXXXXXX", party)) %>% 
+    pull(cntry_party) %>% 
+    unique() %>% 
     map_dfr(~{
-        calc_targeting(.x) %>%
+      important <- str_split(.x, "XXXXXXX") %>% unlist()
+      the_dat <- election_dat7 %>% filter(cntry == important[1]) %>% filter(party == important[2])  
+      
+        calc_targeting(the_dat) %>%
             mutate(#coalition = .x$coalition[1],
-                   party = .x$party[1],
-                   internal_id = .x$internal_id[1])
-    })
+                   party = the_dat$party[1],
+                   internal_id = the_dat$internal_id[1],
+                   cntry = the_dat$cntry[1])
+    }, .progress = T) %>% 
+  filter(target != "Gender: All") %>% 
+  filter(target != "Unknown")
 
 all_spend <- col_each7  %>% 
   distinct(internal_id, .keep_all = T) %>% 

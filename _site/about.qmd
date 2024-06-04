@@ -3,18 +3,19 @@ title: " "
 format:
   html:
     theme: lumen
+    page-layout: full
 ---
 
-```{r, echo = F, warning=F, message=F}
+```{r setup, include=FALSE}
 # dir()
-# here::i_am("wtm_gb.Rproj")
+# here::i_am("ep2024.Rproj")
 
 library(tidyverse)
-library(rvest)
 library(htmltools)
-sets <- jsonlite::fromJSON(here::here("settings.json"))
 
-source(here::here("party_utils.R"))
+# sets <- jsonlite::fromJSON(here::here("settings.json"))
+
+# source(here::here("party_utils.R"))
 ```
 
 
@@ -27,8 +28,8 @@ In collaboration with [Who Targets Me](https://whotargets.me/), we monitored `r 
 
 To better understand the election, we kept only advertisers who:
 
-1. Advertised in the last 7 days (`r last7days_string`)
-2. Advertised in the last 30 days (`r last30days_string`)
+1. Advertised in the last 7 days (`r read_lines("last7days_string.txt")`)
+2. Advertised in the last 30 days (`r read_lines("last30days_string.txt")`)
 
 
 ::: {.callout-note}
@@ -48,7 +49,6 @@ The data shown in this dashboard is based on the platform's respective ad librar
 
 ```{r, echo=F}
 
-
 card <- div(
   class = "card",
   div(
@@ -59,7 +59,7 @@ card <- div(
         style = "display: flex; justify-content: center;",
         img(
           class = "card-img", 
-          src = "https://pbs.twimg.com/profile_images/1662875733704822784/C4T3VPy0_400x400.jpg",
+          src = "https://verkiezingspropaganda.apache.be/photo_2024-01-16_23-01-45.jpg",
           style = "max-width: 500px;"  # Adjusted max-width to control image size
         )
       )
@@ -86,7 +86,11 @@ card
 ```
 
 
+|                            |                            |                            |
+|----------------------------|----------------------------|----------------------------|
+| <a href="https://bsky.app/profile/favstats.bsky.social"> {{< iconify arcticons bluesky size=22px >}}</a> BlueSky |  <a href="https://x.com/favstats"> {{< iconify arcticons twitter size=22px >}}</a> Twitter | <a href="https://favstats.eu"> {{< iconify arcticons emoji-web size=22px >}}</a> Personal Website |
 
+<br>
 
 
 :::: {style="display: flex; justify-content: center; align-items: center;" }
@@ -145,7 +149,6 @@ A list of election dashboards:
 + 🇳🇿 [2023 New Zealand general election](https://favstats.github.io/NZ2023/) (14 October 2023)
 + `r emo::ji("poland")` [2023 Polish parliamentary election](https://favstats.github.io/poland2023/) (15 October 2023)
 + `r emo::ji("us")` [US Presidential Primaries](https://favstats.github.io/USprimaries2024/) (2023-2024)
-
 
 
 

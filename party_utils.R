@@ -68,59 +68,126 @@ country_codes <- c("AD", "AL", "AM", "AR", "AT",
                    "VE", "ZA")
 
 
-try({
-  download.file(paste0("https://data-api.whotargets.me/advertisers-export-csv?countries.alpha2=", str_to_lower(sets$cntry)), destfile = "data/wtm_advertisers.csv")
-  
-  thedat <- read_csv(here::here("data/wtm_advertisers.csv")) %>% 
-    filter(entities.short_name != "ZZZ") 
-  
-})
+# try({
+#   download.file(paste0("https://data-api.whotargets.me/advertisers-export-csv?countries.alpha2=", str_to_lower(sets$cntry)), destfile = "data/wtm_advertisers.csv")
+#   
+#   thedat <- read_csv(here::here("data/wtm_advertisers.csv")) %>% 
+#     filter(entities.short_name != "ZZZ") 
+#   
+# })
+# 
+# if(!exists("thedat")){
+#   thedat <- tibble(no_data = NULL)
+# }
 
-if(!exists("thedat")){
-  thedat <- tibble(no_data = NULL)
+
+library(tibble)
+
+wtm_labs <- readRDS("../data/wtm_labs.rds")
+
+# thhone <- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vTSSh_8rDUFjkmabJRsRHit5BGjtOovd6pAE63_EeB9SqCtKojaewmSoCyu2re43eQ5iX6CVz68-l_N/pub?output=csv")
+
+
+if(sets$cntry == "NL"){
+  
+  color_dat <- tibble(
+    colors = c("#00b13d", "#80c31c", "#0a2cca", "#008067", "#bf0000", "#ff0000", "#6f2421", "#02a6e9", "#92107d", "#04d3d4", "#242b57", "#66cdaa", "#242b57", "#006b28", "#012758", "#ea5b0b", "#582c83", "#698c0c", "#fdfd00", "#8da6d6", "#dc1f26", "#FFD700"),
+    party = c("D66", "GroenLinks", "VVD", "CDA", "SP", "PvdA", "FvD", "ChristenUnie", "50PLUS", "Alliantie", "BVNL", "DENK", "Ja21", "PvdD", "PVV", "SGP", "Volt Nederland", "BBB", "BIJ1", "NSC", "GroenLinks-PvdA", "Libertaire Partij"))
+  
+  saveRDS(color_dat, here::here("data/color_dat.rds"))
+  
+  all_dat <- read_rds("https://github.com/groene/TK2023/raw/main/data/all_dat.rds")
+  
+  # wtm_labs_fin <- wtm_labs %>% 
+  #   mutate(European_Political_Group2 = ifelse(entities_groups.group_name == "Group 4", entities.short_name, NA)) %>% 
+  #   left_join(thhone) %>% 
+  #   rename(party = European_Political_Group) %>% 
+  #   mutate(party = ifelse(is.na(party), European_Political_Group2, party)) %>% 
+  #   mutate(party = ifelse(party %in% c("-", "uncertain") | is.na(party), "-", party))
+  # 
+  
+  election_dat30 <- readRDS(glue::glue("../data/30/{str_to_upper(sets$cntry)}.rds"))  %>% 
+    select(internal_id = contains("page_id"), everything()) %>% 
+    as_tibble() %>% 
+    select(-party) %>% 
+    left_join(wtm_labs %>% select(internal_id, party = entities.short_name)) %>% 
+    # mutate(party = ifelse(is.na(party), "-", party)) %>% 
+    # mutate(national_party = ifelse(party == "-", "-", national_party))%>% 
+    # mutate(party = national_party) %>% 
+    # filter(party != "-")  %>% 
+    # filter(cntry == str_to_upper(sets$cntry)) %>% 
+    left_join(all_dat %>% select(internal_id = page_id, party2 = party)) %>% 
+    mutate(party = ifelse(is.na(party2), party, party2)) %>% 
+    filter(party %in% color_dat$party)
+  
+  election_dat7 <- readRDS(glue::glue("../data/7/{str_to_upper(sets$cntry)}.rds"))  %>% 
+    select(internal_id = contains("page_id"), everything()) %>% 
+    as_tibble()  %>% 
+    select(-party) %>% 
+    left_join(wtm_labs %>% select(internal_id, party = entities.short_name)) %>% 
+    # mutate(party = ifelse(is.na(party), "-", party)) %>% 
+    # mutate(national_party = ifelse(party == "-", "-", national_party))%>% 
+    # mutate(party = national_party) %>% 
+    # filter(party != "-")  %>% 
+    filter(cntry == str_to_upper(sets$cntry)) %>% 
+    left_join(all_dat %>% select(internal_id = page_id, party2 = party)) %>% 
+    mutate(party = ifelse(is.na(party2), party, party2)) %>% 
+    filter(party %in% color_dat$party)
+  
+  
+  most_left_party <- "GroenLinks-PvdA"
+  
+} else if(sets$cntry != "NL"){
+  
+  # wtm_labs_fin <- wtm_labs %>% 
+  # mutate(European_Political_Group2 = ifelse(entities_groups.group_name == "Group 4", entities.short_name, NA)) %>% 
+  # left_join(thhone) %>% 
+  # rename(party = European_Political_Group) %>% 
+  # mutate(party = ifelse(is.na(party), European_Political_Group2, party)) %>% 
+  # mutate(party = ifelse(party %in% c("-", "uncertain") | is.na(party), "-", party))
+  
+  color_dat <- wtm_labs %>% 
+    filter(countries.alpha2 == str_to_lower(sets$cntry)) %>% 
+    select(party = entities.short_name, color  = entities.color) %>% 
+    distinct() %>% 
+    setColors() %>% 
+    rename(colors = color)
+  
+  saveRDS(color_dat, here::here("data/color_dat.rds"))
+  
+  election_dat30 <- readRDS(glue::glue("../data/30/{str_to_upper(sets$cntry)}.rds"))  %>% 
+    select(internal_id = contains("page_id"), everything()) %>% 
+    as_tibble()  %>% 
+    select(-party) %>% 
+    left_join(wtm_labs %>% select(internal_id, party = entities.short_name)) %>% 
+    # mutate(party = ifelse(is.na(party), "-", party)) %>% 
+    # mutate(national_party = ifelse(party == "-", "-", national_party))%>% 
+    # mutate(party = national_party) %>% 
+    # filter(party != "-")  %>%
+    # filter(cntry == str_to_upper(sets$cntry)) %>% 
+    filter(party %in% color_dat$party)
+  
+  election_dat7 <- readRDS(glue::glue("../data/7/{str_to_upper(sets$cntry)}.rds"))  %>% 
+    select(internal_id = contains("page_id"), everything()) %>% 
+    as_tibble()  %>% 
+    select(-party)  %>% 
+    left_join(wtm_labs %>% select(internal_id, party = entities.short_name)) %>% 
+    # mutate(party = ifelse(is.na(party), "-", party)) %>% 
+    # mutate(national_party = ifelse(party == "-", "-", national_party))%>% 
+    # mutate(party = national_party) %>% 
+    # filter(party != "-")  %>%
+    # filter(cntry == str_to_upper(sets$cntry)) %>% 
+    filter(party %in% color_dat$party)
+  
+  most_left_party <- color_dat$party[1]
+  
+  
 }
 
 
-###### get colors ####
-# if(!custom){
-  if(sets$cntry %in% country_codes & nrow(thedat)!=0){
-    res <- GET(url = paste0("https://data-api.whotargets.me/entities?%24client%5BwithCountries%5D=true&countries.alpha2%5B%24in%5D%5B0%5D=", str_to_lower(sets$cntry)))
-    color_dat <- content(res) %>% 
-      flatten() %>% 
-      map(compact)%>% 
-      map_dfr(as_tibble) %>% 
-      drop_na(id) %>% 
-      ## this is a speccial UK thing
-      rename(party = name) %>% 
-      select(party, short_name, contains("color")) %>% 
-      setColors() %>% 
-      rename(colors = color)
-    
-  } else {
-    polsample <- readRDS(here::here("data/polsample.rds"))
-    partycolorsdataset  <- readRDS(here::here("data/partycolorsdataset.rds"))
-    
-    color_dat <- polsample %>% 
-      # count(cntry, partyfacts_id, sort = T) %>% View()
-      filter(cntry == sets$cntry) %>%
-      select(party = name_short, partyfacts_id) %>% 
-      distinct(partyfacts_id, party) %>% 
-      left_join(partycolorsdataset %>% mutate(partyfacts_id = as.character(partyfacts_id))) %>% 
-      select(party, color = hex)  %>% 
-      setColors() %>% 
-      rename(colors = color) %>% 
-      drop_na(party)
-  }
-  
 
-  
-  
-  saveRDS(color_dat, here::here("data/color_dat.rds"))
 # } 
 
-
-
-most_left_party <- color_dat$party[1]
 
 
 scale_fill_parties <- function(...){
@@ -149,180 +216,6 @@ scale_color_parties <- function(...){
 #     select(-contains("party")) %>%
 #     left_join(all_dat %>% distinct(page_id, party))
 # }
-
-# if(!exists("election_dat30")){
-  out <- sets$cntry %>% 
-    map(~{
-      .x %>% 
-        paste0(c("-last_30_days"))
-    }) %>% 
-    unlist() %>% 
-    # keep(~str_detect(.x, tf)) %>% 
-    # .[100:120] %>% 
-    map_dfr_progress(~{
-      the_assets <- httr::GET(paste0("https://github.com/favstats/meta_ad_targeting/releases/expanded_assets/", .x))
-      
-      the_assets %>% httr::content() %>% 
-        rvest::html_elements(".Box-row") %>% 
-        rvest::html_text()  %>%
-        tibble(raw = .)   %>%
-        # Split the raw column into separate lines
-        mutate(raw = strsplit(as.character(raw), "\n")) %>%
-        # Extract the relevant lines for filename, file size, and timestamp
-        transmute(
-          filename = sapply(raw, function(x) trimws(x[3])),
-          file_size = sapply(raw, function(x) trimws(x[6])),
-          timestamp = sapply(raw, function(x) trimws(x[7]))
-        ) %>% 
-        filter(filename != "Source code") %>% 
-        mutate(release = .x) %>% 
-        mutate_all(as.character)
-    })
-  
-  thosearethere <- out %>% 
-    rename(tag = release,
-           file_name = filename) %>% 
-    arrange(desc(tag)) %>% 
-    separate(tag, into = c("cntry", "tframe"), remove = F, sep = "-") %>% 
-    mutate(ds  = str_remove(file_name, "\\.rds|\\.zip|\\.parquet")) %>% 
-    distinct(cntry, ds, tframe) %>% 
-    drop_na(ds) %>% 
-    arrange(desc(ds))
-  
-  # print(thosearethere)
-  
-  # try({
-    election_dat30 <- arrow::read_parquet(paste0("https://github.com/favstats/meta_ad_targeting/releases/download/", sets$cntry, "-last_", 30,"_days/", thosearethere$ds[1], ".parquet"))
-  # })
-  
-# }
-
-# if(!exists("election_dat7")){
-  out <- sets$cntry %>% 
-    map(~{
-      .x %>% 
-        paste0(c("-last_7_days"))
-    }) %>% 
-    unlist() %>% 
-    # keep(~str_detect(.x, tf)) %>% 
-    # .[100:120] %>% 
-    map_dfr_progress(~{
-      the_assets <- httr::GET(paste0("https://github.com/favstats/meta_ad_targeting/releases/expanded_assets/", .x))
-      
-      the_assets %>% httr::content() %>% 
-        html_elements(".Box-row") %>% 
-        html_text()  %>%
-        tibble(raw = .)   %>%
-        # Split the raw column into separate lines
-        mutate(raw = strsplit(as.character(raw), "\n")) %>%
-        # Extract the relevant lines for filename, file size, and timestamp
-        transmute(
-          filename = sapply(raw, function(x) trimws(x[3])),
-          file_size = sapply(raw, function(x) trimws(x[6])),
-          timestamp = sapply(raw, function(x) trimws(x[7]))
-        ) %>% 
-        filter(filename != "Source code") %>% 
-        mutate(release = .x) %>% 
-        mutate_all(as.character)
-    })
-  
-  thosearethere <- out %>% 
-    rename(tag = release,
-           file_name = filename) %>% 
-    arrange(desc(tag)) %>% 
-    separate(tag, into = c("cntry", "tframe"), remove = F, sep = "-") %>% 
-    mutate(ds  = str_remove(file_name, "\\.rds|\\.zip|\\.parquet")) %>% 
-    distinct(cntry, ds, tframe) %>% 
-    drop_na(ds) %>% 
-    arrange(desc(ds))
-  
-  # try({
-  election_dat7 <- arrow::read_parquet(paste0("https://github.com/favstats/meta_ad_targeting/releases/download/", sets$cntry, "-last_", 7,"_days/", thosearethere$ds[1], ".parquet"))
-  # })
-# }
-# print("hello2")
-
-if(sets$cntry %in% country_codes & nrow(thedat)!=0){
-  
-  if(ncol(color_dat)==3){
-    
-    # print("here")
-    
-    election_dat30 <-
-      election_dat30 %>%
-      rename(internal_id = contains("page_id")) %>%
-      filter(is.na(no_data)) %>% 
-      drop_na(party) %>% 
-      # count(party)
-      left_join(color_dat %>% set_names(c("long_name", "party", "colors"))) %>% 
-      select(-colors) %>% 
-      mutate(partyoold = party) %>% 
-      mutate(party = long_name) %>% 
-      mutate(party = ifelse(is.na(party), partyoold, party)) %>% 
-      filter(party %in% color_dat$party)
-    
-    
-    election_dat7 <- election_dat7 %>%
-      rename(internal_id = contains("page_id")) %>%
-      filter(is.na(no_data)) %>% 
-      drop_na(party) %>% 
-      # count(party)
-      left_join(color_dat %>% set_names(c("long_name", "party", "colors"))) %>% 
-      select(-colors) %>% 
-      mutate(partyoold = party) %>% 
-      mutate(party = long_name) %>% 
-      mutate(party = ifelse(is.na(party), partyoold, party)) %>% 
-      filter(party %in% color_dat$party)
-    
-  } else {
-    
-    election_dat30 <-
-      election_dat30 %>%
-      rename(internal_id = contains("page_id")) %>%
-      filter(is.na(no_data)) %>% 
-      drop_na(party) %>% 
-      filter(party %in% color_dat$party)
-    
-    
-    election_dat7 <- election_dat7 %>%
-      rename(internal_id = contains("page_id")) %>%
-      filter(is.na(no_data)) %>% 
-      drop_na(party) %>% 
-      filter(party %in% color_dat$party)
-    
-  }
-  
-} else {
-  
-  raw <- election_dat30 %>%
-    rename(internal_id = contains("page_id")) %>%
-    filter(is.na(no_data)) %>% 
-    filter(sources == "wtm")
-  
-  if(nrow(raw)==0){
-    election_dat30 <- tibble()
-  } else {
-    election_dat30 <- raw %>% 
-      drop_na(party) %>% 
-      filter(party %in% color_dat$party)
-  }
-  
-  
-  
-  raw <- election_dat7 %>%
-    rename(internal_id = contains("page_id")) %>%
-    filter(is.na(no_data)) %>% 
-    filter(sources == "wtm")
-  
-  if(nrow(raw)==0){
-    election_dat7 <- tibble()
-  } else {
-    election_dat7 <- raw %>% 
-      drop_na(party)  %>% 
-      filter(party %in% color_dat$party)
-  }
-  
-}
 
 
 # print(glimpse(election_dat30))
@@ -354,6 +247,9 @@ create_date <- function(x) {
 last7days_string <- paste0(create_date(begin7), " - ", create_date(fin), " ", lubridate::year(fin)) 
 last30days_string <- paste0(create_date(begin30), " - ", create_date(fin), " ", lubridate::year(fin)) 
 
+write_lines(last7days_string, "last7days_string.txt")
+write_lines(last30days_string, "last30days_string.txt")
+
 # # Print the Dutch date range strings
 # print(last7days_string)
 # print(last30days_string)
@@ -362,30 +258,49 @@ last30days_string <- paste0(create_date(begin30), " - ", create_date(fin), " ", 
 # Sys.setlocale("LC_TIME", "C")
 # print("oo")
 
+
+only_keep_these30 <- election_dat30 %>% 
+  count(internal_id, cntry) %>% 
+  add_count(internal_id, sort = T) %>% 
+  distinct(internal_id, .keep_all = T) %>% 
+  select(-n, -contains("nn"))
+
+only_keep_these7 <- election_dat7 %>% 
+  count(internal_id, cntry) %>% 
+  add_count(internal_id, sort = T) %>% 
+  distinct(internal_id, .keep_all = T) %>% 
+  select(-n, -contains("nn"))
+
+
 election_dat30 <- election_dat30 %>% 
-  filter(party != "Dismissed")
+  filter(party != "Dismissed") %>% 
+  filter(party != "Inv") %>% 
+  mutate(total_spend_formatted = dollar_spend) %>% 
+  inner_join(only_keep_these30)
 
 election_dat7 <- election_dat7 %>% 
-  filter(party != "Dismissed")
+  filter(party != "Dismissed") %>% 
+  filter(party != "Inv") %>% 
+  mutate(total_spend_formatted = dollar_spend) %>% 
+  inner_join(only_keep_these7)
 
-if(nrow(election_dat30)!=0){
-  
-  the_currency <- election_dat30 %>%
-    count(main_currency, sort = T) %>%
-    slice(1) %>%
-    pull(main_currency)
-  
-  currency_symbol <- priceR::currency_info %>% 
-    filter(iso_code == the_currency) %>% 
-    pull(symbol)
-  
-  if(is.null(currency_symbol)){
-    currency_symbol <- the_currency
-  }
-  
-}
+# if(nrow(election_dat30)!=0){
+# 
+#   the_currency <- election_dat30 %>%
+#     count(main_currency, sort = T) %>%
+#     slice(1) %>%
+#     pull(main_currency)
+# 
+#   currency_symbol <- priceR::currency_info %>%
+#     filter(iso_code == the_currency) %>%
+#     pull(symbol)
+# 
+#   if(is.null(currency_symbol)){
+#     currency_symbol <- the_currency
+#   }
+# 
+# }
 
 
-
-
+currency_symbol <- "$"
 

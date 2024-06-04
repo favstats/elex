@@ -4,6 +4,20 @@ format:
     page-layout: full
 ---
 
+```{r setup, include=FALSE}
+# here::i_am("wtm_gb.Rproj")
+
+## Global options
+knitr::opts_chunk$set(
+  cache = F,
+  echo = F,
+  warning = F,
+  message = F,
+  cache.lazy = FALSE
+)
+```
+
+
 ```{css, echo = F, message=F, warning=F}
 .highcharts-container {
   height: 100vh !important;
@@ -40,22 +54,63 @@ format:
         }
 ```
 
+```{r, eval = F}
 
-<script>
-    function changeParentIframeURL() {
-        var newURL = "https://favstats.github.io/elex/docs";
-        // Check if running in an iframe and if the parent is accessible
-        if (window.self !== window.top) {
-            try {
-                iframe = window.parent.document.getElementById('iframeDisplay');
-                iframe.src = newURL; 
-            } catch (e) {
-                console.error("Error changing parent iframe URL: ", e);
-            }
-        } 
-    }
-</script>
+saveRDS(wtm_labs, "../data/wtm_labs.rds")
+wtm_labs %>% 
+  select(entities.short_name, entities.name, countries.name) %>% 
+  distinct %>% 
+  slice(301:n()) %>% 
+  dput()
+  write_csv("all_entities.csv")
+  
+  
+thelabs <- dir("../data", full.names = T) %>% 
+  keep(~str_detect(.x,"Updated")) %>% 
+  map_dfr(read_csv) 
 
+thelabs %>% 
+  distinct()
+
+more_labs <- enframe(labs) %>% 
+  rename(entities.short_name = name, 
+         European_Political_Group2 = value) %>% 
+  add_count(entities.short_name) %>% 
+  filter(n == 1) %>% 
+  select(-n)
+
+# more_labs %>% count(entities.short_name, sort = T)
+wtm_labs %>% 
+  # select(entities.short_name, entities.name, countries.name) %>% 
+  left_join(thelabs) %>% 
+  left_join(more_labs) %>% 
+  mutate(European_Political_Group = ifelse(is.na(European_Political_Group), European_Political_Group2, European_Political_Group)) %>% 
+  # count(European_Political_Group, sort =T) %>% 
+  # filter(European_Political_Group == "uncertain") %>% 
+  select(internal_id, entities.short_name, entities.name, countries.name, European_Political_Group) %>% 
+  left_join(election_dat30 %>% distinct(internal_id, .keep_all = T)) %>% 
+  group_by(entities.name, countries.name, entities.short_name, European_Political_Group) %>% 
+  summarize(spend = sum(dollar_spend, na.rm = T)) %>% 
+  ungroup() %>% 
+  arrange(desc(spend)) %>% 
+  distinct() %>% 
+  write_csv("egroupaffil.csv")
+
+
+wtm_labs %>% 
+  # select(entities.short_name, entities.name, countries.name) %>% 
+  left_join(thelabs) %>% 
+  left_join(more_labs) %>% 
+  mutate(European_Political_Group = ifelse(is.na(European_Political_Group), European_Political_Group2, European_Political_Group)) %>% 
+  # count(European_Political_Group, sort =T) %>% 
+  # filter(European_Political_Group == "uncertain") %>% 
+  select(internal_id, entities.short_name, entities.name, countries.name, European_Political_Group) %>% 
+  left_join(election_dat30 %>% distinct(internal_id, .keep_all = T)) %>% 
+  filter(entities.name == "Investigations") %>% filter(is.na(no_data)) %>% 
+  drop_na(total_spend_pct)
+
+
+```
 
 
 
@@ -63,23 +118,49 @@ format:
 ```{r cars, echo = F, message=F, warning=F}
 library(highcharter)
 library(tidyverse)
+library(reactable)
+library(reactablefmtr)
+library(rvest)
 
+      
+      download_it <- function(link){
+        thetemps <- tempfile()
+        download.file(link, destfile = thetemps, quiet = T)
+        readRDS(thetemps)
+      }
     
-    title_txt <- read_lines(here::here("_quarto.yml"))
-    title_txt[which(str_detect(title_txt, "title"))[1]] <- glue::glue("  title: \"Targeting Dashboard\"")
-    # title_txt[which(str_detect(title_txt, "output-dir"))[1]] <- glue::glue("  output-dir: ../docs/{sets$cntry}")  
-    # Sys.sleep(1)
-    write_lines(title_txt, here::here("_site/_quarto.yml"))
+    # title_txt <- read_lines(here::here("_quarto.yml"))
+    # title_txt[which(str_detect(title_txt, "title"))[1]] <- glue::glue("  title: \"Targeting Dashboard\"")
+    # # title_txt[which(str_detect(title_txt, "output-dir"))[1]] <- glue::glue("  output-dir: ../docs/{sets$cntry}")
+    # # Sys.sleep(1)
+    # write_lines(title_txt, here::here("_site/_quarto.yml"))
     
+# all_labels_dat <- readRDS("../data/all_labels_dat.rds")
+# 
+# wtm_labs <- all_labels_dat %>%
+#   rename(internal_id = advertisers_platforms.advertiser_platform_ref) %>%
+#   filter(entities_groups.group_name != "Group 2") %>%
+#   filter(entities_groups.group_name != "Group 3") %>%
+#   filter(entities_groups.group_name != "Group 4") %>%
+#   arrange(desc(entities_groups.group_name)) %>%
+#   distinct(internal_id, .keep_all = T)
+# 
+# saveRDS(wtm_labs, file = "../wtm_labs.rds")
+
+# source("../party_utils.R")
     
-    
-if(Sys.info()[["sysname"]]=="Windows"){
-  fin_spend <- readRDS("../data/fin_spend.rds")
+        # eu_countries <- c("AT", "BE", "BG", "HR", "CY", "CZ", "DK", "EE", "FI", "FR", "DE", "GR", "HU", "IE", "IT", "LV", "LT", "LU", "MT", "NL", "PL", "PT", "RO", "SK", "SI", "ES", "SE")
+# 
+if(Sys.info()[["user"]]=="fabio" | Sys.info()[["user"]]=="favoo"){
+# if(F){
+  # fin_spend <- readRDS("../data/fin_spend.  rds")
+  spend_reports <- readRDS("../data/spend_reports.rds")
 } else {
   full_cntry_list <- read_rds("https://github.com/favstats/meta_ad_reports/raw/main/cntry_list.rds") %>% 
   rename(iso2c = iso2,
-         country = cntry) %>% 
-  sample_n(n()) 
+         country = cntry) #%>% 
+  # sample_n(n())  %>%
+      # filter(iso2c %in% eu_countries) 
 
       out <- full_cntry_list$iso2c %>% 
         map(~{
@@ -109,7 +190,7 @@ if(Sys.info()[["sysname"]]=="Windows"){
             mutate_all(as.character)
         })
       
-      thosearethere <- out %>% 
+      thosearethere30 <- out %>% 
         rename(tag = release,
                file_name = filename)  %>% 
         arrange(desc(tag)) %>% 
@@ -123,22 +204,52 @@ if(Sys.info()[["sysname"]]=="Windows"){
         slice(1) %>% 
         ungroup()
       
-      
-    spendd <- thosearethere %>% 
-        split(1:nrow(.)) %>% 
+      out <- full_cntry_list$iso2c %>% 
+        map(~{
+          .x %>% 
+            paste0(c("-last_7_days"))
+        }) %>% 
+        unlist() %>% 
+        # keep(~str_detect(.x, tf)) %>% 
+        # .[100:120] %>% 
         map_dfr_progress(~{
+          the_assets <- httr::GET(paste0("https://github.com/favstats/meta_ad_targeting/releases/expanded_assets/", .x))
           
-                elex <- arrow::read_parquet(paste0("https://github.com/favstats/meta_ad_targeting/releases/download/", .x$cntry, "-last_", 30,"_days/", .x$ds, ".parquet")) %>% 
-                  filter(is.na(no_data)) %>% 
-                  distinct(page_id, .keep_all = T) %>% 
-                  mutate(cntry = .x$cntry)
-                
-                return(elex)
-          
+          the_assets %>% httr::content() %>% 
+            rvest::html_elements(".Box-row") %>% 
+            rvest::html_text()  %>%
+            tibble(raw = .)   %>%
+            # Split the raw column into separate lines
+            mutate(raw = strsplit(as.character(raw), "\n")) %>%
+            # Extract the relevant lines for filename, file size, and timestamp
+            transmute(
+              filename = sapply(raw, function(x) trimws(x[3])),
+              file_size = sapply(raw, function(x) trimws(x[6])),
+              timestamp = sapply(raw, function(x) trimws(x[7]))
+            ) %>% 
+            filter(filename != "Source code") %>% 
+            mutate(release = .x) %>% 
+            mutate_all(as.character)
         })
-    
-    
-    conversios <- jsonlite::fromJSON(paste0("https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@",thosearethere$ds[1] ,"/v1/currencies/usd.json")) %>% 
+      
+      thosearethere7 <- out %>% 
+        rename(tag = release,
+               file_name = filename)  %>% 
+        arrange(desc(tag)) %>% 
+        separate(tag, into = c("cntry", "tframe"), remove = F, sep = "-") %>%
+        # filter(cntry == sets$cntry) %>% 
+        mutate(ds  = str_remove(file_name, "\\.rds|\\.zip|\\.parquet")) %>% 
+        distinct(cntry, ds, tframe) %>% 
+        drop_na(ds) %>% 
+        arrange(desc(ds)) %>% 
+        group_by(cntry) %>% 
+        slice(1) %>% 
+        ungroup()
+      
+          # counter <- 1
+      
+          
+  conversios <- jsonlite::fromJSON(paste0("https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@",thosearethere30$ds[1] ,"/v1/currencies/usd.json")) %>% 
   pluck("usd") %>% 
   enframe() %>% 
   unnest(value) %>% 
@@ -148,37 +259,275 @@ if(Sys.info()[["sysname"]]=="Windows"){
   mutate(conversion_rate = value) %>% 
   select(-name, -value)
     
+  # thosearethere7 %>% 
+  #   slice(74)
+      
+    thosearethere7 %>%
+      # filter(cntry %in% eu_countries) %>% 
+        split(1:nrow(.)) %>% 
+        walk(~{
+          # print()
+          try({
+          elex <-
+            arrow::read_parquet(
+              paste0(
+                "https://github.com/favstats/meta_ad_targeting/releases/download/",
+                .x$cntry,
+                "-last_",
+                7,
+                "_days/",
+                .x$ds,
+                ".parquet"
+              )
+            )  %>%
+            mutate(cntry = .x$cntry) %>%
+            filter(is.na(no_data))  %>%
+            left_join(conversios) %>%
+            mutate(total_spend_formatted = ifelse(total_spend_formatted == 100, 1, total_spend_formatted)) %>%
+            mutate(dollar_spend = total_spend_formatted / conversion_rate)
+          
+          saveRDS(elex, glue::glue("../data/7/{.x$cntry}.rds"))            
+          })
+
+          
+          
+        }, .progress = T)
+    
+    spendd <- thosearethere30 %>%
+      # filter(cntry %in% eu_countries) %>% 
+        split(1:nrow(.)) %>% 
+        walk_progress(~{
+          # print()
+          try({
+            
+          elex <-
+            arrow::read_parquet(
+              paste0(
+                "https://github.com/favstats/meta_ad_targeting/releases/download/",
+                .x$cntry,
+                "-last_",
+                30,
+                "_days/",
+                .x$ds,
+                ".parquet"
+              )
+            )  %>%
+            mutate(cntry = .x$cntry) %>%
+            filter(is.na(no_data))  %>%
+            left_join(conversios) %>%
+            mutate(total_spend_formatted = ifelse(total_spend_formatted == 100, 1, total_spend_formatted)) %>%
+            mutate(dollar_spend = total_spend_formatted / conversion_rate)
+          
+          saveRDS(elex, glue::glue("../data/30/{.x$cntry}.rds"))
+          
+          })
+          
+        }, .progress = T)
+    
+
+
+    
     options(scipen = 999)
     
- fin_spend <- spendd %>% 
-    left_join(conversios) %>% 
-    mutate(total_spend_formatted = ifelse(total_spend_formatted == 100, 1, total_spend_formatted)) %>% 
-    mutate(dollar_spend = total_spend_formatted/conversion_rate) %>% 
-    select(cntry, dollar_spend, main_currency, total_spend_formatted,
-           total_num_ads,conversion_rate, ds) %>% 
-   group_by(cntry) %>% 
-   summarise(dollar_spend = sum(dollar_spend),
-             total_num_ads = sum(total_num_ads)) %>% 
-   ungroup() %>% 
-   mutate(dollar_spend = log(dollar_spend)) 
-   
-  # fin_spend %>% 
-  #   filter(cntry == "ID")
+ # fin_spend <- spendd %>% 
+ #    select(cntry, dollar_spend, main_currency, total_spend_formatted,
+ #           total_num_ads,conversion_rate, ds) %>% 
+ #   group_by(cntry) %>% 
+ #   summarise(dollar_spend = sum(dollar_spend),
+ #             total_num_ads = sum(total_num_ads)) %>% 
+ #   ungroup() %>% 
+ #   mutate(url = glue::glue("https://favstats.github.io/elex/{cntry}")) #%>% 
+ #   # mutate(dollar_spend = log(dollar_spend)) 
+ #   
+ #  # fin_spend %>% 
+ #  #   filter(cntry == "ID")
+ # 
+ # saveRDS(fin_spend, "../data/fin_spend.rds")
  
- saveRDS(fin_spend, "../data/fin_spend.rds")
+ # saveRDS(spendd, "../data/election_dat30.rds")
+ 
+ 
+           out <- full_cntry_list$iso2c %>% 
+        map(~{
+          .x %>% 
+            paste0(c("-last_30_days"))
+        }) %>% 
+        unlist() %>% 
+        # keep(~str_detect(.x, tf)) %>% 
+        # .[100:120] %>% 
+        map_dfr_progress(~{
+          the_assets <- httr::GET(paste0("https://github.com/favstats/meta_ad_reports/releases/expanded_assets/", .x))
+          
+          the_assets %>% httr::content() %>% 
+            rvest::html_elements(".Box-row") %>% 
+            rvest::html_text()  %>%
+            tibble(raw = .)   %>%
+            # Split the raw column into separate lines
+            mutate(raw = strsplit(as.character(raw), "\n")) %>%
+            # Extract the relevant lines for filename, file size, and timestamp
+            transmute(
+              filename = sapply(raw, function(x) trimws(x[3])),
+              file_size = sapply(raw, function(x) trimws(x[6])),
+              timestamp = sapply(raw, function(x) trimws(x[7]))
+            ) %>% 
+            filter(filename != "Source code") %>% 
+            mutate(release = .x) %>% 
+            mutate_all(as.character)
+        })
+ 
+      thosearethere30_reports <- out %>% 
+        rename(tag = release,
+               file_name = filename)  %>% 
+        arrange(desc(tag)) %>% 
+        separate(tag, into = c("cntry", "tframe"), remove = F, sep = "-") %>%
+        # filter(cntry == sets$cntry) %>% 
+        mutate(ds  = str_remove(file_name, "\\.rds|\\.zip|\\.parquet")) %>% 
+        distinct(cntry, ds, tframe) %>% 
+        drop_na(ds) %>% 
+        arrange(desc(ds)) %>% 
+        group_by(cntry) %>% 
+        slice(2) %>% 
+        ungroup()
+
+          
+    spend_reports <- thosearethere30_reports %>%
+      # filter(cntry %in% eu_countries) %>% 
+        split(1:nrow(.)) %>% 
+        map_dfr_progress(~{
+          # print()
+ 
+          elex <<-
+            download_it(
+              paste0(
+                "https://github.com/favstats/meta_ad_reports/releases/download/",
+                .x$cntry,
+                # "DE",
+                "-last_",
+                30,
+                "_days/",
+                .x$ds,
+                # "2024-05-30",
+                ".rds"
+              )
+            )  %>%
+            mutate(cntry = .x$cntry)
+          
+          # print("hello")
+          thecurrent <- elex %>% 
+  select(contains("amount_spent")) %>% 
+  names() %>% 
+  str_remove_all("amount_spent_") %>% 
+  str_to_upper()
+  # print("heee")
+elex <- elex %>% 
+rename_at(vars(contains("amount_spent")), function(.x) return("amount_spent")) %>% 
+  # select(contains("amount_spent")) %>% 
+    mutate(main_currency = thecurrent) %>% 
+            left_join(conversios) %>%
+  mutate(amount_spent = readr::parse_number(amount_spent)) %>% 
+            mutate(amount_spent = ifelse(amount_spent == 100, 1, amount_spent)) %>%
+            mutate(dollar_spend = amount_spent / conversion_rate) %>% 
+  group_by(page_id, cntry) %>%
+  summarize(dollar_spend = sum(dollar_spend, na.rm = T)) %>% 
+  ungroup() %>% 
+  mutate_all(as.character) 
+          
+          # saveRDS(elex, glue::glue("../data/30/{.x$cntry}.rds"))
+          
+          return(elex)
+          
+        }, .progress = T) %>% 
+      mutate(dollar_spend = as.numeric(dollar_spend))
+ 
+    
+    saveRDS(spend_reports, "../data/spend_reports.rds")
+    
 }
+```
+
+```{r, eval = F}
+spend_reports %>% 
+  group_by(cntry) %>% 
+  summarize(dollar_spend = sum(dollar_spend)) %>% 
+  arrange(desc(dollar_spend))
+  # count(cntry, sort  = T)
+```
 
 
- 
-fin_spend <- fin_spend %>% 
-   mutate(url = glue::glue("https://favstats.github.io/elex/{cntry}"))
+```{r cars2, echo = F, message=F, warning=F}
+# library(WDI)
+# thepop <- WDI::WDI(indicator = "SP.POP.TOTL",latest = 1, country = full_cntry_list$iso2c)
+# saveRDS(thepop, file = "../data/totpop.rds")
+totpop <- readRDS("../data/totpop.rds")
+
+ncavc <- spend_reports %>% 
+  group_by(cntry) %>% 
+  summarize(dollar_spend = sum(dollar_spend)) %>% 
+  arrange(desc(dollar_spend)) %>% 
+  left_join(
+    totpop %>% 
+  filter(year == 2022) %>% 
+    rename(cntry = iso2c)
+  )  %>% 
+  mutate(spn_per_capita = dollar_spend/SP.POP.TOTL*1000) %>% 
+  # filter(cntry %in% eu_countries) %>% 
+  mutate(perc = dollar_spend/sum(dollar_spend)*100) %>% 
+  mutate(perc = round(perc,2)) #%>% 
+   # mutate(dollar_spend = log(dollar_spend))
+   
+# ncavc %>% 
+#   arrange(desc(spn_per_capita))
+
 
 options(scipen = 999)
-fin_spend <- fin_spend %>%
-  mutate(perc = exp(dollar_spend)/sum(exp(dollar_spend))*100) %>% 
-  arrange(desc(perc)) %>% 
-  mutate(perc = round(perc,2))
+# fin_spend <- fin_spend %>%
+#   mutate(perc = exp(dollar_spend)/sum(exp(dollar_spend))*100) %>% 
+#   arrange(desc(perc)) %>% 
+#   mutate(perc = round(perc,2))
+
+# spend_reports %>% 
+#   arrange(desc(dollar_spend))
+
+
 ```
+
+
+
+
+
+
+```{r}
+# if(Sys.info()[["user"]]=="fabio" | Sys.info()[["user"]]=="favoo"){
+# election_dat30 <- readRDS("../data/election_dat30.rds") 
+# }  else {
+# election_dat30 <- dir("../data/30", full.names = T) %>% 
+#   map_dfr(readRDS)  %>%
+#   rename(internal_id = page_id)
+# 
+# saveRDS(election_dat30,file = "../data/election_dat30.rds")
+# 
+# election_dat7 <- dir("../data/7", full.names = T) %>% 
+#   map_dfr(readRDS)  %>%
+#   rename(internal_id = page_id)
+# 
+# saveRDS(election_dat7,file = "../data/election_dat7.rds")  
+# }
+
+
+# election_dat30 %>% 
+# as_tibble() %>% 
+# select(-party) %>% 
+#   left_join(wtm_labs_fin %>% select(internal_id, party, national_party = entities.short_name)) %>% 
+#   mutate(party = ifelse(is.na(party), "-", party)) %>% 
+#   mutate(national_party = ifelse(party == "-", "-", national_party)) %>% 
+#   filter(cntry == "IT") %>% 
+#   arrange(desc(dollar_spend)) %>% 
+#   distinct(internal_id, .keep_all = T)
+#   count(cntry, sort = T)
+```
+
+
+
 
 ```{r, echo = F, message=F, warning=F}
 # Load the world Map data
@@ -194,39 +543,58 @@ data(worldgeojson, package = "highcharter")
 #   color = c('#ffffb2', '#fecc5c', '#fd8d3c', '#f03b20', '#bd0026') # Example colors
 # )
 
-  highchart() %>%
+highchart() %>%
   hc_add_series_map(
-    worldgeojson, fin_spend, value = "dollar_spend", joinBy = c('iso2','cntry'),
+    worldgeojson,
+    ncavc %>% mutate(spn_per_capita = log(spn_per_capita)),
+    value = "spn_per_capita",
+    joinBy = c('iso2', 'cntry'),
     name = "LifeExpectancy"
-    )  %>% 
-  hc_colorAxis(stops = color_stops()) %>% 
-  hc_title(text = "World Map")  %>%
-  hc_tooltip(formatter = JS("function () {
-    return '<b>' + this.point.name + '</b>: <i>$' + new Intl.NumberFormat('fr-FR').format(Math.exp(this.point.value).toFixed(0)) + '</i> total spent in last 30 days (' + this.point.perc + '%)';
-  }")) %>%
+  )  %>%
+  # hc_colorAxis(stops = color_stops()) %>%
+  hc_tooltip(
+    formatter = JS(
+      "function () {
+    return '<b>' + this.point.name + '</b>: <br><i>€' + new Intl.NumberFormat('fr-FR').format(Math.exp(this.point.value).toFixed(0)) + ' </i> per 1000 inhabitants<br><i>$' + new Intl.NumberFormat('fr-FR').format(this.point.dollar_spend.toFixed(0)) + '</i> total spent in last 30 days (' + this.point.perc + '%)';
+  }"
+    )
+  ) %>%
   hc_mapNavigation(enabled = TRUE) %>%
   hc_title(text = "Click on Any Country to See More") %>%
-  hc_plotOptions(series = list(
-  cursor = "pointer",
-  point = list(
-      events = list(
-        click = JS("function() { 
-          var iframe = window.parent.document.getElementById('iframeDisplay');
-          if(iframe) {
-            iframe.src = this.options.url; 
-          } else {
-            console.error('Iframe not found');
-          }
-        }")
-      )
-  )
-)) %>% 
-hc_legend(enabled = F)
+  hc_legend(enabled = F) %>%
+  hc_colorAxis(
+    # type = 'logarithmic',
+    # stops = color_stops(),
+    minColor = "lightblue",
+    maxColor = "darkgreen"
+  ) %>%
+  hc_plotOptions(series = list(events = list(
+    click = JS(
+      "function(event) {
+                     var cntry = event.point.name;
+                     console.log('Country clicked:', cntry);
+                     document.querySelectorAll('.party-content').forEach(function(el) {
+                       el.style.display = 'none';
+                     });
+                     var partyElement = document.getElementById(cntry);
+                     if (partyElement) {
+                       partyElement.style.display = 'block';
+                     } else {
+                       console.error('Country element with ID ' + cntry + ' not found');
+                     }
+                   }"
+    )
+  ))) %>%
+  hc_legend(enabled = F)
 ```
 
 
 
+<center>
 
+Data shows spending per 1k inhabitants from last 30 days (`r read_lines("last30days_string.txt")`)
+
+</center>
 
 
 
@@ -236,6 +604,7 @@ shiny::HTML('<div class="button-container">
 </div>')
 
 ```
+
 
 
 

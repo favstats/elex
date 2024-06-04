@@ -3,7 +3,7 @@ project:
   output-dir: ../docs
 
 website:
-  title: "Targeting Dashboard - Zimbabwe"
+  title: "Targeting Dashboard"
   navbar:
     left:
       - href: https://favstats.github.io/elex
@@ -15,7 +15,7 @@ website:
         text: "{{< iconify ph info-thin >}} About"
     right:
       - icon: github
-        href: https://github.com/favstats/betargex
+        href: https://github.com/favstats/elex
   sidebar:
     - id: ""
     - id: targeting

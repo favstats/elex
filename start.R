@@ -79,7 +79,7 @@ for (cntryy in full_cntry_list$iso2c) {
     if(cntryy != "NL"){
       
     title_txt <- read_lines("_quarto.yml")
-    title_txt[which(str_detect(title_txt, "title"))[1]] <- glue::glue("  title: \"Targeting Dashboard - {sets$the_country}\"")
+    # title_txt[which(str_detect(title_txt, "title"))[1]] <- glue::glue("  title: \"Targeting Dashboard - {sets$the_country}\"")
     # title_txt[which(str_detect(title_txt, "output-dir"))[1]] <- glue::glue("  output-dir: ../docs/{sets$cntry}")  
     # Sys.sleep(1)
     write_lines(title_txt, "_site/_quarto.yml"

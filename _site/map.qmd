@@ -555,7 +555,7 @@ highchart() %>%
   hc_tooltip(
     formatter = JS(
       "function () {
-    return '<b>' + this.point.name + '</b>: <br><i>€' + new Intl.NumberFormat('fr-FR').format(Math.exp(this.point.value).toFixed(0)) + ' </i> per 1000 inhabitants<br><i>$' + new Intl.NumberFormat('fr-FR').format(this.point.dollar_spend.toFixed(0)) + '</i> total spent in last 30 days (' + this.point.perc + '%)';
+    return '<b>' + this.point.name + '</b>: <br><i>$' + new Intl.NumberFormat('fr-FR').format(Math.exp(this.point.value).toFixed(0)) + ' </i> per 1000 inhabitants<br><i>$' + new Intl.NumberFormat('fr-FR').format(this.point.dollar_spend.toFixed(0)) + '</i> total spent in last 30 days (' + this.point.perc + '%)';
   }"
     )
   ) %>%

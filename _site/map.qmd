@@ -592,7 +592,7 @@ highchart() %>%
 
 <center>
 
-Data shows spending per 1k inhabitants from last 30 days (`r read_lines("last30days_string.txt")`)
+Data shows spending per 1k inhabitants from last 30 days (`r last30days_string`)
 
 </center>
 

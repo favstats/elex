@@ -173,7 +173,9 @@ dir(full.names = F) %>%
 
 file.copy(from = "logs/log.html", to = glue::glue("docs/log.html"), overwrite = T, recursive = T)
 
+file.copy(from = "docs/NL/map.html", to = glue::glue("docs/map.html"), overwrite = T, recursive = T)
 
+# fs::dir_copy("docs/NL/site_libs", "docs/site_libs", overwrite = T)
 
 # setwd("C:/Users/favoo/Documents/ep2024")
 full_cntry_list$iso2c %>%

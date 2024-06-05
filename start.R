@@ -175,6 +175,8 @@ file.copy(from = "logs/log.html", to = glue::glue("docs/log.html"), overwrite = 
 
 file.copy(from = "docs/NL/map.html", to = glue::glue("docs/map.html"), overwrite = T, recursive = T)
 
+fs::dir_copy("docs/NL/site_libs", "docs/site_libs", overwrite = T)
+
 # fs::dir_copy("docs/NL/site_libs", "docs/site_libs", overwrite = T)
 
 # setwd("C:/Users/favoo/Documents/ep2024")

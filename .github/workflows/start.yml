@@ -1,7 +1,7 @@
-name: "Meta Logs 30"
+name: "Meta Dashboards 30"
 on:
   schedule:
-    - cron: '0 1 * * *' # Runs at 01:00 every day
+    - cron: '0 1,18 * * *' # Runs at 01:00 every day
   push:
     branches:
       - main
@@ -63,8 +63,6 @@ jobs:
             any::arrow
       - name: "Script - Meta Run"
         run: Rscript 'start.R'
-      - name: "Script - Log Run"
-        run: Rscript 'log.R'
       - name: "Commit"
         uses: stefanzweifel/git-auto-commit-action@v4
         with:

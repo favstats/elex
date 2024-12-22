@@ -41,7 +41,7 @@ out <- full_cntry_list$iso2c %>%
   unlist() %>%
   # keep( ~ str_detect(.x, tf)) %>%
   # .[100:120] %>%
-  map_dfr( ~ {
+  map_dfr_progress( ~ {
     the_assets <-
       httr::GET(
         paste0(

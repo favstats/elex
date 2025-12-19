@@ -15,6 +15,7 @@ library(glue)
 library(cli)
 library(httr)
 library(rvest)
+library(metatargetr)
 
 # Source utility functions (contains calc_targeting)
 source(here("utils.R"))
@@ -30,6 +31,8 @@ TEST_SAMPLE_SIZE <- 1    # Number of countries to process in test mode
 REFRESH_DATA <- TRUE     # Set to TRUE to check for latest data from GitHub
 FORCE_REFRESH <- FALSE   # Set to TRUE to re-download even if cache is current
 SAVE_REFRESHED <- TRUE   # Save refreshed data to DATA_DIR
+USE_METATARGETR <- TRUE  # Prefer live data via metatargetr when refreshing
+METATARGETR_DAYS_BACK <- 3  # metatargetr requires dates at least 3 days old
 
 # Use dollar_spend for consistent cross-country comparison
 USE_DOLLAR_SPEND <- TRUE
@@ -106,6 +109,105 @@ format_number <- function(x, decimals = 1) {
   } else {
     return(as.character(round(x, 0)))
   }
+}
+
+#' Build about page text for dashboards
+build_about_text <- function(scope_label, data_date = NULL) {
+  date_line <- ""
+  if (!is.null(data_date) && !is.na(data_date)) {
+    date_line <- paste0("**Latest data date:** ", data_date, "\n\n")
+  }
+  
+  paste0(
+    "# About\n\n",
+    "This ", scope_label, " dashboard is built with the `dashboardr` R package and uses data retrieved ",
+    "via the `metatargetr` R package.\n\n",
+    date_line,
+    "## Packages\n\n",
+    "- `dashboardr`: https://github.com/favstats/dashboardr\n",
+    "- `metatargetr`: https://github.com/favstats/metatargetr\n\n",
+    "## Data Source\n\n",
+    "Targeting data comes from Meta's Ad Library and is processed by `metatargetr`.\n"
+  )
+}
+
+#' Normalize spend columns for numeric calculations
+normalize_spend_columns <- function(dat) {
+  if ("total_spend_formatted" %in% names(dat) &&
+      !is.numeric(dat$total_spend_formatted)) {
+    dat <- dat %>%
+      mutate(total_spend_formatted = readr::parse_number(as.character(total_spend_formatted)))
+  }
+  
+  dat
+}
+
+#' Apply currency conversion and calculate dollar spend
+apply_currency_conversion <- function(dat, conversion_rates) {
+  # The conversion_rates API returns rates FROM USD, so USD itself won't be in the table
+  # We need to add USD with rate 1.0 for the join to work
+  if (!"USD" %in% conversion_rates$main_currency) {
+    conversion_rates <- conversion_rates %>%
+      bind_rows(tibble(main_currency = "USD", conversion_rate = 1.0))
+  }
+  
+  if (!"main_currency" %in% names(dat) && "currency" %in% names(dat)) {
+    dat <- dat %>% mutate(main_currency = currency)
+  }
+  
+  # Normalize main_currency to uppercase for join (in case of case mismatches)
+  dat <- dat %>%
+    mutate(
+      main_currency_upper = ifelse(
+        is.na(main_currency),
+        NA_character_,
+        str_to_upper(main_currency)
+      )
+    )
+  
+  dat <- dat %>%
+    left_join(
+      conversion_rates %>% mutate(main_currency_upper = main_currency),
+      by = "main_currency_upper"
+    ) %>%
+    select(-main_currency_upper)
+  
+  # Check for missing conversion rates
+  missing_rates <- dat %>%
+    filter(!is.na(main_currency) & is.na(conversion_rate)) %>%
+    distinct(main_currency) %>%
+    pull(main_currency)
+  
+  if (length(missing_rates) > 0) {
+    cli_alert_warning("  Missing conversion rates for currencies: {paste(missing_rates, collapse = ', ')}. These rows will have NA dollar_spend.")
+  }
+  
+  # Count rows with NA main_currency
+  na_currency_count <- sum(is.na(dat$main_currency))
+  if (na_currency_count > 0) {
+    cli_alert_info("  Found {na_currency_count} rows with NA main_currency. These will have NA dollar_spend.")
+  }
+  
+  dat <- dat %>%
+    normalize_spend_columns() %>%
+    mutate(
+      total_spend_formatted = ifelse(
+        total_spend_formatted == 100, 1, total_spend_formatted
+      )
+    )
+  
+  # Calculate dollar_spend - handle NA conversion_rate gracefully
+  # Only calculate if we have both total_spend_formatted and conversion_rate
+  dat <- dat %>%
+    mutate(
+      dollar_spend = ifelse(
+        is.na(conversion_rate) | conversion_rate == 0 | is.na(total_spend_formatted),
+        NA_real_,
+        total_spend_formatted / conversion_rate
+      )
+    )
+  
+  dat
 }
 
 # =================================================================
@@ -218,67 +320,46 @@ fetch_country_data <- function(iso2c, ds, conversion_rates, timeframe = "30") {
       mutate(cntry = iso2c) %>%
       filter(is.na(no_data))
     
-    # The conversion_rates API returns rates FROM USD, so USD itself won't be in the table
-    # We need to add USD with rate 1.0 for the join to work
-    if (!"USD" %in% conversion_rates$main_currency) {
-      conversion_rates <- conversion_rates %>%
-        bind_rows(tibble(main_currency = "USD", conversion_rate = 1.0))
-    }
-    
-    # Normalize main_currency to uppercase for join (in case of case mismatches)
-    dat <- dat %>%
-      mutate(
-        main_currency_upper = ifelse(
-          is.na(main_currency),
-          NA_character_,
-          str_to_upper(main_currency)
-        )
-      )
-    
-    dat <- dat %>%
-      left_join(
-        conversion_rates %>% mutate(main_currency_upper = main_currency),
-        by = "main_currency_upper"
-      ) %>%
-      select(-main_currency_upper)
-    
-    # Check for missing conversion rates
-    missing_rates <- dat %>%
-      filter(!is.na(main_currency) & is.na(conversion_rate)) %>%
-      distinct(main_currency) %>%
-      pull(main_currency)
-    
-    if (length(missing_rates) > 0) {
-      cli_alert_warning("  Missing conversion rates for currencies: {paste(missing_rates, collapse = ', ')}. These rows will have NA dollar_spend.")
-    }
-    
-    # Count rows with NA main_currency
-    na_currency_count <- sum(is.na(dat$main_currency))
-    if (na_currency_count > 0) {
-      cli_alert_info("  Found {na_currency_count} rows with NA main_currency. These will have NA dollar_spend.")
-    }
-    
-    dat <- dat %>%
-      mutate(
-        total_spend_formatted = ifelse(
-          total_spend_formatted == 100, 1, total_spend_formatted
-        )
-      )
-    
-    # Calculate dollar_spend - handle NA conversion_rate gracefully
-    # Only calculate if we have both total_spend_formatted and conversion_rate
-    dat <- dat %>%
-      mutate(
-        dollar_spend = ifelse(
-          is.na(conversion_rate) | conversion_rate == 0 | is.na(total_spend_formatted),
-          NA_real_,
-          total_spend_formatted / conversion_rate
-        )
-      )
+    dat <- apply_currency_conversion(dat, conversion_rates)
     
     dat
   }, error = function(e) {
     cli_alert_warning("Failed to fetch {iso2c}: {e$message}")
+    NULL
+  })
+}
+
+#' Fetch fresh data for a single country using metatargetr
+fetch_country_data_metatargetr <- function(iso2c, ds, conversion_rates, timeframe = "30") {
+  tryCatch({
+    dat <- metatargetr::get_targeting_db(
+      the_cntry = iso2c,
+      tf = timeframe,
+      ds = ds,
+      remove_nas = TRUE,
+      verbose = FALSE
+    )
+    
+    if (nrow(dat) == 0) return(NULL)
+    
+    dat <- dat %>%
+      mutate(cntry = iso2c)
+    
+    if (!"page_id" %in% names(dat) && "internal_id" %in% names(dat)) {
+      dat <- dat %>% rename(page_id = internal_id)
+    }
+    
+    if (!"internal_id" %in% names(dat) && "page_id" %in% names(dat)) {
+      dat <- dat %>% mutate(internal_id = page_id)
+    }
+    
+    if (!"ds" %in% names(dat)) {
+      dat <- dat %>% mutate(ds = ds)
+    }
+    
+    apply_currency_conversion(dat, conversion_rates)
+  }, error = function(e) {
+    cli_alert_warning("Failed to fetch {iso2c} via metatargetr: {e$message}")
     NULL
   })
 }
@@ -311,58 +392,116 @@ check_cached_data <- function(iso2c, latest_ds) {
 
 #' Refresh all country data (with smart caching)
 refresh_all_data <- function(countries = NULL, timeframe = "30", force = FALSE) {
-  cli_h1("Refreshing Data from GitHub")
-  
-  releases <- get_available_releases(timeframe, countries = countries)
-  if (is.null(releases) || nrow(releases) == 0) return(NULL)
-  
-  cli_alert_success("Found {nrow(releases)} countries with data")
-  
-  latest_date <- max(as.Date(releases$ds), na.rm = TRUE)
-  cli_alert_info("Latest data date: {latest_date}")
-  
-  conversion_rates <- get_conversion_rates(latest_date)
-  cli_alert_success("Loaded {nrow(conversion_rates)} currency conversion rates")
-  
-  cli_h2("Fetching country data")
-  
-  n_cached <- 0
-  n_fetched <- 0
-  n_failed <- 0
-  
-  data_list <- releases$iso2c %>%
-    set_names() %>%
-    map(function(iso2c) {
-      ds <- releases$ds[releases$iso2c == iso2c]
-      
-      if (!force) {
-        cache_check <- check_cached_data(iso2c, ds)
-        
-        if (cache_check$up_to_date) {
-          cli_alert_success("  {iso2c}: Using cached data ({cache_check$cached_ds})")
-          n_cached <<- n_cached + 1
-          return(cache_check$data)
+  if (USE_METATARGETR) {
+    cli_h1("Refreshing Data via metatargetr")
+    
+    iso2c_list <- if (!is.null(countries)) {
+      countries
+    } else {
+      countrycode::codelist %>%
+        filter(!is.na(iso2c)) %>%
+        distinct(iso2c) %>%
+        pull(iso2c)
+    }
+    
+    latest_date <- Sys.Date() - METATARGETR_DAYS_BACK
+    ds <- as.character(latest_date)
+    cli_alert_info("Using metatargetr data date: {latest_date}")
+    
+    conversion_rates <- get_conversion_rates(latest_date)
+    cli_alert_success("Loaded {nrow(conversion_rates)} currency conversion rates")
+    
+    cli_h2("Fetching country data")
+    
+    n_cached <- 0
+    n_fetched <- 0
+    n_failed <- 0
+    
+    data_list <- iso2c_list %>%
+      set_names() %>%
+      map(function(iso2c) {
+        if (!force) {
+          cache_check <- check_cached_data(iso2c, ds)
+          
+          if (cache_check$up_to_date) {
+            cli_alert_success("  {iso2c}: Using cached data ({cache_check$cached_ds})")
+            n_cached <<- n_cached + 1
+            return(cache_check$data)
+          }
         }
-      }
-      
-      cli_alert_info("  {iso2c}: Fetching fresh data ({ds})...")
-      dat <- fetch_country_data(iso2c, ds, conversion_rates, timeframe)
-      
-      if (is.null(dat)) {
-        n_failed <<- n_failed + 1
-        return(NULL)
-      }
-      
-      n_fetched <<- n_fetched + 1
-      
-      if (SAVE_REFRESHED) {
-        dir.create(DATA_DIR, showWarnings = FALSE, recursive = TRUE)
-        saveRDS(dat, file.path(DATA_DIR, paste0(iso2c, ".rds")))
-      }
-      
-      dat
-    }, .progress = TRUE) %>%
-    compact()
+        
+        cli_alert_info("  {iso2c}: Fetching via metatargetr ({ds})...")
+        dat <- fetch_country_data_metatargetr(iso2c, ds, conversion_rates, timeframe)
+        
+        if (is.null(dat)) {
+          n_failed <<- n_failed + 1
+          return(NULL)
+        }
+        
+        n_fetched <<- n_fetched + 1
+        
+        if (SAVE_REFRESHED) {
+          dir.create(DATA_DIR, showWarnings = FALSE, recursive = TRUE)
+          saveRDS(dat, file.path(DATA_DIR, paste0(iso2c, ".rds")))
+        }
+        
+        dat
+      }, .progress = TRUE) %>%
+      compact()
+  } else {
+    cli_h1("Refreshing Data from GitHub")
+    
+    releases <- get_available_releases(timeframe, countries = countries)
+    if (is.null(releases) || nrow(releases) == 0) return(NULL)
+    
+    cli_alert_success("Found {nrow(releases)} countries with data")
+    
+    latest_date <- max(as.Date(releases$ds), na.rm = TRUE)
+    cli_alert_info("Latest data date: {latest_date}")
+    
+    conversion_rates <- get_conversion_rates(latest_date)
+    cli_alert_success("Loaded {nrow(conversion_rates)} currency conversion rates")
+    
+    cli_h2("Fetching country data")
+    
+    n_cached <- 0
+    n_fetched <- 0
+    n_failed <- 0
+    
+    data_list <- releases$iso2c %>%
+      set_names() %>%
+      map(function(iso2c) {
+        ds <- releases$ds[releases$iso2c == iso2c]
+        
+        if (!force) {
+          cache_check <- check_cached_data(iso2c, ds)
+          
+          if (cache_check$up_to_date) {
+            cli_alert_success("  {iso2c}: Using cached data ({cache_check$cached_ds})")
+            n_cached <<- n_cached + 1
+            return(cache_check$data)
+          }
+        }
+        
+        cli_alert_info("  {iso2c}: Fetching fresh data ({ds})...")
+        dat <- fetch_country_data(iso2c, ds, conversion_rates, timeframe)
+        
+        if (is.null(dat)) {
+          n_failed <<- n_failed + 1
+          return(NULL)
+        }
+        
+        n_fetched <<- n_fetched + 1
+        
+        if (SAVE_REFRESHED) {
+          dir.create(DATA_DIR, showWarnings = FALSE, recursive = TRUE)
+          saveRDS(dat, file.path(DATA_DIR, paste0(iso2c, ".rds")))
+        }
+        
+        dat
+      }, .progress = TRUE) %>%
+      compact()
+  }
   
   cli_h2("Refresh Summary")
   cli_alert_success("Cached (up-to-date): {n_cached}")
@@ -507,6 +646,11 @@ calc_country_targeting <- function(dat, iso2c) {
   tryCatch({
     targeting <- calc_targeting(dat)
     
+    total_budget <- dat %>%
+      distinct(page_id, .keep_all = TRUE) %>%
+      summarize(total = sum(total_spend, na.rm = TRUE)) %>%
+      pull(total)
+    
     targeting %>%
       mutate(target = case_when(
         target == "custom_audience" ~ "Custom Audiences",
@@ -524,9 +668,11 @@ calc_country_targeting <- function(dat, iso2c) {
       filter(target != "Unknown", !is.na(target)) %>%
       # Add ranking and comparative stats
       mutate(
+        spend = (perc / 100) * total_budget,
         rank = row_number(desc(perc)),
         n_methods = n(),
-        percentile = round((rank - 1) / n_methods * 100, 0)
+        percentile = round((rank - 1) / n_methods * 100, 0),
+        total_budget = total_budget
       ) %>%
       arrange(desc(perc))
   }, error = function(e) {
@@ -646,6 +792,24 @@ prepare_location_data <- function(dat) {
     )
 }
 
+#' Summarize location targeting mix by location type
+prepare_location_type_summary <- function(location_data) {
+  if (is.null(location_data) || nrow(location_data) == 0) {
+    return(tibble())
+  }
+  
+  location_data %>%
+    group_by(location_type) %>%
+    summarize(
+      spend = sum(spend, na.rm = TRUE),
+      perc = sum(perc, na.rm = TRUE),
+      n_locations = n(),
+      .groups = "drop"
+    ) %>%
+    filter(spend > 0) %>%
+    mutate(location_type = fct_reorder(location_type, spend))
+}
+
 # =================================================================
 # Helper: Prepare detailed targeting data with enhanced stats
 # =================================================================
@@ -678,6 +842,24 @@ prepare_detailed_data <- function(dat) {
       percentile = round((rank - 1) / n_interests * 100, 0),
       total_budget = total_budget
     )
+}
+
+#' Summarize detailed targeting mix by detailed type
+prepare_detailed_type_summary <- function(detailed_data) {
+  if (is.null(detailed_data) || nrow(detailed_data) == 0) {
+    return(tibble())
+  }
+  
+  detailed_data %>%
+    group_by(detailed_type) %>%
+    summarize(
+      spend = sum(spend, na.rm = TRUE),
+      perc = sum(perc, na.rm = TRUE),
+      n_interests = n(),
+      .groups = "drop"
+    ) %>%
+    filter(spend > 0) %>%
+    mutate(detailed_type = fct_reorder(detailed_type, spend))
 }
 
 # =================================================================
@@ -800,19 +982,29 @@ create_country_dashboard <- function(iso2c, dat, country_name) {
   }
   
   # Create spending viz with enhanced tooltips
+  spending_viz <- create_viz(type = "bar", horizontal = TRUE)
+  
   if (has_party_tabs && "party" %in% names(spending_data)) {
-    spending_viz <- create_viz(type = "bar", horizontal = TRUE)
-    
     spending_viz <- spending_viz %>%
       add_viz(
         x_var = "advertiser",
         weight_var = "total_spend",
-        tabgroup = "By Party/Total",
+        tabgroup = "Spend/All",
         title = "Top Advertisers by Spending",
         subtitle = "Hover for detailed spending breakdown including budget share, ad counts, and rankings",
         y_label = "Total Spend (USD)",
         tooltip_prefix = "💰 Spend: $",
         tooltip_suffix = " USD"
+      ) %>%
+      add_viz(
+        x_var = "advertiser",
+        weight_var = "total_num_ads",
+        tabgroup = "Ads/All",
+        title = "Top Advertisers by Ad Volume",
+        subtitle = "Shows which advertisers run the highest number of political ads",
+        y_label = "Total Ads",
+        tooltip_prefix = "🧾 Ads: ",
+        tooltip_suffix = " ads"
       )
     
     for (party_name in head(party_tabs, 6)) {
@@ -823,25 +1015,52 @@ create_country_dashboard <- function(iso2c, dat, country_name) {
             x_var = "advertiser",
             weight_var = "total_spend",
             filter = as.formula(paste0("~ party == '", party_name, "'")),
-            tabgroup = paste0("By Party/", party_name),
+            tabgroup = paste0("Spend/", party_name),
             title = party_name,
             tooltip_prefix = "💰 Spend: $",
             tooltip_suffix = " USD"
+          ) %>%
+          add_viz(
+            x_var = "advertiser",
+            weight_var = "total_num_ads",
+            filter = as.formula(paste0("~ party == '", party_name, "'")),
+            tabgroup = paste0("Ads/", party_name),
+            title = party_name,
+            tooltip_prefix = "🧾 Ads: ",
+            tooltip_suffix = " ads"
           )
       }
     }
   } else {
-    spending_viz <- create_viz(type = "bar", horizontal = TRUE) %>%
+    spending_viz <- spending_viz %>%
       add_viz(
         x_var = "advertiser",
         weight_var = "total_spend",
+        tabgroup = "Spend/All",
         title = paste("Top Advertisers in", country_name),
         subtitle = "Top 20 advertisers ranked by total advertising spend. Hover for detailed breakdown.",
         y_label = "Total Spend (USD)",
         tooltip_prefix = "💰 Spend: $",
         tooltip_suffix = " USD"
+      ) %>%
+      add_viz(
+        x_var = "advertiser",
+        weight_var = "total_num_ads",
+        tabgroup = "Ads/All",
+        title = paste("Most Active Advertisers in", country_name),
+        subtitle = "Top 20 advertisers ranked by number of ads",
+        y_label = "Total Ads",
+        tooltip_prefix = "🧾 Ads: ",
+        tooltip_suffix = " ads"
       )
   }
+  
+  spending_viz <- spending_viz %>%
+    set_tabgroup_labels(
+      Spend = "Spend (USD)",
+      Ads = "Ad Volume",
+      All = "All Advertisers"
+    )
   
   # Spending page content with value boxes + filter
   spending_content <- create_content() %>%
@@ -876,14 +1095,37 @@ create_country_dashboard <- function(iso2c, dat, country_name) {
       description = "Average amount spent per individual advertisement"
     ) %>%
     end_value_box_row() %>%
+    add_value_box_row() %>%
+    add_value_box(
+      title = "Top Spender",
+      value = stats$top_spender_name,
+      bg_color = VALUE_BOX_COLORS[5],
+      # icon = "ph:crown",
+      description = paste0("Highest total spend: ", format_currency(stats$top_spender_spend))
+    ) %>%
+    add_value_box(
+      title = "Coverage Window",
+      value = stats$date_range,
+      bg_color = VALUE_BOX_COLORS[1],
+      # icon = "ph:calendar",
+      description = "Date range represented in the dashboard"
+    ) %>%
+    end_value_box_row() %>%
     # Add filter input
     add_input_row(style = "boxed") %>%
     add_input(
-      input_id = "advertiser_filter", width = "600px",
-      label = "Filter Advertiser:",
+      input_id = "party_filter", width = "360px",
+      label = "Filter by Party/Actor:",
       type = "select_multiple",
-      filter_var = "party_name",
-      options_from = "party_name"
+      filter_var = "party",
+      options_from = "party"
+    ) %>%
+    add_input(
+      input_id = "advertiser_filter", width = "360px",
+      label = "Filter by Advertiser:",
+      type = "select_multiple",
+      filter_var = "advertiser",
+      options_from = "advertiser"
     ) %>%
     end_input_row()
   
@@ -900,12 +1142,29 @@ create_country_dashboard <- function(iso2c, dat, country_name) {
       add_viz(
         x_var = "target",
         weight_var = "perc",
+        tabgroup = "Targeting/Share",
         title = "Budget Allocation by Targeting Method",
         subtitle = "How advertisers allocate their budgets across different targeting strategies. Higher percentages indicate more heavily used methods.",
         y_label = "% of Total Spend",
         tooltip_prefix = "📊 Budget Share: ",
         tooltip_suffix = "% of total advertising budget",
         color_palette = "#2563eb"
+      ) %>%
+      add_viz(
+        x_var = "target",
+        weight_var = "spend",
+        tabgroup = "Targeting/Spend",
+        title = "Targeting Spend by Method",
+        subtitle = "Absolute spend by targeting method for direct budget comparisons.",
+        y_label = "Ad Spend (USD)",
+        tooltip_prefix = "💰 Spend: $",
+        tooltip_suffix = " USD",
+        color_palette = "#1d4ed8"
+      ) %>%
+      set_tabgroup_labels(
+        Targeting = "Targeting Views",
+        Share = "Spend Share",
+        Spend = "Absolute Spend"
       )
   }
   
@@ -925,6 +1184,20 @@ create_country_dashboard <- function(iso2c, dat, country_name) {
       bg_color = VALUE_BOX_COLORS[2],
       logo_url = "ph:trophy",
       description = "Most frequently used targeting method"
+    ) %>%
+    add_value_box(
+      title = "Top Method Share",
+      value = if (nrow(targeting_data) > 0) paste0(round(targeting_data$perc[1], 1), "%") else "N/A",
+      bg_color = VALUE_BOX_COLORS[3],
+      logo_url = "ph:percent",
+      description = "Share of total spend for the top method"
+    ) %>%
+    add_value_box(
+      title = "Top Method Spend",
+      value = if (nrow(targeting_data) > 0) format_currency(targeting_data$spend[1]) else "$0",
+      bg_color = VALUE_BOX_COLORS[4],
+      logo_url = "ph:currency-dollar",
+      description = "Total spend for the top method"
     ) %>%
     end_value_box_row()
   
@@ -977,6 +1250,13 @@ create_country_dashboard <- function(iso2c, dat, country_name) {
           icon = "ph:gender-intersex"
         )
     }
+    
+    demographics_viz <- demographics_viz %>%
+      set_tabgroup_labels(
+        Demographics = "Demographics",
+        Age = "Age Groups",
+        Gender = "Gender"
+      )
   }
   
   # Demographics content with value boxes
@@ -1003,25 +1283,67 @@ create_country_dashboard <- function(iso2c, dat, country_name) {
       logo_url = "ph:gender-intersex",
       description = "Number of gender categories being targeted"
     ) %>%
-    end_value_box_row()
+    end_value_box_row() %>%
+    add_input_row(style = "boxed") %>%
+    add_input(
+      input_id = "age_group_filter",
+      label = "Filter Age Groups:",
+      type = "select_multiple",
+      filter_var = "age_group",
+      options_from = "age_group"
+    ) %>%
+    add_input(
+      input_id = "gender_filter",
+      label = "Filter Genders:",
+      type = "select_multiple",
+      filter_var = "gender",
+      options_from = "gender"
+    ) %>%
+    end_input_row()
   
   # === LOCATION PAGE ===
   cli_alert_info("  Preparing location data...")
   location_data <- prepare_location_data(dat)
+  location_type_summary <- tibble()
   
   location_viz <- NULL
   location_content <- NULL
   if (nrow(location_data) > 0) {
+    location_type_summary <- prepare_location_type_summary(location_data)
     location_viz <- create_viz(type = "bar", horizontal = TRUE) %>%
       add_viz(
+        data = "location_data",
         x_var = "location",
         weight_var = "spend",
+        tabgroup = "Location/TopLocations",
         title = "Geographic Targeting Hotspots",
         subtitle = "Top 30 locations receiving the most advertising spend. Reveals geographic strategy and regional priorities.",
         y_label = "Ad Spend (USD)",
         tooltip_prefix = "📍 Location Spend: $",
         tooltip_suffix = " invested in this location",
         color_palette = "#0891b2"
+      )
+    
+    if (nrow(location_type_summary) > 0) {
+      location_viz <- location_viz %>%
+        add_viz(
+          data = "location_type_summary",
+          x_var = "location_type",
+          weight_var = "perc",
+          tabgroup = "Location/TypeMix",
+          title = "Location Targeting Mix",
+          subtitle = "Share of spend allocated to different geographic targeting types",
+          y_label = "% of Spend",
+          tooltip_prefix = "🧭 Share: ",
+          tooltip_suffix = "% of spend"
+        )
+    }
+    
+    location_viz <- location_viz %>%
+      set_tabgroup_labels(
+        Location = "Location Views",
+        TopLocations = "Top Locations",
+        TypeMix = "Targeting Mix"
       )
     
     # Location content with value boxes
@@ -1048,26 +1370,68 @@ create_country_dashboard <- function(iso2c, dat, country_name) {
         # icon = "ph:currency-dollar",
         description = "Total spend in the top targeted location"
       ) %>%
-      end_value_box_row()
+      end_value_box_row() %>%
+      add_input_row(style = "boxed") %>%
+      add_input(
+        input_id = "location_type_filter", width = "320px",
+        label = "Filter by Location Type:",
+        type = "select_multiple",
+        filter_var = "location_type",
+        options_from = "location_type"
+      ) %>%
+      add_input(
+        input_id = "location_filter", width = "360px",
+        label = "Filter by Location:",
+        type = "select_multiple",
+        filter_var = "location",
+        options_from = "location"
+      ) %>%
+      end_input_row()
   }
   
   # === DETAILED PAGE ===
   cli_alert_info("  Preparing detailed targeting data...")
   detailed_data <- prepare_detailed_data(dat)
+  detailed_type_summary <- tibble()
   
   detailed_viz <- NULL
   detailed_content <- NULL
   if (nrow(detailed_data) > 0) {
+    detailed_type_summary <- prepare_detailed_type_summary(detailed_data)
     detailed_viz <- create_viz(type = "bar", horizontal = TRUE) %>%
       add_viz(
+        data = "detailed_data",
         x_var = "interest",
         weight_var = "spend",
+        tabgroup = "Interests/TopInterests",
         title = "Interest & Behavior Targeting Analysis",
         subtitle = "Top 50 interests and behaviors being targeted. Shows what audience segments advertisers prioritize most.",
         y_label = "Ad Spend (USD)",
         tooltip_prefix = "🎯 Interest Spend: $",
         tooltip_suffix = " targeting this interest/behavior",
         color_palette = "#7c3aed"
+      )
+    
+    if (nrow(detailed_type_summary) > 0) {
+      detailed_viz <- detailed_viz %>%
+        add_viz(
+          data = "detailed_type_summary",
+          x_var = "detailed_type",
+          weight_var = "perc",
+          tabgroup = "Interests/TypeMix",
+          title = "Interest Targeting Mix",
+          subtitle = "Share of spend across interest/behavior categories",
+          y_label = "% of Spend",
+          tooltip_prefix = "🧩 Share: ",
+          tooltip_suffix = "% of spend"
+        )
+    }
+    
+    detailed_viz <- detailed_viz %>%
+      set_tabgroup_labels(
+        Interests = "Interest Views",
+        TopInterests = "Top Interests",
+        TypeMix = "Targeting Mix"
       )
     
     # Detailed content with value boxes and search
@@ -1098,7 +1462,14 @@ create_country_dashboard <- function(iso2c, dat, country_name) {
         description = "Max advertisers targeting a single interest"
       ) %>%
       end_value_box_row() %>%
-      add_input_row() %>%
+      add_input_row(style = "boxed") %>%
+      add_input(
+        input_id = "interest_type_filter",
+        label = "Filter by Interest Type:",
+        type = "select_multiple",
+        filter_var = "detailed_type",
+        options_from = "detailed_type"
+      ) %>%
       add_input(
         input_id = "interest_search",
         label = "Search Interests:",
@@ -1143,13 +1514,14 @@ create_country_dashboard <- function(iso2c, dat, country_name) {
     "Explore how advertisers invest their budgets across different demographics, locations, and interest groups.\n\n",
     "### 🎯 Key Insights Available\n\n",
     "- **Top Advertisers**: See who's spending the most on political ads\n",
+    "- **Ad Volume**: Compare the advertisers running the most ads\n",
     "- **Targeting Methods**: Understand how budgets are allocated across targeting strategies\n",
     "- **Demographics**: Explore age and gender targeting patterns\n",
     "- **Geographic Focus**: Discover which locations receive the most ad spend\n",
     "- **Interest Targeting**: See what behaviors and interests are being targeted\n\n",
     "### 💡 How to Use This Dashboard\n\n",
     "**Hover over any chart element** to see detailed tooltips with spending amounts, percentages, rankings, and contextual information. ",
-    "Use the navigation tabs above to explore different aspects of the advertising data.\n\n",
+    "Use the **tabs within charts** to switch between spend share and absolute spend, and apply filters to focus on specific parties, advertisers, locations, or interest types.\n\n",
     data_date_note
   )
   
@@ -1212,7 +1584,10 @@ create_country_dashboard <- function(iso2c, dat, country_name) {
     dashboard <- dashboard %>%
       add_page(
         name = "Location",
-        data = location_data,
+        data = list(
+          location_data = location_data,
+          location_type_summary = location_type_summary
+        ),
         visualizations = location_viz,
         content = location_content,
         icon = "ph:map-trifold",
@@ -1230,7 +1605,10 @@ create_country_dashboard <- function(iso2c, dat, country_name) {
     dashboard <- dashboard %>%
       add_page(
         name = "Interests",
-        data = detailed_data,
+        data = list(
+          detailed_data = detailed_data,
+          detailed_type_summary = detailed_type_summary
+        ),
         visualizations = detailed_viz,
         content = detailed_content,
         icon = "ph:heart",
@@ -1245,6 +1623,18 @@ create_country_dashboard <- function(iso2c, dat, country_name) {
   
   # Add branding
   dashboard <- dashboard %>%
+    add_page(
+      name = "About",
+      text = md_text(build_about_text(
+        scope_label = country_name,
+        data_date = if (!is.null(stats$latest_date) && !is.na(stats$latest_date)) {
+          format(as.Date(stats$latest_date), "%B %d, %Y")
+        } else {
+          NULL
+        }
+      )),
+      icon = "ph:info"
+    ) %>%
     add_powered_by_dashboardr(size = "large")
   
   page_count <- length(dashboard$pages)
@@ -1324,6 +1714,7 @@ country_summary <- map_dfr(available_countries, function(iso2c) {
   })
 }, .progress = TRUE) %>%
   filter(total_ads > 0, total_spend > 0) %>%
+  mutate(avg_spend_per_ad = ifelse(total_ads > 0, total_spend / total_ads, 0)) %>%
   arrange(desc(total_spend))
 
 cli_alert_success("Countries with data: {nrow(country_summary)}")
@@ -1342,7 +1733,12 @@ global_stats <- list(
   n_countries = nrow(country_summary),
   n_advertisers = sum(country_summary$n_advertisers, na.rm = TRUE),
   top_country = country_summary$country[1],
-  top_country_spend = country_summary$total_spend[1]
+  top_country_spend = country_summary$total_spend[1],
+  avg_spend_per_ad = ifelse(
+    sum(country_summary$total_ads, na.rm = TRUE) > 0,
+    sum(country_summary$total_spend, na.rm = TRUE) / sum(country_summary$total_ads, na.rm = TRUE),
+    0
+  )
 )
 
 main_viz <- create_viz() %>%
@@ -1391,6 +1787,13 @@ main_content <- create_content() %>%
     bg_color = VALUE_BOX_COLORS[3],
     # icon = "ph:flag",
     description = "Number of countries with political ad data available"
+  ) %>%
+  add_value_box(
+    title = "Avg Spend/Ad",
+    value = format_currency(global_stats$avg_spend_per_ad),
+    bg_color = VALUE_BOX_COLORS[4],
+    # icon = "ph:chart-bar",
+    description = "Average spend per ad across all countries"
   ) %>%
   # add_value_box(
   #   title = "Top Country",
@@ -1442,6 +1845,85 @@ main_dashboard <- create_dashboard(
     #   "- Filtering and search capabilities\n\n",
     #   "*Data from: ", data_date_display, " • Spending shown in USD*"
     # )
+  ) %>%
+  add_page(
+    name = "Leaders",
+    data = country_summary,
+    visualizations = create_viz(type = "bar", horizontal = TRUE) %>%
+      add_viz(
+        x_var = "country",
+        weight_var = "total_spend",
+        tabgroup = "Leaders/Spend",
+        title = "Top Countries by Total Spend",
+        subtitle = "Countries with the highest political ad spend",
+        y_label = "Total Spend (USD)",
+        tooltip_prefix = "💰 Spend: $",
+        tooltip_suffix = " USD"
+      ) %>%
+      add_viz(
+        x_var = "country",
+        weight_var = "total_ads",
+        tabgroup = "Leaders/Ads",
+        title = "Top Countries by Ad Volume",
+        subtitle = "Countries running the most political ads",
+        y_label = "Total Ads",
+        tooltip_prefix = "🧾 Ads: ",
+        tooltip_suffix = " ads"
+      ) %>%
+      add_viz(
+        x_var = "country",
+        weight_var = "avg_spend_per_ad",
+        tabgroup = "Leaders/Efficiency",
+        title = "Avg Spend per Ad by Country",
+        subtitle = "Compare average spend per ad across countries",
+        y_label = "Avg Spend/Ad (USD)",
+        tooltip_prefix = "💵 Avg: $",
+        tooltip_suffix = " per ad"
+      ) %>%
+      set_tabgroup_labels(
+        Leaders = "Country Leaders",
+        Spend = "Total Spend",
+        Ads = "Ad Volume",
+        Efficiency = "Avg Spend/Ad"
+      ),
+    content = create_content() %>%
+      add_value_box_row() %>%
+      add_value_box(
+        title = "Top Spending Country",
+        value = global_stats$top_country,
+        bg_color = VALUE_BOX_COLORS[1],
+        description = paste0("Total spend: ", format_currency(global_stats$top_country_spend))
+      ) %>%
+      add_value_box(
+        title = "Countries with Data",
+        value = as.character(global_stats$n_countries),
+        bg_color = VALUE_BOX_COLORS[2],
+        description = "Countries included in leaderboards"
+      ) %>%
+      end_value_box_row() %>%
+      add_input_row(style = "boxed") %>%
+      add_input(
+        input_id = "country_filter",
+        label = "Filter Countries:",
+        type = "select_multiple",
+        filter_var = "country",
+        options_from = "country"
+      ) %>%
+      end_input_row(),
+    icon = "ph:trophy",
+    text = paste0(
+      "## Global Leaders\n\n",
+      "Compare countries by total spend, ad volume, and average spend per ad. ",
+      "Use the tabs to switch metrics and the filter to focus on a subset of countries.\n"
+    )
+  ) %>%
+  add_page(
+    name = "About",
+    text = md_text(build_about_text(
+      scope_label = "Worldwide",
+      data_date = data_date_display
+    )),
+    icon = "ph:info"
   ) %>%
   add_powered_by_dashboardr(size = "large")
 

@@ -646,6 +646,11 @@ calc_country_targeting <- function(dat, iso2c) {
   tryCatch({
     targeting <- calc_targeting(dat)
     
+    total_budget <- dat %>%
+      distinct(page_id, .keep_all = TRUE) %>%
+      summarize(total = sum(total_spend, na.rm = TRUE)) %>%
+      pull(total)
+    
     targeting %>%
       mutate(target = case_when(
         target == "custom_audience" ~ "Custom Audiences",
@@ -663,9 +668,11 @@ calc_country_targeting <- function(dat, iso2c) {
       filter(target != "Unknown", !is.na(target)) %>%
       # Add ranking and comparative stats
       mutate(
+        spend = (perc / 100) * total_budget,
         rank = row_number(desc(perc)),
         n_methods = n(),
-        percentile = round((rank - 1) / n_methods * 100, 0)
+        percentile = round((rank - 1) / n_methods * 100, 0),
+        total_budget = total_budget
       ) %>%
       arrange(desc(perc))
   }, error = function(e) {
@@ -1088,6 +1095,22 @@ create_country_dashboard <- function(iso2c, dat, country_name) {
       description = "Average amount spent per individual advertisement"
     ) %>%
     end_value_box_row() %>%
+    add_value_box_row() %>%
+    add_value_box(
+      title = "Top Spender",
+      value = stats$top_spender_name,
+      bg_color = VALUE_BOX_COLORS[5],
+      # icon = "ph:crown",
+      description = paste0("Highest total spend: ", format_currency(stats$top_spender_spend))
+    ) %>%
+    add_value_box(
+      title = "Coverage Window",
+      value = stats$date_range,
+      bg_color = VALUE_BOX_COLORS[1],
+      # icon = "ph:calendar",
+      description = "Date range represented in the dashboard"
+    ) %>%
+    end_value_box_row() %>%
     # Add filter input
     add_input_row(style = "boxed") %>%
     add_input(
@@ -1119,12 +1142,29 @@ create_country_dashboard <- function(iso2c, dat, country_name) {
       add_viz(
         x_var = "target",
         weight_var = "perc",
+        tabgroup = "Targeting/Share",
         title = "Budget Allocation by Targeting Method",
         subtitle = "How advertisers allocate their budgets across different targeting strategies. Higher percentages indicate more heavily used methods.",
         y_label = "% of Total Spend",
         tooltip_prefix = "📊 Budget Share: ",
         tooltip_suffix = "% of total advertising budget",
         color_palette = "#2563eb"
+      ) %>%
+      add_viz(
+        x_var = "target",
+        weight_var = "spend",
+        tabgroup = "Targeting/Spend",
+        title = "Targeting Spend by Method",
+        subtitle = "Absolute spend by targeting method for direct budget comparisons.",
+        y_label = "Ad Spend (USD)",
+        tooltip_prefix = "💰 Spend: $",
+        tooltip_suffix = " USD",
+        color_palette = "#1d4ed8"
+      ) %>%
+      set_tabgroup_labels(
+        Targeting = "Targeting Views",
+        Share = "Spend Share",
+        Spend = "Absolute Spend"
       )
   }
   
@@ -1144,6 +1184,20 @@ create_country_dashboard <- function(iso2c, dat, country_name) {
       bg_color = VALUE_BOX_COLORS[2],
       logo_url = "ph:trophy",
       description = "Most frequently used targeting method"
+    ) %>%
+    add_value_box(
+      title = "Top Method Share",
+      value = if (nrow(targeting_data) > 0) paste0(round(targeting_data$perc[1], 1), "%") else "N/A",
+      bg_color = VALUE_BOX_COLORS[3],
+      logo_url = "ph:percent",
+      description = "Share of total spend for the top method"
+    ) %>%
+    add_value_box(
+      title = "Top Method Spend",
+      value = if (nrow(targeting_data) > 0) format_currency(targeting_data$spend[1]) else "$0",
+      bg_color = VALUE_BOX_COLORS[4],
+      logo_url = "ph:currency-dollar",
+      description = "Total spend for the top method"
     ) %>%
     end_value_box_row()
   
@@ -1229,7 +1283,23 @@ create_country_dashboard <- function(iso2c, dat, country_name) {
       logo_url = "ph:gender-intersex",
       description = "Number of gender categories being targeted"
     ) %>%
-    end_value_box_row()
+    end_value_box_row() %>%
+    add_input_row(style = "boxed") %>%
+    add_input(
+      input_id = "age_group_filter",
+      label = "Filter Age Groups:",
+      type = "select_multiple",
+      filter_var = "age_group",
+      options_from = "age_group"
+    ) %>%
+    add_input(
+      input_id = "gender_filter",
+      label = "Filter Genders:",
+      type = "select_multiple",
+      filter_var = "gender",
+      options_from = "gender"
+    ) %>%
+    end_input_row()
   
   # === LOCATION PAGE ===
   cli_alert_info("  Preparing location data...")
@@ -1300,7 +1370,23 @@ create_country_dashboard <- function(iso2c, dat, country_name) {
         # icon = "ph:currency-dollar",
         description = "Total spend in the top targeted location"
       ) %>%
-      end_value_box_row()
+      end_value_box_row() %>%
+      add_input_row(style = "boxed") %>%
+      add_input(
+        input_id = "location_type_filter", width = "320px",
+        label = "Filter by Location Type:",
+        type = "select_multiple",
+        filter_var = "location_type",
+        options_from = "location_type"
+      ) %>%
+      add_input(
+        input_id = "location_filter", width = "360px",
+        label = "Filter by Location:",
+        type = "select_multiple",
+        filter_var = "location",
+        options_from = "location"
+      ) %>%
+      end_input_row()
   }
   
   # === DETAILED PAGE ===
@@ -1376,7 +1462,14 @@ create_country_dashboard <- function(iso2c, dat, country_name) {
         description = "Max advertisers targeting a single interest"
       ) %>%
       end_value_box_row() %>%
-      add_input_row() %>%
+      add_input_row(style = "boxed") %>%
+      add_input(
+        input_id = "interest_type_filter",
+        label = "Filter by Interest Type:",
+        type = "select_multiple",
+        filter_var = "detailed_type",
+        options_from = "detailed_type"
+      ) %>%
       add_input(
         input_id = "interest_search",
         label = "Search Interests:",
@@ -1421,13 +1514,14 @@ create_country_dashboard <- function(iso2c, dat, country_name) {
     "Explore how advertisers invest their budgets across different demographics, locations, and interest groups.\n\n",
     "### 🎯 Key Insights Available\n\n",
     "- **Top Advertisers**: See who's spending the most on political ads\n",
+    "- **Ad Volume**: Compare the advertisers running the most ads\n",
     "- **Targeting Methods**: Understand how budgets are allocated across targeting strategies\n",
     "- **Demographics**: Explore age and gender targeting patterns\n",
     "- **Geographic Focus**: Discover which locations receive the most ad spend\n",
     "- **Interest Targeting**: See what behaviors and interests are being targeted\n\n",
     "### 💡 How to Use This Dashboard\n\n",
     "**Hover over any chart element** to see detailed tooltips with spending amounts, percentages, rankings, and contextual information. ",
-    "Use the navigation tabs above to explore different aspects of the advertising data.\n\n",
+    "Use the **tabs within charts** to switch between spend share and absolute spend, and apply filters to focus on specific parties, advertisers, locations, or interest types.\n\n",
     data_date_note
   )
   
@@ -1620,6 +1714,7 @@ country_summary <- map_dfr(available_countries, function(iso2c) {
   })
 }, .progress = TRUE) %>%
   filter(total_ads > 0, total_spend > 0) %>%
+  mutate(avg_spend_per_ad = ifelse(total_ads > 0, total_spend / total_ads, 0)) %>%
   arrange(desc(total_spend))
 
 cli_alert_success("Countries with data: {nrow(country_summary)}")
@@ -1638,7 +1733,12 @@ global_stats <- list(
   n_countries = nrow(country_summary),
   n_advertisers = sum(country_summary$n_advertisers, na.rm = TRUE),
   top_country = country_summary$country[1],
-  top_country_spend = country_summary$total_spend[1]
+  top_country_spend = country_summary$total_spend[1],
+  avg_spend_per_ad = ifelse(
+    sum(country_summary$total_ads, na.rm = TRUE) > 0,
+    sum(country_summary$total_spend, na.rm = TRUE) / sum(country_summary$total_ads, na.rm = TRUE),
+    0
+  )
 )
 
 main_viz <- create_viz() %>%
@@ -1687,6 +1787,13 @@ main_content <- create_content() %>%
     bg_color = VALUE_BOX_COLORS[3],
     # icon = "ph:flag",
     description = "Number of countries with political ad data available"
+  ) %>%
+  add_value_box(
+    title = "Avg Spend/Ad",
+    value = format_currency(global_stats$avg_spend_per_ad),
+    bg_color = VALUE_BOX_COLORS[4],
+    # icon = "ph:chart-bar",
+    description = "Average spend per ad across all countries"
   ) %>%
   # add_value_box(
   #   title = "Top Country",

@@ -1,0 +1,214 @@
+---
+title: "Spending"
+format: html
+---
+
+```{r}
+#| include: false
+library(dashboardr)
+```
+
+[← Back to World Map](../index.html#)
+
+# Germany
+
+Top 20 advertisers by spending.
+
+*Data from: December 11, 2025 • Spending in USD*
+
+```{r, echo=FALSE, results='asis'}
+dashboardr::enable_inputs()
+```
+
+```{r setup}
+#| echo: false
+#| warning: false
+#| message: false
+#| error: false
+#| results: 'hide'
+
+# Load required libraries
+library(dashboardr)
+library(dplyr)
+library(highcharter)
+
+# Global chunk options
+knitr::opts_chunk$set(
+  echo = FALSE,
+  warning = FALSE,
+  message = FALSE,
+  error = FALSE,
+  fig.width = 12,
+  fig.height = 8,
+  dpi = 300
+)
+
+# Load data
+data <- readRDS('dataset_small_20obs.rds')
+
+# Data summary
+cat('Dataset loaded:', nrow(data), 'rows,', ncol(data), 'columns\n')
+
+# Create filtered datasets
+# Each filter is applied once and reused across visualizations
+
+data_filtered_723724bf <- data %>% dplyr::filter(party == "B90/Gr")
+data_filtered_d9c03193 <- data %>% dplyr::filter(party == "FDP")
+data_filtered_4f94a62f <- data %>% dplyr::filter(party == "Volt")
+data_filtered_d6a0003a <- data %>% dplyr::filter(party == "CDU")
+data_filtered_40523fe1 <- data %>% dplyr::filter(party == "PdH")
+
+```
+
+
+```{r}
+#| echo: false
+#| results: 'asis'
+dashboardr::render_input_row(list(
+  list(
+    input_id = "advertiser_filter",
+    label = "Filter Advertiser:",
+    type = "select_multiple",
+    filter_var = "advertiser",
+    options = NULL,
+    options_from = "advertiser",
+    default_selected = NULL,
+    placeholder = "Select...",
+    width = "300px",
+    min = 0,
+    max = 100,
+    step = 1,
+    value = NULL,
+    show_value = TRUE,
+    inline = TRUE,
+    toggle_series = NULL,
+    override = FALSE,
+    labels = NULL,
+    size = "md",
+    help = NULL,
+    disabled = FALSE,
+    mt = NULL,
+    mr = NULL,
+    mb = NULL,
+    ml = NULL
+  )
+), style = "boxed", align = "center")
+```
+
+## By Party
+
+
+::: {.panel-tabset}
+
+### Total
+
+
+```{r by-party-total}
+# All Advertisers
+result <- create_bar(
+  data = data,
+  title = "All Advertisers",
+  horizontal = TRUE,
+  x_var = "advertiser",
+  weight_var = "total_spend"
+)
+
+result
+```
+
+
+### B90
+
+
+::: {.panel-tabset}
+
+##### Gr
+
+
+```{r by-party-b90-gr}
+# B90/Gr
+result <- create_bar(
+  data = data_filtered_723724bf,
+  title = "B90/Gr",
+  horizontal = TRUE,
+  x_var = "advertiser",
+  weight_var = "total_spend"
+)
+
+result
+```
+
+
+:::
+
+
+### FDP
+
+
+```{r by-party-fdp}
+# FDP
+result <- create_bar(
+  data = data_filtered_d9c03193,
+  title = "FDP",
+  horizontal = TRUE,
+  x_var = "advertiser",
+  weight_var = "total_spend"
+)
+
+result
+```
+
+
+### Volt
+
+
+```{r by-party-volt}
+# Volt
+result <- create_bar(
+  data = data_filtered_4f94a62f,
+  title = "Volt",
+  horizontal = TRUE,
+  x_var = "advertiser",
+  weight_var = "total_spend"
+)
+
+result
+```
+
+
+### CDU
+
+
+```{r by-party-cdu}
+# CDU
+result <- create_bar(
+  data = data_filtered_d6a0003a,
+  title = "CDU",
+  horizontal = TRUE,
+  x_var = "advertiser",
+  weight_var = "total_spend"
+)
+
+result
+```
+
+
+### PdH
+
+
+```{r by-party-pdh}
+# PdH
+result <- create_bar(
+  data = data_filtered_40523fe1,
+  title = "PdH",
+  horizontal = TRUE,
+  x_var = "advertiser",
+  weight_var = "total_spend"
+)
+
+result
+```
+
+
+:::
+

@@ -1,0 +1,170 @@
+---
+title: "Spending"
+format: html
+---
+
+```{r}
+#| include: false
+library(dashboardr)
+```
+
+[← Back to World Map](../index.html#)
+
+# United States
+
+Top 20 advertisers by spending.
+
+*Data from: December 11, 2025 • Spending in USD*
+
+```{r, echo=FALSE, results='asis'}
+dashboardr::enable_inputs()
+```
+
+```{r setup}
+#| echo: false
+#| warning: false
+#| message: false
+#| error: false
+#| results: 'hide'
+
+# Load required libraries
+library(dashboardr)
+library(dplyr)
+library(highcharter)
+
+# Global chunk options
+knitr::opts_chunk$set(
+  echo = FALSE,
+  warning = FALSE,
+  message = FALSE,
+  error = FALSE,
+  fig.width = 12,
+  fig.height = 8,
+  dpi = 300
+)
+
+# Load data
+data <- readRDS('dataset_small_20obs.rds')
+
+# Data summary
+cat('Dataset loaded:', nrow(data), 'rows,', ncol(data), 'columns\n')
+
+# Create filtered datasets
+# Each filter is applied once and reused across visualizations
+
+data_filtered_613ded75 <- data %>% dplyr::filter(party == "Other")
+data_filtered_73bdc234 <- data %>% dplyr::filter(party == "Dem")
+data_filtered_6728eead <- data %>% dplyr::filter(party == "Rep")
+
+```
+
+
+```{r}
+#| echo: false
+#| results: 'asis'
+dashboardr::render_input_row(list(
+  list(
+    input_id = "advertiser_filter",
+    label = "Filter Advertiser:",
+    type = "select_multiple",
+    filter_var = "advertiser",
+    options = NULL,
+    options_from = "advertiser",
+    default_selected = NULL,
+    placeholder = "Select...",
+    width = "300px",
+    min = 0,
+    max = 100,
+    step = 1,
+    value = NULL,
+    show_value = TRUE,
+    inline = TRUE,
+    toggle_series = NULL,
+    override = FALSE,
+    labels = NULL,
+    size = "md",
+    help = NULL,
+    disabled = FALSE,
+    mt = NULL,
+    mr = NULL,
+    mb = NULL,
+    ml = NULL
+  )
+), style = "boxed", align = "center")
+```
+
+## By Party
+
+
+::: {.panel-tabset}
+
+### Total
+
+
+```{r by-party-total}
+# All Advertisers
+result <- create_bar(
+  data = data,
+  title = "All Advertisers",
+  horizontal = TRUE,
+  x_var = "advertiser",
+  weight_var = "total_spend"
+)
+
+result
+```
+
+
+### Other
+
+
+```{r by-party-other}
+# Other
+result <- create_bar(
+  data = data_filtered_613ded75,
+  title = "Other",
+  horizontal = TRUE,
+  x_var = "advertiser",
+  weight_var = "total_spend"
+)
+
+result
+```
+
+
+### Dem
+
+
+```{r by-party-dem}
+# Dem
+result <- create_bar(
+  data = data_filtered_73bdc234,
+  title = "Dem",
+  horizontal = TRUE,
+  x_var = "advertiser",
+  weight_var = "total_spend"
+)
+
+result
+```
+
+
+### Rep
+
+
+```{r by-party-rep}
+# Rep
+result <- create_bar(
+  data = data_filtered_6728eead,
+  title = "Rep",
+  horizontal = TRUE,
+  x_var = "advertiser",
+  weight_var = "total_spend"
+)
+
+result
+```
+
+
+:::
+

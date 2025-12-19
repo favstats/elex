@@ -1,0 +1,184 @@
+---
+title: "{{< iconify ph users-three >}} Demographics"
+format: html
+---
+
+```{r}
+#| include: false
+library(dashboardr)
+```
+
+```{=html}
+<style>
+/* Ensure chart containers expand to fit content - aggressive overrides */
+.cell-output-display,
+.cell-output,
+.panel-tabset-tabby > .tab-content,
+.panel-tabset > .tab-content,
+.tab-pane,
+.tab-pane.active,
+.card-body,
+.quarto-figure,
+section {
+  overflow: visible !important;
+  height: auto !important;
+  max-height: none !important;
+}
+/* Ensure highcharts containers respect their set height */
+.highcharts-container,
+.html-widget,
+.htmlwidget {
+  overflow: visible !important;
+}
+</style>
+<script>
+// Aggressive reflow for Highcharts - multiple attempts to catch widget initialization
+(function() {
+  function reflowCharts() {
+    if (typeof Highcharts !== 'undefined' && Highcharts.charts) {
+      Highcharts.charts.forEach(function(chart) {
+        if (chart) {
+          try { chart.reflow(); } catch(e) {}
+        }
+      });
+    }
+  }
+  
+  // Try multiple times at different intervals
+  [0, 100, 250, 500, 1000, 2000].forEach(function(delay) {
+    setTimeout(function() {
+      window.dispatchEvent(new Event('resize'));
+      requestAnimationFrame(reflowCharts);
+    }, delay);
+  });
+  
+  // Also reflow on any tab click
+  document.addEventListener('click', function(e) {
+    if (e.target.matches('.nav-link, [data-bs-toggle="tab"]')) {
+      setTimeout(reflowCharts, 50);
+    }
+  });
+})();
+</script>
+```
+
+## Demographic Targeting Analysis
+
+Explore how advertisers target different demographic groups. This reveals strategic decisions about which audiences receive the most advertising attention.
+
+**Age targeting** shows investment across different generations, while **gender targeting** reveals any differences in how campaigns reach men vs. women.
+
+
+```{r setup}
+#| echo: false
+#| warning: false
+#| message: false
+#| error: false
+#| results: 'hide'
+
+# Load required libraries
+library(dashboardr)
+library(dplyr)
+library(highcharter)
+
+# Global chunk options
+knitr::opts_chunk$set(
+  echo = FALSE,
+  warning = FALSE,
+  message = FALSE,
+  error = FALSE,
+  fig.width = 12,
+  fig.height = 8,
+  dpi = 300
+)
+
+# Load multiple datasets
+
+# Load age_data
+age_data <- readRDS('age_data_6obs.rds')
+cat('age_data loaded:', nrow(age_data), 'rows,', ncol(age_data), 'columns\n')
+
+# Load gender_data
+gender_data <- readRDS('gender_data_2obs.rds')
+cat('gender_data loaded:', nrow(gender_data), 'rows,', ncol(gender_data), 'columns\n')
+
+```
+
+
+```{r}
+#| echo: false
+#| results: 'asis'
+dashboardr::render_value_box_row(list(
+  list(
+    title = "Age Groups Targeted",
+    value = "6",
+    bg_color = "#2563eb",
+    logo_url = NULL,
+    logo_text = NULL
+  ),
+  list(
+    title = "Top Age Group",
+    value = "35-44",
+    bg_color = "#7c3aed",
+    logo_url = "ph:trophy",
+    logo_text = NULL
+  ),
+  list(
+    title = "Gender Categories",
+    value = "2",
+    bg_color = "#0891b2",
+    logo_url = "ph:gender-intersex",
+    logo_text = NULL
+  )
+))
+```
+
+## Demographics
+
+
+::: {.panel-tabset}
+
+### Age
+
+
+```{r demographics-age}
+# Age Group Targeting Analysis
+result <- create_bar(
+  data = age_data,
+  title = "Age Group Targeting Analysis",
+  horizontal = TRUE,
+  x_var = "age_group",
+  weight_var = "spend",
+  subtitle = "How advertisers allocate their budgets across different age demographics. Reveals which age groups receive the most advertising attention.",
+  y_label = "Ad Spend (USD)",
+  tooltip_prefix = "💰 Spend: $",
+  tooltip_suffix = " targeting this age group"
+)
+
+result
+```
+
+
+### Gender
+
+
+```{r demographics-gender}
+# Gender Targeting Analysis
+result <- create_bar(
+  data = gender_data,
+  title = "Gender Targeting Analysis",
+  horizontal = TRUE,
+  x_var = "gender",
+  weight_var = "spend",
+  subtitle = "Budget allocation across gender demographics. Shows how advertisers prioritize different gender audiences.",
+  y_label = "Ad Spend (USD)",
+  tooltip_prefix = "💰 Spend: $",
+  tooltip_suffix = " targeting this gender"
+)
+
+result
+```
+
+
+:::
+

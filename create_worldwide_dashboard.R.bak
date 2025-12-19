@@ -1,0 +1,3884 @@
+# =================================================================
+# Worldwide Dashboard Data Processing Functions
+# =================================================================
+# Functions for preparing election ad targeting data for dashboards.
+#
+# KEY FIXES IMPLEMENTED:
+# ✅ Cluster deduplication for spend calculations (overlapping targeting)
+# ✅ Percentage calculations relative to actor type/party budget (not absolute)
+# ✅ Actor type-based grouping (default) instead of party-only (most countries)
+# ✅ Enhanced tooltips with maximal information (spend, ad counts, context)
+# ✅ Complete demographics: age, gender, language, education, employment, relationship
+# ✅ Location treemap with hierarchical geographic data
+# ✅ Targeting, excluded audiences, and contested audiences analysis
+# ✅ SUMMARY STATISTICS INFOBOXES for landing pages with total spending, ads, actors
+# ✅ TOP PERFORMERS value boxes showing highest-spending actors
+# ✅ COMPLETE LANDING PAGE generation with stats, performers, and navigation
+#
+# USAGE:
+# - Most countries: use group_col = "actor_type" (default)
+# - Countries with parties: use group_col = "party"
+# - All visualizations now have maximally informative tooltips
+# - Landing pages include comprehensive summary statistics
+#
+# EXAMPLE DASHBOARD CREATION:
+#   landing <- create_dashboard_landing_page(dat, country_name = "Germany")
+#   dashboard <- create_dashboard("election_dashboard") %>%
+#     add_page("Overview", content = landing, is_landing_page = TRUE) %>%
+#     add_page("Demographics", visualizations = create_demographics_vizzes(dat)) %>%
+#     add_page("Geographic", visualizations = create_location_treemap(dat))
+# =================================================================
+
+# Declare global variables for NSE (non-standard evaluation)
+utils::globalVariables(c(
+  ".data", "internal_id", "total_spend", "total_spend_pct", "num_ads", 
+  "likely_together", "n_clusters", "spend", "perc", "party",
+  "age", "gender", "location", "targeting", "target_type",
+  "language", "education", "employment", "relationship_status",
+  "excluded", "n_parties", "n_actors", "is_contested", "total_budget",
+  "page_id", "party_total", "n", "value", "total",
+  "party_spend", "party_ads", "actor_type", "actor_spend", "actor_ads",
+  "n_ads", "avg_spend_per_ad", "overall_perc", "rank_within_group",
+  "rank_within_category", "rank_within_age", "rank_within_gender",
+  "rank_within_language", "rank_within_education", "rank_within_employment",
+  "rank_within_relationship", "rank_within_target", "rank_within_location",
+  "rank_within_exclusion", "rank_overall", "n_in_group", "n_in_category",
+  "n_age_groups", "n_gender_groups", "n_language_groups", "n_education_groups",
+  "n_employment_groups", "n_relationship_groups", "n_targets_in_group",
+  "n_locations_in_group", "n_exclusions_in_group", "n_actors_targeting_age",
+  "n_actors_targeting_gender", "n_actors_targeting_language",
+  "n_actors_targeting_education", "n_actors_targeting_employment",
+  "n_actors_targeting_relationship", "n_actors_targeting", "n_actors_targeting_location",
+  "n_actors_excluding", "n_total", "percentile_within_group", "percentile_within_category",
+  "percentile_within_age", "percentile_within_gender", "percentile_within_language",
+  "percentile_within_education", "percentile_within_employment",
+  "percentile_within_relationship", "percentile_within_target",
+  "percentile_within_location", "percentile_within_exclusion", "percentile_overall",
+  "total_ads", "competitive_intensity", "rank_by_spend", "rank_by_competition",
+  "rank_by_intensity", "n_competing_actors", "n_locations", "region"
+))
+
+# =================================================================
+# Core Helper Functions
+# =================================================================
+
+# =================================================================
+# Formatting Helper Functions for Tooltips
+# =================================================================
+
+#' Format Currency for Tooltips
+#'
+#' Formats currency values with appropriate suffixes (K, M, B)
+#'
+#' @param x Numeric value to format
+#' @param currency Currency symbol (default: "$")
+#' @param decimals Number of decimal places (default: 0)
+#'
+#' @return Formatted currency string
+#' @keywords internal
+.format_currency_tooltip <- function(x, currency = "$", decimals = 0) {
+  if (is.na(x) || is.null(x) || x == 0) return(paste0(currency, "0"))
+  
+  if (abs(x) >= 1e9) {
+    return(paste0(currency, round(x / 1e9, decimals), "B"))
+  } else if (abs(x) >= 1e6) {
+    return(paste0(currency, round(x / 1e6, decimals), "M"))
+  } else if (abs(x) >= 1e3) {
+    return(paste0(currency, round(x / 1e3, decimals), "K"))
+  } else {
+    return(paste0(currency, round(x, decimals)))
+  }
+}
+
+#' Format Number for Tooltips
+#'
+#' Formats numbers with appropriate suffixes (K, M, B)
+#'
+#' @param x Numeric value to format
+#' @param decimals Number of decimal places (default: 0)
+#'
+#' @return Formatted number string
+#' @keywords internal
+.format_number_tooltip <- function(x, decimals = 0) {
+  if (is.na(x) || is.null(x) || x == 0) return("0")
+  
+  if (abs(x) >= 1e9) {
+    return(paste0(round(x / 1e9, decimals), "B"))
+  } else if (abs(x) >= 1e6) {
+    return(paste0(round(x / 1e6, decimals), "M"))
+  } else if (abs(x) >= 1e3) {
+    return(paste0(round(x / 1e3, decimals), "K"))
+  } else {
+    return(as.character(round(x, decimals)))
+  }
+}
+
+#' Add Comparative Statistics to Data Frame
+#'
+#' Adds ranks, percentiles, and comparative statistics to a data frame
+#' for use in tooltips.
+#'
+#' @param data Data frame with spend column
+#' @param spend_col Name of spend column (default: "spend")
+#' @param group_col Optional grouping column for within-group rankings
+#' @param category_col Optional category column for within-category rankings
+#'
+#' @return Data frame with added statistics columns
+#' @keywords internal
+.add_comparative_stats <- function(data, 
+                                   spend_col = "spend",
+                                   group_col = NULL,
+                                   category_col = NULL) {
+  if (nrow(data) == 0) return(data)
+  
+  result <- data
+  
+  # Calculate average spend per ad if n_ads exists
+  if ("n_ads" %in% names(result) && "spend" %in% names(result)) {
+    result <- result %>%
+      dplyr::mutate(
+        avg_spend_per_ad = dplyr::if_else(
+          n_ads > 0,
+          spend / n_ads,
+          0
+        )
+      )
+  }
+  
+  # Calculate overall statistics
+  total_spend_all <- sum(result[[spend_col]], na.rm = TRUE)
+  result <- result %>%
+    dplyr::mutate(
+      overall_perc = if (total_spend_all > 0) {
+        .data[[spend_col]] / total_spend_all * 100
+      } else {
+        0
+      }
+    )
+  
+  # Calculate ranks and percentiles
+  if (!is.null(group_col) && group_col %in% names(result)) {
+    # Rank within group
+    result <- result %>%
+      dplyr::group_by(.data[[group_col]]) %>%
+      dplyr::mutate(
+        rank_within_group = dplyr::dense_rank(dplyr::desc(.data[[spend_col]])),
+        n_in_group = dplyr::n(),
+        percentile_within_group = round((rank_within_group - 1) / n_in_group * 100, 0)
+      ) %>%
+      dplyr::ungroup()
+  }
+  
+  if (!is.null(category_col) && category_col %in% names(result)) {
+    # Rank within category
+    result <- result %>%
+      dplyr::group_by(.data[[category_col]]) %>%
+      dplyr::mutate(
+        rank_within_category = dplyr::dense_rank(dplyr::desc(.data[[spend_col]])),
+        n_in_category = dplyr::n(),
+        percentile_within_category = round((rank_within_category - 1) / n_in_category * 100, 0)
+      ) %>%
+      dplyr::ungroup()
+  }
+  
+  # Overall rank
+  result <- result %>%
+    dplyr::mutate(
+      rank_overall = dplyr::dense_rank(dplyr::desc(.data[[spend_col]])),
+      n_total = dplyr::n(),
+      percentile_overall = round((rank_overall - 1) / n_total * 100, 0)
+    )
+  
+  result
+}
+
+#' Deduplicate Spend for Overlapping Targeting Criteria
+#'
+#' When multiple targeting criteria are used together in the same ad,
+#' the spend would otherwise be counted multiple times. This function
+#' identifies ads with likely overlapping targeting (based on spend
+#' percentage and number of ads) and divides the spend accordingly.
+#'
+#' @param dat Data frame containing ad targeting data
+#' @param spend_col Name of the total spend column (default: "total_spend")
+#' @param spend_pct_col Name of the spend percentage column (default: "total_spend_pct")
+#' @param ads_col Name of the number of ads column (default: "num_ads")
+#' @param id_col Name of the internal ID column (default: "internal_id")
+#'
+#' @return Data frame with deduplicated spend column added
+#' @export
+#'
+#' @details
+#' This implements the logic from the _site implementation:
+#' ```
+#' mutate(likely_together = paste0(total_spend_pct, num_ads) %>% 
+#'        as.factor() %>% as.numeric()) %>%
+#' group_by(internal_id) %>%
+#' add_count(likely_together, name = "n_clusters") %>%
+#' mutate(total_spend_formatted = total_spend_formatted/n_clusters)
+#' ```
+#'
+#' @examples
+#' \dontrun{
+#' dat %>%
+#'   deduplicate_spend() %>%
+#'   group_by(party, age) %>%
+#'   summarize(spend = sum(spend))
+#' }
+deduplicate_spend <- function(dat,
+                              spend_col = "total_spend",
+                              spend_pct_col = "total_spend_pct",
+                              ads_col = "num_ads",
+                              id_col = "internal_id") {
+  # Validate required columns exist
+  required_cols <- c(spend_col, spend_pct_col, ads_col, id_col)
+  missing_cols <- setdiff(required_cols, names(dat))
+  
+  if (length(missing_cols) > 0) {
+    stop(
+      "Missing required columns for deduplication: ", 
+      paste(missing_cols, collapse = ", "),
+      call. = FALSE
+    )
+  }
+  
+  dat %>%
+    dplyr::mutate(
+      # Create cluster identifier based on spend pattern
+      likely_together = paste0(
+        .data[[spend_pct_col]], 
+        .data[[ads_col]]
+      ) %>% 
+        as.factor() %>% 
+        as.numeric()
+    ) %>%
+    dplyr::group_by(.data[[id_col]]) %>%
+    dplyr::add_count(likely_together, name = "n_clusters") %>%
+    dplyr::ungroup() %>%
+    dplyr::mutate(
+      # Calculate deduplicated spend
+      spend = .data[[spend_col]] * .data[[spend_pct_col]] / n_clusters
+    )
+}
+
+
+#' Calculate Total Budget by Group
+#'
+#' Calculates the total budget for each group (actor type, party, etc.) to 
+#' enable percentage calculations. Uses distinct internal_ids to avoid double-counting.
+#'
+#' @param dat Data frame containing ad data
+#' @param group_col Name of the grouping column (default: "actor_type"). 
+#'   Common values: "actor_type", "party", "page_name"
+#' @param spend_col Name of the total spend column (default: "total_spend")
+#' @param id_col Name of the internal ID column (default: "internal_id")
+#'
+#' @return Data frame with group and total budget columns
+#' @export
+calculate_group_budgets <- function(dat,
+                                    group_col = "actor_type",
+                                    spend_col = "total_spend",
+                                    id_col = "internal_id") {
+  dat %>%
+    dplyr::distinct(.data[[id_col]], .keep_all = TRUE) %>%
+    dplyr::group_by(.data[[group_col]]) %>%
+    dplyr::summarize(
+      total_budget = sum(.data[[spend_col]], na.rm = TRUE),
+      .groups = "drop"
+    )
+}
+
+#' @rdname calculate_group_budgets
+#' @export
+calculate_party_budgets <- calculate_group_budgets
+
+
+#' Calculate Overall Total Budget
+#'
+#' Calculates the total budget across all parties.
+#' Uses distinct internal_ids to avoid double-counting.
+#'
+#' @param dat Data frame containing ad data
+#' @param spend_col Name of the total spend column (default: "total_spend")
+#' @param id_col Name of the internal ID column (default: "internal_id")
+#'
+#' @return Numeric value of total budget
+#' @export
+calculate_total_budget <- function(dat,
+                                   spend_col = "total_spend",
+                                   id_col = "internal_id") {
+  dat %>%
+    dplyr::distinct(.data[[id_col]], .keep_all = TRUE) %>%
+    dplyr::summarize(total = sum(.data[[spend_col]], na.rm = TRUE)) %>%
+    dplyr::pull(total)
+}
+
+
+# =================================================================
+# Demographics Data Preparation Functions
+# =================================================================
+
+#' Prepare Age Targeting Data
+#'
+#' Processes age targeting data with proper deduplication and percentage
+#' calculations by actor type or party.
+#'
+#' @param dat Data frame containing ad targeting data
+#' @param age_col Name of the age column (default: "age")
+#' @param group_col Name of the grouping column (default: "actor_type"). 
+#'   Use "party" for countries with party data.
+#' @param by_group Whether to calculate percentages within each group (default: TRUE)
+#'
+#' @return Data frame with age, group, spend, and percentage columns
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' # By actor type (default for most countries)
+#' age_data <- dat %>%
+#'   filter(!is.na(age)) %>%
+#'   prepare_age_data()
+#'
+#' # By party (for countries with party data like Germany)
+#' age_data <- dat %>%
+#'   filter(!is.na(age)) %>%
+#'   prepare_age_data(group_col = "party")
+#' }
+prepare_age_data <- function(dat,
+                             age_col = "age",
+                             group_col = "actor_type",
+                             by_group = TRUE) {
+  
+  if (!age_col %in% names(dat)) {
+    stop("age column '", age_col, "' not found in data", call. = FALSE)
+  }
+  
+  # Filter to rows with age data
+  filtered <- dat %>%
+    dplyr::filter(!is.na(.data[[age_col]]))
+  
+  if (nrow(filtered) == 0) {
+    warning("No age targeting data found")
+    return(data.frame())
+  }
+  
+  # Deduplicate spend
+  deduped <- deduplicate_spend(filtered)
+  
+  if (by_group && group_col %in% names(dat)) {
+    # Calculate group budgets
+    group_budgets <- calculate_group_budgets(filtered, group_col = group_col)
+    
+    # Calculate total budget for overall percentages
+    total_budget_all <- calculate_total_budget(filtered)
+
+    # Aggregate by group and age
+    result <- deduped %>%
+      dplyr::group_by(.data[[group_col]], .data[[age_col]]) %>%
+      dplyr::summarize(
+        spend = sum(spend, na.rm = TRUE),
+        n_ads = dplyr::n(),
+        .groups = "drop"
+      ) %>%
+      dplyr::left_join(group_budgets, by = group_col) %>%
+      dplyr::mutate(
+        perc = spend / total_budget * 100,
+        overall_perc = spend / total_budget_all * 100,
+        avg_spend_per_ad = dplyr::if_else(n_ads > 0, spend / n_ads, 0)
+      )
+    
+    # Add comparative statistics
+    result <- result %>%
+      dplyr::group_by(.data[[group_col]]) %>%
+      dplyr::mutate(
+        rank_within_group = dplyr::dense_rank(dplyr::desc(spend)),
+        n_age_groups = dplyr::n(),
+        percentile_within_group = round((rank_within_group - 1) / n_age_groups * 100, 0)
+      ) %>%
+      dplyr::ungroup() %>%
+      dplyr::group_by(age) %>%
+      dplyr::mutate(
+        rank_within_age = dplyr::dense_rank(dplyr::desc(spend)),
+        n_actors_targeting_age = dplyr::n_distinct(.data[[group_col]]),
+        percentile_within_age = round((rank_within_age - 1) / n_actors_targeting_age * 100, 0)
+      ) %>%
+      dplyr::ungroup() %>%
+      dplyr::mutate(
+        rank_overall = dplyr::dense_rank(dplyr::desc(spend)),
+        n_total = dplyr::n(),
+        percentile_overall = round((rank_overall - 1) / n_total * 100, 0)
+      )
+
+    # Rename columns for consistency
+    if (age_col != "age") {
+      result <- result %>% dplyr::rename(age = !!age_col)
+    }
+  } else {
+    # Aggregate overall
+    total_budget <- calculate_total_budget(filtered)
+
+    result <- deduped %>%
+      dplyr::group_by(.data[[age_col]]) %>%
+      dplyr::summarize(
+        spend = sum(spend, na.rm = TRUE),
+        n_ads = dplyr::n(),
+        .groups = "drop"
+      ) %>%
+      dplyr::mutate(
+        perc = spend / total_budget * 100,
+        total_budget = total_budget,
+        overall_perc = perc,
+        avg_spend_per_ad = dplyr::if_else(n_ads > 0, spend / n_ads, 0),
+        rank_overall = dplyr::dense_rank(dplyr::desc(spend)),
+        n_total = dplyr::n(),
+        percentile_overall = round((rank_overall - 1) / n_total * 100, 0)
+      )
+
+    if (age_col != "age") {
+      result <- result %>% dplyr::rename(age = !!age_col)
+    }
+  }
+  
+  result
+}
+
+
+#' Prepare Gender Targeting Data
+#'
+#' Processes gender targeting data with proper deduplication and percentage
+#' calculations by actor type or party.
+#'
+#' @param dat Data frame containing ad targeting data
+#' @param gender_col Name of the gender column (default: "gender")
+#' @param group_col Name of the grouping column (default: "actor_type")
+#' @param by_group Whether to calculate percentages within each group (default: TRUE)
+#'
+#' @return Data frame with gender, group, spend, and percentage columns
+#' @export
+prepare_gender_data <- function(dat,
+                                gender_col = "gender",
+                                group_col = "actor_type",
+                                by_group = TRUE) {
+  
+  if (!gender_col %in% names(dat)) {
+    stop("gender column '", gender_col, "' not found in data", call. = FALSE)
+  }
+  
+  # Filter to rows with gender data
+  filtered <- dat %>%
+    dplyr::filter(!is.na(.data[[gender_col]]))
+  
+  if (nrow(filtered) == 0) {
+    warning("No gender targeting data found")
+    return(data.frame())
+  }
+  
+  # Deduplicate spend
+  deduped <- deduplicate_spend(filtered)
+  
+  if (by_group && group_col %in% names(dat)) {
+    group_budgets <- calculate_group_budgets(filtered, group_col = group_col)
+    total_budget_all <- calculate_total_budget(filtered)
+
+    result <- deduped %>%
+      dplyr::group_by(.data[[group_col]], .data[[gender_col]]) %>%
+      dplyr::summarize(
+        spend = sum(spend, na.rm = TRUE),
+        n_ads = dplyr::n(),
+        .groups = "drop"
+      ) %>%
+      dplyr::left_join(group_budgets, by = group_col) %>%
+      dplyr::mutate(
+        perc = spend / total_budget * 100,
+        overall_perc = spend / total_budget_all * 100,
+        avg_spend_per_ad = dplyr::if_else(n_ads > 0, spend / n_ads, 0)
+      ) %>%
+      dplyr::group_by(.data[[group_col]]) %>%
+      dplyr::mutate(
+        rank_within_group = dplyr::dense_rank(dplyr::desc(spend)),
+        n_gender_groups = dplyr::n(),
+        percentile_within_group = round((rank_within_group - 1) / n_gender_groups * 100, 0)
+      ) %>%
+      dplyr::ungroup() %>%
+      dplyr::group_by(gender) %>%
+      dplyr::mutate(
+        rank_within_gender = dplyr::dense_rank(dplyr::desc(spend)),
+        n_actors_targeting_gender = dplyr::n_distinct(.data[[group_col]]),
+        percentile_within_gender = round((rank_within_gender - 1) / n_actors_targeting_gender * 100, 0)
+      ) %>%
+      dplyr::ungroup() %>%
+      dplyr::mutate(
+        rank_overall = dplyr::dense_rank(dplyr::desc(spend)),
+        n_total = dplyr::n(),
+        percentile_overall = round((rank_overall - 1) / n_total * 100, 0)
+      )
+
+    if (gender_col != "gender") {
+      result <- result %>% dplyr::rename(gender = !!gender_col)
+    }
+  } else {
+    total_budget <- calculate_total_budget(filtered)
+
+    result <- deduped %>%
+      dplyr::group_by(.data[[gender_col]]) %>%
+      dplyr::summarize(
+        spend = sum(spend, na.rm = TRUE),
+        n_ads = dplyr::n(),
+        .groups = "drop"
+      ) %>%
+      dplyr::mutate(
+        perc = spend / total_budget * 100,
+        total_budget = total_budget,
+        overall_perc = perc,
+        avg_spend_per_ad = dplyr::if_else(n_ads > 0, spend / n_ads, 0),
+        rank_overall = dplyr::dense_rank(dplyr::desc(spend)),
+        n_total = dplyr::n(),
+        percentile_overall = round((rank_overall - 1) / n_total * 100, 0)
+      )
+
+    if (gender_col != "gender") {
+      result <- result %>% dplyr::rename(gender = !!gender_col)
+    }
+  }
+  
+  result
+}
+
+
+#' Prepare Language Targeting Data
+#'
+#' Processes language targeting data with proper deduplication and percentage
+#' calculations by actor type or party.
+#'
+#' @param dat Data frame containing ad targeting data
+#' @param language_col Name of the language column (default: "language")
+#' @param group_col Name of the grouping column (default: "actor_type")
+#' @param by_group Whether to calculate percentages within each group (default: TRUE)
+#'
+#' @return Data frame with language, group, spend, and percentage columns
+#' @export
+prepare_language_data <- function(dat,
+                                  language_col = "language",
+                                  group_col = "actor_type",
+                                  by_group = TRUE) {
+  
+  if (!language_col %in% names(dat)) {
+    stop("language column '", language_col, "' not found in data", call. = FALSE)
+  }
+  
+  # Filter to rows with language data
+  filtered <- dat %>%
+    dplyr::filter(!is.na(.data[[language_col]]))
+  
+  if (nrow(filtered) == 0) {
+    warning("No language targeting data found")
+    return(data.frame())
+  }
+  
+  # Deduplicate spend
+  deduped <- deduplicate_spend(filtered)
+  
+  if (by_group && group_col %in% names(dat)) {
+    group_budgets <- calculate_group_budgets(filtered, group_col = group_col)
+    total_budget_all <- calculate_total_budget(filtered)
+
+    result <- deduped %>%
+      dplyr::group_by(.data[[group_col]], .data[[language_col]]) %>%
+      dplyr::summarize(
+        spend = sum(spend, na.rm = TRUE),
+        n_ads = dplyr::n(),
+        .groups = "drop"
+      ) %>%
+      dplyr::left_join(group_budgets, by = group_col) %>%
+      dplyr::mutate(
+        perc = spend / total_budget * 100,
+        overall_perc = spend / total_budget_all * 100,
+        avg_spend_per_ad = dplyr::if_else(n_ads > 0, spend / n_ads, 0)
+      ) %>%
+      dplyr::group_by(.data[[group_col]]) %>%
+      dplyr::mutate(
+        rank_within_group = dplyr::dense_rank(dplyr::desc(spend)),
+        n_language_groups = dplyr::n(),
+        percentile_within_group = round((rank_within_group - 1) / n_language_groups * 100, 0)
+      ) %>%
+      dplyr::ungroup() %>%
+      dplyr::group_by(language) %>%
+      dplyr::mutate(
+        rank_within_language = dplyr::dense_rank(dplyr::desc(spend)),
+        n_actors_targeting_language = dplyr::n_distinct(.data[[group_col]]),
+        percentile_within_language = round((rank_within_language - 1) / n_actors_targeting_language * 100, 0)
+      ) %>%
+      dplyr::ungroup() %>%
+      dplyr::mutate(
+        rank_overall = dplyr::dense_rank(dplyr::desc(spend)),
+        n_total = dplyr::n(),
+        percentile_overall = round((rank_overall - 1) / n_total * 100, 0)
+      )
+
+    if (language_col != "language") {
+      result <- result %>% dplyr::rename(language = !!language_col)
+    }
+  } else {
+    total_budget <- calculate_total_budget(filtered)
+
+    result <- deduped %>%
+      dplyr::group_by(.data[[language_col]]) %>%
+      dplyr::summarize(
+        spend = sum(spend, na.rm = TRUE),
+        n_ads = dplyr::n(),
+        .groups = "drop"
+      ) %>%
+      dplyr::mutate(
+        perc = spend / total_budget * 100,
+        total_budget = total_budget,
+        overall_perc = perc,
+        avg_spend_per_ad = dplyr::if_else(n_ads > 0, spend / n_ads, 0),
+        rank_overall = dplyr::dense_rank(dplyr::desc(spend)),
+        n_total = dplyr::n(),
+        percentile_overall = round((rank_overall - 1) / n_total * 100, 0)
+      )
+
+    if (language_col != "language") {
+      result <- result %>% dplyr::rename(language = !!language_col)
+    }
+  }
+  
+  result
+}
+
+
+#' Prepare Education Targeting Data
+#'
+#' Processes education level targeting data with proper deduplication and
+#' percentage calculations by actor type or party.
+#'
+#' @param dat Data frame containing ad targeting data
+#' @param education_col Name of the education column (default: "education")
+#' @param group_col Name of the grouping column (default: "actor_type")
+#' @param by_group Whether to calculate percentages within each group (default: TRUE)
+#'
+#' @return Data frame with education, group, spend, and percentage columns
+#' @export
+prepare_education_data <- function(dat,
+                                   education_col = "education",
+                                   group_col = "actor_type",
+                                   by_group = TRUE) {
+  
+  if (!education_col %in% names(dat)) {
+    stop("education column '", education_col, "' not found in data", call. = FALSE)
+  }
+  
+  # Filter to rows with education data
+  filtered <- dat %>%
+    dplyr::filter(!is.na(.data[[education_col]]))
+  
+  if (nrow(filtered) == 0) {
+    warning("No education targeting data found")
+    return(data.frame())
+  }
+  
+  # Deduplicate spend
+  deduped <- deduplicate_spend(filtered)
+  
+  if (by_group && group_col %in% names(dat)) {
+    group_budgets <- calculate_group_budgets(filtered, group_col = group_col)
+    total_budget_all <- calculate_total_budget(filtered)
+
+    result <- deduped %>%
+      dplyr::group_by(.data[[group_col]], .data[[education_col]]) %>%
+      dplyr::summarize(
+        spend = sum(spend, na.rm = TRUE),
+        n_ads = dplyr::n(),
+        .groups = "drop"
+      ) %>%
+      dplyr::left_join(group_budgets, by = group_col) %>%
+      dplyr::mutate(
+        perc = spend / total_budget * 100,
+        overall_perc = spend / total_budget_all * 100,
+        avg_spend_per_ad = dplyr::if_else(n_ads > 0, spend / n_ads, 0)
+      ) %>%
+      dplyr::group_by(.data[[group_col]]) %>%
+      dplyr::mutate(
+        rank_within_group = dplyr::dense_rank(dplyr::desc(spend)),
+        n_education_groups = dplyr::n(),
+        percentile_within_group = round((rank_within_group - 1) / n_education_groups * 100, 0)
+      ) %>%
+      dplyr::ungroup() %>%
+      dplyr::group_by(education) %>%
+      dplyr::mutate(
+        rank_within_education = dplyr::dense_rank(dplyr::desc(spend)),
+        n_actors_targeting_education = dplyr::n_distinct(.data[[group_col]]),
+        percentile_within_education = round((rank_within_education - 1) / n_actors_targeting_education * 100, 0)
+      ) %>%
+      dplyr::ungroup() %>%
+      dplyr::mutate(
+        rank_overall = dplyr::dense_rank(dplyr::desc(spend)),
+        n_total = dplyr::n(),
+        percentile_overall = round((rank_overall - 1) / n_total * 100, 0)
+      )
+
+    if (education_col != "education") {
+      result <- result %>% dplyr::rename(education = !!education_col)
+    }
+  } else {
+    total_budget <- calculate_total_budget(filtered)
+
+    result <- deduped %>%
+      dplyr::group_by(.data[[education_col]]) %>%
+      dplyr::summarize(
+        spend = sum(spend, na.rm = TRUE),
+        n_ads = dplyr::n(),
+        .groups = "drop"
+      ) %>%
+      dplyr::mutate(
+        perc = spend / total_budget * 100,
+        total_budget = total_budget,
+        overall_perc = perc,
+        avg_spend_per_ad = dplyr::if_else(n_ads > 0, spend / n_ads, 0),
+        rank_overall = dplyr::dense_rank(dplyr::desc(spend)),
+        n_total = dplyr::n(),
+        percentile_overall = round((rank_overall - 1) / n_total * 100, 0)
+      )
+
+    if (education_col != "education") {
+      result <- result %>% dplyr::rename(education = !!education_col)
+    }
+  }
+  
+  result
+}
+
+
+#' Prepare Employment Targeting Data
+#'
+#' Processes employment/job targeting data with proper deduplication and
+#' percentage calculations by actor type or party.
+#'
+#' @param dat Data frame containing ad targeting data
+#' @param employment_col Name of the employment column (default: "employment")
+#' @param group_col Name of the grouping column (default: "actor_type")
+#' @param by_group Whether to calculate percentages within each group (default: TRUE)
+#'
+#' @return Data frame with employment, group, spend, and percentage columns
+#' @export
+prepare_employment_data <- function(dat,
+                                    employment_col = "employment",
+                                    group_col = "actor_type",
+                                    by_group = TRUE) {
+  
+  if (!employment_col %in% names(dat)) {
+    stop("employment column '", employment_col, "' not found in data", call. = FALSE)
+  }
+  
+  # Filter to rows with employment data
+  filtered <- dat %>%
+    dplyr::filter(!is.na(.data[[employment_col]]))
+  
+  if (nrow(filtered) == 0) {
+    warning("No employment targeting data found")
+    return(data.frame())
+  }
+  
+  # Deduplicate spend
+  deduped <- deduplicate_spend(filtered)
+  
+  if (by_group && group_col %in% names(dat)) {
+    group_budgets <- calculate_group_budgets(filtered, group_col = group_col)
+    total_budget_all <- calculate_total_budget(filtered)
+
+    result <- deduped %>%
+      dplyr::group_by(.data[[group_col]], .data[[employment_col]]) %>%
+      dplyr::summarize(
+        spend = sum(spend, na.rm = TRUE),
+        n_ads = dplyr::n(),
+        .groups = "drop"
+      ) %>%
+      dplyr::left_join(group_budgets, by = group_col) %>%
+      dplyr::mutate(
+        perc = spend / total_budget * 100,
+        overall_perc = spend / total_budget_all * 100,
+        avg_spend_per_ad = dplyr::if_else(n_ads > 0, spend / n_ads, 0)
+      ) %>%
+      dplyr::group_by(.data[[group_col]]) %>%
+      dplyr::mutate(
+        rank_within_group = dplyr::dense_rank(dplyr::desc(spend)),
+        n_employment_groups = dplyr::n(),
+        percentile_within_group = round((rank_within_group - 1) / n_employment_groups * 100, 0)
+      ) %>%
+      dplyr::ungroup() %>%
+      dplyr::group_by(employment) %>%
+      dplyr::mutate(
+        rank_within_employment = dplyr::dense_rank(dplyr::desc(spend)),
+        n_actors_targeting_employment = dplyr::n_distinct(.data[[group_col]]),
+        percentile_within_employment = round((rank_within_employment - 1) / n_actors_targeting_employment * 100, 0)
+      ) %>%
+      dplyr::ungroup() %>%
+      dplyr::mutate(
+        rank_overall = dplyr::dense_rank(dplyr::desc(spend)),
+        n_total = dplyr::n(),
+        percentile_overall = round((rank_overall - 1) / n_total * 100, 0)
+      )
+
+    if (employment_col != "employment") {
+      result <- result %>% dplyr::rename(employment = !!employment_col)
+    }
+  } else {
+    total_budget <- calculate_total_budget(filtered)
+
+    result <- deduped %>%
+      dplyr::group_by(.data[[employment_col]]) %>%
+      dplyr::summarize(
+        spend = sum(spend, na.rm = TRUE),
+        n_ads = dplyr::n(),
+        .groups = "drop"
+      ) %>%
+      dplyr::mutate(
+        perc = spend / total_budget * 100,
+        total_budget = total_budget,
+        overall_perc = perc,
+        avg_spend_per_ad = dplyr::if_else(n_ads > 0, spend / n_ads, 0),
+        rank_overall = dplyr::dense_rank(dplyr::desc(spend)),
+        n_total = dplyr::n(),
+        percentile_overall = round((rank_overall - 1) / n_total * 100, 0)
+      )
+
+    if (employment_col != "employment") {
+      result <- result %>% dplyr::rename(employment = !!employment_col)
+    }
+  }
+  
+  result
+}
+
+
+#' Prepare Relationship Status Targeting Data
+#'
+#' Processes relationship status targeting data with proper deduplication and
+#' percentage calculations by actor type or party.
+#'
+#' @param dat Data frame containing ad targeting data
+#' @param relationship_col Name of the relationship column (default: "relationship_status")
+#' @param group_col Name of the grouping column (default: "actor_type")
+#' @param by_group Whether to calculate percentages within each group (default: TRUE)
+#'
+#' @return Data frame with relationship_status, group, spend, and percentage columns
+#' @export
+prepare_relationship_data <- function(dat,
+                                      relationship_col = "relationship_status",
+                                      group_col = "actor_type",
+                                      by_group = TRUE) {
+  
+  if (!relationship_col %in% names(dat)) {
+    stop("relationship column '", relationship_col, "' not found in data", call. = FALSE)
+  }
+  
+  # Filter to rows with relationship data
+  filtered <- dat %>%
+    dplyr::filter(!is.na(.data[[relationship_col]]))
+  
+  if (nrow(filtered) == 0) {
+    warning("No relationship status targeting data found")
+    return(data.frame())
+  }
+  
+  # Deduplicate spend
+  deduped <- deduplicate_spend(filtered)
+  
+  if (by_group && group_col %in% names(dat)) {
+    group_budgets <- calculate_group_budgets(filtered, group_col = group_col)
+    total_budget_all <- calculate_total_budget(filtered)
+
+    result <- deduped %>%
+      dplyr::group_by(.data[[group_col]], .data[[relationship_col]]) %>%
+      dplyr::summarize(
+        spend = sum(spend, na.rm = TRUE),
+        n_ads = dplyr::n(),
+        .groups = "drop"
+      ) %>%
+      dplyr::left_join(group_budgets, by = group_col) %>%
+      dplyr::mutate(
+        perc = spend / total_budget * 100,
+        overall_perc = spend / total_budget_all * 100,
+        avg_spend_per_ad = dplyr::if_else(n_ads > 0, spend / n_ads, 0)
+      ) %>%
+      dplyr::group_by(.data[[group_col]]) %>%
+      dplyr::mutate(
+        rank_within_group = dplyr::dense_rank(dplyr::desc(spend)),
+        n_relationship_groups = dplyr::n(),
+        percentile_within_group = round((rank_within_group - 1) / n_relationship_groups * 100, 0)
+      ) %>%
+      dplyr::ungroup() %>%
+      dplyr::group_by(relationship_status) %>%
+      dplyr::mutate(
+        rank_within_relationship = dplyr::dense_rank(dplyr::desc(spend)),
+        n_actors_targeting_relationship = dplyr::n_distinct(.data[[group_col]]),
+        percentile_within_relationship = round((rank_within_relationship - 1) / n_actors_targeting_relationship * 100, 0)
+      ) %>%
+      dplyr::ungroup() %>%
+      dplyr::mutate(
+        rank_overall = dplyr::dense_rank(dplyr::desc(spend)),
+        n_total = dplyr::n(),
+        percentile_overall = round((rank_overall - 1) / n_total * 100, 0)
+      )
+
+    if (relationship_col != "relationship_status") {
+      result <- result %>% dplyr::rename(relationship_status = !!relationship_col)
+    }
+  } else {
+    total_budget <- calculate_total_budget(filtered)
+
+    result <- deduped %>%
+      dplyr::group_by(.data[[relationship_col]]) %>%
+      dplyr::summarize(
+        spend = sum(spend, na.rm = TRUE),
+        n_ads = dplyr::n(),
+        .groups = "drop"
+      ) %>%
+      dplyr::mutate(
+        perc = spend / total_budget * 100,
+        total_budget = total_budget,
+        overall_perc = perc,
+        avg_spend_per_ad = dplyr::if_else(n_ads > 0, spend / n_ads, 0),
+        rank_overall = dplyr::dense_rank(dplyr::desc(spend)),
+        n_total = dplyr::n(),
+        percentile_overall = round((rank_overall - 1) / n_total * 100, 0)
+      )
+
+    if (relationship_col != "relationship_status") {
+      result <- result %>% dplyr::rename(relationship_status = !!relationship_col)
+    }
+  }
+  
+  result
+}
+
+
+# =================================================================
+# Location Data Preparation
+# =================================================================
+
+#' Prepare Location Data for Treemap Visualization
+#'
+#' Processes geographic targeting data for hierarchical treemap display.
+#' Properly deduplicates spend and calculates percentages by actor type or party.
+#'
+#' @param dat Data frame containing ad targeting data
+#' @param location_col Name of the location column (default: "location")
+#' @param region_col Optional name of a higher-level region column for hierarchy
+#' @param group_col Name of the grouping column (default: "actor_type")
+#' @param by_group Whether to include group in the hierarchy (default: TRUE)
+#'
+#' @return Data frame suitable for treemap visualization
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' # By actor type (default)
+#' location_data <- dat %>%
+#'   filter(!is.na(location)) %>%
+#'   prepare_location_data()
+#'
+#' # Use with treemap
+#' create_treemap(
+#'   location_data,
+#'   group_var = "actor_type",
+#'   subgroup_var = "location",
+#'   value_var = "spend"
+#' )
+#'
+#' # By party (for countries with party data)
+#' location_data <- dat %>%
+#'   prepare_location_data(group_col = "party")
+#' }
+prepare_location_data <- function(dat,
+                                  location_col = "location",
+                                  region_col = NULL,
+                                  group_col = "actor_type",
+                                  by_group = TRUE) {
+  
+  if (!location_col %in% names(dat)) {
+    stop("location column '", location_col, "' not found in data", call. = FALSE)
+  }
+  
+  # Filter to rows with location data
+  filtered <- dat %>%
+    dplyr::filter(!is.na(.data[[location_col]]))
+  
+  if (nrow(filtered) == 0) {
+    warning("No location targeting data found")
+    return(data.frame())
+  }
+  
+  # Deduplicate spend
+  deduped <- deduplicate_spend(filtered)
+  
+  # Determine grouping variables
+  group_vars <- c()
+  
+  if (by_group && group_col %in% names(dat)) {
+    group_vars <- c(group_vars, group_col)
+  }
+  
+  if (!is.null(region_col) && region_col %in% names(dat)) {
+    group_vars <- c(group_vars, region_col)
+  }
+  
+  group_vars <- c(group_vars, location_col)
+  
+  # Aggregate
+  result <- deduped %>%
+    dplyr::group_by(dplyr::across(dplyr::all_of(group_vars))) %>%
+    dplyr::summarize(
+      spend = sum(spend, na.rm = TRUE),
+      n_ads = dplyr::n(),
+      .groups = "drop"
+    )
+  
+  # Calculate total budget for overall percentages
+  total_budget_all <- calculate_total_budget(filtered)
+  
+  # Calculate percentages
+  if (by_group && group_col %in% names(dat)) {
+    group_budgets <- calculate_group_budgets(filtered, group_col = group_col)
+    
+    result <- result %>%
+      dplyr::left_join(group_budgets, by = group_col) %>%
+      dplyr::mutate(
+        perc = spend / total_budget * 100,
+        overall_perc = spend / total_budget_all * 100
+      ) %>%
+      dplyr::group_by(.data[[group_col]]) %>%
+      dplyr::mutate(
+        rank_within_group = dplyr::dense_rank(dplyr::desc(spend)),
+        n_locations_in_group = dplyr::n(),
+        percentile_within_group = round((rank_within_group - 1) / n_locations_in_group * 100, 0)
+      ) %>%
+      dplyr::ungroup() %>%
+      dplyr::group_by(location) %>%
+      dplyr::mutate(
+        rank_within_location = dplyr::dense_rank(dplyr::desc(spend)),
+        n_actors_targeting_location = dplyr::n_distinct(.data[[group_col]]),
+        percentile_within_location = round((rank_within_location - 1) / n_actors_targeting_location * 100, 0)
+      ) %>%
+      dplyr::ungroup() %>%
+      dplyr::mutate(
+        rank_overall = dplyr::dense_rank(dplyr::desc(spend)),
+        n_total = dplyr::n(),
+        percentile_overall = round((rank_overall - 1) / n_total * 100, 0)
+      )
+  } else {
+    result <- result %>%
+      dplyr::mutate(
+        perc = spend / total_budget_all * 100,
+        overall_perc = perc,
+        rank_overall = dplyr::dense_rank(dplyr::desc(spend)),
+        n_total = dplyr::n(),
+        percentile_overall = round((rank_overall - 1) / n_total * 100, 0)
+      )
+  }
+  
+  # Rename location column for consistency
+  if (location_col != "location") {
+    result <- result %>% dplyr::rename(location = !!location_col)
+  }
+  
+  result
+}
+
+
+# =================================================================
+# Targeting Data Preparation
+# =================================================================
+
+#' Prepare Targeting Data with Per-Group Attribution
+#'
+#' Processes general targeting data (interests, behaviors, custom audiences)
+#' with proper deduplication and per-group aggregation. This fixes the issue
+#' where the original implementation ran calc_targeting() on the entire dataset,
+#' losing group attribution.
+#'
+#' @param dat Data frame containing ad targeting data
+#' @param target_col Name of the targeting criterion column (default: "targeting")
+#' @param target_type_col Optional column categorizing target types
+#' @param group_col Name of the grouping column (default: "actor_type")
+#' @param by_group Whether to aggregate per-group (default: TRUE)
+#' @param top_n Limit results to top N targets per group (default: NULL for all)
+#'
+#' @return Data frame with targeting data aggregated by group
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' # By actor type (default)
+#' targeting_data <- dat %>%
+#'   filter(!is.na(targeting)) %>%
+#'   prepare_targeting_data(top_n = 20)
+#'
+#' # By party (for countries with party data)
+#' targeting_data <- dat %>%
+#'   prepare_targeting_data(group_col = "party", top_n = 20)
+#' }
+prepare_targeting_data <- function(dat,
+                                   target_col = "targeting",
+                                   target_type_col = NULL,
+                                   group_col = "actor_type",
+                                   by_group = TRUE,
+                                   top_n = NULL) {
+  
+  if (!target_col %in% names(dat)) {
+    stop("target column '", target_col, "' not found in data", call. = FALSE)
+  }
+  
+  # Filter to rows with targeting data
+  filtered <- dat %>%
+    dplyr::filter(!is.na(.data[[target_col]]))
+  
+  if (nrow(filtered) == 0) {
+    warning("No targeting data found")
+    return(data.frame())
+  }
+  
+  # Deduplicate spend
+  deduped <- deduplicate_spend(filtered)
+  
+  # Determine grouping variables
+  group_vars <- c()
+  
+  if (by_group && group_col %in% names(dat)) {
+    group_vars <- c(group_vars, group_col)
+  }
+  
+  if (!is.null(target_type_col) && target_type_col %in% names(dat)) {
+    group_vars <- c(group_vars, target_type_col)
+  }
+  
+  group_vars <- c(group_vars, target_col)
+  
+  # Aggregate
+  result <- deduped %>%
+    dplyr::group_by(dplyr::across(dplyr::all_of(group_vars))) %>%
+    dplyr::summarize(
+      spend = sum(spend, na.rm = TRUE),
+      n_ads = dplyr::n(),
+      .groups = "drop"
+    )
+  
+  # Calculate total budget for overall percentages
+  total_budget_all <- calculate_total_budget(filtered)
+  
+  # Calculate percentages
+  if (by_group && group_col %in% names(dat)) {
+    group_budgets <- calculate_group_budgets(filtered, group_col = group_col)
+    
+    result <- result %>%
+      dplyr::left_join(group_budgets, by = group_col) %>%
+      dplyr::mutate(
+        perc = spend / total_budget * 100,
+        overall_perc = spend / total_budget_all * 100,
+        avg_spend_per_ad = dplyr::if_else(n_ads > 0, spend / n_ads, 0)
+      ) %>%
+      dplyr::group_by(.data[[group_col]]) %>%
+      dplyr::mutate(
+        rank_within_group = dplyr::dense_rank(dplyr::desc(spend)),
+        n_targets_in_group = dplyr::n(),
+        percentile_within_group = round((rank_within_group - 1) / n_targets_in_group * 100, 0)
+      ) %>%
+      dplyr::ungroup() %>%
+      dplyr::group_by(targeting) %>%
+      dplyr::mutate(
+        rank_within_target = dplyr::dense_rank(dplyr::desc(spend)),
+        n_actors_targeting = dplyr::n_distinct(.data[[group_col]]),
+        percentile_within_target = round((rank_within_target - 1) / n_actors_targeting * 100, 0)
+      ) %>%
+      dplyr::ungroup() %>%
+      dplyr::mutate(
+        rank_overall = dplyr::dense_rank(dplyr::desc(spend)),
+        n_total = dplyr::n(),
+        percentile_overall = round((rank_overall - 1) / n_total * 100, 0)
+      )
+    
+    # Apply top_n per group if specified
+    if (!is.null(top_n)) {
+      result <- result %>%
+        dplyr::group_by(.data[[group_col]]) %>%
+        dplyr::slice_max(order_by = spend, n = top_n, with_ties = FALSE) %>%
+        dplyr::ungroup()
+    }
+  } else {
+    result <- result %>%
+      dplyr::mutate(
+        perc = spend / total_budget_all * 100,
+        overall_perc = perc,
+        avg_spend_per_ad = dplyr::if_else(n_ads > 0, spend / n_ads, 0),
+        rank_overall = dplyr::dense_rank(dplyr::desc(spend)),
+        n_total = dplyr::n(),
+        percentile_overall = round((rank_overall - 1) / n_total * 100, 0)
+      )
+    
+    # Apply top_n if specified
+    if (!is.null(top_n)) {
+      result <- result %>%
+        dplyr::slice_max(order_by = spend, n = top_n, with_ties = FALSE)
+    }
+  }
+  
+  # Rename target column for consistency
+  if (target_col != "targeting") {
+    result <- result %>% dplyr::rename(targeting = !!target_col)
+  }
+  
+  result
+}
+
+
+# =================================================================
+# Detailed Page Functions
+# =================================================================
+
+#' Prepare Excluded Audiences Data
+#'
+#' Identifies and aggregates audiences that were specifically excluded from
+#' ad targeting. This shows who advertisers are explicitly NOT trying to reach.
+#'
+#' @param dat Data frame containing ad targeting data
+#' @param excluded_col Name of the excluded audience column (default: "excluded")
+#' @param group_col Name of the grouping column (default: "actor_type")
+#' @param by_group Whether to aggregate per-group (default: TRUE)
+#' @param top_n Limit results to top N exclusions per group (default: 20)
+#'
+#' @return Data frame with excluded audience data
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' # By actor type (default)
+#' excluded_data <- dat %>%
+#'   prepare_excluded_audiences()
+#'
+#' # By party (for countries with party data)
+#' excluded_data <- dat %>%
+#'   prepare_excluded_audiences(group_col = "party")
+#' }
+prepare_excluded_audiences <- function(dat,
+                                       excluded_col = "excluded",
+                                       group_col = "actor_type",
+                                       by_group = TRUE,
+                                       top_n = 20) {
+  
+  if (!excluded_col %in% names(dat)) {
+    warning("excluded column '", excluded_col, "' not found in data")
+    return(data.frame())
+  }
+  
+  # Filter to rows with exclusion data
+  filtered <- dat %>%
+    dplyr::filter(!is.na(.data[[excluded_col]]))
+  
+  if (nrow(filtered) == 0) {
+    warning("No exclusion data found")
+    return(data.frame())
+  }
+  
+  # Deduplicate spend
+  deduped <- deduplicate_spend(filtered)
+  
+  if (by_group && group_col %in% names(dat)) {
+    group_budgets <- calculate_group_budgets(filtered, group_col = group_col)
+    total_budget_all <- calculate_total_budget(filtered)
+    
+    result <- deduped %>%
+      dplyr::group_by(.data[[group_col]], .data[[excluded_col]]) %>%
+      dplyr::summarize(
+        spend = sum(spend, na.rm = TRUE),
+        n_ads = dplyr::n(),
+        .groups = "drop"
+      ) %>%
+      dplyr::left_join(group_budgets, by = group_col) %>%
+      dplyr::mutate(
+        perc = spend / total_budget * 100,
+        overall_perc = spend / total_budget_all * 100,
+        avg_spend_per_ad = dplyr::if_else(n_ads > 0, spend / n_ads, 0)
+      ) %>%
+      dplyr::group_by(.data[[group_col]]) %>%
+      dplyr::mutate(
+        rank_within_group = dplyr::dense_rank(dplyr::desc(spend)),
+        n_exclusions_in_group = dplyr::n(),
+        percentile_within_group = round((rank_within_group - 1) / n_exclusions_in_group * 100, 0)
+      ) %>%
+      dplyr::ungroup() %>%
+      dplyr::group_by(excluded) %>%
+      dplyr::mutate(
+        rank_within_exclusion = dplyr::dense_rank(dplyr::desc(spend)),
+        n_actors_excluding = dplyr::n_distinct(.data[[group_col]]),
+        percentile_within_exclusion = round((rank_within_exclusion - 1) / n_actors_excluding * 100, 0)
+      ) %>%
+      dplyr::ungroup() %>%
+      dplyr::mutate(
+        rank_overall = dplyr::dense_rank(dplyr::desc(spend)),
+        n_total = dplyr::n(),
+        percentile_overall = round((rank_overall - 1) / n_total * 100, 0)
+      ) %>%
+      dplyr::group_by(.data[[group_col]]) %>%
+      dplyr::slice_max(order_by = spend, n = top_n, with_ties = FALSE) %>%
+      dplyr::ungroup()
+    
+    if (excluded_col != "excluded") {
+      result <- result %>% dplyr::rename(excluded = !!excluded_col)
+    }
+  } else {
+    total_budget <- calculate_total_budget(filtered)
+    
+    result <- deduped %>%
+      dplyr::group_by(.data[[excluded_col]]) %>%
+      dplyr::summarize(
+        spend = sum(spend, na.rm = TRUE),
+        n_ads = dplyr::n(),
+        .groups = "drop"
+      ) %>%
+      dplyr::mutate(
+        perc = spend / total_budget * 100,
+        overall_perc = perc,
+        avg_spend_per_ad = dplyr::if_else(n_ads > 0, spend / n_ads, 0),
+        rank_overall = dplyr::dense_rank(dplyr::desc(spend)),
+        n_total = dplyr::n(),
+        percentile_overall = round((rank_overall - 1) / n_total * 100, 0)
+      ) %>%
+      dplyr::slice_max(order_by = spend, n = top_n, with_ties = FALSE)
+    
+    if (excluded_col != "excluded") {
+      result <- result %>% dplyr::rename(excluded = !!excluded_col)
+    }
+  }
+  
+  result
+}
+
+
+#' Prepare Contested Audiences Data
+#'
+#' Identifies audiences (interests, behaviors) that are targeted by multiple
+#' actor types or parties. These are the "contested" segments that multiple
+#' actors are competing for.
+#'
+#' @param dat Data frame containing ad targeting data
+#' @param target_col Name of the targeting criterion column (default: "targeting")
+#' @param group_col Name of the grouping column (default: "actor_type")
+#' @param min_groups Minimum number of groups targeting an audience to be 
+#'   considered contested (default: 2)
+#' @param top_n Limit results to top N contested audiences (default: 30)
+#'
+#' @return Data frame with contested audience data including which groups target them
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' # By actor type (default)
+#' contested_data <- dat %>%
+#'   prepare_contested_audiences()
+#'
+#' # By party (for countries with party data)
+#' contested_data <- dat %>%
+#'   prepare_contested_audiences(group_col = "party")
+#' }
+prepare_contested_audiences <- function(dat,
+                                        target_col = "targeting",
+                                        group_col = "actor_type",
+                                        min_groups = 2,
+                                        top_n = 30) {
+  
+  if (!target_col %in% names(dat)) {
+    stop("target column '", target_col, "' not found in data", call. = FALSE)
+  }
+  
+  if (!group_col %in% names(dat)) {
+    stop("group column '", group_col, "' required for contested audiences", call. = FALSE)
+  }
+  
+  # Filter to rows with targeting data
+  filtered <- dat %>%
+    dplyr::filter(!is.na(.data[[target_col]]))
+  
+  if (nrow(filtered) == 0) {
+    warning("No targeting data found")
+    return(data.frame())
+  }
+  
+  # Deduplicate spend
+  deduped <- deduplicate_spend(filtered)
+  
+  # Find targets used by multiple groups
+  contested <- deduped %>%
+    dplyr::group_by(.data[[target_col]]) %>%
+    dplyr::summarize(
+      n_actors = dplyr::n_distinct(.data[[group_col]]),
+      actors = paste(unique(.data[[group_col]]), collapse = ", "),
+      total_spend = sum(spend, na.rm = TRUE),
+      total_ads = dplyr::n(),
+      .groups = "drop"
+    ) %>%
+    dplyr::filter(n_actors >= min_groups) %>%
+    dplyr::mutate(
+      avg_spend_per_ad = dplyr::if_else(total_ads > 0, total_spend / total_ads, 0),
+      competitive_intensity = n_actors * total_spend,  # Higher = more competitive
+      rank_by_spend = dplyr::dense_rank(dplyr::desc(total_spend)),
+      rank_by_competition = dplyr::dense_rank(dplyr::desc(n_actors)),
+      rank_by_intensity = dplyr::dense_rank(dplyr::desc(competitive_intensity))
+    ) %>%
+    dplyr::arrange(dplyr::desc(total_spend))
+  
+  if (!is.null(top_n)) {
+    contested <- contested %>%
+      dplyr::slice_head(n = top_n)
+  }
+  
+  # Add per-group breakdown
+  if (nrow(contested) > 0) {
+    group_breakdown <- deduped %>%
+      dplyr::filter(.data[[target_col]] %in% contested[[target_col]]) %>%
+      dplyr::group_by(.data[[target_col]], .data[[group_col]]) %>%
+      dplyr::summarize(
+        actor_spend = sum(spend, na.rm = TRUE),
+        actor_ads = dplyr::n(),
+        .groups = "drop"
+      ) %>%
+      tidyr::pivot_wider(
+        names_from = !!group_col,
+        values_from = c(actor_spend, actor_ads),
+        names_sep = "_"
+      )
+    
+    contested <- contested %>%
+      dplyr::left_join(group_breakdown, by = target_col)
+  }
+  
+  contested %>%
+    dplyr::rename(targeting = !!target_col)
+}
+
+
+# =================================================================
+# Party Color Utilities
+# =================================================================
+
+#' Get Default Actor Type Colors
+#'
+#' Returns a named vector of colors for common actor types in political advertising.
+#' This is the primary grouping for most countries without party-level data.
+#'
+#' @return Named character vector of actor type colors
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' colors <- get_actor_colors()
+#' # Use in visualization
+#' create_stackedbar(..., color_palette = colors)
+#' }
+get_actor_colors <- function() {
+  c(
+    # Political actors
+    "Political Party" = "#2563eb",
+    "political_party" = "#2563eb",
+    "Politician" = "#7c3aed",
+    "politician" = "#7c3aed",
+    "Government" = "#0891b2",
+    "government" = "#0891b2",
+    "Public Official" = "#0d9488",
+    "public_official" = "#0d9488",
+    
+    # Advocacy and interest groups
+    "Advocacy Group" = "#ea580c",
+    "advocacy_group" = "#ea580c",
+    "NGO" = "#16a34a",
+    "ngo" = "#16a34a",
+    "Non-Profit" = "#16a34a",
+    "non_profit" = "#16a34a",
+    "Union" = "#dc2626",
+    "union" = "#dc2626",
+    "PAC" = "#9333ea",
+    "pac" = "#9333ea",
+    
+    # Media and news
+    "Media" = "#6366f1",
+    "media" = "#6366f1",
+    "News Organization" = "#6366f1",
+    "news_organization" = "#6366f1",
+    
+    # Other
+    "Business" = "#64748b",
+    "business" = "#64748b",
+    "Individual" = "#a855f7",
+    "individual" = "#a855f7",
+    "Other" = "#94a3b8",
+    "other" = "#94a3b8",
+    "Unknown" = "#cbd5e1",
+    "unknown" = "#cbd5e1"
+  )
+}
+
+
+#' Get Default Party Colors
+#'
+#' Returns a named vector of colors for common political parties.
+#' Can be extended with country-specific palettes.
+#'
+#' @param country Optional country code to get country-specific colors
+#'
+#' @return Named character vector of party colors
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' colors <- get_party_colors("DE")
+#' # Use in visualization
+#' create_stackedbar(..., color_palette = colors)
+#' }
+get_party_colors <- function(country = NULL) {
+  
+  # German parties
+  de_colors <- c(
+    "SPD" = "#E3000F",
+    "CDU/CSU" = "#000000",
+    "CDU" = "#000000",
+    "CSU" = "#0080C8",
+    "Grüne" = "#64A12D",
+    "FDP" = "#FFED00",
+    "AfD" = "#009EE0",
+    "Die Linke" = "#BE3075",
+    "BSW" = "#FF6F00"
+  )
+  
+  # US parties
+  us_colors <- c(
+    "Democratic" = "#0015BC",
+    "Republican" = "#DE0100",
+    "Democrat" = "#0015BC",
+    "GOP" = "#DE0100",
+    "Independent" = "#808080"
+  )
+  
+  # UK parties
+  uk_colors <- c(
+    "Conservative" = "#0087DC",
+    "Labour" = "#DC241F",
+    "Liberal Democrats" = "#FAA61A",
+    "SNP" = "#FDF38E",
+    "Green" = "#6AB023"
+  )
+  
+  # French parties
+  fr_colors <- c(
+    "LREM" = "#FFD600",
+    "RN" = "#0D378A",
+    "LFI" = "#CC2443",
+    "LR" = "#0066CC",
+    "PS" = "#FF8080"
+  )
+  
+  # Return country-specific or all colors
+  if (is.null(country)) {
+    return(c(de_colors, us_colors, uk_colors, fr_colors))
+  }
+  
+  switch(
+    toupper(country),
+    "DE" = de_colors,
+    "US" = us_colors,
+    "GB" = uk_colors,
+    "UK" = uk_colors,
+    "FR" = fr_colors,
+    # Default: return all
+    c(de_colors, us_colors, uk_colors, fr_colors)
+  )
+}
+
+
+#' Get Colors for Group Column
+#'
+#' Returns appropriate colors based on the grouping column type.
+#' Uses actor type colors for "actor_type" and party colors for "party".
+#'
+#' @param group_col Name of the grouping column
+#' @param country Optional country code for party-specific colors
+#'
+#' @return Named character vector of colors
+#' @export
+get_group_colors <- function(group_col = "actor_type", country = NULL) {
+  if (group_col == "party") {
+    get_party_colors(country)
+  } else if (group_col %in% c("actor_type", "actor")) {
+    get_actor_colors()
+  } else {
+    # Return a general purpose palette for unknown group types
+    c(
+      "#2563eb", "#7c3aed", "#0891b2", "#ea580c", "#16a34a",
+      "#dc2626", "#9333ea", "#6366f1", "#64748b", "#a855f7"
+    )
+  }
+}
+
+
+#' Map Group Names to Colors
+#'
+#' Takes a vector of group names (parties, actor types, etc.) and returns 
+#' corresponding colors. Unknown groups get a default gray color.
+#'
+#' @param groups Character vector of group names
+#' @param group_col Type of grouping: "actor_type", "party", or other
+#' @param country Optional country code for country-specific party colors
+#' @param default_color Color for unknown groups (default: "#808080")
+#'
+#' @return Character vector of colors
+#' @export
+map_group_colors <- function(groups, 
+                             group_col = "actor_type", 
+                             country = NULL, 
+                             default_color = "#808080") {
+  color_map <- get_group_colors(group_col, country)
+  
+  vapply(groups, function(g) {
+    if (g %in% names(color_map)) {
+      color_map[[g]]
+    } else {
+      default_color
+    }
+  }, character(1), USE.NAMES = FALSE)
+}
+
+#' @rdname map_group_colors
+#' @export
+map_party_colors <- function(parties, country = NULL, default_color = "#808080") {
+  map_group_colors(parties, group_col = "party", country = country, default_color = default_color)
+}
+
+#' @rdname map_group_colors
+#' @export
+map_actor_colors <- function(actors, default_color = "#808080") {
+  map_group_colors(actors, group_col = "actor_type", default_color = default_color)
+}
+
+
+# =================================================================
+# Convenience Wrapper Functions
+# =================================================================
+
+#' Prepare All Demographics Data
+#'
+#' Convenience function to prepare all demographics targeting data at once.
+#'
+#' @param dat Data frame containing ad targeting data
+#' @param group_col Name of the grouping column (default: "actor_type")
+#' @param by_group Whether to calculate percentages within each group (default: TRUE)
+#'
+#' @return Named list of data frames for each demographic type
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' # By actor type (default for most countries)
+#' demos <- prepare_all_demographics(dat)
+#'
+#' # By party (for countries with party data)
+#' demos <- prepare_all_demographics(dat, group_col = "party")
+#'
+#' demos$age      # Age targeting data
+#' demos$gender   # Gender targeting data
+#' demos$language # Language targeting data
+#' }
+prepare_all_demographics <- function(dat,
+                                     group_col = "actor_type",
+                                     by_group = TRUE) {
+  
+  results <- list()
+  
+  # Try each demographic type - skip if column doesn't exist
+  tryCatch({
+    results$age <- prepare_age_data(dat, group_col = group_col, by_group = by_group)
+  }, error = function(e) NULL)
+  
+  tryCatch({
+    results$gender <- prepare_gender_data(dat, group_col = group_col, by_group = by_group)
+  }, error = function(e) NULL)
+  
+  tryCatch({
+    results$language <- prepare_language_data(dat, group_col = group_col, by_group = by_group)
+  }, error = function(e) NULL)
+  
+  tryCatch({
+    results$education <- prepare_education_data(dat, group_col = group_col, by_group = by_group)
+  }, error = function(e) NULL)
+  
+  tryCatch({
+    results$employment <- prepare_employment_data(dat, group_col = group_col, by_group = by_group)
+  }, error = function(e) NULL)
+  
+  tryCatch({
+    results$relationship <- prepare_relationship_data(dat, group_col = group_col, by_group = by_group)
+  }, error = function(e) NULL)
+  
+  # Remove NULL entries
+  results <- results[!vapply(results, is.null, logical(1))]
+  
+  results
+}
+
+
+#' Create Demographics Visualizations
+#'
+#' Creates a set of visualizations for all available demographics data.
+#' Automatically detects which demographic columns are present.
+#'
+#' @param dat Data frame containing ad targeting data
+#' @param group_col Name of the grouping column (default: "actor_type")
+#' @param by_group Whether to create per-group visualizations (default: TRUE)
+#' @param viz_type Type of visualization: "stackedbar" or "heatmap" (default: "stackedbar")
+#'
+#' @return A viz_collection object with all demographic visualizations
+#' @export
+create_demographics_vizzes <- function(dat,
+                                       group_col = "actor_type",
+                                       by_group = TRUE,
+                                       viz_type = "stackedbar") {
+  
+  # Prepare all demographics
+  demos <- prepare_all_demographics(dat, group_col = group_col, by_group = by_group)
+  
+  # Start viz collection
+  viz <- create_viz()
+  
+  # Get appropriate colors for the group type
+  group_colors <- if (by_group) get_group_colors(group_col) else NULL
+  
+  # Format group name for display
+  group_label <- tools::toTitleCase(gsub("_", " ", group_col))
+  
+  # Add age viz if available
+  if (!is.null(demos$age) && nrow(demos$age) > 0) {
+    viz <- viz %>%
+      add_viz(
+        type = viz_type,
+        x_var = "age",
+        stack_var = if (by_group) group_col else NULL,
+        weight_var = "perc",
+        title = "Age Targeting Analysis: Comprehensive Demographic Investment Breakdown",
+        subtitle = paste0("Detailed analysis of ", tolower(group_label), " advertising investment across age demographics. Shows percentage of budget allocated to each age group, with comprehensive tooltips revealing spending amounts, ad counts, rankings among actors, percentiles, average spend per ad, and comparative statistics. Explore how different ", tolower(group_label), "s prioritize various age segments in their digital advertising strategies."),
+        y_label = "% of Budget",
+        stacked_type = if (by_group) "grouped" else "normal",
+        tooltip_prefix = "💰 Budget Share: ",
+        tooltip_suffix = "% of actor's total budget",
+        x_tooltip_suffix = " Age Group",
+        color_palette = group_colors,
+        height = 500,
+        icon = "ph:calendar",
+        tabgroup = "demographics"
+      )
+  }
+  
+  # Add gender viz if available
+  if (!is.null(demos$gender) && nrow(demos$gender) > 0) {
+    # Prepare tooltip format for gender data
+    if (by_group) {
+      tooltip_format <- paste0(
+        "<b>{point.category} Targeting</b><br/>",
+        "<b>", group_label, ":</b> {series.name}<br/>",
+        "<b>Budget Share:</b> {point.y:.1f}% of this group's ads<br/>",
+        "<b>Ad Spend:</b> ${point.spend:,.0f}<br/>",
+        "<b>Number of Ads:</b> {point.n_ads:,.0f}<br/>",
+        "<b>Total ", group_label, " Budget:</b> ${point.total_budget:,.0f}<br/>",
+        "<i>This shows how much this ", tolower(group_label), " invested in gender-specific targeting</i>"
+      )
+    } else {
+      tooltip_format <- paste0(
+        "<b>{point.category} Targeting</b><br/>",
+        "<b>Budget Share:</b> {point.y:.1f}% of total ads<br/>",
+        "<b>Ad Spend:</b> ${point.spend:,.0f}<br/>",
+        "<b>Number of Ads:</b> {point.n_ads:,.0f}<br/>",
+        "<b>Total Budget:</b> ${point.total_budget:,.0f}<br/>",
+        "<i>This shows the overall investment in gender targeting across all groups</i>"
+      )
+    }
+
+    viz <- viz %>%
+      add_viz(
+        type = viz_type,
+        x_var = "gender",
+        stack_var = if (by_group) group_col else NULL,
+        weight_var = "perc",
+        title = "Gender Targeting Analysis: Investment Patterns by Gender Demographics",
+        subtitle = paste0("Comprehensive breakdown of ", tolower(group_label), " advertising investment by gender. Reveals how different ", tolower(group_label), "s allocate their budgets across gender segments, with detailed tooltips showing spending amounts, ad counts, budget percentages, rankings, and comparative statistics. Essential for understanding gender-based targeting strategies in political advertising."),
+        y_label = "% of Budget",
+        stacked_type = if (by_group) "grouped" else "normal",
+        tooltip_prefix = "💰 Budget Share: ",
+        tooltip_suffix = "% of actor's total budget",
+        x_tooltip_suffix = " Targeting",
+        color_palette = group_colors,
+        height = 400,
+        icon = "ph:gender-intersect",
+        tabgroup = "demographics"
+      )
+  }
+  
+  # Add language viz if available
+  if (!is.null(demos$language) && nrow(demos$language) > 0) {
+    # Prepare tooltip format for language data
+    if (by_group) {
+      tooltip_format <- paste0(
+        "<b>{point.category} Language Targeting</b><br/>",
+        "<b>", group_label, ":</b> {series.name}<br/>",
+        "<b>Budget Share:</b> {point.y:.1f}% of this group's ads<br/>",
+        "<b>Ad Spend:</b> ${point.spend:,.0f}<br/>",
+        "<b>Number of Ads:</b> {point.n_ads:,.0f}<br/>",
+        "<b>Total ", group_label, " Budget:</b> ${point.total_budget:,.0f}<br/>",
+        "<i>This shows language-specific targeting investment by this ", tolower(group_label), "</i>"
+      )
+    } else {
+      tooltip_format <- paste0(
+        "<b>{point.category} Language Targeting</b><br/>",
+        "<b>Budget Share:</b> {point.y:.1f}% of total ads<br/>",
+        "<b>Ad Spend:</b> ${point.spend:,.0f}<br/>",
+        "<b>Number of Ads:</b> {point.n_ads:,.0f}<br/>",
+        "<b>Total Budget:</b> ${point.total_budget:,.0f}<br/>",
+        "<i>This shows the overall investment in language targeting across all groups</i>"
+      )
+    }
+
+    viz <- viz %>%
+      add_viz(
+        type = viz_type,
+        x_var = "language",
+        stack_var = if (by_group) group_col else NULL,
+        weight_var = "perc",
+        title = "Language Targeting Analysis: Multilingual Advertising Investment Patterns",
+        subtitle = paste0("Detailed examination of ", tolower(group_label), " advertising investment across different languages. Shows budget allocation percentages, spending amounts, ad counts, and competitive rankings. Tooltips provide exhaustive information including total spend, number of ads, average spend per ad, percentile rankings, and comparison to other actors targeting the same language segments."),
+        y_label = "% of Budget",
+        stacked_type = if (by_group) "grouped" else "normal",
+        tooltip_prefix = "💰 Budget Share: ",
+        tooltip_suffix = "% of actor's total budget",
+        x_tooltip_suffix = " Language Targeting",
+        horizontal = TRUE,
+        color_palette = group_colors,
+        height = 450,
+        icon = "ph:translate",
+        tabgroup = "demographics"
+      )
+  }
+  
+  # Add education viz if available
+  if (!is.null(demos$education) && nrow(demos$education) > 0) {
+    # Prepare tooltip format for education data
+    if (by_group) {
+      tooltip_format <- paste0(
+        "<b>{point.category} Education Level</b><br/>",
+        "<b>", group_label, ":</b> {series.name}<br/>",
+        "<b>Budget Share:</b> {point.y:.1f}% of this group's ads<br/>",
+        "<b>Ad Spend:</b> ${point.spend:,.0f}<br/>",
+        "<b>Number of Ads:</b> {point.n_ads:,.0f}<br/>",
+        "<b>Total ", group_label, " Budget:</b> ${point.total_budget:,.0f}<br/>",
+        "<i>This shows how much this ", tolower(group_label), " invested in targeting specific education levels</i>"
+      )
+    } else {
+      tooltip_format <- paste0(
+        "<b>{point.category} Education Level</b><br/>",
+        "<b>Budget Share:</b> {point.y:.1f}% of total ads<br/>",
+        "<b>Ad Spend:</b> ${point.spend:,.0f}<br/>",
+        "<b>Number of Ads:</b> {point.n_ads:,.0f}<br/>",
+        "<b>Total Budget:</b> ${point.total_budget:,.0f}<br/>",
+        "<i>This shows the overall investment in education-level targeting across all groups</i>"
+      )
+    }
+
+    viz <- viz %>%
+      add_viz(
+        type = viz_type,
+        x_var = "education",
+        stack_var = if (by_group) group_col else NULL,
+        weight_var = "perc",
+        title = "Education Targeting Analysis: Investment by Educational Attainment Levels",
+        subtitle = paste0("Comprehensive analysis of ", tolower(group_label), " advertising investment across education levels. Reveals targeting strategies based on educational attainment, with exhaustive tooltips showing spending amounts, ad counts, budget percentages, rankings among actors, percentiles, average spend per ad, and detailed comparative statistics. Critical for understanding how campaigns target voters based on education."),
+        y_label = "% of Budget",
+        stacked_type = if (by_group) "grouped" else "normal",
+        tooltip_prefix = "💰 Budget Share: ",
+        tooltip_suffix = "% of actor's total budget",
+        x_tooltip_suffix = " Education Level",
+        color_palette = group_colors,
+        height = 500,
+        icon = "ph:graduation-cap",
+        tabgroup = "demographics"
+      )
+  }
+  
+  # Add employment viz if available
+  if (!is.null(demos$employment) && nrow(demos$employment) > 0) {
+    # Prepare tooltip format for employment data
+    if (by_group) {
+      tooltip_format <- paste0(
+        "<b>{point.category} Employment Type</b><br/>",
+        "<b>", group_label, ":</b> {series.name}<br/>",
+        "<b>Budget Share:</b> {point.y:.1f}% of this group's ads<br/>",
+        "<b>Ad Spend:</b> ${point.spend:,.0f}<br/>",
+        "<b>Number of Ads:</b> {point.n_ads:,.0f}<br/>",
+        "<b>Total ", group_label, " Budget:</b> ${point.total_budget:,.0f}<br/>",
+        "<i>This shows employment-specific targeting investment by this ", tolower(group_label), "</i>"
+      )
+    } else {
+      tooltip_format <- paste0(
+        "<b>{point.category} Employment Type</b><br/>",
+        "<b>Budget Share:</b> {point.y:.1f}% of total ads<br/>",
+        "<b>Ad Spend:</b> ${point.spend:,.0f}<br/>",
+        "<b>Number of Ads:</b> {point.n_ads:,.0f}<br/>",
+        "<b>Total Budget:</b> ${point.total_budget:,.0f}<br/>",
+        "<i>This shows the overall investment in employment targeting across all groups</i>"
+      )
+    }
+
+    viz <- viz %>%
+      add_viz(
+        type = viz_type,
+        x_var = "employment",
+        stack_var = if (by_group) group_col else NULL,
+        weight_var = "perc",
+        title = "Employment Targeting Analysis: Job Status-Based Advertising Investment",
+        subtitle = paste0("Detailed breakdown of ", tolower(group_label), " advertising investment by employment type. Shows how campaigns target voters based on employment status, with comprehensive tooltips revealing spending amounts, ad counts, budget allocation percentages, competitive rankings, percentiles, average spend per ad, and extensive comparative insights."),
+        y_label = "% of Budget",
+        stacked_type = if (by_group) "grouped" else "normal",
+        tooltip_prefix = "💰 Budget Share: ",
+        tooltip_suffix = "% of actor's total budget",
+        x_tooltip_suffix = " Employment Type",
+        horizontal = TRUE,
+        color_palette = group_colors,
+        height = 450,
+        icon = "ph:briefcase",
+        tabgroup = "demographics"
+      )
+  }
+  
+  # Add relationship viz if available
+  if (!is.null(demos$relationship) && nrow(demos$relationship) > 0) {
+    # Prepare tooltip format for relationship data
+    if (by_group) {
+      tooltip_format <- paste0(
+        "<b>{point.category} Relationship Status</b><br/>",
+        "<b>", group_label, ":</b> {series.name}<br/>",
+        "<b>Budget Share:</b> {point.y:.1f}% of this group's ads<br/>",
+        "<b>Ad Spend:</b> ${point.spend:,.0f}<br/>",
+        "<b>Number of Ads:</b> {point.n_ads:,.0f}<br/>",
+        "<b>Total ", group_label, " Budget:</b> ${point.total_budget:,.0f}<br/>",
+        "<i>This shows relationship status targeting investment by this ", tolower(group_label), "</i>"
+      )
+    } else {
+      tooltip_format <- paste0(
+        "<b>{point.category} Relationship Status</b><br/>",
+        "<b>Budget Share:</b> {point.y:.1f}% of total ads<br/>",
+        "<b>Ad Spend:</b> ${point.spend:,.0f}<br/>",
+        "<b>Number of Ads:</b> {point.n_ads:,.0f}<br/>",
+        "<b>Total Budget:</b> ${point.total_budget:,.0f}<br/>",
+        "<i>This shows the overall investment in relationship status targeting across all groups</i>"
+      )
+    }
+
+    viz <- viz %>%
+      add_viz(
+        type = viz_type,
+        x_var = "relationship_status",
+        stack_var = if (by_group) group_col else NULL,
+        weight_var = "perc",
+        title = "Relationship Status Targeting Analysis: Marital Status Investment Patterns",
+        subtitle = paste0("Comprehensive examination of ", tolower(group_label), " advertising investment by relationship status. Reveals targeting strategies based on marital and relationship status, with exhaustive tooltips providing spending amounts, ad counts, budget percentages, rankings, percentiles, average spend per ad, and detailed comparative statistics across all actors."),
+        y_label = "% of Budget",
+        stacked_type = if (by_group) "grouped" else "normal",
+        tooltip_prefix = "💰 Budget Share: ",
+        tooltip_suffix = "% of actor's total budget",
+        x_tooltip_suffix = " Relationship Status",
+        color_palette = group_colors,
+        height = 400,
+        icon = "ph:heart",
+        tabgroup = "demographics"
+      )
+  }
+  
+  viz
+}
+
+
+#' Create Enhanced Targeting Visualizations
+#'
+#' Creates visualizations for interest/behavior targeting data with maximally
+#' informative tooltips showing spend, ad counts, and budget context.
+#'
+#' @param targeting_data Data frame from prepare_targeting_data()
+#' @param viz_type Type of visualization: "stackedbar" or "heatmap" (default: "stackedbar")
+#' @param group_col Name of the grouping column used in prepare_targeting_data()
+#' @param title Chart title (default: "Interest and Behavior Targeting")
+#' @param top_n Number of top targets to display (default: NULL for all)
+#'
+#' @return A visualization object with enhanced tooltips
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' targeting_data <- prepare_targeting_data(dat, top_n = 20)
+#' viz <- create_targeting_viz(targeting_data, group_col = "actor_type")
+#' }
+create_targeting_viz <- function(targeting_data,
+                                 viz_type = "stackedbar",
+                                 group_col = "actor_type",
+                                 title = "Interest and Behavior Targeting",
+                                 top_n = NULL) {
+
+  if (nrow(targeting_data) == 0) {
+    warning("No targeting data to visualize")
+    return(NULL)
+  }
+
+  # Limit to top_n if specified
+  if (!is.null(top_n) && nrow(targeting_data) > top_n) {
+    if (group_col %in% names(targeting_data)) {
+      targeting_data <- targeting_data %>%
+        dplyr::group_by(.data[[group_col]]) %>%
+        dplyr::slice_max(order_by = spend, n = top_n, with_ties = FALSE) %>%
+        dplyr::ungroup()
+    } else {
+      targeting_data <- targeting_data %>%
+        dplyr::slice_max(order_by = spend, n = top_n, with_ties = FALSE)
+    }
+  }
+
+  group_label <- tools::toTitleCase(gsub("_", " ", group_col))
+
+  # Enhanced tooltip based on whether grouping is used
+  if (group_col %in% names(targeting_data)) {
+    viz <- create_viz() %>%
+      add_viz(
+        type = viz_type,
+        x_var = "targeting",
+        stack_var = group_col,
+        weight_var = "perc",
+        title = if (title == "Interest and Behavior Targeting") {
+          "Interest and Behavior Targeting: Comprehensive Analysis of Audience Segment Investment"
+        } else {
+          title
+        },
+        subtitle = paste0("Exhaustive breakdown of top interests and behaviors targeted by ", tolower(group_label), "s, showing detailed budget allocation. Tooltips provide comprehensive information including total spending amounts, number of ads targeting each interest, budget percentages, competitive rankings, number of competing actors, market share calculations, average spend per ad, and percentile rankings. Essential for understanding what audience segments campaigns prioritize."),
+        y_label = "% of Budget",
+        stacked_type = "grouped",
+        tooltip_prefix = "💰 Budget Share: ",
+        tooltip_suffix = "% of actor's targeting budget",
+        x_tooltip_suffix = " Interest/Behavior",
+        color_palette = get_group_colors(group_col),
+        horizontal = TRUE,
+        height = 600,
+        icon = "ph:target"
+      )
+  } else {
+    viz <- create_viz() %>%
+      add_viz(
+        type = viz_type,
+        x_var = "targeting",
+        weight_var = "perc",
+        title = if (title == "Interest and Behavior Targeting") {
+          "Interest and Behavior Targeting: Comprehensive Analysis of Audience Segment Investment"
+        } else {
+          title
+        },
+        subtitle = "Detailed examination of top interests and behaviors targeted across all groups, showing overall budget allocation. Tooltips reveal spending amounts, ad counts, budget percentages, competitive intensity scores, number of actors targeting each segment, market share, average spend per ad, and comprehensive comparative statistics.",
+        y_label = "% of Budget",
+        tooltip_prefix = "💰 Budget Share: ",
+        tooltip_suffix = "% of total targeting budget",
+        x_tooltip_suffix = " Interest/Behavior",
+        horizontal = TRUE,
+        height = 600,
+        icon = "ph:target"
+      )
+  }
+
+  viz
+}
+
+
+#' Create Enhanced Contested Audiences Visualization
+#'
+#' Creates a visualization for contested audiences with detailed tooltips
+#' showing which groups are competing for the same audience segments.
+#'
+#' @param contested_data Data frame from prepare_contested_audiences()
+#' @param viz_type Type of visualization: "bar" or "stackedbar" (default: "bar")
+#'
+#' @return A visualization object with enhanced tooltips
+#' @export
+create_contested_audiences_viz <- function(contested_data, viz_type = "bar") {
+
+  if (nrow(contested_data) == 0) {
+    warning("No contested audience data to visualize")
+    return(NULL)
+  }
+
+  viz <- create_viz() %>%
+    add_viz(
+      type = viz_type,
+      x_var = "targeting",
+      weight_var = "total_spend",
+      title = "Contested Audience Segments: Competitive Targeting Analysis",
+      subtitle = "Comprehensive analysis of audience segments targeted by multiple political actors, revealing competitive dynamics. Tooltips provide exhaustive information including total spending across all competing actors, individual actor spends, market share per actor, number of competing actors, list of all competitors, competitive intensity scores, total ad counts, and detailed breakdowns showing which actors are competing for the same voter segments.",
+      y_label = "Total Ad Spend ($)",
+      tooltip_prefix = "💰 Total Competitive Spend: $",
+      tooltip_suffix = " across all competing actors",
+      x_tooltip_suffix = " (Contested Segment)",
+      horizontal = TRUE,
+      height = 550,
+      color_palette = "#dc2626",  # Red to indicate competition
+      icon = "ph:hand-fist"
+    )
+
+  viz
+}
+
+
+#' Create Enhanced Excluded Audiences Visualization
+#'
+#' Creates a visualization for excluded audiences with detailed tooltips
+#' showing which groups are explicitly avoiding certain audience segments.
+#'
+#' @param excluded_data Data frame from prepare_excluded_audiences()
+#' @param viz_type Type of visualization: "stackedbar" or "heatmap" (default: "stackedbar")
+#' @param group_col Name of the grouping column used in prepare_excluded_audiences()
+#'
+#' @return A visualization object with enhanced tooltips
+#' @export
+create_excluded_audiences_viz <- function(excluded_data,
+                                          viz_type = "stackedbar",
+                                          group_col = "actor_type") {
+
+  if (nrow(excluded_data) == 0) {
+    warning("No excluded audience data to visualize")
+    return(NULL)
+  }
+
+  group_label <- tools::toTitleCase(gsub("_", " ", group_col))
+
+  # Enhanced tooltip for excluded audiences
+  if (group_col %in% names(excluded_data)) {
+    viz <- create_viz() %>%
+      add_viz(
+        type = viz_type,
+        x_var = "excluded",
+        stack_var = group_col,
+        weight_var = "perc",
+        title = "Excluded Audience Segments: Strategic Exclusion Analysis",
+        subtitle = paste0("Comprehensive analysis of audiences explicitly excluded from ", tolower(group_label), " targeting strategies. Tooltips provide exhaustive information including total spending on ads with exclusions, number of ads excluding each audience segment, percentage of actor's ads with exclusions, budget allocation to exclusion strategies, comparative statistics showing which actors exclude which audiences, and detailed insights into negative targeting patterns."),
+        y_label = "% of Budget",
+        stacked_type = "grouped",
+        tooltip_prefix = "💰 Budget Share: ",
+        tooltip_suffix = "% of ads excluding this audience",
+        x_tooltip_suffix = " (Excluded)",
+        color_palette = get_group_colors(group_col),
+        horizontal = TRUE,
+        height = 500,
+        icon = "ph:prohibit"
+      )
+  } else {
+    viz <- create_viz() %>%
+      add_viz(
+        type = viz_type,
+        x_var = "excluded",
+        weight_var = "perc",
+        title = "Excluded Audience Segments: Strategic Exclusion Analysis",
+        subtitle = "Detailed examination of audiences explicitly excluded from targeting across all groups. Tooltips reveal spending amounts on exclusion strategies, number of ads with exclusions, budget percentages, comparative statistics, and insights into negative targeting patterns used by political campaigns.",
+        y_label = "% of Budget",
+        tooltip_prefix = "💰 Budget Share: ",
+        tooltip_suffix = "% of ads excluding this audience",
+        x_tooltip_suffix = " (Excluded)",
+        horizontal = TRUE,
+        height = 500,
+        color_palette = "#64748b",  # Gray to indicate exclusion
+        icon = "ph:prohibit"
+      )
+  }
+
+  viz
+}
+
+
+#' Calculate Summary Statistics for Dashboard Infoboxes
+#'
+#' Calculates key summary statistics from ad targeting data for display
+#' in value boxes on the landing page.
+#'
+#' @param dat Data frame containing ad targeting data
+#' @param date_col Name of the date column (default: "date")
+#' @param spend_col Name of the spend column (default: "total_spend")
+#' @param ads_col Name of the ads column (default: "num_ads")
+#' @param group_col Name of the grouping column (default: "actor_type")
+#' @param id_col Name of the internal ID column (default: "internal_id")
+#'
+#' @return List of summary statistics
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' stats <- calculate_dashboard_stats(dat)
+#' # stats$total_spend, stats$total_ads, stats$n_actors, etc.
+#' }
+calculate_dashboard_stats <- function(dat,
+                                      date_col = "date",
+                                      spend_col = "total_spend",
+                                      ads_col = "num_ads",
+                                      group_col = "actor_type",
+                                      id_col = "internal_id") {
+
+  # Deduplicate spend
+  deduped <- deduplicate_spend(dat, spend_col = spend_col)
+
+  # Calculate totals
+  total_spend <- sum(deduped[[spend_col]], na.rm = TRUE)
+  total_ads <- sum(deduped[[ads_col]], na.rm = TRUE)
+
+  # Calculate unique groups
+  n_groups <- length(unique(dat[[group_col]]))
+
+  # Calculate date range
+  if (date_col %in% names(dat)) {
+    latest_date <- max(as.Date(dat[[date_col]]), na.rm = TRUE)
+    earliest_date <- min(as.Date(dat[[date_col]]), na.rm = TRUE)
+    date_range <- paste0(format(earliest_date, "%b %d"), " - ", format(latest_date, "%b %d, %Y"))
+  } else {
+    date_range <- "Date range not available"
+  }
+
+  # Calculate average spend per ad
+  avg_spend_per_ad <- if (total_ads > 0) total_spend / total_ads else 0
+
+  # Calculate most active group
+  if (group_col %in% names(dat)) {
+    group_spend <- deduped %>%
+      dplyr::group_by(.data[[group_col]]) %>%
+      dplyr::summarize(spend = sum(.data[[spend_col]], na.rm = TRUE)) %>%
+      dplyr::arrange(dplyr::desc(spend))
+
+    top_group <- group_spend[[group_col]][1]
+    top_group_spend <- group_spend$spend[1]
+  } else {
+    top_group <- "N/A"
+    top_group_spend <- 0
+  }
+
+  list(
+    total_spend = total_spend,
+    total_ads = total_ads,
+    n_groups = n_groups,
+    date_range = date_range,
+    avg_spend_per_ad = avg_spend_per_ad,
+    top_group = top_group,
+    top_group_spend = top_group_spend,
+    latest_date = if (exists("latest_date")) latest_date else NULL
+  )
+}
+
+
+#' Create Summary Statistics Value Boxes
+#'
+#' Creates a row of value boxes showing key summary statistics for the dashboard.
+#' Perfect for the landing page to give users an immediate overview.
+#'
+#' @param stats List of statistics from calculate_dashboard_stats()
+#' @param currency Currency symbol (default: "$")
+#' @param group_label Label for the grouping dimension (default: "Actor Types")
+#' @param colors Vector of background colors for the boxes (will recycle if needed)
+#'
+#' @return Content collection with value boxes
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' stats <- calculate_dashboard_stats(dat)
+#' value_boxes <- create_summary_value_boxes(stats)
+#'
+#' # Use in dashboard
+#' dashboard <- create_dashboard("my_dashboard") %>%
+#'   add_page("Overview", content = value_boxes, is_landing_page = TRUE)
+#' }
+create_summary_value_boxes <- function(stats,
+                                       currency = "$",
+                                       group_label = "Actor Types",
+                                       colors = c("#2563eb", "#7c3aed", "#0891b2", "#ea580c", "#16a34a")) {
+
+  # Format numbers nicely
+  format_currency <- function(x) {
+    if (x >= 1e9) {
+      paste0(currency, round(x / 1e9, 1), "B")
+    } else if (x >= 1e6) {
+      paste0(currency, round(x / 1e6, 1), "M")
+    } else if (x >= 1e3) {
+      paste0(currency, round(x / 1e3, 1), "K")
+    } else {
+      paste0(currency, round(x, 0))
+    }
+  }
+
+  format_number <- function(x) {
+    if (x >= 1e9) {
+      paste0(round(x / 1e9, 1), "B")
+    } else if (x >= 1e6) {
+      paste0(round(x / 1e6, 1), "M")
+    } else if (x >= 1e3) {
+      paste0(round(x / 1e3, 1), "K")
+    } else {
+      as.character(round(x, 0))
+    }
+  }
+
+  # Create value boxes
+  content <- create_content() %>%
+    add_value_box_row() %>%
+      add_value_box(
+        title = "Total Ad Spending",
+        value = format_currency(stats$total_spend),
+        bg_color = colors[1],
+        description = paste0("Total amount spent on political advertising across all ", tolower(group_label))
+      ) %>%
+      add_value_box(
+        title = "Total Ads",
+        value = format_number(stats$total_ads),
+        bg_color = colors[2],
+        description = "Total number of individual advertisements analyzed"
+      ) %>%
+      add_value_box(
+        title = paste0(group_label, " Active"),
+        value = as.character(stats$n_groups),
+        bg_color = colors[3],
+        description = paste0("Number of different ", tolower(group_label), " running ads")
+      ) %>%
+      add_value_box(
+        title = "Avg Spend per Ad",
+        value = format_currency(stats$avg_spend_per_ad),
+        bg_color = colors[4],
+        description = "Average amount spent per individual advertisement"
+      ) %>%
+      add_value_box(
+        title = "Data Through",
+        value = if (!is.null(stats$latest_date)) format(stats$latest_date, "%b %d, %Y") else "Latest",
+        bg_color = colors[5],
+        description = "Most recent date for which ad data is available"
+      ) %>%
+    end_value_box_row()
+
+  content
+}
+
+
+#' Create Top Performer Value Boxes
+#'
+#' Creates value boxes showing the top-performing actor types or parties.
+#'
+#' @param dat Data frame containing ad targeting data
+#' @param group_col Name of the grouping column (default: "actor_type")
+#' @param spend_col Name of the spend column (default: "total_spend")
+#' @param n_top Number of top performers to show (default: 3)
+#' @param currency Currency symbol (default: "$")
+#' @param group_label Label for the grouping dimension (default: "Actor Types")
+#'
+#' @return Content collection with value boxes
+#' @export
+create_top_performers_value_boxes <- function(dat,
+                                             group_col = "actor_type",
+                                             spend_col = "total_spend",
+                                             n_top = 3,
+                                             currency = "$",
+                                             group_label = "Actor Types") {
+
+  if (!group_col %in% names(dat)) {
+    warning("Group column '", group_col, "' not found in data")
+    return(create_content())
+  }
+
+  # Deduplicate and calculate spending by group
+  deduped <- deduplicate_spend(dat, spend_col = spend_col)
+
+  top_performers <- deduped %>%
+    dplyr::group_by(.data[[group_col]]) %>%
+    dplyr::summarize(
+      total_spend = sum(.data[[spend_col]], na.rm = TRUE),
+      total_ads = sum(num_ads, na.rm = TRUE),
+      .groups = "drop"
+    ) %>%
+    dplyr::arrange(dplyr::desc(total_spend)) %>%
+    dplyr::slice_head(n = n_top)
+
+  if (nrow(top_performers) == 0) {
+    warning("No data to calculate top performers")
+    return(create_content())
+  }
+
+  # Format currency
+  format_currency <- function(x) {
+    if (x >= 1e9) {
+      paste0(currency, round(x / 1e9, 1), "B")
+    } else if (x >= 1e6) {
+      paste0(currency, round(x / 1e6, 1), "M")
+    } else if (x >= 1e3) {
+      paste0(currency, round(x / 1e3, 1), "K")
+    } else {
+      paste0(currency, round(x, 0))
+    }
+  }
+
+  # Get colors for each actor type
+  colors <- get_group_colors(group_col)
+
+  # Create value boxes for top performers
+  content <- create_content() %>%
+    add_value_box_row()
+
+  for (i in seq_len(nrow(top_performers))) {
+    performer <- top_performers[[group_col]][i]
+    spend <- top_performers$total_spend[i]
+    ads <- top_performers$total_ads[i]
+
+    performer_color <- colors[performer]
+    if (is.na(performer_color)) {
+      performer_color <- "#64748b"  # Default gray
+    }
+
+    content <- content %>%
+      add_value_box(
+        title = paste0("#", i, ": ", performer),
+        value = format_currency(spend),
+        bg_color = performer_color,
+        description = paste0("Spent ", format_currency(spend), " across ", ads, " advertisements")
+      )
+  }
+
+  content <- content %>%
+    end_value_box_row()
+
+  content
+}
+
+
+#' Create Complete Dashboard Landing Page
+#'
+#' Creates a comprehensive landing page with summary statistics, top performers,
+#' and an introduction to the political advertising dashboard.
+#'
+#' @param dat Data frame containing ad targeting data
+#' @param group_col Name of the grouping column (default: "actor_type")
+#' @param country_name Name of the country or region (default: "this country")
+#' @param currency Currency symbol (default: "$")
+#' @param include_top_performers Whether to include top performers section (default: TRUE)
+#' @param custom_intro Custom introduction text (optional)
+#'
+#' @return Content collection for landing page
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' landing_content <- create_dashboard_landing_page(dat, country_name = "Germany")
+#'
+#' dashboard <- create_dashboard("election_dashboard") %>%
+#'   add_page("Overview", content = landing_content, is_landing_page = TRUE)
+#' }
+create_dashboard_landing_page <- function(dat,
+                                          group_col = "actor_type",
+                                          country_name = "this country",
+                                          currency = "$",
+                                          include_top_performers = TRUE,
+                                          custom_intro = NULL) {
+
+  # Calculate summary statistics
+  stats <- calculate_dashboard_stats(dat, group_col = group_col)
+
+  # Default introduction text
+  if (is.null(custom_intro)) {
+    group_label <- tools::toTitleCase(gsub("_", " ", group_col))
+    intro_text <- paste0(
+      "# Political Advertising Dashboard: ", country_name, "\n\n",
+      "## Comprehensive Analysis of Digital Political Advertising\n\n",
+      "This dashboard provides an **exhaustive and comprehensive analysis** of political advertising spending and targeting strategies across ", country_name, ". ",
+      "Data covers the period from **", stats$date_range, "**, revealing detailed insights into how different ", tolower(group_label), "s ",
+      "invest in digital advertising to reach voters, what audiences they target, where they focus their efforts, and how they compete for voter attention.\n\n",
+      "### 🎯 What This Dashboard Reveals\n\n",
+      "This dashboard goes far beyond basic spending totals to provide **deep, actionable insights** into political advertising:\n\n",
+      "- **Demographic Targeting**: See exactly how campaigns target different age groups, genders, education levels, employment types, languages, and relationship statuses\n",
+      "- **Geographic Strategy**: Understand where advertising dollars are concentrated geographically\n",
+      "- **Interest & Behavior Targeting**: Discover what interests and behaviors campaigns prioritize\n",
+      "- **Competitive Dynamics**: Identify contested audience segments where multiple actors compete\n",
+      "- **Exclusion Patterns**: Learn which audiences campaigns explicitly avoid\n\n",
+      "### 📊 Key Statistics\n\n",
+      "- **💰 Total Spending**: ", format_currency(stats$total_spend, currency), " across **", format_number(stats$total_ads), "** individual advertisements\n",
+      "- **👥 Active ", group_label, "s**: **", stats$n_groups, "** different ", tolower(group_label), "s actively running digital advertising campaigns\n",
+      "- **🏆 Most Active**: **", stats$top_group, "** leads with ", format_currency(stats$top_group_spend, currency), " in total spending\n",
+      "- **💵 Average Investment**: ", format_currency(stats$avg_spend_per_ad, currency), " per advertisement\n\n",
+      "### 🔍 Exhaustive Tooltips\n\n",
+      "**Every visualization includes comprehensive, informative tooltips** that provide:\n\n",
+      "- 💰 **Spending amounts** (formatted with currency)\n",
+      "- 📱 **Number of ads** targeting each segment\n",
+      "- 📊 **Budget percentages** (both within-group and overall)\n",
+      "- 🏆 **Rankings** among actors and categories\n",
+      "- 📈 **Percentiles** showing relative position\n",
+      "- 💵 **Average spend per ad** calculations\n",
+      "- 👥 **Competitive context** (number of competing actors)\n",
+      "- 📊 **Comparative statistics** and market share\n",
+      "- 💡 **Contextual explanations** helping you understand the data\n\n",
+      "**Hover over any chart element** to see all this detailed information!\n\n",
+      "### 🧭 Navigation Guide\n\n",
+      "Explore the different pages to understand:\n\n",
+      "- **Demographics**: How campaigns target different demographic segments with exhaustive breakdowns\n",
+      "- **Geographic**: Where advertising spending is concentrated geographically\n",
+      "- **Targeting**: What interests and behaviors are being targeted\n",
+      "- **Competitive Analysis**: Contested audience segments where multiple actors compete\n",
+      "- **Excluded Audiences**: Strategic exclusion patterns and negative targeting\n\n",
+      "---\n\n",
+      "*All data is processed with advanced deduplication techniques to ensure accuracy. Spend calculations account for overlapping targeting criteria, and percentages are calculated relative to actor budgets for proper context.*"
+    )
+  } else {
+    intro_text <- custom_intro
+  }
+
+  # Create landing page content
+  content <- create_content() %>%
+    add_text(intro_text)
+
+  # Add summary statistics value boxes
+  summary_boxes <- create_summary_value_boxes(stats, currency = currency, group_label = tools::toTitleCase(gsub("_", " ", group_col)))
+  content <- content %>%
+    add_text("## Key Statistics")
+  
+  # Combine value boxes with content
+  if (length(summary_boxes$items) > 0) {
+    for (item in summary_boxes$items) {
+      content$items <- c(content$items, list(item))
+    }
+  }
+
+  # Add top performers if requested
+  if (include_top_performers) {
+    top_boxes <- create_top_performers_value_boxes(
+      dat,
+      group_col = group_col,
+      currency = currency,
+      group_label = tools::toTitleCase(gsub("_", " ", group_col))
+    )
+    content <- content %>%
+      add_text("## Top Spenders")
+    
+    # Combine value boxes with content
+    if (length(top_boxes$items) > 0) {
+      for (item in top_boxes$items) {
+        content$items <- c(content$items, list(item))
+      }
+    }
+  }
+
+  # Add comprehensive navigation and tooltip guide
+  content <- content %>%
+    add_text(
+      paste0(
+        "\n\n---\n\n",
+        "## 🎓 How to Use This Dashboard\n\n",
+        "### Interactive Tooltips\n\n",
+        "**Every chart includes exhaustive, informative tooltips** that appear when you hover over data points. These tooltips provide:\n\n",
+        "1. **💰 Financial Metrics**: Total spending, budget shares, average spend per ad\n",
+        "2. **📱 Volume Metrics**: Number of ads, ad counts per segment\n",
+        "3. **📊 Percentage Breakdowns**: Budget percentages (within-group and overall)\n",
+        "4. **🏆 Competitive Rankings**: Rank among actors, rank within categories\n",
+        "5. **📈 Statistical Insights**: Percentiles, comparative statistics\n",
+        "6. **👥 Competitive Context**: Number of competing actors, market share\n",
+        "7. **💡 Contextual Explanations**: What the data means and why it matters\n\n",
+        "### 📑 Page Descriptions\n\n",
+        "- **Demographics**: Comprehensive analysis of age, gender, language, education, employment, and relationship status targeting. See exactly how campaigns allocate budgets across demographic segments.\n\n",
+        "- **Geographic**: Interactive treemap visualization showing where advertising dollars are concentrated. Click to drill down into regional details.\n\n",
+        "- **Targeting**: Detailed breakdown of interest and behavior targeting. Discover what audience segments campaigns prioritize.\n\n",
+        "- **Competitive Analysis**: Identify contested audience segments where multiple actors compete for the same voters.\n\n",
+        "- **Excluded Audiences**: Strategic exclusion patterns showing which audiences campaigns explicitly avoid.\n\n",
+        "### 💡 Pro Tips\n\n",
+        "- **Hover over everything**: Tooltips provide exhaustive information on every data point\n",
+        "- **Compare actors**: Use stacked bar charts to compare how different ", tolower(group_label), "s target the same segments\n",
+        "- **Look for patterns**: High spending on specific demographics may indicate strategic priorities\n",
+        "- **Check rankings**: Percentile and rank information shows relative positioning\n",
+        "- **Explore competition**: Contested audiences reveal competitive dynamics\n\n",
+        "---\n\n",
+        "*This dashboard uses advanced data processing techniques including spend deduplication for overlapping targeting criteria and percentage calculations relative to actor budgets for accurate analysis.*"
+      )
+    )
+
+  content
+}
+
+
+# Helper functions for formatting in landing page
+format_currency <- function(x, currency = "$") {
+  if (x >= 1e9) {
+    paste0(currency, round(x / 1e9, 1), "B")
+  } else if (x >= 1e6) {
+    paste0(currency, round(x / 1e6, 1), "M")
+  } else if (x >= 1e3) {
+    paste0(currency, round(x / 1e3, 1), "K")
+  } else {
+    paste0(currency, round(x, 0))
+  }
+}
+
+format_number <- function(x) {
+  if (x >= 1e9) {
+    paste0(round(x / 1e9, 1), "B")
+  } else if (x >= 1e6) {
+    paste0(round(x / 1e6, 1), "M")
+  } else if (x >= 1e3) {
+    paste0(round(x / 1e3, 1), "K")
+  } else {
+    as.character(round(x, 0))
+  }
+}
+
+
+#' Create Complete Election Advertising Dashboard
+#'
+#' Creates a comprehensive dashboard with landing page, demographics, targeting,
+#' geographic analysis, and detailed breakdowns. Perfect for political advertising analysis.
+#' 
+#' This function implements modern design principles with professional styling,
+#' enhanced visualizations, icons throughout, and optimized user experience.
+#'
+#' @param dat Data frame containing ad targeting data
+#' @param output_dir Directory for the dashboard files
+#' @param country_name Name of the country or region for the dashboard title
+#' @param group_col Name of the grouping column (default: "actor_type"). Use "party" for countries with party data.
+#' @param currency Currency symbol (default: "$")
+#' @param include_detailed Whether to include detailed analysis pages (default: TRUE)
+#' @param custom_landing_intro Custom introduction text for landing page (optional)
+#' @param tabset_theme Tabset theme: "modern", "segmented", "minimal", "pills", "classic", "underline" (default: "modern")
+#' @param enable_overlays Enable loading overlays on pages (default: TRUE)
+#' @param enable_lazy_loading Enable lazy loading for better performance (default: TRUE)
+#' @param navbar_bg_color Custom navbar background color (optional)
+#' @param navbar_text_color Custom navbar text color (optional)
+#'
+#' @return A dashboard_project object ready for generation
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' # For most countries (actor types)
+#' dashboard <- create_election_dashboard(dat, "my_country_dashboard", "Country Name")
+#'
+#' # For countries with party data with custom styling
+#' dashboard <- create_election_dashboard(
+#'   dat, 
+#'   "germany_dashboard", 
+#'   "Germany",
+#'   group_col = "party",
+#'   tabset_theme = "segmented",
+#'   navbar_bg_color = "#1e40af",
+#'   navbar_text_color = "#ffffff"
+#' )
+#'
+#' # Generate the dashboard
+#' generate_dashboard(dashboard, render = TRUE)
+#' }
+create_election_dashboard <- function(dat,
+                                     output_dir,
+                                     country_name,
+                                     group_col = "actor_type",
+                                     currency = "$",
+                                     include_detailed = TRUE,
+                                     custom_landing_intro = NULL,
+                                     tabset_theme = "modern",
+                                     enable_overlays = TRUE,
+                                     enable_lazy_loading = TRUE,
+                                     navbar_bg_color = NULL,
+                                     navbar_text_color = NULL) {
+
+  # Create professional tabset colors if not provided
+  if (is.null(navbar_bg_color)) {
+    # Use a professional blue theme
+    navbar_bg_color <- "#1e40af"  # Deep blue
+    navbar_text_color <- "#ffffff"  # White text
+  } else if (is.null(navbar_text_color)) {
+    # Auto-determine text color based on background brightness
+    navbar_text_color <- "#ffffff"
+  }
+  
+  # Create tabset colors based on group colors
+  tabset_colors <- list(
+    active_bg = navbar_bg_color,
+    active_text = navbar_text_color,
+    inactive_bg = "#f1f5f9",
+    inactive_text = "#475569",
+    hover_bg = "#e2e8f0",
+    hover_text = "#1e293b"
+  )
+
+  # Create the dashboard project with modern styling
+  dashboard <- create_dashboard(
+    output_dir = output_dir,
+    title = paste0(country_name, " Election Advertising Dashboard"),
+    description = paste0("Comprehensive analysis of political advertising spending and targeting in ", country_name),
+    theme = "cosmo",
+    value_boxes = TRUE,
+    # Modern typography
+    mainfont = "Fira Sans",
+    monofont = "Fira Code",
+    fontsize = "16px",
+    fontcolor = "#1f2937",
+    linkcolor = "#2563eb",
+    linestretch = 1.6,
+    backgroundcolor = "#ffffff",
+    # Modern tabset styling
+    tabset_theme = tabset_theme,
+    tabset_colors = tabset_colors,
+    # Custom navbar styling
+    navbar_bg_color = navbar_bg_color,
+    navbar_text_color = navbar_text_color,
+    navbar_text_hover_color = "#e0e7ff",
+    # Navigation enhancements
+    breadcrumbs = TRUE,
+    page_navigation = TRUE,
+    back_to_top = TRUE,
+    # Mobile responsiveness
+    viewport_width = NULL,  # Standard responsive
+    viewport_user_scalable = TRUE,
+    page_layout = "full",
+    mobile_toc = TRUE,
+    # Performance optimizations
+    lazy_load_charts = enable_lazy_loading,
+    lazy_load_margin = "300px",
+    lazy_load_tabs = enable_lazy_loading
+  )
+
+  # Landing page with summary statistics
+  landing_content <- create_dashboard_landing_page(
+    dat,
+    group_col = group_col,
+    country_name = country_name,
+    currency = currency,
+    custom_intro = custom_landing_intro
+  )
+
+  dashboard <- dashboard %>%
+    add_page(
+      name = "Overview",
+      content = landing_content,
+      is_landing_page = TRUE,
+      icon = "ph:chart-line-up",
+      overlay = enable_overlays,
+      overlay_theme = "glass",
+      overlay_text = paste0("Loading ", country_name, " dashboard..."),
+      overlay_duration = 1.5
+    )
+
+  # Demographics page with enhanced visualizations
+  demo_vizzes <- create_demographics_vizzes(dat, group_col = group_col)
+  if (length(demo_vizzes$items) > 0) {
+    dashboard <- dashboard %>%
+      add_page(
+        name = "Demographics",
+        visualizations = demo_vizzes,
+        icon = "ph:users-three",
+        overlay = enable_overlays,
+        overlay_theme = "light",
+        overlay_text = "Loading demographics analysis...",
+        overlay_duration = 1.2,
+        lazy_load_charts = enable_lazy_loading
+      )
+  }
+
+  # Geographic page with treemap visualization
+  location_viz <- create_location_treemap(dat, group_col = group_col)
+  if (!is.null(location_viz)) {
+    dashboard <- dashboard %>%
+      add_page(
+        name = "Geographic",
+        visualizations = create_viz() %>% add_viz(type = "treemap", hc_opts = location_viz),
+        icon = "ph:map-trifold",
+        overlay = enable_overlays,
+        overlay_theme = "light",
+        overlay_text = "Loading geographic analysis...",
+        overlay_duration = 1.2,
+        lazy_load_charts = enable_lazy_loading
+      )
+  }
+
+  # Targeting page with enhanced visualization
+  targeting_data <- prepare_targeting_data(dat, group_col = group_col, top_n = 30)
+  if (nrow(targeting_data) > 0) {
+    targeting_viz <- create_targeting_viz(targeting_data, group_col = group_col)
+    dashboard <- dashboard %>%
+      add_page(
+        name = "Targeting",
+        visualizations = targeting_viz,
+        icon = "ph:target",
+        overlay = enable_overlays,
+        overlay_theme = "light",
+        overlay_text = "Loading targeting analysis...",
+        overlay_duration = 1.2,
+        lazy_load_charts = enable_lazy_loading
+      )
+  }
+
+  # Detailed analysis pages (optional)
+  if (include_detailed) {
+    # Contested audiences
+    contested_data <- prepare_contested_audiences(dat, group_col = group_col)
+    if (nrow(contested_data) > 0) {
+      contested_viz <- create_contested_audiences_viz(contested_data)
+      dashboard <- dashboard %>%
+        add_page(
+          name = "Competitive Analysis",
+          visualizations = contested_viz,
+          icon = "ph:hand-fist",
+          overlay = enable_overlays,
+          overlay_theme = "accent",
+          overlay_text = "Loading competitive analysis...",
+          overlay_duration = 1.0,
+          lazy_load_charts = enable_lazy_loading
+        )
+    }
+
+    # Excluded audiences
+    excluded_data <- prepare_excluded_audiences(dat, group_col = group_col)
+    if (nrow(excluded_data) > 0) {
+      excluded_viz <- create_excluded_audiences_viz(excluded_data, group_col = group_col)
+      dashboard <- dashboard %>%
+        add_page(
+          name = "Excluded Audiences",
+          visualizations = excluded_viz,
+          icon = "ph:prohibit",
+          overlay = enable_overlays,
+          overlay_theme = "light",
+          overlay_text = "Loading exclusion analysis...",
+          overlay_duration = 1.0,
+          lazy_load_charts = enable_lazy_loading
+        )
+    }
+  }
+
+  # About page with enhanced content
+  group_label <- tools::toTitleCase(gsub("_", " ", group_col))
+  dashboard <- dashboard %>%
+    add_page(
+      name = "About",
+      text = paste0(
+        "# About This Dashboard\n\n",
+        "This dashboard provides a comprehensive analysis of political advertising data from **", country_name, "** ",
+        "using advanced data processing techniques to deliver accurate spend calculations ",
+        "and actionable targeting insights.\n\n",
+        "## Data Processing\n\n",
+        "- **Spend Deduplication**: Accounts for overlapping targeting criteria to avoid double-counting\n",
+        "- **Percentage Calculations**: All percentages calculated relative to ", tolower(group_label), " budgets\n",
+        "- **Actor Classification**: ", group_label, "-based analysis for comprehensive coverage\n",
+        "- **Cluster Detection**: Identifies ads with likely overlapping targeting for accurate attribution\n\n",
+        "## Methodology\n\n",
+        "All visualizations use proper statistical aggregation and include detailed tooltips ",
+        "showing spending amounts, advertisement counts, and budget context. The dashboard ",
+        "employs modern visualization techniques to make complex data accessible and actionable.\n\n",
+        "## Features\n\n",
+        "- **Interactive Visualizations**: Hover over charts for detailed information\n",
+        "- **Responsive Design**: Optimized for desktop, tablet, and mobile viewing\n",
+        "- **Performance Optimized**: Lazy loading and efficient rendering for fast page loads\n",
+        "- **Accessible**: Designed with accessibility best practices\n\n",
+        "## Data Sources\n\n",
+        "Political advertising data aggregated from multiple platforms with proper deduplication ",
+        "and spend attribution. Data is processed to ensure accuracy and consistency across all visualizations.\n\n",
+        "---\n\n",
+        "*Last updated: ", format(Sys.Date(), "%B %d, %Y"), "*"
+      ),
+      icon = "ph:info",
+      overlay = FALSE
+    )
+
+  dashboard
+}
+
+
+#' Create Location Treemap Visualization
+#'
+#' Creates a treemap visualization for geographic targeting data.
+#'
+#' @param dat Data frame containing ad targeting data
+#' @param location_col Name of the location column (default: "location")
+#' @param region_col Optional name of a higher-level region column
+#' @param group_col Name of the grouping column (default: "actor_type")
+#' @param by_group Whether to include group in the hierarchy (default: TRUE)
+#' @param title Chart title (default: "Geographic Targeting by Actor Type")
+#'
+#' @return A treemap visualization object
+#' @export
+create_location_treemap <- function(dat,
+                                    location_col = "location",
+                                    region_col = NULL,
+                                    group_col = "actor_type",
+                                    by_group = TRUE,
+                                    title = NULL) {
+  
+  # Set default title based on group_col
+  if (is.null(title)) {
+    title <- paste0("Geographic Targeting Analysis: Comprehensive Location-Based Investment by ", 
+                    tools::toTitleCase(gsub("_", " ", group_col)))
+  }
+  
+  # Prepare location data
+  loc_data <- prepare_location_data(
+    dat,
+    location_col = location_col,
+    region_col = region_col,
+    group_col = group_col,
+    by_group = by_group
+  )
+  
+  if (nrow(loc_data) == 0) {
+    warning("No location data to visualize")
+    return(NULL)
+  }
+  
+  # Create treemap with enhanced tooltips
+  if (by_group && group_col %in% names(loc_data)) {
+    # Get appropriate colors for the group type
+    colors <- get_group_colors(group_col)
+    group_label <- tools::toTitleCase(gsub("_", " ", group_col))
+
+    # Enhanced tooltip for grouped treemap
+    tooltip_format <- paste0(
+      "<b style=\"font-size: 14px; color: #1e40af;\">{point.name}</b><br/>",
+      "<b style=\"color: #7c3aed;\">", group_label, ":</b> {series.name}<br/>",
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<br/>",
+      "<b>💰 Geographic Spend:</b> ${point.value:,.0f}<br/>",
+      "<b>📊 Budget Share:</b> {point.perc:.1f}% of this ", tolower(group_label), "'s geographic targeting<br/>",
+      "<b>📈 Overall Share:</b> {point.overall_perc:.1f}% of all location-based spending<br/>",
+      "<b>📱 Number of Ads:</b> {point.n_ads:,.0f} location-targeted ads<br/>",
+      "<b>🌍 Regional Context:</b> {point.region}<br/>",
+      "<b>🏆 Rank:</b> #{point.rank} among {point.n_locations} locations targeted<br/>",
+      "<b>👥 Competing Actors:</b> {point.n_competing_actors} other actors targeting here<br/>",
+      "<b>💼 Total ", group_label, " Budget:</b> ${point.total_budget:,.0f}<br/>",
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<br/>",
+      "<i style=\"color: #64748b;\">💡 This location represents {point.perc:.1f}% of {series.name}'s geographic advertising strategy.</i>"
+    )
+
+    create_treemap(
+      data = loc_data,
+      group_var = group_col,
+      subgroup_var = "location",
+      value_var = "spend",
+      title = title,
+      subtitle = paste0("Interactive hierarchical visualization of geographic targeting investment. Click to drill down into ", group_label, " details. Tooltips provide exhaustive information including spending amounts, budget percentages, ad counts, regional context, competitive rankings, number of competing actors, and comprehensive comparative statistics."),
+      color_palette = colors,
+      tooltip_format = tooltip_format
+    )
+  } else {
+    # Enhanced tooltip for single-level treemap
+    tooltip_format <- paste0(
+      "<b style=\"font-size: 14px; color: #1e40af;\">{point.name}</b><br/>",
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<br/>",
+      "<b>💰 Geographic Spend:</b> ${point.value:,.0f}<br/>",
+      "<b>📊 Budget Share:</b> {point.perc:.1f}% of total location-based spending<br/>",
+      "<b>📈 Overall Share:</b> {point.overall_perc:.1f}% of all political ad spending<br/>",
+      "<b>📱 Number of Ads:</b> {point.n_ads:,.0f} location-targeted ads<br/>",
+      "<b>🌍 Regional Context:</b> {point.region}<br/>",
+      "<b>🏆 Rank:</b> #{point.rank} among {point.n_locations} locations<br/>",
+      "<b>👥 Competing Actors:</b> {point.n_competing_actors} actors targeting here<br/>",
+      "<b>💼 Total Budget:</b> ${point.total_budget:,.0f}<br/>",
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<br/>",
+      "<i style=\"color: #64748b;\">💡 This shows the overall geographic targeting investment across all groups.</i>"
+    )
+
+    create_treemap(
+      data = loc_data,
+      group_var = "location",
+      value_var = "spend",
+      title = title,
+      subtitle = "Comprehensive geographic targeting analysis showing location-based investment across all groups. Tooltips reveal spending amounts, budget percentages, ad counts, regional context, rankings, competitive dynamics, and detailed comparative statistics.",
+      tooltip_format = tooltip_format
+    )
+  }
+}
+
+
+# =================================================================
+# =================================================================
+# EXECUTABLE DASHBOARD GENERATION SCRIPT
+# =================================================================
+# =================================================================
+#
+# This section contains the executable script that uses the package
+# functions defined above to create worldwide election ad dashboards.
+# =================================================================
+
+# =================================================================
+# Worldwide Election Ad Targeting Dashboard
+# =================================================================
+# Creates a main map dashboard + individual country dashboards
+# with 5 pages: Spending, Targeting, Demographics, Location, Detailed
+# =================================================================
+
+library(dashboardr)
+library(tidyverse)
+library(arrow)
+library(countrycode)
+library(here)
+library(glue)
+library(cli)
+library(httr)
+library(rvest)
+
+# Source utility functions (contains calc_targeting)
+source(here("utils.R"))
+
+OUTPUT_DIR <- here("worldwide")
+DATA_DIR <- here("data/30")
+
+# =================================================================
+# Configuration
+# =================================================================
+TEST_MODE <- TRUE        # Set to FALSE for full run
+TEST_SAMPLE_SIZE <- 1    # Number of countries to process in test mode
+REFRESH_DATA <- TRUE     # Set to TRUE to check for latest data from GitHub
+FORCE_REFRESH <- FALSE   # Set to TRUE to re-download even if cache is current
+SAVE_REFRESHED <- TRUE   # Save refreshed data to DATA_DIR
+
+# Use dollar_spend for consistent cross-country comparison
+USE_DOLLAR_SPEND <- TRUE
+
+# =================================================================
+# Data Refresh: Fetch latest data from GitHub releases
+# =================================================================
+
+#' Get available countries and their latest dates from GitHub releases
+get_available_releases <- function(timeframe = "30", countries = NULL) {
+  # If specific countries requested, only query those
+  if (!is.null(countries)) {
+    full_cntry_list <- countries
+    cli_alert_info("Querying GitHub releases for {length(countries)} countries...")
+  } else {
+    # Get list of all countries (ISO2 codes)
+    full_cntry_list <- countrycode::codelist %>%
+      filter(!is.na(iso2c)) %>%
+      distinct(iso2c) %>%
+      pull(iso2c)
+    cli_alert_info("Querying GitHub releases for ALL {length(full_cntry_list)} countries...")
+  }
+  
+  # Query releases for each country
+  releases <- map_dfr(full_cntry_list, function(iso2c) {
+    tag <- paste0(iso2c, "-last_", timeframe, "_days")
+    url <- paste0("https://github.com/favstats/meta_ad_targeting/releases/expanded_assets/", tag)
+    
+    tryCatch({
+      resp <- httr::GET(url, httr::timeout(10))
+      if (httr::status_code(resp) != 200) return(NULL)
+      
+      content <- httr::content(resp)
+      rows <- rvest::html_elements(content, ".Box-row")
+      
+      if (length(rows) == 0) return(NULL)
+      
+      # Parse file info
+      map_dfr(rows, function(row) {
+        text <- rvest::html_text(row)
+        lines <- strsplit(text, "\n")[[1]]
+        lines <- trimws(lines)
+        lines <- lines[lines != ""]
+        
+        if (length(lines) < 3) return(NULL)
+        
+        filename <- lines[1]
+        if (filename == "Source code" || !grepl("\\.parquet$", filename)) return(NULL)
+        
+        tibble(
+          iso2c = iso2c,
+          tag = tag,
+          filename = filename,
+          ds = gsub("\\.parquet$", "", filename)
+        )
+      })
+    }, error = function(e) NULL)
+  }, .progress = TRUE)
+  
+  if (nrow(releases) == 0) {
+    cli_alert_danger("No releases found!")
+    return(NULL)
+  }
+  
+  # Keep only latest date per country
+  releases %>%
+    arrange(desc(ds)) %>%
+    group_by(iso2c) %>%
+    slice(1) %>%
+    ungroup()
+}
+
+#' Get current currency conversion rates
+get_conversion_rates <- function(date = Sys.Date()) {
+  # Use today's date or closest available
+  date_str <- as.character(date)
+  url <- paste0(
+    "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@",
+    date_str,
+    "/v1/currencies/usd.json"
+  )
+  
+  cli_alert_info("Fetching conversion rates for {date_str}...")
+  
+  tryCatch({
+    rates <- jsonlite::fromJSON(url)
+    
+    rates$usd %>%
+      enframe() %>%
+      unnest(value) %>%
+      distinct(name, .keep_all = TRUE) %>%
+      mutate(
+        main_currency = str_to_upper(name),
+        conversion_rate = value
+      ) %>%
+      filter(str_length(main_currency) == 3) %>%
+      select(main_currency, conversion_rate)
+  }, error = function(e) {
+    cli_alert_warning("Could not fetch rates for {date_str}, trying yesterday...")
+    # Try yesterday if today fails
+    get_conversion_rates(date - 1)
+  })
+}
+
+#' Fetch fresh data for a single country
+fetch_country_data <- function(iso2c, ds, conversion_rates, timeframe = "30") {
+  url <- paste0(
+    "https://github.com/favstats/meta_ad_targeting/releases/download/",
+    iso2c, "-last_", timeframe, "_days/",
+    ds, ".parquet"
+  )
+  
+  tryCatch({
+    dat <- arrow::read_parquet(url)
+    
+    if (nrow(dat) == 0) return(NULL)
+    
+    # Add country code and filter no_data
+    dat <- dat %>%
+      mutate(cntry = iso2c) %>%
+      filter(is.na(no_data))
+    
+    # Join conversion rates
+    dat <- dat %>%
+      left_join(conversion_rates, by = "main_currency")
+    
+    # Fix edge case: total_spend_formatted of 100 means 1
+    dat <- dat %>%
+      mutate(
+        total_spend_formatted = ifelse(
+          total_spend_formatted == 100, 1, total_spend_formatted
+        )
+      )
+    
+    # Calculate dollar_spend
+    dat <- dat %>%
+      mutate(
+        dollar_spend = total_spend_formatted / conversion_rate
+      )
+    
+    dat
+  }, error = function(e) {
+    cli_alert_warning("Failed to fetch {iso2c}: {e$message}")
+    NULL
+  })
+}
+
+#' Check if cached data is up-to-date
+check_cached_data <- function(iso2c, latest_ds) {
+  cache_file <- file.path(DATA_DIR, paste0(iso2c, ".rds"))
+  
+  if (!file.exists(cache_file)) {
+    return(list(up_to_date = FALSE, reason = "no cache"))
+  }
+  
+  tryCatch({
+    cached <- readRDS(cache_file)
+    cached_ds <- unique(cached$ds)[1]
+    
+    if (is.na(cached_ds)) {
+      return(list(up_to_date = FALSE, reason = "no date in cache"))
+    }
+    
+    if (cached_ds >= latest_ds) {
+      return(list(up_to_date = TRUE, data = cached, cached_ds = cached_ds))
+    } else {
+      return(list(up_to_date = FALSE, reason = paste("outdated:", cached_ds, "vs", latest_ds)))
+    }
+  }, error = function(e) {
+    list(up_to_date = FALSE, reason = paste("read error:", e$message))
+  })
+}
+
+#' Refresh all country data (with smart caching)
+refresh_all_data <- function(countries = NULL, timeframe = "30", force = FALSE) {
+ cli_h1("Refreshing Data from GitHub")
+  
+  # Get available releases (only for requested countries if specified)
+  releases <- get_available_releases(timeframe, countries = countries)
+  if (is.null(releases) || nrow(releases) == 0) return(NULL)
+  
+  cli_alert_success("Found {nrow(releases)} countries with data")
+  
+  # Get latest date from releases
+  latest_date <- max(as.Date(releases$ds), na.rm = TRUE)
+  cli_alert_info("Latest data date: {latest_date}")
+  
+  # Get conversion rates for that date
+  conversion_rates <- get_conversion_rates(latest_date)
+  cli_alert_success("Loaded {nrow(conversion_rates)} currency conversion rates")
+  
+  # Fetch data for each country (with cache check)
+  cli_h2("Fetching country data")
+  
+  n_cached <- 0
+  n_fetched <- 0
+  n_failed <- 0
+  
+  data_list <- releases$iso2c %>%
+    set_names() %>%
+    map(function(iso2c) {
+      ds <- releases$ds[releases$iso2c == iso2c]
+      
+      # Check if we already have this data
+      if (!force) {
+        cache_check <- check_cached_data(iso2c, ds)
+        
+        if (cache_check$up_to_date) {
+          cli_alert_success("  {iso2c}: Using cached data ({cache_check$cached_ds})")
+          n_cached <<- n_cached + 1
+          return(cache_check$data)
+        }
+      }
+      
+      # Need to fetch
+      cli_alert_info("  {iso2c}: Fetching fresh data ({ds})...")
+      dat <- fetch_country_data(iso2c, ds, conversion_rates, timeframe)
+      
+      if (is.null(dat)) {
+        n_failed <<- n_failed + 1
+        return(NULL)
+      }
+      
+      n_fetched <<- n_fetched + 1
+      
+      if (SAVE_REFRESHED) {
+        # Save to DATA_DIR
+        dir.create(DATA_DIR, showWarnings = FALSE, recursive = TRUE)
+        saveRDS(dat, file.path(DATA_DIR, paste0(iso2c, ".rds")))
+      }
+      
+      dat
+    }, .progress = TRUE) %>%
+    compact()
+  
+  cli_h2("Refresh Summary")
+  cli_alert_success("Cached (up-to-date): {n_cached}")
+  cli_alert_success("Fetched (new/updated): {n_fetched}")
+  if (n_failed > 0) cli_alert_warning("Failed: {n_failed}")
+  cli_alert_info("Total countries: {length(data_list)}")
+  cli_alert_info("Data date: {latest_date}")
+  
+  list(
+    data = data_list,
+    date = latest_date,
+    conversion_rates = conversion_rates,
+    stats = list(cached = n_cached, fetched = n_fetched, failed = n_failed)
+  )
+}
+
+# =================================================================
+# Helper: Load page info from GitHub releases (fallback for page_group)
+# =================================================================
+load_page_info <- function(iso2c) {
+  url <- glue(
+    "https://github.com/favstats/meta_ad_targeting/releases/",
+    "download/MetaPageInfos/{iso2c}-page_info.parquet"
+  )
+  tryCatch({
+    info <- arrow::read_parquet(url)
+    
+    if ("no_data" %in% names(info)) {
+      info <- info %>% filter(is.na(no_data))
+    }
+    
+    cols_to_select <- intersect(
+      c("page_id", "page_name", "page_category"), 
+      names(info)
+    )
+    if (length(cols_to_select) == 0) return(NULL)
+    
+    info %>%
+      select(all_of(cols_to_select)) %>%
+      mutate(page_id = as.character(page_id)) %>%
+      distinct(page_id, .keep_all = TRUE)
+  }, error = function(e) {
+    NULL
+  })
+}
+
+# =================================================================
+# Helper: Standardize data structure
+# =================================================================
+standardize_data <- function(dat, iso2c) {
+  # Ensure page_id exists and is character
+  if (!"page_id" %in% names(dat)) {
+    cli_alert_warning("No page_id column in {iso2c} data")
+    return(NULL)
+  }
+  
+  dat <- dat %>%
+    mutate(
+      page_id = as.character(page_id),
+      # Create internal_id for calc_targeting compatibility
+      internal_id = page_id
+    )
+  
+  # Use dollar_spend for consistent currency (USD)
+  if (USE_DOLLAR_SPEND && "dollar_spend" %in% names(dat)) {
+    dat <- dat %>%
+      mutate(
+        total_spend = dollar_spend,
+        # Keep original for reference
+        total_spend_local = total_spend_formatted,
+        total_spend_formatted = dollar_spend
+      )
+  } else {
+    dat <- dat %>%
+      mutate(total_spend = as.numeric(total_spend_formatted))
+  }
+  
+  # Standardize party column - use existing party data if available
+  if ("party" %in% names(dat)) {
+    # Count how many known (non-unknown) parties we have
+    known_parties <- dat %>%
+      distinct(page_id, .keep_all = TRUE) %>%
+      filter(!is.na(party), party != "unknown") %>%
+      nrow()
+    
+    total_pages <- dat %>% distinct(page_id) %>% nrow()
+    
+    # If less than 10% have known parties, try page_info
+    if (known_parties / total_pages < 0.1) {
+      cli_alert_info("  Few known parties ({known_parties}/{total_pages}), trying page_info...")
+      page_info <- load_page_info(iso2c)
+      
+      if (!is.null(page_info) && "page_category" %in% names(page_info)) {
+        dat <- dat %>%
+          left_join(
+            page_info %>% select(page_id, page_category), 
+            by = "page_id", 
+            suffix = c("", "_info")
+          ) %>%
+          mutate(
+            party = case_when(
+              !is.na(party) & party != "unknown" ~ party,
+              !is.na(page_category) & str_detect(page_category, regex("Party", ignore_case = TRUE)) ~ "Political Parties",
+              !is.na(page_category) & str_detect(page_category, regex("Politician|Candidate", ignore_case = TRUE)) ~ "Politicians",
+              !is.na(page_category) & str_detect(page_category, regex("Government", ignore_case = TRUE)) ~ "Government",
+              TRUE ~ "Other"
+            )
+          )
+      }
+    }
+  } else {
+    dat <- dat %>% mutate(party = "unknown")
+  }
+  
+  dat
+}
+
+# =================================================================
+# Helper: Get top parties for tabs
+# =================================================================
+get_party_tabs <- function(dat, min_spend_pct = 0.01) {
+  party_summary <- dat %>%
+    distinct(page_id, .keep_all = TRUE) %>%
+    filter(!is.na(party), party != "unknown") %>%
+    group_by(party) %>%
+    summarize(
+      total_spend = sum(total_spend, na.rm = TRUE),
+      n_advertisers = n(),
+      .groups = "drop"
+    ) %>%
+    mutate(spend_pct = total_spend / sum(total_spend)) %>%
+    filter(spend_pct >= min_spend_pct) %>%
+    arrange(desc(total_spend))
+  
+  if (nrow(party_summary) >= 2) {
+    return(party_summary$party)
+  }
+  
+  NULL
+}
+
+# =================================================================
+# Helper: Calculate targeting summary
+# =================================================================
+calc_country_targeting <- function(dat, iso2c) {
+  # Set global variable for age limit in calc_targeting
+  sets <- list(cntry = iso2c)
+  assign("sets", sets, envir = .GlobalEnv)
+  
+  tryCatch({
+    targeting <- calc_targeting(dat)
+    
+    targeting %>%
+      mutate(target = case_when(
+        target == "custom_audience" ~ "Custom Audiences",
+        target == "lookalike_audience" ~ "Lookalike Audiences",
+        target == "interest" ~ "Detailed Targeting",
+        target == "regions" ~ "GEOGRAPHY: Regions",
+        target == "CITY" ~ "GEOGRAPHY: City",
+        target == "zips" ~ "GEOGRAPHY: Postal Code",
+        target == "age" ~ "Age",
+        target == "language" ~ "Language",
+        target == "countries" ~ "GEOGRAPHY: Country",
+        str_detect(target, "Gender:") ~ target,
+        TRUE ~ target
+      )) %>%
+      filter(target != "Unknown", !is.na(target)) %>%
+      arrange(desc(perc))
+  }, error = function(e) {
+    cli_alert_warning("calc_targeting failed for {iso2c}: {e$message}")
+    tibble(target = character(), spend_per = numeric(), perc = numeric())
+  })
+}
+
+# =================================================================
+# Create country dashboard with all 5 pages
+# =================================================================
+create_country_dashboard <- function(iso2c, dat, country_name) {
+  cli_h2("Creating dashboard for {country_name} ({iso2c})")
+  
+  # Get parties for tabs
+  party_tabs <- get_party_tabs(dat)
+  has_party_tabs <- !is.null(party_tabs) && length(party_tabs) >= 2
+  
+  if (has_party_tabs) {
+    cli_alert_info("  Found {length(party_tabs)} parties for tabs: {paste(head(party_tabs, 5), collapse = ', ')}")
+  }
+  
+  # === SPENDING PAGE ===
+  cli_alert_info("  Preparing spending data...")
+  
+  # Use package function to prepare top spenders data
+  spending_data <- dat %>%
+    filter(!is.na(page_name), page_name != "") %>%
+    distinct(page_id, .keep_all = TRUE) %>%
+    filter(!is.na(total_spend), total_spend > 0) %>%
+    arrange(desc(total_spend)) %>%
+    slice_head(n = 20) %>%
+    mutate(advertiser = fct_reorder(page_name, total_spend))
+  
+  if (nrow(spending_data) == 0) {
+    cli_alert_warning("No spending data for {iso2c}")
+    return(NULL)
+  }
+  
+  # Create spending viz with tabs by party if available
+  if (has_party_tabs && "party" %in% names(spending_data)) {
+    spending_viz <- create_viz(type = "bar", horizontal = TRUE)
+    
+    # Add "Total" tab first
+    spending_viz <- spending_viz %>%
+      add_viz(
+        x_var = "advertiser",
+        weight_var = "total_spend",
+        tabgroup = "By Party/Total",
+        title = "All Advertisers"
+      )
+    
+    # Add tabs for top parties
+    for (party_name in head(party_tabs, 6)) {  # Max 6 party tabs
+      party_data_count <- sum(spending_data$party == party_name, na.rm = TRUE)
+      if (party_data_count > 0) {
+        spending_viz <- spending_viz %>%
+          add_viz(
+            x_var = "advertiser",
+            weight_var = "total_spend",
+            filter = as.formula(paste0("~ party == '", party_name, "'")),
+            tabgroup = paste0("By Party/", party_name),
+            title = party_name
+          )
+      }
+    }
+  } else {
+    spending_viz <- create_viz(type = "bar", horizontal = TRUE) %>%
+      add_viz(
+        x_var = "advertiser",
+        weight_var = "total_spend",
+        title = paste("Top Advertisers in", country_name)
+      )
+  }
+  
+  # Spending page content with advertiser filter input
+  spending_content <- create_content() %>%
+    add_input_row(style = "boxed") %>%
+    add_input(
+      input_id = "advertiser_filter",
+      label = "Filter Advertiser:",
+      type = "select_multiple",
+      filter_var = "advertiser",
+      options_from = "advertiser"
+    ) %>%
+    end_input_row()
+  
+  # === TARGETING PAGE ===
+  cli_alert_info("  Calculating targeting summary...")
+  targeting_data <- calc_country_targeting(dat, iso2c)
+  
+  targeting_viz <- NULL
+  if (nrow(targeting_data) > 0) {
+    # Add target as factor for proper ordering
+    targeting_data <- targeting_data %>%
+      mutate(target = fct_reorder(target, perc))
+    
+    targeting_viz <- create_viz(type = "bar", horizontal = TRUE) %>%
+      add_viz(
+        x_var = "target",
+        weight_var = "perc",
+        title = "Budget per Targeting Method",
+        y_label = "% of total spend"
+      )
+  }
+  
+  # === DEMOGRAPHICS PAGE ===
+  cli_alert_info("  Preparing demographics data...")
+  
+  # Use the package function to create demographics visualizations
+  demographics_viz <- tryCatch({
+    create_demographics_vizzes(dat, group_col = "actor_type")
+  }, error = function(e) {
+    cli_alert_warning("Demographics viz failed: {e$message}")
+    NULL
+  })
+  
+  # === LOCATION PAGE ===
+  cli_alert_info("  Preparing location data...")
+  
+  # Check what location-related columns exist in the data
+  location_cols <- grep("location|region|city|geo", names(dat), value = TRUE, ignore.case = TRUE)
+  cli_alert_info("  Available location columns: {paste(location_cols, collapse = x27, x27)}")
+  
+  # Use the package function to create location treemap if location data exists
+  location_viz <- tryCatch({
+    if (length(location_cols) > 0) {
+      # Use the first location-like column found
+      location_col <- location_cols[1]
+      cli_alert_info("  Using location column: {location_col}")
+      create_location_treemap(dat, location_col = location_col, group_col = "actor_type")
+    } else {
+      cli_alert_warning("No location data found")
+      NULL
+    }
+  }, error = function(e) {
+    cli_alert_warning("Location viz failed: {e$message}")
+    NULL
+  })
+  
+  # === DETAILED PAGE ===
+  cli_alert_info("  Preparing detailed targeting data...")
+  
+  # Use the package function to prepare detailed targeting data
+  detailed_data <- tryCatch({
+    prepare_targeting_data(dat, group_col = "actor_type", top_n = 50)
+  }, error = function(e) {
+    cli_alert_warning("Targeting data prep failed: {e$message}")
+    data.frame()
+  })
+  
+  detailed_viz <- NULL
+  detailed_content <- NULL
+  if (!is.null(detailed_data) && nrow(detailed_data) > 0) {
+    # Use the package function to create targeting visualization
+    detailed_viz <- tryCatch({
+      create_targeting_viz(detailed_data, group_col = "actor_type")
+    }, error = function(e) {
+      cli_alert_warning("Targeting viz failed: {e$message}")
+      NULL
+    })
+    
+    if (!is.null(detailed_viz)) {
+      detailed_content <- create_content() %>%
+        add_input_row() %>%
+        add_input(
+          input_id = "interest_search",
+          label = "Search Interests:",
+          type = "text",
+          filter_var = "targeting"
+        ) %>%
+        end_input_row()
+    }
+  }      end_input_row()
+  }
+  
+  # === BUILD DASHBOARD ===
+  cli_alert_info("  Building dashboard...")
+  
+  dashboard <- create_dashboard(
+    title = paste("Ad Targeting:", country_name),
+    output_dir = file.path(OUTPUT_DIR, iso2c),
+    allow_inside_pkg = TRUE
+  )
+  
+  # Currency info for text
+  currency_note <- if (USE_DOLLAR_SPEND) " • Spending in USD" else ""
+  
+  # Get data date if available
+  data_date_note <- if (exists("data_date", envir = .GlobalEnv)) {
+    paste0("*Data from: ", format(get("data_date", envir = .GlobalEnv), "%B %d, %Y"), currency_note, "*")
+  } else if ("ds" %in% names(dat)) {
+    paste0("*Data from: ", format(as.Date(dat$ds[1]), "%B %d, %Y"), currency_note, "*")
+  } else {
+    if (USE_DOLLAR_SPEND) "*Spending shown in USD.*" else ""
+  }
+  
+  # Add Spending page (landing page)
+  dashboard <- dashboard %>%
+    add_page(
+      name = "Spending",
+      data = spending_data,
+      visualizations = spending_viz,
+      content = spending_content,
+      is_landing_page = TRUE,
+      text = paste0(
+        "[← Back to World Map](../index.html#)\n\n",
+        "# ", country_name, "\n\n",
+        "Top 20 advertisers by spending.\n\n", data_date_note
+      )
+    )
+  
+  # Add Targeting page
+  if (!is.null(targeting_viz)) {
+    dashboard <- dashboard %>%
+      add_page(
+        name = "Targeting",
+        data = targeting_data,
+        visualizations = targeting_viz,
+        text = "## Targeting Methods\n\nBreakdown of budget spent per targeting method."
+      )
+  }
+  
+  # Add Demographics page
+  if (!is.null(demographics_viz)) {
+    dashboard <- dashboard %>%
+      add_page(
+        name = "Demographics",
+        visualizations = demographics_viz,
+        text = "## Demographic Targeting\n\nHow advertisers target different age groups and genders."
+      )
+  }
+  
+  # Add Location page
+  if (!is.null(location_viz)) {
+    dashboard <- dashboard %>%
+      add_page(
+        name = "Geographic",
+        visualizations = list(location_viz),
+        text = "## Geographic Targeting\n\nTop locations targeted by advertisers."
+      )
+  }
+  
+  # Add Detailed page
+  if (!is.null(detailed_viz)) {
+    dashboard <- dashboard %>%
+      add_page(
+        name = "Detailed",
+        data = detailed_data,
+        visualizations = detailed_viz,
+        content = detailed_content,
+        text = "## Interest-Based Targeting\n\nDetailed targeting by interests, behaviors, and demographics."
+      )
+  }
+  
+  # Add branding
+  dashboard <- dashboard %>%
+    add_powered_by_dashboardr(size = "large")
+  
+  page_count <- length(dashboard$pages)
+  cli_alert_success("  Dashboard created with {page_count} pages")
+  
+  dashboard
+}
+
+# =================================================================
+# 1. Load or Refresh Data
+# =================================================================
+cli_h1("Worldwide Dashboard Generator")
+
+# Determine which countries to process
+# test_countries <- if (TEST_MODE) c("DE", "NL", "US") else NULL
+test_countries <- if (TEST_MODE) c("NL") else NULL
+
+if (REFRESH_DATA) {
+  # Fetch fresh data from GitHub (with smart caching)
+  refresh_result <- refresh_all_data(
+    countries = test_countries,
+    force = FORCE_REFRESH
+  )
+  
+  if (is.null(refresh_result)) {
+    cli_alert_danger("Failed to refresh data, falling back to cached files")
+    REFRESH_DATA <- FALSE
+  } else {
+    data_date <- refresh_result$date
+    stats <- refresh_result$stats
+    cli_alert_success("Data ready: {stats$cached} cached, {stats$fetched} fetched, date: {data_date}")
+  }
+}
+
+if (!REFRESH_DATA) {
+  # Use cached .rds files
+  cli_alert_info("Loading cached data files from {DATA_DIR}...")
+}
+
+country_files <- list.files(DATA_DIR, "\\.rds$", full.names = FALSE)
+available_countries <- gsub("\\.rds$", "", country_files)
+
+# Test mode: filter to test countries
+if (TEST_MODE && !is.null(test_countries)) {
+  available_countries <- intersect(test_countries, available_countries)
+  if (length(available_countries) == 0) {
+    set.seed(42)
+    available_countries <- sample(
+      gsub("\\.rds$", "", country_files), 
+      min(TEST_SAMPLE_SIZE, length(country_files))
+    )
+  }
+  cli_alert_warning("TEST MODE: Processing {length(available_countries)} countries: {paste(available_countries, collapse = ', ')}")
+}
+
+cli_alert_success("Found {length(available_countries)} countries with data files")
+
+# Build country summary using dollar_spend for consistent values
+country_summary <- map_dfr(available_countries, function(iso2c) {
+  tryCatch({
+    dat <- readRDS(file.path(DATA_DIR, paste0(iso2c, ".rds")))
+    if (nrow(dat) == 0) return(NULL)
+    
+    # Determine spend column
+    spend_col <- if (USE_DOLLAR_SPEND && "dollar_spend" %in% names(dat)) {
+      "dollar_spend"
+    } else {
+      "total_spend_formatted"
+    }
+    
+    dat %>%
+      distinct(page_id, .keep_all = TRUE) %>%
+      summarize(
+        iso2c = iso2c,
+        country = countrycode(iso2c, "iso2c", "country.name", warn = FALSE) %||% iso2c,
+        total_spend = sum(as.numeric(.data[[spend_col]]), na.rm = TRUE),
+        total_ads = sum(as.numeric(total_num_ads), na.rm = TRUE),
+        n_advertisers = n_distinct(page_name, na.rm = TRUE)
+      )
+  }, error = function(e) {
+    cli_alert_warning("Error loading {iso2c}: {e$message}")
+    NULL
+  })
+}, .progress = TRUE) %>%
+  filter(total_ads > 0, total_spend > 0) %>%
+  arrange(desc(total_spend))
+
+cli_alert_success("Countries with data: {nrow(country_summary)}")
+cat("\nTop countries by spend (USD):\n")
+print(head(country_summary, 10))
+
+# =================================================================
+# 2. Create main map dashboard
+# =================================================================
+cli_h1("Creating Main Map Dashboard")
+
+main_viz <- create_viz() %>%
+  add_viz(
+    type = "map",
+    value_var = "total_spend",
+    join_var = "iso2c",
+    click_url_template = "{iso2c}/index.html",
+    title = "Election Ad Spending by Country",
+    subtitle = "Click a country to explore detailed targeting",
+    color_palette = c("#f7fbff", "#2171b5", "#08306b"),
+    tooltip_vars = c("country", "total_spend", "total_ads", "n_advertisers"),
+    legend_title = "Total Spend (USD)"
+  )
+
+# Get data date for display
+data_date_display <- if (exists("data_date")) {
+  format(data_date, "%B %d, %Y")
+} else {
+  # Try to get from first country's data
+  tryCatch({
+    first_dat <- readRDS(file.path(DATA_DIR, paste0(available_countries[1], ".rds")))
+    format(as.Date(first_dat$ds[1]), "%B %d, %Y")
+  }, error = function(e) "Unknown")
+}
+
+main_dashboard <- create_dashboard(
+  title = "Who Targets Me - Worldwide",
+  output_dir = OUTPUT_DIR,
+  description = "Worldwide political ad targeting dashboard",
+  allow_inside_pkg = TRUE
+) %>%
+  add_page(
+    name = "World Map",
+    data = country_summary,
+    visualizations = main_viz,
+    is_landing_page = TRUE,
+    text = paste0(
+      "# Worldwide Ad Targeting\n\n",
+      "Click on any country to explore detailed targeting analysis.\n\n",
+      "**", nrow(country_summary), " countries** with political ad data.\n\n",
+      "*Data from: ", data_date_display, " • Spending shown in USD*"
+    )
+  ) %>%
+  add_powered_by_dashboardr(size = "large")
+
+# =================================================================
+# 3. Create country dashboards with all pages
+# =================================================================
+cli_h1("Creating Country Dashboards")
+
+country_dashboards <- country_summary$iso2c %>%
+  set_names() %>%
+  map(function(iso2c) {
+    country_name <- country_summary$country[country_summary$iso2c == iso2c]
+    
+    tryCatch({
+      # Load and standardize country data
+      dat <- readRDS(file.path(DATA_DIR, paste0(iso2c, ".rds")))
+      dat <- standardize_data(dat, iso2c)
+      
+      if (is.null(dat)) {
+        cli_alert_warning("Could not standardize data for {iso2c}")
+        return(NULL)
+      }
+      
+      # Create dashboard with all pages
+      create_country_dashboard(iso2c, dat, country_name)
+    }, error = function(e) {
+      cli_alert_danger("Error creating dashboard for {iso2c}: {e$message}")
+      NULL
+    })
+  }) %>%
+  compact()
+
+cli_alert_success("Created {length(country_dashboards)} country dashboards")
+
+# =================================================================
+# 4. Generate all dashboards
+# =================================================================
+cli_h1("Generating Dashboards")
+
+all_dashboards <- c(list(main = main_dashboard), country_dashboards)
+
+results <- generate_dashboards(
+  all_dashboards,
+  render = TRUE,
+  continue_on_error = TRUE,
+  linked = TRUE,
+  open = TRUE
+)
+
+# =================================================================
+# Summary
+# =================================================================
+successful <- sum(sapply(results, function(r) isTRUE(r$success)))
+cli_h1("Generation Complete")
+cli_alert_success("Successfully generated: {successful} / {length(results)} dashboards")
+cli_alert_info("Output directory: {OUTPUT_DIR}")
+cli_alert_info("Main dashboard: {file.path(OUTPUT_DIR, 'docs', 'index.html')}")

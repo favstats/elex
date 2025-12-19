@@ -1,0 +1,112 @@
+---
+title: "Spending"
+format: html
+---
+
+```{r}
+#| include: false
+library(dashboardr)
+```
+
+[← Back to World Map](../index.html#)
+
+# Cambodia
+
+Top 20 advertisers by spending.
+
+```{r setup}
+#| echo: false
+#| warning: false
+#| message: false
+#| error: false
+#| results: 'hide'
+
+# Load required libraries
+library(dashboardr)
+library(dplyr)
+library(highcharter)
+
+# Global chunk options
+knitr::opts_chunk$set(
+  echo = FALSE,
+  warning = FALSE,
+  message = FALSE,
+  error = FALSE,
+  fig.width = 12,
+  fig.height = 8,
+  dpi = 300
+)
+
+# Load data
+data <- readRDS('dataset_small_20obs.rds')
+
+# Data summary
+cat('Dataset loaded:', nrow(data), 'rows,', ncol(data), 'columns\n')
+
+# Create filtered datasets
+# Each filter is applied once and reused across visualizations
+
+data_filtered_02f3520c <- data %>% dplyr::filter(page_group == "Political Parties")
+data_filtered_7e630601 <- data %>% dplyr::filter(page_group == "Politicians")
+data_filtered_f010f38b <- data %>% dplyr::filter(page_group == "Other")
+
+```
+
+## Category
+
+
+::: {.panel-tabset}
+
+### Parties
+
+
+```{r category-parties}
+# Political Parties
+result <- create_bar(
+  data = data_filtered_02f3520c,
+  title = "Political Parties",
+  horizontal = TRUE,
+  x_var = "advertiser",
+  weight_var = "total_spend"
+)
+
+result
+```
+
+
+### Politicians
+
+
+```{r category-politicians}
+# Politicians
+result <- create_bar(
+  data = data_filtered_7e630601,
+  title = "Politicians",
+  horizontal = TRUE,
+  x_var = "advertiser",
+  weight_var = "total_spend"
+)
+
+result
+```
+
+
+### Other
+
+
+```{r category-other}
+# Other Advertisers
+result <- create_bar(
+  data = data_filtered_f010f38b,
+  title = "Other Advertisers",
+  horizontal = TRUE,
+  x_var = "advertiser",
+  weight_var = "total_spend"
+)
+
+result
+```
+
+
+:::
+

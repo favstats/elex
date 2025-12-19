@@ -1,210 +1,173 @@
+# Main workflow script
+# Updated to use metatargetr and dashboardr
 
-pacman::p_load(knitr, tidyverse, openxlsx, sf, rmarkdown, rvest)
-# setwd("C:/Users/fabio/Dropbox/postdoc/microdashboards/wtm_iq/")
-# setwd("C:/Users/fabio/Dropbox/postdoc/backup/elex")
-# getwd()
+pacman::p_load(knitr, tidyverse, openxlsx, sf, rmarkdown, rvest, metatargetr, dashboardr)
+
 here::i_am("elex.Rproj")
 
-# getwd()
-# source("cntry.R")
 source("utils.R")
 
 t1 <- Sys.time()
 
-
-
 sets <- jsonlite::fromJSON("settings.json")
-
 
 eu_countries <- c("NL", "AT", "BE", "BG", "CY", "CZ", "DE", "DK", "EE", "ES", "FI", 
                   "FR", "GR", "HR", "HU", "IE", "IT", "LT", "LU", "LV", "MT", 
                   "PL", "PT", "RO", "SE", "SI", "SK", "US", "MX", "NZ", 
                   "CA", "AU")
 
-
 full_cntry_list <- read_rds("https://github.com/favstats/meta_ad_reports/raw/main/cntry_list.rds") %>% 
   rename(iso2c = iso2,
          country = cntry) %>% 
   sample_n(n()) %>% 
   mutate(iso2c = fct_relevel(iso2c, eu_countries)) %>% 
-  arrange(iso2c) #%>% # %>% 
-  # filter(iso2c %in% c("NL", "MX", "DR", "US", "ZA"))
-  # filter(iso2c == "DE")
-  
-render_it <- function(...) {
-  print(...)
-  thefile <- str_remove(..., "_site/") %>% str_replace("qmd", "html")
-  if(any(str_detect(..., "map"))){
-    if(cntryy == "NL"){
-      quarto::quarto_render(..., quiet = T)
-    }
-  } else {
-    # print(thefile)
-    quarto::quarto_render(..., quiet = T)
-  }
-  
-}
-render_it <- possibly(render_it, otherwise = NULL, quiet = F)
+  arrange(iso2c)
 
+the_cntries <- full_cntry_list$iso2c
 
-# cntryy <- "NL"
-for (cntryy in full_cntry_list$iso2c) {
-  # print(cntryy)
+the_cntries <- "CA"  # Test with Canada
+
+# Main loop through countries
+for (cntryy in the_cntries) {
   
   t2 <- Sys.time()
   
-  print(paste0(cntryy,": ", t2))
-  
+  print(paste0(cntryy, ": ", t2))
   
   try({
     
-    
     time_difference_seconds <- difftime(t2, t1, units = "hours")
-
     
     if (as.numeric(time_difference_seconds) > 4) {
-      # if (Sys.info()[["sysname"]] != "Windows") {
-        break
-      # }
+      break
     }
     
- 
-    
-    sets$the_country <- full_cntry_list$country[which(full_cntry_list$iso2c==cntryy)]
+    # Update settings for current country
+    sets$the_country <- full_cntry_list$country[which(the_cntries == cntryy)]
     sets$cntry <- cntryy
     
-    jsonlite::write_json(sets, "settings.json",  simplifyVector = TRUE)
+    jsonlite::write_json(sets, "settings.json", simplifyVector = TRUE)
     
-    # Sys.sleep(5)
+    # Step 1: Get data using metatargetr (for both 30 and 7 day timeframes)
+    cat("\n\n=== Retrieving data for", cntryy, "===\n\n")
     
-    if(cntryy != "NL"){
-      
-    title_txt <- read_lines("_quarto.yml")
-    # title_txt[which(str_detect(title_txt, "title"))[1]] <- glue::glue("  title: \"Targeting Dashboard - {sets$the_country}\"")
-    # title_txt[which(str_detect(title_txt, "output-dir"))[1]] <- glue::glue("  output-dir: ../docs/{sets$cntry}")  
-    # Sys.sleep(1)
-    write_lines(title_txt, "_site/_quarto.yml"
-                )
-    }
+    # Determine date (must be at least 3 days old per metatargetr requirement)
+    target_date <- Sys.Date() - lubridate::days(3)
+    target_date_str <- as.character(target_date)
     
-    
-    # all_dat <- readRDS("data/all_dat.rds")
-    # color_dat <- readRDS("data/color_dat.rds")
-    
-    # color_dat <- tibble()
-    
-    # if(read_lines("cntry.R") %>% length() > 5){
-    #   election_dat30 <- readRDS("data/election_dat30.rds")  %>% 
-    #     select(-contains("party")) %>%
-    #     left_join(all_dat %>% select(page_id, party))
-    # }
-    
- 
-        # Sys.sleep(60*7)
-        # all_dat <- readRDS("data/all_dat.rds")
-        
-        # render_it <- possibly(quarto::quarto_render, otherwise = NULL, quiet = F)
-    dir("_site", full.names = T) %>%
-      keep(~str_detect(.x, "qmd")) %>%
-      # discard( ~ str_detect(.x, "map")) %>%
-      fct_relevel("_site/map.qmd") %>%
-      sort() %>%
-      as.character() %>%
-      # .[2] %>% 
-      purrr::walk(render_it, .progress = T)
-        
-        dir("docs", full.names = T) %>% 
-          keep(~str_detect(.x, "site|files")) %>% 
-          walk(~fs::dir_copy(.x, str_replace(.x, "docs/", glue::glue("docs/{sets$cntry}/")), overwrite = T))
-        
-        dir("docs", full.names = T) %>% 
-          keep(~str_detect(.x, "html|json|logo")) %>% 
-          walk(~fs::file_copy(.x, str_replace(.x, "docs/", glue::glue("docs/{sets$cntry}/")), overwrite = T))
-        
-        # knitr::knit("README.Rmd")
-        
-        rmarkdown::render("logs/overview.Rmd")
-        
-        file.copy(from = "logs/overview.html", to = glue::glue("docs/{sets$cntry}/overview.html"), overwrite = T)
-        
-        unlink("node_modules", recursive = T, force = T)
-        unlink("out", recursive = T, force = T)
-        
-        dir("docs", full.names = T) %>% 
-          keep(~str_detect(.x, "site|files")) %>% 
-          walk(fs::dir_delete)
-        
-        dir("docs", full.names = T) %>% 
-          keep(~str_detect(.x, "html|json")) %>% 
-          walk(fs::file_delete)
-        
-      
-      
-      
-      
-      
-      
-    })
-    
-    dir("docs", full.names = T) %>% 
-      keep(~str_detect(.x, "site|files")) %>% 
-      walk(fs::dir_delete)
-    
-    dir("docs", full.names = T) %>% 
-      keep(~str_detect(.x, "html|json")) %>% 
-      walk(fs::file_delete)
-    
-  # })
-  
-
-  
-  # file.remove("_site/_quarto.yml")
-  
-  # rm(election_dat30)
-  
-}
-
-
-rmarkdown::render("index.Rmd")
-# dir.create(glue::glue("docs/{sets$cntry}"), recursive = T)
-file.copy(from = "index.html", to = glue::glue("docs/index.html"), overwrite = T, recursive = T)
-dir(full.names = F) %>%
-  keep(~str_detect(.x, "_libs")) %>%
-  walk(~fs::dir_copy(.x, "docs/site_libs", overwrite = T))
-
-file.copy(from = "logs/log.html", to = glue::glue("docs/log.html"), overwrite = T, recursive = T)
-
-file.copy(from = "docs/NL/map.html", to = glue::glue("docs/map.html"), overwrite = T, recursive = T)
-
-fs::dir_copy("docs/NL/site_libs", "docs/site_libs", overwrite = T)
-
-# fs::dir_copy("docs/NL/site_libs", "docs/site_libs", overwrite = T)
-
-# setwd("C:/Users/favoo/Documents/ep2024")
-full_cntry_list$iso2c %>%
-  # .[1] %>% 
-  walk_progress( ~ {
+    # Get 30-day data
+    cat("Getting 30-day data...\n")
     try({
       
-      city_name <- .x
-      dir("docs/NL", full.names = T) %>%
-        keep( ~ str_detect(.x, "map")) %>%
-        walk( ~ fs::file_copy(.x, str_replace(
-          .x, "docs/ <- /", glue::glue("docs/{city_name}/")
-        ), overwrite = T))
+      election_dat30 <- get_targeting_db(
+        the_cntry = cntryy,
+        tf = "30",
+        ds = target_date_str,
+        remove_nas = TRUE,
+        verbose = TRUE
+      )
       
-      dir("docs/NL", full.names = T) %>%
-        keep(~str_detect(.x, "site|files"))  %>%
-        walk( ~ fs::dir_copy(.x, str_replace(
-          .x, "docs/NL/", glue::glue("docs/{city_name}/")
-        ), overwrite = T))
+      if(nrow(election_dat30) > 0){
+        if(!"internal_id" %in% names(election_dat30) && "page_id" %in% names(election_dat30)){
+          election_dat30 <- election_dat30 %>% rename(internal_id = page_id)
+        }
+        if(!"page_id" %in% names(election_dat30) && "internal_id" %in% names(election_dat30)){
+          election_dat30 <- election_dat30 %>% rename(page_id = internal_id)
+        }
+        
+        saveRDS(election_dat30, "data/election_dat30.rds")
+        cat("30-day data: ", nrow(election_dat30), " rows\n")
+      }
+    }, silent = FALSE)
+    
+    # Get 7-day data
+    cat("Getting 7-day data...\n")
+    try({
+      election_dat7 <- get_targeting_db(
+        the_cntry = cntryy,
+        tf = "7",
+        ds = target_date_str,
+        remove_nas = TRUE,
+        verbose = TRUE
+      )
       
-    })
-  })
-
-if (Sys.info()[["effective_user"]] == "fabio") {
-  system("git pull")
-  system("git add -A")
-  system('git commit -m "update"')
-  system("git push")
+      if(nrow(election_dat7) > 0){
+        if(!"internal_id" %in% names(election_dat7) && "page_id" %in% names(election_dat7)){
+          election_dat7 <- election_dat7 %>% rename(internal_id = page_id)
+        }
+        if(!"page_id" %in% names(election_dat7) && "internal_id" %in% names(election_dat7)){
+          election_dat7 <- election_dat7 %>% rename(page_id = internal_id)
+        }
+        
+        saveRDS(election_dat7, "data/election_dat7.rds")
+        cat("7-day data: ", nrow(election_dat7), " rows\n")
+      }
+    }, silent = FALSE)
+    
+    # Step 2: Process data using actor_utils
+    cat("\n=== Processing data ===\n\n")
+    source("actor_utils.R")
+    
+    # Step 3: Generate dashboard using dashboardr
+    cat("\n=== Generating dashboard ===\n\n")
+    source("create_dashboard.R")
+    
+    # Step 4: Organize output files
+    cat("\n=== Organizing output files ===\n\n")
+    
+    # Create country-specific directory
+    country_dir <- paste0("docs/", cntryy)
+    if(!dir.exists(country_dir)){
+      dir.create(country_dir, recursive = TRUE)
+    }
+    
+    # Copy dashboard files to country directory
+    if(dir.exists("docs")){
+      # Copy HTML files
+      dir("docs", full.names = TRUE, pattern = "\\.html$") %>%
+        walk(~file.copy(.x, file.path(country_dir, basename(.x)), overwrite = TRUE))
+      
+      # Copy site_libs if it exists
+      if(dir.exists("docs/site_libs")){
+        if(dir.exists(file.path(country_dir, "site_libs"))){
+          unlink(file.path(country_dir, "site_libs"), recursive = TRUE)
+        }
+        fs::dir_copy("docs/site_libs", file.path(country_dir, "site_libs"), overwrite = TRUE)
+      }
+    }
+    
+    # Clean up temporary files
+    unlink("node_modules", recursive = TRUE, force = TRUE)
+    unlink("out", recursive = TRUE, force = TRUE)
+    
+    cat("\n=== Completed", cntryy, "===\n\n")
+    
+  }, silent = FALSE)
+  
 }
+
+# Generate index page
+cat("\n=== Generating index page ===\n\n")
+try({
+  rmarkdown::render("index.Rmd")
+  if(file.exists("index.html")){
+    file.copy(from = "index.html", to = "docs/index.html", overwrite = TRUE)
+  }
+}, silent = TRUE)
+
+# Copy log file if it exists
+if(file.exists("logs/log.html")){
+  file.copy(from = "logs/log.html", to = "docs/log.html", overwrite = TRUE)
+}
+
+# Git operations (if user is fabio)
+# if (Sys.info()[["effective_user"]] == "fabio") {
+#   try({
+#     system("git pull")
+#     system("git add -A")
+#     system('git commit -m "update"')
+#     system("git push")
+#   }, silent = TRUE)
+# }
+
+cat("\n\nWorkflow complete!\n\n")

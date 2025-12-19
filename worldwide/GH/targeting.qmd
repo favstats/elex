@@ -1,0 +1,61 @@
+---
+title: "Targeting"
+format: html
+---
+
+```{r}
+#| include: false
+library(dashboardr)
+```
+
+## Targeting Methods
+
+Breakdown of budget spent per targeting method.
+
+```{r setup}
+#| echo: false
+#| warning: false
+#| message: false
+#| error: false
+#| results: 'hide'
+
+# Load required libraries
+library(dashboardr)
+library(dplyr)
+library(highcharter)
+
+# Global chunk options
+knitr::opts_chunk$set(
+  echo = FALSE,
+  warning = FALSE,
+  message = FALSE,
+  error = FALSE,
+  fig.width = 12,
+  fig.height = 8,
+  dpi = 300
+)
+
+# Load data
+data <- readRDS('dataset_small_14obs.rds')
+
+# Data summary
+cat('Dataset loaded:', nrow(data), 'rows,', ncol(data), 'columns\n')
+
+```
+
+## Budget per Targeting Method
+
+```{r bar-target}
+# Budget per Targeting Method
+result <- create_bar(
+  data = data,
+  title = "Budget per Targeting Method",
+  horizontal = TRUE,
+  x_var = "target",
+  weight_var = "perc",
+  y_label = "% of total spend"
+)
+
+result
+```
+

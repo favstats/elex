@@ -1,0 +1,90 @@
+---
+title: "Demographics"
+format: html
+---
+
+```{r}
+#| include: false
+library(dashboardr)
+```
+
+## Demographic Targeting
+
+How advertisers target different age groups and genders.
+
+```{r setup}
+#| echo: false
+#| warning: false
+#| message: false
+#| error: false
+#| results: 'hide'
+
+# Load required libraries
+library(dashboardr)
+library(dplyr)
+library(highcharter)
+
+# Global chunk options
+knitr::opts_chunk$set(
+  echo = FALSE,
+  warning = FALSE,
+  message = FALSE,
+  error = FALSE,
+  fig.width = 12,
+  fig.height = 8,
+  dpi = 300
+)
+
+# Load multiple datasets
+
+# Load age_data
+age_data <- readRDS('age_data_6obs.rds')
+cat('age_data loaded:', nrow(age_data), 'rows,', ncol(age_data), 'columns\n')
+
+# Load gender_data
+gender_data <- readRDS('gender_data_2obs.rds')
+cat('gender_data loaded:', nrow(gender_data), 'rows,', ncol(gender_data), 'columns\n')
+
+```
+
+## Demographics
+
+
+::: {.panel-tabset}
+
+### Age
+
+
+```{r demographics-age}
+# Age Targeting
+result <- create_bar(
+  data = age_data,
+  title = "Age Targeting",
+  horizontal = TRUE,
+  x_var = "age_group",
+  weight_var = "spend"
+)
+
+result
+```
+
+
+### Gender
+
+
+```{r demographics-gender}
+# Gender Targeting
+result <- create_bar(
+  data = gender_data,
+  title = "Gender Targeting",
+  horizontal = TRUE,
+  x_var = "gender",
+  weight_var = "spend"
+)
+
+result
+```
+
+
+:::
+
